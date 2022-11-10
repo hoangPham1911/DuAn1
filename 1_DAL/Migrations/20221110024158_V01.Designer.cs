@@ -12,8 +12,8 @@ using _1_DAL.Context;
 namespace _1_DAL.Migrations
 {
     [DbContext(typeof(ManagerContext))]
-    [Migration("20221109164539_v01")]
-    partial class v01
+    [Migration("20221110024158_V01")]
+    partial class V01
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,12 +28,14 @@ namespace _1_DAL.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("(newid())");
 
                     b.Property<string>("Ma")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(20)");
 
                     b.Property<string>("Ten")
                         .IsRequired()
@@ -146,12 +148,14 @@ namespace _1_DAL.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("(newid())");
 
                     b.Property<string>("Ma")
                         .IsRequired()
                         .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(30)");
 
                     b.Property<string>("Ten")
                         .IsRequired()
@@ -348,9 +352,6 @@ namespace _1_DAL.Migrations
 
             modelBuilder.Entity("_1_DAL.Models.KieuDanhMuc", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid?>("IdDanhMuc")
                         .HasColumnType("uniqueidentifier");
 
@@ -361,9 +362,7 @@ namespace _1_DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("IdDanhMuc");
+                    b.HasKey("IdDanhMuc", "IdHangHoa");
 
                     b.HasIndex("IdHangHoa");
 
@@ -400,7 +399,8 @@ namespace _1_DAL.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("(newid())");
 
                     b.Property<byte[]>("Anh")
                         .IsRequired()
@@ -427,7 +427,8 @@ namespace _1_DAL.Migrations
                     b.Property<string>("Ma")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(20)");
 
                     b.Property<string>("MatKhau")
                         .IsRequired()
@@ -495,12 +496,14 @@ namespace _1_DAL.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("(newid())");
 
                     b.Property<string>("Ma")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(20)");
 
                     b.Property<string>("Ten")
                         .IsRequired()
@@ -522,16 +525,20 @@ namespace _1_DAL.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("(newid())");
 
                     b.Property<string>("Ma")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(20)");
 
                     b.Property<int>("SoSize")
+                        .ValueGeneratedOnAdd()
                         .HasMaxLength(30)
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasDefaultValueSql("((0))");
 
                     b.Property<int>("TrangThai")
                         .HasColumnType("int");
@@ -620,19 +627,17 @@ namespace _1_DAL.Migrations
 
             modelBuilder.Entity("_1_DAL.Models.KieuDanhMuc", b =>
                 {
-                    b.HasOne("_1_DAL.Models.HangHoa", null)
+                    b.HasOne("_1_DAL.Models.DanhMuc", "IdDanhMucNavigation")
                         .WithMany("KieuDanhMucs")
-                        .HasForeignKey("Id")
+                        .HasForeignKey("IdDanhMuc")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("_1_DAL.Models.DanhMuc", "IdDanhMucNavigation")
-                        .WithMany("KieuDanhMucs")
-                        .HasForeignKey("IdDanhMuc");
-
                     b.HasOne("_1_DAL.Models.HangHoa", "IdHangHoaNavigation")
-                        .WithMany()
-                        .HasForeignKey("IdHangHoa");
+                        .WithMany("KieuDanhMucs")
+                        .HasForeignKey("IdHangHoa")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("IdDanhMucNavigation");
 

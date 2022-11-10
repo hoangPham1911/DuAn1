@@ -11,12 +11,16 @@ namespace _1_DAL.Context
 {
     public class ManagerContext : DbContext
     {
-            //public ManagerContext(DbContextOptions<ManagerContext> options) : base(options)
-            //{
+        public ManagerContext()
+        {
 
-            //}
+        }
+        public ManagerContext(DbContextOptions options) : base(options)
+        {
 
-        public virtual DbSet<ChiTietHangHoa> ChiTietSps { get; set; }
+        }
+
+        public virtual DbSet<ChiTietHangHoa> ChiTietSps { get; set; } // cái này dùng để tạo ra 1 cái bảng ChiTietHangHoa trong database
         public virtual DbSet<ChucVu> ChucVus { get; set; }
         public virtual DbSet<HoaDon> HoaDons { get; set; }
         public virtual DbSet<HoaDonChiTiet> HoaDonChiTiets { get; set; }
@@ -25,7 +29,11 @@ namespace _1_DAL.Context
         public virtual DbSet<NhanVien> NhanViens { get; set; }
         public virtual DbSet<Nsx> Nsxes { get; set; }
         public virtual DbSet<HangHoa> SanPhams { get; set; }
-
+        public virtual DbSet<SizeGiay> SizeGiays { get; set; }
+        public virtual DbSet<QuocGia> QuocGias { get; set; }    
+        public virtual DbSet<KieuDanhMuc> KieuDanhMucs { get; set; }
+        public virtual DbSet<DanhMuc> DanhMucs { get; set; }
+        public virtual DbSet<ChatLieu> ChatLieus { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -37,7 +45,7 @@ namespace _1_DAL.Context
           
             modelBuilder.Entity<HoaDonChiTiet>(entity =>
             {
-                entity.HasKey(e => new { e.IdChiTietSp, e.IdHoaDon });
+                entity.HasKey(e => new { e.IdChiTietSp, e.IdHoaDon });   // de tranh cho cac cap gtri trung nhau
                 entity.Property(e => e.DonGia).HasDefaultValueSql("((0))");
                 entity.Property(e => e.SoLuong).HasDefaultValueSql("((0))");
                 entity.HasOne(d => d.IdHoaDonNavigation)
@@ -96,7 +104,42 @@ namespace _1_DAL.Context
                 entity.Property(e => e.GiaNhap).HasDefaultValueSql("((0))");
 
             });
-        }
+            modelBuilder.Entity<DanhMuc>(entity =>
+            {
+                entity.Property(e => e.Id).HasDefaultValueSql("(newid())");
+                entity.Property(e => e.Ma).IsUnicode(false);
 
+
+            });
+            modelBuilder.Entity<SizeGiay>(entity =>
+            {
+                entity.Property(e => e.Id).HasDefaultValueSql("(newid())");
+                entity.Property(e => e.Ma).IsUnicode(false);
+
+                entity.Property(e=>e.SoSize).HasDefaultValueSql("((0))");
+            });
+            modelBuilder.Entity<ChatLieu>(entity =>
+            {
+                entity.Property(e => e.Id).HasDefaultValueSql("(newid())");
+                entity.Property(e => e.Ma).IsUnicode(false);
+
+            });
+            modelBuilder.Entity<QuocGia>(entity =>
+            {
+                entity.Property(e => e.Id).HasDefaultValueSql("(newid())");
+                entity.Property(e => e.Ma).IsUnicode(false);
+
+            });
+            modelBuilder.Entity<NhanVien>(entity =>
+            {
+                entity.Property(e => e.Id).HasDefaultValueSql("(newid())");
+                entity.Property(e => e.Ma).IsUnicode(false);
+               
+            });
+            modelBuilder.Entity<LichSuDiemTieuDung>(entity =>
+            {
+                entity.Property(e => e.IdKhachHang).IsRequired();
+            });
+        }
     }
 }

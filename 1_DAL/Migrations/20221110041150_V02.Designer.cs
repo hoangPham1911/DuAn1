@@ -12,8 +12,8 @@ using _1_DAL.Context;
 namespace _1_DAL.Migrations
 {
     [DbContext(typeof(ManagerContext))]
-    [Migration("20221109165325_v02")]
-    partial class v02
+    [Migration("20221110041150_V02")]
+    partial class V02
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,12 +28,14 @@ namespace _1_DAL.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("(newid())");
 
                     b.Property<string>("Ma")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(20)");
 
                     b.Property<string>("Ten")
                         .IsRequired()
@@ -146,12 +148,14 @@ namespace _1_DAL.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("(newid())");
 
                     b.Property<string>("Ma")
                         .IsRequired()
                         .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(30)");
 
                     b.Property<string>("Ten")
                         .IsRequired()
@@ -365,6 +369,31 @@ namespace _1_DAL.Migrations
                     b.ToTable("KieuDanhMuc");
                 });
 
+            modelBuilder.Entity("_1_DAL.Models.LichSuDiemTieuDung", b =>
+                {
+                    b.Property<Guid>("IdLichSuDiem")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IdKhachHang")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("NgaySuDung")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("SoDiemTieuDung")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TrangThai")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdLichSuDiem");
+
+                    b.HasIndex("IdKhachHang");
+
+                    b.ToTable("LichSuDiemTieuDung");
+                });
+
             modelBuilder.Entity("_1_DAL.Models.LoaiGiay", b =>
                 {
                     b.Property<Guid>("Id")
@@ -395,7 +424,8 @@ namespace _1_DAL.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("(newid())");
 
                     b.Property<byte[]>("Anh")
                         .IsRequired()
@@ -422,7 +452,8 @@ namespace _1_DAL.Migrations
                     b.Property<string>("Ma")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(20)");
 
                     b.Property<string>("MatKhau")
                         .IsRequired()
@@ -490,12 +521,14 @@ namespace _1_DAL.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("(newid())");
 
                     b.Property<string>("Ma")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(20)");
 
                     b.Property<string>("Ten")
                         .IsRequired()
@@ -517,16 +550,20 @@ namespace _1_DAL.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("(newid())");
 
                     b.Property<string>("Ma")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(20)");
 
                     b.Property<int>("SoSize")
+                        .ValueGeneratedOnAdd()
                         .HasMaxLength(30)
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasDefaultValueSql("((0))");
 
                     b.Property<int>("TrangThai")
                         .HasColumnType("int");
@@ -630,6 +667,17 @@ namespace _1_DAL.Migrations
                     b.Navigation("IdDanhMucNavigation");
 
                     b.Navigation("IdHangHoaNavigation");
+                });
+
+            modelBuilder.Entity("_1_DAL.Models.LichSuDiemTieuDung", b =>
+                {
+                    b.HasOne("_1_DAL.Models.KhachHang", "IdKhachHangNavigation")
+                        .WithMany()
+                        .HasForeignKey("IdKhachHang")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("IdKhachHangNavigation");
                 });
 
             modelBuilder.Entity("_1_DAL.Models.NhanVien", b =>

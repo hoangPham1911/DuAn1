@@ -26,6 +26,8 @@ namespace _1_DAL.Models
         [StringLength(50)]
         public string Ten { get; set; }
 
+        
+
    //     [InverseProperty(nameof(NhanVien.IdCvNavigation))]
         public virtual ICollection<NhanVien> NhanViens { get; set; }
     }

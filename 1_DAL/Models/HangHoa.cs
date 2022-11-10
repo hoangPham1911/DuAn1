@@ -30,7 +30,7 @@ namespace _1_DAL.Models
         public int TrangThai { get; set; }
 
         [Column("img", TypeName = "image")]
-        public byte[] Anh { get; set; }
+        public byte[] Anh { get; set; } // 0101010111
 
         public Guid? IdNsx { get; set; }
 
