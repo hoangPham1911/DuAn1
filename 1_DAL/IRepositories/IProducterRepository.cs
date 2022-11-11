@@ -10,7 +10,7 @@ namespace _1.DAL.IRepostiories
     public interface IProducterRepository
     {
         bool add(Nsx producter);
-        bool remove(Guid id);
+        bool remove(Nsx id);
         List<Nsx> getAll();
         bool update(Nsx producter);
     }

@@ -10,7 +10,7 @@ namespace _1_DAL.IRepostiories
     public interface ISizeShoseRepository
     {
         bool add(SizeGiay size);
-        bool remove(Guid id);
+        bool remove(SizeGiay id);
         List<SizeGiay> getAll();
 
         bool update(SizeGiay size);

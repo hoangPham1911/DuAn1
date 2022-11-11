@@ -25,7 +25,7 @@ namespace _1_DAL.Context
         public virtual DbSet<HoaDon> HoaDons { get; set; }
         public virtual DbSet<HoaDonChiTiet> HoaDonChiTiets { get; set; }
         public virtual DbSet<KhachHang> KhachHangs { get; set; }
-        public virtual DbSet<LoaiGiay> MauSacs { get; set; }
+        public virtual DbSet<LoaiGiay> LoaiGiays { get; set; }
         public virtual DbSet<NhanVien> NhanViens { get; set; }
         public virtual DbSet<Nsx> Nsxes { get; set; }
         public virtual DbSet<HangHoa> SanPhams { get; set; }
@@ -34,6 +34,7 @@ namespace _1_DAL.Context
         public virtual DbSet<KieuDanhMuc> KieuDanhMucs { get; set; }
         public virtual DbSet<DanhMuc> DanhMucs { get; set; }
         public virtual DbSet<ChatLieu> ChatLieus { get; set; }
+        public virtual DbSet<LichSuDiemTieuDung> LichSuDiemTieuDungs { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

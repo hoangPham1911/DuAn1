@@ -10,7 +10,7 @@ namespace _1.DAL.IRepostiories
     public interface IClientRepository
     {
         bool add(KhachHang client);
-        bool remove(Guid id);   
+        bool remove(KhachHang id);   
         List<KhachHang> getAll();
 
         bool update(KhachHang clinet);

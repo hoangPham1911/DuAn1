@@ -10,7 +10,7 @@ namespace _1_DAL.IRepostiories
     public interface ITypeShoseRepository
     {
         bool add(LoaiGiay type);
-        bool remove(Guid id);
+        bool remove(LoaiGiay id);
         List<LoaiGiay> getAll();
 
         bool update(LoaiGiay type);
