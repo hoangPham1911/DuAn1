@@ -10,8 +10,8 @@ namespace _1_DAL.IRepostiories
     public interface INationRepository
     {
         bool add(QuocGia quocGia);
-        bool remove(Guid id);
-        List<KhachHang> getAll();
+        bool remove(QuocGia id);
+        List<QuocGia> getAll();
 
         bool update(QuocGia quocGia);
     }

@@ -26,17 +26,23 @@ namespace _1_DAL.Repostiores
 
         public List<KieuDanhMuc> getAll()
         {
-            throw new NotImplementedException();
+            return _DbContext.KieuDanhMucs.ToList();
         }
 
         public bool remove(Guid id)
         {
-            throw new NotImplementedException();
+            KieuDanhMuc hd = new KieuDanhMuc();
+            var deleteId = _DbContext.KieuDanhMucs.SingleOrDefault(p => p.IdDanhMuc == id);
+            _DbContext.KieuDanhMucs.Remove(deleteId);
+            _DbContext.SaveChanges();
+            return true;
         }
 
         public bool update(KieuDanhMuc tableOfContents)
         {
-            throw new NotImplementedException();
+            _DbContext.KieuDanhMucs.Update(tableOfContents);
+            _DbContext.SaveChanges();
+            return true;
         }
     }
 }
