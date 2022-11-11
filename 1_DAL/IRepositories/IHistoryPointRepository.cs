@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace _1_DAL.IRepostiories
 {
-    public interface IHistoryPoint
+    public interface IHistoryPointRepository
     {
         bool add(LichSuDiemTieuDung point);
-        bool remove(Guid id);
+        bool remove(LichSuDiemTieuDung id);
         List<LichSuDiemTieuDung> getAll();
 
         bool update(LichSuDiemTieuDung point);

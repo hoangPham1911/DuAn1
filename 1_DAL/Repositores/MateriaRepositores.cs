@@ -24,22 +24,48 @@ namespace _1.DAL.DALServices
         }
         public bool addMaterial(ChatLieu material)
         {
-            _DBcontext.ChatLieus.Add(material);
-            _DBcontext.SaveChanges();
-            return true;
+            try
+            {
+                _DBcontext.ChatLieus.Add(material);
+                _DBcontext.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
         public bool updateMaterial(ChatLieu material)
         {
-            _DBcontext.ChatLieus.Update(material);
-            _DBcontext.SaveChanges();
-            return true;
+            try
+            {
+                _DBcontext.ChatLieus.Update(material);
+                _DBcontext.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+          
         }
 
         public bool deleteMaterial(ChatLieu material)
         {
-            _DBcontext.ChatLieus.Remove(material);
-            _DBcontext.SaveChanges();
-            return true;
+            try
+            {
+                _DBcontext.ChatLieus.Remove(material);
+                _DBcontext.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public List<ChatLieu> getMaterialFromDB()

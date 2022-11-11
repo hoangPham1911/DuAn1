@@ -10,7 +10,7 @@ namespace _1_DAL.IRepostiories
     public interface ITableOfContentsRepository
     {
         bool add(DanhMuc tableOfContents);
-        bool remove(Guid id);
+        bool remove(DanhMuc id);
         List<DanhMuc> getAll();
 
         bool update(DanhMuc tableOfContents);

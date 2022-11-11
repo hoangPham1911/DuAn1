@@ -10,9 +10,8 @@ namespace _1.DAL.IRepostiories
     public interface IProductRepository
     {
         bool add(HangHoa product); 
-        bool remove(Guid id);
+        bool remove(HangHoa id);
         List<HangHoa> getAll();
         bool update(HangHoa sp);
-        List<HangHoa> get(string name);
     }
 }

@@ -10,28 +10,44 @@ using System.Text;
 using System.Threading.Tasks;
 namespace _1.DAL.DALServices
 {
-    public class SfattRepository : ISfattRepository
+    public class SfattRepositores : ISfattRepository
     {
         private ManagerContext _DBcontext;
         private List<NhanVien> _lstNhanVien;
 
-        public SfattRepository()
+        public SfattRepositores()
         {
             _DBcontext = new ManagerContext();
             _lstNhanVien = new List<NhanVien>();
         }
         public bool addNhanVien(NhanVien nhanVien)
         {
-            _DBcontext.NhanViens.Add(nhanVien);
-            _DBcontext.SaveChanges();
-            return true;
+            try
+            {
+                _DBcontext.NhanViens.Add(nhanVien);
+                _DBcontext.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool deleteNhanVien(NhanVien nhanVien)
         {
-            _DBcontext.NhanViens.Remove(nhanVien);
-            _DBcontext.SaveChanges();
-            return true;
+            try
+            {
+                _DBcontext.NhanViens.Remove(nhanVien);
+                _DBcontext.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public List<NhanVien> getNhanViensFromDB()
@@ -42,9 +58,17 @@ namespace _1.DAL.DALServices
 
         public bool updateNhanVien(NhanVien nhanVien)
         {
-            _DBcontext.NhanViens.Update(nhanVien);
-            _DBcontext.SaveChanges();
-            return true;
+            try
+            {
+                _DBcontext.NhanViens.Update(nhanVien);
+                _DBcontext.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

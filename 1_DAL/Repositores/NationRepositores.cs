@@ -19,9 +19,18 @@ namespace _1_DAL.Repostiores
         }
         public bool add(QuocGia quocGia)
         {
-            _DbContext.QuocGias.Add(quocGia);
-            _DbContext.SaveChanges();
-            return true;
+            try
+            {
+                _DbContext.QuocGias.Add(quocGia);
+                _DbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+           
         }
 
         public List<QuocGia> getAll()
@@ -31,16 +40,33 @@ namespace _1_DAL.Repostiores
 
         public bool remove(QuocGia id)
         {
-            _DbContext.QuocGias.Remove(id);
-            _DbContext.SaveChanges();
-            return true;
+            try
+            {
+                _DbContext.QuocGias.Remove(id);
+                _DbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+           
         }
 
         public bool update(QuocGia quocGia)
         {
-            _DbContext.QuocGias.Update(quocGia);
-            _DbContext.SaveChanges();
-            return true;
+            try
+            {
+                _DbContext.QuocGias.Update(quocGia);
+                _DbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

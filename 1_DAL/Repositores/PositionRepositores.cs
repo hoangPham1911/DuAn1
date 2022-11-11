@@ -23,16 +23,32 @@ namespace _1.DAL.DALServices
         }
         public bool addChucVu(ChucVu chucVu)
         {
-            _DBcontext.ChucVus.Add(chucVu);
-            _DBcontext.SaveChanges();
-            return true;
+            try
+            {
+                _DBcontext.ChucVus.Add(chucVu);
+                _DBcontext.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool deleteChucVu(ChucVu chucVu)
         {
-            _DBcontext.ChucVus.Remove(chucVu);
-            _DBcontext.SaveChanges();
-            return true;
+            try
+            {
+                _DBcontext.ChucVus.Remove(chucVu);
+                _DBcontext.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public List<ChucVu> getChucVusFromDB()
@@ -43,9 +59,18 @@ namespace _1.DAL.DALServices
 
         public bool updateChucVu(ChucVu chucVu)
         {
-            _DBcontext.ChucVus.Update(chucVu);
-            _DBcontext.SaveChanges();
-            return true;
+            try
+            {
+                _DBcontext.ChucVus.Update(chucVu);
+                _DBcontext.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
     }
 }
