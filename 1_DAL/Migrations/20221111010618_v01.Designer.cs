@@ -12,8 +12,8 @@ using _1_DAL.Context;
 namespace _1_DAL.Migrations
 {
     [DbContext(typeof(ManagerContext))]
-    [Migration("20221110024158_V01")]
-    partial class V01
+    [Migration("20221111010618_v01")]
+    partial class v01
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -369,6 +369,31 @@ namespace _1_DAL.Migrations
                     b.ToTable("KieuDanhMuc");
                 });
 
+            modelBuilder.Entity("_1_DAL.Models.LichSuDiemTieuDung", b =>
+                {
+                    b.Property<Guid>("IdLichSuDiem")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IdKhachHang")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("NgaySuDung")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("SoDiemTieuDung")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TrangThai")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdLichSuDiem");
+
+                    b.HasIndex("IdKhachHang");
+
+                    b.ToTable("LichSuDiemTieuDung");
+                });
+
             modelBuilder.Entity("_1_DAL.Models.LoaiGiay", b =>
                 {
                     b.Property<Guid>("Id")
@@ -642,6 +667,17 @@ namespace _1_DAL.Migrations
                     b.Navigation("IdDanhMucNavigation");
 
                     b.Navigation("IdHangHoaNavigation");
+                });
+
+            modelBuilder.Entity("_1_DAL.Models.LichSuDiemTieuDung", b =>
+                {
+                    b.HasOne("_1_DAL.Models.KhachHang", "IdKhachHangNavigation")
+                        .WithMany()
+                        .HasForeignKey("IdKhachHang")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("IdKhachHangNavigation");
                 });
 
             modelBuilder.Entity("_1_DAL.Models.NhanVien", b =>

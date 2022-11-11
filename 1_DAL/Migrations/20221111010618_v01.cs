@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace _1_DAL.Migrations
 {
-    public partial class V01 : Migration
+    public partial class v01 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -150,6 +150,27 @@ namespace _1_DAL.Migrations
                         column: x => x.IdCV,
                         principalTable: "ChucVu",
                         principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "LichSuDiemTieuDung",
+                columns: table => new
+                {
+                    IdLichSuDiem = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    NgaySuDung = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    SoDiemTieuDung = table.Column<int>(type: "int", nullable: false),
+                    TrangThai = table.Column<int>(type: "int", nullable: false),
+                    IdKhachHang = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LichSuDiemTieuDung", x => x.IdLichSuDiem);
+                    table.ForeignKey(
+                        name: "FK_LichSuDiemTieuDung_KhachHang_IdKhachHang",
+                        column: x => x.IdKhachHang,
+                        principalTable: "KhachHang",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -375,6 +396,11 @@ namespace _1_DAL.Migrations
                 column: "IdHangHoa");
 
             migrationBuilder.CreateIndex(
+                name: "IX_LichSuDiemTieuDung_IdKhachHang",
+                table: "LichSuDiemTieuDung",
+                column: "IdKhachHang");
+
+            migrationBuilder.CreateIndex(
                 name: "UQ_LoaiGiay",
                 table: "LoaiGiay",
                 column: "Ma",
@@ -428,6 +454,9 @@ namespace _1_DAL.Migrations
 
             migrationBuilder.DropTable(
                 name: "KieuDanhMuc");
+
+            migrationBuilder.DropTable(
+                name: "LichSuDiemTieuDung");
 
             migrationBuilder.DropTable(
                 name: "ChiTietSP");
