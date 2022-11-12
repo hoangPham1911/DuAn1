@@ -23,8 +23,4 @@
     <ProjectReference Include="..\2_BUS\2_BUS.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="View\" />
-  </ItemGroup>
-
 </Project>
