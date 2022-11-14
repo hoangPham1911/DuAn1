@@ -25,6 +25,10 @@ namespace _1_DAL.Models
         [StringLength(20)]
         public string Ma { get; set; }
         [StringLength(30)]
+        public string Ho { get; set; }
+        [StringLength(30)]
+        public string TenDem { get; set; }
+        [StringLength(30)]
         public string Ten { get; set; }
         [StringLength(30)]
         public string GioiTinh { get; set; }
