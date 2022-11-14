@@ -19,17 +19,12 @@ namespace _1.DAL.Repostiores
         }
         public bool add(Nsx producter)
         {
-            try
-            {
-                _dbContext.Nsxes.Add(producter);
-                _dbContext.SaveChanges();
-                return true;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            if (producter == null) return false;
+            producter.Id = Guid.NewGuid();
+            _dbContext.Nsxes.Add(producter);
+            _dbContext.SaveChanges();
+            return true;
+            
         }
 
         public List<Nsx> getAll()
@@ -37,37 +32,25 @@ namespace _1.DAL.Repostiores
             return _dbContext.Nsxes.ToList();
         }
 
-        public bool remove(Nsx id)
+        public bool remove(Nsx producter)
         {
-            try
-            {
-                _dbContext.Nsxes.Remove(id);
-                _dbContext.SaveChanges();
-                return true;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            if (producter == null) return false;
+            var temproducter = _dbContext.Nsxes.FirstOrDefault(p=>p.Id==producter.Id);  
+            _dbContext.Nsxes.Remove(temproducter);
+            _dbContext.SaveChanges();
+            return true;
         }
 
-        public bool update(Nsx product)
+        public bool update(Nsx producter)
         {
+            if (producter == null) return false;
+            var temproducter = _dbContext.Nsxes.FirstOrDefault(p => p.Id == producter.Id);
+            temproducter.Ma = producter.Ma;
+            temproducter.Ten = producter.Ten;
+            _dbContext.Nsxes.Update(temproducter);
+            _dbContext.SaveChanges();
+            return true;
 
-            try
-            {
-                _dbContext.Nsxes.Update(product);
-                _dbContext.SaveChanges();
-
-                return true;
-
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
         }
     }
 }
