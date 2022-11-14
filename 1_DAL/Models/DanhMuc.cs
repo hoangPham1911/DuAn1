@@ -25,6 +25,8 @@ namespace _1_DAL.Models
         [StringLength(30)]  
 
         public string Ten { get; set; }
+        public int TrangThai { get; set; }
+
 
         public virtual ICollection<KieuDanhMuc> KieuDanhMucs { get; set; }
 

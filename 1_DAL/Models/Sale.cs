@@ -10,24 +10,25 @@ using System.Xml.Linq;
 
 namespace _1_DAL.Models
 {
-    [Table("LoaiGiay")]
-    [Index(nameof(Ma), Name = "UQ_LoaiGiay", IsUnique = true)]
-    public class LoaiGiay
+    [Table("Sale")]
+    [Index(nameof(MaGiamGia), Name = "UQ_MaGiamGia", IsUnique = true)]
+    public partial class Sale
     {
-        public LoaiGiay()
+        public Sale()
         {
-            ChiTietHangHoas = new HashSet<ChiTietHangHoa>();
+            SaleChiTiets = new HashSet<SaleChiTiet>();
         }
-
         [Key]
         public Guid Id { get; set; }
+
         [StringLength(20)]
-        public string Ma { get; set; }
+        public string MaGiamGia { get; set; }
+
         [StringLength(30)]
-        public string Ten { get; set; }
+        public string TenChuongTrinh { get; set; }
+
         public int TrangThai { get; set; }
 
-      //  [InverseProperty(nameof(ChiTietHangHoa.IdMauSacNavigation))]
-        public virtual ICollection<ChiTietHangHoa> ChiTietHangHoas { get; set; }
+        public virtual ICollection<SaleChiTiet> SaleChiTiets { get; set; }
     }
 }

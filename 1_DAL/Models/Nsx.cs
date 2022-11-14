@@ -25,8 +25,10 @@ namespace _1_DAL.Models
         public string Ma { get; set; }
         [StringLength(30)]
         public string Ten { get; set; }
+        public int TrangThai { get; set; }
 
- //       [InverseProperty(nameof(HangHoa.IdNsxNavigation))]
+
+        //       [InverseProperty(nameof(HangHoa.IdNsxNavigation))]
         public virtual ICollection<HangHoa> HangHoas { get; set; }
     }
 }
