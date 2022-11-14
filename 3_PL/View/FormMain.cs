@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace _3_PL.View
 {
-    public partial class Frm_ReceiptCT : Form
+    public partial class FormMain : Form
     {
-        public Frm_ReceiptCT()
+        public FormMain()
         {
             InitializeComponent();
         }
