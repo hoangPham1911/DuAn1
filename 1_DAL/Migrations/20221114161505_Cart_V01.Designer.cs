@@ -12,8 +12,8 @@ using _1_DAL.Context;
 namespace _1_DAL.Migrations
 {
     [DbContext(typeof(ManagerContext))]
-    [Migration("20221111151003_aa")]
-    partial class aa
+    [Migration("20221114161505_Cart_V01")]
+    partial class Cart_V01
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -43,7 +43,9 @@ namespace _1_DAL.Migrations
                         .HasColumnType("nvarchar(30)");
 
                     b.Property<int>("TrangThai")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValueSql("((0))");
 
                     b.HasKey("Id");
 
@@ -136,6 +138,11 @@ namespace _1_DAL.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<int>("TrangThai")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValueSql("((0))");
+
                     b.HasKey("Id");
 
                     b.HasIndex(new[] { "Ma" }, "UQ_ChucVu")
@@ -151,6 +158,10 @@ namespace _1_DAL.Migrations
                         .HasColumnType("uniqueidentifier")
                         .HasDefaultValueSql("(newid())");
 
+                    b.Property<Guid?>("IdDanhMucKhac")
+                        .HasMaxLength(30)
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Ma")
                         .IsRequired()
                         .HasMaxLength(30)
@@ -159,10 +170,16 @@ namespace _1_DAL.Migrations
 
                     b.Property<string>("Ten")
                         .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TrangThai")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValueSql("((0))");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("IdDanhMucKhac");
 
                     b.HasIndex(new[] { "Ma" }, "UQ_DanhMuc")
                         .IsUnique();
@@ -197,7 +214,9 @@ namespace _1_DAL.Migrations
                         .HasColumnType("nvarchar(30)");
 
                     b.Property<int>("TrangThai")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValueSql("((0))");
 
                     b.HasKey("Id");
 
@@ -339,8 +358,10 @@ namespace _1_DAL.Migrations
                         .HasColumnType("nvarchar(30)");
 
                     b.Property<int>("TrangThai")
+                        .ValueGeneratedOnAdd()
                         .HasMaxLength(50)
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasDefaultValueSql("((0))");
 
                     b.HasKey("Id");
 
@@ -385,7 +406,9 @@ namespace _1_DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("TrangThai")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValueSql("((0))");
 
                     b.HasKey("IdLichSuDiem");
 
@@ -411,6 +434,11 @@ namespace _1_DAL.Migrations
                         .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
+
+                    b.Property<int>("TrangThai")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValueSql("((0))");
 
                     b.HasKey("Id");
 
@@ -441,6 +469,11 @@ namespace _1_DAL.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("GioiTinh")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("Ho")
                         .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
@@ -477,9 +510,16 @@ namespace _1_DAL.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
+                    b.Property<string>("TenDem")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
                     b.Property<int?>("TrangThai")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("IdGuiBC");
+                        .HasColumnName("IdGuiBC")
+                        .HasDefaultValueSql("((0))");
 
                     b.HasKey("Id");
 
@@ -509,6 +549,11 @@ namespace _1_DAL.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
+                    b.Property<int>("TrangThai")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValueSql("((0))");
+
                     b.HasKey("Id");
 
                     b.HasIndex(new[] { "Ma" }, "UQ_NSX")
@@ -536,7 +581,9 @@ namespace _1_DAL.Migrations
                         .HasColumnType("nvarchar(30)");
 
                     b.Property<int>("TrangThai")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValueSql("((0))");
 
                     b.HasKey("Id");
 
@@ -544,6 +591,54 @@ namespace _1_DAL.Migrations
                         .IsUnique();
 
                     b.ToTable("QuocGia");
+                });
+
+            modelBuilder.Entity("_1_DAL.Models.Sale", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("MaGiamGia")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("TenChuongTrinh")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<int>("TrangThai")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex(new[] { "MaGiamGia" }, "UQ_MaGiamGia")
+                        .IsUnique();
+
+                    b.ToTable("Sale");
+                });
+
+            modelBuilder.Entity("_1_DAL.Models.SaleChiTiet", b =>
+                {
+                    b.Property<Guid>("IdChiTietHangHoa")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IdSale")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("NgayBatDau")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("NgayKetThuc")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("IdChiTietHangHoa", "IdSale");
+
+                    b.HasIndex("IdSale");
+
+                    b.ToTable("SaleChiTiet");
                 });
 
             modelBuilder.Entity("_1_DAL.Models.SizeGiay", b =>
@@ -566,7 +661,9 @@ namespace _1_DAL.Migrations
                         .HasDefaultValueSql("((0))");
 
                     b.Property<int>("TrangThai")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValueSql("((0))");
 
                     b.HasKey("Id");
 
@@ -607,6 +704,13 @@ namespace _1_DAL.Migrations
                     b.Navigation("IdSizeNavigation");
 
                     b.Navigation("IdSpNavigation");
+                });
+
+            modelBuilder.Entity("_1_DAL.Models.DanhMuc", b =>
+                {
+                    b.HasOne("_1_DAL.Models.DanhMuc", null)
+                        .WithMany("IdDanhMucNavigation")
+                        .HasForeignKey("IdDanhMucKhac");
                 });
 
             modelBuilder.Entity("_1_DAL.Models.HangHoa", b =>
@@ -689,6 +793,25 @@ namespace _1_DAL.Migrations
                     b.Navigation("IdCvNavigation");
                 });
 
+            modelBuilder.Entity("_1_DAL.Models.SaleChiTiet", b =>
+                {
+                    b.HasOne("_1_DAL.Models.ChiTietHangHoa", "ChiTietHangHoaNavigation")
+                        .WithMany("SaleChiTiets")
+                        .HasForeignKey("IdChiTietHangHoa")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("_1_DAL.Models.Sale", "SaleNavigation")
+                        .WithMany("SaleChiTiets")
+                        .HasForeignKey("IdSale")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ChiTietHangHoaNavigation");
+
+                    b.Navigation("SaleNavigation");
+                });
+
             modelBuilder.Entity("_1_DAL.Models.ChatLieu", b =>
                 {
                     b.Navigation("ChiTietHangHoas");
@@ -697,6 +820,8 @@ namespace _1_DAL.Migrations
             modelBuilder.Entity("_1_DAL.Models.ChiTietHangHoa", b =>
                 {
                     b.Navigation("HoaDonChiTiets");
+
+                    b.Navigation("SaleChiTiets");
                 });
 
             modelBuilder.Entity("_1_DAL.Models.ChucVu", b =>
@@ -706,6 +831,8 @@ namespace _1_DAL.Migrations
 
             modelBuilder.Entity("_1_DAL.Models.DanhMuc", b =>
                 {
+                    b.Navigation("IdDanhMucNavigation");
+
                     b.Navigation("KieuDanhMucs");
                 });
 
@@ -744,6 +871,11 @@ namespace _1_DAL.Migrations
             modelBuilder.Entity("_1_DAL.Models.QuocGia", b =>
                 {
                     b.Navigation("HangHoaChiTiet");
+                });
+
+            modelBuilder.Entity("_1_DAL.Models.Sale", b =>
+                {
+                    b.Navigation("SaleChiTiets");
                 });
 
             modelBuilder.Entity("_1_DAL.Models.SizeGiay", b =>

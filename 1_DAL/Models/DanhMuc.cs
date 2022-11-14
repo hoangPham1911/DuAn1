@@ -22,12 +22,15 @@ namespace _1_DAL.Models
         public Guid Id { get; set; }
         [StringLength(30)]
         public string Ma { get; set; }
-        [StringLength(30)]  
+        [StringLength(30)]
+
+        public Guid? IdDanhMucKhac { get; set; }
 
         public string Ten { get; set; }
         public int TrangThai { get; set; }
 
-
+        [ForeignKey(nameof(IdDanhMucKhac))]
+        public virtual ICollection<DanhMuc> IdDanhMucNavigation { get; set; }
         public virtual ICollection<KieuDanhMuc> KieuDanhMucs { get; set; }
 
     }
