@@ -32,8 +32,6 @@
             this.chkOFF = new System.Windows.Forms.CheckBox();
             this.ckbON = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.txtTenDM = new System.Windows.Forms.TextBox();
             this.txtMaDM = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -92,30 +90,11 @@
             this.label5.TabIndex = 39;
             this.label5.Text = "Thông tin danh mục";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(193, 142);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(269, 20);
-            this.label4.TabIndex = 37;
-            this.label4.Text = ".................................................................";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(193, 90);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(269, 20);
-            this.label3.TabIndex = 38;
-            this.label3.Text = ".................................................................";
-            // 
             // txtTenDM
             // 
+            this.txtTenDM.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.txtTenDM.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTenDM.Location = new System.Drawing.Point(197, 122);
+            this.txtTenDM.Location = new System.Drawing.Point(200, 143);
             this.txtTenDM.Margin = new System.Windows.Forms.Padding(2);
             this.txtTenDM.Name = "txtTenDM";
             this.txtTenDM.Size = new System.Drawing.Size(266, 19);
@@ -123,8 +102,9 @@
             // 
             // txtMaDM
             // 
+            this.txtMaDM.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.txtMaDM.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMaDM.Location = new System.Drawing.Point(193, 70);
+            this.txtMaDM.Location = new System.Drawing.Point(200, 90);
             this.txtMaDM.Margin = new System.Windows.Forms.Padding(2);
             this.txtMaDM.Name = "txtMaDM";
             this.txtMaDM.Size = new System.Drawing.Size(266, 19);
@@ -174,8 +154,6 @@
             this.Controls.Add(this.chkOFF);
             this.Controls.Add(this.ckbON);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.txtTenDM);
             this.Controls.Add(this.txtMaDM);
             this.Controls.Add(this.label6);
@@ -197,8 +175,6 @@
         private CheckBox chkOFF;
         private CheckBox ckbON;
         private Label label5;
-        private Label label4;
-        private Label label3;
         private TextBox txtTenDM;
         private TextBox txtMaDM;
         private Label label6;
