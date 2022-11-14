@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace _3_PL.View
 {
-    public partial class Frm_Danhmuc : Form
+    public partial class Frm_ThemKhachHang : Form
     {
-        public Frm_Danhmuc()
+        public Frm_ThemKhachHang()
         {
             InitializeComponent();
-        }
-
-        private void Frm_Danhmuc_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

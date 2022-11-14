@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace _3_PL.View
 {
-    public partial class Frm_Danhmuc : Form
+    public partial class Frm_ReceiptCT : Form
     {
-        public Frm_Danhmuc()
+        public Frm_ReceiptCT()
         {
             InitializeComponent();
-        }
-
-        private void Frm_Danhmuc_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
