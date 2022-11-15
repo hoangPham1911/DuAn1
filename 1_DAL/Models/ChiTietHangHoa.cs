@@ -25,7 +25,7 @@ namespace _1_DAL.Models
         public Guid? IdSp { get; set; }
         public Guid? IdQuocGia { get; set; }
         public Guid? IdLoaiGiay { get; set; }
-        [Column("IdDongSP")]
+        [Column("IdSizeGiay")]
         public Guid? IdSizeGiay { get; set; }
 
         public Guid? IdAnh { get; set; }
