@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace _1_DAL.Repostiores
 {
-    public class TableOfContentRepositores : ITableOfContentsRepository
+    public class DanhMucRepositores : IDanhMucRepository
     {
         public ManagerContext _DbContext;
-        public TableOfContentRepositores()
+        public DanhMucRepositores()
         {
             _DbContext = new ManagerContext();
         }
@@ -21,6 +21,7 @@ namespace _1_DAL.Repostiores
         {
             try
             {
+                tableOfContents.Id = Guid.NewGuid();
                 _DbContext.DanhMucs.Add(tableOfContents);
                 _DbContext.SaveChanges();
                 return true;
@@ -37,34 +38,25 @@ namespace _1_DAL.Repostiores
             return _DbContext.DanhMucs.ToList();
         }
 
-        public bool remove(DanhMuc id)
+        public bool remove(DanhMuc tableOfContents)
         {
-            try
-            {
-                _DbContext.DanhMucs.Remove(id);
-                _DbContext.SaveChanges();
-                return true;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            if (tableOfContents == null) return false;
+            var temtableOfContents = _DbContext.DanhMucs.FirstOrDefault(p => p.Id == tableOfContents.Id);
+            _DbContext.DanhMucs.Remove(temtableOfContents);
+            _DbContext.SaveChanges();
+            return true;
         }
 
         public bool update(DanhMuc tableOfContents)
         {
-            try
-            {
-                _DbContext.DanhMucs.Update(tableOfContents);
-                _DbContext.SaveChanges();
-                return true;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            if (tableOfContents == null) return false;
+            var temtableOfContents = _DbContext.DanhMucs.FirstOrDefault(p => p.Id == tableOfContents.Id);
+            temtableOfContents.Ma = tableOfContents.Ma;
+            temtableOfContents.Ten = tableOfContents.Ten;
+            temtableOfContents.TrangThai = tableOfContents.TrangThai;
+            _DbContext.DanhMucs.Update(temtableOfContents);
+            _DbContext.SaveChanges();
+            return true;
         }
     }
 }
