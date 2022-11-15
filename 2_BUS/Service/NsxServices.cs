@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _2_BUS.Service
 {
-    internal class NsxServices
+    public class NsxServices
     {
     }
 }

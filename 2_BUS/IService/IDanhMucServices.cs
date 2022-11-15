@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _2_BUS.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,12 @@ using System.Threading.Tasks;
 
 namespace _2_BUS.IService
 {
-    internal interface IDanhMucServices
+    public interface IDanhMucServices
     {
+        string add(DanhMucViewModels DM);
+        string remove(DanhMucViewModels DM);
+        string update(DanhMucViewModels DM);
+
+        List<DanhMucViewModels> GetDanhMuc();
     }
 }

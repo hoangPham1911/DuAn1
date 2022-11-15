@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace _1.DAL.Repostiores
 {
-    public class ProducterRepositores : IProducterRepository
+    public class NsxRepositores : INsxRepository
     {
         private ManagerContext _dbContext;
 
-        public ProducterRepositores()
+        public NsxRepositores()
         {
             _dbContext = new ManagerContext();
         }
@@ -47,6 +47,7 @@ namespace _1.DAL.Repostiores
             var temproducter = _dbContext.Nsxes.FirstOrDefault(p => p.Id == producter.Id);
             temproducter.Ma = producter.Ma;
             temproducter.Ten = producter.Ten;
+            temproducter.TrangThai = producter.TrangThai;
             _dbContext.Nsxes.Update(temproducter);
             _dbContext.SaveChanges();
             return true;

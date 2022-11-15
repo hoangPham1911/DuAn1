@@ -8,17 +8,17 @@ using System.Threading.Tasks;
 
 namespace _2_BUS.Service
 {
-    public class MangerServiceSaleChiTiet : ISaleDetailRepository
+    public class MangerServiceSaleChiTiet 
     {
-        public bool add(SaleChiTiet sale)
-        {
-            SaleChiTiet giamGia = new SaleChiTiet();
-            giamGia. = sale.MaGiamGia;
-            giamGia.TrangThai = sale.TrangThai;
-            giamGia.TenChuongTrinh = sale.TenChuongTrinh;
-            if (_SaleRepository.add(giamGia)) return true;
-            else return false;
-        }
+        //public bool add(SaleChiTiet sale)
+        //{
+        //    //SaleChiTiet giamGia = new SaleChiTiet();
+        //    //giamGia. = sale.MaGiamGia;
+        //    //giamGia.TrangThai = sale.TrangThai;
+        //    //giamGia.TenChuongTrinh = sale.TenChuongTrinh;
+        //    //if (_SaleRepository.add(giamGia)) return true;
+        //    //else return false;
+        //}
 
         public List<SaleChiTiet> getAll()
         {
