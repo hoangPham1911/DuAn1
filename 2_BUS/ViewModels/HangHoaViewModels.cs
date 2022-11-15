@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace _2_BUS.ViewModels
 {
-    public class NhanVienViewModels
+    public class HangHoaViewModels
     {
-        public NhanVien NhanViens { get; set; }
-        public ChucVu ChucVus { get; set; } 
+        public HangHoa HangHoas { get; set; }
+        public Nsx Nsxs { get; set; }
 
     }
 }

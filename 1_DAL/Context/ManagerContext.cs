@@ -37,11 +37,12 @@ namespace _1_DAL.Context
         public virtual DbSet<LichSuDiemTieuDung> LichSuDiemTieuDungs { get; set; }
         public virtual DbSet<SaleChiTiet> SaleChiTiets { get; set; }
         public virtual DbSet<Sale> Sales { get; set; }
+        public virtual DbSet<Anh> Anhs { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=DESKTOP-FOR2JQI\\SQLEXPRESS;" +
-            "Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=hello;Password=hello");
+            optionsBuilder.UseSqlServer("Data Source=DESKTOP-3S50L70\\SQLEXPRESS;" +
+            "Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=hoangpham;Password=19112002");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -106,6 +107,13 @@ namespace _1_DAL.Context
                 entity.Property(e => e.Ma).IsUnicode(false);
                 entity.Property(e => e.TrangThai).HasDefaultValueSql("((0))");
 
+            });
+            modelBuilder.Entity<Anh>(entity =>
+            {
+                entity.Property(e => e.ID).HasDefaultValueSql("(newid())");
+                entity.Property(e => e.MaAnh).IsUnicode(false);
+                entity.Property(e => e.TrangThai).HasDefaultValueSql("((0))");
+               
             });
 
             modelBuilder.Entity<HoaDon>(entity =>

@@ -126,7 +126,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label8.ForeColor = System.Drawing.Color.Gray;
-            this.label8.Location = new System.Drawing.Point(201, 279);
+            this.label8.Location = new System.Drawing.Point(200, 278);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(52, 13);
@@ -199,11 +199,11 @@
             this.label1.TabIndex = 32;
             this.label1.Text = "Tổng Số Lượng Hàng";
             // 
-            // Frm_Receipt
+            // Frm_HoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.InfoText;
+            this.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -220,9 +220,10 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Frm_Receipt";
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.Name = "Frm_HoaDon";
             this.Text = "Frm_Receipt";
-            this.TransparencyKey = System.Drawing.Color.PaleTurquoise;
+            this.TransparencyKey = System.Drawing.Color.SpringGreen;
             this.Load += new System.EventHandler(this.Frm_Receipt_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

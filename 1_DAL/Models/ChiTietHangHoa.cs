@@ -28,6 +28,7 @@ namespace _1_DAL.Models
         [Column("IdDongSP")]
         public Guid? IdSizeGiay { get; set; }
 
+        public Guid? IdAnh { get; set; }
         public Guid? IdChatLieu { get; set; }
 
         [Column("NamBH")]
@@ -51,6 +52,11 @@ namespace _1_DAL.Models
         [ForeignKey(nameof(IdChatLieu))]
         //   [InverseProperty(nameof(ChatLieu))]
         public virtual ChatLieu IdChatLieuNavigation { get; set; }
+
+        [ForeignKey(nameof(IdAnh))]
+        //   [InverseProperty(nameof(ChatLieu))]
+        public virtual Anh IdAnhNavigation { get; set; }
+
         [ForeignKey(nameof(IdQuocGia))]
         public virtual QuocGia IdQuocGiaNavigation { get; set; }
 
