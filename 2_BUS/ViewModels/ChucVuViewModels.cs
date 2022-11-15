@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _2_BUS.ViewModels
 {
-    public class NhanVienViewModels
+    public class ChucVuViewModels
     {
     }
 }
