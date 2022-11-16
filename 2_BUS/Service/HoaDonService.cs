@@ -25,7 +25,6 @@ namespace _2_BUS.Services
         public string SuaHoaDon(SuaHoaDonModels Hoadonold)
         {
             if (Hoadonold == null) return "that bai";
-
             else
             {
                 HoaDon hd = new HoaDon()
