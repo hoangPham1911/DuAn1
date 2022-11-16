@@ -20,7 +20,52 @@ namespace _1.DAL.DALServices
             _DBcontext = new ManagerContext();
             _lstNhanVien = new List<NhanVien>();
         }
-        public bool addNhanVien(NhanVien nhanVien)
+
+        public List<NhanVien> GetAll()
+        {
+            return _DBcontext.NhanViens.ToList();
+        }
+
+        public bool Sua(NhanVien nhanVien)
+        {
+            try
+            {
+                var daTaCu = _DBcontext.NhanViens.Find(nhanVien.Id);
+                if (daTaCu != null)
+                {
+                    daTaCu.Id = nhanVien.Id;
+                    daTaCu.Ma = nhanVien.Ma;
+                    daTaCu.TenDem = nhanVien.TenDem;
+                    daTaCu.Ten = nhanVien.Ten;
+                    daTaCu.Ho = nhanVien.Ho;
+                    daTaCu.GioiTinh = nhanVien.GioiTinh;
+                    daTaCu.NamSinh = nhanVien.NamSinh;
+                    daTaCu.QueQuan = nhanVien.QueQuan;
+                    daTaCu.Sdt = nhanVien.Sdt;
+                    daTaCu.MatKhau = nhanVien.MatKhau;
+                    daTaCu.Email = nhanVien.Email;
+                    daTaCu.CMND = nhanVien.CMND;
+                    daTaCu.IdCv = nhanVien.IdCv;
+                    daTaCu.TrangThai = nhanVien.TrangThai;
+                    daTaCu.Anh = nhanVien.Anh;
+                    _DBcontext.NhanViens.Add(daTaCu);
+                    _DBcontext.SaveChanges();
+                    return true;
+
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
+
+        public bool Them(NhanVien nhanVien)
         {
             try
             {
@@ -31,43 +76,30 @@ namespace _1.DAL.DALServices
             catch (Exception)
             {
 
-                throw;
+                return false;
             }
         }
 
-        public bool deleteNhanVien(NhanVien nhanVien)
+        public List<NhanVien> TimKiem(string Ma)
         {
-            try
+
+            var danhSachNhanVien = _DBcontext.NhanViens.Where(x => x.Ma.ToLower().Contains(Ma.ToLower()));
+
+            return danhSachNhanVien.ToList();
+        }
+
+        public bool Xoa(Guid Id)
+        {
+            var nv1 = _DBcontext.NhanViens.Find(Id);
+            if (nv1 != null)
             {
-                _DBcontext.NhanViens.Remove(nhanVien);
+                _DBcontext.NhanViens.Remove(nv1);
                 _DBcontext.SaveChanges();
                 return true;
             }
-            catch (Exception)
+            else
             {
-
-                throw;
-            }
-        }
-
-        public List<NhanVien> getNhanViensFromDB()
-        {
-            _lstNhanVien = _DBcontext.NhanViens.ToList();
-            return _lstNhanVien;
-        }
-
-        public bool updateNhanVien(NhanVien nhanVien)
-        {
-            try
-            {
-                _DBcontext.NhanViens.Update(nhanVien);
-                _DBcontext.SaveChanges();
-                return true;
-            }
-            catch (Exception)
-            {
-
-                throw;
+                return false;
             }
         }
     }
