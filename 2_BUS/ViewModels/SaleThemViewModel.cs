@@ -14,7 +14,5 @@ namespace _2_BUS.ViewModels
         public string TenChuongTrinh { get; set; }
 
         public int TrangThai { get; set; }
-        public DateTime NgayBatDau { get; set; }
-        public DateTime NgayKetThuc { get; set; }
     }
 }

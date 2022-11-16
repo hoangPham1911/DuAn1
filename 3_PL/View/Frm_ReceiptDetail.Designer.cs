@@ -40,43 +40,22 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.chucVuViewModelsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_sanpham)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chucVuViewModelsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dgrid_sanpham
@@ -85,20 +64,34 @@
             this.dgrid_sanpham.BackgroundColor = System.Drawing.Color.PeachPuff;
             this.dgrid_sanpham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrid_sanpham.Dock = System.Windows.Forms.DockStyle.Bottom;
+<<<<<<< HEAD:3_PL/View/Frm_HoaDonChiTiet.Designer.cs
             this.dgrid_sanpham.Location = new System.Drawing.Point(0, 738);
             this.dgrid_sanpham.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+=======
+            this.dgrid_sanpham.Location = new System.Drawing.Point(0, 567);
+            this.dgrid_sanpham.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+>>>>>>> 2d507ee40a47db553b63a626dca4a0408ffe36c5:3_PL/View/Frm_ReceiptDetail.Designer.cs
             this.dgrid_sanpham.Name = "dgrid_sanpham";
             this.dgrid_sanpham.RowHeadersWidth = 51;
             this.dgrid_sanpham.RowTemplate.Height = 29;
             this.dgrid_sanpham.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+<<<<<<< HEAD:3_PL/View/Frm_HoaDonChiTiet.Designer.cs
             this.dgrid_sanpham.Size = new System.Drawing.Size(1924, 312);
+=======
+            this.dgrid_sanpham.Size = new System.Drawing.Size(1003, 8);
+>>>>>>> 2d507ee40a47db553b63a626dca4a0408ffe36c5:3_PL/View/Frm_ReceiptDetail.Designer.cs
             this.dgrid_sanpham.TabIndex = 150;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+<<<<<<< HEAD:3_PL/View/Frm_HoaDonChiTiet.Designer.cs
             this.pictureBox2.Location = new System.Drawing.Point(988, 19);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
+=======
+            this.pictureBox2.Location = new System.Drawing.Point(887, 7);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
+>>>>>>> 2d507ee40a47db553b63a626dca4a0408ffe36c5:3_PL/View/Frm_ReceiptDetail.Designer.cs
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(180, 90);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -196,6 +189,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(629, 223);
             this.dataGridView1.TabIndex = 0;
             // 
+<<<<<<< HEAD:3_PL/View/Frm_HoaDonChiTiet.Designer.cs
             // textBox15
             // 
             this.textBox15.Location = new System.Drawing.Point(896, 637);
@@ -354,10 +348,13 @@
             this.label10.TabIndex = 129;
             this.label10.Text = "Ngày Nhận Hàng";
             // 
+=======
+>>>>>>> 2d507ee40a47db553b63a626dca4a0408ffe36c5:3_PL/View/Frm_ReceiptDetail.Designer.cs
             // timer1
             // 
             this.timer1.Enabled = true;
             // 
+<<<<<<< HEAD:3_PL/View/Frm_HoaDonChiTiet.Designer.cs
             // textBox9
             // 
             this.textBox9.Location = new System.Drawing.Point(896, 271);
@@ -422,6 +419,14 @@
             this.textBox6.Margin = new System.Windows.Forms.Padding(4);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(289, 37);
+=======
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(377, 253);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(372, 23);
+>>>>>>> 2d507ee40a47db553b63a626dca4a0408ffe36c5:3_PL/View/Frm_ReceiptDetail.Designer.cs
             this.textBox6.TabIndex = 122;
             // 
             // label6
@@ -429,13 +434,19 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.White;
+<<<<<<< HEAD:3_PL/View/Frm_HoaDonChiTiet.Designer.cs
             this.label6.Location = new System.Drawing.Point(39, 341);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+=======
+            this.label6.Location = new System.Drawing.Point(244, 256);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+>>>>>>> 2d507ee40a47db553b63a626dca4a0408ffe36c5:3_PL/View/Frm_ReceiptDetail.Designer.cs
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(119, 30);
             this.label6.TabIndex = 121;
             this.label6.Text = "Thành Tiền";
             // 
+<<<<<<< HEAD:3_PL/View/Frm_HoaDonChiTiet.Designer.cs
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(267, 269);
@@ -462,6 +473,14 @@
             this.textBox4.Margin = new System.Windows.Forms.Padding(4);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(289, 37);
+=======
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(377, 177);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(372, 23);
+>>>>>>> 2d507ee40a47db553b63a626dca4a0408ffe36c5:3_PL/View/Frm_ReceiptDetail.Designer.cs
             this.textBox4.TabIndex = 118;
             // 
             // label4
@@ -469,13 +488,19 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.White;
+<<<<<<< HEAD:3_PL/View/Frm_HoaDonChiTiet.Designer.cs
             this.label4.Location = new System.Drawing.Point(39, 217);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+=======
+            this.label4.Location = new System.Drawing.Point(244, 181);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+>>>>>>> 2d507ee40a47db553b63a626dca4a0408ffe36c5:3_PL/View/Frm_ReceiptDetail.Designer.cs
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(105, 30);
             this.label4.TabIndex = 117;
             this.label4.Text = "Số Lượng";
             // 
+<<<<<<< HEAD:3_PL/View/Frm_HoaDonChiTiet.Designer.cs
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(267, 151);
@@ -516,12 +541,18 @@
             this.label2.TabIndex = 113;
             this.label2.Text = "Mã Hóa Đơn Chi Tiết";
             // 
+=======
+>>>>>>> 2d507ee40a47db553b63a626dca4a0408ffe36c5:3_PL/View/Frm_ReceiptDetail.Designer.cs
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(267, 29);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
+<<<<<<< HEAD:3_PL/View/Frm_HoaDonChiTiet.Designer.cs
             this.textBox1.Size = new System.Drawing.Size(289, 37);
+=======
+            this.textBox1.Size = new System.Drawing.Size(372, 23);
+>>>>>>> 2d507ee40a47db553b63a626dca4a0408ffe36c5:3_PL/View/Frm_ReceiptDetail.Designer.cs
             this.textBox1.TabIndex = 112;
             // 
             // label1
@@ -532,17 +563,68 @@
             this.label1.Location = new System.Drawing.Point(39, 37);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
+<<<<<<< HEAD:3_PL/View/Frm_HoaDonChiTiet.Designer.cs
             this.label1.Size = new System.Drawing.Size(151, 30);
+=======
+            this.label1.Size = new System.Drawing.Size(125, 15);
+>>>>>>> 2d507ee40a47db553b63a626dca4a0408ffe36c5:3_PL/View/Frm_ReceiptDetail.Designer.cs
             this.label1.TabIndex = 111;
-            this.label1.Text = "Tên Hàng Hóa";
+            this.label1.Text = "Tên Hàng Hóa Chi Tiết";
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(377, 141);
+            this.textBox8.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(372, 23);
+            this.textBox8.TabIndex = 126;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(244, 145);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(74, 15);
+            this.label8.TabIndex = 125;
+            this.label8.Text = "Mã Hóa Đơn";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(244, 217);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(49, 15);
+            this.label2.TabIndex = 117;
+            this.label2.Text = "Đơn Giá";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(377, 213);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(372, 23);
+            this.textBox2.TabIndex = 118;
+            // 
+            // chucVuViewModelsBindingSource
+            // 
+            this.chucVuViewModelsBindingSource.DataSource = typeof(_2_BUS.ViewModels.ChucVuViewModels);
             // 
             // From_HDCT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD:3_PL/View/Frm_HoaDonChiTiet.Designer.cs
             this.BackColor = System.Drawing.Color.DarkSalmon;
             this.ClientSize = new System.Drawing.Size(1924, 1050);
             this.Controls.Add(this.dataGridView1);
+=======
+            this.BackColor = System.Drawing.Color.RosyBrown;
+            this.ClientSize = new System.Drawing.Size(1003, 575);
+>>>>>>> 2d507ee40a47db553b63a626dca4a0408ffe36c5:3_PL/View/Frm_ReceiptDetail.Designer.cs
             this.Controls.Add(this.dgrid_sanpham);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label17);
@@ -552,6 +634,7 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+<<<<<<< HEAD:3_PL/View/Frm_HoaDonChiTiet.Designer.cs
             this.Controls.Add(this.textBox15);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.textBox11);
@@ -569,20 +652,17 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.textBox9);
             this.Controls.Add(this.label9);
+=======
+            this.Controls.Add(this.groupBox1);
+>>>>>>> 2d507ee40a47db553b63a626dca4a0408ffe36c5:3_PL/View/Frm_ReceiptDetail.Designer.cs
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -594,6 +674,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_sanpham)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chucVuViewModelsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -611,39 +692,17 @@
         private Button button2;
         private Button button1;
         private DataGridView dataGridView1;
-        private TextBox textBox15;
-        private CheckBox checkBox2;
-        private TextBox textBox11;
-        private Label label16;
-        private CheckBox checkBox1;
-        private Label label15;
-        private TextBox textBox14;
-        private Label label14;
-        private TextBox textBox13;
-        private Label label13;
-        private TextBox textBox12;
-        private Label label12;
-        private Label label11;
-        private TextBox textBox10;
-        private Label label10;
         private System.Windows.Forms.Timer timer1;
-        private TextBox textBox9;
-        private Label label9;
-        private TextBox textBox8;
-        private Label label8;
-        private TextBox textBox7;
-        private Label label7;
         private TextBox textBox6;
         private Label label6;
-        private TextBox textBox5;
-        private Label label5;
         private TextBox textBox4;
         private Label label4;
-        private TextBox textBox3;
-        private Label label3;
-        private TextBox textBox2;
-        private Label label2;
         private TextBox textBox1;
         private Label label1;
+        private TextBox textBox8;
+        private Label label8;
+        private Label label2;
+        private TextBox textBox2;
+        private BindingSource chucVuViewModelsBindingSource;
     }
 }

@@ -12,7 +12,7 @@ namespace _2_BUS.Service
 {
     public class MangerServiceSaleChiTiet : ISaleDetailRepository
     {
-
+<<<<<<< HEAD
         ISaleDetailRepository _SaleDetailRepository;
         public MangerServiceSaleChiTiet()
         {
@@ -29,7 +29,7 @@ namespace _2_BUS.Service
             else return false;
         }
 
-
+=======
         public bool add(SaleChiTiet sale)
         {
             SaleChiTiet giamGia = new SaleChiTiet();
@@ -39,7 +39,7 @@ namespace _2_BUS.Service
             if (_SaleRepository.add(giamGia)) return true;
             else return false;
         }
-
+>>>>>>> 4e7de052c30ef91cc7b8ddb9f34a5d83a617da7a
 
         public List<SaleChiTiet> getAll()
         {

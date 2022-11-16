@@ -21,10 +21,5 @@ namespace _3_PL.View
         {
 
         }
-
-        private void dgrid_sanpham_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }
