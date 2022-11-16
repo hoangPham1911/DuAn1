@@ -10,9 +10,10 @@ namespace _1.DAL.IDALServices
 {
     public interface ISfattRepository
     {
-        bool addNhanVien(NhanVien nhanVien);
-        bool updateNhanVien(NhanVien nhanVien);
-        bool deleteNhanVien(NhanVien nhanVien);
-        List<NhanVien> getNhanViensFromDB();
+        bool Them(NhanVien nhanVien);
+        bool Sua(NhanVien nhanVien);
+        bool Xoa(Guid Id);
+        List<NhanVien> GetAll();
+        List<NhanVien> TimKiem(string Ma);
     }
 }

@@ -8,9 +8,10 @@ namespace _1.DAL.IDALServices
 {
     public interface IPositionRepository
     {
-        bool addChucVu(ChucVu chucVu);
-        bool updateChucVu(ChucVu chucVu);
-        bool deleteChucVu(ChucVu chucVu);
-        List<ChucVu> getChucVusFromDB();
+        bool Them(ChucVu chucVu);
+        bool Sua(ChucVu chucVu);
+        bool Xoa(Guid Id);
+        List<ChucVu> GetAll();
+        List<ChucVu> TimKiem(string Ma);
     }
 }
