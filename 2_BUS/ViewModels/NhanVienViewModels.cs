@@ -17,7 +17,12 @@ namespace _2_BUS.ViewModels
         public string TenDem { get; set; }
         
         public string Ten { get; set; }
-       
+        public string HoTen
+        {
+            get { return $"{Ho}{TenDem}{Ten}"; }
+            set { HoTen = value; }
+        }
+
         public string GioiTinh { get; set; }
        
         public DateTime? NamSinh { get; set; }

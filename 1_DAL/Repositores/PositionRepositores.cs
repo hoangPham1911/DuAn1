@@ -21,7 +21,40 @@ namespace _1.DAL.DALServices
             _lstChucVu = new List<ChucVu>();
 
         }
-        public bool addChucVu(ChucVu chucVu)
+
+        public List<ChucVu> GetAll()
+        {
+            return _DBcontext.ChucVus.ToList();
+        }
+
+        public bool Sua(ChucVu chucVu)
+        {
+            try
+            {
+                var daTaCu = _DBcontext.ChucVus.Find(chucVu.Id);
+                if (daTaCu != null)
+                {
+                    daTaCu.Id = chucVu.Id;
+                    daTaCu.Ma = chucVu.Ma;
+                    daTaCu.Ten = chucVu.Ten;
+                    _DBcontext.ChucVus.Add(daTaCu);
+                    _DBcontext.SaveChanges();
+                    return true;
+
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
+
+        public bool Them(ChucVu chucVu)
         {
             try
             {
@@ -32,45 +65,30 @@ namespace _1.DAL.DALServices
             catch (Exception)
             {
 
-                throw;
+                return false;
             }
         }
 
-        public bool deleteChucVu(ChucVu chucVu)
+        public List<ChucVu> TimKiem(string Ma)
         {
-            try
+            var danhSachChucVu = _DBcontext.ChucVus.Where(x => x.Ma.ToLower().Contains(Ma.ToLower()));
+
+            return danhSachChucVu.ToList();
+        }
+
+        public bool Xoa(Guid Id)
+        {
+            var cv1 = _DBcontext.ChucVus.Find(Id);
+            if (cv1 != null)
             {
-                _DBcontext.ChucVus.Remove(chucVu);
+                _DBcontext.ChucVus.Remove(cv1);
                 _DBcontext.SaveChanges();
                 return true;
             }
-            catch (Exception)
+            else
             {
-
-                throw;
+                return false;
             }
-        }
-
-        public List<ChucVu> getChucVusFromDB()
-        {
-            _lstChucVu = _DBcontext.ChucVus.ToList();
-            return _lstChucVu;
-        }
-
-        public bool updateChucVu(ChucVu chucVu)
-        {
-            try
-            {
-                _DBcontext.ChucVus.Update(chucVu);
-                _DBcontext.SaveChanges();
-                return true;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-
         }
     }
 }
