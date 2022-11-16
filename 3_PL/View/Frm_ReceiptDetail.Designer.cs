@@ -52,10 +52,12 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.chucVuViewModelsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_sanpham)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chucVuViewModelsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dgrid_sanpham
@@ -283,11 +285,15 @@
             this.textBox2.Size = new System.Drawing.Size(372, 23);
             this.textBox2.TabIndex = 118;
             // 
+            // chucVuViewModelsBindingSource
+            // 
+            this.chucVuViewModelsBindingSource.DataSource = typeof(_2_BUS.ViewModels.ChucVuViewModels);
+            // 
             // From_HDCT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DarkGray;
+            this.BackColor = System.Drawing.Color.RosyBrown;
             this.ClientSize = new System.Drawing.Size(1003, 575);
             this.Controls.Add(this.dgrid_sanpham);
             this.Controls.Add(this.pictureBox2);
@@ -317,6 +323,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chucVuViewModelsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -346,5 +353,6 @@
         private Label label8;
         private Label label2;
         private TextBox textBox2;
+        private BindingSource chucVuViewModelsBindingSource;
     }
 }
