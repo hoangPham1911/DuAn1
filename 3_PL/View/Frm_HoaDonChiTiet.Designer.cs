@@ -70,7 +70,7 @@
             this.dgrid_sanpham.RowHeadersWidth = 51;
             this.dgrid_sanpham.RowTemplate.Height = 29;
             this.dgrid_sanpham.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgrid_sanpham.Size = new System.Drawing.Size(1003, 8);
+            this.dgrid_sanpham.Size = new System.Drawing.Size(1085, 8);
             this.dgrid_sanpham.TabIndex = 150;
             // 
             // pictureBox2
@@ -283,7 +283,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.RosyBrown;
-            this.ClientSize = new System.Drawing.Size(1003, 575);
+            this.ClientSize = new System.Drawing.Size(1085, 575);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.dgrid_sanpham);
             this.Controls.Add(this.pictureBox2);
