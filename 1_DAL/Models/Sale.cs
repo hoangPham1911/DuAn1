@@ -26,9 +26,10 @@ namespace _1_DAL.Models
 
         [StringLength(30)]
         public string TenChuongTrinh { get; set; }
-
         public int TrangThai { get; set; }
 
+        public DateTime NgayBatDau { get; set; }
+        public DateTime NgayKetThuc { get; set; }
         public virtual ICollection<SaleChiTiet> SaleChiTiets { get; set; }
     }
 }

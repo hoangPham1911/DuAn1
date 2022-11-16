@@ -22,8 +22,7 @@ namespace _1_DAL.Models
         [Key]
         [Required]
         public Guid IdChiTietHangHoa { get; set; }
-        public DateTime NgayBatDau { get; set; }
-        public DateTime NgayKetThuc { get; set; }
+        
 
         [ForeignKey(nameof(IdSale))]
         public virtual Sale SaleNavigation { get; set; }
