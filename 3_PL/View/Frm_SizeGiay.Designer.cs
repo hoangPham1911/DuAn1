@@ -87,6 +87,7 @@
             // dgv_showsize
             // 
             this.dgv_showsize.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_showsize.BackgroundColor = System.Drawing.Color.PeachPuff;
             this.dgv_showsize.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_showsize.Location = new System.Drawing.Point(19, 41);
             this.dgv_showsize.Name = "dgv_showsize";
@@ -95,9 +96,11 @@
             this.dgv_showsize.Size = new System.Drawing.Size(916, 242);
             this.dgv_showsize.TabIndex = 0;
             this.dgv_showsize.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_showsize_CellClick);
+            this.dgv_showsize.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_showsize_CellContentClick);
             // 
             // groupBox3
             // 
+            this.groupBox3.BackColor = System.Drawing.Color.DarkSalmon;
             this.groupBox3.Controls.Add(this.dgv_showsize);
             this.groupBox3.Location = new System.Drawing.Point(12, 327);
             this.groupBox3.Name = "groupBox3";
@@ -108,22 +111,25 @@
             // 
             // btn_sua
             // 
+            this.btn_sua.BackColor = System.Drawing.Color.PeachPuff;
             this.btn_sua.Location = new System.Drawing.Point(45, 129);
             this.btn_sua.Name = "btn_sua";
             this.btn_sua.Size = new System.Drawing.Size(240, 57);
             this.btn_sua.TabIndex = 2;
             this.btn_sua.Text = "Sửa";
-            this.btn_sua.UseVisualStyleBackColor = true;
+            this.btn_sua.UseVisualStyleBackColor = false;
             this.btn_sua.Click += new System.EventHandler(this.btn_sua_Click);
             // 
             // btn_xoa
             // 
+            this.btn_xoa.BackColor = System.Drawing.Color.PeachPuff;
             this.btn_xoa.Location = new System.Drawing.Point(45, 201);
             this.btn_xoa.Name = "btn_xoa";
             this.btn_xoa.Size = new System.Drawing.Size(239, 57);
             this.btn_xoa.TabIndex = 1;
             this.btn_xoa.Text = "Xóa";
-            this.btn_xoa.UseVisualStyleBackColor = true;
+            this.btn_xoa.UseVisualStyleBackColor = false;
+            this.btn_xoa.Click += new System.EventHandler(this.btn_xoa_Click);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -134,6 +140,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.Color.DarkSalmon;
             this.groupBox2.Controls.Add(this.btn_sua);
             this.groupBox2.Controls.Add(this.btn_xoa);
             this.groupBox2.Controls.Add(this.btn_them);
@@ -146,12 +153,13 @@
             // 
             // btn_them
             // 
+            this.btn_them.BackColor = System.Drawing.Color.PeachPuff;
             this.btn_them.Location = new System.Drawing.Point(45, 57);
             this.btn_them.Name = "btn_them";
             this.btn_them.Size = new System.Drawing.Size(239, 57);
             this.btn_them.TabIndex = 0;
             this.btn_them.Text = "Thêm";
-            this.btn_them.UseVisualStyleBackColor = true;
+            this.btn_them.UseVisualStyleBackColor = false;
             this.btn_them.Click += new System.EventHandler(this.btn_them_Click);
             // 
             // rdb_het
@@ -212,6 +220,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.DarkSalmon;
             this.groupBox1.Controls.Add(this.rdb_het);
             this.groupBox1.Controls.Add(this.rdb_con);
             this.groupBox1.Controls.Add(this.tb_sosize);
@@ -237,6 +246,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.PeachPuff;
             this.ClientSize = new System.Drawing.Size(988, 622);
             this.Controls.Add(this.tb_timkiem);
             this.Controls.Add(this.label3);
@@ -245,6 +255,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "Frm_SizeGiay";
             this.Text = "Frm_SizeGiay";
+            this.Load += new System.EventHandler(this.Frm_SizeGiay_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_showsize)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);

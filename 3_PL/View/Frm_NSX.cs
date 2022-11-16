@@ -16,5 +16,10 @@ namespace _3_PL.View
         {
             InitializeComponent();
         }
+
+        private void btn_sua_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

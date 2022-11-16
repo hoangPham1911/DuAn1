@@ -82,5 +82,20 @@ namespace _3_PL.View
         {
 
         }
+
+        private void btn_xoa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgv_showsize_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void Frm_SizeGiay_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
