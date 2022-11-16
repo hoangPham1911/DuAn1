@@ -70,11 +70,6 @@ namespace _2_BUS.Services
             }
         }
 
-        public List<ThemHoaDonModels> TimKiem(string MaHoaDon)
-        {
-            throw new NotImplementedException();
-        }
-
         public string XoaHoaDon(SuaHoaDonModels SuaHD)
         {
             var idhd = _context.HoaDons.FirstOrDefault(c => c.Id == SuaHD.IdHoaDon);

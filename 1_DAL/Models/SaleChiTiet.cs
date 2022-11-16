@@ -23,6 +23,8 @@ namespace _1_DAL.Models
         [Required]
         public Guid IdChiTietHangHoa { get; set; }
         
+        public decimal? SaleTheoPhanTram { get; set; }
+        public decimal? SaleTheoKhoangTien { get; set; }
 
         [ForeignKey(nameof(IdSale))]
         public virtual Sale SaleNavigation { get; set; }

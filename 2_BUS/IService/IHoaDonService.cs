@@ -13,7 +13,6 @@ namespace _2_BUS.IServices
         string SuaHoaDon(SuaHoaDonModels Hoadonold);
         string XoaHoaDon(SuaHoaDonModels Hoadonold);
         List<ThemHoaDonModels> GetAllHoaDonDB();
-        List<ThemHoaDonModels> TimKiem(string MaHoaDon);
 
     }
 }

@@ -87,11 +87,11 @@
             // 
             // dgv_showsize
             // 
-<<<<<<< HEAD
+
             this.dgv_showsize.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_showsize.BackgroundColor = System.Drawing.Color.PeachPuff;
-=======
->>>>>>> 2d507ee40a47db553b63a626dca4a0408ffe36c5
+
+
             this.dgv_showsize.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_showsize.Location = new System.Drawing.Point(24, 23);
             this.dgv_showsize.Margin = new System.Windows.Forms.Padding(2);
@@ -100,11 +100,11 @@
             this.dgv_showsize.RowTemplate.Height = 33;
             this.dgv_showsize.Size = new System.Drawing.Size(617, 135);
             this.dgv_showsize.TabIndex = 0;
-<<<<<<< HEAD
-            this.dgv_showsize.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_showsize_CellClick);
+
+
             this.dgv_showsize.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_showsize_CellContentClick);
-=======
->>>>>>> 2d507ee40a47db553b63a626dca4a0408ffe36c5
+
+
             // 
             // groupBox3
             // 
@@ -121,33 +121,33 @@
             // 
             // btn_sua
             // 
-<<<<<<< HEAD
+
             this.btn_sua.BackColor = System.Drawing.Color.PeachPuff;
             this.btn_sua.Location = new System.Drawing.Point(45, 129);
-=======
+
             this.btn_sua.Location = new System.Drawing.Point(32, 77);
             this.btn_sua.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> 2d507ee40a47db553b63a626dca4a0408ffe36c5
+
             this.btn_sua.Name = "btn_sua";
             this.btn_sua.Size = new System.Drawing.Size(168, 34);
             this.btn_sua.TabIndex = 2;
             this.btn_sua.Text = "Sửa";
-<<<<<<< HEAD
+
             this.btn_sua.UseVisualStyleBackColor = false;
-            this.btn_sua.Click += new System.EventHandler(this.btn_sua_Click);
+     
             // 
             // btn_xoa
             // 
             this.btn_xoa.BackColor = System.Drawing.Color.PeachPuff;
             this.btn_xoa.Location = new System.Drawing.Point(45, 201);
-=======
+
             this.btn_sua.UseVisualStyleBackColor = true;
             // 
             // btn_xoa
             // 
             this.btn_xoa.Location = new System.Drawing.Point(32, 121);
             this.btn_xoa.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> 2d507ee40a47db553b63a626dca4a0408ffe36c5
+
             this.btn_xoa.Name = "btn_xoa";
             this.btn_xoa.Size = new System.Drawing.Size(167, 34);
             this.btn_xoa.TabIndex = 1;
@@ -179,23 +179,23 @@
             // 
             // btn_them
             // 
-<<<<<<< HEAD
+
             this.btn_them.BackColor = System.Drawing.Color.PeachPuff;
             this.btn_them.Location = new System.Drawing.Point(45, 57);
-=======
+
             this.btn_them.Location = new System.Drawing.Point(32, 34);
             this.btn_them.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> 2d507ee40a47db553b63a626dca4a0408ffe36c5
+
             this.btn_them.Name = "btn_them";
             this.btn_them.Size = new System.Drawing.Size(167, 34);
             this.btn_them.TabIndex = 0;
             this.btn_them.Text = "Thêm";
-<<<<<<< HEAD
+
             this.btn_them.UseVisualStyleBackColor = false;
-            this.btn_them.Click += new System.EventHandler(this.btn_them_Click);
-=======
+  
+
             this.btn_them.UseVisualStyleBackColor = true;
->>>>>>> 2d507ee40a47db553b63a626dca4a0408ffe36c5
+
             // 
             // rdb_het
             // 
@@ -290,13 +290,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-<<<<<<< HEAD
+
             this.BackColor = System.Drawing.Color.PeachPuff;
             this.ClientSize = new System.Drawing.Size(988, 622);
-=======
+
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(775, 373);
->>>>>>> 2d507ee40a47db553b63a626dca4a0408ffe36c5
+
             this.Controls.Add(this.tb_timkiem);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox3);
