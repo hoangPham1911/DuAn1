@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btn_in = new System.Windows.Forms.Button();
+            this.btn_ThanhToan = new System.Windows.Forms.Button();
+            this.tb_tienmat = new System.Windows.Forms.TextBox();
+            this.tb_khachthanhtoan = new System.Windows.Forms.TextBox();
+            this.tb_giamgia = new System.Windows.Forms.TextBox();
+            this.tb_khachcantra = new System.Windows.Forms.TextBox();
+            this.tb_thue = new System.Windows.Forms.TextBox();
+            this.tb_tongtienhang = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -43,86 +43,86 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tb_tongsoluonghang = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // button2
+            // btn_in
             // 
-            this.button2.BackColor = System.Drawing.Color.SaddleBrown;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button2.Location = new System.Drawing.Point(321, 358);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(53, 50);
-            this.button2.TabIndex = 46;
-            this.button2.Text = "In";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btn_in.BackColor = System.Drawing.Color.SaddleBrown;
+            this.btn_in.FlatAppearance.BorderSize = 0;
+            this.btn_in.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_in.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_in.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btn_in.Location = new System.Drawing.Point(321, 358);
+            this.btn_in.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_in.Name = "btn_in";
+            this.btn_in.Size = new System.Drawing.Size(53, 50);
+            this.btn_in.TabIndex = 46;
+            this.btn_in.Text = "In";
+            this.btn_in.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btn_ThanhToan
             // 
-            this.button1.BackColor = System.Drawing.Color.SaddleBrown;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button1.Location = new System.Drawing.Point(430, 358);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 50);
-            this.button1.TabIndex = 45;
-            this.button1.Text = "Thanh Toán";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btn_ThanhToan.BackColor = System.Drawing.Color.SaddleBrown;
+            this.btn_ThanhToan.FlatAppearance.BorderSize = 0;
+            this.btn_ThanhToan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ThanhToan.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_ThanhToan.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btn_ThanhToan.Location = new System.Drawing.Point(430, 358);
+            this.btn_ThanhToan.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_ThanhToan.Name = "btn_ThanhToan";
+            this.btn_ThanhToan.Size = new System.Drawing.Size(96, 50);
+            this.btn_ThanhToan.TabIndex = 45;
+            this.btn_ThanhToan.Text = "Thanh Toán";
+            this.btn_ThanhToan.UseVisualStyleBackColor = false;
             // 
-            // textBox6
+            // tb_tienmat
             // 
-            this.textBox6.Location = new System.Drawing.Point(321, 311);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(205, 23);
-            this.textBox6.TabIndex = 44;
+            this.tb_tienmat.Location = new System.Drawing.Point(321, 311);
+            this.tb_tienmat.Margin = new System.Windows.Forms.Padding(2);
+            this.tb_tienmat.Name = "tb_tienmat";
+            this.tb_tienmat.Size = new System.Drawing.Size(205, 23);
+            this.tb_tienmat.TabIndex = 44;
             // 
-            // textBox5
+            // tb_khachthanhtoan
             // 
-            this.textBox5.Location = new System.Drawing.Point(321, 264);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(205, 23);
-            this.textBox5.TabIndex = 43;
+            this.tb_khachthanhtoan.Location = new System.Drawing.Point(321, 264);
+            this.tb_khachthanhtoan.Margin = new System.Windows.Forms.Padding(2);
+            this.tb_khachthanhtoan.Name = "tb_khachthanhtoan";
+            this.tb_khachthanhtoan.Size = new System.Drawing.Size(205, 23);
+            this.tb_khachthanhtoan.TabIndex = 43;
             // 
-            // textBox3
+            // tb_giamgia
             // 
-            this.textBox3.Location = new System.Drawing.Point(321, 134);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(205, 23);
-            this.textBox3.TabIndex = 42;
+            this.tb_giamgia.Location = new System.Drawing.Point(321, 134);
+            this.tb_giamgia.Margin = new System.Windows.Forms.Padding(2);
+            this.tb_giamgia.Name = "tb_giamgia";
+            this.tb_giamgia.Size = new System.Drawing.Size(205, 23);
+            this.tb_giamgia.TabIndex = 42;
             // 
-            // textBox7
+            // tb_khachcantra
             // 
-            this.textBox7.Location = new System.Drawing.Point(321, 221);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(205, 23);
-            this.textBox7.TabIndex = 40;
+            this.tb_khachcantra.Location = new System.Drawing.Point(321, 221);
+            this.tb_khachcantra.Margin = new System.Windows.Forms.Padding(2);
+            this.tb_khachcantra.Name = "tb_khachcantra";
+            this.tb_khachcantra.Size = new System.Drawing.Size(205, 23);
+            this.tb_khachcantra.TabIndex = 40;
             // 
-            // textBox2
+            // tb_thue
             // 
-            this.textBox2.Location = new System.Drawing.Point(321, 184);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(205, 23);
-            this.textBox2.TabIndex = 41;
+            this.tb_thue.Location = new System.Drawing.Point(321, 184);
+            this.tb_thue.Margin = new System.Windows.Forms.Padding(2);
+            this.tb_thue.Name = "tb_thue";
+            this.tb_thue.Size = new System.Drawing.Size(205, 23);
+            this.tb_thue.TabIndex = 41;
             // 
-            // textBox1
+            // tb_tongtienhang
             // 
-            this.textBox1.Location = new System.Drawing.Point(321, 84);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(205, 23);
-            this.textBox1.TabIndex = 39;
+            this.tb_tongtienhang.Location = new System.Drawing.Point(321, 84);
+            this.tb_tongtienhang.Margin = new System.Windows.Forms.Padding(2);
+            this.tb_tongtienhang.Name = "tb_tongtienhang";
+            this.tb_tongtienhang.Size = new System.Drawing.Size(205, 23);
+            this.tb_tongtienhang.TabIndex = 39;
             // 
             // label8
             // 
@@ -208,13 +208,13 @@
             this.label1.TabIndex = 32;
             this.label1.Text = "Tổng Số Lượng Hàng";
             // 
-            // textBox4
+            // tb_tongsoluonghang
             // 
-            this.textBox4.Location = new System.Drawing.Point(321, 44);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(205, 23);
-            this.textBox4.TabIndex = 39;
+            this.tb_tongsoluonghang.Location = new System.Drawing.Point(321, 44);
+            this.tb_tongsoluonghang.Margin = new System.Windows.Forms.Padding(2);
+            this.tb_tongsoluonghang.Name = "tb_tongsoluonghang";
+            this.tb_tongsoluonghang.Size = new System.Drawing.Size(205, 23);
+            this.tb_tongsoluonghang.TabIndex = 39;
             // 
             // Frm_HoaDon
             // 
@@ -222,15 +222,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(700, 475);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btn_in);
+            this.Controls.Add(this.btn_ThanhToan);
+            this.Controls.Add(this.tb_tienmat);
+            this.Controls.Add(this.tb_khachthanhtoan);
+            this.Controls.Add(this.tb_giamgia);
+            this.Controls.Add(this.tb_khachcantra);
+            this.Controls.Add(this.tb_thue);
+            this.Controls.Add(this.tb_tongsoluonghang);
+            this.Controls.Add(this.tb_tongtienhang);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
@@ -251,14 +251,14 @@
 
         #endregion
 
-        private Button button2;
-        private Button button1;
-        private TextBox textBox6;
-        private TextBox textBox5;
-        private TextBox textBox3;
-        private TextBox textBox7;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private Button btn_in;
+        private Button btn_ThanhToan;
+        private TextBox tb_tienmat;
+        private TextBox tb_khachthanhtoan;
+        private TextBox tb_giamgia;
+        private TextBox tb_khachcantra;
+        private TextBox tb_thue;
+        private TextBox tb_tongtienhang;
         private Label label8;
         private Label label5;
         private Label label6;
@@ -266,6 +266,6 @@
         private Label label4;
         private Label label2;
         private Label label1;
-        private TextBox textBox4;
+        private TextBox tb_tongsoluonghang;
     }
 }
