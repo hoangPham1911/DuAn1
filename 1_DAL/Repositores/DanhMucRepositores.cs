@@ -54,6 +54,7 @@ namespace _1_DAL.Repostiores
             temtableOfContents.Ma = tableOfContents.Ma;
             temtableOfContents.Ten = tableOfContents.Ten;
             temtableOfContents.TrangThai = tableOfContents.TrangThai;
+            temtableOfContents.IdDanhMucKhac = tableOfContents.IdDanhMucKhac;
             _DbContext.DanhMucs.Update(temtableOfContents);
             _DbContext.SaveChanges();
             return true;

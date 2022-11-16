@@ -12,7 +12,6 @@ namespace _2_BUS.ViewModels
         public Guid Id { get; set; }
         public string MaGiamGia { get; set; }
         public string TenChuongTrinh { get; set; }
-
         public int TrangThai { get; set; }
     }
 }
