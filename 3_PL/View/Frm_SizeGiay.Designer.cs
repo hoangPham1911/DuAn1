@@ -69,15 +69,16 @@
             // 
             // tb_timkiem
             // 
-            this.tb_timkiem.Location = new System.Drawing.Point(215, 250);
+            this.tb_timkiem.Location = new System.Drawing.Point(148, 269);
             this.tb_timkiem.Name = "tb_timkiem";
             this.tb_timkiem.Size = new System.Drawing.Size(482, 31);
             this.tb_timkiem.TabIndex = 15;
+            this.tb_timkiem.TextChanged += new System.EventHandler(this.tb_timkiem_TextChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(98, 250);
+            this.label3.Location = new System.Drawing.Point(31, 269);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 25);
             this.label3.TabIndex = 14;
@@ -85,18 +86,20 @@
             // 
             // dgv_showsize
             // 
+            this.dgv_showsize.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_showsize.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_showsize.Location = new System.Drawing.Point(35, 39);
+            this.dgv_showsize.Location = new System.Drawing.Point(19, 41);
             this.dgv_showsize.Name = "dgv_showsize";
             this.dgv_showsize.RowHeadersWidth = 62;
             this.dgv_showsize.RowTemplate.Height = 33;
-            this.dgv_showsize.Size = new System.Drawing.Size(882, 225);
+            this.dgv_showsize.Size = new System.Drawing.Size(916, 242);
             this.dgv_showsize.TabIndex = 0;
+            this.dgv_showsize.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_showsize_CellClick);
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.dgv_showsize);
-            this.groupBox3.Location = new System.Drawing.Point(79, 308);
+            this.groupBox3.Location = new System.Drawing.Point(12, 327);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(957, 289);
             this.groupBox3.TabIndex = 13;
@@ -111,6 +114,7 @@
             this.btn_sua.TabIndex = 2;
             this.btn_sua.Text = "Sửa";
             this.btn_sua.UseVisualStyleBackColor = true;
+            this.btn_sua.Click += new System.EventHandler(this.btn_sua_Click);
             // 
             // btn_xoa
             // 
@@ -133,7 +137,7 @@
             this.groupBox2.Controls.Add(this.btn_sua);
             this.groupBox2.Controls.Add(this.btn_xoa);
             this.groupBox2.Controls.Add(this.btn_them);
-            this.groupBox2.Location = new System.Drawing.Point(712, -7);
+            this.groupBox2.Location = new System.Drawing.Point(645, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(324, 300);
             this.groupBox2.TabIndex = 12;
@@ -148,6 +152,7 @@
             this.btn_them.TabIndex = 0;
             this.btn_them.Text = "Thêm";
             this.btn_them.UseVisualStyleBackColor = true;
+            this.btn_them.Click += new System.EventHandler(this.btn_them_Click);
             // 
             // rdb_het
             // 
@@ -214,7 +219,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.tb_ma);
-            this.groupBox1.Location = new System.Drawing.Point(79, -7);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(622, 218);
             this.groupBox1.TabIndex = 11;
@@ -232,7 +237,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1107, 622);
+            this.ClientSize = new System.Drawing.Size(988, 622);
             this.Controls.Add(this.tb_timkiem);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox3);

@@ -1,6 +1,7 @@
 ﻿using _1_DAL.Context;
 using _1_DAL.IRepostiories;
 using _1_DAL.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace _1_DAL.Repostiores
         {
             try
             {
+                size.Id = Guid.NewGuid();
                 _DBcontext.SizeGiays.Add(size);
                 _DBcontext.SaveChanges();
                 return true;
@@ -36,34 +38,25 @@ namespace _1_DAL.Repostiores
             return _DBcontext.SizeGiays.ToList();
         }
 
-        public bool remove(SizeGiay id)
+        public bool remove(SizeGiay size)
         {
-            try
-            {
-                _DBcontext.SizeGiays.Remove(id);
-                _DBcontext.SaveChanges();
-                return true;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            if (size == null) return false;
+            var temsize = _DBcontext.SizeGiays.FirstOrDefault(p => p.Id == size.Id);
+            _DBcontext.SizeGiays.Remove(temsize);
+            _DBcontext.SaveChanges();
+            return true;
         }
 
         public bool update(SizeGiay size)
         {
-            try
-            {
-                _DBcontext.SizeGiays.Update(size);
-                _DBcontext.SaveChanges();
-                return true;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            if (size == null) return false;
+            var temsize = _DBcontext.SizeGiays.FirstOrDefault(p => p.Id == size.Id);
+            temsize.Ma = size.Ma;
+            temsize.SoSize = size.SoSize;
+            temsize.TrangThai = size.TrangThai;
+            _DBcontext.SizeGiays.Update(temsize);
+            _DBcontext.SaveChanges();
+            return true;
         }
     }
 }

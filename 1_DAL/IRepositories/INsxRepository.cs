@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace _1.DAL.IRepostiories
 {
-    public interface IProducterRepository
+    public interface INsxRepository
     {
         bool add(Nsx producter);
         bool remove(Nsx producter);

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace _2_BUS.Service
 {
-    public class MangerServiceSaleChiTiet : ISaleDetailRepository
+    public class MangerServiceSaleChiTiet 
     {
         ISaleDetailRepository _SaleDetailRepository;
         public MangerServiceSaleChiTiet()
@@ -27,6 +27,7 @@ namespace _2_BUS.Service
             if (_SaleDetailRepository.add(giamGia)) return true;
             else return false;
         }
+
 
         public List<SaleChiTiet> getAll()
         {

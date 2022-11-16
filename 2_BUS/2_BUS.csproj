@@ -30,8 +30,4 @@
     <ProjectReference Include="..\1_DAL\1_DAL.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
-
 </Project>
