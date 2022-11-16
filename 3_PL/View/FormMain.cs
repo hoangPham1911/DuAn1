@@ -58,7 +58,11 @@ namespace _3_PL.View
 
         private void button2_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
+           // OpenChildForm(new FormBanHang(), sender);
+=======
             //OpenChildForm(new FormBanHang(), sender);
+>>>>>>> d72efb82c455c01bc02129d122cd4ea90db35dc7
         }
 
         private void button3_Click(object sender, EventArgs e)
