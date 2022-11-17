@@ -41,12 +41,13 @@ namespace _3_PL.View
             _ListProduct = new List<SanPhamView>();
             _ListReceiptProduct = new List<SanPhamTrongHoaDonViewModels>();
             loadData();
+
         }
         public void loadData()
         {
             loadProduct();
-
             LoadReceipt();
+            
         }
         private void loadProduct()
         {
@@ -84,8 +85,7 @@ namespace _3_PL.View
               );
             }
             dgv_product.AllowUserToAddRows = false;
-
-
+            dgv_product.Columns[1].Width = 50;
         }
         private void loadReceiptDetail()
         {
@@ -107,21 +107,31 @@ namespace _3_PL.View
             }
             dgv_product.AllowUserToAddRows = false;
 
-
         }
         private void LoadReceipt()
         {
             dgv_hoaDon.Rows.Clear();
             dgv_hoaDon.ColumnCount = 5;
-  
+            dgv_hoaDon.Columns[0].Name = "IdHoaDon";
+            dgv_hoaDon.Columns[1].Name = "STT";
+
             dgv_hoaDon.Columns[0].Visible = false;
             int n = 1;
+
             _ListReceiptDetail = _HoaDonChiTietService.GetAllHoaDonDB();
             foreach (var item in _ListReceiptDetail)
             {
-                dgv_hoaDon.Rows.Add(item.IdHoaDon, n++, item.Ma, item.NgayTao, item.TinhTrang);
+                string status = "";
+                if (item.TinhTrang == 1)
+                {
+                    status = "Đã Thanh Toán";
+                }
+                else if (item.TinhTrang == 0) status = "Chờ Thanh Toán";
+                else status = "Hủy";
+                dgv_hoaDon.Rows.Add(item.IdHoaDon, n++, item.Ma, item.NgayTao, status);
             }
             dgv_hoaDon.AllowUserToAddRows = false;
+            dgv_hoaDon.Columns[1].Width = 50;
 
         }
         private void btn_FormdatHang_Click(object sender, EventArgs e)
@@ -228,12 +238,37 @@ namespace _3_PL.View
                 throw;
             }
             loadData();
-        }
-        //else
-        //{
+            //else
+            //{
 
-        //}
+            //}
+        }
+        Guid IdHoaDon; string status = "";
+        private void btn_ThanhToan_Click(object sender, EventArgs e)
+        {
+            SuaHoaDonModels suaHoaDonModels = _HoaDonService.GetAllHoaDonDB().FirstOrDefault(p => p.IdHoaDon == IdHoaDon);
+            suaHoaDonModels.TinhTrang = 1;
+            suaHoaDonModels.NgayThanhToan = DateTime.Now;
+            MessageBox.Show(_HoaDonService.SuaHoaDon(suaHoaDonModels));
+            loadData();
+        }
+
+        private void dgv_hoaDon_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            IdHoaDon = Guid.Parse(dgv_hoaDon.CurrentRow.Cells[0].Value.ToString());
+            decimal? n = 0;
+            var price = _HoaDonChiTietService.GetAllProductInReceipt().Where(p => p.IdHoaDon == IdHoaDon);
+            foreach (var item in price)
+            {
+                n += item.ThanhTien;
+            }
+            txt_tongTienHoaDon.Text = n.ToString();
+            status = dgv_hoaDon.CurrentRow.Cells[4].Value.ToString();
+            if (status == "Đã Thanh Toán") radioButton10.Checked = true;
+            else if (status == "Chờ Thanh Toán") radioButton6.Checked = true;
+
+        }
     }
 }
-    
+
 

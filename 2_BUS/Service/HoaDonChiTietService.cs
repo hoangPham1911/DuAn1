@@ -64,7 +64,7 @@ namespace _2_BUS.Service
                         SoLuong = c.SoLuong,
                         DonGia = b.GiaBan,
                         IdHoaDon = c.IdHoaDon,
-                        ThanhTien = c.ThanhTien * c.SoLuong
+                        ThanhTien = b.GiaBan * c.SoLuong
                     }).ToList();
         }
 

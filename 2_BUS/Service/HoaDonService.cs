@@ -63,20 +63,18 @@ namespace _2_BUS.Services
             if (Hoadonold == null) return "that bai";
             else
             {
-                HoaDon hd = new HoaDon()
-                {
-                    Id = Hoadonold.IdHoaDon,
-                    IdKh = Hoadonold.IdKh,
-                    IdNv = Hoadonold.IdNv,
-                    Ma = Hoadonold.Ma,
-                    NgayTao = Hoadonold.NgayTao,
-                    NgayThanhToan = Hoadonold.NgayThanhToan,
-                    NgayShip = Hoadonold.NgayShip,
-                    NgayNhan = Hoadonold.NgayNhan,
-                    TinhTrang = Hoadonold.TinhTrang,
-                    Thue = Hoadonold.Thue,
-                };
-                HoaDonRepos.addReceipt(hd);
+                var hoaDon = HoaDonRepos.getAllReceipt().FirstOrDefault(p => p.Id == Hoadonold.IdHoaDon);
+                //hoaDon.Sdt = receipt.Sdt;
+                //hoaDon.TenNguoiNhan = receipt.TenNguoiNhan;
+                //hoaDon.DiaChi = receipt.DiaChi;
+                //hoaDon.IdKh = receipt.IdKh;
+                //hoaDon.IdNv = receipt.IdNv;
+             //   hoaDon.NgayTao = Hoadonold.NgayTao;
+                //       hoaDon.NgayNhan = receipt.NgayNhan;
+                hoaDon.NgayThanhToan = Hoadonold.NgayThanhToan;
+                //   hoaDon.NgayShip = receipt.NgayShip;
+                hoaDon.TinhTrang = Hoadonold.TinhTrang;
+                HoaDonRepos.updateReceipt(hoaDon);
                 return "thanh cong";
             }
         }
