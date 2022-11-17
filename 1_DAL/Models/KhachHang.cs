@@ -45,5 +45,6 @@ namespace _1_DAL.Models
         public int DiemTichDiem { get; set; }
     //    [InverseProperty(nameof(HoaDon.IdKhNavigation))]
         public virtual ICollection<HoaDon> HoaDons { get; set; }
+        public virtual ICollection<LichSuDiemTieuDung> LichSuDiemTieuDungs { get; set; }
     }
 }

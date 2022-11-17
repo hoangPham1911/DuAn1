@@ -35,7 +35,7 @@ namespace _1_DAL.Models
         public virtual ICollection<ChiTietHangHoa> ChiTietSps { get; set; }
 
         [ForeignKey(nameof(IdNsx))]
-    //    [InverseProperty(nameof(Nsx.HangHoas))]
+        [InverseProperty(nameof(Nsx.HangHoas))]
         public virtual Nsx IdNsxNavigation { get; set; }
 
     //    [InverseProperty(nameof(KieuDanhMuc.IdDanhMucNavigation))]

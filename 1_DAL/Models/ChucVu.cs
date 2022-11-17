@@ -28,7 +28,7 @@ namespace _1_DAL.Models
 
         public int TrangThai { get; set; }
 
-   //     [InverseProperty(nameof(NhanVien.IdCvNavigation))]
+       [InverseProperty(nameof(NhanVien.IdCvNavigation))]
         public virtual ICollection<NhanVien> NhanViens { get; set; }
     }
 }

@@ -16,11 +16,11 @@ namespace _1_DAL.Models
         public string TenKieuDanhMuc { get; set; }
 
         [ForeignKey(nameof(IdDanhMuc))]
-    //    [InverseProperty(nameof(DanhMuc.KieuDanhMucs))]
+        [InverseProperty(nameof(DanhMuc.KieuDanhMucs))]
         public virtual DanhMuc IdDanhMucNavigation { get; set; }
 
         [ForeignKey(nameof(IdHangHoa))]
-   //     [InverseProperty(nameof(HangHoa))]
+        [InverseProperty(nameof(HangHoa.KieuDanhMucs))]
         public virtual HangHoa IdHangHoaNavigation { get; set; }
     }
 }

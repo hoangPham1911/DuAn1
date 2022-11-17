@@ -27,7 +27,7 @@ namespace _1_DAL.Models
         [Column(TypeName = "decimal(20, 0)")]
         public decimal? ThanhTien { get; set; }
 
-        public decimal? DonGia { get; set; }
+        public decimal? GiamGia { get; set; }
 
         [ForeignKey(nameof(IdChiTietSp))]
      //   [InverseProperty(nameof(ChiTietHangHoa.HoaDonChiTiets))]

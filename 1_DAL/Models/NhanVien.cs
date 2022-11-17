@@ -51,11 +51,11 @@ namespace _1_DAL.Models
 
         [Column("img", TypeName = "image")]
         public byte[] Anh { get; set; }
- 
+
         [ForeignKey(nameof(IdCv))]
-     //   [InverseProperty(nameof(ChucVu.NhanViens))]
+        [InverseProperty(nameof(ChucVu.NhanViens))]
         public virtual ChucVu IdCvNavigation { get; set; }
-     //   [InverseProperty(nameof(HoaDon.IdNvNavigation))]
+        //   [InverseProperty(nameof(HoaDon.IdNvNavigation))]
         public virtual ICollection<HoaDon> HoaDons { get; set; }
 
     }

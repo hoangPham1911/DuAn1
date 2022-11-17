@@ -23,6 +23,7 @@ namespace _1_DAL.Models
         public Guid IdKhachHang { get; set; }
 
         [ForeignKey(nameof(IdKhachHang))]
+        [InverseProperty(nameof(KhachHang.LichSuDiemTieuDungs))]
         public virtual KhachHang IdKhachHangNavigation { get; set; }
     }
 }

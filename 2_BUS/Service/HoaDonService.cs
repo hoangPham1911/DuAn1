@@ -15,17 +15,52 @@ namespace _2_BUS.Services
     public class HoaDonService : IHoaDonService
     {
 
-        IreceiptRepository HoaDonRepos = new ReceiptRepositores();
-        ManagerContext _context;
-        public List<ThemHoaDonModels> GetAllHoaDonDB()
+        IreceiptRepository HoaDonRepos;
+
+        public HoaDonService()
         {
-            throw new NotImplementedException();
+            HoaDonRepos = new ReceiptRepositores();
+        }
+        public List<SuaHoaDonModels> GetAllHoaDonDB()
+        {
+            return (from a in HoaDonRepos.getAllReceipt()
+                    select
+                    new SuaHoaDonModels
+                    {
+                        IdHoaDon = a.Id,
+                     //   IdKh = a.IdKh,
+                        Ma = a.Ma,
+                        NgayNhan = a.NgayNhan,
+                        NgayShip = a.NgayShip,
+                        NgayTao = a.NgayTao,
+                        NgayThanhToan = a.NgayThanhToan,
+                  //      IdNv = a.IdNv,
+                        Thue = a.Thue,
+                        TinhTrang = a.TinhTrang,
+                    }).ToList();
+
+        }
+    
+
+        public Guid GetIdHoaDon(ThemHoaDonModels IdHoaDon)
+        {
+            var hoaDon = new HoaDon();
+            hoaDon.IdKh = IdHoaDon.IdKh;
+            hoaDon.IdNv = IdHoaDon.IdNv;
+            hoaDon.Ma = IdHoaDon.Ma;
+            hoaDon.NgayTao = IdHoaDon.NgayTao;
+            hoaDon.NgayThanhToan = IdHoaDon.NgayThanhToan;
+            hoaDon.NgayShip = IdHoaDon.NgayShip;
+            hoaDon.NgayNhan = IdHoaDon.NgayNhan;
+            hoaDon.TinhTrang = IdHoaDon.TinhTrang;
+            hoaDon.Thue = IdHoaDon.Thue;
+            if (HoaDonRepos.addReceipt(hoaDon)) return hoaDon.Id;
+            return Guid.Parse(null);
         }
 
         public string SuaHoaDon(SuaHoaDonModels Hoadonold)
         {
             if (Hoadonold == null) return "that bai";
-
             else
             {
                 HoaDon hd = new HoaDon()
@@ -48,34 +83,35 @@ namespace _2_BUS.Services
 
         public string ThemHoaDon(ThemHoaDonModels Hoadonnew)
         {
-            if(Hoadonnew == null)  return "that bai"; 
+            if (Hoadonnew == null) return "that bai";
             else
             {
                 HoaDon hd = new HoaDon()
                 {
-                    Id=Guid.NewGuid(),
+                    Id = Guid.NewGuid(),
                     IdKh = Hoadonnew.IdKh,
-                    IdNv=Hoadonnew.IdNv,
-                    Ma=Hoadonnew.Ma,
-                    NgayTao=Hoadonnew.NgayTao,
-                    NgayThanhToan=Hoadonnew.NgayThanhToan,
-                    NgayShip=Hoadonnew.NgayShip,
-                    NgayNhan=Hoadonnew.NgayNhan,
-                    TinhTrang=Hoadonnew.TinhTrang,
-                    Thue=Hoadonnew.Thue,
+                    IdNv = Hoadonnew.IdNv,
+                    Ma = Hoadonnew.Ma,
+                    NgayTao = Hoadonnew.NgayTao,
+                    NgayThanhToan = Hoadonnew.NgayThanhToan,
+                    NgayShip = Hoadonnew.NgayShip,
+                    NgayNhan = Hoadonnew.NgayNhan,
+                    TinhTrang = Hoadonnew.TinhTrang,
+                    Thue = Hoadonnew.Thue,
                 };
                 HoaDonRepos.addReceipt(hd);
                 return "thanh cong";
-                
+
             }
         }
 
         public string XoaHoaDon(SuaHoaDonModels SuaHD)
         {
-            var idhd = _context.HoaDons.FirstOrDefault(c => c.Id == SuaHD.IdHoaDon);
-            HoaDonRepos.removeReceipt(idhd);
-            return "thanh cong xoa";
-           
+
+            var hoaDon = HoaDonRepos.getAllReceipt().FirstOrDefault(p => p.Id == SuaHD.IdHoaDon);
+            if (HoaDonRepos.removeReceipt(hoaDon))
+                return "thanh cong xoa";
+            return "That Bai";
         }
     }
 }

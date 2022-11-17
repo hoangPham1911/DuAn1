@@ -27,9 +27,12 @@ namespace _1_DAL.Models
         public decimal? SaleTheoKhoangTien { get; set; }
 
         [ForeignKey(nameof(IdSale))]
+        [InverseProperty(nameof(Sale.SaleChiTiets))]
+
         public virtual Sale SaleNavigation { get; set; }
 
         [ForeignKey(nameof(IdChiTietHangHoa))]
+        [InverseProperty(nameof(ChiTietHangHoa.SaleChiTiets))]
         public virtual ChiTietHangHoa ChiTietHangHoaNavigation { get; set; }
     }
 }

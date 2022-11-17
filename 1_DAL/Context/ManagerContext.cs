@@ -41,8 +41,8 @@ namespace _1_DAL.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=DESKTOP-FOR2JQI\\SQLEXPRESS;" +
-            "Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=hello;Password=hello");
+            optionsBuilder.UseSqlServer("Data Source=DESKTOP-3S50L70\\SQLEXPRESS;" +
+            "Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=hoangpham;Password=19112002");
 
             
         }
@@ -58,7 +58,7 @@ namespace _1_DAL.Context
             modelBuilder.Entity<HoaDonChiTiet>(entity =>
             {
                 entity.HasKey(e => new { e.IdChiTietSp, e.IdHoaDon });   // de tranh cho cac cap gtri trung nhau
-                entity.Property(e => e.DonGia).HasDefaultValueSql("((0))");
+                entity.Property(e => e.GiamGia).HasDefaultValueSql("((0))");
                 entity.Property(e => e.SoLuong).HasDefaultValueSql("((0))");
                 entity.HasOne(d => d.IdHoaDonNavigation)
                       .WithMany(g => g.HoaDonChiTiets)

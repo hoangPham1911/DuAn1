@@ -1,0 +1,1 @@
+select * from SanPham a join ChiTietSP b on a.Id = b.IdSP

@@ -21,7 +21,7 @@ namespace _2_BUS.Service
         public bool add(SaleChiTietThemView sale)
         {
             var addSale = new SaleChiTiet();
-
+            
             if (_SaleDetailRepository.add(addSale))
                 return true;
             return false;
