@@ -13,7 +13,6 @@ namespace _1.DAL.Repostiores
     public class ReceiptDetailRepositores : IreceiptDetailRepository
     {
         public ManagerContext _dbContext;
-        public Nsx _nsx;
 
         public ReceiptDetailRepositores()
         {

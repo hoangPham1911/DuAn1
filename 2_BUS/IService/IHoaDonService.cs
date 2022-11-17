@@ -12,7 +12,9 @@ namespace _2_BUS.IServices
         string ThemHoaDon(ThemHoaDonModels Hoadonnew);
         string SuaHoaDon(SuaHoaDonModels Hoadonold);
         string XoaHoaDon(SuaHoaDonModels Hoadonold);
-        List<ThemHoaDonModels> GetAllHoaDonDB();
+        List<SuaHoaDonModels> GetAllHoaDonDB();
+        public Guid GetIdHoaDon(ThemHoaDonModels IdHoaDon);
+       
 
     }
 }

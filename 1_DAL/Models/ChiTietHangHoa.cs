@@ -42,27 +42,29 @@ namespace _1_DAL.Models
         public decimal? GiaBan { get; set; }
 
         [ForeignKey(nameof(IdSizeGiay))]
-        //  [InverseProperty(nameof(SizeGiay.ChiTietHangHoas))]
+        [InverseProperty(nameof(SizeGiay.ChiTietHangHoas))]
         public virtual SizeGiay IdSizeNavigation { get; set; }
 
         [ForeignKey(nameof(IdLoaiGiay))]
-        //  [InverseProperty(nameof(LoaiGiay.ChiTietHangHoas))]
-        public virtual LoaiGiay IdMauSacNavigation { get; set; }
+        [InverseProperty(nameof(LoaiGiay.ChiTietHangHoas))]
+        public virtual LoaiGiay IdLoaiGiayNavigation { get; set; }
 
         [ForeignKey(nameof(IdChatLieu))]
-        //   [InverseProperty(nameof(ChatLieu))]
+       [InverseProperty(nameof(ChatLieu.ChiTietHangHoas))]
         public virtual ChatLieu IdChatLieuNavigation { get; set; }
 
         [ForeignKey(nameof(IdAnh))]
-        //   [InverseProperty(nameof(ChatLieu))]
+        [InverseProperty(nameof(Anh.ChiTietHangHoas))]
         public virtual Anh IdAnhNavigation { get; set; }
 
         [ForeignKey(nameof(IdQuocGia))]
+        [InverseProperty(nameof(QuocGia.HangHoaChiTiet))]
+
         public virtual QuocGia IdQuocGiaNavigation { get; set; }
 
         // tham chiếu tới bảng cha
         [ForeignKey(nameof(IdSp))]
-        //   [InverseProperty(nameof(HangHoa.ChiTietSps))]
+        [InverseProperty(nameof(HangHoa.ChiTietSps))]
         public virtual HangHoa IdSpNavigation { get; set; } // Thuộc tính điều hướng tham chiếu
 
         public virtual ICollection<SaleChiTiet> SaleChiTiets { get; set; }

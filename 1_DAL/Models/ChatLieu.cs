@@ -30,7 +30,7 @@ namespace _1_DAL.Models
 
         public int TrangThai { get; set; }
 
-     //   [InverseProperty(nameof(ChiTietHangHoa.IdChatLieuNavigation))]
+        [InverseProperty(nameof(ChiTietHangHoa.IdChatLieuNavigation))]
         public virtual ICollection<ChiTietHangHoa> ChiTietHangHoas { get; set; }  // tham chieu tap hop doi tuong phan nhieu
     }
 }

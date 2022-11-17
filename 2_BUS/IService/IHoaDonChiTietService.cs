@@ -12,6 +12,7 @@ namespace _2_BUS.IService
         bool ThemHoaDonChiTiet(HoaDonChiTietViewModel Hoadonnew);
         bool SuaHoaDonChiTiet(HoaDonChiTietUpdateView Hoadonold);
         bool XoaHoaDonChiTiet(Guid Hoadonold);
-        List<HoaDonChiTietViewModel> GetAllHoaDonDB();
+       public List<HoaDonChiTietViewModel> GetAllHoaDonDB();
+       public List<SanPhamTrongHoaDonViewModels> GetAllProductInReceipt();
     }
 }

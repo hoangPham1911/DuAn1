@@ -42,10 +42,10 @@ namespace _1_DAL.Models
         [StringLength(100)]
 
         [ForeignKey(nameof(IdKh))]
-     //   [InverseProperty(nameof(KhachHang.HoaDons))]
+        [InverseProperty(nameof(KhachHang.HoaDons))]
         public virtual KhachHang IdKhNavigation { get; set; }
         [ForeignKey(nameof(IdNv))]
-    //    [InverseProperty(nameof(NhanVien.HoaDons))]
+        [InverseProperty(nameof(NhanVien.HoaDons))]
         public virtual NhanVien IdNvNavigation { get; set; }
 
     //    [InverseProperty(nameof(HoaDonChiTiet.IdHoaDonNavigation))]
