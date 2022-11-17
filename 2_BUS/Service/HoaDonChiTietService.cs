@@ -34,15 +34,15 @@ namespace _2_BUS.Service
                     select new HoaDonChiTietViewModel
                     {
                         IdHoaDon = a.IdHoaDon,
-                        IdChiTietSp = a.IdChiTietSp,
+              //          IdChiTietSp = a.IdChiTietSp,
              //           SoLuong = a.SoLuong,
-                        ThanhTien = a.ThanhTien,
+              //          ThanhTien = a.ThanhTien,
                         //   IdKh = b.IdKh,
                         Ma = b.Ma,
                    //     NgayNhan = b.NgayNhan,
                     //    NgayShip = b.NgayShip,
                         NgayTao = b.NgayTao,
-                        NgayThanhToan = b.NgayThanhToan,
+                     //   NgayThanhToan = b.NgayThanhToan,
                         //  IdNv = b.IdNv,
                      //   GiamGia = a.GiamGia,
                   //      Thue = b.Thue,
@@ -81,7 +81,7 @@ namespace _2_BUS.Service
         }
 
 
-        public bool ThemHoaDonChiTiet(HoaDonChiTietViewModel Hoadons)
+        public bool ThemHoaDonChiTiet(HoaDonChiTietThemViewModel Hoadons)
         {
             HoaDonChiTiet hdct = new HoaDonChiTiet();
             hdct.IdHoaDon = Hoadons.IdHoaDon;
@@ -89,6 +89,7 @@ namespace _2_BUS.Service
             hdct.IdChiTietSp = Hoadons.IdChiTietSp;
             hdct.SoLuong = Hoadons.SoLuong;
             hdct.ThanhTien = Hoadons.ThanhTien;
+            
             if (_IreceiptDetailRepository.add(hdct)) return true;
             return false;
         }

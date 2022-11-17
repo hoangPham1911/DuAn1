@@ -22,12 +22,12 @@ namespace _3_PL.View
         IHoaDonService _HoaDonService;
         IHoaDonChiTietService _HoaDonChiTietService;
         ISanPhamService _SanPhamService;
+
         List<SanPhamView> _ListProduct;
         List<ThemHoaDonModels> _ListReceipt;
         List<Guid> _IdCTSP;
         List<HoaDonChiTietViewModel> _ListReceiptDetail;
         List<SanPhamTrongHoaDonViewModels> _ListReceiptProduct;
-        List<Guid> _IdHoaDon;
         VideoCaptureDevice videoCaptureDevice; // camera dung de ghi hinh
         FilterInfoCollection filterInfoCollection; // check xem co bao nhieu cai camera ket noi voi may tinh
         public FormBanHang()
@@ -36,7 +36,7 @@ namespace _3_PL.View
             _HoaDonChiTietService = new HoaDonChiTietService();
             _HoaDonService = new HoaDonService();
             _SanPhamService = new SanPhamService();
-
+            _IdCTSP = new List<Guid>();
             _SanPhamService = new SanPhamService();
             _ListProduct = new List<SanPhamView>();
             _ListReceiptProduct = new List<SanPhamTrongHoaDonViewModels>();
@@ -45,7 +45,7 @@ namespace _3_PL.View
         public void loadData()
         {
             loadProduct();
-            loadReceiptDetail();
+
             LoadReceipt();
         }
         private void loadProduct()
@@ -83,6 +83,9 @@ namespace _3_PL.View
               item.IdHangHoaChiTiet, item.SoLuongTon, item.IdSizeGiay, item.IdChatLieu, item.IdNsx, item.IdLoaiGiay
               );
             }
+            dgv_product.AllowUserToAddRows = false;
+
+
         }
         private void loadReceiptDetail()
         {
@@ -102,28 +105,37 @@ namespace _3_PL.View
                 item.SoLuong, item.DonGia, item.ThanhTien
                 );
             }
+            dgv_product.AllowUserToAddRows = false;
+
+
         }
         private void LoadReceipt()
         {
             dgv_hoaDon.Rows.Clear();
-            dgv_hoaDon.ColumnCount = 7;
-            dgv_hoaDon.Columns[0].Name = "IdHoaDon";
-            dgv_hoaDon.Columns[1].Name = "STT";
-            dgv_hoaDon.Columns[2].Name = "Mã Hoa Don";
-            dgv_hoaDon.Columns[3].Name = "Ngay Tao";
-            dgv_hoaDon.Columns[4].Name = "Thanh Tien";
-            dgv_hoaDon.Columns[5].Name = "Tinh Trang";
-            dgv_hoaDon.Columns[6].Name = "IdChiTietSp";
+            dgv_hoaDon.ColumnCount = 5;
+  
+            dgv_hoaDon.Columns[0].Visible = false;
             int n = 1;
             _ListReceiptDetail = _HoaDonChiTietService.GetAllHoaDonDB();
             foreach (var item in _ListReceiptDetail)
             {
-                dgv_hoaDon.Rows.Add(item.IdHoaDon, n++, item.Ma, item.NgayTao, item.ThanhTien, item.TinhTrang, item.IdChiTietSp);
+                dgv_hoaDon.Rows.Add(item.IdHoaDon, n++, item.Ma, item.NgayTao, item.TinhTrang);
             }
+            dgv_hoaDon.AllowUserToAddRows = false;
+
         }
         private void btn_FormdatHang_Click(object sender, EventArgs e)
         {
             btn_FormdatHang.Visible = true;
+        }
+
+        private Guid addHoaDon()
+        {
+            ThemHoaDonModels ThemHoaDon = new ThemHoaDonModels();
+
+            ThemHoaDon.Ma = (_HoaDonService.GetAllHoaDonDB().Count + 1).ToString();
+            ThemHoaDon.NgayTao = DateTime.Today;
+            return _HoaDonService.GetIdHoaDon(ThemHoaDon);
         }
         private void FormBanHang_Load(object sender, EventArgs e)
         {
@@ -159,7 +171,6 @@ namespace _3_PL.View
             Bitmap bit = (Bitmap)eventArgs.Frame.Clone();
             pic_cam.Image = bit;
         }
-
         private void button9_Click(object sender, EventArgs e)
         {
             if (videoCaptureDevice.IsRunning == true && videoCaptureDevice == null)
@@ -171,15 +182,9 @@ namespace _3_PL.View
                 //     videoCaptureDevice = null;
             }
         }
-        private Guid addHoaDon()
+        private void button2_Click(object sender, EventArgs e)
         {
-            ThemHoaDonModels CCV = new ThemHoaDonModels();
-            CCV.Ma = (_HoaDonService.GetAllHoaDonDB().Count + 1).ToString();
-            return _HoaDonService.GetIdHoaDon(CCV);
-
-        }
-        private void btn_taoHoaDon_Click(object sender, EventArgs e)
-        {
+            int count = 0;
             foreach (DataGridViewRow item in dgv_product.Rows)
             {
                 bool total = Convert.ToBoolean(item.Cells["choose_cb"].Value);
@@ -188,6 +193,10 @@ namespace _3_PL.View
                     _IdCTSP.Add(Guid.Parse(item.Cells[8].Value.ToString()));
                 }
             }
+            int strResults = dgv_product.Rows.Cast<DataGridViewRow>()
+                                      .Where(c => Convert.ToBoolean(c.Cells[14].Value).Equals(true)).ToList().Count;
+            //if(strResults > 1)
+            //{
             try
             {
                 if (_IdCTSP.Count == 0)
@@ -196,29 +205,35 @@ namespace _3_PL.View
                 }
                 else
                 {
-                    HoaDonChiTietViewModel HoaDonCT = new HoaDonChiTietViewModel();
+                    HoaDonChiTietThemViewModel HoaDonCT = new HoaDonChiTietThemViewModel();
                     HoaDonCT.IdHoaDon = addHoaDon();
                     foreach (var idSpCt in _IdCTSP)
                     {
                         var soLuong = 1;
-                        var donGia = _SanPhamService.GetSanPham().FirstOrDefault(p => p.IdSp == idSpCt).GiaBan;
+                        var donGia = 2;
                         var thanhTien = soLuong * donGia;
                         HoaDonCT.IdChiTietSp = idSpCt;
+                        HoaDonCT.SoLuong = soLuong;
+                        HoaDonCT.ThanhTien = thanhTien;
                         MessageBox.Show(HoaDonCT.IdHoaDon.ToString() + "-->\n" + soLuong.ToString() + "-->\n" + donGia.ToString() + "-->\n" +
                             HoaDonCT.IdChiTietSp.ToString() + "->\n" + _HoaDonChiTietService.ThemHoaDonChiTiet(HoaDonCT).ToString());
                     }
                     MessageBox.Show("Them Thanh Cong");
-
                     _IdCTSP.RemoveRange(0, _IdCTSP.Count);
                 }
-
-
             }
             catch (Exception)
             {
                 MessageBox.Show("Loi");
                 throw;
             }
+            loadData();
         }
+        //else
+        //{
+
+        //}
     }
 }
+    
+
