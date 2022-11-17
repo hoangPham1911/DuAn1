@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.bt_dangnhap = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -53,17 +53,6 @@
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(94, 397);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(165, 32);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "ĐĂNG NHẬP";
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.LightCoral;
@@ -77,6 +66,17 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(94, 397);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(165, 32);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "ĐĂNG NHẬP";
             // 
             // bt_dangnhap
             // 
@@ -94,6 +94,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Sitka Display", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.DarkRed;
             this.label2.Location = new System.Drawing.Point(432, 235);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(102, 32);
@@ -104,6 +105,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Sitka Display", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.DarkRed;
             this.label3.Location = new System.Drawing.Point(432, 131);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(163, 32);
