@@ -83,7 +83,7 @@
             this.bt_dangnhap.BackColor = System.Drawing.Color.Salmon;
             this.bt_dangnhap.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.bt_dangnhap.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.bt_dangnhap.Location = new System.Drawing.Point(490, 341);
+            this.bt_dangnhap.Location = new System.Drawing.Point(484, 338);
             this.bt_dangnhap.Name = "bt_dangnhap";
             this.bt_dangnhap.Size = new System.Drawing.Size(184, 61);
             this.bt_dangnhap.TabIndex = 1;
