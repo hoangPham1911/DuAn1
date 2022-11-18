@@ -33,16 +33,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tb_SoCCCD = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtp_NamSinh = new System.Windows.Forms.DateTimePicker();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tb_GioiTinh = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.rbtnCongTy = new System.Windows.Forms.RadioButton();
-            this.rbtCaNhan = new System.Windows.Forms.RadioButton();
+            this.rd_koHd = new System.Windows.Forms.RadioButton();
+            this.rd_hd = new System.Windows.Forms.RadioButton();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -107,6 +107,7 @@
             this.button1.Size = new System.Drawing.Size(52, 37);
             this.button1.TabIndex = 0;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBox9
             // 
@@ -118,13 +119,13 @@
             this.pictureBox9.TabIndex = 103;
             this.pictureBox9.TabStop = false;
             // 
-            // textBox2
+            // tb_SoCCCD
             // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Location = new System.Drawing.Point(215, 196);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(308, 19);
-            this.textBox2.TabIndex = 102;
+            this.tb_SoCCCD.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_SoCCCD.Location = new System.Drawing.Point(215, 196);
+            this.tb_SoCCCD.Name = "tb_SoCCCD";
+            this.tb_SoCCCD.Size = new System.Drawing.Size(308, 19);
+            this.tb_SoCCCD.TabIndex = 102;
             // 
             // label10
             // 
@@ -136,12 +137,12 @@
             this.label10.TabIndex = 101;
             this.label10.Text = "Số CCCD";
             // 
-            // dateTimePicker1
+            // dtp_NamSinh
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(215, 408);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(307, 26);
-            this.dateTimePicker1.TabIndex = 100;
+            this.dtp_NamSinh.Location = new System.Drawing.Point(215, 408);
+            this.dtp_NamSinh.Name = "dtp_NamSinh";
+            this.dtp_NamSinh.Size = new System.Drawing.Size(307, 26);
+            this.dtp_NamSinh.TabIndex = 100;
             // 
             // pictureBox8
             // 
@@ -173,13 +174,13 @@
             this.pictureBox7.TabIndex = 96;
             this.pictureBox7.TabStop = false;
             // 
-            // textBox1
+            // tb_GioiTinh
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Location = new System.Drawing.Point(215, 363);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(307, 19);
-            this.textBox1.TabIndex = 97;
+            this.tb_GioiTinh.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_GioiTinh.Location = new System.Drawing.Point(215, 363);
+            this.tb_GioiTinh.Name = "tb_GioiTinh";
+            this.tb_GioiTinh.Size = new System.Drawing.Size(307, 19);
+            this.tb_GioiTinh.TabIndex = 97;
             // 
             // label7
             // 
@@ -191,29 +192,29 @@
             this.label7.TabIndex = 95;
             this.label7.Text = "Giới tính";
             // 
-            // rbtnCongTy
+            // rd_koHd
             // 
-            this.rbtnCongTy.AutoSize = true;
-            this.rbtnCongTy.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.rbtnCongTy.Location = new System.Drawing.Point(355, 461);
-            this.rbtnCongTy.Name = "rbtnCongTy";
-            this.rbtnCongTy.Size = new System.Drawing.Size(153, 24);
-            this.rbtnCongTy.TabIndex = 81;
-            this.rbtnCongTy.TabStop = true;
-            this.rbtnCongTy.Text = "Không Hoạt Động";
-            this.rbtnCongTy.UseVisualStyleBackColor = true;
+            this.rd_koHd.AutoSize = true;
+            this.rd_koHd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.rd_koHd.Location = new System.Drawing.Point(355, 461);
+            this.rd_koHd.Name = "rd_koHd";
+            this.rd_koHd.Size = new System.Drawing.Size(153, 24);
+            this.rd_koHd.TabIndex = 81;
+            this.rd_koHd.TabStop = true;
+            this.rd_koHd.Text = "Không Hoạt Động";
+            this.rd_koHd.UseVisualStyleBackColor = true;
             // 
-            // rbtCaNhan
+            // rd_hd
             // 
-            this.rbtCaNhan.AutoSize = true;
-            this.rbtCaNhan.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.rbtCaNhan.Location = new System.Drawing.Point(215, 461);
-            this.rbtCaNhan.Name = "rbtCaNhan";
-            this.rbtCaNhan.Size = new System.Drawing.Size(103, 24);
-            this.rbtCaNhan.TabIndex = 76;
-            this.rbtCaNhan.TabStop = true;
-            this.rbtCaNhan.Text = "Hoạt Động";
-            this.rbtCaNhan.UseVisualStyleBackColor = true;
+            this.rd_hd.AutoSize = true;
+            this.rd_hd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.rd_hd.Location = new System.Drawing.Point(215, 461);
+            this.rd_hd.Name = "rd_hd";
+            this.rd_hd.Size = new System.Drawing.Size(103, 24);
+            this.rd_hd.TabIndex = 76;
+            this.rd_hd.TabStop = true;
+            this.rd_hd.Text = "Hoạt Động";
+            this.rd_hd.UseVisualStyleBackColor = true;
             // 
             // pictureBox6
             // 
@@ -314,7 +315,6 @@
             this.txtMaKH.Name = "txtMaKH";
             this.txtMaKH.Size = new System.Drawing.Size(307, 19);
             this.txtMaKH.TabIndex = 94;
-            this.txtMaKH.Text = "--Mã tự sinh--";
             // 
             // label19
             // 
@@ -402,6 +402,7 @@
             this.btnExit.TabIndex = 74;
             this.btnExit.Text = "     Bỏ qua";
             this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnSave
             // 
@@ -418,6 +419,7 @@
             this.btnSave.TabIndex = 73;
             this.btnSave.Text = "    Lưu";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // Frm_ThemKhachHang
             // 
@@ -428,16 +430,16 @@
             this.ClientSize = new System.Drawing.Size(629, 577);
             this.ControlBox = false;
             this.Controls.Add(this.pictureBox9);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.tb_SoCCCD);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtp_NamSinh);
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.pictureBox7);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tb_GioiTinh);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.rbtnCongTy);
-            this.Controls.Add(this.rbtCaNhan);
+            this.Controls.Add(this.rd_koHd);
+            this.Controls.Add(this.rd_hd);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox4);
@@ -485,16 +487,16 @@
         private Label label1;
         private Button button1;
         private PictureBox pictureBox9;
-        private TextBox textBox2;
+        private TextBox tb_SoCCCD;
         private Label label10;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dtp_NamSinh;
         private PictureBox pictureBox8;
         private Label label9;
         private PictureBox pictureBox7;
-        private TextBox textBox1;
+        private TextBox tb_GioiTinh;
         private Label label7;
-        private RadioButton rbtnCongTy;
-        private RadioButton rbtCaNhan;
+        private RadioButton rd_koHd;
+        private RadioButton rd_hd;
         private PictureBox pictureBox6;
         private PictureBox pictureBox5;
         private PictureBox pictureBox4;
