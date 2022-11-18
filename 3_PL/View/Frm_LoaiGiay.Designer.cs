@@ -28,24 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_LoaiGiay));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rdb_ngung = new System.Windows.Forms.RadioButton();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.rdb_con = new System.Windows.Forms.RadioButton();
+            this.label4 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.bt_them = new System.Windows.Forms.Button();
-            this.bt_xoa = new System.Windows.Forms.Button();
-            this.bt_sua = new System.Windows.Forms.Button();
             this.tb_timkiem = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.rdb_ngung = new System.Windows.Forms.RadioButton();
-            this.rdb_con = new System.Windows.Forms.RadioButton();
-            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btn_sua = new System.Windows.Forms.Button();
+            this.btn_xoa = new System.Windows.Forms.Button();
+            this.btn_them = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -77,6 +84,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chi tiết loại giày";
             // 
+            // rdb_ngung
+            // 
+            this.rdb_ngung.AutoSize = true;
+            this.rdb_ngung.Location = new System.Drawing.Point(394, 177);
+            this.rdb_ngung.Name = "rdb_ngung";
+            this.rdb_ngung.Size = new System.Drawing.Size(163, 29);
+            this.rdb_ngung.TabIndex = 36;
+            this.rdb_ngung.TabStop = true;
+            this.rdb_ngung.Text = "Ngừng sản xuất";
+            this.rdb_ngung.UseVisualStyleBackColor = true;
+            // 
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(242, 103);
@@ -84,6 +102,26 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(279, 31);
             this.textBox3.TabIndex = 30;
+            // 
+            // rdb_con
+            // 
+            this.rdb_con.AutoSize = true;
+            this.rdb_con.Location = new System.Drawing.Point(242, 177);
+            this.rdb_con.Name = "rdb_con";
+            this.rdb_con.Size = new System.Drawing.Size(139, 29);
+            this.rdb_con.TabIndex = 35;
+            this.rdb_con.TabStop = true;
+            this.rdb_con.Text = "Còn sản xuất";
+            this.rdb_con.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(88, 172);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(89, 25);
+            this.label4.TabIndex = 34;
+            this.label4.Text = "Trạng thái";
             // 
             // textBox2
             // 
@@ -116,60 +154,18 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.PeachPuff;
-            this.groupBox2.Controls.Add(this.bt_them);
-            this.groupBox2.Controls.Add(this.bt_xoa);
-            this.groupBox2.Controls.Add(this.bt_sua);
+            this.groupBox2.Controls.Add(this.pictureBox3);
+            this.groupBox2.Controls.Add(this.pictureBox2);
+            this.groupBox2.Controls.Add(this.pictureBox1);
+            this.groupBox2.Controls.Add(this.btn_sua);
+            this.groupBox2.Controls.Add(this.btn_xoa);
+            this.groupBox2.Controls.Add(this.btn_them);
             this.groupBox2.Location = new System.Drawing.Point(633, 27);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(332, 307);
             this.groupBox2.TabIndex = 19;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Chức năng";
-            // 
-            // bt_them
-            // 
-            this.bt_them.BackColor = System.Drawing.Color.DarkSalmon;
-            this.bt_them.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.bt_them.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bt_them.Font = new System.Drawing.Font("Segoe UI", 8.765218F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.bt_them.ForeColor = System.Drawing.Color.Brown;
-            this.bt_them.Location = new System.Drawing.Point(44, 33);
-            this.bt_them.Margin = new System.Windows.Forms.Padding(4);
-            this.bt_them.Name = "bt_them";
-            this.bt_them.Size = new System.Drawing.Size(263, 66);
-            this.bt_them.TabIndex = 34;
-            this.bt_them.Text = "Thêm";
-            this.bt_them.UseVisualStyleBackColor = false;
-            // 
-            // bt_xoa
-            // 
-            this.bt_xoa.BackColor = System.Drawing.Color.DarkSalmon;
-            this.bt_xoa.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.bt_xoa.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bt_xoa.Font = new System.Drawing.Font("Segoe UI", 8.765218F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.bt_xoa.ForeColor = System.Drawing.Color.Brown;
-            this.bt_xoa.Location = new System.Drawing.Point(44, 198);
-            this.bt_xoa.Margin = new System.Windows.Forms.Padding(4);
-            this.bt_xoa.Name = "bt_xoa";
-            this.bt_xoa.Size = new System.Drawing.Size(263, 66);
-            this.bt_xoa.TabIndex = 33;
-            this.bt_xoa.Text = "Xóa";
-            this.bt_xoa.UseVisualStyleBackColor = false;
-            // 
-            // bt_sua
-            // 
-            this.bt_sua.BackColor = System.Drawing.Color.DarkSalmon;
-            this.bt_sua.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.bt_sua.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bt_sua.Font = new System.Drawing.Font("Segoe UI", 8.765218F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.bt_sua.ForeColor = System.Drawing.Color.Brown;
-            this.bt_sua.Location = new System.Drawing.Point(44, 118);
-            this.bt_sua.Margin = new System.Windows.Forms.Padding(4);
-            this.bt_sua.Name = "bt_sua";
-            this.bt_sua.Size = new System.Drawing.Size(263, 66);
-            this.bt_sua.TabIndex = 32;
-            this.bt_sua.Text = "Sửa ";
-            this.bt_sua.UseVisualStyleBackColor = false;
             // 
             // tb_timkiem
             // 
@@ -187,36 +183,69 @@
             this.label1.TabIndex = 32;
             this.label1.Text = "Tìm kiếm";
             // 
-            // rdb_ngung
+            // pictureBox3
             // 
-            this.rdb_ngung.AutoSize = true;
-            this.rdb_ngung.Location = new System.Drawing.Point(394, 177);
-            this.rdb_ngung.Name = "rdb_ngung";
-            this.rdb_ngung.Size = new System.Drawing.Size(163, 29);
-            this.rdb_ngung.TabIndex = 36;
-            this.rdb_ngung.TabStop = true;
-            this.rdb_ngung.Text = "Ngừng sản xuất";
-            this.rdb_ngung.UseVisualStyleBackColor = true;
+            this.pictureBox3.BackColor = System.Drawing.Color.DarkSalmon;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(107, 211);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(41, 40);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 37;
+            this.pictureBox3.TabStop = false;
             // 
-            // rdb_con
+            // pictureBox2
             // 
-            this.rdb_con.AutoSize = true;
-            this.rdb_con.Location = new System.Drawing.Point(242, 177);
-            this.rdb_con.Name = "rdb_con";
-            this.rdb_con.Size = new System.Drawing.Size(139, 29);
-            this.rdb_con.TabIndex = 35;
-            this.rdb_con.TabStop = true;
-            this.rdb_con.Text = "Còn sản xuất";
-            this.rdb_con.UseVisualStyleBackColor = true;
+            this.pictureBox2.BackColor = System.Drawing.Color.DarkSalmon;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(95, 140);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(53, 33);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 36;
+            this.pictureBox2.TabStop = false;
             // 
-            // label4
+            // pictureBox1
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(88, 172);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 25);
-            this.label4.TabIndex = 34;
-            this.label4.Text = "Trạng thái";
+            this.pictureBox1.BackColor = System.Drawing.Color.DarkSalmon;
+            this.pictureBox1.Image = global::_3_PL.Properties.Resources.add_user;
+            this.pictureBox1.Location = new System.Drawing.Point(95, 58);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(53, 47);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 35;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btn_sua
+            // 
+            this.btn_sua.BackColor = System.Drawing.Color.DarkSalmon;
+            this.btn_sua.Location = new System.Drawing.Point(46, 130);
+            this.btn_sua.Name = "btn_sua";
+            this.btn_sua.Size = new System.Drawing.Size(240, 57);
+            this.btn_sua.TabIndex = 34;
+            this.btn_sua.Text = "     Sửa";
+            this.btn_sua.UseVisualStyleBackColor = false;
+            // 
+            // btn_xoa
+            // 
+            this.btn_xoa.BackColor = System.Drawing.Color.DarkSalmon;
+            this.btn_xoa.Location = new System.Drawing.Point(46, 202);
+            this.btn_xoa.Name = "btn_xoa";
+            this.btn_xoa.Size = new System.Drawing.Size(239, 57);
+            this.btn_xoa.TabIndex = 33;
+            this.btn_xoa.Text = "     Xóa";
+            this.btn_xoa.UseVisualStyleBackColor = false;
+            // 
+            // btn_them
+            // 
+            this.btn_them.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn_them.BackColor = System.Drawing.Color.DarkSalmon;
+            this.btn_them.Location = new System.Drawing.Point(46, 47);
+            this.btn_them.Name = "btn_them";
+            this.btn_them.Size = new System.Drawing.Size(239, 68);
+            this.btn_them.TabIndex = 32;
+            this.btn_them.Text = "     Thêm";
+            this.btn_them.UseVisualStyleBackColor = false;
             // 
             // Frm_LoaiGiay
             // 
@@ -236,6 +265,9 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -249,13 +281,16 @@
         private Label label3;
         private Label label2;
         private GroupBox groupBox2;
-        private Button bt_them;
-        private Button bt_xoa;
-        private Button bt_sua;
         private TextBox tb_timkiem;
         private Label label1;
         private RadioButton rdb_ngung;
         private RadioButton rdb_con;
         private Label label4;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox1;
+        private Button btn_sua;
+        private Button btn_xoa;
+        private Button btn_them;
     }
 }

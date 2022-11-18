@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_KieuDanhMuc));
             this.label1 = new System.Windows.Forms.Label();
             this.t = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -37,11 +38,17 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.bt_them = new System.Windows.Forms.Button();
-            this.bt_xoa = new System.Windows.Forms.Button();
-            this.bt_sua = new System.Windows.Forms.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btn_sua = new System.Windows.Forms.Button();
+            this.btn_xoa = new System.Windows.Forms.Button();
+            this.btn_them = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -107,10 +114,11 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.RosyBrown;
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(-2, 0);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(896, 72);
+            this.panel1.Size = new System.Drawing.Size(906, 72);
             this.panel1.TabIndex = 6;
             // 
             // label2
@@ -136,61 +144,83 @@
             this.dataGridView1.Size = new System.Drawing.Size(824, 237);
             this.dataGridView1.TabIndex = 7;
             // 
-            // bt_them
+            // pictureBox3
             // 
-            this.bt_them.BackColor = System.Drawing.Color.DarkSalmon;
-            this.bt_them.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.bt_them.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bt_them.Font = new System.Drawing.Font("Segoe UI", 8.765218F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.bt_them.ForeColor = System.Drawing.Color.Brown;
-            this.bt_them.Location = new System.Drawing.Point(597, 92);
-            this.bt_them.Margin = new System.Windows.Forms.Padding(4);
-            this.bt_them.Name = "bt_them";
-            this.bt_them.Size = new System.Drawing.Size(263, 52);
-            this.bt_them.TabIndex = 31;
-            this.bt_them.Text = "Thêm";
-            this.bt_them.UseVisualStyleBackColor = false;
+            this.pictureBox3.BackColor = System.Drawing.Color.DarkSalmon;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(660, 243);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(41, 40);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 37;
+            this.pictureBox3.TabStop = false;
             // 
-            // bt_xoa
+            // pictureBox2
             // 
-            this.bt_xoa.BackColor = System.Drawing.Color.DarkSalmon;
-            this.bt_xoa.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.bt_xoa.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bt_xoa.Font = new System.Drawing.Font("Segoe UI", 8.765218F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.bt_xoa.ForeColor = System.Drawing.Color.Brown;
-            this.bt_xoa.Location = new System.Drawing.Point(597, 212);
-            this.bt_xoa.Margin = new System.Windows.Forms.Padding(4);
-            this.bt_xoa.Name = "bt_xoa";
-            this.bt_xoa.Size = new System.Drawing.Size(263, 52);
-            this.bt_xoa.TabIndex = 30;
-            this.bt_xoa.Text = "Xóa";
-            this.bt_xoa.UseVisualStyleBackColor = false;
+            this.pictureBox2.BackColor = System.Drawing.Color.DarkSalmon;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(648, 172);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(53, 33);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 36;
+            this.pictureBox2.TabStop = false;
             // 
-            // bt_sua
+            // pictureBox1
             // 
-            this.bt_sua.BackColor = System.Drawing.Color.DarkSalmon;
-            this.bt_sua.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.bt_sua.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bt_sua.Font = new System.Drawing.Font("Segoe UI", 8.765218F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.bt_sua.ForeColor = System.Drawing.Color.Brown;
-            this.bt_sua.Location = new System.Drawing.Point(597, 152);
-            this.bt_sua.Margin = new System.Windows.Forms.Padding(4);
-            this.bt_sua.Name = "bt_sua";
-            this.bt_sua.Size = new System.Drawing.Size(263, 52);
-            this.bt_sua.TabIndex = 29;
-            this.bt_sua.Text = "Sửa ";
-            this.bt_sua.UseVisualStyleBackColor = false;
+            this.pictureBox1.BackColor = System.Drawing.Color.DarkSalmon;
+            this.pictureBox1.Image = global::_3_PL.Properties.Resources.add_user;
+            this.pictureBox1.Location = new System.Drawing.Point(648, 90);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(53, 47);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 35;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btn_sua
+            // 
+            this.btn_sua.BackColor = System.Drawing.Color.DarkSalmon;
+            this.btn_sua.Location = new System.Drawing.Point(599, 162);
+            this.btn_sua.Name = "btn_sua";
+            this.btn_sua.Size = new System.Drawing.Size(240, 57);
+            this.btn_sua.TabIndex = 34;
+            this.btn_sua.Text = "     Sửa";
+            this.btn_sua.UseVisualStyleBackColor = false;
+            // 
+            // btn_xoa
+            // 
+            this.btn_xoa.BackColor = System.Drawing.Color.DarkSalmon;
+            this.btn_xoa.Location = new System.Drawing.Point(599, 234);
+            this.btn_xoa.Name = "btn_xoa";
+            this.btn_xoa.Size = new System.Drawing.Size(239, 57);
+            this.btn_xoa.TabIndex = 33;
+            this.btn_xoa.Text = "     Xóa";
+            this.btn_xoa.UseVisualStyleBackColor = false;
+            // 
+            // btn_them
+            // 
+            this.btn_them.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn_them.BackColor = System.Drawing.Color.DarkSalmon;
+            this.btn_them.Location = new System.Drawing.Point(599, 79);
+            this.btn_them.Name = "btn_them";
+            this.btn_them.Size = new System.Drawing.Size(239, 68);
+            this.btn_them.TabIndex = 32;
+            this.btn_them.Text = "     Thêm";
+            this.btn_them.UseVisualStyleBackColor = false;
             // 
             // Frm_KieuDanhMuc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.ClientSize = new System.Drawing.Size(894, 555);
+            this.ClientSize = new System.Drawing.Size(906, 555);
             this.ControlBox = false;
-            this.Controls.Add(this.bt_them);
-            this.Controls.Add(this.bt_xoa);
-            this.Controls.Add(this.bt_sua);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.btn_sua);
+            this.Controls.Add(this.btn_xoa);
+            this.Controls.Add(this.btn_them);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.textBox1);
@@ -207,6 +237,9 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,8 +256,11 @@
         private Panel panel1;
         private Label label2;
         private DataGridView dataGridView1;
-        private Button bt_them;
-        private Button bt_xoa;
-        private Button bt_sua;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox1;
+        private Button btn_sua;
+        private Button btn_xoa;
+        private Button btn_them;
     }
 }
