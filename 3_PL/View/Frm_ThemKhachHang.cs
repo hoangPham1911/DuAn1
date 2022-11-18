@@ -39,6 +39,7 @@ namespace _3_PL.View
                 NamSinh = dtp_NamSinh.Value,
                 TrangThai = rd_hd.Checked ? 1 : 0,
             };
+            MessageBox.Show(khachHangServices.ThemKhachHang(kh));
         }
 
         private void btnExit_Click(object sender, EventArgs e)

@@ -41,10 +41,11 @@ namespace _1_DAL.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=DESKTOP-3S50L70\\SQLEXPRESS;" +
-            "Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=hoangpham;Password=19112002");
+            //optionsBuilder.UseSqlServer("Data Source=DESKTOP-PJLRIKK\SQLEXPRESS;" +
+            //"Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=hoangpham;Password=19112002");
+            optionsBuilder.UseSqlServer("Data Source=DESKTOP-PJLRIKK\\SQLEXPRESS;" +
+            "Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=ph28227;Password=ph28227");
 
-            
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
