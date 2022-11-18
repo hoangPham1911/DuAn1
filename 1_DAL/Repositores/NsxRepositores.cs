@@ -30,8 +30,7 @@ namespace _1.DAL.Repostiores
 
         public List<Nsx> getAll()
         {
-            X500DistinguishedName = 
-            return ;
+            return _dbContext.Nsxes.ToList();
         }
 
         public bool remove(Nsx producter)
