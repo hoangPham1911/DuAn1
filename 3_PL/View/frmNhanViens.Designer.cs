@@ -59,25 +59,27 @@
             this.txtMa = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dgvNhanVien = new System.Windows.Forms.DataGridView();
-            this.label14 = new System.Windows.Forms.Label();
-            this.BtnClear = new System.Windows.Forms.Button();
-            this.btnSua = new System.Windows.Forms.Button();
-            this.btnXoa = new System.Windows.Forms.Button();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnThem = new System.Windows.Forms.Button();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.btnXoa = new System.Windows.Forms.Button();
+            this.btnSua = new System.Windows.Forms.Button();
+            this.BtnClear = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dgvNhanVien = new System.Windows.Forms.DataGridView();
+            this.label14 = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -395,71 +397,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Chức năng";
             // 
-            // groupBox3
+            // pictureBox4
             // 
-            this.groupBox3.BackColor = System.Drawing.Color.PeachPuff;
-            this.groupBox3.Controls.Add(this.dgvNhanVien);
-            this.groupBox3.Location = new System.Drawing.Point(20, 518);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1161, 377);
-            this.groupBox3.TabIndex = 32;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Danh sách nhân viên";
-            // 
-            // dgvNhanVien
-            // 
-            this.dgvNhanVien.BackgroundColor = System.Drawing.Color.NavajoWhite;
-            this.dgvNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvNhanVien.Location = new System.Drawing.Point(18, 32);
-            this.dgvNhanVien.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dgvNhanVien.Name = "dgvNhanVien";
-            this.dgvNhanVien.RowHeadersWidth = 62;
-            this.dgvNhanVien.RowTemplate.Height = 25;
-            this.dgvNhanVien.Size = new System.Drawing.Size(1120, 337);
-            this.dgvNhanVien.TabIndex = 33;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(341, 477);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(84, 25);
-            this.label14.TabIndex = 63;
-            this.label14.Text = "Tìm kiếm";
-            // 
-            // BtnClear
-            // 
-            this.BtnClear.BackColor = System.Drawing.Color.LightSalmon;
-            this.BtnClear.Location = new System.Drawing.Point(47, 339);
-            this.BtnClear.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.BtnClear.Name = "BtnClear";
-            this.BtnClear.Size = new System.Drawing.Size(214, 72);
-            this.BtnClear.TabIndex = 23;
-            this.BtnClear.Text = "       Làm sạch";
-            this.BtnClear.UseVisualStyleBackColor = false;
-            // 
-            // btnSua
-            // 
-            this.btnSua.BackColor = System.Drawing.Color.LightSalmon;
-            this.btnSua.Location = new System.Drawing.Point(47, 139);
-            this.btnSua.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(214, 72);
-            this.btnSua.TabIndex = 22;
-            this.btnSua.Text = "   Sửa";
-            this.btnSua.UseVisualStyleBackColor = false;
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.BackColor = System.Drawing.Color.LightSalmon;
-            this.btnXoa.Location = new System.Drawing.Point(47, 244);
-            this.btnXoa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(214, 65);
-            this.btnXoa.TabIndex = 21;
-            this.btnXoa.Text = "   Xoá";
-            this.btnXoa.UseVisualStyleBackColor = false;
+            this.pictureBox4.BackColor = System.Drawing.Color.DarkSalmon;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(91, 354);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(41, 40);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 44;
+            this.pictureBox4.TabStop = false;
             // 
             // pictureBox3
             // 
@@ -505,16 +452,82 @@
             this.btnThem.Text = "   Thêm";
             this.btnThem.UseVisualStyleBackColor = false;
             // 
-            // pictureBox4
+            // btnXoa
             // 
-            this.pictureBox4.BackColor = System.Drawing.Color.DarkSalmon;
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(91, 354);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(41, 40);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 44;
-            this.pictureBox4.TabStop = false;
+            this.btnXoa.BackColor = System.Drawing.Color.LightSalmon;
+            this.btnXoa.Location = new System.Drawing.Point(47, 244);
+            this.btnXoa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(214, 65);
+            this.btnXoa.TabIndex = 21;
+            this.btnXoa.Text = "   Xoá";
+            this.btnXoa.UseVisualStyleBackColor = false;
+            // 
+            // btnSua
+            // 
+            this.btnSua.BackColor = System.Drawing.Color.LightSalmon;
+            this.btnSua.Location = new System.Drawing.Point(47, 139);
+            this.btnSua.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(214, 72);
+            this.btnSua.TabIndex = 22;
+            this.btnSua.Text = "   Sửa";
+            this.btnSua.UseVisualStyleBackColor = false;
+            // 
+            // BtnClear
+            // 
+            this.BtnClear.BackColor = System.Drawing.Color.LightSalmon;
+            this.BtnClear.Location = new System.Drawing.Point(47, 339);
+            this.BtnClear.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.BtnClear.Name = "BtnClear";
+            this.BtnClear.Size = new System.Drawing.Size(214, 72);
+            this.BtnClear.TabIndex = 23;
+            this.BtnClear.Text = "       Làm sạch";
+            this.BtnClear.UseVisualStyleBackColor = false;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.BackColor = System.Drawing.Color.PeachPuff;
+            this.groupBox3.Controls.Add(this.dgvNhanVien);
+            this.groupBox3.Location = new System.Drawing.Point(20, 518);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(1161, 377);
+            this.groupBox3.TabIndex = 32;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Danh sách nhân viên";
+            // 
+            // dgvNhanVien
+            // 
+            this.dgvNhanVien.BackgroundColor = System.Drawing.Color.NavajoWhite;
+            this.dgvNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvNhanVien.Location = new System.Drawing.Point(18, 32);
+            this.dgvNhanVien.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgvNhanVien.Name = "dgvNhanVien";
+            this.dgvNhanVien.RowHeadersWidth = 62;
+            this.dgvNhanVien.RowTemplate.Height = 25;
+            this.dgvNhanVien.Size = new System.Drawing.Size(1120, 337);
+            this.dgvNhanVien.TabIndex = 33;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(295, 477);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(84, 25);
+            this.label14.TabIndex = 63;
+            this.label14.Text = "Tìm kiếm";
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackColor = System.Drawing.Color.Snow;
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(386, 471);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(36, 31);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 45;
+            this.pictureBox5.TabStop = false;
             // 
             // frmNhanViens
             // 
@@ -522,6 +535,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PapayaWhip;
             this.ClientSize = new System.Drawing.Size(1201, 928);
+            this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -534,12 +548,13 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -587,5 +602,6 @@
         private Button btnXoa;
         private Button btnSua;
         private Button BtnClear;
+        private PictureBox pictureBox5;
     }
 }
