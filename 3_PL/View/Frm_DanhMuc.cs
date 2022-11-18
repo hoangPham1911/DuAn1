@@ -21,5 +21,10 @@ namespace _3_PL.View
         {
 
         }
+
+        private void btn_xoa_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
