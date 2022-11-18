@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_KhachHang));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -46,10 +47,16 @@
             this.tb_maKhachHang = new System.Windows.Forms.TextBox();
             this.tb_tenKhachHang = new System.Windows.Forms.TextBox();
             this.tb_email = new System.Windows.Forms.TextBox();
-            this.bt_sua = new System.Windows.Forms.Button();
-            this.bt_xoa = new System.Windows.Forms.Button();
-            this.bt_them = new System.Windows.Forms.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btn_sua = new System.Windows.Forms.Button();
+            this.btn_xoa = new System.Windows.Forms.Button();
+            this.btn_them = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_showKhachHang)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -111,7 +118,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 8.765218F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(16, 201);
+            this.label6.Location = new System.Drawing.Point(15, 193);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(99, 25);
@@ -122,7 +129,7 @@
             // 
             this.tb_loc.Font = new System.Drawing.Font("Segoe UI", 8.765218F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.tb_loc.Location = new System.Drawing.Point(706, 201);
-            this.tb_loc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_loc.Margin = new System.Windows.Forms.Padding(4);
             this.tb_loc.Name = "tb_loc";
             this.tb_loc.Size = new System.Drawing.Size(250, 31);
             this.tb_loc.TabIndex = 13;
@@ -142,7 +149,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 8.765218F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(985, 206);
+            this.label8.Location = new System.Drawing.Point(19, 234);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(90, 25);
@@ -153,8 +160,8 @@
             // 
             this.dtg_showKhachHang.BackgroundColor = System.Drawing.Color.SeaShell;
             this.dtg_showKhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtg_showKhachHang.Location = new System.Drawing.Point(15, 267);
-            this.dtg_showKhachHang.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtg_showKhachHang.Location = new System.Drawing.Point(15, 293);
+            this.dtg_showKhachHang.Margin = new System.Windows.Forms.Padding(4);
             this.dtg_showKhachHang.Name = "dtg_showKhachHang";
             this.dtg_showKhachHang.RowHeadersWidth = 49;
             this.dtg_showKhachHang.RowTemplate.Height = 28;
@@ -165,8 +172,8 @@
             // 
             this.cb_hoatDong.AutoSize = true;
             this.cb_hoatDong.Font = new System.Drawing.Font("Segoe UI", 8.765218F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.cb_hoatDong.Location = new System.Drawing.Point(154, 199);
-            this.cb_hoatDong.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_hoatDong.Location = new System.Drawing.Point(153, 191);
+            this.cb_hoatDong.Margin = new System.Windows.Forms.Padding(4);
             this.cb_hoatDong.Name = "cb_hoatDong";
             this.cb_hoatDong.Size = new System.Drawing.Size(129, 29);
             this.cb_hoatDong.TabIndex = 18;
@@ -177,8 +184,8 @@
             // 
             this.cb_khongHoatDong.AutoSize = true;
             this.cb_khongHoatDong.Font = new System.Drawing.Font("Segoe UI", 8.765218F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.cb_khongHoatDong.Location = new System.Drawing.Point(308, 199);
-            this.cb_khongHoatDong.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_khongHoatDong.Location = new System.Drawing.Point(307, 191);
+            this.cb_khongHoatDong.Margin = new System.Windows.Forms.Padding(4);
             this.cb_khongHoatDong.Name = "cb_khongHoatDong";
             this.cb_khongHoatDong.Size = new System.Drawing.Size(187, 29);
             this.cb_khongHoatDong.TabIndex = 19;
@@ -188,7 +195,7 @@
             // tb_diaChi
             // 
             this.tb_diaChi.Location = new System.Drawing.Point(706, 74);
-            this.tb_diaChi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_diaChi.Margin = new System.Windows.Forms.Padding(4);
             this.tb_diaChi.Name = "tb_diaChi";
             this.tb_diaChi.Size = new System.Drawing.Size(250, 31);
             this.tb_diaChi.TabIndex = 20;
@@ -196,7 +203,7 @@
             // tb_sDT
             // 
             this.tb_sDT.Location = new System.Drawing.Point(706, 130);
-            this.tb_sDT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_sDT.Margin = new System.Windows.Forms.Padding(4);
             this.tb_sDT.Name = "tb_sDT";
             this.tb_sDT.Size = new System.Drawing.Size(250, 31);
             this.tb_sDT.TabIndex = 21;
@@ -204,16 +211,16 @@
             // tb_timKiem
             // 
             this.tb_timKiem.Font = new System.Drawing.Font("Segoe UI", 8.765218F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.tb_timKiem.Location = new System.Drawing.Point(1083, 200);
-            this.tb_timKiem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_timKiem.Location = new System.Drawing.Point(154, 228);
+            this.tb_timKiem.Margin = new System.Windows.Forms.Padding(4);
             this.tb_timKiem.Name = "tb_timKiem";
-            this.tb_timKiem.Size = new System.Drawing.Size(203, 31);
+            this.tb_timKiem.Size = new System.Drawing.Size(285, 31);
             this.tb_timKiem.TabIndex = 22;
             // 
             // tb_maKhachHang
             // 
             this.tb_maKhachHang.Location = new System.Drawing.Point(191, 14);
-            this.tb_maKhachHang.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_maKhachHang.Margin = new System.Windows.Forms.Padding(4);
             this.tb_maKhachHang.Name = "tb_maKhachHang";
             this.tb_maKhachHang.Size = new System.Drawing.Size(248, 31);
             this.tb_maKhachHang.TabIndex = 23;
@@ -221,7 +228,7 @@
             // tb_tenKhachHang
             // 
             this.tb_tenKhachHang.Location = new System.Drawing.Point(191, 76);
-            this.tb_tenKhachHang.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_tenKhachHang.Margin = new System.Windows.Forms.Padding(4);
             this.tb_tenKhachHang.Name = "tb_tenKhachHang";
             this.tb_tenKhachHang.Size = new System.Drawing.Size(248, 31);
             this.tb_tenKhachHang.TabIndex = 24;
@@ -229,55 +236,74 @@
             // tb_email
             // 
             this.tb_email.Location = new System.Drawing.Point(191, 133);
-            this.tb_email.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_email.Margin = new System.Windows.Forms.Padding(4);
             this.tb_email.Name = "tb_email";
             this.tb_email.Size = new System.Drawing.Size(248, 31);
             this.tb_email.TabIndex = 25;
             // 
-            // bt_sua
+            // pictureBox3
             // 
-            this.bt_sua.BackColor = System.Drawing.Color.DarkSalmon;
-            this.bt_sua.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.bt_sua.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bt_sua.Font = new System.Drawing.Font("Segoe UI", 8.765218F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.bt_sua.ForeColor = System.Drawing.Color.Brown;
-            this.bt_sua.Location = new System.Drawing.Point(1083, 71);
-            this.bt_sua.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.bt_sua.Name = "bt_sua";
-            this.bt_sua.Size = new System.Drawing.Size(203, 52);
-            this.bt_sua.TabIndex = 26;
-            this.bt_sua.Text = "Sửa ";
-            this.bt_sua.UseVisualStyleBackColor = false;
+            this.pictureBox3.BackColor = System.Drawing.Color.DarkSalmon;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(1108, 195);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(41, 40);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 31;
+            this.pictureBox3.TabStop = false;
             // 
-            // bt_xoa
+            // pictureBox2
             // 
-            this.bt_xoa.BackColor = System.Drawing.Color.DarkSalmon;
-            this.bt_xoa.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.bt_xoa.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bt_xoa.Font = new System.Drawing.Font("Segoe UI", 8.765218F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.bt_xoa.ForeColor = System.Drawing.Color.Brown;
-            this.bt_xoa.Location = new System.Drawing.Point(1083, 131);
-            this.bt_xoa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.bt_xoa.Name = "bt_xoa";
-            this.bt_xoa.Size = new System.Drawing.Size(203, 52);
-            this.bt_xoa.TabIndex = 27;
-            this.bt_xoa.Text = "Xóa";
-            this.bt_xoa.UseVisualStyleBackColor = false;
+            this.pictureBox2.BackColor = System.Drawing.Color.DarkSalmon;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(1096, 124);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(53, 33);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 30;
+            this.pictureBox2.TabStop = false;
             // 
-            // bt_them
+            // pictureBox1
             // 
-            this.bt_them.BackColor = System.Drawing.Color.DarkSalmon;
-            this.bt_them.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.bt_them.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bt_them.Font = new System.Drawing.Font("Segoe UI", 8.765218F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.bt_them.ForeColor = System.Drawing.Color.Brown;
-            this.bt_them.Location = new System.Drawing.Point(1083, 11);
-            this.bt_them.Margin = new System.Windows.Forms.Padding(4);
-            this.bt_them.Name = "bt_them";
-            this.bt_them.Size = new System.Drawing.Size(203, 52);
-            this.bt_them.TabIndex = 28;
-            this.bt_them.Text = "Thêm";
-            this.bt_them.UseVisualStyleBackColor = false;
+            this.pictureBox1.BackColor = System.Drawing.Color.DarkSalmon;
+            this.pictureBox1.Image = global::_3_PL.Properties.Resources.add_user;
+            this.pictureBox1.Location = new System.Drawing.Point(1096, 42);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(53, 47);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 29;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btn_sua
+            // 
+            this.btn_sua.BackColor = System.Drawing.Color.DarkSalmon;
+            this.btn_sua.Location = new System.Drawing.Point(1047, 114);
+            this.btn_sua.Name = "btn_sua";
+            this.btn_sua.Size = new System.Drawing.Size(240, 57);
+            this.btn_sua.TabIndex = 28;
+            this.btn_sua.Text = "     Sửa";
+            this.btn_sua.UseVisualStyleBackColor = false;
+            // 
+            // btn_xoa
+            // 
+            this.btn_xoa.BackColor = System.Drawing.Color.DarkSalmon;
+            this.btn_xoa.Location = new System.Drawing.Point(1047, 186);
+            this.btn_xoa.Name = "btn_xoa";
+            this.btn_xoa.Size = new System.Drawing.Size(239, 57);
+            this.btn_xoa.TabIndex = 27;
+            this.btn_xoa.Text = "     Xóa";
+            this.btn_xoa.UseVisualStyleBackColor = false;
+            // 
+            // btn_them
+            // 
+            this.btn_them.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn_them.BackColor = System.Drawing.Color.DarkSalmon;
+            this.btn_them.Location = new System.Drawing.Point(1047, 31);
+            this.btn_them.Name = "btn_them";
+            this.btn_them.Size = new System.Drawing.Size(239, 68);
+            this.btn_them.TabIndex = 26;
+            this.btn_them.Text = "     Thêm";
+            this.btn_them.UseVisualStyleBackColor = false;
             // 
             // Frm_KhachHang
             // 
@@ -285,9 +311,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PeachPuff;
             this.ClientSize = new System.Drawing.Size(1329, 622);
-            this.Controls.Add(this.bt_them);
-            this.Controls.Add(this.bt_xoa);
-            this.Controls.Add(this.bt_sua);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.btn_sua);
+            this.Controls.Add(this.btn_xoa);
+            this.Controls.Add(this.btn_them);
             this.Controls.Add(this.tb_email);
             this.Controls.Add(this.tb_tenKhachHang);
             this.Controls.Add(this.tb_maKhachHang);
@@ -307,11 +336,14 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Frm_KhachHang";
             this.Text = "          ";
             this.Load += new System.EventHandler(this.Frm_KhachHang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtg_showKhachHang)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -337,8 +369,11 @@
         private TextBox tb_maKhachHang;
         private TextBox tb_tenKhachHang;
         private TextBox tb_email;
-        private Button bt_sua;
-        private Button bt_xoa;
-        private Button bt_them;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox1;
+        private Button btn_sua;
+        private Button btn_xoa;
+        private Button btn_them;
     }
 }
