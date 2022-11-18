@@ -38,7 +38,7 @@
             this.dgv_showsize = new System.Windows.Forms.DataGridView();
             this.rdb_ngung = new System.Windows.Forms.RadioButton();
             this.rdb_con = new System.Windows.Forms.RadioButton();
-            this.tb_sosize = new System.Windows.Forms.TextBox();
+            this.tb_ten = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -51,6 +51,7 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Mã = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_showsize)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -58,6 +59,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -78,7 +80,7 @@
             // 
             // tb_timkiem
             // 
-            this.tb_timkiem.Location = new System.Drawing.Point(191, 266);
+            this.tb_timkiem.Location = new System.Drawing.Point(148, 269);
             this.tb_timkiem.Name = "tb_timkiem";
             this.tb_timkiem.Size = new System.Drawing.Size(482, 31);
             this.tb_timkiem.TabIndex = 20;
@@ -86,7 +88,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(74, 266);
+            this.label3.Location = new System.Drawing.Point(12, 269);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 25);
             this.label3.TabIndex = 19;
@@ -105,7 +107,7 @@
             // 
             this.groupBox3.BackColor = System.Drawing.Color.DarkSalmon;
             this.groupBox3.Controls.Add(this.dgv_showsize);
-            this.groupBox3.Location = new System.Drawing.Point(55, 324);
+            this.groupBox3.Location = new System.Drawing.Point(12, 327);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(957, 289);
             this.groupBox3.TabIndex = 18;
@@ -122,6 +124,7 @@
             this.dgv_showsize.RowTemplate.Height = 33;
             this.dgv_showsize.Size = new System.Drawing.Size(882, 225);
             this.dgv_showsize.TabIndex = 0;
+            this.dgv_showsize.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_showsize_CellClick);
             // 
             // rdb_ngung
             // 
@@ -145,12 +148,13 @@
             this.rdb_con.Text = "Còn sản xuất";
             this.rdb_con.UseVisualStyleBackColor = true;
             // 
-            // tb_sosize
+            // tb_ten
             // 
-            this.tb_sosize.Location = new System.Drawing.Point(136, 102);
-            this.tb_sosize.Name = "tb_sosize";
-            this.tb_sosize.Size = new System.Drawing.Size(341, 31);
-            this.tb_sosize.TabIndex = 6;
+            this.tb_ten.Location = new System.Drawing.Point(136, 102);
+            this.tb_ten.Name = "tb_ten";
+            this.tb_ten.Size = new System.Drawing.Size(341, 31);
+            this.tb_ten.TabIndex = 6;
+            this.tb_ten.TextChanged += new System.EventHandler(this.tb_sosize_TextChanged);
             // 
             // label4
             // 
@@ -170,7 +174,7 @@
             this.groupBox2.Controls.Add(this.btn_sua);
             this.groupBox2.Controls.Add(this.btn_xoa);
             this.groupBox2.Controls.Add(this.btn_them);
-            this.groupBox2.Location = new System.Drawing.Point(688, 9);
+            this.groupBox2.Location = new System.Drawing.Point(645, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(324, 300);
             this.groupBox2.TabIndex = 17;
@@ -241,18 +245,19 @@
             this.btn_them.TabIndex = 32;
             this.btn_them.Text = "     Thêm";
             this.btn_them.UseVisualStyleBackColor = false;
+            this.btn_them.Click += new System.EventHandler(this.btn_them_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.DarkSalmon;
             this.groupBox1.Controls.Add(this.rdb_ngung);
             this.groupBox1.Controls.Add(this.rdb_con);
-            this.groupBox1.Controls.Add(this.tb_sosize);
+            this.groupBox1.Controls.Add(this.tb_ten);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.tb_ma);
-            this.groupBox1.Location = new System.Drawing.Point(55, 9);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(622, 218);
             this.groupBox1.TabIndex = 16;
@@ -280,12 +285,24 @@
             this.Mã.Name = "Mã";
             this.Mã.Width = 150;
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackColor = System.Drawing.Color.MistyRose;
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(102, 269);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(36, 31);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 47;
+            this.pictureBox5.TabStop = false;
+            // 
             // Frm_NSX
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PeachPuff;
-            this.ClientSize = new System.Drawing.Size(1067, 623);
+            this.ClientSize = new System.Drawing.Size(990, 623);
+            this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.tb_timkiem);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox3);
@@ -301,6 +318,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -317,7 +335,7 @@
         private DataGridView dgv_showsize;
         private RadioButton rdb_ngung;
         private RadioButton rdb_con;
-        private TextBox tb_sosize;
+        private TextBox tb_ten;
         private Label label4;
         private GroupBox groupBox2;
         private GroupBox groupBox1;
@@ -330,5 +348,6 @@
         private Button btn_sua;
         private Button btn_xoa;
         private Button btn_them;
+        private PictureBox pictureBox5;
     }
 }

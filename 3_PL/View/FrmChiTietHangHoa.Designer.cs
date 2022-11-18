@@ -42,6 +42,11 @@
             this.txt_model = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.btn_sua = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btn_them = new System.Windows.Forms.Button();
             this.cbo_tenhh = new System.Windows.Forms.ComboBox();
             this.San = new System.Windows.Forms.Label();
             this.pic_anhhanghoa = new System.Windows.Forms.PictureBox();
@@ -78,12 +83,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btn_sua = new System.Windows.Forms.Button();
             this.btn_xoa = new System.Windows.Forms.Button();
-            this.btn_them = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pic_dungtich)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_xuatxu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_nhomhuong)).BeginInit();
@@ -93,12 +93,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pic_danhmuc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_exit)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_anhhanghoa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_cammera)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // pic_dungtich
@@ -190,7 +190,7 @@
             // pic_exit
             // 
             this.pic_exit.Image = ((System.Drawing.Image)(resources.GetObject("pic_exit.Image")));
-            this.pic_exit.Location = new System.Drawing.Point(1397, 12);
+            this.pic_exit.Location = new System.Drawing.Point(1425, 12);
             this.pic_exit.Margin = new System.Windows.Forms.Padding(6, 3, 6, 3);
             this.pic_exit.Name = "pic_exit";
             this.pic_exit.Size = new System.Drawing.Size(110, 50);
@@ -231,6 +231,60 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1561, 82);
             this.panel1.TabIndex = 137;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.DarkSalmon;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(780, 18);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(53, 33);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 160;
+            this.pictureBox4.TabStop = false;
+            // 
+            // btn_sua
+            // 
+            this.btn_sua.BackColor = System.Drawing.Color.DarkSalmon;
+            this.btn_sua.Location = new System.Drawing.Point(722, 7);
+            this.btn_sua.Name = "btn_sua";
+            this.btn_sua.Size = new System.Drawing.Size(240, 57);
+            this.btn_sua.TabIndex = 156;
+            this.btn_sua.Text = "     Sửa";
+            this.btn_sua.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.DarkSalmon;
+            this.pictureBox1.Image = global::_3_PL.Properties.Resources.add_user;
+            this.pictureBox1.Location = new System.Drawing.Point(508, 18);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(53, 37);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 157;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.DarkSalmon;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(771, 17);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(53, 33);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 158;
+            this.pictureBox2.TabStop = false;
+            // 
+            // btn_them
+            // 
+            this.btn_them.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn_them.BackColor = System.Drawing.Color.DarkSalmon;
+            this.btn_them.Location = new System.Drawing.Point(459, 7);
+            this.btn_them.Name = "btn_them";
+            this.btn_them.Size = new System.Drawing.Size(239, 58);
+            this.btn_them.TabIndex = 154;
+            this.btn_them.Text = "     Thêm";
+            this.btn_them.UseVisualStyleBackColor = false;
             // 
             // cbo_tenhh
             // 
@@ -571,27 +625,6 @@
             this.pictureBox3.TabIndex = 159;
             this.pictureBox3.TabStop = false;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.DarkSalmon;
-            this.pictureBox1.Image = global::_3_PL.Properties.Resources.add_user;
-            this.pictureBox1.Location = new System.Drawing.Point(508, 18);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(53, 37);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 157;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btn_sua
-            // 
-            this.btn_sua.BackColor = System.Drawing.Color.DarkSalmon;
-            this.btn_sua.Location = new System.Drawing.Point(722, 7);
-            this.btn_sua.Name = "btn_sua";
-            this.btn_sua.Size = new System.Drawing.Size(240, 57);
-            this.btn_sua.TabIndex = 156;
-            this.btn_sua.Text = "     Sửa";
-            this.btn_sua.UseVisualStyleBackColor = false;
-            // 
             // btn_xoa
             // 
             this.btn_xoa.BackColor = System.Drawing.Color.DarkSalmon;
@@ -601,39 +634,6 @@
             this.btn_xoa.TabIndex = 155;
             this.btn_xoa.Text = "     Xóa";
             this.btn_xoa.UseVisualStyleBackColor = false;
-            // 
-            // btn_them
-            // 
-            this.btn_them.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btn_them.BackColor = System.Drawing.Color.DarkSalmon;
-            this.btn_them.Location = new System.Drawing.Point(459, 7);
-            this.btn_them.Name = "btn_them";
-            this.btn_them.Size = new System.Drawing.Size(239, 58);
-            this.btn_them.TabIndex = 154;
-            this.btn_them.Text = "     Thêm";
-            this.btn_them.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.DarkSalmon;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(771, 17);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(53, 33);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 158;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.DarkSalmon;
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(780, 18);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(53, 33);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 160;
-            this.pictureBox4.TabStop = false;
             // 
             // FrmChiTietHangHoa
             // 
@@ -701,12 +701,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pic_danhmuc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_exit)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_anhhanghoa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_cammera)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

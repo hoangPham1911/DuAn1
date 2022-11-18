@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography.X509Certificates;
 
 namespace _1.DAL.Repostiores
 {
@@ -29,7 +30,8 @@ namespace _1.DAL.Repostiores
 
         public List<Nsx> getAll()
         {
-            return _dbContext.Nsxes.ToList();
+            X500DistinguishedName = 
+            return ;
         }
 
         public bool remove(Nsx producter)
