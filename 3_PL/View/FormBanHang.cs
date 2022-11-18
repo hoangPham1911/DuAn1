@@ -47,7 +47,8 @@ namespace _3_PL.View
         {
             loadProduct();
             LoadReceipt();
-            
+
+
         }
         private void loadProduct()
         {
@@ -71,8 +72,8 @@ namespace _3_PL.View
             dgv_product.Columns[0].Visible = false;
             int n = 1;
             _ListProduct = _SanPhamService.GetSanPham();
-            //if (tb_search.Text != "")
-            //    _ListProductDetail = _productsDetailService.getAllProduct().Where(p => p.nameSp.Contains(tb_search.Text)).ToList();
+            if (tb_search.Text != "")
+                _ListProduct = _SanPhamService.GetSanPham().Where(p => p.Ten.Contains(tb_search.Text)).ToList();
             DataGridViewCheckBoxColumn check = new DataGridViewCheckBoxColumn();
             check.Name = "choose_cb";
             check.HeaderText = "Choose";
@@ -98,27 +99,26 @@ namespace _3_PL.View
             dgv_ReceiptDetail.Columns[4].Name = "Đơn Gía";
             dgv_ReceiptDetail.Columns[5].Name = "Thanh Tiền";
             int n = 1;
-            _ListReceiptProduct = _HoaDonChiTietService.GetAllProductInReceipt().ToList();
+            _ListReceiptProduct = _HoaDonChiTietService.GetAllProductInReceipt().Where(p => p.IdHoaDon == IdHoaDon).ToList();
             foreach (var item in _ListReceiptProduct)
             {
                 dgv_ReceiptDetail.Rows.Add(n++, item.MaSP, item.TenSp,
                 item.SoLuong, item.DonGia, item.ThanhTien
                 );
             }
-            dgv_product.AllowUserToAddRows = false;
+            dgv_ReceiptDetail.AllowUserToAddRows = false;
 
         }
         private void LoadReceipt()
         {
             dgv_hoaDon.Rows.Clear();
             dgv_hoaDon.ColumnCount = 5;
-            dgv_hoaDon.Columns[0].Name = "IdHoaDon";
-            dgv_hoaDon.Columns[1].Name = "STT";
-
             dgv_hoaDon.Columns[0].Visible = false;
-            int n = 1;
-
             _ListReceiptDetail = _HoaDonChiTietService.GetAllHoaDonDB();
+            int n = 1;
+            if (rbn_all.Checked) _ListReceiptDetail = _ListReceiptDetail = _HoaDonChiTietService.GetAllHoaDonDB();
+            if (rbn_DaThanhToan.Checked) _ListReceiptDetail = _HoaDonChiTietService.GetAllHoaDonDB().Where(p => p.TinhTrang == 1).ToList();
+            if (rbn_chuaThanhToan.Checked) _ListReceiptDetail = _HoaDonChiTietService.GetAllHoaDonDB().Where(p => p.TinhTrang == 2).ToList();
             foreach (var item in _ListReceiptDetail)
             {
                 string status = "";
@@ -243,11 +243,11 @@ namespace _3_PL.View
 
             //}
         }
-        Guid IdHoaDon; string status = "";
+        Guid IdHoaDon; string status = ""; string maHd = "";
         private void btn_ThanhToan_Click(object sender, EventArgs e)
         {
             SuaHoaDonModels suaHoaDonModels = _HoaDonService.GetAllHoaDonDB().FirstOrDefault(p => p.IdHoaDon == IdHoaDon);
-            suaHoaDonModels.TinhTrang = 1;
+            if (radioButton10.Checked) suaHoaDonModels.TinhTrang = 1;
             suaHoaDonModels.NgayThanhToan = DateTime.Now;
             MessageBox.Show(_HoaDonService.SuaHoaDon(suaHoaDonModels));
             loadData();
@@ -256,6 +256,7 @@ namespace _3_PL.View
         private void dgv_hoaDon_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             IdHoaDon = Guid.Parse(dgv_hoaDon.CurrentRow.Cells[0].Value.ToString());
+            maHd = dgv_hoaDon.CurrentRow.Cells[2].Value.ToString();
             decimal? n = 0;
             var price = _HoaDonChiTietService.GetAllProductInReceipt().Where(p => p.IdHoaDon == IdHoaDon);
             foreach (var item in price)
@@ -263,10 +264,117 @@ namespace _3_PL.View
                 n += item.ThanhTien;
             }
             txt_tongTienHoaDon.Text = n.ToString();
-            status = dgv_hoaDon.CurrentRow.Cells[4].Value.ToString();
-            if (status == "Đã Thanh Toán") radioButton10.Checked = true;
-            else if (status == "Chờ Thanh Toán") radioButton6.Checked = true;
 
+            status = dgv_hoaDon.CurrentRow.Cells[4].Value.ToString();
+            if (status == "Đã Thanh Toán")
+            {
+                radioButton10.Checked = true;
+                btn_ThanhToan.Enabled = false;
+            }
+
+            else if (status == "Chờ Thanh Toán") radioButton6.Checked = true;
+            if (_HoaDonService.GetAllHoaDonDB().FirstOrDefault(p => p.Ma == maHd) != null)
+            {
+                loadReceiptDetail();
+            }
+
+        }
+
+        private void rbn_DaThanhToan_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadReceipt();
+        }
+
+        private void rbn_chuaThanhToan_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadReceipt();
+
+        }
+
+        private void rbn_Huy_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadReceipt();
+
+        }
+
+        private void rbn_all_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadReceipt();
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            loadProduct();
+        }
+        int n = 0;
+        private void btn_up_Click(object sender, EventArgs e)
+        {
+            n++;
+            tb_count.Text = n.ToString();
+        }
+
+        private void btn_down_Click(object sender, EventArgs e)
+        {
+            n--;
+            tb_count.Text = n.ToString();
+            if (n <= 0)
+            {
+                n = 0;
+                tb_count.Text = n.ToString();
+            }
+        }
+        private void checkNumber(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+    (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox10_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            checkNumber(sender, e);
+        }
+
+        private void textBox7_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            checkNumber(sender, e);
+        }
+
+        private void tb_tienKhachDua_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            checkNumber(sender, e);
+        }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            label1.Text = DateTime.Now.ToLongTimeString();
+            label17.Text = DateTime.Now.ToLongDateString();
+        }
+        public void loaiTienThua()
+        {
+
+            if (decimal.TryParse(tb_tienKhachDua.Text, out decimal x))
+            {
+                tb_tienThua.Text = (decimal.Parse(tb_tienKhachDua.Text) - decimal.Parse(txt_tongTienHoaDon.Text)).ToString();
+            }
+
+        }
+        private void tb_tienThua_TextChanged(object sender, EventArgs e)
+        {
+            loaiTienThua();
+        }
+
+        private void tb_tienKhachDua_TextChanged(object sender, EventArgs e)
+        {
+            loaiTienThua();
         }
     }
 }
