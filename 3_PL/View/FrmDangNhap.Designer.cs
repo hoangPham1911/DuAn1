@@ -36,6 +36,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tb_tenguoidung = new System.Windows.Forms.TextBox();
             this.tb_mk = new System.Windows.Forms.TextBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -48,7 +49,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.ForeColor = System.Drawing.Color.IndianRed;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(247, 336);
             this.panel1.TabIndex = 0;
@@ -62,7 +63,7 @@
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.SizeAll;
             this.pictureBox1.Image = global::_3_PL.Properties.Resources.sneakers;
             this.pictureBox1.Location = new System.Drawing.Point(27, 79);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(185, 147);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -86,13 +87,14 @@
             this.bt_dangnhap.BackColor = System.Drawing.Color.Salmon;
             this.bt_dangnhap.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.bt_dangnhap.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.bt_dangnhap.Location = new System.Drawing.Point(339, 203);
-            this.bt_dangnhap.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bt_dangnhap.Location = new System.Drawing.Point(335, 231);
+            this.bt_dangnhap.Margin = new System.Windows.Forms.Padding(2);
             this.bt_dangnhap.Name = "bt_dangnhap";
             this.bt_dangnhap.Size = new System.Drawing.Size(129, 37);
             this.bt_dangnhap.TabIndex = 1;
             this.bt_dangnhap.Text = "ĐĂNG NHẬP";
             this.bt_dangnhap.UseVisualStyleBackColor = false;
+            this.bt_dangnhap.Click += new System.EventHandler(this.bt_dangnhap_Click);
             // 
             // label2
             // 
@@ -121,7 +123,7 @@
             // tb_tenguoidung
             // 
             this.tb_tenguoidung.Location = new System.Drawing.Point(302, 105);
-            this.tb_tenguoidung.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_tenguoidung.Margin = new System.Windows.Forms.Padding(2);
             this.tb_tenguoidung.Name = "tb_tenguoidung";
             this.tb_tenguoidung.Size = new System.Drawing.Size(197, 23);
             this.tb_tenguoidung.TabIndex = 4;
@@ -129,10 +131,20 @@
             // tb_mk
             // 
             this.tb_mk.Location = new System.Drawing.Point(302, 166);
-            this.tb_mk.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_mk.Margin = new System.Windows.Forms.Padding(2);
             this.tb_mk.Name = "tb_mk";
             this.tb_mk.Size = new System.Drawing.Size(197, 23);
             this.tb_mk.TabIndex = 5;
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(409, 191);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(90, 15);
+            this.linkLabel1.TabIndex = 6;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Quên Mật Khẩu";
             // 
             // FrmDangNhap
             // 
@@ -141,13 +153,14 @@
             this.BackColor = System.Drawing.Color.Moccasin;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(545, 336);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.tb_mk);
             this.Controls.Add(this.tb_tenguoidung);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.bt_dangnhap);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmDangNhap";
             this.Text = "FrmDangNhap";
             this.panel1.ResumeLayout(false);
@@ -168,5 +181,6 @@
         private Label label3;
         private TextBox tb_tenguoidung;
         private TextBox tb_mk;
+        private LinkLabel linkLabel1;
     }
 }

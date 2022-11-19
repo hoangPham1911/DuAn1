@@ -1,4 +1,7 @@
-﻿using System;
+﻿using _2_BUS.IService;
+using _2_BUS.Service;
+using _2_BUS.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,13 +15,39 @@ namespace _3_PL.View
 {
     public partial class FrmDangNhap : Form
     {
+        INhanVienServices _NhanVienServices;
+        public static Guid _IdStaff;
+
         public FrmDangNhap()
         {
             InitializeComponent();
+            _NhanVienServices = new NhanVienServices();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void bt_dangnhap_Click(object sender, EventArgs e)
+        {
+            NhanVienViewModels staff = _NhanVienServices.GetAll().FirstOrDefault(p => p.Email.Contains(tb_tenguoidung.Text));
+            var userName = _NhanVienServices.GetAll().FirstOrDefault(p => p.Ma == tb_tenguoidung.Text).Email;
+            var pass = _NhanVienServices.GetAll().FirstOrDefault(p => p.MatKhau == tb_mk.Text).MatKhau;
+            try
+            {
+                if (staff.Email == userName && staff.MatKhau == pass)
+                {
+                    _IdStaff = staff.Id;
+                    FormMain formMain = new FormMain();
+                    formMain.ShowDialog();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Mật Khẩu bạn nhập không chính xác");
+            }
+
 
         }
     }
