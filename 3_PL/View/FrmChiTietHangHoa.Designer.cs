@@ -42,7 +42,9 @@
             this.txt_model = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.btn_xoa = new System.Windows.Forms.Button();
             this.btn_sua = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -54,7 +56,6 @@
             this.btn_cammera = new System.Windows.Forms.Button();
             this.cbo_webcam = new System.Windows.Forms.ComboBox();
             this.pic_cammera = new System.Windows.Forms.PictureBox();
-            this.dtp_ngaynhap = new System.Windows.Forms.DateTimePicker();
             this.cbo_loaigiay = new System.Windows.Forms.ComboBox();
             this.cbo_tenquocgia = new System.Windows.Forms.ComboBox();
             this.cbo_sizegiay = new System.Windows.Forms.ComboBox();
@@ -69,7 +70,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.txt_giaban = new System.Windows.Forms.TextBox();
             this.bbbb = new System.Windows.Forms.Label();
             this.txt_gianhap = new System.Windows.Forms.TextBox();
@@ -82,8 +82,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.btn_xoa = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pic_dungtich)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_xuatxu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_nhomhuong)).BeginInit();
@@ -93,12 +91,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pic_danhmuc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_exit)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_anhhanghoa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_cammera)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // pic_dungtich
@@ -234,23 +232,46 @@
             this.panel1.Size = new System.Drawing.Size(1176, 49);
             this.panel1.TabIndex = 137;
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.DarkSalmon;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(738, 9);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(29, 24);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 159;
+            this.pictureBox3.TabStop = false;
+            // 
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.DarkSalmon;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(546, 11);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(37, 20);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 160;
             this.pictureBox4.TabStop = false;
             // 
+            // btn_xoa
+            // 
+            this.btn_xoa.BackColor = System.Drawing.Color.DarkSalmon;
+            this.btn_xoa.Location = new System.Drawing.Point(693, 4);
+            this.btn_xoa.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_xoa.Name = "btn_xoa";
+            this.btn_xoa.Size = new System.Drawing.Size(167, 34);
+            this.btn_xoa.TabIndex = 155;
+            this.btn_xoa.Text = "     Xóa";
+            this.btn_xoa.UseVisualStyleBackColor = false;
+            // 
             // btn_sua
             // 
             this.btn_sua.BackColor = System.Drawing.Color.DarkSalmon;
             this.btn_sua.Location = new System.Drawing.Point(505, 4);
-            this.btn_sua.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_sua.Margin = new System.Windows.Forms.Padding(2);
             this.btn_sua.Name = "btn_sua";
             this.btn_sua.Size = new System.Drawing.Size(168, 34);
             this.btn_sua.TabIndex = 156;
@@ -262,7 +283,7 @@
             this.pictureBox1.BackColor = System.Drawing.Color.DarkSalmon;
             this.pictureBox1.Image = global::_3_PL.Properties.Resources.add_user;
             this.pictureBox1.Location = new System.Drawing.Point(356, 11);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(37, 22);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -274,7 +295,7 @@
             this.pictureBox2.BackColor = System.Drawing.Color.DarkSalmon;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(540, 10);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(37, 20);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -286,7 +307,7 @@
             this.btn_them.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btn_them.BackColor = System.Drawing.Color.DarkSalmon;
             this.btn_them.Location = new System.Drawing.Point(321, 4);
-            this.btn_them.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_them.Margin = new System.Windows.Forms.Padding(2);
             this.btn_them.Name = "btn_them";
             this.btn_them.Size = new System.Drawing.Size(167, 35);
             this.btn_them.TabIndex = 154;
@@ -363,15 +384,6 @@
             this.pic_cammera.TabIndex = 130;
             this.pic_cammera.TabStop = false;
             // 
-            // dtp_ngaynhap
-            // 
-            this.dtp_ngaynhap.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_ngaynhap.Location = new System.Drawing.Point(194, 585);
-            this.dtp_ngaynhap.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.dtp_ngaynhap.Name = "dtp_ngaynhap";
-            this.dtp_ngaynhap.Size = new System.Drawing.Size(131, 23);
-            this.dtp_ngaynhap.TabIndex = 129;
-            // 
             // cbo_loaigiay
             // 
             this.cbo_loaigiay.FormattingEnabled = true;
@@ -436,7 +448,7 @@
             this.chk_hethang.AutoSize = true;
             this.chk_hethang.ForeColor = System.Drawing.Color.White;
             this.chk_hethang.Location = new System.Drawing.Point(288, 549);
-            this.chk_hethang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chk_hethang.Margin = new System.Windows.Forms.Padding(2);
             this.chk_hethang.Name = "chk_hethang";
             this.chk_hethang.Size = new System.Drawing.Size(77, 19);
             this.chk_hethang.TabIndex = 120;
@@ -448,7 +460,7 @@
             this.chk_conhang.AutoSize = true;
             this.chk_conhang.ForeColor = System.Drawing.Color.White;
             this.chk_conhang.Location = new System.Drawing.Point(194, 549);
-            this.chk_conhang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chk_conhang.Margin = new System.Windows.Forms.Padding(2);
             this.chk_conhang.Name = "chk_conhang";
             this.chk_conhang.Size = new System.Drawing.Size(80, 19);
             this.chk_conhang.TabIndex = 119;
@@ -510,21 +522,10 @@
             this.label10.TabIndex = 113;
             this.label10.Text = "Tên Chất Liệu Chính";
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(31, 585);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(91, 15);
-            this.label9.TabIndex = 112;
-            this.label9.Text = "Ngày Nhập Kho";
-            // 
             // txt_giaban
             // 
             this.txt_giaban.Location = new System.Drawing.Point(925, 387);
-            this.txt_giaban.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_giaban.Margin = new System.Windows.Forms.Padding(2);
             this.txt_giaban.Name = "txt_giaban";
             this.txt_giaban.Size = new System.Drawing.Size(131, 23);
             this.txt_giaban.TabIndex = 111;
@@ -543,7 +544,7 @@
             // txt_gianhap
             // 
             this.txt_gianhap.Location = new System.Drawing.Point(925, 357);
-            this.txt_gianhap.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_gianhap.Margin = new System.Windows.Forms.Padding(2);
             this.txt_gianhap.Name = "txt_gianhap";
             this.txt_gianhap.Size = new System.Drawing.Size(131, 23);
             this.txt_gianhap.TabIndex = 109;
@@ -562,7 +563,7 @@
             // txt_soluong
             // 
             this.txt_soluong.Location = new System.Drawing.Point(194, 516);
-            this.txt_soluong.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_soluong.Margin = new System.Windows.Forms.Padding(2);
             this.txt_soluong.Name = "txt_soluong";
             this.txt_soluong.Size = new System.Drawing.Size(133, 23);
             this.txt_soluong.TabIndex = 107;
@@ -581,7 +582,7 @@
             // txt_mavach
             // 
             this.txt_mavach.Location = new System.Drawing.Point(194, 424);
-            this.txt_mavach.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_mavach.Margin = new System.Windows.Forms.Padding(2);
             this.txt_mavach.Name = "txt_mavach";
             this.txt_mavach.Size = new System.Drawing.Size(133, 23);
             this.txt_mavach.TabIndex = 105;
@@ -641,29 +642,6 @@
             this.label1.TabIndex = 100;
             this.label1.Text = "Mã Hàng Hóa";
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.DarkSalmon;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(738, 9);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(29, 24);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 159;
-            this.pictureBox3.TabStop = false;
-            // 
-            // btn_xoa
-            // 
-            this.btn_xoa.BackColor = System.Drawing.Color.DarkSalmon;
-            this.btn_xoa.Location = new System.Drawing.Point(693, 4);
-            this.btn_xoa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btn_xoa.Name = "btn_xoa";
-            this.btn_xoa.Size = new System.Drawing.Size(167, 34);
-            this.btn_xoa.TabIndex = 155;
-            this.btn_xoa.Text = "     Xóa";
-            this.btn_xoa.UseVisualStyleBackColor = false;
-            // 
             // FrmChiTietHangHoa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -689,7 +667,6 @@
             this.Controls.Add(this.btn_cammera);
             this.Controls.Add(this.cbo_webcam);
             this.Controls.Add(this.pic_cammera);
-            this.Controls.Add(this.dtp_ngaynhap);
             this.Controls.Add(this.cbo_loaigiay);
             this.Controls.Add(this.cbo_tenquocgia);
             this.Controls.Add(this.cbo_sizegiay);
@@ -703,7 +680,6 @@
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.txt_giaban);
             this.Controls.Add(this.bbbb);
             this.Controls.Add(this.txt_gianhap);
@@ -728,12 +704,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pic_danhmuc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_exit)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_anhhanghoa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_cammera)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -760,7 +736,6 @@
         private Button btn_cammera;
         private ComboBox cbo_webcam;
         private PictureBox pic_cammera;
-        private DateTimePicker dtp_ngaynhap;
         private ComboBox cbo_loaigiay;
         private ComboBox cbo_tenquocgia;
         private ComboBox cbo_sizegiay;
@@ -775,7 +750,6 @@
         private Label label13;
         private Label label12;
         private Label label10;
-        private Label label9;
         private TextBox txt_giaban;
         private Label bbbb;
         private TextBox txt_gianhap;
