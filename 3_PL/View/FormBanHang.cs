@@ -14,6 +14,7 @@ using _2_BUS.IServices;
 using _2_BUS.IService;
 using _2_BUS.ViewModels;
 using _2_BUS.Service;
+using System.Runtime.CompilerServices;
 
 namespace _3_PL.View
 {
@@ -28,7 +29,8 @@ namespace _3_PL.View
         List<Guid> _IdCTSP;
         List<HoaDonChiTietViewModel> _ListReceiptDetail;
         List<SanPhamTrongHoaDonViewModels> _ListReceiptProduct;
-        VideoCaptureDevice videoCaptureDevice; // camera dung de ghi hinh
+        VideoCaptureDevice videoCaptureDevice;
+        // camera dung de ghi hinh
         FilterInfoCollection filterInfoCollection; // check xem co bao nhieu cai camera ket noi voi may tinh
         public FormBanHang()
         {
@@ -40,18 +42,25 @@ namespace _3_PL.View
             _SanPhamService = new SanPhamService();
             _ListProduct = new List<SanPhamView>();
             _ListReceiptProduct = new List<SanPhamTrongHoaDonViewModels>();
-            loadData();
-
-        }
-        public void loadData()
-        {
             loadProduct();
             LoadReceipt();
-
-
+            loadReceiptDetail();
+            LoadCbxRank();
+        }
+        void LoadCbxRank()
+        {
+            cbxRank.Items.Add("Bạc");
+            cbxRank.Items.Add("Vàng");
+            cbxRank.Items.Add("Kim cương");
+            cbxRank.SelectedIndex = 0;
         }
         private void loadProduct()
         {
+            //if (InvokeRequired)
+            //{
+            //    this.Invoke(new MethodInvoker(loadProduct));
+            //    return;
+            //}
             dgv_product.Rows.Clear();
             dgv_product.ColumnCount = 14;
             dgv_product.Columns[0].Name = "IdSp";
@@ -90,6 +99,12 @@ namespace _3_PL.View
         }
         private void loadReceiptDetail()
         {
+
+            //if (InvokeRequired)
+            //{
+            //    this.Invoke(new MethodInvoker(loadReceiptDetail));
+            //    return;
+            //}
             dgv_ReceiptDetail.Rows.Clear();
             dgv_ReceiptDetail.ColumnCount = 6;
             dgv_ReceiptDetail.Columns[0].Name = "STT";
@@ -111,6 +126,12 @@ namespace _3_PL.View
         }
         private void LoadReceipt()
         {
+
+            //if (InvokeRequired)
+            //{
+            //    this.Invoke(new MethodInvoker(LoadReceipt));
+            //    return;
+            //}
             dgv_hoaDon.Rows.Clear();
             dgv_hoaDon.ColumnCount = 5;
             dgv_hoaDon.Columns[0].Visible = false;
@@ -132,7 +153,32 @@ namespace _3_PL.View
             }
             dgv_hoaDon.AllowUserToAddRows = false;
             dgv_hoaDon.Columns[1].Width = 50;
+        }
 
+        void refreshcam()
+        {
+            try
+            {
+                if (InvokeRequired)
+                {
+                    this.Invoke(new MethodInvoker(refreshcam));
+                    return;
+                }
+                if (pic_cam.Image != null)
+                {
+                    pic_cam.Image = null;
+                    pic_cam.ImageLocation = null;
+                    //pic_cam.Image = null;
+                    pic_cam.Update();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(Convert.ToString(ex), "Liên Hệ Với 19008198 để sửa lỗi");
+                return;
+
+            }
         }
         private void btn_FormdatHang_Click(object sender, EventArgs e)
         {
@@ -150,12 +196,10 @@ namespace _3_PL.View
         private void FormBanHang_Load(object sender, EventArgs e)
         {
             filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-            foreach (FilterInfo item in filterInfoCollection)
-            {
-                cbo_webcam.Items.Add(item.Name);
-            }
+            foreach (FilterInfo device in filterInfoCollection)
+                cbo_webcam.Items.Add(device.Name);
             cbo_webcam.SelectedIndex = 0;
-            videoCaptureDevice = new VideoCaptureDevice();
+
         }
         private void button8_Click_1(object sender, EventArgs e)
         {
@@ -180,18 +224,24 @@ namespace _3_PL.View
         {
             Bitmap bit = (Bitmap)eventArgs.Frame.Clone();
             pic_cam.Image = bit;
+            if(videoCaptureDevice.IsRunning ) 
+          refreshcam();
         }
+        //protected override void OnClosed(EventArgs e)
+        //{
+        //    base.OnClosed(e);
+        //    if (videoCaptureDevice != null || videoCaptureDevice.IsRunning)
+        //    {
+        //        videoCaptureDevice.WaitForStop();
+        //        videoCaptureDevice.SignalToStop();
+        //        videoCaptureDevice.Stop();
+        //    }
+        //}
         private void button9_Click(object sender, EventArgs e)
         {
-            if (videoCaptureDevice.IsRunning == true && videoCaptureDevice == null)
-            {
-                //videoCaptureDevice.SignalToStop();
-                // videoCaptureDevice.WaitForStop();
-                //videoCaptureDevice.NewFrame -=  VideoCaptureDevice_NewFrame;
-                videoCaptureDevice.Stop();
-                //     videoCaptureDevice = null;
-            }
+            refreshcam();
         }
+
         private void button2_Click(object sender, EventArgs e)
         {
             int count = 0;
@@ -237,7 +287,10 @@ namespace _3_PL.View
                 MessageBox.Show("Loi");
                 throw;
             }
-            loadData();
+            loadProduct();
+            LoadReceipt();
+            loadReceiptDetail();
+
             //else
             //{
 
@@ -250,7 +303,10 @@ namespace _3_PL.View
             if (radioButton10.Checked) suaHoaDonModels.TinhTrang = 1;
             suaHoaDonModels.NgayThanhToan = DateTime.Now;
             MessageBox.Show(_HoaDonService.SuaHoaDon(suaHoaDonModels));
-            loadData();
+            loadProduct();
+            LoadReceipt();
+            loadReceiptDetail();
+
         }
 
         private void dgv_hoaDon_CellClick_1(object sender, DataGridViewCellEventArgs e)
@@ -327,7 +383,7 @@ namespace _3_PL.View
         private void checkNumber(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-    (e.KeyChar != '.'))
+        (e.KeyChar != '.'))
             {
                 e.Handled = true;
             }

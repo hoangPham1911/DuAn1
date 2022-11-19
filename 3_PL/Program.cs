@@ -2,7 +2,7 @@ using _3_PL.View;
 
 namespace _3_PL
 {
-    internal static class Program
+     static class Program
     {
         /// <summary>
         ///  The main entry point for the application.
@@ -12,8 +12,11 @@ namespace _3_PL
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
+            Application.SetHighDpiMode(HighDpiMode.SystemAware);
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
             ApplicationConfiguration.Initialize();
-            Application.Run(new Frm_NSX());
+            Application.Run(new FormBanHang());
         }
     }
 }
