@@ -44,7 +44,7 @@ namespace _3_PL.View
 
         }
         Random random = new Random();
-        string otp ="";
+        string otp = "";
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -52,7 +52,7 @@ namespace _3_PL.View
             {
                 string[] saAllowedCharacters = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" };
 
-                string sRandomOTP  = GenerateRandomOTP(8, saAllowedCharacters);
+                string sRandomOTP = GenerateRandomOTP(8, saAllowedCharacters);
                 otp = sRandomOTP;
                 var formAddress = new MailAddress("hoangpham19112002@gmail.com");
                 var toAddress = new MailAddress(textBox1.ToString());
@@ -64,7 +64,7 @@ namespace _3_PL.View
                     Host = "smtp.gmail.com",
                     Port = 587,
                     EnableSsl = true, //smtp.EnableSsl có nghĩa là gửi có bảo mật 
-                    DeliveryMethod = SmtpDeliveryMethod.Network,  
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
                     UseDefaultCredentials = false,  // sử dụng thông tin đăng nhập mặc định
                     Credentials = new NetworkCredential(formAddress.Address, passMail),
                     Timeout = 20000
@@ -85,12 +85,18 @@ namespace _3_PL.View
 
                 throw;
             }
-          
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (otp.ToString().Equals(textBox2.Text)) MessageBox.Show("Xác Thực Thành Công");
+            if (otp.ToString().Equals(textBox2.Text))
+            {
+                MessageBox.Show("Xác Thực Thành Công");
+                this.Hide();
+                FrmLayLaiMatKhau frmLayLaiMatKhau = new FrmLayLaiMatKhau();
+                frmLayLaiMatKhau.ShowDialog();
+            }
             else MessageBox.Show("Mã OTP không chính xác");
         }
     }

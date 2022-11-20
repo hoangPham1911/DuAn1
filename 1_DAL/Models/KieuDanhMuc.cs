@@ -11,9 +11,9 @@ namespace _1_DAL.Models
     [Table("KieuDanhMuc")]
     public partial class KieuDanhMuc
     {
-        public Guid? IdDanhMuc { get; set; }
+        public Guid? IdDanhMuc { get; set; }    
         public Guid? IdHangHoa { get; set; }
-        public string TenKieuDanhMuc { get; set; }
+        public int TheLoaiGioiTinh { get; set; }
 
         [ForeignKey(nameof(IdDanhMuc))]
         [InverseProperty(nameof(DanhMuc.KieuDanhMucs))]
