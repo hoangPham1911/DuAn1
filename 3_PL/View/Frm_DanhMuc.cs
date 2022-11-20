@@ -16,7 +16,6 @@ namespace _3_PL.View
     public partial class Frm_DanhMuc : Form
     {
         public IDanhMucServices DanhMucServices;
-        private Guid idDM;
         public List<DanhMucViewModels> DanhMucViewModels;
 
         public Frm_DanhMuc()
@@ -25,6 +24,7 @@ namespace _3_PL.View
             DanhMucServices = new DanhMucServices();
             DanhMucViewModels = new List<DanhMucViewModels>();
             LoadDTG();
+            loadCBB();
 
         }
         public void loadCBB()
@@ -59,7 +59,7 @@ namespace _3_PL.View
                     );
             }
         }
-
+        private Guid idDM;
         private void dgv_showsize_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -101,6 +101,11 @@ namespace _3_PL.View
                 MessageBox.Show(DanhMucServices.update(dm));
                 LoadDTG();
             }
+
+        }
+
+        private void btn_them_Click(object sender, EventArgs e)
+        {
 
         }
     }

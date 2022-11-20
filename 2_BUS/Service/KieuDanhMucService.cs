@@ -27,7 +27,7 @@ namespace _2_BUS.Service
                  select new KieuDanhMucViewModels()
                  {
                      IdDanhMuc = a.IdDanhMuc,
-                     TenKieuDanhMuc = a.TenKieuDanhMuc,
+                     TenKieuDanhMuc = a.TheLoaiGioiTinh,
                      IdHangHoa = a.IdHangHoa,
 
                  }).ToList();
