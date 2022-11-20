@@ -16,13 +16,13 @@ namespace _3_PL.View
     public partial class Frm_DanhMuc : Form
     {
         public IDanhMucServices DanhMucServices;
-        public List<DanhMucViewModels> DanhMucViewModels;
-
+        public List<DanhMucViewModels> _DanhMucViewModels;
+        public DanhMucViewModels _DanhMucView;
         public Frm_DanhMuc()
         {
             InitializeComponent();
             DanhMucServices = new DanhMucServices();
-            DanhMucViewModels = new List<DanhMucViewModels>();
+            _DanhMucViewModels = new List<DanhMucViewModels>();
             LoadDTG();
             loadCBB();
 
@@ -46,8 +46,8 @@ namespace _3_PL.View
             dgv_showsize.Columns[4].Name = "Danh mục khác";
             dgv_showsize.Columns[5].Name = "Trạng thái";
             dgv_showsize.Rows.Clear();
-            DanhMucViewModels = DanhMucServices.GetDanhMuc();
-            foreach (var item in DanhMucViewModels)
+            _DanhMucViewModels = DanhMucServices.GetDanhMuc();
+            foreach (var item in _DanhMucViewModels)
             {
                 dgv_showsize.Rows.Add(
                     item.Id,
@@ -58,6 +58,8 @@ namespace _3_PL.View
                     item.TrangThai == 1 ? "Hiển thị" : "Ẩn"
                     );
             }
+            dgv_showsize.AllowUserToAddRows = false;
+
         }
         private Guid idDM;
         private void dgv_showsize_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -65,11 +67,13 @@ namespace _3_PL.View
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow r = dgv_showsize.Rows[e.RowIndex];
+                _DanhMucView = DanhMucServices.GetDanhMuc().FirstOrDefault(x => x.Id == Guid.Parse(r.Cells[0].Value.ToString()));
                 idDM = Guid.Parse(r.Cells[0].Value.ToString());
                 tb_ma.Text = r.Cells[2].Value.ToString();
                 tb_ten.Text = r.Cells[3].Value.ToString();
-                cbb_danhmucKhac.Text = r.Cells[4].Value.ToString();
-                if (r.Cells[5].Value.ToString() == "1")
+                //      cbb_danhmucKhac.Text = r.Cells[4].Value.ToString();
+                cbb_danhmucKhac.Text = _DanhMucView.IdDanhMucKhac != null ? DanhMucServices.GetDanhMuc().FirstOrDefault(x => x.Id == _DanhMucView.IdDanhMucKhac).Ten : null;
+                if (r.Cells[5].Value.ToString() == "Hiển thị")
                 {
                     rdb_con.Checked = true;
                 }
@@ -78,12 +82,11 @@ namespace _3_PL.View
                     rdb_ngung.Checked = true;
                 }
             }
-
         }
 
         private void btn_sua_Click(object sender, EventArgs e)
         {
-            var iddmk = DanhMucServices.GetDanhMuc().FirstOrDefault(x => x.Ten == cbb_danhmucKhac.Text);
+            var iddmk = DanhMucServices.GetDanhMuc().FirstOrDefault(x => x.Ten == cbb_danhmucKhac.Text).Id;
             if (idDM == Guid.Empty)
             {
                 MessageBox.Show("Vui lòng chọn danh mục");
@@ -95,7 +98,8 @@ namespace _3_PL.View
                     Id = idDM,
                     Ma = tb_ma.Text,
                     Ten = tb_ten.Text,
-                    IdDanhMucKhac = iddmk.IdDanhMucKhac,
+                 //   IdDanhMucKhac = cbb_danhmucKhac.Text != "" ? DanhMucServices.GetDanhMuc().FirstOrDefault(x => x.Ten == cbb_danhmucKhac.Text).Id : null,
+                    IdDanhMucKhac = cbb_danhmucKhac.Text != "" ? iddmk : null ,
                     TrangThai = rdb_con.Checked ? 1 : 0
                 };
                 MessageBox.Show(DanhMucServices.update(dm));
@@ -106,7 +110,28 @@ namespace _3_PL.View
 
         private void btn_them_Click(object sender, EventArgs e)
         {
+            if (!rdb_con.Checked && !rdb_ngung.Checked)
+            {
+                MessageBox.Show("Vui lòng chọn trạng thái");
+            }else if(DanhMucServices.GetDanhMuc().Any(p=>p.Ten == tb_ten.Text))
+            {
+                MessageBox.Show("Tên Danh Mục Đã Tồn Tại");
+            }
+            else
+            {
+                var dm = new DanhMucViewModels()
+                {
+                    Id = new Guid(),
+                    Ma = tb_ma.Text,
+                    Ten = tb_ten.Text,
+                    IdDanhMucKhac = cbb_danhmucKhac.Text != "" ? DanhMucServices.GetDanhMuc().FirstOrDefault(x => x.Ten == cbb_danhmucKhac.Text).Id : null,
+                    TrangThai = rdb_con.Checked ? 1 : 0,
 
+                };
+                DanhMucServices.add(dm);
+            }
+            loadCBB();
+            LoadDTG();
         }
     }
 }
