@@ -27,7 +27,6 @@ namespace _3_PL.View
         IQlyHangHoaServices _HangHoaChiTietServices;
         List<SanPhamView> _ListProduct;
         IAnhService _AnhService;
-        List<ThemHoaDonModels> _ListReceipt;
         List<Guid> _IdCTSP;
         List<HoaDonChiTietViewModel> _ListReceiptDetail;
         List<SanPhamTrongHoaDonViewModels> _ListReceiptProduct;
@@ -67,7 +66,7 @@ namespace _3_PL.View
             //    return;
             //}
             dgv_product.Rows.Clear();
-            dgv_product.ColumnCount = 8;
+            dgv_product.ColumnCount = 7;
             dgv_product.Columns[0].Name = "IdSp";
             dgv_product.Columns[1].Name = "STT";
             dgv_product.Columns[2].Name = "Mã SP";
@@ -75,39 +74,44 @@ namespace _3_PL.View
             dgv_product.Columns[4].Name = "Gía Bán";
             dgv_product.Columns[5].Name = "IdSpDetail";
             dgv_product.Columns[6].Name = "Số Lượng Ton";
-            dgv_product.Columns[7].Name = "Ảnh";
             dgv_product.Columns[5].Visible = false;
             dgv_product.Columns[0].Visible = false;
             int n = 1;
             _ListProduct = _SanPhamService.GetSanPham();
             if (tb_search.Text != "")
                 _ListProduct = _SanPhamService.GetSanPham().Where(p => p.Ten.Contains(tb_search.Text)).ToList();
+            DataGridViewImageColumn dtgImg = new DataGridViewImageColumn();
+            dtgImg.Name = "Data Image";
+            dtgImg.HeaderText = "IMG";
+            dtgImg.ImageLayout = DataGridViewImageCellLayout.Stretch;
+            dgv_product.Columns.Add(dtgImg);
+            dgv_product.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv_product.RowTemplate.Height = 100;
+         
+            dtgImg.DataPropertyName = "img";
+
             DataGridViewCheckBoxColumn check = new DataGridViewCheckBoxColumn();
             check.Name = "choose_cb";
             check.HeaderText = "Choose";
-            dgv_product.Columns.Insert(8, check);
-            foreach (DataGridViewRow item in dgv_product.Rows)
-            {
-                string image = item.Cells[7].Value.ToString();
-                Image img = Image.FromFile(image);
-            }
-
+            dgv_product.Columns.Add(check);      
             foreach (var item in _ListProduct)
             {
                 AnhViewModels image = _AnhService.GetAnh().FirstOrDefault(p => p.ID == item.IdAnh);
                 dgv_product.Rows.Add(item.IdSp, n++, item.Ma, item.Ten, item.GiaBan,
-              item.IdHangHoaChiTiet, item.SoLuongTon, image.DuongDan
+              item.IdHangHoaChiTiet, item.SoLuongTon
               );
             }
 
             dgv_product.AllowUserToAddRows = false;
             dgv_product.Columns[1].Width = 50;
+            dgv_product.Columns[6].Width = 50;
+            dgv_product.Columns[7].Width = 100;
             dgv_product.Columns[8].Width = 30;
             dgv_product.Columns[2].Width = 100;
             dgv_product.Columns[3].Width = 100;
             dgv_product.Columns[4].Width = 100;
             dgv_product.Columns[5].Width = 100;
-            dgv_product.Columns[6].Width = 100;
+
         }
         private void loadReceiptDetail()
         {
@@ -308,7 +312,8 @@ namespace _3_PL.View
             }
 
             int strResults = dgv_product.Rows.Cast<DataGridViewRow>()
-                                      .Where(c => Convert.ToBoolean(c.Cells[7].Value).Equals(true)).ToList().Count;
+                                      .Where(c => Convert.ToBoolean(c.Cells[8].Value).Equals(true)).ToList().Count;
+          
 
             if (strResults > 1)
             {
@@ -328,7 +333,7 @@ namespace _3_PL.View
                         foreach (var idSpCt in _IdCTSP)
                         {
 
-                            var donGia = _HangHoaChiTietServices.GetsListCTHH().FirstOrDefault(p => p.Id == IDSpCt).GiaBan;
+                            var donGia = _SanPhamService.GetSanPham().FirstOrDefault(p => p.IdHangHoaChiTiet == IDSpCt).GiaBan;
                             var thanhTien = 1 * donGia;
                             HoaDonCT.IdChiTietSp = idSpCt;
                             HoaDonCT.SoLuong = 1;
@@ -336,7 +341,7 @@ namespace _3_PL.View
                             MessageBox.Show(HoaDonCT.IdHoaDon.ToString() + "-->\n" + 1.ToString() + "-->\n" + donGia.ToString() + "-->\n" +
                             HoaDonCT.IdChiTietSp.ToString() + "->\n" + _HoaDonChiTietService.ThemHoaDonChiTiet(HoaDonCT).ToString());
                             HangHoaChiTietUpdateThanhToan hhctUpdate = _HangHoaChiTietServices.GetAllSoLuong().FirstOrDefault(p => p.IdSpCt == idSpCt);
-                            var soLuongTon = _HangHoaChiTietServices.GetsListCTHH().FirstOrDefault(p => p.Id == IDSpCt).SoLuongTon;
+                            var soLuongTon = _SanPhamService.GetSanPham().FirstOrDefault(p => p.IdHangHoaChiTiet == IDSpCt).SoLuongTon;
                             soLuongTon = soLuongTon - 1;
                             hhctUpdate.SoLuong = soLuongTon;
                             _HangHoaChiTietServices.updateSoLuong(hhctUpdate);
@@ -360,25 +365,22 @@ namespace _3_PL.View
                 HoaDonChiTietThemViewModel HoaDonCT = new HoaDonChiTietThemViewModel();
                 HoaDonCT.IdHoaDon = addHoaDon();
                 var soLuong = int.Parse(tb_count.Text);
-                var donGia = _HangHoaChiTietServices.GetsListCTHH().FirstOrDefault(p => p.Id == IDSpCt).GiaBan;
-                var thanhTien = soLuong * donGia;
+                var donGia = _SanPhamService.GetSanPham().FirstOrDefault(p => p.IdHangHoaChiTiet == IDSpCt).GiaBan;
                 HoaDonCT.IdChiTietSp = IDSpCt;
                 HoaDonCT.SoLuong = soLuong;
-                HoaDonCT.ThanhTien = thanhTien;
-                //MessageBox.Show(HoaDonCT.IdHoaDon.ToString() + "-->\n" + soLuong.ToString() + "-->\n" + donGia.ToString() + "-->\n" +
-                //HoaDonCT.IdChiTietSp.ToString() + "->\n" + _HoaDonChiTietService.ThemHoaDonChiTiet(HoaDonCT).ToString());
+                HoaDonCT.ThanhTien = soLuong * donGia;
+                if(_HoaDonChiTietService.ThemHoaDonChiTiet(HoaDonCT))
                 MessageBox.Show("Them Thanh Cong");
                 HangHoaChiTietUpdateThanhToan hhctUpdate = _HangHoaChiTietServices.GetAllSoLuong().FirstOrDefault(p => p.IdSpCt == IDSpCt);
-                var soLuongTon = _HangHoaChiTietServices.GetsListCTHH().FirstOrDefault(p => p.Id == IDSpCt).SoLuongTon;
+                var soLuongTon = _SanPhamService.GetSanPham().FirstOrDefault(p => p.IdHangHoaChiTiet == IDSpCt).SoLuongTon;
                 soLuongTon = soLuongTon - int.Parse(tb_count.Text);
                 hhctUpdate.SoLuong = soLuongTon;
-
 
                 if (soLuongTon <= 0)
                 {
                     MessageBox.Show("Sản Phẩm này đã hết trong kho");
                 }
-                _HangHoaChiTietServices.updateSoLuong(hhctUpdate);
+                _HangHoaChiTietServices.updateSoLuong(hhctUpdate);             
                 loadProduct();
                 LoadReceipt();
                 loadReceiptDetail();

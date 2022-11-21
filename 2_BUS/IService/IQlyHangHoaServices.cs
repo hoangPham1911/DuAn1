@@ -16,6 +16,7 @@ namespace _2_BUS.IService
         bool addcthanghoa(ChiTietHangHoaThemViewModels cthh);
         bool deletecthanghoa(Guid idcthh);
         bool updatecthanghoa(ChiTietHangHoaUpdateViewModels cthh);
+      
         List<QlyHangHoaViewModels> GetsList();
         List<HangHoaViewModels> GetsListHH();
         List<ChiTietHangHoaViewModels> GetsListCTHH();

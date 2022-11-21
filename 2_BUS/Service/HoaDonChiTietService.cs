@@ -70,10 +70,8 @@ namespace _2_BUS.Service
 
         public bool SuaHoaDonChiTiet(HoaDonChiTietUpdateView Hoadons)
         {
-            HoaDonChiTiet hdct = new HoaDonChiTiet();
-            hdct.IdHoaDon = Hoadons.IdHoaDon;
+            HoaDonChiTiet hdct = _IreceiptDetailRepository.GetAll().FirstOrDefault(p => p.IdHoaDon == Hoadons.IdHoaDon);
             hdct.GiamGia = Hoadons.GiamGia;
-            hdct.IdChiTietSp = Hoadons.IdChiTietSp;
             hdct.SoLuong = Hoadons.SoLuong;
             hdct.ThanhTien = Hoadons.ThanhTien;
             if (_IreceiptDetailRepository.update(hdct)) return true;

@@ -50,8 +50,6 @@ namespace _2_BUS.Service
             return true;
         }
 
-        
-
         public bool XoaHangHoaChiTiet(Guid hanghoactid, HangHoa hanghoaid)
 
         {
