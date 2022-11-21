@@ -29,11 +29,11 @@ namespace _2_BUS.Service
        
         public List<HoaDonChiTietViewModel> GetAllHoaDonDB()
         {
-            return (from a in _IreceiptDetailRepository.GetAll()
-                    join b in _HoaDonRepos.getAllReceipt() on a.IdHoaDon equals b.Id
+            return (from b in _HoaDonRepos.getAllReceipt() 
+
                     select new HoaDonChiTietViewModel
                     {
-                        IdHoaDon = a.IdHoaDon,
+                        IdHoaDon = b.Id,
               //          IdChiTietSp = a.IdChiTietSp,
              //           SoLuong = a.SoLuong,
               //          ThanhTien = a.ThanhTien,

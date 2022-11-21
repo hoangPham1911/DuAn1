@@ -27,19 +27,10 @@ namespace _2_BUS.Service
                     {
                         IdAnh = b.IdAnh,
                         IdSp = a.Id,
-                        IdChatLieu = b.IdChatLieu,
                         IdHangHoaChiTiet = b.Id,
-                        IdLoaiGiay = b.IdLoaiGiay,
-                        IdNsx = a.IdNsx,
-                        IdQuocGia = b.IdQuocGia,
-                        IdSizeGiay = b.IdSizeGiay,
                         GiaBan = b.GiaBan,
-                        GiaNhap = b.GiaNhap,
                         Ma = a.Ma,
-                        TrangThai = a.TrangThai,
                         Ten = a.Ten,
-                        MoTa = b.MoTa,
-                        NamBh = b.NamBh,
                         SoLuongTon = b.SoLuongTon,
                     }).ToList();
         }

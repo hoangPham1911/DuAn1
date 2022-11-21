@@ -223,7 +223,7 @@
             this.dgv_product.RowHeadersWidth = 62;
             this.dgv_product.RowTemplate.Height = 80;
             this.dgv_product.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_product.Size = new System.Drawing.Size(971, 247);
+            this.dgv_product.Size = new System.Drawing.Size(966, 299);
             this.dgv_product.TabIndex = 1;
             this.dgv_product.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_product_CellClick);
             // 
@@ -1416,11 +1416,11 @@
             // 
             this.groupBox1.Controls.Add(this.dgv_hoaDon);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox1.Location = new System.Drawing.Point(2, 231);
+            this.groupBox1.Location = new System.Drawing.Point(2, 234);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(412, 197);
+            this.groupBox1.Size = new System.Drawing.Size(432, 147);
             this.groupBox1.TabIndex = 132;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Hoa Don";
@@ -1435,8 +1435,9 @@
             this.dgv_hoaDon.Name = "dgv_hoaDon";
             this.dgv_hoaDon.RowHeadersWidth = 62;
             this.dgv_hoaDon.RowTemplate.Height = 33;
-            this.dgv_hoaDon.Size = new System.Drawing.Size(408, 177);
+            this.dgv_hoaDon.Size = new System.Drawing.Size(428, 127);
             this.dgv_hoaDon.TabIndex = 1;
+            this.dgv_hoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_hoaDon_CellClick);
             // 
             // rbn_all
             // 
@@ -1454,11 +1455,11 @@
             // 
             this.groupBox4.Controls.Add(this.dgv_ReceiptDetail);
             this.groupBox4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox4.Location = new System.Drawing.Point(416, 231);
+            this.groupBox4.Location = new System.Drawing.Point(436, 234);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox4.Size = new System.Drawing.Size(568, 197);
+            this.groupBox4.Size = new System.Drawing.Size(548, 145);
             this.groupBox4.TabIndex = 133;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Hoa Don Chi Tiet";
@@ -1475,7 +1476,7 @@
             this.dgv_ReceiptDetail.RowHeadersWidth = 62;
             this.dgv_ReceiptDetail.RowTemplate.Height = 30;
             this.dgv_ReceiptDetail.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_ReceiptDetail.Size = new System.Drawing.Size(564, 177);
+            this.dgv_ReceiptDetail.Size = new System.Drawing.Size(544, 125);
             this.dgv_ReceiptDetail.TabIndex = 2;
             // 
             // groupBox2
@@ -1487,9 +1488,9 @@
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.tb_search);
             this.groupBox2.Controls.Add(this.dgv_product);
-            this.groupBox2.Location = new System.Drawing.Point(4, 432);
+            this.groupBox2.Location = new System.Drawing.Point(4, 380);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(971, 305);
+            this.groupBox2.Size = new System.Drawing.Size(971, 357);
             this.groupBox2.TabIndex = 137;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "San Pham";
@@ -1542,9 +1543,9 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button2.Location = new System.Drawing.Point(835, 22);
+            this.button2.Location = new System.Drawing.Point(837, 14);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(131, 26);
+            this.button2.Size = new System.Drawing.Size(128, 35);
             this.button2.TabIndex = 3;
             this.button2.Text = "Tao Hoa Don";
             this.button2.UseVisualStyleBackColor = false;
