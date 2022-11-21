@@ -9,6 +9,8 @@ namespace _2_BUS.IService
 {
     public interface IKieuDanhMucServices
     {
+        string ThemKieuDanhMuc(KieuDanhMucViewModels obj);
+        string SuaKieuDanhMuc(KieuDanhMucViewModels obj);
         List<KieuDanhMucViewModels> GetallKieuDM();
     }
 }

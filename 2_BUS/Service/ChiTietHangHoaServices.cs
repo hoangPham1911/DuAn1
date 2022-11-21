@@ -37,7 +37,88 @@ namespace _2_BUS.Service
             _iAnhRepositoriy = new ImageRepositoriy();
         }
 
+<<<<<<< HEAD:2_BUS/Service/ChiTietHangHoaServices.cs
         public List<ChiTietHangHoaViewModels> getlstcthanghoafromDB()
+=======
+        public bool ThemHangHoaChiTiet(HangHoaChiTietThemViewModels HangHoas)
+        {
+            ChiTietHangHoa chiTietHangHoa = new ChiTietHangHoa();
+            HangHoa hangHoa = new HangHoa();
+            chiTietHangHoa.IdQuocGia = HangHoas.IdQuocGia;
+            hangHoa.IdNsx = HangHoas.IdNsx;
+            chiTietHangHoa.IdSizeGiay = HangHoas.IdSizeGiay;
+            chiTietHangHoa.IdLoaiGiay = HangHoas.IdLoaiGiay;
+            chiTietHangHoa.IdChatLieu = HangHoas.IdChatLieu;
+            chiTietHangHoa.IdAnh = HangHoas.IdAnh;
+            hangHoa.Ma = HangHoas.Ma;
+            hangHoa.Ten = HangHoas.Ten;
+            hangHoa.TrangThai = HangHoas.TrangThai;
+            chiTietHangHoa.NamBh = HangHoas.NamBh;
+            chiTietHangHoa.SoLuongTon = HangHoas.SoLuongTon;
+            chiTietHangHoa.MoTa = HangHoas.MoTa;
+            chiTietHangHoa.GiaNhap = HangHoas.GiaNhap;
+            chiTietHangHoa.GiaBan = HangHoas.GiaBan;
+            if (_IHangHoaChiTietRepository.add(chiTietHangHoa) && _iHangHoaRepository.add(hangHoa))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool updateSoLuong(HangHoaChiTietUpdateThanhToan hangHoas)
+        {
+            ChiTietHangHoa chiTietHangHoa = _IHangHoaChiTietRepository.getAll().FirstOrDefault(p => p.Id == hangHoas.IdSpCt);
+            chiTietHangHoa.SoLuongTon = hangHoas.SoLuong;
+            if (_IHangHoaChiTietRepository.update(chiTietHangHoa)) return true;
+            return false;
+        }
+        public bool XoaHangHoa(Guid hanghoactid, HangHoa hanghoaid)
+        {
+            return true;
+        }
+
+
+        public bool XoaHangHoaChiTiet(Guid hanghoactid, HangHoa hanghoaid)
+
+        {
+            if (_IHangHoaChiTietRepository.remove(hanghoactid) && _iHangHoaRepository.remove(hanghoaid)) return true;
+            return false;
+        }
+
+
+        public bool SuaHangHoaChiTiet(HangHoaChiTietUpdateViewModels HangHoas)
+        {
+            ChiTietHangHoa chiTietHangHoa = new ChiTietHangHoa();
+            HangHoa hangHoa = new HangHoa();
+            chiTietHangHoa.IdQuocGia = HangHoas.IdQuocGia;
+            hangHoa.IdNsx = HangHoas.IdNsx;
+            chiTietHangHoa.IdSizeGiay = HangHoas.IdSizeGiay;
+            chiTietHangHoa.IdLoaiGiay = HangHoas.IdLoaiGiay;
+            chiTietHangHoa.IdChatLieu = HangHoas.IdChatLieu;
+            chiTietHangHoa.IdAnh = HangHoas.IdAnh;
+            hangHoa.Ma = HangHoas.Ma;
+            hangHoa.Ten = HangHoas.Ten;
+            hangHoa.TrangThai = HangHoas.TrangThai;
+            chiTietHangHoa.NamBh = HangHoas.NamBh;
+            chiTietHangHoa.SoLuongTon = HangHoas.SoLuongTon;
+            chiTietHangHoa.MoTa = HangHoas.MoTa;
+            chiTietHangHoa.GiaNhap = HangHoas.GiaNhap;
+            chiTietHangHoa.GiaBan = HangHoas.GiaBan;
+            if (_IHangHoaChiTietRepository.update(chiTietHangHoa) && _iHangHoaRepository.update(hangHoa))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public List<HangHoaChiTietViewModels> GetAllHangHoaDB()
+>>>>>>> 1b8742a113088a08443125ef30a421bd6574fdbc:2_BUS/Service/HangHoaChiTietServices.cs
         {
             return (from a in _IHangHoaChiTietRepository.getAll()
                     join b in _iHangHoaRepository.getAll() on a.IdSp equals b.Id
@@ -63,6 +144,7 @@ namespace _2_BUS.Service
 
                     }).ToList();
         }
+<<<<<<< HEAD:2_BUS/Service/ChiTietHangHoaServices.cs
         public bool addcthanghoa(ChiTietHangHoaThemViewModels HangHoas)
         {
             ChiTietHangHoa chiTietHangHoa = new ChiTietHangHoa();
@@ -116,5 +198,24 @@ namespace _2_BUS.Service
             }
         }
 
+=======
+
+        public List<HangHoaChiTietUpdateThanhToan> GetAllSoLuong()
+        {
+            return (from a in _IHangHoaChiTietRepository.getAll()
+                    select
+                    new HangHoaChiTietUpdateThanhToan { IdSpCt = a.Id, SoLuong = a.SoLuongTon }).ToList();
+        }
+
+        public bool XoaHangHoaChiTiet(Guid idHangHoa)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<HangHoaChiTietViewModels> GetAllHoaDonDB()
+        {
+            throw new NotImplementedException();
+        }
+>>>>>>> 1b8742a113088a08443125ef30a421bd6574fdbc:2_BUS/Service/HangHoaChiTietServices.cs
     }
 }
