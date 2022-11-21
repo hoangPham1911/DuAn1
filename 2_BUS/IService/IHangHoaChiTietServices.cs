@@ -12,15 +12,15 @@ namespace _2_BUS.IService
     {
         bool ThemHangHoaChiTiet(HangHoaChiTietThemViewModels HangHoa);
         bool SuaHangHoaChiTiet(HangHoaChiTietUpdateViewModels HangHoa);
-<<<<<<< HEAD
+
         bool XoaHangHoaChiTiet(Guid idHangHoa);
         public List<HangHoaChiTietViewModels> GetAllHoaDonDB();
         public List<HangHoaChiTietUpdateThanhToan> GetAllSoLuong();
 
         public bool updateSoLuong(HangHoaChiTietUpdateThanhToan hangHoas);
-=======
+
         bool XoaHangHoaChiTiet(Guid idHangHoa, HangHoa hanghoaid);
         public List<HangHoaChiTietViewModels> GetAllHangHoaDB();
->>>>>>> 5df4b049fee2c248c67ff9129f80eab99d61b894
+
     }
 }
