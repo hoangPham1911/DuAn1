@@ -144,7 +144,33 @@ namespace _2_BUS.Service
 
         public List<HangHoaChiTietViewModels> GetAllHoaDonDB()
         {
-            throw new NotImplementedException();
+            return (from a in _IHangHoaChiTietRepository.getAll()
+                    join b in _iHangHoaRepository.getAll() on a.IdSp equals b.Id
+                    join c in _iQuocgiaRepository.getAll() on a.IdQuocGia equals c.Id
+                    join d in _iNsxRepository.getAll() on b.IdNsx equals d.Id
+                    join e in _iSizeshoesRepository.getAll() on a.IdSizeGiay equals e.Id
+                    join f in _iLoaiGiayRepository.getAll() on a.IdLoaiGiay equals f.Id
+                    join g in _iChatLieuRepository.getAll() on a.IdChatLieu equals g.Id
+                    join h in _iAnhRepositoriy.getAll() on a.IdAnh equals h.ID
+                    select new HangHoaChiTietViewModels
+                    {
+                        IdSp = b.Id,
+                        IdQuocGia = c.Id,
+                        IdNsx = d.Id,
+                        IdSizeGiay = e.Id,
+                        IdLoaiGiay = f.Id,
+                        IdChatLieu = g.Id,
+                        IdAnh = h.ID,
+                        Ma = b.Ma,
+                        Ten = b.Ten,
+                        TrangThai = b.TrangThai,
+                        NamBh = a.NamBh,
+                        MoTa = a.MoTa,
+                        SoLuongTon = a.SoLuongTon,
+                        GiaBan = a.GiaBan,
+                        GiaNhap = a.GiaNhap
+
+                    }).ToList();
         }
     }
 }

@@ -301,7 +301,7 @@ namespace _3_PL.View
                 var soLuong = 1;
                 var donGia = 2;
                 var thanhTien = soLuong * donGia;
-                HoaDonCT.IdChiTietSp = _IdCTSP;
+                HoaDonCT.IdChiTietSp = IDSpCt;
                 HoaDonCT.SoLuong = soLuong;
                 HoaDonCT.ThanhTien = thanhTien;
                 MessageBox.Show(HoaDonCT.IdHoaDon.ToString() + "-->\n" + soLuong.ToString() + "-->\n" + donGia.ToString() + "-->\n" +
