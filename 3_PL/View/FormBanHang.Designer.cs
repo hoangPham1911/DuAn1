@@ -135,11 +135,6 @@
             this.rbn_DaThanhToan = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgv_hoaDon = new System.Windows.Forms.DataGridView();
-            this.Column_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_MAHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_NgayTao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rbn_all = new System.Windows.Forms.RadioButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dgv_ReceiptDetail = new System.Windows.Forms.DataGridView();
@@ -1355,6 +1350,7 @@
             this.btn_FormHoaDon.TabIndex = 2;
             this.btn_FormHoaDon.Text = "Hóa đơn";
             this.btn_FormHoaDon.UseVisualStyleBackColor = false;
+            this.btn_FormHoaDon.Click += new System.EventHandler(this.btn_FormHoaDon_Click);
             // 
             // panel2
             // 
@@ -1420,65 +1416,27 @@
             // 
             this.groupBox1.Controls.Add(this.dgv_hoaDon);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox1.Location = new System.Drawing.Point(2, 236);
+            this.groupBox1.Location = new System.Drawing.Point(2, 231);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(412, 192);
+            this.groupBox1.Size = new System.Drawing.Size(412, 197);
             this.groupBox1.TabIndex = 132;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Hoa Don";
             // 
             // dgv_hoaDon
             // 
-            this.dgv_hoaDon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_hoaDon.BackgroundColor = System.Drawing.Color.PeachPuff;
             this.dgv_hoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_hoaDon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column_Id,
-            this.Column_STT,
-            this.Column_MAHD,
-            this.Column_NgayTao,
-            this.Column_TrangThai});
             this.dgv_hoaDon.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_hoaDon.Location = new System.Drawing.Point(2, 18);
             this.dgv_hoaDon.Margin = new System.Windows.Forms.Padding(2);
             this.dgv_hoaDon.Name = "dgv_hoaDon";
             this.dgv_hoaDon.RowHeadersWidth = 62;
-            this.dgv_hoaDon.RowTemplate.Height = 30;
-            this.dgv_hoaDon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_hoaDon.Size = new System.Drawing.Size(408, 172);
-            this.dgv_hoaDon.TabIndex = 151;
-            this.dgv_hoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_hoaDon_CellClick_1);
-            // 
-            // Column_Id
-            // 
-            this.Column_Id.HeaderText = "ID";
-            this.Column_Id.MinimumWidth = 8;
-            this.Column_Id.Name = "Column_Id";
-            // 
-            // Column_STT
-            // 
-            this.Column_STT.HeaderText = "STT";
-            this.Column_STT.MinimumWidth = 8;
-            this.Column_STT.Name = "Column_STT";
-            // 
-            // Column_MAHD
-            // 
-            this.Column_MAHD.HeaderText = "MAHD";
-            this.Column_MAHD.MinimumWidth = 8;
-            this.Column_MAHD.Name = "Column_MAHD";
-            // 
-            // Column_NgayTao
-            // 
-            this.Column_NgayTao.HeaderText = "NgayTao";
-            this.Column_NgayTao.MinimumWidth = 8;
-            this.Column_NgayTao.Name = "Column_NgayTao";
-            // 
-            // Column_TrangThai
-            // 
-            this.Column_TrangThai.HeaderText = "TrangThai";
-            this.Column_TrangThai.MinimumWidth = 8;
-            this.Column_TrangThai.Name = "Column_TrangThai";
+            this.dgv_hoaDon.RowTemplate.Height = 33;
+            this.dgv_hoaDon.Size = new System.Drawing.Size(408, 177);
+            this.dgv_hoaDon.TabIndex = 1;
             // 
             // rbn_all
             // 
@@ -1496,11 +1454,11 @@
             // 
             this.groupBox4.Controls.Add(this.dgv_ReceiptDetail);
             this.groupBox4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox4.Location = new System.Drawing.Point(418, 235);
+            this.groupBox4.Location = new System.Drawing.Point(416, 231);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox4.Size = new System.Drawing.Size(566, 193);
+            this.groupBox4.Size = new System.Drawing.Size(568, 197);
             this.groupBox4.TabIndex = 133;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Hoa Don Chi Tiet";
@@ -1508,6 +1466,7 @@
             // dgv_ReceiptDetail
             // 
             this.dgv_ReceiptDetail.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_ReceiptDetail.BackgroundColor = System.Drawing.Color.Salmon;
             this.dgv_ReceiptDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_ReceiptDetail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_ReceiptDetail.Location = new System.Drawing.Point(2, 18);
@@ -1516,7 +1475,7 @@
             this.dgv_ReceiptDetail.RowHeadersWidth = 62;
             this.dgv_ReceiptDetail.RowTemplate.Height = 30;
             this.dgv_ReceiptDetail.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_ReceiptDetail.Size = new System.Drawing.Size(562, 173);
+            this.dgv_ReceiptDetail.Size = new System.Drawing.Size(564, 177);
             this.dgv_ReceiptDetail.TabIndex = 2;
             // 
             // groupBox2
@@ -1774,15 +1733,10 @@
         private Label label54;
         private Label label55;
         private Label z;
-        private DataGridView dgv_hoaDon;
-        private DataGridViewTextBoxColumn Column_Id;
-        private DataGridViewTextBoxColumn Column_STT;
-        private DataGridViewTextBoxColumn Column_MAHD;
-        private DataGridViewTextBoxColumn Column_NgayTao;
-        private DataGridViewTextBoxColumn Column_TrangThai;
         private DataGridView dgv_ReceiptDetail;
         private TextBox tb_tienKhachDua;
         private System.Windows.Forms.Timer timer1;
         private PictureBox pictureBox6;
+        private DataGridView dgv_hoaDon;
     }
 }

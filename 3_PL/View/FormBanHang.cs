@@ -135,7 +135,13 @@ namespace _3_PL.View
             //    return;
             //}
             dgv_hoaDon.Rows.Clear();
-            dgv_hoaDon.ColumnCount = 5;
+            dgv_hoaDon.ColumnCount = 6;
+            dgv_hoaDon.Columns[0].Name = "Id";
+            dgv_hoaDon.Columns[1].Name = "STT";
+            dgv_hoaDon.Columns[2].Name = "Mã Hóa Đơn";
+            dgv_hoaDon.Columns[3].Name = "Ngày Tạo";
+            dgv_hoaDon.Columns[4].Name = "Tên NV";
+            dgv_hoaDon.Columns[5].Name = "Tình Trạng";     
             dgv_hoaDon.Columns[0].Visible = false;
             _ListReceiptDetail = _HoaDonChiTietService.GetAllHoaDonDB();
             int n = 1;
@@ -184,7 +190,8 @@ namespace _3_PL.View
         }
         private void btn_FormdatHang_Click(object sender, EventArgs e)
         {
-            btn_FormdatHang.Visible = true;
+            panel5.Visible = false;           
+            
         }
 
         private Guid addHoaDon()
@@ -466,6 +473,11 @@ namespace _3_PL.View
         private void dgv_product_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             IDSpCt = Guid.Parse(dgv_product.CurrentRow.Cells[8].Value.ToString());
+        }
+
+        private void btn_FormHoaDon_Click(object sender, EventArgs e)
+        {
+            panel5.Visible = true;
         }
     }
 }
