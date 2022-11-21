@@ -38,39 +38,7 @@ namespace _2_BUS.Service
             _iAnhRepositoriy = new ImageRepositoriy();
         }
 
-        public List<HangHoaChiTietViewModels> GetAllHangHoa()
-        {
-            return (from a in _IHangHoaChiTietRepository.getAll()
-                    join b in _iHangHoaRepository.getAll() on a.IdSp equals b.Id
-                    join c in _iQuocgiaRepository.getAll() on a.IdQuocGia equals c.Id
-                    join d in _iNsxRepository.getAll() on b.IdNsx equals d.Id
-                    join e in _iSizeshoesRepository.getAll() on a.IdSizeGiay equals e.Id
-                    join f in _iLoaiGiayRepository.getAll() on a.IdLoaiGiay equals f.Id
-                    join g in _iChatLieuRepository.getAll() on a.IdChatLieu equals g.Id
-                    join h in _iAnhRepositoriy.getAll() on a.IdAnh equals h.ID
-                    select new HangHoaChiTietViewModels
-                    {
-                        Id = a.Id,
-                        IdSp = b.Id,
-                        IdQuocGia= c.Id,
-                        IdNsx = d.Id,
-                        IdSizeGiay= e.Id,
-                        IdLoaiGiay= f.Id,
-                        IdChatLieu= g.Id,
-                        IdAnh = h.ID,
-                        Ma = b.Ma,
-                        Ten= b.Ten,
-                        TrangThai = b.TrangThai,
-                        NamBh = a.NamBh,
-                        MoTa = a.MoTa,
-                        SoLuongTon = a.SoLuongTon,
-                        GiaBan = a.GiaBan,
-                        GiaNhap = a.GiaNhap
-
-                    }).ToList();
-        }
-
-        public bool ThemHangHoa(HangHoaChiTietThemViewModels HangHoas)
+        public bool ThemHangHoaChiTiet(HangHoaChiTietThemViewModels HangHoas)
         {
             ChiTietHangHoa chiTietHangHoa = new ChiTietHangHoa();
             HangHoa hangHoa = new HangHoa();
@@ -98,6 +66,7 @@ namespace _2_BUS.Service
             }
         }
 
+<<<<<<< HEAD
         public bool updateSoLuong(HangHoaChiTietUpdateThanhToan hangHoas)
         {
             ChiTietHangHoa chiTietHangHoa = _IHangHoaChiTietRepository.getAll().FirstOrDefault(p => p.Id == hangHoas.IdSpCt);
@@ -106,15 +75,15 @@ namespace _2_BUS.Service
             return false;
         }
         public bool XoaHangHoa(Guid hanghoactid, HangHoa hanghoaid)
+=======
+
+        public bool XoaHangHoaChiTiet(Guid hanghoactid, HangHoa hanghoaid)
+>>>>>>> 5df4b049fee2c248c67ff9129f80eab99d61b894
         {
             if (_IHangHoaChiTietRepository.remove(hanghoactid) && _iHangHoaRepository.remove(hanghoaid)) return true;
             return false;
         }
 
-        public bool ThemHangHoaChiTiet(HangHoaChiTietThemViewModels HangHoa)
-        {
-            throw new NotImplementedException();
-        }
 
         public bool SuaHangHoaChiTiet(HangHoaChiTietUpdateViewModels HangHoas)
         {
@@ -144,12 +113,7 @@ namespace _2_BUS.Service
             }
         }
 
-        public bool XoaHangHoaChiTiet(Guid idHangHoa)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<HangHoaChiTietViewModels> GetAllHoaDonDB()
+        public List<HangHoaChiTietViewModels> GetAllHangHoaDB()
         {
             return (from a in _IHangHoaChiTietRepository.getAll()
                     join b in _iHangHoaRepository.getAll() on a.IdSp equals b.Id
