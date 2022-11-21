@@ -34,7 +34,7 @@ namespace _1_DAL.Models
         [Column("NamBH")]
         public int? NamBh { get; set; }
         [StringLength(50)]
-        public string MoTa { get; set; }
+        public string? MoTa { get; set; }
         public int? SoLuongTon { get; set; }
         [Column(TypeName = "decimal(20, 0)")]
         public decimal? GiaNhap { get; set; }
