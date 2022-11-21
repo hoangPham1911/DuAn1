@@ -30,7 +30,7 @@ namespace _2_BUS.Service
             return false;
         }
 
-        public List<AnhViewModels> GetDanhMuc()
+        public List<AnhViewModels> GetAnh()
         {
             return (from a in _ImageRepositoriy.getAll()
                     select new AnhViewModels

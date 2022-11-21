@@ -26,6 +26,7 @@ namespace _3_PL.View
         ISanPhamService _SanPhamService;
         IQlyHangHoaServices _HangHoaChiTietServices;
         List<SanPhamView> _ListProduct;
+        IAnhService _AnhService;
         List<ThemHoaDonModels> _ListReceipt;
         List<Guid> _IdCTSP;
         List<HoaDonChiTietViewModel> _ListReceiptDetail;
@@ -36,6 +37,7 @@ namespace _3_PL.View
         public FormBanHang()
         {
             InitializeComponent();
+            _AnhService = new AnhService();
             _HoaDonChiTietService = new HoaDonChiTietService();
             _HoaDonService = new HoaDonService();
             _SanPhamService = new SanPhamService();
@@ -56,6 +58,7 @@ namespace _3_PL.View
             cbxRank.Items.Add("Kim cương");
             cbxRank.SelectedIndex = 0;
         }
+       
         private void loadProduct()
         {
             //if (InvokeRequired)
@@ -64,7 +67,7 @@ namespace _3_PL.View
             //    return;
             //}
             dgv_product.Rows.Clear();
-            dgv_product.ColumnCount = 7;
+            dgv_product.ColumnCount = 9;
             dgv_product.Columns[0].Name = "IdSp";
             dgv_product.Columns[1].Name = "STT";
             dgv_product.Columns[2].Name = "Mã SP";
@@ -72,7 +75,7 @@ namespace _3_PL.View
             dgv_product.Columns[4].Name = "Gía Bán";
             dgv_product.Columns[5].Name = "IdSpDetail";
             dgv_product.Columns[6].Name = "Số Lượng Ton";
-
+            dgv_product.Columns[7].Name = "Ảnh";
             dgv_product.Columns[5].Visible = false;
             dgv_product.Columns[0].Visible = false;
             int n = 1;
@@ -82,18 +85,30 @@ namespace _3_PL.View
             DataGridViewCheckBoxColumn check = new DataGridViewCheckBoxColumn();
             check.Name = "choose_cb";
             check.HeaderText = "Choose";
-            dgv_product.Columns.Insert(7, check);
+            dgv_product.Columns.Insert(8, check);
+
+            DataGridViewImageColumn dtgImg = new DataGridViewImageColumn();
+            dtgImg.Name = "Data Image";
+            dtgImg.HeaderText = "IMG";
+            dtgImg.ImageLayout = DataGridViewImageCellLayout.Stretch;
+            dgv_product.Columns.Add(dtgImg);
+            dgv_product.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv_product.RowTemplate.Height = 100;
+            dgv_product.Columns[8].Width = 100;
+            dtgImg.DataPropertyName = "DuongDan";
+
 
             foreach (var item in _ListProduct)
             {
-              //  Guid nguonAnh = _SanPhamService.GetSanPham().FirstOrDefault(p => p.IdAnh == item.IdAnh).IdAnh;
+                AnhViewModels image = _AnhService.GetAnh().FirstOrDefault(p => p.ID == item.IdAnh);
                 dgv_product.Rows.Add(item.IdSp, n++, item.Ma, item.Ten, item.GiaBan,
-              item.IdHangHoaChiTiet, item.SoLuongTon
+              item.IdHangHoaChiTiet, item.SoLuongTon, image.DuongDan
               );
             }
+
             dgv_product.AllowUserToAddRows = false;
             dgv_product.Columns[1].Width = 50;
-            dgv_product.Columns[7].Width = 100;
+            dgv_product.Columns[8].Width = 30;          
             dgv_product.Columns[2].Width = 100;
             dgv_product.Columns[3].Width = 100;
             dgv_product.Columns[4].Width = 100;
@@ -126,6 +141,40 @@ namespace _3_PL.View
             }
             dgv_ReceiptDetail.AllowUserToAddRows = false;
 
+        }
+        void image()
+        {
+            try
+            {
+                if (InvokeRequired) // Line #1
+                {
+                    this.Invoke(new MethodInvoker(image));
+                    return;
+                }
+
+                DataGridViewImageColumn img = new DataGridViewImageColumn();
+                img.HeaderText = "IMG";
+                img.Name = "img_sp";
+                img.ImageLayout = DataGridViewImageCellLayout.Stretch;
+                dgv_product.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgv_product.RowTemplate.Height = 100;
+                dgv_product.Columns[7].Width = 100;
+                img.DataPropertyName = "img";
+                for (int i = 0; i < dgv_product.RowCount; i++)
+                {
+                    Image img1 = Image.FromFile(Convert.ToString(dgv_product.Rows[i].Cells["Ảnh"].Value));
+
+                    dgv_product.Rows[i].Cells["img_sp"].Value = img1;
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(Convert.ToString(ex), "Liên Hệ Với 19008198 để sửa lỗi");
+                return;
+
+            }
         }
         private void LoadReceipt()
         {

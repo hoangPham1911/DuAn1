@@ -13,6 +13,6 @@ namespace _2_BUS.IService
         bool remove(AnhViewModels img);
         bool update(AnhViewModels img);
 
-        List<AnhViewModels> GetDanhMuc();
+        List<AnhViewModels> GetAnh();
     }
 }

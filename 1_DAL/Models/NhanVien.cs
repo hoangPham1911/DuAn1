@@ -50,7 +50,7 @@ namespace _1_DAL.Models
         public int? TrangThai { get; set; }
 
         [Column("img", TypeName = "image")]
-        public byte[] Anh { get; set; }
+        public byte[]? Anh { get; set; }
         public string MaOTP { get; set; }
 
         [ForeignKey(nameof(IdCv))]
