@@ -66,7 +66,6 @@ namespace _2_BUS.Service
             }
         }
 
-<<<<<<< HEAD
         public bool updateSoLuong(HangHoaChiTietUpdateThanhToan hangHoas)
         {
             ChiTietHangHoa chiTietHangHoa = _IHangHoaChiTietRepository.getAll().FirstOrDefault(p => p.Id == hangHoas.IdSpCt);
@@ -74,11 +73,13 @@ namespace _2_BUS.Service
             if (_IHangHoaChiTietRepository.update(chiTietHangHoa)) return true;
             return false;
         }
-        public bool XoaHangHoa(Guid hanghoactid, HangHoa hanghoaid)
-=======
+        public bool XoaHangHoa(Guid hanghoactid, HangHoa hanghoaid) {
+            return true;
+                }
+        
 
         public bool XoaHangHoaChiTiet(Guid hanghoactid, HangHoa hanghoaid)
->>>>>>> 5df4b049fee2c248c67ff9129f80eab99d61b894
+
         {
             if (_IHangHoaChiTietRepository.remove(hanghoactid) && _iHangHoaRepository.remove(hanghoaid)) return true;
             return false;
@@ -150,6 +151,16 @@ namespace _2_BUS.Service
             return (from a in _IHangHoaChiTietRepository.getAll()
                     select
                     new HangHoaChiTietUpdateThanhToan { IdSpCt = a.Id, SoLuong = a.SoLuongTon }).ToList();
+        }
+
+        public bool XoaHangHoaChiTiet(Guid idHangHoa)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<HangHoaChiTietViewModels> GetAllHoaDonDB()
+        {
+            throw new NotImplementedException();
         }
     }
 }

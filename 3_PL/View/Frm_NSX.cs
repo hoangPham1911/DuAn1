@@ -39,22 +39,47 @@ namespace _3_PL.View
             var lstnssx = insx.GetNhasanxuat();
             foreach (var item in lstnssx)
             {
-                dgv_showsize.Rows.Add(item.Id,item.Ma,item.Ten,item.TrangThai);
+                dgv_showsize.Rows.Add(item.Id,item.Ma,item.Ten,item.TrangThai== 1 ? "Còn sản xuất": "Ngừng sản xuất");
             }
+            dgv_showsize.AllowUserToAddRows = false;
         }
+
+        
         private void btn_sua_Click(object sender, EventArgs e)
         {
+            viewnsx.Ma = tb_ma.Text;
+            viewnsx.Ten = tb_ten.Text;
+            viewnsx.TrangThai = rdb_con.Checked ? 1 : 0;
+            MessageBox.Show(insx.update(viewnsx));
+            loadData();
 
         }
 
         private void btn_xoa_Click(object sender, EventArgs e)
         {
+            if (viewnsx == null)
+            {
 
+            }
         }
 
         private void dgv_showsize_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow dgvr = dgv_showsize.Rows[e.RowIndex];
+                viewnsx = insx.GetNhasanxuat().FirstOrDefault(x => x.Id == Guid.Parse(dgvr.Cells[0].Value.ToString()));
+                tb_ma.Text = viewnsx.Ma;
+                tb_ten.Text = viewnsx.Ten;
+                if (dgvr.Cells[3].Value.ToString() == "hiển thị") 
+                {
+                    rdb_con.Checked = true;
+                }
+                else
+                {
+                    rdb_ngung.Checked = true;
+                }
+            }
         }
 
         private void btn_them_Click(object sender, EventArgs e)
@@ -63,7 +88,8 @@ namespace _3_PL.View
             {
                 Id = Guid.NewGuid(),
                 Ma = tb_ma.Text,
-                Ten = tb_ten.Text
+                Ten = tb_ten.Text,
+                TrangThai = rdb_con.Checked ? 1:0
             };
             MessageBox.Show(insx.add(x));
             loadData();
@@ -71,7 +97,12 @@ namespace _3_PL.View
 
         private void tb_sosize_TextChanged(object sender, EventArgs e)
         {
+            
+        }
 
+        private void btn_sua_Click_1(object sender, EventArgs e)
+        {
+            
         }
     }
 }
