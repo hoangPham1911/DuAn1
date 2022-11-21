@@ -24,7 +24,7 @@ namespace _3_PL.View
         IHoaDonService _HoaDonService;
         IHoaDonChiTietService _HoaDonChiTietService;
         ISanPhamService _SanPhamService;
-        IHangHoaChiTietServices _HangHoaChiTietServices;
+        IQlyHangHoaServices _HangHoaChiTietServices;
         List<SanPhamView> _ListProduct;
         List<ThemHoaDonModels> _ListReceipt;
         List<Guid> _IdCTSP;
@@ -39,7 +39,7 @@ namespace _3_PL.View
             _HoaDonChiTietService = new HoaDonChiTietService();
             _HoaDonService = new HoaDonService();
             _SanPhamService = new SanPhamService();
-            _HangHoaChiTietServices = new HangHoaChiTietServices();
+            _HangHoaChiTietServices = new QlyHangHoaServices();
             _IdCTSP = new List<Guid>();
             _SanPhamService = new SanPhamService();
             _ListProduct = new List<SanPhamView>();
