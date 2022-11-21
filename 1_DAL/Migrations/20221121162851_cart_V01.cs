@@ -15,8 +15,8 @@ namespace _1_DAL.Migrations
                 {
                     ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false, defaultValueSql: "(newid())"),
                     MaAnh = table.Column<string>(type: "varchar(20)", unicode: false, maxLength: 20, nullable: false),
-                    TenAnh = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
-                    DuongDan = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    img = table.Column<byte[]>(type: "image", nullable: true),
+                    DuongDan = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     TrangThai = table.Column<int>(type: "int", nullable: false, defaultValueSql: "((0))")
                 },
                 constraints: table =>
@@ -183,8 +183,8 @@ namespace _1_DAL.Migrations
                     CMND = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IdCV = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     IdGuiBC = table.Column<int>(type: "int", nullable: true, defaultValueSql: "((0))"),
-                    img = table.Column<byte[]>(type: "image", nullable: false),
-                    MaOTP = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    img = table.Column<byte[]>(type: "image", nullable: true),
+                    MaOTP = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {

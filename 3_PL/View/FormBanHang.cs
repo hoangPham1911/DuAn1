@@ -58,7 +58,7 @@ namespace _3_PL.View
             cbxRank.Items.Add("Kim cương");
             cbxRank.SelectedIndex = 0;
         }
-       
+
         private void loadProduct()
         {
             //if (InvokeRequired)
@@ -67,7 +67,7 @@ namespace _3_PL.View
             //    return;
             //}
             dgv_product.Rows.Clear();
-            dgv_product.ColumnCount = 9;
+            dgv_product.ColumnCount = 8;
             dgv_product.Columns[0].Name = "IdSp";
             dgv_product.Columns[1].Name = "STT";
             dgv_product.Columns[2].Name = "Mã SP";
@@ -86,17 +86,11 @@ namespace _3_PL.View
             check.Name = "choose_cb";
             check.HeaderText = "Choose";
             dgv_product.Columns.Insert(8, check);
-
-            DataGridViewImageColumn dtgImg = new DataGridViewImageColumn();
-            dtgImg.Name = "Data Image";
-            dtgImg.HeaderText = "IMG";
-            dtgImg.ImageLayout = DataGridViewImageCellLayout.Stretch;
-            dgv_product.Columns.Add(dtgImg);
-            dgv_product.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgv_product.RowTemplate.Height = 100;
-            dgv_product.Columns[8].Width = 100;
-            dtgImg.DataPropertyName = "DuongDan";
-
+            foreach (DataGridViewRow item in dgv_product.Rows)
+            {
+                string image = item.Cells[7].Value.ToString();
+                Image img = Image.FromFile(image);
+            }
 
             foreach (var item in _ListProduct)
             {
@@ -108,7 +102,7 @@ namespace _3_PL.View
 
             dgv_product.AllowUserToAddRows = false;
             dgv_product.Columns[1].Width = 50;
-            dgv_product.Columns[8].Width = 30;          
+            dgv_product.Columns[8].Width = 30;
             dgv_product.Columns[2].Width = 100;
             dgv_product.Columns[3].Width = 100;
             dgv_product.Columns[4].Width = 100;

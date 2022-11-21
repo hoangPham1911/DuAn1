@@ -25,9 +25,11 @@ namespace _1_DAL.Models
 
         [StringLength(20)]
         public string MaAnh { get; set; }
-        [StringLength(30)]
-        public string TenAnh { get; set; }
-        public string DuongDan { get; set; }
+
+        [Column("img", TypeName = "image")]
+        public byte[]? img { get; set; }
+
+        public string? DuongDan { get; set; }
         public int TrangThai { get; set; }
 
         [InverseProperty(nameof(ChiTietHangHoa.IdAnhNavigation))]

@@ -30,7 +30,6 @@ namespace _1_DAL.Migrations
                         .HasDefaultValueSql("(newid())");
 
                     b.Property<string>("DuongDan")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MaAnh")
@@ -39,15 +38,15 @@ namespace _1_DAL.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(20)");
 
-                    b.Property<string>("TenAnh")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
-
                     b.Property<int>("TrangThai")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasDefaultValueSql("((0))");
+
+                    b.Property<byte[]>("img")
+                        .HasMaxLength(30)
+                        .HasColumnType("image(30)")
+                        .HasColumnName("img");
 
                     b.HasKey("ID");
 
@@ -519,7 +518,6 @@ namespace _1_DAL.Migrations
                         .HasColumnType("varchar(20)");
 
                     b.Property<string>("MaOTP")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MatKhau")

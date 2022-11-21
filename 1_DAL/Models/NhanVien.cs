@@ -51,7 +51,7 @@ namespace _1_DAL.Models
 
         [Column("img", TypeName = "image")]
         public byte[]? Anh { get; set; }
-        public string MaOTP { get; set; }
+        public string? MaOTP { get; set; }
 
         [ForeignKey(nameof(IdCv))]
         [InverseProperty(nameof(ChucVu.NhanViens))]

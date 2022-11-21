@@ -12,7 +12,7 @@ namespace _2_BUS.ViewModels
         public Guid ID { get; set; }
 
         public string MaAnh { get; set; }
-        public string TenAnh { get; set; }
+        public byte[] image { get; set; }
         public string DuongDan { get; set; }
         public int TrangThai { get; set; }
     }
