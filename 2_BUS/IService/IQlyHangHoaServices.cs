@@ -19,5 +19,7 @@ namespace _2_BUS.IService
         List<QlyHangHoaViewModels> GetsList();
         List<HangHoaViewModels> GetsListHH();
         List<ChiTietHangHoaViewModels> GetsListCTHH();
+        public bool updateSoLuong(HangHoaChiTietUpdateThanhToan hangHoas);
+        List<HangHoaChiTietUpdateThanhToan> GetAllSoLuong();
     }
 }

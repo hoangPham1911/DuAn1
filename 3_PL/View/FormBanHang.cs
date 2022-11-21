@@ -281,7 +281,7 @@ namespace _3_PL.View
                         foreach (var idSpCt in _IdCTSP)
                         {
                             var soLuong = 1;
-                            var donGia = _HangHoaChiTietServices.GetAllHoaDonDB().FirstOrDefault(p => p.Id == IDSpCt).GiaBan;
+                            var donGia = _HangHoaChiTietServices.GetsListCTHH().FirstOrDefault(p => p.Id == IDSpCt).GiaBan;
                             var thanhTien = soLuong * donGia;
                             HoaDonCT.IdChiTietSp = idSpCt;
                             HoaDonCT.SoLuong = soLuong;
@@ -307,7 +307,7 @@ namespace _3_PL.View
                 HoaDonChiTietThemViewModel HoaDonCT = new HoaDonChiTietThemViewModel();
                 HoaDonCT.IdHoaDon = addHoaDon();
                 var soLuong = int.Parse(tb_count.Text);
-                var donGia = _HangHoaChiTietServices.GetAllHoaDonDB().FirstOrDefault(p => p.Id == IDSpCt).GiaBan;
+                var donGia = _HangHoaChiTietServices.GetsListCTHH().FirstOrDefault(p => p.Id == IDSpCt).GiaBan;
                 var thanhTien = soLuong * donGia;
                 HoaDonCT.IdChiTietSp = IDSpCt;
                 HoaDonCT.SoLuong = soLuong;
@@ -317,7 +317,7 @@ namespace _3_PL.View
                 HoaDonCT.IdChiTietSp.ToString() + "->\n" + _HoaDonChiTietService.ThemHoaDonChiTiet(HoaDonCT).ToString());
                 MessageBox.Show("Them Thanh Cong");
                 HangHoaChiTietUpdateThanhToan hhctUpdate = _HangHoaChiTietServices.GetAllSoLuong().FirstOrDefault(p => p.IdSpCt == IDSpCt);
-                var soLuongTon = _HangHoaChiTietServices.GetAllHoaDonDB().FirstOrDefault(p => p.Id == IDSpCt).SoLuongTon;
+                var soLuongTon = _HangHoaChiTietServices.GetsListCTHH().FirstOrDefault(p => p.Id == IDSpCt).SoLuongTon;
                 soLuongTon = soLuongTon - int.Parse(tb_count.Text);
                 hhctUpdate.SoLuong = soLuongTon;
          

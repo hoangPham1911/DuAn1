@@ -18,7 +18,7 @@ namespace _3_PL.View
     {
         public IKieuDanhMucServices kieuDanhMucServices;
         public IDanhMucServices danhMucServices;
-        public IHangHoaChiTietServices hangHoaChiTietServices;
+        public QlyHangHoaServices hangHoaChiTietServices;
         private Guid iddm;
         public List<KieuDanhMucViewModels> KieuDanhMucViewModels;
         public Frm_KieuDanhMuc()
@@ -26,7 +26,7 @@ namespace _3_PL.View
             InitializeComponent();
             kieuDanhMucServices = new KieuDanhMucService();
             danhMucServices = new DanhMucServices();
-            hangHoaChiTietServices = new HangHoaChiTietServices();
+            hangHoaChiTietServices = new QlyHangHoaServices();
         }
 
         public void loadDTG()
@@ -60,7 +60,7 @@ namespace _3_PL.View
             {
                 cb_DanhMuc.Items.Add(item.Ten);
             }
-            foreach (var item in hangHoaChiTietServices.GetAllHangHoaDB())
+            foreach (var item in hangHoaChiTietServices.GetsListHH())
             {
                 cb_HangHoa.Items.Add(item.Ten);
             }
@@ -97,7 +97,7 @@ namespace _3_PL.View
         private void btn_them_Click(object sender, EventArgs e)
         {
             var iddanhmuc = danhMucServices.GetDanhMuc().FirstOrDefault(x => x.Ten == cb_DanhMuc.Text);
-            var idHangHoa = hangHoaChiTietServices.GetAllHangHoaDB().FirstOrDefault(x => x.Ten == cb_HangHoa.Text);
+            var idHangHoa = hangHoaChiTietServices.GetsListHH().FirstOrDefault(x => x.Ten == cb_HangHoa.Text);
             KieuDanhMucViewModels kdm = new KieuDanhMucViewModels()
             {
                 IdDanhMuc = iddanhmuc.Id,
@@ -112,7 +112,7 @@ namespace _3_PL.View
         private void btn_sua_Click(object sender, EventArgs e)
         {
             var iddanhmuc = danhMucServices.GetDanhMuc().FirstOrDefault(x => x.Ten == cb_DanhMuc.Text);
-            var idHangHoa = hangHoaChiTietServices.GetAllHangHoaDB().FirstOrDefault(x => x.Ten == cb_HangHoa.Text);
+            var idHangHoa = hangHoaChiTietServices.GetsListHH().FirstOrDefault(x => x.Ten == cb_HangHoa.Text);
             if (iddm == Guid.Empty)
             {
                 MessageBox.Show("Vui lòng chọn kiểu danh mục");
