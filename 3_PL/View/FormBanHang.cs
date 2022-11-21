@@ -309,17 +309,22 @@ namespace _3_PL.View
             
                 HoaDonCT.IdChiTietSp.ToString() + "->\n" + _HoaDonChiTietService.ThemHoaDonChiTiet(HoaDonCT).ToString());
                 MessageBox.Show("Them Thanh Cong");
-                HangHoaChiTietUpdateViewModels hhctUpdate = new HangHoaChiTietUpdateViewModels();
+                HangHoaChiTietUpdateThanhToan hhctUpdate = _HangHoaChiTietServices.GetAllSoLuong().FirstOrDefault(p => p.IdSpCt == IDSpCt);
                 var soLuongTon = _HangHoaChiTietServices.GetAllHoaDonDB().FirstOrDefault(p => p.Id == IDSpCt).SoLuongTon;
                 soLuongTon = soLuongTon - int.Parse(tb_count.Text);
-                hhctUpdate.SoLuongTon = soLuongTon;
+                hhctUpdate.SoLuong = soLuongTon;
+         
+
                 if (soLuongTon == 0)
                 {
                     MessageBox.Show("Sản Phẩm này đã hết trong kho");
                 }
-                _HangHoaChiTietServices.SuaHangHoaChiTiet(hhctUpdate);
+                _HangHoaChiTietServices.updateSoLuong(hhctUpdate);
 
             }
+            loadProduct();
+            LoadReceipt();
+            loadReceiptDetail();
         }
         Guid IdHoaDon; string status = ""; string maHd = "";
         private void btn_ThanhToan_Click(object sender, EventArgs e)

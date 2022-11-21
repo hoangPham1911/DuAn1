@@ -98,7 +98,13 @@ namespace _2_BUS.Service
             }
         }
 
-
+        public bool updateSoLuong(HangHoaChiTietUpdateThanhToan hangHoas)
+        {
+            ChiTietHangHoa chiTietHangHoa = _IHangHoaChiTietRepository.getAll().FirstOrDefault(p => p.Id == hangHoas.IdSpCt);
+            chiTietHangHoa.SoLuongTon = hangHoas.SoLuong;
+            if (_IHangHoaChiTietRepository.update(chiTietHangHoa)) return true;
+            return false;
+        }
         public bool XoaHangHoa(Guid hanghoactid, HangHoa hanghoaid)
         {
             if (_IHangHoaChiTietRepository.remove(hanghoactid) && _iHangHoaRepository.remove(hanghoaid)) return true;
@@ -173,6 +179,13 @@ namespace _2_BUS.Service
                         GiaNhap = a.GiaNhap
 
                     }).ToList();
+        }
+
+        public List<HangHoaChiTietUpdateThanhToan> GetAllSoLuong()
+        {
+            return (from a in _IHangHoaChiTietRepository.getAll()
+                    select
+                    new HangHoaChiTietUpdateThanhToan { IdSpCt = a.Id, SoLuong = a.SoLuongTon }).ToList();
         }
     }
 }

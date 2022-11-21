@@ -14,5 +14,8 @@ namespace _2_BUS.IService
         bool SuaHangHoaChiTiet(HangHoaChiTietUpdateViewModels HangHoa);
         bool XoaHangHoaChiTiet(Guid idHangHoa);
         public List<HangHoaChiTietViewModels> GetAllHoaDonDB();
+        public List<HangHoaChiTietUpdateThanhToan> GetAllSoLuong();
+
+        public bool updateSoLuong(HangHoaChiTietUpdateThanhToan hangHoas);
     }
 }
