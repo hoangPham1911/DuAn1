@@ -12,8 +12,8 @@ using _1_DAL.Context;
 namespace _1_DAL.Migrations
 {
     [DbContext(typeof(ManagerContext))]
-    [Migration("20221121040357_cart_v11")]
-    partial class cart_v11
+    [Migration("20221121060840_cart_V01")]
+    partial class cart_V01
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

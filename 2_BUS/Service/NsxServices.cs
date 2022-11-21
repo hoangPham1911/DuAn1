@@ -91,12 +91,14 @@ namespace _2_BUS.Service
                 if (temp == null)
                 {
                     if (insxrp.update(x)) return "Sửa Thành Công";
+                    
                     return "Không Thành Công";
                 }
                 else if (NSX.Id == x.Id)
                 {
                     if (insxrp.update(x)) return "Sửa Thành Công";
                     return "Không Thành Công";
+                    
                 }
                 else { return "Trùng rồi"; }
             }

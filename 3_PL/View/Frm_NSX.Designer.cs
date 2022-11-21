@@ -223,6 +223,7 @@
             this.btn_sua.TabIndex = 34;
             this.btn_sua.Text = "     Sửa";
             this.btn_sua.UseVisualStyleBackColor = false;
+            this.btn_sua.Click += new System.EventHandler(this.btn_sua_Click_1);
             // 
             // btn_xoa
             // 

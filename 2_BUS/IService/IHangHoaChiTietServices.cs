@@ -12,7 +12,10 @@ namespace _2_BUS.IService
     {
         bool ThemHangHoaChiTiet(HangHoaChiTietThemViewModels HangHoa);
         bool SuaHangHoaChiTiet(HangHoaChiTietUpdateViewModels HangHoa);
+<<<<<<< HEAD
+=======
 
+>>>>>>> f5e174becf0f814e77ef154d7329b4dab93b2afe
         bool XoaHangHoaChiTiet(Guid idHangHoa);
         public List<HangHoaChiTietViewModels> GetAllHoaDonDB();
         public List<HangHoaChiTietUpdateThanhToan> GetAllSoLuong();
