@@ -298,8 +298,8 @@ namespace _3_PL.View
             {
                 HoaDonChiTietThemViewModel HoaDonCT = new HoaDonChiTietThemViewModel();
                 HoaDonCT.IdHoaDon = addHoaDon();
-                var soLuong = 1;
-                var donGia = 2;
+                var soLuong = tb_count.Text;
+                var donGia = _HangHoaChiTietServices.GetAllHoaDonDB();
                 var thanhTien = soLuong * donGia;
                 HoaDonCT.IdChiTietSp = IDSpCt;
                 HoaDonCT.SoLuong = soLuong;
