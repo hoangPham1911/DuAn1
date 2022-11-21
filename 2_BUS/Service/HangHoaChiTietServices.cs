@@ -102,7 +102,7 @@ namespace _2_BUS.Service
             }
         }
 
-        public List<HangHoaChiTietViewModels> GetAllHoaDonDB()
+        public List<HangHoaChiTietViewModels> GetAllHangHoaDB()
         {
             return (from a in _IHangHoaChiTietRepository.getAll()
                     join b in _iHangHoaRepository.getAll() on a.IdSp equals b.Id
