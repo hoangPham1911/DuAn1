@@ -230,6 +230,7 @@
             this.dgv_product.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_product.Size = new System.Drawing.Size(971, 247);
             this.dgv_product.TabIndex = 1;
+            this.dgv_product.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_product_CellClick);
             // 
             // hóaĐơn1ToolStripMenuItem
             // 

@@ -15,6 +15,7 @@ using _2_BUS.IService;
 using _2_BUS.ViewModels;
 using _2_BUS.Service;
 using System.Runtime.CompilerServices;
+using _1_DAL.Models;
 
 namespace _3_PL.View
 {
@@ -23,7 +24,7 @@ namespace _3_PL.View
         IHoaDonService _HoaDonService;
         IHoaDonChiTietService _HoaDonChiTietService;
         ISanPhamService _SanPhamService;
-
+        IHangHoaChiTietServices _HangHoaChiTietServices;
         List<SanPhamView> _ListProduct;
         List<ThemHoaDonModels> _ListReceipt;
         List<Guid> _IdCTSP;
@@ -38,6 +39,7 @@ namespace _3_PL.View
             _HoaDonChiTietService = new HoaDonChiTietService();
             _HoaDonService = new HoaDonService();
             _SanPhamService = new SanPhamService();
+            _HangHoaChiTietServices = new HangHoaChiTietServices();
             _IdCTSP = new List<Guid>();
             _SanPhamService = new SanPhamService();
             _ListProduct = new List<SanPhamView>();
@@ -225,7 +227,7 @@ namespace _3_PL.View
             Bitmap bit = (Bitmap)eventArgs.Frame.Clone();
             pic_cam.Image = bit;
             if(videoCaptureDevice.IsRunning ) 
-          refreshcam();
+            refreshcam();
         }
         //protected override void OnClosed(EventArgs e)
         //{
@@ -241,7 +243,7 @@ namespace _3_PL.View
         {
             refreshcam();
         }
-
+        Guid IDSpCt;
         private void button2_Click(object sender, EventArgs e)
         {
             int count = 0;
@@ -253,49 +255,59 @@ namespace _3_PL.View
                     _IdCTSP.Add(Guid.Parse(item.Cells[8].Value.ToString()));
                 }
             }
+
             int strResults = dgv_product.Rows.Cast<DataGridViewRow>()
                                       .Where(c => Convert.ToBoolean(c.Cells[14].Value).Equals(true)).ToList().Count;
-            //if(strResults > 1)
-            //{
-            try
+            if (strResults > 1)
             {
-                if (_IdCTSP.Count == 0)
+                try
                 {
-                    MessageBox.Show("Bạn cần tích vào ô vuông để chọn sản phẩm");
-                }
-                else
-                {
-                    HoaDonChiTietThemViewModel HoaDonCT = new HoaDonChiTietThemViewModel();
-                    HoaDonCT.IdHoaDon = addHoaDon();
-                    foreach (var idSpCt in _IdCTSP)
+                    if (_IdCTSP.Count == 0)
                     {
-                        var soLuong = 1;
-                        var donGia = 2;
-                        var thanhTien = soLuong * donGia;
-                        HoaDonCT.IdChiTietSp = idSpCt;
-                        HoaDonCT.SoLuong = soLuong;
-                        HoaDonCT.ThanhTien = thanhTien;
-                        MessageBox.Show(HoaDonCT.IdHoaDon.ToString() + "-->\n" + soLuong.ToString() + "-->\n" + donGia.ToString() + "-->\n" +
-                            HoaDonCT.IdChiTietSp.ToString() + "->\n" + _HoaDonChiTietService.ThemHoaDonChiTiet(HoaDonCT).ToString());
+                        MessageBox.Show("Bạn cần tích vào ô vuông để chọn sản phẩm");
                     }
-                    MessageBox.Show("Them Thanh Cong");
-                    _IdCTSP.RemoveRange(0, _IdCTSP.Count);
+                    else
+                    {
+                        HoaDonChiTietThemViewModel HoaDonCT = new HoaDonChiTietThemViewModel();
+                        HoaDonCT.IdHoaDon = addHoaDon();
+                        foreach (var idSpCt in _IdCTSP)
+                        {
+                            var soLuong = 1;
+                            var donGia = 2;
+                            var thanhTien = soLuong * donGia;
+                            HoaDonCT.IdChiTietSp = idSpCt;
+                            HoaDonCT.SoLuong = soLuong;
+                            HoaDonCT.ThanhTien = thanhTien;
+                            MessageBox.Show(HoaDonCT.IdHoaDon.ToString() + "-->\n" + soLuong.ToString() + "-->\n" + donGia.ToString() + "-->\n" +
+                                HoaDonCT.IdChiTietSp.ToString() + "->\n" + _HoaDonChiTietService.ThemHoaDonChiTiet(HoaDonCT).ToString());
+                        }
+                        MessageBox.Show("Them Thanh Cong");
+                        _IdCTSP.RemoveRange(0, _IdCTSP.Count);
+                    }
                 }
+                catch (Exception)
+                {
+                    MessageBox.Show("Loi");
+                    throw;
+                }
+                loadProduct();
+                LoadReceipt();
+                loadReceiptDetail();
             }
-            catch (Exception)
+            else if(strResults ==1)
             {
-                MessageBox.Show("Loi");
-                throw;
+                HoaDonChiTietThemViewModel HoaDonCT = new HoaDonChiTietThemViewModel();
+                HoaDonCT.IdHoaDon = addHoaDon();
+                var soLuong = 1;
+                var donGia = 2;
+                var thanhTien = soLuong * donGia;
+                HoaDonCT.IdChiTietSp = _IdCTSP;
+                HoaDonCT.SoLuong = soLuong;
+                HoaDonCT.ThanhTien = thanhTien;
+                MessageBox.Show(HoaDonCT.IdHoaDon.ToString() + "-->\n" + soLuong.ToString() + "-->\n" + donGia.ToString() + "-->\n" +
+                HoaDonCT.IdChiTietSp.ToString() + "->\n" + _HoaDonChiTietService.ThemHoaDonChiTiet(HoaDonCT).ToString());
             }
-            loadProduct();
-            LoadReceipt();
-            loadReceiptDetail();
-
-            //else
-            //{
-
-            //}
-        }
+            }
         Guid IdHoaDon; string status = ""; string maHd = "";
         private void btn_ThanhToan_Click(object sender, EventArgs e)
         {
@@ -431,6 +443,11 @@ namespace _3_PL.View
         private void tb_tienKhachDua_TextChanged(object sender, EventArgs e)
         {
             loaiTienThua();
+        }
+
+        private void dgv_product_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            IDSpCt = Guid.Parse(dgv_product.CurrentRow.Cells[8].Value.ToString());
         }
     }
 }

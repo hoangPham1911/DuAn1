@@ -5,6 +5,7 @@ using _1_DAL.IRepostiories;
 using _1_DAL.Models;
 using _1_DAL.Repositores;
 using _1_DAL.Repostiores;
+using _2_BUS.IService;
 using _2_BUS.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace _2_BUS.Service
 {
-    public class HangHoaChiTietServices
+    public class HangHoaChiTietServices :IHangHoaChiTietServices
     {
         IProductDetailRepository _IHangHoaChiTietRepository;
         IProductRepository _iHangHoaRepository;
@@ -96,7 +97,19 @@ namespace _2_BUS.Service
             }
         }
 
-        public bool SuaHangHoa(HangHoaChiTietUpdateViewModels HangHoas)
+
+        public bool XoaHangHoa(Guid hanghoactid, HangHoa hanghoaid)
+        {
+            if (_IHangHoaChiTietRepository.remove(hanghoactid) && _iHangHoaRepository.remove(hanghoaid)) return true;
+            return false;
+        }
+
+        public bool ThemHangHoaChiTiet(HangHoaChiTietThemViewModels HangHoa)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool SuaHangHoaChiTiet(HangHoaChiTietUpdateViewModels HangHoas)
         {
             ChiTietHangHoa chiTietHangHoa = new ChiTietHangHoa();
             HangHoa hangHoa = new HangHoa();
@@ -124,11 +137,14 @@ namespace _2_BUS.Service
             }
         }
 
-        public bool XoaHangHoa(Guid hanghoactid, HangHoa hanghoaid)
+        public bool XoaHangHoaChiTiet(Guid idHangHoa)
         {
-            if (_IHangHoaChiTietRepository.remove(hanghoactid) && _iHangHoaRepository.remove(hanghoaid)) return true;
-            return false;
+            throw new NotImplementedException();
         }
 
+        public List<HangHoaChiTietViewModels> GetAllHoaDonDB()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

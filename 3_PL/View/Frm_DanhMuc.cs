@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Menu;
 
 namespace _3_PL.View
 {
@@ -107,7 +108,20 @@ namespace _3_PL.View
             }
 
         }
+        //public void EnumAllSubitems(DanhMucViewModels subItem, Action<BarItem, DanhMucViewModels> callback)
+        //{
+        //    foreach (BarItemLink link in subItem.ItemLinks)
+        //    {
+        //        DanhMucViewModels item = link.Item;
 
+        //        callback(item, subItem);
+        //        if (item is BarSubItem)
+        //        {
+        //            EnumAllSubitems((BarSubItem)item, callback);
+        //        }
+        //    }
+
+        //}
         private void btn_them_Click(object sender, EventArgs e)
         {
             if (!rdb_con.Checked && !rdb_ngung.Checked)
@@ -116,6 +130,14 @@ namespace _3_PL.View
             }else if(DanhMucServices.GetDanhMuc().Any(p=>p.Ten == tb_ten.Text))
             {
                 MessageBox.Show("Tên Danh Mục Đã Tồn Tại");
+            }
+            else if (DanhMucServices.GetDanhMuc().Any(p => p.Ma == tb_ma.Text))
+            {
+                MessageBox.Show("Tên Danh Mục Đã Tồn Tại");
+            }
+            else if(tb_ma.Text =="" || tb_ten.Text =="")
+            {
+                MessageBox.Show("Bạn Chưa Nhập đầy đủ thông tin");
             }
             else
             {
@@ -130,7 +152,7 @@ namespace _3_PL.View
                 };
                 DanhMucServices.add(dm);
             }
-            loadCBB();
+       
             LoadDTG();
         }
     }
