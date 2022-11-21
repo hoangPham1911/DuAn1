@@ -131,6 +131,7 @@ namespace _1_DAL.Context
                 entity.Property(e => e.NamBh).HasDefaultValueSql("((0))");
                 entity.Property(e => e.GiaBan).HasDefaultValueSql("((0))");
                 entity.Property(e => e.GiaNhap).HasDefaultValueSql("((0))");
+                entity.Property(e => e.MoTa).IsRequired();
 
             });
             modelBuilder.Entity<DanhMuc>(entity =>

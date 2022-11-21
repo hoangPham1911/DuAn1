@@ -50,6 +50,7 @@ namespace _2_BUS.Service
                     join h in _iAnhRepositoriy.getAll() on a.IdAnh equals h.ID
                     select new HangHoaChiTietViewModels
                     {
+                        Id = a.Id,
                         IdSp = b.Id,
                         IdQuocGia= c.Id,
                         IdNsx = d.Id,
