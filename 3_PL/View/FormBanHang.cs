@@ -24,7 +24,7 @@ namespace _3_PL.View
         IHoaDonService _HoaDonService;
         IHoaDonChiTietService _HoaDonChiTietService;
         ISanPhamService _SanPhamService;
-        IHangHoaChiTietServices _HangHoaChiTietServices;
+        IQlyHangHoaServices _HangHoaChiTietServices;
         List<SanPhamView> _ListProduct;
         List<ThemHoaDonModels> _ListReceipt;
         List<Guid> _IdCTSP;
@@ -39,7 +39,7 @@ namespace _3_PL.View
             _HoaDonChiTietService = new HoaDonChiTietService();
             _HoaDonService = new HoaDonService();
             _SanPhamService = new SanPhamService();
-            _HangHoaChiTietServices = new HangHoaChiTietServices();
+            _HangHoaChiTietServices = new QlyHangHoaServices();
             _IdCTSP = new List<Guid>();
             _SanPhamService = new SanPhamService();
             _ListProduct = new List<SanPhamView>();
@@ -141,7 +141,7 @@ namespace _3_PL.View
             int n = 1;
             if (rbn_all.Checked) _ListReceiptDetail = _ListReceiptDetail = _HoaDonChiTietService.GetAllHoaDonDB();
             if (rbn_DaThanhToan.Checked) _ListReceiptDetail = _HoaDonChiTietService.GetAllHoaDonDB().Where(p => p.TinhTrang == 1).ToList();
-            if (rbn_chuaThanhToan.Checked) _ListReceiptDetail = _HoaDonChiTietService.GetAllHoaDonDB().Where(p => p.TinhTrang == 2).ToList();
+            if (rbn_chuaThanhToan.Checked) _ListReceiptDetail = _HoaDonChiTietService.GetAllHoaDonDB().Where(p => p.TinhTrang == 0).ToList();
             foreach (var item in _ListReceiptDetail)
             {
                 string status = "";
@@ -315,16 +315,16 @@ namespace _3_PL.View
                 hhctUpdate.SoLuong = soLuongTon;
          
 
-                if (soLuongTon == 0)
+                if (soLuongTon <= 0)
                 {
                     MessageBox.Show("Sản Phẩm này đã hết trong kho");
                 }
                 _HangHoaChiTietServices.updateSoLuong(hhctUpdate);
-
+                loadProduct();
+                LoadReceipt();
+                loadReceiptDetail();
             }
-            loadProduct();
-            LoadReceipt();
-            loadReceiptDetail();
+           
         }
         Guid IdHoaDon; string status = ""; string maHd = "";
         private void btn_ThanhToan_Click(object sender, EventArgs e)
