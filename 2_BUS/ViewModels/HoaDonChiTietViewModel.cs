@@ -22,7 +22,7 @@ namespace _2_BUS.ViewModels
 
      //   public Guid? IdKh { get; set; }
 
-     //   public Guid? IdNv { get; set; }
+        public Guid? IdNv { get; set; }
 
         public string Ma { get; set; }
         public DateTime? NgayTao { get; set; }

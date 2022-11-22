@@ -42,10 +42,10 @@ namespace _2_BUS.Service
                    //     NgayNhan = b.NgayNhan,
                     //    NgayShip = b.NgayShip,
                         NgayTao = b.NgayTao,
-                     //   NgayThanhToan = b.NgayThanhToan,
-                        //  IdNv = b.IdNv,
-                     //   GiamGia = a.GiamGia,
-                  //      Thue = b.Thue,
+                        //   NgayThanhToan = b.NgayThanhToan,
+                        IdNv = b.IdNv,
+                        //   GiamGia = a.GiamGia,
+                        //      Thue = b.Thue,
                         TinhTrang = b.TinhTrang,
                     }).ToList();
 

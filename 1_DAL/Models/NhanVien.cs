@@ -46,7 +46,8 @@ namespace _1_DAL.Models
 
         [Column("IdCV")]
         public Guid? IdCv { get; set; }
-        [Column("IdGuiBC")]
+
+        [Column("TrangThai")]
         public int? TrangThai { get; set; }
 
         [Column("img", TypeName = "image")]

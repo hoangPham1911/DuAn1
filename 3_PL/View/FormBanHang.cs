@@ -25,6 +25,7 @@ namespace _3_PL.View
         IHoaDonChiTietService _HoaDonChiTietService;
         ISanPhamService _SanPhamService;
         IQlyHangHoaServices _HangHoaChiTietServices;
+        INhanVienServices _NhanVienServices;
         List<SanPhamView> _ListProduct;
         IAnhService _AnhService;
         List<Guid> _IdCTSP;
@@ -38,6 +39,7 @@ namespace _3_PL.View
             InitializeComponent();
             _AnhService = new AnhService();
             _HoaDonChiTietService = new HoaDonChiTietService();
+            _NhanVienServices = new NhanVienServices();
             _HoaDonService = new HoaDonService();
             _SanPhamService = new SanPhamService();
             _HangHoaChiTietServices = new QlyHangHoaServices();
@@ -45,11 +47,14 @@ namespace _3_PL.View
             _SanPhamService = new SanPhamService();
             _ListProduct = new List<SanPhamView>();
             _ListReceiptProduct = new List<SanPhamTrongHoaDonViewModels>();
+           
             loadProduct();
             LoadReceipt();
             loadReceiptDetail();
             LoadCbxRank();
+           // load();
         }
+        
         void LoadCbxRank()
         {
             cbxRank.Items.Add("Bạc");
@@ -57,7 +62,12 @@ namespace _3_PL.View
             cbxRank.Items.Add("Kim cương");
             cbxRank.SelectedIndex = 0;
         }
-
+        void load()
+        {
+            var nv = _NhanVienServices.GetAll().FirstOrDefault(p => p.Id == FrmDangNhap._IdStaff);
+            string hoTenNV = nv.Ho + nv.TenDem + nv.Ten;
+            tb_tenNv.Text = hoTenNV;
+        }
         private void loadProduct()
         {
             //if (InvokeRequired)
@@ -86,10 +96,8 @@ namespace _3_PL.View
             dtgImg.ImageLayout = DataGridViewImageCellLayout.Stretch;
             dgv_product.Columns.Add(dtgImg);
             dgv_product.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgv_product.RowTemplate.Height = 100;
-         
+            dgv_product.RowTemplate.Height = 100;        
             dtgImg.DataPropertyName = "img";
-
             DataGridViewCheckBoxColumn check = new DataGridViewCheckBoxColumn();
             check.Name = "choose_cb";
             check.HeaderText = "Choose";
@@ -193,9 +201,9 @@ namespace _3_PL.View
             dgv_hoaDon.Columns[0].Visible = false;
             _ListReceiptDetail = _HoaDonChiTietService.GetAllHoaDonDB();
             int n = 1;
-            if (rbn_all.Checked) _ListReceiptDetail = _ListReceiptDetail = _HoaDonChiTietService.GetAllHoaDonDB();
-            if (rbn_DaThanhToan.Checked) _ListReceiptDetail = _HoaDonChiTietService.GetAllHoaDonDB().Where(p => p.TinhTrang == 1).ToList();
-            if (rbn_chuaThanhToan.Checked) _ListReceiptDetail = _HoaDonChiTietService.GetAllHoaDonDB().Where(p => p.TinhTrang == 0).ToList();
+            if (rbn_all.Checked) _ListReceiptDetail = _HoaDonChiTietService.GetAllHoaDonDB().Where(p=>p.IdNv == FrmDangNhap._IdStaff).ToList();
+            if (rbn_DaThanhToan.Checked) _ListReceiptDetail = _HoaDonChiTietService.GetAllHoaDonDB().Where(p => p.IdNv == FrmDangNhap._IdStaff).Where(p => p.TinhTrang == 1).ToList();
+            if (rbn_chuaThanhToan.Checked) _ListReceiptDetail = _HoaDonChiTietService.GetAllHoaDonDB().Where(p => p.IdNv == FrmDangNhap._IdStaff).Where(p => p.TinhTrang == 0).ToList();
             foreach (var item in _ListReceiptDetail)
             {
                 string status = "";
@@ -237,7 +245,7 @@ namespace _3_PL.View
         }
         private void btn_FormdatHang_Click(object sender, EventArgs e)
         {
-            panel5.Visible = false;
+            pn_dathang.Visible = false;
 
         }
 
@@ -504,7 +512,7 @@ namespace _3_PL.View
 
         private void btn_FormHoaDon_Click(object sender, EventArgs e)
         {
-            panel5.Visible = true;
+            pn_dathang.Visible = true;
         }
 
         private void dgv_hoaDon_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -532,6 +540,16 @@ namespace _3_PL.View
                 loadReceiptDetail();
             }
 
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tb_count_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            checkNumber(sender,e);
         }
     }
 }
