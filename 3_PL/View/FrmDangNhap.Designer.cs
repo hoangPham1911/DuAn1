@@ -36,7 +36,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tb_tenguoidung = new System.Windows.Forms.TextBox();
             this.tb_mk = new System.Windows.Forms.TextBox();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.linklb_quenmk = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -136,15 +136,16 @@
             this.tb_mk.Size = new System.Drawing.Size(197, 23);
             this.tb_mk.TabIndex = 5;
             // 
-            // linkLabel1
+            // linklb_quenmk
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(409, 191);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(90, 15);
-            this.linkLabel1.TabIndex = 6;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Quên Mật Khẩu";
+            this.linklb_quenmk.AutoSize = true;
+            this.linklb_quenmk.Location = new System.Drawing.Point(409, 191);
+            this.linklb_quenmk.Name = "linklb_quenmk";
+            this.linklb_quenmk.Size = new System.Drawing.Size(90, 15);
+            this.linklb_quenmk.TabIndex = 6;
+            this.linklb_quenmk.TabStop = true;
+            this.linklb_quenmk.Text = "Quên Mật Khẩu";
+            this.linklb_quenmk.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklb_quenmk_LinkClicked);
             // 
             // FrmDangNhap
             // 
@@ -153,7 +154,7 @@
             this.BackColor = System.Drawing.Color.Moccasin;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(545, 336);
-            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.linklb_quenmk);
             this.Controls.Add(this.tb_mk);
             this.Controls.Add(this.tb_tenguoidung);
             this.Controls.Add(this.label2);
@@ -181,6 +182,6 @@
         private Label label3;
         private TextBox tb_tenguoidung;
         private TextBox tb_mk;
-        private LinkLabel linkLabel1;
+        private LinkLabel linklb_quenmk;
     }
 }
