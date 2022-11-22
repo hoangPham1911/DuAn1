@@ -18,6 +18,8 @@ namespace _3_PL.View
         {
             InitializeComponent();
         }
+
+        public static string to;
         private string GenerateRandomOTP(int iOTPLength, string[] saAllowedCharacters)
 
         {
@@ -92,6 +94,7 @@ namespace _3_PL.View
         {
             if (otp.ToString().Equals(textBox2.Text))
             {
+                to = textBox1.Text;
                 MessageBox.Show("Xác Thực Thành Công");
                 this.Hide();
                 FrmLayLaiMatKhau frmLayLaiMatKhau = new FrmLayLaiMatKhau();
