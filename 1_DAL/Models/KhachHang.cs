@@ -18,6 +18,7 @@ namespace _1_DAL.Models
         public KhachHang()
         {
             HoaDons = new HashSet<HoaDon>();
+            LichSuDiemTieuDungs = new HashSet<LichSuDiemTieuDung>();
         }
 
         [Key]
@@ -38,11 +39,11 @@ namespace _1_DAL.Models
         [StringLength(30)]
         public string Sdt { get; set; }
         [StringLength(100)]
-        public string DiaChi { get; set; }
+        public string? DiaChi { get; set; }
         [StringLength(50)]
         public int TrangThai { get; set; }
 
-        public int DiemTichDiem { get; set; }
+        public int? DiemTichDiem { get; set; }
     //    [InverseProperty(nameof(HoaDon.IdKhNavigation))]
         public virtual ICollection<HoaDon> HoaDons { get; set; }
         public virtual ICollection<LichSuDiemTieuDung> LichSuDiemTieuDungs { get; set; }

@@ -30,8 +30,8 @@ namespace _2_BUS.ViewModels
      
         public string DiaChi { get; set; }
 
-        public int TrangThai { get; set; }
+        public int? TrangThai { get; set; }
 
-        public int DiemTichDiem { get; set; }
+        public int? DiemTichDiem { get; set; }
     }
 }

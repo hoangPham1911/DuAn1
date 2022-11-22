@@ -55,12 +55,6 @@ namespace _3_PL.View
             OpenChildForm(new FrmHangHoa(), sender);
             lblTitle.Text = "FormSanPham";
         }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new FormBanHang(), sender);
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
             OpenChildForm(new Frm_HoaDon(), sender);
@@ -101,6 +95,23 @@ namespace _3_PL.View
         private void pictureBox4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormBanHang(), sender);
+        }
+
+        private void btnCloseChildForm_Click(object sender, EventArgs e)
+        {
+            if (activeForm != null)
+                activeForm.Close();
+            Reset();
         }
     }
 }

@@ -19,6 +19,7 @@ namespace _2_BUS.ViewModels
 
         public Guid? IdAnh { get; set; }
 
+        public byte[]? img { get; set; }
         public int? SoLuongTon { get; set; }
 
         public decimal? GiaBan { get; set; }
