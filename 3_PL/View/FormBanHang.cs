@@ -317,91 +317,7 @@ namespace _3_PL.View
         Guid IDSpCt;
         private void button2_Click(object sender, EventArgs e)
         {
-            int count = 0;
-            foreach (DataGridViewRow item in dgv_product.Rows)
-            {
-                bool total = Convert.ToBoolean(item.Cells["choose_cb"].Value);
-                if (total)
-                {
-                    _IdCTSP.Add(Guid.Parse(item.Cells[5].Value.ToString()));
-                }
-            }
-
-            int strResults = dgv_product.Rows.Cast<DataGridViewRow>()
-                                      .Where(c => Convert.ToBoolean(c.Cells[8].Value).Equals(true)).ToList().Count;
-
-
-            if (strResults > 1)
-            {
-                tb_count.Enabled = true;
-                btn_down.Enabled = true;
-                btn_up.Enabled = true;
-                try
-                {
-                    if (_IdCTSP.Count == 0)
-                    {
-                        MessageBox.Show("Bạn cần tích vào ô vuông để chọn sản phẩm");
-                    }
-                    else
-                    {
-                        HoaDonChiTietThemViewModel HoaDonCT = new HoaDonChiTietThemViewModel();
-                        HoaDonCT.IdHoaDon = addHoaDon();
-                        foreach (var idSpCt in _IdCTSP)
-                        {
-
-                            var donGia = _SanPhamService.GetSanPham().FirstOrDefault(p => p.IdHangHoaChiTiet == IDSpCt).GiaBan;
-                            var thanhTien = 1 * donGia;
-                            HoaDonCT.IdChiTietSp = idSpCt;
-                            HoaDonCT.SoLuong = 1;
-                            HoaDonCT.ThanhTien = thanhTien;
-                            MessageBox.Show(HoaDonCT.IdHoaDon.ToString() + "-->\n" + 1.ToString() + "-->\n" + donGia.ToString() + "-->\n" +
-                            HoaDonCT.IdChiTietSp.ToString() + "->\n" + _HoaDonChiTietService.ThemHoaDonChiTiet(HoaDonCT).ToString());
-                            HangHoaChiTietUpdateThanhToan hhctUpdate = _HangHoaChiTietServices.GetAllSoLuong().FirstOrDefault(p => p.IdSpCt == idSpCt);
-                            var soLuongTon = _SanPhamService.GetSanPham().FirstOrDefault(p => p.IdHangHoaChiTiet == IDSpCt).SoLuongTon;
-                            soLuongTon = soLuongTon - 1;
-                            hhctUpdate.SoLuong = soLuongTon;
-                            _HangHoaChiTietServices.updateSoLuong(hhctUpdate);
-                        }
-                        MessageBox.Show("Them Thanh Cong");
-                        _IdCTSP.RemoveRange(0, _IdCTSP.Count);
-
-                    }
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Loi");
-                    throw;
-                }
-                loadProduct();
-                LoadReceipt();
-                loadReceiptDetail();
-            }
-            else if (strResults == 1)
-            {
-                HoaDonChiTietThemViewModel HoaDonCT = new HoaDonChiTietThemViewModel();
-                HoaDonCT.IdHoaDon = addHoaDon();
-                var soLuong = int.Parse(tb_count.Text);
-                var donGia = _SanPhamService.GetSanPham().FirstOrDefault(p => p.IdHangHoaChiTiet == IDSpCt).GiaBan;
-                HoaDonCT.IdChiTietSp = IDSpCt;
-                HoaDonCT.SoLuong = soLuong;
-                HoaDonCT.ThanhTien = soLuong * donGia;
-                if (_HoaDonChiTietService.ThemHoaDonChiTiet(HoaDonCT))
-                    MessageBox.Show("Them Thanh Cong");
-                HangHoaChiTietUpdateThanhToan hhctUpdate = _HangHoaChiTietServices.GetAllSoLuong().FirstOrDefault(p => p.IdSpCt == IDSpCt);
-                var soLuongTon = _SanPhamService.GetSanPham().FirstOrDefault(p => p.IdHangHoaChiTiet == IDSpCt).SoLuongTon;
-                soLuongTon = soLuongTon - int.Parse(tb_count.Text);
-                hhctUpdate.SoLuong = soLuongTon;
-
-                if (soLuongTon <= 0)
-                {
-                    MessageBox.Show("Sản Phẩm này đã hết trong kho");
-                }
-                _HangHoaChiTietServices.updateSoLuong(hhctUpdate);
-                loadProduct();
-                LoadReceipt();
-                loadReceiptDetail();
-            }
-
+          
         }
 
         private void btn_ThanhToan_Click(object sender, EventArgs e)
@@ -597,6 +513,87 @@ namespace _3_PL.View
 
         private void button3_Click(object sender, EventArgs e)
         {
+            int count = 0;
+            foreach (DataGridViewRow item in dgv_product.Rows)
+            {
+                bool total = Convert.ToBoolean(item.Cells["choose_cb"].Value);
+                if (total)
+                {
+                    _IdCTSP.Add(Guid.Parse(item.Cells[5].Value.ToString()));
+                }
+            }
+
+            int strResults = dgv_product.Rows.Cast<DataGridViewRow>()
+                                      .Where(c => Convert.ToBoolean(c.Cells[8].Value).Equals(true)).ToList().Count;
+
+
+            if (strResults > 1)
+            {
+                try
+                {
+                    if (_IdCTSP.Count == 0)
+                    {
+                        MessageBox.Show("Bạn cần tích vào ô vuông để chọn sản phẩm");
+                    }
+                    else
+                    {
+                        HoaDonChiTietThemViewModel HoaDonCT = new HoaDonChiTietThemViewModel();
+                        HoaDonCT.IdHoaDon = addHoaDon();
+                        foreach (var idSpCt in _IdCTSP)
+                        {
+
+                            var donGia = _SanPhamService.GetSanPham().FirstOrDefault(p => p.IdHangHoaChiTiet == IDSpCt).GiaBan;
+                            var thanhTien = 1 * donGia;
+                            HoaDonCT.IdChiTietSp = idSpCt;
+                            HoaDonCT.SoLuong = 1;
+                            HoaDonCT.ThanhTien = thanhTien;
+                            MessageBox.Show(HoaDonCT.IdHoaDon.ToString() + "-->\n" + 1.ToString() + "-->\n" + donGia.ToString() + "-->\n" +
+                            HoaDonCT.IdChiTietSp.ToString() + "->\n" + _HoaDonChiTietService.ThemHoaDonChiTiet(HoaDonCT).ToString());
+                            HangHoaChiTietUpdateThanhToan hhctUpdate = _HangHoaChiTietServices.GetAllSoLuong().FirstOrDefault(p => p.IdSpCt == idSpCt);
+                            var soLuongTon = _SanPhamService.GetSanPham().FirstOrDefault(p => p.IdHangHoaChiTiet == IDSpCt).SoLuongTon;
+                            soLuongTon = soLuongTon - 1;
+                            hhctUpdate.SoLuong = soLuongTon;
+                            _HangHoaChiTietServices.updateSoLuong(hhctUpdate);
+                        }
+                        MessageBox.Show("Them Thanh Cong");
+                        _IdCTSP.RemoveRange(0, _IdCTSP.Count);
+
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Loi");
+                    throw;
+                }
+                loadProduct();
+                LoadReceipt();
+                loadReceiptDetail();
+            }
+            else if (strResults == 1)
+            {
+                HoaDonChiTietThemViewModel HoaDonCT = new HoaDonChiTietThemViewModel();
+                HoaDonCT.IdHoaDon = addHoaDon();
+                var soLuong = int.Parse(tb_count.Text);
+                var donGia = _SanPhamService.GetSanPham().FirstOrDefault(p => p.IdHangHoaChiTiet == IDSpCt).GiaBan;
+                HoaDonCT.IdChiTietSp = IDSpCt;
+                HoaDonCT.SoLuong = soLuong;
+                HoaDonCT.ThanhTien = soLuong * donGia;
+                if (_HoaDonChiTietService.ThemHoaDonChiTiet(HoaDonCT))
+                    MessageBox.Show("Them Thanh Cong");
+                HangHoaChiTietUpdateThanhToan hhctUpdate = _HangHoaChiTietServices.GetAllSoLuong().FirstOrDefault(p => p.IdSpCt == IDSpCt);
+                var soLuongTon = _SanPhamService.GetSanPham().FirstOrDefault(p => p.IdHangHoaChiTiet == IDSpCt).SoLuongTon;
+                soLuongTon = soLuongTon - int.Parse(tb_count.Text);
+                hhctUpdate.SoLuong = soLuongTon;
+
+                if (soLuongTon <= 0)
+                {
+                    MessageBox.Show("Sản Phẩm này đã hết trong kho");
+                }
+                _HangHoaChiTietServices.updateSoLuong(hhctUpdate);
+                loadProduct();
+                LoadReceipt();
+                loadReceiptDetail();
+            }
 
         }
     }
