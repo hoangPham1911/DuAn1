@@ -59,8 +59,11 @@
             this.tb_ten = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.dtpNamSinh = new System.Windows.Forms.DateTimePicker();
+            this.btn_chonanh = new System.Windows.Forms.Button();
+            this.ptb_anh = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptb_anh)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -133,7 +136,7 @@
             this.bt_dangky.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_dangky.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.bt_dangky.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.bt_dangky.Location = new System.Drawing.Point(371, 498);
+            this.bt_dangky.Location = new System.Drawing.Point(371, 553);
             this.bt_dangky.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.bt_dangky.Name = "bt_dangky";
             this.bt_dangky.Size = new System.Drawing.Size(147, 47);
@@ -152,7 +155,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(282, 570);
+            this.panel1.Size = new System.Drawing.Size(282, 600);
             this.panel1.TabIndex = 17;
             // 
             // pictureBox1
@@ -397,11 +400,33 @@
             this.dtpNamSinh.Size = new System.Drawing.Size(222, 26);
             this.dtpNamSinh.TabIndex = 110;
             // 
+            // btn_chonanh
+            // 
+            this.btn_chonanh.Location = new System.Drawing.Point(918, 307);
+            this.btn_chonanh.Name = "btn_chonanh";
+            this.btn_chonanh.Size = new System.Drawing.Size(176, 28);
+            this.btn_chonanh.TabIndex = 112;
+            this.btn_chonanh.Text = "Chọn avartar nhân viên";
+            this.btn_chonanh.UseVisualStyleBackColor = true;
+            this.btn_chonanh.Click += new System.EventHandler(this.btn_chonanh_Click);
+            // 
+            // ptb_anh
+            // 
+            this.ptb_anh.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.ptb_anh.Location = new System.Drawing.Point(871, 61);
+            this.ptb_anh.Name = "ptb_anh";
+            this.ptb_anh.Size = new System.Drawing.Size(276, 225);
+            this.ptb_anh.TabIndex = 113;
+            this.ptb_anh.TabStop = false;
+            this.ptb_anh.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
             // FrmDangKy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(889, 570);
+            this.ClientSize = new System.Drawing.Size(1172, 600);
+            this.Controls.Add(this.ptb_anh);
+            this.Controls.Add(this.btn_chonanh);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dtpNamSinh);
             this.Controls.Add(this.tb_ten);
@@ -436,6 +461,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptb_anh)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -473,5 +499,7 @@
         private TextBox tb_ten;
         private Label label6;
         private DateTimePicker dtpNamSinh;
+        private Button btn_chonanh;
+        private PictureBox ptb_anh;
     }
 }

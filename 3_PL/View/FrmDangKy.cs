@@ -24,6 +24,7 @@ namespace _3_PL.View
             InitializeComponent();
             nhanVienServices = new NhanVienServices();
             chucVuServices = new ChucVuServices();
+            loadCBB();
         }
 
         public void loadCBB()
@@ -32,6 +33,7 @@ namespace _3_PL.View
             {
                 cb_ChucVu.Items.Add(item.Ten);
             }
+           
         }
         private void bt_dangky_Click(object sender, EventArgs e)
         {
@@ -51,6 +53,7 @@ namespace _3_PL.View
                 NamSinh = dtpNamSinh.Value,
                 GioiTinh = rdNam.Checked ? "Nam" : "Nữ",
                 IdCv = chucvu.Id,
+                Anh = null,
             };
             if (tb_ho.Text == "" && tb_tenDem.Text == "" && tb_ten.Text == "")
             {
@@ -75,7 +78,7 @@ namespace _3_PL.View
             {
                 MessageBox.Show("Mời chọn chức vụ");
             }
-            else if (tb_mk.Text == tb_nhaplaiMK.Text)
+            else if (tb_mk.Text != tb_nhaplaiMK.Text)
             {
                 MessageBox.Show("Nhập lại mật khẩu sai");
             }
@@ -91,6 +94,30 @@ namespace _3_PL.View
                 }
             }
 
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_chonanh_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (OpenFileDialog ofd = new OpenFileDialog() { Filter = "JPEG|*.jpg", ValidateNames = true, Multiselect = false })
+                {
+                    if (ofd.ShowDialog() == DialogResult.OK)
+                        ptb_anh.Image = Image.FromFile(ofd.FileName);
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "ThongBao", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
     }
