@@ -104,8 +104,19 @@ namespace _3_PL.View
                 IdHangHoa = idHangHoa.Id,
                 TheLoaiGioiTinh = rd_nam.Checked ? 1 : 0
             };
-            MessageBox.Show(kieuDanhMucServices.ThemKieuDanhMuc(kdm));
-            loadDTG();
+            if (cb_DanhMuc.Text == "")
+            {
+                MessageBox.Show("Mời chọn tên danh mục");
+            }
+            else if (cb_HangHoa.Text == "")
+            {
+                MessageBox.Show("Mời chọn tên hàng hóa");
+            }
+            else
+            {
+                MessageBox.Show(kieuDanhMucServices.ThemKieuDanhMuc(kdm));
+                loadDTG();
+            }
 
         }
 
