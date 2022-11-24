@@ -23,8 +23,9 @@ namespace _1_DAL.Models
         [Required]
         public Guid IdChiTietHangHoa { get; set; }
         
-        public decimal? SaleTheoPhanTram { get; set; }
-        public decimal? SaleTheoKhoangTien { get; set; }
+        public decimal? DonGia { get; set; }
+        public decimal? SoTienSauKhiGiam { get; set; }
+        public int? TrangThai { get; set; }
 
         [ForeignKey(nameof(IdSale))]
         [InverseProperty(nameof(Sale.SaleChiTiets))]

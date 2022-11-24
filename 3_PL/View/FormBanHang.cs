@@ -665,11 +665,12 @@ namespace _3_PL.View
                     {
                         HangHoaChiTietUpdateThanhToan hhctUpdate = _HangHoaChiTietServices.GetAllSoLuong().FirstOrDefault(p => p.IdSpCt == IDSpCt);
                         var sp = _SanPhamService.GetSanPham().FirstOrDefault(p => p.IdHangHoaChiTiet == IDSpCt);
-                        var soLuongTon = sp.SoLuongTon;
                         var MaSp = sp.Ma;
                         var TenSp = sp.Ten;
-                        soLuongTon = soLuongTon - int.Parse(tb_count.Text);
-                        hhctUpdate.SoLuong = soLuongTon;
+                        hhctUpdate.SoLuong = sp.SoLuongTon - int.Parse(tb_count.Text);
+                        MessageBox.Show(hhctUpdate.SoLuong.ToString());
+                        _HangHoaChiTietServices.updateSoLuong(hhctUpdate);
+                        MessageBox.Show(hhctUpdate.SoLuong.ToString());
                         GioHangViewModel gioHang = new GioHangViewModel();
                         gioHang.SoLuong = soLuong;
                         gioHang.DonGia = donGia;
@@ -677,23 +678,23 @@ namespace _3_PL.View
                         gioHang.IdCTSP = IDSpCt;
                         gioHang.TenSp = TenSp;
                         gioHang.ThanhTien = donGia * soLuong;
-                        if (_ListGioHang.Count() ==0)
+                        if (_ListGioHang.Count() == 0)
                         {
                             _ListGioHang.Add(gioHang);
                         }
-                        else if (_ListGioHang.FirstOrDefault(p=>p.IdCTSP == IDSpCt) !=null)
+                        else if (_ListGioHang.FirstOrDefault(p => p.IdCTSP == IDSpCt) != null)
                         {
                             _ListGioHang.FirstOrDefault(p => p.IdCTSP == IDSpCt).SoLuong = _ListGioHang.FirstOrDefault(p => p.IdCTSP == IDSpCt).SoLuong + int.Parse(tb_count.Text);
                         }
-                        else 
+                        else
                         {
                             _ListGioHang.Add(gioHang);
                         }
-                        if (soLuongTon <= 0)
+                        if (sp.SoLuongTon <= 0)
                         {
                             MessageBox.Show("Sản Phẩm này đã hết trong kho");
                         }
-                        if (_HangHoaChiTietServices.updateSoLuong(hhctUpdate))
+                        else
                         {
                             MessageBox.Show("Them Thanh Cong");
                         }
@@ -769,7 +770,7 @@ namespace _3_PL.View
         private void dgv_GioHang_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             IdReceiptInCart = Guid.Parse(dgv_GioHang.CurrentRow.Cells[6].Value.ToString());
-           // MessageBox.Show(IdReceiptInCart.ToString());
+            // MessageBox.Show(IdReceiptInCart.ToString());
             textBox2.Text = dgv_GioHang.CurrentRow.Cells[3].Value.ToString();
         }
     }

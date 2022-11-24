@@ -15,6 +15,7 @@ namespace _1_DAL.Models
         public Guid? IdHangHoa { get; set; }
         public int TheLoaiGioiTinh { get; set; }
 
+        public int TrangThai { get; set; }
         [ForeignKey(nameof(IdDanhMuc))]
         [InverseProperty(nameof(DanhMuc.KieuDanhMucs))]
         public virtual DanhMuc IdDanhMucNavigation { get; set; }

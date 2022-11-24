@@ -18,6 +18,7 @@ namespace _1_DAL.Models
         public NhanVien()
         {
             HoaDons = new HashSet<HoaDon>();
+            GiaoCas = new HashSet<GiaoCa>();
         }
 
         [Key]
@@ -59,6 +60,8 @@ namespace _1_DAL.Models
         public virtual ChucVu IdCvNavigation { get; set; }
         //   [InverseProperty(nameof(HoaDon.IdNvNavigation))]
         public virtual ICollection<HoaDon> HoaDons { get; set; }
+        public virtual ICollection<GiaoCa> GiaoCas { get; set; }
+
 
     }
 }

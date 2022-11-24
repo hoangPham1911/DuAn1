@@ -41,6 +41,8 @@ namespace _1_DAL.Models
         [Column(TypeName = "decimal(20, 0)")]
         public decimal? GiaBan { get; set; }
 
+        public int TrangThai { get; set; }
+
         [ForeignKey(nameof(IdSizeGiay))]
         [InverseProperty(nameof(SizeGiay.ChiTietHangHoas))]
         public virtual SizeGiay IdSizeNavigation { get; set; }

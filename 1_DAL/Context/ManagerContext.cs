@@ -55,6 +55,7 @@ namespace _1_DAL.Context
             modelBuilder.Entity<SaleChiTiet>(entity =>
             {
                 entity.HasKey(e => new { e.IdChiTietHangHoa, e.IdSale });
+                entity.Property(e => e.TrangThai).HasDefaultValueSql("((0))");
 
             });
 
@@ -73,6 +74,7 @@ namespace _1_DAL.Context
             modelBuilder.Entity<KieuDanhMuc>(entity =>
             {
                 entity.HasKey(e => new { e.IdDanhMuc, e.IdHangHoa });
+                entity.Property(e => e.TrangThai).HasDefaultValueSql("((0))");
 
             });
             modelBuilder.Entity<KhachHang>(entity =>

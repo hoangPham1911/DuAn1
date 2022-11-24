@@ -40,6 +40,12 @@ namespace _1_DAL.Models
         [StringLength(50)]
         public decimal Thue { get; set; }
         [StringLength(100)]
+        public string? SDTShip { get; set; }
+        public string? TenShip { get; set; }
+        public decimal ? SoTienQuyDoi { get; set; }
+        public int? SoDiemSuDung { get; set; }
+        public string TenNguoiShip { get; set; }
+        public decimal? PhanTramGiamGia { get; set; }
 
         [ForeignKey(nameof(IdKh))]
         [InverseProperty(nameof(KhachHang.HoaDons))]
