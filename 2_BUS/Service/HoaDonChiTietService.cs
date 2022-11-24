@@ -86,8 +86,7 @@ namespace _2_BUS.Service
             hdct.GiamGia = Hoadons.GiamGia;
             hdct.IdChiTietSp = Hoadons.IdChiTietSp;
             hdct.SoLuong = Hoadons.SoLuong;
-            hdct.ThanhTien = Hoadons.ThanhTien;
-            
+            hdct.ThanhTien = Hoadons.ThanhTien;           
             if (_IreceiptDetailRepository.add(hdct)) return true;
             return false;
         }
