@@ -27,8 +27,6 @@ namespace _1_DAL.Models
         public string MaAnh { get; set; }
         [StringLength(50)]
         public string?Ten { get; set; }
-        //[Column("img", TypeName = "image")]
-        //public byte[]? img { get; set; }
 
         public string? DuongDan { get; set; }
         public int TrangThai { get; set; }

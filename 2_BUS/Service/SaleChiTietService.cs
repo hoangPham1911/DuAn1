@@ -35,8 +35,8 @@ namespace _2_BUS.Service
                         /*IdHangHoa = IdHangHoaCt*/
                         IdHangHoa = a.IdChiTietHangHoa,
                         IdSale = a.IdSale,
-                        GiamTheoKhoangTien = a.SaleTheoKhoangTien,
-                        GiamTheoPhanTram = a.SaleTheoPhanTram,
+                        //GiamTheoKhoangTien = a.SaleTheoKhoangTien,
+                        //GiamTheoPhanTram = a.SaleTheoPhanTram,
 
                     }).ToList();
         }
@@ -53,8 +53,8 @@ namespace _2_BUS.Service
             var addSale = _SaleDetailRepository.getAll().FirstOrDefault(p => p.IdSale == sale.IdSale);
             addSale.IdSale = sale.IdSale;
             addSale.IdChiTietHangHoa = sale.IdHangHoa;
-            addSale.SaleTheoPhanTram = sale.GiamTheoPhanTram;
-            addSale.SaleTheoKhoangTien = sale.GiamTheoKhoangTien;
+            //addSale.SaleTheoPhanTram = sale.GiamTheoPhanTram;
+            //addSale.SaleTheoKhoangTien = sale.GiamTheoKhoangTien;
             if (_SaleDetailRepository.update(addSale))
                 return true;
             return false;

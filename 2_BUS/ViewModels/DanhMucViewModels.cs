@@ -16,6 +16,6 @@ namespace _2_BUS.ViewModels
         public Guid? IdDanhMucKhac { get; set; }
 
         public string Ten { get; set; }
-        public int TrangThai { get; set; }
+        public int? TrangThai { get; set; }
     }
 }

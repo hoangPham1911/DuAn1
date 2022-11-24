@@ -31,7 +31,7 @@ namespace _2_BUS.Service
                     select new SanPhamView
                     {
                         IdAnh = b.IdAnh,
-                        img = c.img,
+                        //img = c.img,
                         IdSp = a.Id,
                         IdHangHoaChiTiet = b.Id,
                         GiaBan = b.GiaBan,

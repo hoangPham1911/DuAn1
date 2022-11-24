@@ -23,7 +23,7 @@ namespace _2_BUS.Service
             Anh image = new Anh();
             img.TrangThai = img.TrangThai;
             image.DuongDan = img.DuongDan;
-            img.image = img.image;
+   
             img.MaAnh = img.MaAnh;
             if (_ImageRepositoriy.add(image)) 
                 return true;
@@ -36,7 +36,7 @@ namespace _2_BUS.Service
                     select new AnhViewModels
                     {
                         MaAnh = a.MaAnh,
-                        image = a.img,
+               
                         DuongDan = a.DuongDan,
                         ID = a.ID,
                         TrangThai = a.TrangThai
@@ -55,7 +55,7 @@ namespace _2_BUS.Service
             Anh image = _ImageRepositoriy.getAll().FirstOrDefault(p => p.ID == img.ID);
             img.TrangThai = img.TrangThai;
             image.DuongDan = img.DuongDan;
-            img.image = img.image;
+    
             img.MaAnh = img.MaAnh;
             if (_ImageRepositoriy.add(image))
                 return true;

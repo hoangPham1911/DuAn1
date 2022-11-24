@@ -27,7 +27,7 @@ namespace _1_DAL.Models
         public Guid? IdDanhMucKhac { get; set; }
 
         public string Ten { get; set; }
-        public int TrangThai { get; set; }
+        public int? TrangThai { get; set; }
 
         [ForeignKey(nameof(IdDanhMucKhac))]
         public virtual ICollection<DanhMuc> IdDanhMucNavigation { get; set; }
