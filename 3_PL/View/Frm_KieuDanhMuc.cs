@@ -18,7 +18,7 @@ namespace _3_PL.View
     {
         public IKieuDanhMucServices kieuDanhMucServices;
         public IDanhMucServices danhMucServices;
-        public QlyHangHoaServices hangHoaChiTietServices;
+        public IQlyHangHoaServices hangHoaChiTietServices;
         private Guid iddm;
         public List<KieuDanhMucViewModels> KieuDanhMucViewModels;
         public Frm_KieuDanhMuc()
