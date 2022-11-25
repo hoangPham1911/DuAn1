@@ -58,8 +58,6 @@ namespace _3_PL.View
             loadGioHang();
             LoadCbxRank();
             load();
-            //  loadInformationClinet();
-
         }
 
         void LoadCbxRank()
@@ -235,7 +233,7 @@ namespace _3_PL.View
         private Guid addHoaDon()
         {
             ThemHoaDonModels ThemHoaDon = new ThemHoaDonModels();
-            ThemHoaDon.Ma = "HD000" + (_HoaDonService.GetAllHoaDonDB().Count + 1).ToString();
+            ThemHoaDon.Ma = "HD0000" + (_HoaDonService.GetAllHoaDonDB().Count + 1).ToString();
             ThemHoaDon.NgayTao = DateTime.Today;
             maHd = ThemHoaDon.Ma;
             ThemHoaDon.IdNv = FrmDangNhap._IdStaff;
@@ -273,6 +271,7 @@ namespace _3_PL.View
             dgv_GioHang.Columns[5].Name = "Thanh Tiền";
             dgv_GioHang.Columns[6].Name = "IDSPCT";
             dgv_GioHang.Columns[6].Visible = false;
+
 
         }
             public void loadhoadonduyet(string maHd, int TrangThai)
