@@ -38,25 +38,25 @@
             this.btn_xoa = new System.Windows.Forms.Button();
             this.btn_them = new System.Windows.Forms.Button();
             this.Mã = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgv_showsize = new System.Windows.Forms.DataGridView();
+            this.dgv_show = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.tb_ma = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.rdb_con = new System.Windows.Forms.RadioButton();
             this.rdb_ngung = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tb_giamgia = new System.Windows.Forms.TextBox();
+            this.dt_ngayketthuc = new System.Windows.Forms.DateTimePicker();
+            this.dt_ngaybatdau = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cbb_tengiay = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_showsize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_show)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -147,22 +147,23 @@
             this.Mã.Name = "Mã";
             this.Mã.Width = 150;
             // 
-            // dgv_showsize
+            // dgv_show
             // 
-            this.dgv_showsize.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgv_showsize.BackgroundColor = System.Drawing.Color.PeachPuff;
-            this.dgv_showsize.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_showsize.Location = new System.Drawing.Point(14, 30);
-            this.dgv_showsize.Name = "dgv_showsize";
-            this.dgv_showsize.RowHeadersWidth = 62;
-            this.dgv_showsize.RowTemplate.Height = 33;
-            this.dgv_showsize.Size = new System.Drawing.Size(914, 225);
-            this.dgv_showsize.TabIndex = 0;
+            this.dgv_show.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_show.BackgroundColor = System.Drawing.Color.PeachPuff;
+            this.dgv_show.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_show.Location = new System.Drawing.Point(14, 30);
+            this.dgv_show.Name = "dgv_show";
+            this.dgv_show.RowHeadersWidth = 62;
+            this.dgv_show.RowTemplate.Height = 33;
+            this.dgv_show.Size = new System.Drawing.Size(914, 225);
+            this.dgv_show.TabIndex = 0;
+            this.dgv_show.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_show_CellClick);
             // 
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.DarkSalmon;
-            this.groupBox3.Controls.Add(this.dgv_showsize);
+            this.groupBox3.Controls.Add(this.dgv_show);
             this.groupBox3.Location = new System.Drawing.Point(12, 12);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(957, 287);
@@ -185,13 +186,6 @@
             this.groupBox2.TabIndex = 49;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Chức năng";
-            // 
-            // tb_ma
-            // 
-            this.tb_ma.Location = new System.Drawing.Point(152, 46);
-            this.tb_ma.Name = "tb_ma";
-            this.tb_ma.Size = new System.Drawing.Size(302, 31);
-            this.tb_ma.TabIndex = 0;
             // 
             // label1
             // 
@@ -225,10 +219,10 @@
             this.rdb_con.AutoSize = true;
             this.rdb_con.Location = new System.Drawing.Point(155, 262);
             this.rdb_con.Name = "rdb_con";
-            this.rdb_con.Size = new System.Drawing.Size(139, 29);
+            this.rdb_con.Size = new System.Drawing.Size(140, 29);
             this.rdb_con.TabIndex = 7;
             this.rdb_con.TabStop = true;
-            this.rdb_con.Text = "Còn sản xuất";
+            this.rdb_con.Text = "Còn sử dụng";
             this.rdb_con.UseVisualStyleBackColor = true;
             // 
             // rdb_ngung
@@ -236,55 +230,32 @@
             this.rdb_ngung.AutoSize = true;
             this.rdb_ngung.Location = new System.Drawing.Point(300, 262);
             this.rdb_ngung.Name = "rdb_ngung";
-            this.rdb_ngung.Size = new System.Drawing.Size(163, 29);
+            this.rdb_ngung.Size = new System.Drawing.Size(164, 29);
             this.rdb_ngung.TabIndex = 8;
             this.rdb_ngung.TabStop = true;
-            this.rdb_ngung.Text = "Ngừng sản xuất";
+            this.rdb_ngung.Text = "Ngừng sử dụng";
             this.rdb_ngung.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.DarkSalmon;
+            this.groupBox1.Controls.Add(this.cbb_tengiay);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.dateTimePicker2);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.tb_giamgia);
+            this.groupBox1.Controls.Add(this.dt_ngayketthuc);
+            this.groupBox1.Controls.Add(this.dt_ngaybatdau);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.rdb_ngung);
             this.groupBox1.Controls.Add(this.rdb_con);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.tb_ma);
             this.groupBox1.Location = new System.Drawing.Point(12, 314);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(622, 333);
             this.groupBox1.TabIndex = 48;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chi tiết giảm giá";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 159);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(122, 25);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Ngày kết thúc";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(154, 105);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(300, 31);
-            this.dateTimePicker1.TabIndex = 10;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(154, 153);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(300, 31);
-            this.dateTimePicker2.TabIndex = 11;
             // 
             // label5
             // 
@@ -295,12 +266,44 @@
             this.label5.TabIndex = 13;
             this.label5.Text = "Giảm giá";
             // 
-            // textBox1
+            // tb_giamgia
             // 
-            this.textBox1.Location = new System.Drawing.Point(152, 208);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(302, 31);
-            this.textBox1.TabIndex = 12;
+            this.tb_giamgia.Location = new System.Drawing.Point(152, 208);
+            this.tb_giamgia.Name = "tb_giamgia";
+            this.tb_giamgia.Size = new System.Drawing.Size(302, 31);
+            this.tb_giamgia.TabIndex = 12;
+            // 
+            // dt_ngayketthuc
+            // 
+            this.dt_ngayketthuc.Location = new System.Drawing.Point(154, 153);
+            this.dt_ngayketthuc.Name = "dt_ngayketthuc";
+            this.dt_ngayketthuc.Size = new System.Drawing.Size(300, 31);
+            this.dt_ngayketthuc.TabIndex = 11;
+            // 
+            // dt_ngaybatdau
+            // 
+            this.dt_ngaybatdau.Location = new System.Drawing.Point(154, 105);
+            this.dt_ngaybatdau.Name = "dt_ngaybatdau";
+            this.dt_ngaybatdau.Size = new System.Drawing.Size(300, 31);
+            this.dt_ngaybatdau.TabIndex = 10;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(14, 159);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(122, 25);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Ngày kết thúc";
+            // 
+            // cbb_tengiay
+            // 
+            this.cbb_tengiay.FormattingEnabled = true;
+            this.cbb_tengiay.Location = new System.Drawing.Point(152, 43);
+            this.cbb_tengiay.Name = "cbb_tengiay";
+            this.cbb_tengiay.Size = new System.Drawing.Size(302, 33);
+            this.cbb_tengiay.TabIndex = 14;
+            this.cbb_tengiay.SelectedIndexChanged += new System.EventHandler(this.cbb_tengiay_SelectedIndexChanged);
             // 
             // FrmSale
             // 
@@ -316,7 +319,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_showsize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_show)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -336,10 +339,9 @@
         private Button btn_xoa;
         private Button btn_them;
         private DataGridViewTextBoxColumn Mã;
-        private DataGridView dgv_showsize;
+        private DataGridView dgv_show;
         private GroupBox groupBox3;
         private GroupBox groupBox2;
-        private TextBox tb_ma;
         private Label label1;
         private Label label2;
         private Label label4;
@@ -347,9 +349,10 @@
         private RadioButton rdb_ngung;
         private GroupBox groupBox1;
         private Label label5;
-        private TextBox textBox1;
-        private DateTimePicker dateTimePicker2;
-        private DateTimePicker dateTimePicker1;
+        private TextBox tb_giamgia;
+        private DateTimePicker dt_ngayketthuc;
+        private DateTimePicker dt_ngaybatdau;
         private Label label3;
+        private ComboBox cbb_tengiay;
     }
 }
