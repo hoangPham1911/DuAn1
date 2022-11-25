@@ -116,6 +116,7 @@
             // 
             // dgv_showsize
             // 
+            this.dgv_showsize.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_showsize.BackgroundColor = System.Drawing.Color.PeachPuff;
             this.dgv_showsize.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_showsize.Location = new System.Drawing.Point(35, 39);
