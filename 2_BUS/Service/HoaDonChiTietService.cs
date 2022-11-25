@@ -29,12 +29,15 @@ namespace _2_BUS.Service
        
         public List<HoaDonChiTietViewModel> GetAllHoaDonDB()
         {
-            return (from b in _HoaDonRepos.getAllReceipt() 
-
+            return (from b in _HoaDonRepos.getAllReceipt()
+                    join a in _IreceiptDetailRepository.GetAll() on b.Id equals a.IdHoaDon 
+                    join c in _IProductDetailRepository.getAll() on a.IdChiTietSp equals c.Id
+                    join d in _ProductRepository.getAll() on c.IdSp equals d.Id
                     select new HoaDonChiTietViewModel
                     {
                         IdHoaDon = b.Id,
-              //          IdChiTietSp = a.IdChiTietSp,
+                        IdChiTietSp = a.IdChiTietSp,
+                        IdSp = d.Id,
              //           SoLuong = a.SoLuong,
               //          ThanhTien = a.ThanhTien,
                         //   IdKh = b.IdKh,
@@ -62,6 +65,7 @@ namespace _2_BUS.Service
                         MaSP = a.Ma,
                         TenSp = a.Ten,
                         SoLuong = c.SoLuong,
+                        
                         DonGia = b.GiaBan,
                         IdHoaDon = c.IdHoaDon,
                         ThanhTien = b.GiaBan * c.SoLuong

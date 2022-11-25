@@ -13,7 +13,8 @@ namespace _2_BUS.ViewModels
     {
         public Guid IdHoaDon { get; set; }
 
-      //  public Guid IdChiTietSp { get; set; }
+        public Guid IdSp { get; set; }
+        public Guid IdChiTietSp { get; set; }
       //  public int? SoLuong { get; set; }
 
      //   public decimal? ThanhTien { get; set; }
