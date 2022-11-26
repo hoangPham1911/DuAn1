@@ -1533,11 +1533,11 @@
             // 
             this.groupBox1.Controls.Add(this.flhd3);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBox1.Location = new System.Drawing.Point(782, 170);
+            this.groupBox1.Location = new System.Drawing.Point(788, 159);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(134, 561);
+            this.groupBox1.Size = new System.Drawing.Size(128, 579);
             this.groupBox1.TabIndex = 139;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chờ Giao Hàng";
@@ -1549,18 +1549,18 @@
             this.flhd3.Location = new System.Drawing.Point(3, 18);
             this.flhd3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flhd3.Name = "flhd3";
-            this.flhd3.Size = new System.Drawing.Size(128, 541);
+            this.flhd3.Size = new System.Drawing.Size(122, 559);
             this.flhd3.TabIndex = 0;
             // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.flhoadon);
             this.groupBox5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBox5.Location = new System.Drawing.Point(635, 170);
+            this.groupBox5.Location = new System.Drawing.Point(635, 161);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox5.Size = new System.Drawing.Size(144, 563);
+            this.groupBox5.Size = new System.Drawing.Size(150, 577);
             this.groupBox5.TabIndex = 138;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Chưa Thanh Toán";
@@ -1573,7 +1573,7 @@
             this.flhoadon.Location = new System.Drawing.Point(3, 18);
             this.flhoadon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flhoadon.Name = "flhoadon";
-            this.flhoadon.Size = new System.Drawing.Size(138, 543);
+            this.flhoadon.Size = new System.Drawing.Size(144, 557);
             this.flhoadon.TabIndex = 0;
             // 
             // splitter1
