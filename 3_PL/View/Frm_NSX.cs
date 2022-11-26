@@ -104,5 +104,10 @@ namespace _3_PL.View
         {
             
         }
+
+        private void dgv_showsize_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
