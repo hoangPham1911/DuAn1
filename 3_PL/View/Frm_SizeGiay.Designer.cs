@@ -103,6 +103,7 @@
             this.dgv_showsize.RowTemplate.Height = 33;
             this.dgv_showsize.Size = new System.Drawing.Size(881, 225);
             this.dgv_showsize.TabIndex = 0;
+            this.dgv_showsize.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_showsize_CellClick);
             this.dgv_showsize.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_showsize_CellContentClick);
             // 
             // groupBox3
@@ -181,6 +182,7 @@
             this.btn_sua.TabIndex = 34;
             this.btn_sua.Text = "     Sửa";
             this.btn_sua.UseVisualStyleBackColor = false;
+            this.btn_sua.Click += new System.EventHandler(this.btn_sua_Click);
             // 
             // btn_xoa
             // 
@@ -203,6 +205,7 @@
             this.btn_them.TabIndex = 32;
             this.btn_them.Text = "     Thêm";
             this.btn_them.UseVisualStyleBackColor = false;
+            this.btn_them.Click += new System.EventHandler(this.btn_them_Click);
             // 
             // rdb_het
             // 
