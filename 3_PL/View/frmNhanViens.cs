@@ -26,5 +26,10 @@ namespace _3_PL.View
         {
 
         }
+
+        private void cmTrangThai_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

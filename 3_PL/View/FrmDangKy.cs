@@ -7,9 +7,14 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Timer = System.Windows.Forms.Timer;
+using _1_DAL.Models;
 
 namespace _3_PL.View
 {
@@ -17,16 +22,28 @@ namespace _3_PL.View
     {
         public INhanVienServices nhanVienServices;
         public IChucVuServices chucVuServices;
+        private const string mailAddress = "tranvantien6620@gmail.com";
+        private const string fromPass = "iekmmjfguxfgtzia";
+        private const string subjectMail = "OTP code";
 
+        private int _code;
+        private static int _countSteps = 0;
+        private static Timer _timer;
+
+        private static FrmDangKy _instance;
 
         public FrmDangKy()
         {
             InitializeComponent();
             nhanVienServices = new NhanVienServices();
             chucVuServices = new ChucVuServices();
+            _instance = this;
             loadCBB();
         }
-
+        private void enableControl(bool isEnable)
+        {
+            tb_otp.Enabled = btn_xacnhan.Enabled = isEnable;
+        }
         public void loadCBB()
         {
             foreach (var item in chucVuServices.GetAll())
@@ -38,23 +55,21 @@ namespace _3_PL.View
         private void bt_dangky_Click(object sender, EventArgs e)
         {
             var chucvu = chucVuServices.GetAll().FirstOrDefault(x => x.Ten == cb_ChucVu.Text);
-            var nhanvien = new NhanVienViewModels()
-            {
-                Id = new Guid(),
-                Ho = tb_ho.Text,
-                TenDem = tb_tenDem.Text,
-                Ten = tb_ten.Text,
-                Email = tb_email.Text,
-                Sdt = tb_sdt.Text,
-                MatKhau = tb_mk.Text,
-                Ma = tb_ma.Text,
-                QueQuan = tb_queQuan.Text,
-                CMND = tb_cccd.Text,
-                NamSinh = dtpNamSinh.Value,
-                GioiTinh = rdNam.Checked ? "Nam" : "Nữ",
-                IdCv = chucvu.Id,
-                Anh = null,
-            };
+            var nhanvien = new NhanVienViewModels(){};
+            nhanvien.Id = new Guid();
+            nhanvien.Ho = tb_ho.Text;
+            nhanvien.TenDem = tb_tenDem.Text;
+            nhanvien.Ten = tb_ten.Text;
+            nhanvien.Email = tb_email.Text;
+            nhanvien.Sdt = tb_sdt.Text;
+            nhanvien.MatKhau = tb_mk.Text;
+            nhanvien.Ma = tb_ma.Text;
+            nhanvien.QueQuan = tb_queQuan.Text;
+            nhanvien.CMND = tb_cccd.Text;
+            nhanvien.NamSinh = dtpNamSinh.Value;
+            nhanvien.GioiTinh = rdNam.Checked ? "Nam" : "Nữ";
+            nhanvien.IdCv = chucvu.Id;
+            nhanvien.Anh = null;
             if (tb_ho.Text == "" && tb_tenDem.Text == "" && tb_ten.Text == "")
             {
                 MessageBox.Show("Nhập họ và tên đầy đủ");
@@ -82,11 +97,12 @@ namespace _3_PL.View
             {
                 MessageBox.Show("Nhập lại mật khẩu sai");
             }
-            else
-            {
+            else {
                 if (nhanVienServices.Them(nhanvien) == true)
                 {
                     MessageBox.Show("Đăng ký thành công");
+                    FrmDangNhap frmdn = new FrmDangNhap();
+                    frmdn.ShowDialog();
                 }
                 else
                 {
@@ -118,6 +134,116 @@ namespace _3_PL.View
 
                 MessageBox.Show(ex.Message, "ThongBao", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+        }
+
+        private void bt_gui_Click(object sender, EventArgs e)
+        {
+            sendOTP();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            confirmOTP();
+        }
+        private static void stopTimer()
+        {
+            if (_timer != null)
+            {
+                _timer.Stop();
+                _timer = null;
+                _countSteps = 0;
+            }
+            _instance.enableControl(false);
+        }
+        private  void startTimer()
+        {
+            _timer = new Timer();
+            _timer.Interval = 1000;
+            _timer.Tick += t_thoigian_Tick;
+            _timer.Start();
+            _instance.enableControl(true);
+        }
+        private void sendOTP()
+        {
+            try
+            {
+                var random = new Random();
+                _code = random.Next(100000, 1000000);
+                var fromMail = new MailAddress(mailAddress);
+                var toMail = new MailAddress(tb_email.Text.Trim());
+
+                var smtp = new SmtpClient
+                {
+                    Host = "smtp.gmail.com",
+                    Port = 587,
+                    EnableSsl = true,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    UseDefaultCredentials = false,
+                    Credentials = new NetworkCredential(fromMail.Address, fromPass),
+                    Timeout = 20000
+                };
+                using (var message = new MailMessage(fromMail, toMail)
+                {
+                    Subject = subjectMail,
+                    Body = $"Mã OTP của bạn là: {_code}\nMã OTP có hiệu lực trong 60s"
+                })
+                {
+                    smtp.Send(message);
+                }
+                MessageBox.Show($"Send OTP thành công !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                startTimer();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Send OTP thất bại\n{ex.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                enableControl(false);
+            }
+        }
+        private void confirmOTP()
+        {
+            var codeConfirm = tb_otp.Text.Trim();
+            if (_code.ToString().Equals(codeConfirm) && _timer != null)
+            {
+                // cho phép làm gì đó
+                MessageBox.Show("Đăng nhập thành công !!!", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                stopTimer();
+            }
+            else if (_code.ToString().Equals(codeConfirm) && _timer == null)
+            {
+                // OTP đã hết hạn
+                var confirmMessage = MessageBox.Show("Mã OTP đã hết hiệu lực !!!\nBạn có muốn nhận lại OTP không?",
+                    "Thông báo", MessageBoxButtons.RetryCancel, MessageBoxIcon.Question);
+                if (confirmMessage == DialogResult.Retry)
+                {
+                    sendOTP();
+                }
+            }
+            else
+            {
+                // OTP đang nhập không đúng
+                MessageBox.Show("Mã OTP không đúng !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void t_thoigian_Tick(object sender, EventArgs e)
+        {
+            _countSteps++;
+            if (_countSteps > 60)
+            {
+                stopTimer();
+                var confirmMessage = MessageBox.Show("Mã OTP đã hết hiệu lực\nBạn có muốn lấy lại mã OTP không?",
+                    "Thông báo", MessageBoxButtons.RetryCancel, MessageBoxIcon.Question);
+                if (confirmMessage == DialogResult.Retry)
+                {
+                    _instance.sendOTP();
+                }
+            }
+        }
+
+        private void cb_ChucVu_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

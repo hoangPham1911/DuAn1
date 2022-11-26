@@ -21,10 +21,10 @@ namespace _2_BUS.Service
         public bool add(AnhViewModels img)
         {
             Anh image = new Anh();
-            img.TrangThai = img.TrangThai;
+            image.Ten = img.Ten;
+            image.MaAnh = img.MaAnh;
             image.DuongDan = img.DuongDan;
-   
-            img.MaAnh = img.MaAnh;
+            image.TrangThai = img.TrangThai;
             if (_ImageRepositoriy.add(image)) 
                 return true;
             return false;
@@ -36,7 +36,7 @@ namespace _2_BUS.Service
                     select new AnhViewModels
                     {
                         MaAnh = a.MaAnh,
-               
+                        Ten = a.Ten,
                         DuongDan = a.DuongDan,
                         ID = a.ID,
                         TrangThai = a.TrangThai
@@ -53,11 +53,11 @@ namespace _2_BUS.Service
         public bool update(AnhViewModels img)
         {
             Anh image = _ImageRepositoriy.getAll().FirstOrDefault(p => p.ID == img.ID);
-            img.TrangThai = img.TrangThai;
+            image.Ten = img.Ten;
+            image.MaAnh = img.MaAnh;
             image.DuongDan = img.DuongDan;
-    
-            img.MaAnh = img.MaAnh;
-            if (_ImageRepositoriy.add(image))
+            image.TrangThai = img.TrangThai;
+            if (_ImageRepositoriy.update(image))
                 return true;
             return false;
         }

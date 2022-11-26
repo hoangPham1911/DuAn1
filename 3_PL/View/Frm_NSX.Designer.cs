@@ -116,6 +116,7 @@
             // 
             // dgv_showsize
             // 
+            this.dgv_showsize.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_showsize.BackgroundColor = System.Drawing.Color.PeachPuff;
             this.dgv_showsize.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_showsize.Location = new System.Drawing.Point(35, 39);
@@ -125,6 +126,7 @@
             this.dgv_showsize.Size = new System.Drawing.Size(882, 225);
             this.dgv_showsize.TabIndex = 0;
             this.dgv_showsize.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_showsize_CellClick);
+            this.dgv_showsize.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_showsize_CellContentClick);
             // 
             // rdb_ngung
             // 

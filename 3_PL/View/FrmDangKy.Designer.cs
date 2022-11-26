@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tb_mk = new System.Windows.Forms.TextBox();
@@ -61,6 +62,11 @@
             this.dtpNamSinh = new System.Windows.Forms.DateTimePicker();
             this.btn_chonanh = new System.Windows.Forms.Button();
             this.ptb_anh = new System.Windows.Forms.PictureBox();
+            this.tb_otp = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.bt_gui = new System.Windows.Forms.Button();
+            this.btn_xacnhan = new System.Windows.Forms.Button();
+            this.t_thoigian = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_anh)).BeginInit();
@@ -92,7 +98,7 @@
             // 
             // tb_mk
             // 
-            this.tb_mk.Location = new System.Drawing.Point(371, 237);
+            this.tb_mk.Location = new System.Drawing.Point(374, 135);
             this.tb_mk.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tb_mk.Name = "tb_mk";
             this.tb_mk.Size = new System.Drawing.Size(225, 26);
@@ -111,7 +117,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Sitka Display", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.DarkRed;
-            this.label2.Location = new System.Drawing.Point(371, 206);
+            this.label2.Location = new System.Drawing.Point(374, 104);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(84, 26);
@@ -136,7 +142,7 @@
             this.bt_dangky.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_dangky.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.bt_dangky.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.bt_dangky.Location = new System.Drawing.Point(371, 553);
+            this.bt_dangky.Location = new System.Drawing.Point(374, 616);
             this.bt_dangky.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.bt_dangky.Name = "bt_dangky";
             this.bt_dangky.Size = new System.Drawing.Size(147, 47);
@@ -155,7 +161,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(282, 600);
+            this.panel1.Size = new System.Drawing.Size(282, 671);
             this.panel1.TabIndex = 17;
             // 
             // pictureBox1
@@ -189,7 +195,7 @@
             // 
             this.rdNu.AutoSize = true;
             this.rdNu.ForeColor = System.Drawing.Color.DarkRed;
-            this.rdNu.Location = new System.Drawing.Point(754, 447);
+            this.rdNu.Location = new System.Drawing.Point(765, 414);
             this.rdNu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rdNu.Name = "rdNu";
             this.rdNu.Size = new System.Drawing.Size(47, 24);
@@ -202,7 +208,7 @@
             // 
             this.rdNam.AutoSize = true;
             this.rdNam.ForeColor = System.Drawing.Color.DarkRed;
-            this.rdNam.Location = new System.Drawing.Point(689, 447);
+            this.rdNam.Location = new System.Drawing.Point(700, 414);
             this.rdNam.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rdNam.Name = "rdNam";
             this.rdNam.Size = new System.Drawing.Size(59, 24);
@@ -213,7 +219,7 @@
             // 
             // tb_nhaplaiMK
             // 
-            this.tb_nhaplaiMK.Location = new System.Drawing.Point(604, 237);
+            this.tb_nhaplaiMK.Location = new System.Drawing.Point(607, 135);
             this.tb_nhaplaiMK.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tb_nhaplaiMK.Name = "tb_nhaplaiMK";
             this.tb_nhaplaiMK.Size = new System.Drawing.Size(225, 26);
@@ -224,7 +230,7 @@
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Sitka Display", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label19.ForeColor = System.Drawing.Color.DarkRed;
-            this.label19.Location = new System.Drawing.Point(604, 206);
+            this.label19.Location = new System.Drawing.Point(607, 104);
             this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(152, 26);
@@ -233,7 +239,7 @@
             // 
             // tb_ma
             // 
-            this.tb_ma.Location = new System.Drawing.Point(371, 309);
+            this.tb_ma.Location = new System.Drawing.Point(374, 207);
             this.tb_ma.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tb_ma.Name = "tb_ma";
             this.tb_ma.Size = new System.Drawing.Size(225, 26);
@@ -244,7 +250,7 @@
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Sitka Display", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label20.ForeColor = System.Drawing.Color.DarkRed;
-            this.label20.Location = new System.Drawing.Point(371, 278);
+            this.label20.Location = new System.Drawing.Point(374, 176);
             this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(36, 26);
@@ -253,7 +259,7 @@
             // 
             // tb_email
             // 
-            this.tb_email.Location = new System.Drawing.Point(374, 151);
+            this.tb_email.Location = new System.Drawing.Point(377, 484);
             this.tb_email.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tb_email.Name = "tb_email";
             this.tb_email.Size = new System.Drawing.Size(225, 26);
@@ -264,7 +270,7 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Sitka Display", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label16.ForeColor = System.Drawing.Color.DarkRed;
-            this.label16.Location = new System.Drawing.Point(374, 118);
+            this.label16.Location = new System.Drawing.Point(377, 451);
             this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(56, 26);
@@ -273,7 +279,7 @@
             // 
             // tb_cccd
             // 
-            this.tb_cccd.Location = new System.Drawing.Point(371, 383);
+            this.tb_cccd.Location = new System.Drawing.Point(374, 281);
             this.tb_cccd.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tb_cccd.Name = "tb_cccd";
             this.tb_cccd.Size = new System.Drawing.Size(225, 26);
@@ -284,7 +290,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Sitka Display", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label9.ForeColor = System.Drawing.Color.DarkRed;
-            this.label9.Location = new System.Drawing.Point(371, 352);
+            this.label9.Location = new System.Drawing.Point(374, 250);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(54, 26);
@@ -296,7 +302,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Sitka Display", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label10.ForeColor = System.Drawing.Color.DarkRed;
-            this.label10.Location = new System.Drawing.Point(374, 412);
+            this.label10.Location = new System.Drawing.Point(377, 310);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(74, 26);
@@ -306,15 +312,16 @@
             // cb_ChucVu
             // 
             this.cb_ChucVu.FormattingEnabled = true;
-            this.cb_ChucVu.Location = new System.Drawing.Point(374, 443);
+            this.cb_ChucVu.Location = new System.Drawing.Point(377, 341);
             this.cb_ChucVu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cb_ChucVu.Name = "cb_ChucVu";
             this.cb_ChucVu.Size = new System.Drawing.Size(222, 27);
             this.cb_ChucVu.TabIndex = 99;
+            this.cb_ChucVu.SelectedIndexChanged += new System.EventHandler(this.cb_ChucVu_SelectedIndexChanged);
             // 
             // tb_sdt
             // 
-            this.tb_sdt.Location = new System.Drawing.Point(604, 151);
+            this.tb_sdt.Location = new System.Drawing.Point(377, 414);
             this.tb_sdt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tb_sdt.Name = "tb_sdt";
             this.tb_sdt.Size = new System.Drawing.Size(225, 26);
@@ -325,7 +332,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Sitka Display", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label8.ForeColor = System.Drawing.Color.DarkRed;
-            this.label8.Location = new System.Drawing.Point(604, 118);
+            this.label8.Location = new System.Drawing.Point(377, 381);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(111, 26);
@@ -334,7 +341,7 @@
             // 
             // tb_queQuan
             // 
-            this.tb_queQuan.Location = new System.Drawing.Point(604, 309);
+            this.tb_queQuan.Location = new System.Drawing.Point(607, 207);
             this.tb_queQuan.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tb_queQuan.Name = "tb_queQuan";
             this.tb_queQuan.Size = new System.Drawing.Size(225, 26);
@@ -345,7 +352,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Sitka Display", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label7.ForeColor = System.Drawing.Color.DarkRed;
-            this.label7.Location = new System.Drawing.Point(604, 278);
+            this.label7.Location = new System.Drawing.Point(607, 176);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(84, 26);
@@ -357,7 +364,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Sitka Display", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label11.ForeColor = System.Drawing.Color.DarkRed;
-            this.label11.Location = new System.Drawing.Point(604, 444);
+            this.label11.Location = new System.Drawing.Point(615, 411);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(80, 26);
@@ -385,7 +392,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Sitka Display", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.DarkRed;
-            this.label6.Location = new System.Drawing.Point(604, 353);
+            this.label6.Location = new System.Drawing.Point(607, 251);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(88, 26);
@@ -394,7 +401,7 @@
             // 
             // dtpNamSinh
             // 
-            this.dtpNamSinh.Location = new System.Drawing.Point(607, 383);
+            this.dtpNamSinh.Location = new System.Drawing.Point(610, 281);
             this.dtpNamSinh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtpNamSinh.Name = "dtpNamSinh";
             this.dtpNamSinh.Size = new System.Drawing.Size(222, 26);
@@ -420,11 +427,69 @@
             this.ptb_anh.TabStop = false;
             this.ptb_anh.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
+            // tb_otp
+            // 
+            this.tb_otp.Location = new System.Drawing.Point(377, 557);
+            this.tb_otp.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.tb_otp.Name = "tb_otp";
+            this.tb_otp.Size = new System.Drawing.Size(225, 26);
+            this.tb_otp.TabIndex = 115;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Sitka Display", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label12.ForeColor = System.Drawing.Color.DarkRed;
+            this.label12.Location = new System.Drawing.Point(377, 526);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(73, 26);
+            this.label12.TabIndex = 114;
+            this.label12.Text = "Mã OTP";
+            // 
+            // bt_gui
+            // 
+            this.bt_gui.BackColor = System.Drawing.Color.Red;
+            this.bt_gui.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bt_gui.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.bt_gui.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.bt_gui.Location = new System.Drawing.Point(615, 484);
+            this.bt_gui.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.bt_gui.Name = "bt_gui";
+            this.bt_gui.Size = new System.Drawing.Size(123, 26);
+            this.bt_gui.TabIndex = 116;
+            this.bt_gui.Text = "Gửi mã OTP";
+            this.bt_gui.UseVisualStyleBackColor = false;
+            this.bt_gui.Click += new System.EventHandler(this.bt_gui_Click);
+            // 
+            // btn_xacnhan
+            // 
+            this.btn_xacnhan.BackColor = System.Drawing.Color.Red;
+            this.btn_xacnhan.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_xacnhan.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_xacnhan.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_xacnhan.Location = new System.Drawing.Point(615, 557);
+            this.btn_xacnhan.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btn_xacnhan.Name = "btn_xacnhan";
+            this.btn_xacnhan.Size = new System.Drawing.Size(123, 26);
+            this.btn_xacnhan.TabIndex = 117;
+            this.btn_xacnhan.Text = "Xác nhận mã";
+            this.btn_xacnhan.UseVisualStyleBackColor = false;
+            this.btn_xacnhan.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // t_thoigian
+            // 
+            this.t_thoigian.Tick += new System.EventHandler(this.t_thoigian_Tick);
+            // 
             // FrmDangKy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1172, 600);
+            this.ClientSize = new System.Drawing.Size(1172, 671);
+            this.Controls.Add(this.btn_xacnhan);
+            this.Controls.Add(this.bt_gui);
+            this.Controls.Add(this.tb_otp);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.ptb_anh);
             this.Controls.Add(this.btn_chonanh);
             this.Controls.Add(this.label6);
@@ -501,5 +566,10 @@
         private DateTimePicker dtpNamSinh;
         private Button btn_chonanh;
         private PictureBox ptb_anh;
+        private TextBox tb_otp;
+        private Label label12;
+        private Button bt_gui;
+        private Button btn_xacnhan;
+        private System.Windows.Forms.Timer t_thoigian;
     }
 }

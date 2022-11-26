@@ -31,8 +31,9 @@ namespace _3_PL.View
 
         private void bt_dangnhap_Click(object sender, EventArgs e)
         {
-            NhanVienViewModels staff = _NhanVienServices.GetAll().FirstOrDefault(p => p.Email.Contains(tb_tenguoidung.Text));
-           
+                NhanVienViewModels staff = _NhanVienServices.GetAll().FirstOrDefault(p => p.Email.Contains(tb_tenguoidung.Text));
+
+
             try
             {
                 var userName = _NhanVienServices.GetAll().FirstOrDefault(p => p.Ma == tb_tenguoidung.Text).Email;
