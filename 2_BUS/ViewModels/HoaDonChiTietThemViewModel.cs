@@ -23,7 +23,7 @@ namespace _2_BUS.ViewModels
 
         public string? Ma { get; set; }
 
-        public int? TinhTrang { get; set; }
+        public int TinhTrang { get; set; }
 
     }
 }

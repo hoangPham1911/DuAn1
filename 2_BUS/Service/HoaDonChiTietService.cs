@@ -65,7 +65,7 @@ namespace _2_BUS.Service
                         MaSP = a.Ma,
                         TenSp = a.Ten,
                         SoLuong = c.SoLuong,
-                        
+                        IdSpCt = b.Id,
                         DonGia = b.GiaBan,
                         IdHoaDon = c.IdHoaDon,
                         ThanhTien = b.GiaBan * c.SoLuong
@@ -90,7 +90,8 @@ namespace _2_BUS.Service
             hdct.GiamGia = Hoadons.GiamGia;
             hdct.IdChiTietSp = Hoadons.IdChiTietSp;
             hdct.SoLuong = Hoadons.SoLuong;
-            hdct.ThanhTien = Hoadons.ThanhTien;           
+            hdct.ThanhTien = Hoadons.ThanhTien;
+            hdct.TrangThai = Hoadons.TinhTrang;
             if (_IreceiptDetailRepository.add(hdct)) return true;
             return false;
         }

@@ -98,12 +98,11 @@ namespace _3_PL.View
         {
             var iddanhmuc = danhMucServices.GetDanhMuc().FirstOrDefault(x => x.Ten == cb_DanhMuc.Text);
             var idHangHoa = hangHoaChiTietServices.GetsListHH().FirstOrDefault(x => x.Ten == cb_HangHoa.Text);
-            KieuDanhMucViewModels kdm = new KieuDanhMucViewModels()
-            {
-                IdDanhMuc = iddanhmuc.Id,
-                IdHangHoa = idHangHoa.Id,
-                TheLoaiGioiTinh = rd_nam.Checked ? 1 : 0
-            };
+            KieuDanhMucViewModels kdm = new KieuDanhMucViewModels() { };
+            kdm.IdDanhMuc = iddanhmuc.Id;
+            kdm.IdHangHoa = idHangHoa.Id;
+            kdm.TheLoaiGioiTinh = rd_nam.Checked ? 1 : 0;
+            
             if (cb_DanhMuc.Text == "")
             {
                 MessageBox.Show("Mời chọn tên danh mục");
@@ -131,13 +130,13 @@ namespace _3_PL.View
             else
             {
                 KieuDanhMucViewModels dm = new KieuDanhMucViewModels()
-                {
+                { };
 
-                    IdDanhMuc = iddm,
-                    //IdDanhMuc = iddanhmuc.Id,
-                    IdHangHoa = idHangHoa.Id,
-                    TheLoaiGioiTinh = rd_nam.Checked ? 1 : 0
-                };
+                dm.IdDanhMuc = iddm;
+                dm.IdDanhMuc = iddanhmuc.Id;
+                dm.IdHangHoa = idHangHoa.Id;
+                dm.TheLoaiGioiTinh = rd_nam.Checked ? 1 : 0;
+                
                 MessageBox.Show(kieuDanhMucServices.SuaKieuDanhMuc(dm));
                 loadDTG();
             }

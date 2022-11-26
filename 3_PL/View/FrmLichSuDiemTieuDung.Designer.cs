@@ -55,7 +55,7 @@
             this.btnLoad.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnLoad.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnLoad.Location = new System.Drawing.Point(440, 541);
-            this.btnLoad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLoad.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(172, 58);
             this.btnLoad.TabIndex = 20;
@@ -67,7 +67,7 @@
             this.btnDown.FlatAppearance.BorderSize = 0;
             this.btnDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDown.Location = new System.Drawing.Point(565, 128);
-            this.btnDown.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDown.Margin = new System.Windows.Forms.Padding(4);
             this.btnDown.Name = "btnDown";
             this.btnDown.Size = new System.Drawing.Size(41, 45);
             this.btnDown.TabIndex = 31;
@@ -79,7 +79,7 @@
             this.btnUp.FlatAppearance.BorderSize = 0;
             this.btnUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUp.Location = new System.Drawing.Point(516, 128);
-            this.btnUp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUp.Margin = new System.Windows.Forms.Padding(4);
             this.btnUp.Name = "btnUp";
             this.btnUp.Size = new System.Drawing.Size(41, 45);
             this.btnUp.TabIndex = 32;
@@ -91,7 +91,7 @@
             this.btnDatetime.FlatAppearance.BorderSize = 0;
             this.btnDatetime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDatetime.Location = new System.Drawing.Point(468, 128);
-            this.btnDatetime.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDatetime.Margin = new System.Windows.Forms.Padding(4);
             this.btnDatetime.Name = "btnDatetime";
             this.btnDatetime.Size = new System.Drawing.Size(41, 45);
             this.btnDatetime.TabIndex = 33;
@@ -101,7 +101,7 @@
             // txtMa
             // 
             this.txtMa.Location = new System.Drawing.Point(484, 84);
-            this.txtMa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMa.Margin = new System.Windows.Forms.Padding(4);
             this.txtMa.Name = "txtMa";
             this.txtMa.Size = new System.Drawing.Size(128, 31);
             this.txtMa.TabIndex = 34;
@@ -112,12 +112,13 @@
             this.dgridLichSu.BackgroundColor = System.Drawing.Color.LemonChiffon;
             this.dgridLichSu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgridLichSu.Location = new System.Drawing.Point(15, 180);
-            this.dgridLichSu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgridLichSu.Margin = new System.Windows.Forms.Padding(4);
             this.dgridLichSu.Name = "dgridLichSu";
             this.dgridLichSu.RowHeadersWidth = 51;
             this.dgridLichSu.RowTemplate.Height = 29;
             this.dgridLichSu.Size = new System.Drawing.Size(619, 340);
             this.dgridLichSu.TabIndex = 30;
+            this.dgridLichSu.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgridLichSu_CellContentClick);
             // 
             // label4
             // 
@@ -147,7 +148,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(656, 75);
             this.panel1.TabIndex = 21;
@@ -189,7 +190,7 @@
             // txtDiemConLai
             // 
             this.txtDiemConLai.Location = new System.Drawing.Point(331, 129);
-            this.txtDiemConLai.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDiemConLai.Margin = new System.Windows.Forms.Padding(4);
             this.txtDiemConLai.Name = "txtDiemConLai";
             this.txtDiemConLai.Size = new System.Drawing.Size(128, 31);
             this.txtDiemConLai.TabIndex = 35;
@@ -197,7 +198,7 @@
             // txtTenKH
             // 
             this.txtTenKH.Location = new System.Drawing.Point(186, 82);
-            this.txtTenKH.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTenKH.Margin = new System.Windows.Forms.Padding(4);
             this.txtTenKH.Name = "txtTenKH";
             this.txtTenKH.Size = new System.Drawing.Size(128, 31);
             this.txtTenKH.TabIndex = 36;
@@ -205,7 +206,7 @@
             // txtBac
             // 
             this.txtBac.Location = new System.Drawing.Point(66, 128);
-            this.txtBac.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBac.Margin = new System.Windows.Forms.Padding(4);
             this.txtBac.Name = "txtBac";
             this.txtBac.Size = new System.Drawing.Size(128, 31);
             this.txtBac.TabIndex = 37;
@@ -230,7 +231,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnDatetime);
             this.Controls.Add(this.lblBac);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmLichSuDiemTieuDung";
             this.Text = "FrmLichSuDiemTieuDung";
             ((System.ComponentModel.ISupportInitialize)(this.dgridLichSu)).EndInit();

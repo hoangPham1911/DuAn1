@@ -92,7 +92,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.PeachPuff;
+            this.groupBox1.BackColor = System.Drawing.Color.LightSalmon;
             this.groupBox1.Controls.Add(this.cmChucVu);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.cmTrangThai);
@@ -154,6 +154,7 @@
             this.cmTrangThai.Name = "cmTrangThai";
             this.cmTrangThai.Size = new System.Drawing.Size(310, 33);
             this.cmTrangThai.TabIndex = 60;
+            this.cmTrangThai.SelectedIndexChanged += new System.EventHandler(this.cmTrangThai_SelectedIndexChanged);
             // 
             // label12
             // 
@@ -381,7 +382,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.BackColor = System.Drawing.Color.PeachPuff;
+            this.groupBox2.BackColor = System.Drawing.Color.LightSalmon;
             this.groupBox2.Controls.Add(this.pictureBox4);
             this.groupBox2.Controls.Add(this.pictureBox3);
             this.groupBox2.Controls.Add(this.pictureBox2);
@@ -487,7 +488,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.BackColor = System.Drawing.Color.PeachPuff;
+            this.groupBox3.BackColor = System.Drawing.Color.LightSalmon;
             this.groupBox3.Controls.Add(this.dgvNhanVien);
             this.groupBox3.Location = new System.Drawing.Point(20, 518);
             this.groupBox3.Name = "groupBox3";

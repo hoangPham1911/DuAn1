@@ -73,7 +73,7 @@
             this.panelhome.Location = new System.Drawing.Point(154, 0);
             this.panelhome.Margin = new System.Windows.Forms.Padding(2);
             this.panelhome.Name = "panelhome";
-            this.panelhome.Size = new System.Drawing.Size(1216, 575);
+            this.panelhome.Size = new System.Drawing.Size(1216, 749);
             this.panelhome.TabIndex = 7;
             // 
             // panel1
@@ -81,10 +81,10 @@
             this.panel1.BackColor = System.Drawing.Color.DarkSalmon;
             this.panel1.Controls.Add(this.lblTime);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 48);
+            this.panel1.Location = new System.Drawing.Point(0, 31);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1216, 527);
+            this.panel1.Size = new System.Drawing.Size(1216, 718);
             this.panel1.TabIndex = 2;
             // 
             // lblTime
@@ -113,12 +113,12 @@
             this.panelTitle.Location = new System.Drawing.Point(0, 0);
             this.panelTitle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelTitle.Name = "panelTitle";
-            this.panelTitle.Size = new System.Drawing.Size(1216, 48);
+            this.panelTitle.Size = new System.Drawing.Size(1216, 31);
             this.panelTitle.TabIndex = 1;
             // 
             // txt_ten
             // 
-            this.txt_ten.Location = new System.Drawing.Point(147, 9);
+            this.txt_ten.Location = new System.Drawing.Point(97, 3);
             this.txt_ten.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_ten.Name = "txt_ten";
             this.txt_ten.Size = new System.Drawing.Size(110, 23);
@@ -130,7 +130,7 @@
             this.txt_email.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_email.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_email.ForeColor = System.Drawing.Color.Maroon;
-            this.txt_email.Location = new System.Drawing.Point(951, 15);
+            this.txt_email.Location = new System.Drawing.Point(880, 7);
             this.txt_email.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_email.Name = "txt_email";
             this.txt_email.Size = new System.Drawing.Size(204, 19);
@@ -141,7 +141,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.Maroon;
-            this.label1.Location = new System.Drawing.Point(832, 16);
+            this.label1.Location = new System.Drawing.Point(795, 7);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 21);
             this.label1.TabIndex = 10;
@@ -163,7 +163,7 @@
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Copperplate Gothic Light", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTitle.Location = new System.Drawing.Point(592, 16);
+            this.lblTitle.Location = new System.Drawing.Point(573, 8);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(70, 20);
             this.lblTitle.TabIndex = 8;
@@ -177,7 +177,7 @@
             this.bntMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bntMinimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.bntMinimize.ForeColor = System.Drawing.Color.Black;
-            this.bntMinimize.Location = new System.Drawing.Point(1549, -30);
+            this.bntMinimize.Location = new System.Drawing.Point(1549, -39);
             this.bntMinimize.Margin = new System.Windows.Forms.Padding(2);
             this.bntMinimize.Name = "bntMinimize";
             this.bntMinimize.Size = new System.Drawing.Size(46, 56);
@@ -194,7 +194,7 @@
             this.btnMaximize.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnMaximize.ForeColor = System.Drawing.Color.White;
             this.btnMaximize.Image = ((System.Drawing.Image)(resources.GetObject("btnMaximize.Image")));
-            this.btnMaximize.Location = new System.Drawing.Point(1586, -17);
+            this.btnMaximize.Location = new System.Drawing.Point(1586, -26);
             this.btnMaximize.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaximize.Name = "btnMaximize";
             this.btnMaximize.Size = new System.Drawing.Size(43, 38);
@@ -209,7 +209,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnClose.ForeColor = System.Drawing.Color.Black;
-            this.btnClose.Location = new System.Drawing.Point(1624, -18);
+            this.btnClose.Location = new System.Drawing.Point(1624, -27);
             this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(43, 35);
@@ -226,7 +226,7 @@
             this.btnCloseChildForm.Location = new System.Drawing.Point(4, 2);
             this.btnCloseChildForm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCloseChildForm.Name = "btnCloseChildForm";
-            this.btnCloseChildForm.Size = new System.Drawing.Size(96, 44);
+            this.btnCloseChildForm.Size = new System.Drawing.Size(87, 30);
             this.btnCloseChildForm.TabIndex = 2;
             this.btnCloseChildForm.Text = "X";
             this.btnCloseChildForm.UseVisualStyleBackColor = true;
@@ -264,7 +264,7 @@
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Margin = new System.Windows.Forms.Padding(2);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(154, 575);
+            this.panelMenu.Size = new System.Drawing.Size(154, 749);
             this.panelMenu.TabIndex = 6;
             // 
             // button4
@@ -397,7 +397,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 575);
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.panelhome);
             this.Controls.Add(this.panelMenu);
             this.Name = "FormMain";
