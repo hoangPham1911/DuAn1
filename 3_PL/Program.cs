@@ -16,7 +16,7 @@ namespace _3_PL
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             ApplicationConfiguration.Initialize();
-            Application.Run(new FrmDangNhap());
+            Application.Run(new Frm_QuocGia());
         }
     }
 }
