@@ -18,6 +18,8 @@ namespace _1_DAL.Models
         public HoaDon()
         {
             HoaDonChiTiets = new HashSet<HoaDonChiTiet>();
+            LichSuDiems = new HashSet<LichSuDiemTieuDung>();
+
         }
 
         [Key]
@@ -47,14 +49,14 @@ namespace _1_DAL.Models
         public string? TenNguoiShip { get; set; }
         public decimal? PhanTramGiamGia { get; set; }
 
-        [ForeignKey(nameof(IdKh))]
-        [InverseProperty(nameof(KhachHang.HoaDons))]
-        public virtual KhachHang IdKhNavigation { get; set; }
         [ForeignKey(nameof(IdNv))]
         [InverseProperty(nameof(NhanVien.HoaDons))]
         public virtual NhanVien IdNvNavigation { get; set; }
 
-    //    [InverseProperty(nameof(HoaDonChiTiet.IdHoaDonNavigation))]
+       [InverseProperty(nameof(HoaDonChiTiet.IdHoaDonNavigation))]
         public virtual ICollection<HoaDonChiTiet> HoaDonChiTiets { get; set; }
+        [InverseProperty(nameof(LichSuDiemTieuDung.IdHoaDonNavigation))]
+        public virtual ICollection<LichSuDiemTieuDung> LichSuDiems { get; set; }    
+
     }
 }

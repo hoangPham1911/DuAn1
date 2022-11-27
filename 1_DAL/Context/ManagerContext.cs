@@ -42,24 +42,14 @@ namespace _1_DAL.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-<<<<<<< HEAD
+            //optionsBuilder.UseSqlServer("Data Source=DESKTOP-FOR2JQI\\SQLEXPRESS;" +
+            //"Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=hello;Password=hello");
+            //optionsBuilder.UseSqlServer("Data Source=DESKTOP-I97RAVI\\SQLEXPRESS02;" +
+            //"Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=linh123;Password=12345");
             optionsBuilder.UseSqlServer("Data Source=DESKTOP-3S50L70\\SQLEXPRESS;" +
             "Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=hoangpham;Password=19112002");
             //optionsBuilder.UseSqlServer("Data Source=DESKTOP-FOR2JQI\\SQLEXPRESS;" +
             //"Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=hello;Password=hello");
-=======
-<<<<<<< HEAD
-            optionsBuilder.UseSqlServer("Data Source=DESKTOP-I97RAVI\\SQLEXPRESS02;" +
-            "Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=linh123;Password=12345");
-            //optionsBuilder.UseSqlServer("Data Source=DESKTOP-FOR2JQI\\SQLEXPRESS;" +
-            //"Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=hello;Password=hello");
-=======
-            //optionsBuilder.UseSqlServer("Data Source=DESKTOP-3S50L70\\SQLEXPRESS;" +
-            //"Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=hoangpham;Password=19112002");
-            optionsBuilder.UseSqlServer("Data Source=DESKTOP-FOR2JQI\\SQLEXPRESS;" +
-            "Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=hello;Password=hello");
->>>>>>> 254c897559d1b31ddd6d277b664399301b24975a
->>>>>>> 90d85ab709143a070bfc92475ad120608c49f75a
             //optionsBuilder.UseSqlServer("Data Source=DESKTOP-PJLRIKK\\SQLEXPRESS;" +
             //"Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=ph28227;Password=ph28227");
 
@@ -99,6 +89,7 @@ namespace _1_DAL.Context
                 entity.Property(e => e.Sdt).IsUnicode(false);
                 entity.Property(e => e.TrangThai).HasDefaultValueSql("((0))");
                 entity.Property(e => e.Sdt).IsRequired(false);
+                
 
             });
             modelBuilder.Entity<ChucVu>(entity =>
@@ -120,6 +111,12 @@ namespace _1_DAL.Context
             {
                 entity.Property(e => e.Id).HasDefaultValueSql("(newid())");
                 entity.Property(e => e.Ma).IsUnicode(false);
+                entity.Property(e => e.TrangThai).HasDefaultValueSql("((0))");
+
+            });
+            modelBuilder.Entity<ViDiem>(entity =>
+            {
+                entity.Property(e => e.Id).HasDefaultValueSql("(newid())");
                 entity.Property(e => e.TrangThai).HasDefaultValueSql("((0))");
 
             });
@@ -197,7 +194,6 @@ namespace _1_DAL.Context
             });
             modelBuilder.Entity<LichSuDiemTieuDung>(entity =>
             {
-                entity.Property(e => e.IdKhachHang).IsRequired();
                 entity.Property(e => e.TrangThai).HasDefaultValueSql("((0))");
 
             });

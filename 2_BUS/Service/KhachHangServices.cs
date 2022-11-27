@@ -35,7 +35,7 @@ namespace _2_BUS.Service
                      Sdt = a.Sdt,
                      DiaChi = a.DiaChi,
                      TrangThai = a.TrangThai,
-                     DiemTichDiem = a.DiemTichDiem,
+                 
 
                  }).ToList();
             return _khachHangViewModels;
@@ -54,7 +54,7 @@ namespace _2_BUS.Service
             x.Sdt = obj.Sdt;
             x.DiaChi = obj.DiaChi;
             x.TrangThai = obj.TrangThai;
-            x.DiemTichDiem = obj.DiemTichDiem;
+
             if (_khachHangRepository.update(x)) return "Sửa thành công";
             return "Sửa không thành công";
         }
@@ -73,7 +73,7 @@ namespace _2_BUS.Service
                 Sdt = obj.Sdt,
                 DiaChi = obj.DiaChi,
                 TrangThai = obj.TrangThai,
-                DiemTichDiem = obj.DiemTichDiem,
+ 
             };
 
             if (_khachHangRepository.add(khachHang)) return "Thêm thành công";

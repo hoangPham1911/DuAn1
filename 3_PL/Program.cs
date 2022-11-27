@@ -16,13 +16,8 @@ namespace _3_PL
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             ApplicationConfiguration.Initialize();
-<<<<<<< HEAD
-            Application.Run(new FrmDangNhap());
-=======
-
             Application.Run(new FrmDangNhap());
 
->>>>>>> 90d85ab709143a070bfc92475ad120608c49f75a
         }
     }
 }
