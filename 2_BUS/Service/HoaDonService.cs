@@ -28,15 +28,23 @@ namespace _2_BUS.Services
                     new SuaHoaDonModels
                     {
                         IdHoaDon = a.Id,
-                     //   IdKh = a.IdKh,
+                        IdKh = a.IdKh,
+                        IdNv = a.IdNv,
                         Ma = a.Ma,
                         NgayNhan = a.NgayNhan,
                         NgayShip = a.NgayShip,
                         NgayTao = a.NgayTao,
                         NgayThanhToan = a.NgayThanhToan,
-                  //      IdNv = a.IdNv,
+                        //      IdNv = a.IdNv,
                         Thue = a.Thue,
                         TinhTrang = a.TinhTrang,
+                        SDTShip = a.SDTShip,
+                        TenShip = a.TenShip,
+                        SoTienQuyDoi = a.SoTienQuyDoi,
+                        SoDiemSuDung = a.SoDiemSuDung,
+                        TenNguoiShip = a.TenNguoiShip,
+                        PhanTramGiamGia = a.PhanTramGiamGia,
+
                     }).ToList();
 
         }
@@ -64,16 +72,22 @@ namespace _2_BUS.Services
             else
             {
                 var hoaDon = HoaDonRepos.getAllReceipt().FirstOrDefault(p => p.Id == Hoadonold.IdHoaDon);
-                //hoaDon.Sdt = receipt.Sdt;
-                //hoaDon.TenNguoiNhan = receipt.TenNguoiNhan;
-                //hoaDon.DiaChi = receipt.DiaChi;
-                //hoaDon.IdKh = receipt.IdKh;
-                //hoaDon.IdNv = receipt.IdNv;
-             //   hoaDon.NgayTao = Hoadonold.NgayTao;
-                //       hoaDon.NgayNhan = receipt.NgayNhan;
-                hoaDon.NgayThanhToan = Hoadonold.NgayThanhToan;
-                //   hoaDon.NgayShip = receipt.NgayShip;
+                hoaDon.SDTShip = Hoadonold.SDTShip;
+                //hoaDon.Ma = Hoadonold.Ma;
                 hoaDon.TinhTrang = Hoadonold.TinhTrang;
+                hoaDon.IdKh = Hoadonold.IdKh;
+                hoaDon.IdNv = Hoadonold.IdNv;
+                hoaDon.NgayTao = Hoadonold.NgayTao;
+                hoaDon.NgayNhan = Hoadonold.NgayNhan;
+                hoaDon.NgayThanhToan = Hoadonold.NgayThanhToan;
+                hoaDon.NgayShip = Hoadonold.NgayShip;
+                hoaDon.TinhTrang = Hoadonold.TinhTrang;
+                hoaDon.Thue = Hoadonold.Thue;
+                hoaDon.TenNguoiShip = Hoadonold.TenNguoiShip;
+                hoaDon.TenShip = Hoadonold.TenShip;
+                hoaDon.SoDiemSuDung = Hoadonold.SoDiemSuDung;
+                hoaDon.SoTienQuyDoi = Hoadonold.SoTienQuyDoi;
+                hoaDon.PhanTramGiamGia= Hoadonold.PhanTramGiamGia;
                 HoaDonRepos.updateReceipt(hoaDon);
                 return "thanh cong";
             }

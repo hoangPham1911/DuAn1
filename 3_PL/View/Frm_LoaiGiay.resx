@@ -61,7 +61,7 @@
   <data name="pictureBox3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAHoWSURBVHhe7d0L
+        vQAADr0BR/uQrQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAHoWSURBVHhe7d0L
         tKX5Wdf5IILcHR28jEYmQtt1zqmQpWSW6IxrhoUioCKDyx5UhO5OOi3pqupOdZ2q7pDQKRgVTEKTQNJN
         pzvJDCooKAohVy4RSDphBDGKyys4jKMMWRBY4SK59rz/rufp89b7ft/3+dU5z95n7/0+P9d3dZu+rPX/
         n1r781azzz5Pq9Vqebvlabd87JX9e//Y5f3Lz+96+PL+4Y92/bvLe4e/cGX/8De7nriR7gu7hN1/zF54
@@ -589,7 +589,7 @@
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADyvSURBVHhe7d0J
+        vgAADr4B6kKxwAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADyvSURBVHhe7d0J
         nF11ff//sKksClal+nPBHVRcUAuyCEF2JGwlspmwGhAMYQ+I2tH212J/bX+N/ffXoq34w/5cAsUFDEES
         BkII2ZNJMtkm+75vk2Xmbu//59x8hcmZ7ySznHPvWV7Px+PV2BbDzDn3fD/nnnOXfgAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -855,7 +855,7 @@
   <data name="pictureBox5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAKBnSURBVHhe7d0L
+        vgAADr4B6kKxwAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAKBnSURBVHhe7d0L
         fFx1nffxsq53V8X1LrqINXPOTKk8dnddXdfFXXZXXd3HZ7VeVqGFJpN7MjNJL9AWphdoy73lZrkVCqVt
         WlqwF0BURKCAouJ1VQR1WRRFkWtLoZfn90/+Jzn553tmvknnzJxJft/X6/MqlzY9k0zynkxmzkzS6Sbq
         5h097/DZ/ux3z/ELf9fr9/67/PMJs/2e/Gxv9umzvd4vyX+7frbfe6v0zTl+730m+eefzk7PflB+fUh6

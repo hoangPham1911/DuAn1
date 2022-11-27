@@ -64,5 +64,15 @@ namespace _3_PL.View
         {
 
         }
+
+        private void cbb_ma_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_them_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

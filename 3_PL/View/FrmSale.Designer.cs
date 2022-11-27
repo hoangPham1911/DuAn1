@@ -47,12 +47,12 @@
             this.rdb_con = new System.Windows.Forms.RadioButton();
             this.rdb_ngung = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbb_tengiay = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.tb_giamgia = new System.Windows.Forms.TextBox();
             this.dt_ngayketthuc = new System.Windows.Forms.DateTimePicker();
             this.dt_ngaybatdau = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
-            this.cbb_tengiay = new System.Windows.Forms.ComboBox();
+            this.cbb_ma = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -80,7 +80,7 @@
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.DarkSalmon;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(103, 208);
+            this.pictureBox3.Location = new System.Drawing.Point(103, 224);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(41, 40);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -91,7 +91,7 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.DarkSalmon;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(91, 137);
+            this.pictureBox2.Location = new System.Drawing.Point(91, 153);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(53, 33);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -102,7 +102,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.DarkSalmon;
             this.pictureBox1.Image = global::_3_PL.Properties.Resources.add_user;
-            this.pictureBox1.Location = new System.Drawing.Point(91, 55);
+            this.pictureBox1.Location = new System.Drawing.Point(91, 71);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(53, 47);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -112,7 +112,7 @@
             // btn_sua
             // 
             this.btn_sua.BackColor = System.Drawing.Color.DarkSalmon;
-            this.btn_sua.Location = new System.Drawing.Point(42, 127);
+            this.btn_sua.Location = new System.Drawing.Point(42, 143);
             this.btn_sua.Name = "btn_sua";
             this.btn_sua.Size = new System.Drawing.Size(240, 57);
             this.btn_sua.TabIndex = 34;
@@ -122,7 +122,7 @@
             // btn_xoa
             // 
             this.btn_xoa.BackColor = System.Drawing.Color.DarkSalmon;
-            this.btn_xoa.Location = new System.Drawing.Point(42, 199);
+            this.btn_xoa.Location = new System.Drawing.Point(42, 215);
             this.btn_xoa.Name = "btn_xoa";
             this.btn_xoa.Size = new System.Drawing.Size(239, 57);
             this.btn_xoa.TabIndex = 33;
@@ -133,12 +133,13 @@
             // 
             this.btn_them.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btn_them.BackColor = System.Drawing.Color.DarkSalmon;
-            this.btn_them.Location = new System.Drawing.Point(42, 44);
+            this.btn_them.Location = new System.Drawing.Point(42, 60);
             this.btn_them.Name = "btn_them";
             this.btn_them.Size = new System.Drawing.Size(239, 68);
             this.btn_them.TabIndex = 32;
             this.btn_them.Text = "     Thêm";
             this.btn_them.UseVisualStyleBackColor = false;
+            this.btn_them.Click += new System.EventHandler(this.btn_them_Click);
             // 
             // Mã
             // 
@@ -239,9 +240,9 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.DarkSalmon;
+            this.groupBox1.Controls.Add(this.cbb_ma);
             this.groupBox1.Controls.Add(this.cbb_tengiay);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.tb_giamgia);
             this.groupBox1.Controls.Add(this.dt_ngayketthuc);
             this.groupBox1.Controls.Add(this.dt_ngaybatdau);
             this.groupBox1.Controls.Add(this.label3);
@@ -257,6 +258,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chi tiết giảm giá";
             // 
+            // cbb_tengiay
+            // 
+            this.cbb_tengiay.FormattingEnabled = true;
+            this.cbb_tengiay.Location = new System.Drawing.Point(152, 43);
+            this.cbb_tengiay.Name = "cbb_tengiay";
+            this.cbb_tengiay.Size = new System.Drawing.Size(302, 33);
+            this.cbb_tengiay.TabIndex = 14;
+            this.cbb_tengiay.SelectedIndexChanged += new System.EventHandler(this.cbb_tengiay_SelectedIndexChanged);
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -265,13 +275,6 @@
             this.label5.Size = new System.Drawing.Size(82, 25);
             this.label5.TabIndex = 13;
             this.label5.Text = "Giảm giá";
-            // 
-            // tb_giamgia
-            // 
-            this.tb_giamgia.Location = new System.Drawing.Point(152, 208);
-            this.tb_giamgia.Name = "tb_giamgia";
-            this.tb_giamgia.Size = new System.Drawing.Size(302, 31);
-            this.tb_giamgia.TabIndex = 12;
             // 
             // dt_ngayketthuc
             // 
@@ -296,14 +299,14 @@
             this.label3.TabIndex = 9;
             this.label3.Text = "Ngày kết thúc";
             // 
-            // cbb_tengiay
+            // cbb_ma
             // 
-            this.cbb_tengiay.FormattingEnabled = true;
-            this.cbb_tengiay.Location = new System.Drawing.Point(152, 43);
-            this.cbb_tengiay.Name = "cbb_tengiay";
-            this.cbb_tengiay.Size = new System.Drawing.Size(302, 33);
-            this.cbb_tengiay.TabIndex = 14;
-            this.cbb_tengiay.SelectedIndexChanged += new System.EventHandler(this.cbb_tengiay_SelectedIndexChanged);
+            this.cbb_ma.FormattingEnabled = true;
+            this.cbb_ma.Location = new System.Drawing.Point(152, 205);
+            this.cbb_ma.Name = "cbb_ma";
+            this.cbb_ma.Size = new System.Drawing.Size(302, 33);
+            this.cbb_ma.TabIndex = 15;
+            this.cbb_ma.SelectedIndexChanged += new System.EventHandler(this.cbb_ma_SelectedIndexChanged);
             // 
             // FrmSale
             // 
@@ -349,10 +352,10 @@
         private RadioButton rdb_ngung;
         private GroupBox groupBox1;
         private Label label5;
-        private TextBox tb_giamgia;
         private DateTimePicker dt_ngayketthuc;
         private DateTimePicker dt_ngaybatdau;
         private Label label3;
         private ComboBox cbb_tengiay;
+        private ComboBox cbb_ma;
     }
 }

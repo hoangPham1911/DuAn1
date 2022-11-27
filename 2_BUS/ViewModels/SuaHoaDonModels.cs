@@ -11,9 +11,10 @@ namespace _2_BUS.ViewModels
         public Guid IdHoaDon { get; set; }
 
         public Guid? IdKh { get; set; }
+        //public string TenKhachHang { get; set; }
 
         public Guid? IdNv { get; set; }
-
+        //public string TenNhanVien { get; set; }
         public string? Ma { get; set; }
         public DateTime? NgayTao { get; set; }
 
@@ -26,6 +27,12 @@ namespace _2_BUS.ViewModels
         public int? TinhTrang { get; set; }
 
         public decimal Thue { get; set; }
+        public string? SDTShip { get; set; }
+        public string? TenShip { get; set; }
+        public decimal? SoTienQuyDoi { get; set; }
+        public int? SoDiemSuDung { get; set; }
+        public string TenNguoiShip { get; set; }
+        public decimal? PhanTramGiamGia { get; set; }
     }
 }
 

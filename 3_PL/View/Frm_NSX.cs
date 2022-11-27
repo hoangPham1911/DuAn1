@@ -30,7 +30,7 @@ namespace _3_PL.View
         public void loadData()
         {
             dgv_showsize.Rows.Clear();
-            dgv_showsize.ColumnCount = 5;
+            dgv_showsize.ColumnCount = 4;
             dgv_showsize.Columns[0].Name = "ID";
             dgv_showsize.Columns[0].Visible= false;
             dgv_showsize.Columns[1].Name = "Mã";
@@ -47,11 +47,11 @@ namespace _3_PL.View
         
         private void btn_sua_Click(object sender, EventArgs e)
         {
-            viewnsx.Ma = tb_ma.Text;
-            viewnsx.Ten = tb_ten.Text;
-            viewnsx.TrangThai = rdb_con.Checked ? 1 : 0;
-            MessageBox.Show(insx.update(viewnsx));
-            loadData();
+            //viewnsx.Ma = tb_ma.Text;
+            //viewnsx.Ten = tb_ten.Text;
+            //viewnsx.TrangThai = rdb_con.Checked ? 1 : 0;
+            //MessageBox.Show(insx.update(viewnsx));
+            //loadData();
 
         }
 
@@ -59,9 +59,16 @@ namespace _3_PL.View
         {
             if (viewnsx == null)
             {
-
+                MessageBox.Show("bạn chưa chọn nsx");
             }
+            else
+            {
+                MessageBox.Show(insx.remove(viewnsx));
+                loadData();
+            }
+
         }
+        
 
         private void dgv_showsize_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -71,7 +78,7 @@ namespace _3_PL.View
                 viewnsx = insx.GetNhasanxuat().FirstOrDefault(x => x.Id == Guid.Parse(dgvr.Cells[0].Value.ToString()));
                 tb_ma.Text = viewnsx.Ma;
                 tb_ten.Text = viewnsx.Ten;
-                if (dgvr.Cells[3].Value.ToString() == "hiển thị") 
+                if (dgvr.Cells[3].Value.ToString() == "Còn sản xuất") 
                 {
                     rdb_con.Checked = true;
                 }
@@ -102,7 +109,11 @@ namespace _3_PL.View
 
         private void btn_sua_Click_1(object sender, EventArgs e)
         {
-            
+            viewnsx.Ma = tb_ma.Text;
+            viewnsx.Ten = tb_ten.Text;
+            viewnsx.TrangThai = rdb_con.Checked ? 1 : 0;
+            MessageBox.Show(insx.update(viewnsx));
+            loadData();
         }
 
         private void dgv_showsize_CellContentClick(object sender, DataGridViewCellEventArgs e)

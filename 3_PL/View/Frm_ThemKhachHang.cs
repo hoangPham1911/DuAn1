@@ -27,18 +27,30 @@ namespace _3_PL.View
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            ThemKhachHangViewModels kh = new ThemKhachHangViewModels()
+            if (txtMaKH.Text == "" && txtTenKH.Text == "" && tb_SoCCCD.Text == "" && txtDT.Text == "" && txtDiaChi.Text == "" && txtEmail.Text == "" && tb_GioiTinh.Text == "")
             {
-                Ma = txtMaKH.Text + tb_SoCCCD.Text,
-                Ten = txtTenKH.Text,
-                SoCCCD = tb_SoCCCD.Text,
-                Sdt = txtDT.Text,
-                DiaChi = txtDiaChi.Text,
-                Email = txtEmail.Text,
-                GioiTinh = tb_GioiTinh.Text,
-                NamSinh = dtp_NamSinh.Value,
-                TrangThai = rd_hd.Checked ? 1 : 0,
-            };
+                MessageBox.Show("Mời nhập đầy đủ thông tin");
+            }
+            else if (!rd_hd.Checked && !rd_koHd.Checked)
+            {
+                MessageBox.Show("Vui lòng chọn trạng thái");
+            }
+            else if (khachHangServices.GetAllKhachHangDB().Any(p => p.Ten == txtMaKH.Text))
+            {
+                MessageBox.Show("Mã khách hàng đã tồn tại");
+            }
+            ThemKhachHangViewModels kh = new ThemKhachHangViewModels()
+            { };
+            kh.Ma = txtMaKH.Text + tb_SoCCCD.Text;
+            kh.Ten = txtTenKH.Text;
+            kh.SoCCCD = tb_SoCCCD.Text;
+            kh.Sdt = txtDT.Text;
+            kh.DiaChi = txtDiaChi.Text;
+            kh.Email = txtEmail.Text;
+            kh.GioiTinh = tb_GioiTinh.Text;
+            kh.NamSinh = dtp_NamSinh.Value;
+            kh.TrangThai = rd_hd.Checked ? 1 : 0;
+            
             MessageBox.Show(khachHangServices.ThemKhachHang(kh));
         }
 

@@ -29,27 +29,16 @@ namespace _2_BUS.Service
        
         public List<HoaDonChiTietViewModel> GetAllHoaDonDB()
         {
-            return (from b in _HoaDonRepos.getAllReceipt()
-                    join a in _IreceiptDetailRepository.GetAll() on b.Id equals a.IdHoaDon 
-                    join c in _IProductDetailRepository.getAll() on a.IdChiTietSp equals c.Id
-                    join d in _ProductRepository.getAll() on c.IdSp equals d.Id
+            return (from a in _IreceiptDetailRepository.GetAll()
+                    join b in _HoaDonRepos.getAllReceipt() on a.IdHoaDon equals b.Id
                     select new HoaDonChiTietViewModel
                     {
-                        IdHoaDon = b.Id,
+
+                        IdHoaDon = a.IdHoaDon,
                         IdChiTietSp = a.IdChiTietSp,
-                        IdSp = d.Id,
-             //           SoLuong = a.SoLuong,
-              //          ThanhTien = a.ThanhTien,
-                        //   IdKh = b.IdKh,
-                        Ma = b.Ma,
-                   //     NgayNhan = b.NgayNhan,
-                    //    NgayShip = b.NgayShip,
-                        NgayTao = b.NgayTao,
-                        //   NgayThanhToan = b.NgayThanhToan,
-                        IdNv = b.IdNv,
-                        //   GiamGia = a.GiamGia,
-                        //      Thue = b.Thue,
-                        TinhTrang = b.TinhTrang,
+                        SoLuong = a.SoLuong,
+                        ThanhTien = a.ThanhTien,
+                        TrangThai = a.TrangThai,
                     }).ToList();
 
         }
@@ -100,6 +89,27 @@ namespace _2_BUS.Service
         {
             if (_IreceiptDetailRepository.remove(Hoadonld)) return true;
             return false;
+        }
+
+        public List<HoaDonChiTietViewModel> timkiemhdtheoid(Guid id)
+        {         
+            return (from a in _ProductRepository.getAll()
+                    join b in _IProductDetailRepository.getAll() on a.Id equals b.IdSp
+                    join c in _IreceiptDetailRepository.GetAll() on b.Id equals c.IdChiTietSp
+                    join d in _HoaDonRepos.getAllReceipt() on c.IdHoaDon equals d.Id
+                    where d.Id == id
+                    select new HoaDonChiTietViewModel
+                    {
+                        IdChiTietSp = a.Id,
+                        Name = a.Ten,
+                        IdHoaDon = d.Id,
+                        SoLuong = c.SoLuong,
+                        DonGia = b.GiaBan,
+
+                        GiamGia = c.GiamGia,
+                        ThanhTien = b.GiaBan * c.SoLuong
+                    }).ToList();
+
         }
     }
 }

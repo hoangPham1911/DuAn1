@@ -16,5 +16,10 @@ namespace _3_PL.View
         {
             InitializeComponent();
         }
+
+        private void dgridLichSu_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
