@@ -126,6 +126,7 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.flhoadon = new System.Windows.Forms.FlowLayoutPanel();
             this.splitter1 = new System.Windows.Forms.Splitter();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.flhd3 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -155,6 +156,7 @@
             this.groupBox5.SuspendLayout();
             this.flhoadon.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.flhd3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_down)).BeginInit();
@@ -163,7 +165,7 @@
             // 
             // pic_cam
             // 
-            this.pic_cam.Location = new System.Drawing.Point(382, 2);
+            this.pic_cam.Location = new System.Drawing.Point(377, 2);
             this.pic_cam.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pic_cam.Name = "pic_cam";
             this.pic_cam.Size = new System.Drawing.Size(534, 157);
@@ -1318,11 +1320,11 @@
             // 
             this.groupBox5.Controls.Add(this.flhoadon);
             this.groupBox5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBox5.Location = new System.Drawing.Point(635, 163);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox5.Location = new System.Drawing.Point(636, 160);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox5.Size = new System.Drawing.Size(144, 575);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBox5.Size = new System.Drawing.Size(146, 576);
             this.groupBox5.TabIndex = 138;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Chưa Thanh Toán";
@@ -1332,30 +1334,38 @@
             this.flhoadon.BackColor = System.Drawing.Color.PeachPuff;
             this.flhoadon.Controls.Add(this.splitter1);
             this.flhoadon.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flhoadon.Location = new System.Drawing.Point(3, 18);
-            this.flhoadon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flhoadon.Location = new System.Drawing.Point(4, 19);
+            this.flhoadon.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.flhoadon.Name = "flhoadon";
-            this.flhoadon.Size = new System.Drawing.Size(138, 555);
+            this.flhoadon.Size = new System.Drawing.Size(138, 554);
             this.flhoadon.TabIndex = 0;
             // 
             // splitter1
             // 
-            this.splitter1.Location = new System.Drawing.Point(3, 2);
-            this.splitter1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.splitter1.Location = new System.Drawing.Point(4, 3);
+            this.splitter1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(4, 0);
+            this.splitter1.Size = new System.Drawing.Size(6, 0);
             this.splitter1.TabIndex = 0;
             this.splitter1.TabStop = false;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(3, 3);
+            this.textBox5.Multiline = true;
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(118, 31);
+            this.textBox5.TabIndex = 1;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.flhd3);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBox1.Location = new System.Drawing.Point(779, 163);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Location = new System.Drawing.Point(786, 160);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(134, 575);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBox1.Size = new System.Drawing.Size(129, 576);
             this.groupBox1.TabIndex = 139;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chờ Giao Hàng";
@@ -1363,11 +1373,12 @@
             // flhd3
             // 
             this.flhd3.BackColor = System.Drawing.Color.PeachPuff;
+            this.flhd3.Controls.Add(this.textBox5);
             this.flhd3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flhd3.Location = new System.Drawing.Point(3, 18);
-            this.flhd3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flhd3.Location = new System.Drawing.Point(4, 19);
+            this.flhd3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.flhd3.Name = "flhd3";
-            this.flhd3.Size = new System.Drawing.Size(128, 555);
+            this.flhd3.Size = new System.Drawing.Size(121, 554);
             this.flhd3.TabIndex = 0;
             // 
             // groupBox2
@@ -1468,84 +1479,6 @@
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-
-            this.groupBox1.Controls.Add(this.flhd3);
-            this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-
-            this.groupBox1.Location = new System.Drawing.Point(788, 159);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(128, 579);
-            this.groupBox1.Location = new System.Drawing.Point(1117, 283);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox1.Size = new System.Drawing.Size(191, 935);
-
-            this.groupBox1.TabIndex = 139;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Chờ Giao Hàng";
-            // 
-            // flhd3
-            // 
-            this.flhd3.BackColor = System.Drawing.Color.PeachPuff;
-            this.flhd3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flhd3.Location = new System.Drawing.Point(4, 27);
-            this.flhd3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.flhd3.Name = "flhd3";
-
-            this.flhd3.Size = new System.Drawing.Size(122, 559);
-
-            this.flhd3.Size = new System.Drawing.Size(183, 905);
-
-            this.flhd3.TabIndex = 0;
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.flhoadon);
-            this.groupBox5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-
-            this.groupBox5.Location = new System.Drawing.Point(635, 161);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox5.Size = new System.Drawing.Size(150, 577);
-
-            this.groupBox5.Location = new System.Drawing.Point(907, 283);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox5.Size = new System.Drawing.Size(206, 938);
-
-            this.groupBox5.TabIndex = 138;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Chưa Thanh Toán";
-            // 
-            // flhoadon
-            // 
-            this.flhoadon.BackColor = System.Drawing.Color.PeachPuff;
-            this.flhoadon.Controls.Add(this.splitter1);
-            this.flhoadon.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flhoadon.Location = new System.Drawing.Point(4, 27);
-            this.flhoadon.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.flhoadon.Name = "flhoadon";
-
-            this.flhoadon.Size = new System.Drawing.Size(144, 557);
-
-            this.flhoadon.Size = new System.Drawing.Size(198, 908);
-            this.flhoadon.TabIndex = 0;
-            // 
-            // splitter1
-            // 
-            this.splitter1.Location = new System.Drawing.Point(4, 3);
-            this.splitter1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(6, 0);
-            this.splitter1.TabIndex = 0;
-            this.splitter1.TabStop = false;
-            // 
-            // label7
             // 
             // FormBanHang
             // 
@@ -1591,6 +1524,8 @@
             this.groupBox5.ResumeLayout(false);
             this.flhoadon.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            this.flhd3.ResumeLayout(false);
+            this.flhd3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
@@ -1709,5 +1644,6 @@
         private Label label2;
         private DateTimePicker dateTimePicker1;
         private Label label3;
+        private TextBox textBox5;
     }
 }

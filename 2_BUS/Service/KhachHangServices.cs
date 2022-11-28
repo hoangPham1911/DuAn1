@@ -15,6 +15,7 @@ namespace _2_BUS.Service
     {
         private IClientRepository _khachHangRepository;
         private List<KhachHangViewModels> _khachHangViewModels;
+       
         public KhachHangServices()
         {
             _khachHangRepository = new ClientRepositores();

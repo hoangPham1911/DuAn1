@@ -458,7 +458,7 @@ namespace _3_PL.View
         {
             label1.Text = DateTime.Now.ToLongTimeString();
             label17.Text = DateTime.Now.ToLongDateString();
-            
+
             if (pic_cam.Image != null)
             {
                 Bitmap img = (Bitmap)pic_cam.Image;
@@ -466,12 +466,13 @@ namespace _3_PL.View
                 Result result = Reader.Decode(img);
                 try
                 {
-                   
+
                     string decoded = result.ToString().Trim();
-                    string[] maQR = decoded.Split(new char[] {' '});
-                    if (_HangHoaChiTietServices.GetsList().FirstOrDefault(p => p.Ma.Contains(maQR[1])) != null)
+                    string[] maQR = decoded.Split(new char[] { '\n' });
+
+                    if (_SanPhamService.GetSanPham().FirstOrDefault(p => p.IdHangHoaChiTiet == Guid.Parse(maQR[0])) != null)
                     {
-                        string content = Interaction.InputBox("Mời Bạn Nhập Số Lượng Muốn Thêm Vào Giỏ Hàng ", "MaSp:" + _HangHoaChiTietServices.GetsList().FirstOrDefault(p => p.Ma.Contains(maQR[1])).Ma, "",500, 300);
+                        string content = Interaction.InputBox("Mời Bạn Nhập Số Lượng Muốn Thêm Vào Giỏ Hàng ", _SanPhamService.GetSanPham().FirstOrDefault(p => p.Ma.Contains(maQR[2])).Ma, "", 500, 300);
                         if (Regex.IsMatch(content, @"^[a-zA-Z0-9 ]*$") == false)
                         {
 
@@ -517,41 +518,49 @@ namespace _3_PL.View
                             MessageBox.Show("Số Lượng Không Cho Phép Âm", "ERR");
                             return;
                         }
-                        if (Convert.ToInt32(content) >= Convert.ToInt32(_HangHoaChiTietServices.GetsList().Where(c => c.Ma == Convert.ToString(result)).Select(c => c.SoLuongTon).FirstOrDefault()))
+                        if (Convert.ToInt32(content) > Convert.ToInt32(_SanPhamService.GetSanPham().Where(c => c.Ma == maQR[2]).Select(c => c.SoLuongTon).FirstOrDefault()))
                         {
                             MessageBox.Show("Số Lượng Không Đủ", "ERR");
                             return;
                         }
-                        var soLuong = int.Parse(tb_count.Text);
-                        var donGia = _SanPhamService.GetSanPham().FirstOrDefault(p => p.IdHangHoaChiTiet == IDSpCt).GiaBan;
-                        dgv_product.CurrentRow.Cells[6].Value = int.Parse(dgv_product.CurrentRow.Cells[6].Value.ToString()) - int.Parse(tb_count.Text);
-                        var sp = _SanPhamService.GetSanPham().FirstOrDefault(p => p.IdHangHoaChiTiet == IDSpCt);
-                        var MaSp = sp.Ma;
-                        var TenSp = sp.Ten;
-                        GioHangViewModel gioHang = new GioHangViewModel();
-                        gioHang.SoLuong = soLuong;
-                        gioHang.DonGia = donGia;
-                        gioHang.MaSp = MaSp;
-                        gioHang.IdCTSP = IDSpCt;
-                        gioHang.TenSp = TenSp;
-                        gioHang.ThanhTien = donGia * soLuong;
-                        if (_ListGioHang.Count() == 0)
-                        {
-                            _ListGioHang.Add(gioHang);
-                        }
-                        else if (_ListGioHang.FirstOrDefault(p => p.IdCTSP == IDSpCt) != null)
-                        {
-                            _ListGioHang.FirstOrDefault(p => p.IdCTSP == IDSpCt).SoLuong = _ListGioHang.FirstOrDefault(p => p.IdCTSP == IDSpCt).SoLuong + int.Parse(tb_count.Text);
-                        }
                         else
                         {
-                            _ListGioHang.Add(gioHang);
-                            MessageBox.Show("Them Thanh Cong");
+                            var soLuong = int.Parse(content);
+                            var donGia = _SanPhamService.GetSanPham().FirstOrDefault(p => p.IdHangHoaChiTiet == Guid.Parse(maQR[0])).GiaBan;
+      
+                            dgv_product.CurrentRow.Cells[6].Value = int.Parse(dgv_product.CurrentRow.Cells[6].Value.ToString()) - int.Parse(content);
+                            var sp = _SanPhamService.GetSanPham().FirstOrDefault(p => p.IdHangHoaChiTiet == Guid.Parse(maQR[0]));
+                            var MaSp = sp.Ma;
+                            var TenSp = sp.Ten;
+              
+                            GioHangViewModel gioHang = new GioHangViewModel();
+                            gioHang.SoLuong = soLuong;
+                            gioHang.DonGia = donGia;
+                            gioHang.MaSp = MaSp;
+                            gioHang.IdCTSP = Guid.Parse(maQR[0]);
+                            gioHang.TenSp = TenSp;
+                            gioHang.ThanhTien = donGia * soLuong;
+                            if (_ListGioHang.Count() == 0)
+                            {
+                                _ListGioHang.Add(gioHang);
+                            }
+                            else if (_ListGioHang.FirstOrDefault(p => p.IdCTSP == Guid.Parse(maQR[0])) != null)
+                            {
+                                _ListGioHang.FirstOrDefault(p => p.IdCTSP == IDSpCt).SoLuong = _ListGioHang.FirstOrDefault(p => p.IdCTSP == IDSpCt).SoLuong + int.Parse(content);
+                            }
+                            else
+                            {
+                                _ListGioHang.Add(gioHang);
+                                MessageBox.Show("Them Thanh Cong");
+                            }
                         }
-
+                    }
+                    else
+                    {
+                        MessageBox.Show("Khong Co Sp Nay ");
                     }
                     timer1.Stop();
-
+                    loadGioHang();
                 }
                 catch (Exception ex)
                 {
