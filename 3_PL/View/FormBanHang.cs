@@ -17,6 +17,9 @@ using _2_BUS.Service;
 using System.Runtime.CompilerServices;
 using _1_DAL.Models;
 using System.Globalization;
+using ZXing;
+using static System.Resources.ResXFileRef;
+using Microsoft.VisualBasic;
 
 namespace _3_PL.View
 {
@@ -266,7 +269,7 @@ namespace _3_PL.View
             status = _HoaDonService.GetAllHoaDonDB().FirstOrDefault(p => p.IdHoaDon == IdHoaDon).TinhTrang;
             //   MessageBox.Show(status);
             if (status == 1)
-            {             
+            {
                 btn_ThanhToan.Enabled = false;
             }
             else if (status == 2) radioButton6.Checked = true;
@@ -336,6 +339,7 @@ namespace _3_PL.View
                     videoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[cbo_webcam.SelectedIndex].MonikerString);
                     videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
                     videoCaptureDevice.Start();
+                    timer1.Start();
                 };
             }
             catch (Exception ex)
@@ -346,9 +350,10 @@ namespace _3_PL.View
         }
         private void VideoCaptureDevice_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
-            Bitmap bit = (Bitmap)eventArgs.Frame.Clone();
-            pic_cam.Image = bit;
-
+            Bitmap bitmap = (Bitmap)eventArgs.Frame.Clone();
+            BarcodeReader reader = new BarcodeReader();
+            var result = reader.Decode(bitmap);
+            pic_cam.Image = bitmap;
 
         }
         private void button9_Click(object sender, EventArgs e)
@@ -447,17 +452,46 @@ namespace _3_PL.View
         {
             checkNumber(sender, e);
         }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             label1.Text = DateTime.Now.ToLongTimeString();
             label17.Text = DateTime.Now.ToLongDateString();
+            
+            if (pic_cam.Image != null)
+            {
+                Bitmap img = (Bitmap)pic_cam.Image;
+                BarcodeReader Reader = new BarcodeReader();
+                Result result = Reader.Decode(img);
+                try
+                {
+                   
+                    string decoded = result.ToString().Trim();
+                    textBox5.Text = decoded;
+                    if(_HangHoaChiTietServices.GetsList().FirstOrDefault(p=>p.Ma.Contains(decoded)) != null)
+                    {
+                        string content = Interaction.InputBox("Mời Bạn Nhập Số Lượng Muốn Thêm Vào Giỏ Hàng ", "MaSp:" + _HangHoaChiTietServices.GetsList().FirstOrDefault(p=>p.Ma.Contains(decoded)).Ma, "",500, 300);
+                    }
+                   
+                    timer1.Stop();
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message + "");
+                }
+
+            }
         }
+
         public void loaiTienThua()
         {
 
             if (decimal.TryParse(tb_tienKhachDua.Text, out decimal x))
             {
                 tb_tienThua.Text = (decimal.Parse(tb_tienKhachDua.Text) - decimal.Parse(txt_tongTienHoaDon.Text)).ToString();
+                tb_TienKhachCanTra.Text = (int.Parse(txt_tongTienHoaDon.Text) + int.Parse(tb_thue.Text) - int.Parse(textBox7.Text)).ToString();
+
             }
 
         }
@@ -657,15 +691,18 @@ namespace _3_PL.View
 
         private void tb_TienKhachCanTra_TextChanged(object sender, EventArgs e)
         {
-            tb_TienKhachCanTra.Text = (int.Parse(txt_tongTienHoaDon.Text) + int.Parse(tb_thue.Text) - int.Parse(textBox7.Text)).ToString();
+            loaiTienThua();
         }
 
         private void cbxRank_TextChanged(object sender, EventArgs e)
         {
-            if (_KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Ma == cbxKH.Text).DiemTichDiem > 100)
-            {
 
-            }
+        }
+
+        private void FormBanHang_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            videoCaptureDevice.SignalToStop();
+            refreshcam();
         }
     }
 }

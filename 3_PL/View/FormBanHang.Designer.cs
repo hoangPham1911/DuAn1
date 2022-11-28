@@ -137,6 +137,7 @@
             this.btn_up = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.textBox5 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pic_cam)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_product)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -155,6 +156,7 @@
             this.groupBox5.SuspendLayout();
             this.flhoadon.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.flhd3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_down)).BeginInit();
@@ -507,7 +509,7 @@
             this.btn_ThanhToan.BackColor = System.Drawing.Color.RosyBrown;
             this.btn_ThanhToan.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_ThanhToan.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_ThanhToan.Location = new System.Drawing.Point(68, 507);
+            this.btn_ThanhToan.Location = new System.Drawing.Point(57, 487);
             this.btn_ThanhToan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_ThanhToan.Name = "btn_ThanhToan";
             this.btn_ThanhToan.Size = new System.Drawing.Size(157, 44);
@@ -832,10 +834,10 @@
             this.pn_dathang.Controls.Add(this.label34);
             this.pn_dathang.Controls.Add(this.label35);
             this.pn_dathang.Controls.Add(this.label36);
-            this.pn_dathang.Location = new System.Drawing.Point(525, 20);
+            this.pn_dathang.Location = new System.Drawing.Point(155, 20);
             this.pn_dathang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pn_dathang.Name = "pn_dathang";
-            this.pn_dathang.Size = new System.Drawing.Size(238, 113);
+            this.pn_dathang.Size = new System.Drawing.Size(63, 113);
             this.pn_dathang.TabIndex = 114;
             // 
             // label2
@@ -1363,6 +1365,7 @@
             // flhd3
             // 
             this.flhd3.BackColor = System.Drawing.Color.PeachPuff;
+            this.flhd3.Controls.Add(this.textBox5);
             this.flhd3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flhd3.Location = new System.Drawing.Point(3, 18);
             this.flhd3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1469,6 +1472,14 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(3, 3);
+            this.textBox5.Multiline = true;
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(125, 85);
+            this.textBox5.TabIndex = 0;
+            // 
             // FormBanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1489,6 +1500,7 @@
             this.Controls.Add(this.label17);
             this.Name = "FormBanHang";
             this.Text = "FormBanHang";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormBanHang_FormClosing);
             this.Load += new System.EventHandler(this.FormBanHang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pic_cam)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_product)).EndInit();
@@ -1512,6 +1524,8 @@
             this.groupBox5.ResumeLayout(false);
             this.flhoadon.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            this.flhd3.ResumeLayout(false);
+            this.flhd3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
@@ -1630,5 +1644,6 @@
         private Label label2;
         private DateTimePicker dateTimePicker1;
         private Label label3;
+        private TextBox textBox5;
     }
 }

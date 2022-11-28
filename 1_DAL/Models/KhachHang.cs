@@ -17,7 +17,6 @@ namespace _1_DAL.Models
     {
         public KhachHang()
         {
-            LichSuDiemTieuDungs = new HashSet<LichSuDiemTieuDung>();
         }
 
         [Key]
@@ -43,7 +42,6 @@ namespace _1_DAL.Models
         [StringLength(50)]
         public int TrangThai { get; set; }
      
-        public virtual ICollection<LichSuDiemTieuDung> LichSuDiemTieuDungs { get; set; }
         [ForeignKey(nameof(IdVi))]
         public virtual ViDiem ViDiems { get; set; }
 
