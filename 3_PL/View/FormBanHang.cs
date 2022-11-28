@@ -20,6 +20,7 @@ using System.Globalization;
 using ZXing;
 using static System.Resources.ResXFileRef;
 using Microsoft.VisualBasic;
+using System.Text.RegularExpressions;
 
 namespace _3_PL.View
 {
@@ -467,12 +468,88 @@ namespace _3_PL.View
                 {
                    
                     string decoded = result.ToString().Trim();
-                    textBox5.Text = decoded;
-                    if(_HangHoaChiTietServices.GetsList().FirstOrDefault(p=>p.Ma.Contains(decoded)) != null)
+                    string[] maQR = decoded.Split(new char[] {' '});
+                    if (_HangHoaChiTietServices.GetsList().FirstOrDefault(p => p.Ma.Contains(maQR[1])) != null)
                     {
-                        string content = Interaction.InputBox("Mời Bạn Nhập Số Lượng Muốn Thêm Vào Giỏ Hàng ", "MaSp:" + _HangHoaChiTietServices.GetsList().FirstOrDefault(p=>p.Ma.Contains(decoded)).Ma, "",500, 300);
+                        string content = Interaction.InputBox("Mời Bạn Nhập Số Lượng Muốn Thêm Vào Giỏ Hàng ", "MaSp:" + _HangHoaChiTietServices.GetsList().FirstOrDefault(p => p.Ma.Contains(maQR[1])).Ma, "",500, 300);
+                        if (Regex.IsMatch(content, @"^[a-zA-Z0-9 ]*$") == false)
+                        {
+
+                            MessageBox.Show("Số Lượng không được chứa ký tự đặc biệt", "ERR");
+                            return;
+                        }
+                        if (Regex.IsMatch(content, @"^\d+$") == false)
+                        {
+
+                            MessageBox.Show("Số Lượng không được chứa chữ cái", "ERR");
+                            return;
+                        }
+                        if (content.Length > 6)
+                        {
+                            MessageBox.Show("Số Lượng Không Cho Phép", "ERR");
+                            return;
+                        }
+                        if (Convert.ToInt32(content) < 0)
+                        {
+                            MessageBox.Show("Số Lượng Không Cho Phép Âm", "ERR");
+                            return;
+                        }
+
+                        if (Regex.IsMatch(content, @"^[a-zA-Z0-9 ]*$") == false)
+                        {
+
+                            MessageBox.Show("Số Lượng không được chứa ký tự đặc biệt", "ERR");
+                            return;
+                        }
+                        if (Regex.IsMatch(content, @"^\d+$") == false)
+                        {
+
+                            MessageBox.Show("Số Lượng không được chứa chữ cái", "ERR");
+                            return;
+                        }
+                        if (content.Length > 6)
+                        {
+                            MessageBox.Show("Số Lượng Không Cho Phép", "ERR");
+                            return;
+                        }
+                        if (Convert.ToInt32(content) < 0)
+                        {
+                            MessageBox.Show("Số Lượng Không Cho Phép Âm", "ERR");
+                            return;
+                        }
+                        if (Convert.ToInt32(content) >= Convert.ToInt32(_HangHoaChiTietServices.GetsList().Where(c => c.Ma == Convert.ToString(result)).Select(c => c.SoLuongTon).FirstOrDefault()))
+                        {
+                            MessageBox.Show("Số Lượng Không Đủ", "ERR");
+                            return;
+                        }
+                        var soLuong = int.Parse(tb_count.Text);
+                        var donGia = _SanPhamService.GetSanPham().FirstOrDefault(p => p.IdHangHoaChiTiet == IDSpCt).GiaBan;
+                        dgv_product.CurrentRow.Cells[6].Value = int.Parse(dgv_product.CurrentRow.Cells[6].Value.ToString()) - int.Parse(tb_count.Text);
+                        var sp = _SanPhamService.GetSanPham().FirstOrDefault(p => p.IdHangHoaChiTiet == IDSpCt);
+                        var MaSp = sp.Ma;
+                        var TenSp = sp.Ten;
+                        GioHangViewModel gioHang = new GioHangViewModel();
+                        gioHang.SoLuong = soLuong;
+                        gioHang.DonGia = donGia;
+                        gioHang.MaSp = MaSp;
+                        gioHang.IdCTSP = IDSpCt;
+                        gioHang.TenSp = TenSp;
+                        gioHang.ThanhTien = donGia * soLuong;
+                        if (_ListGioHang.Count() == 0)
+                        {
+                            _ListGioHang.Add(gioHang);
+                        }
+                        else if (_ListGioHang.FirstOrDefault(p => p.IdCTSP == IDSpCt) != null)
+                        {
+                            _ListGioHang.FirstOrDefault(p => p.IdCTSP == IDSpCt).SoLuong = _ListGioHang.FirstOrDefault(p => p.IdCTSP == IDSpCt).SoLuong + int.Parse(tb_count.Text);
+                        }
+                        else
+                        {
+                            _ListGioHang.Add(gioHang);
+                            MessageBox.Show("Them Thanh Cong");
+                        }
+
                     }
-                   
                     timer1.Stop();
 
                 }

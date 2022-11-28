@@ -17,11 +17,13 @@ namespace _1_DAL.Models
     {
         public KhachHang()
         {
+            HoaDons = new HashSet<HoaDon>();
         }
 
         [Key]
         public Guid Id { get; set; }
         public Guid? IdVi { get; set; }
+
         [StringLength(20)]
         public string Ma { get; set; }
         [StringLength(30)]
@@ -44,6 +46,7 @@ namespace _1_DAL.Models
      
         [ForeignKey(nameof(IdVi))]
         public virtual ViDiem ViDiems { get; set; }
+        public virtual ICollection<HoaDon> HoaDons { get; set; }
 
     }
 }

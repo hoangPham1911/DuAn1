@@ -53,7 +53,11 @@ namespace _1_DAL.Models
         [InverseProperty(nameof(NhanVien.HoaDons))]
         public virtual NhanVien IdNvNavigation { get; set; }
 
-       [InverseProperty(nameof(HoaDonChiTiet.IdHoaDonNavigation))]
+        [ForeignKey(nameof(IdKh))]
+        [InverseProperty(nameof(KhachHang.HoaDons))]
+        public virtual KhachHang IdKhNavigation { get; set; }
+
+        [InverseProperty(nameof(HoaDonChiTiet.IdHoaDonNavigation))]
         public virtual ICollection<HoaDonChiTiet> HoaDonChiTiets { get; set; }
         [InverseProperty(nameof(LichSuDiemTieuDung.IdHoaDonNavigation))]
         public virtual ICollection<LichSuDiemTieuDung> LichSuDiems { get; set; }    

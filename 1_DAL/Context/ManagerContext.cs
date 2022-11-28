@@ -39,6 +39,8 @@ namespace _1_DAL.Context
         public virtual DbSet<Sale> Sales { get; set; }
         public virtual DbSet<Anh> Anhs { get; set; }
         public virtual DbSet<GiaoCa> GiaoCas { get; set; }
+        public virtual DbSet<ViDiem> ViDiems { get; set; }
+        public virtual DbSet<QuyDoiDiem> QuyDoiDiems { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
