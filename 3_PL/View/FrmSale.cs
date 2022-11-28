@@ -1,6 +1,7 @@
 ﻿using _1_DAL.Models;
 using _2_BUS.IService;
 using _2_BUS.Service;
+using _2_BUS.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,7 @@ namespace _3_PL.View
     public partial class FrmSale : Form
     {
         private IQlyHangHoaServices iqlhh;
+        QlyHangHoaViewModels vmqlyhanghoa;
 
         public FrmSale()
         {
@@ -38,9 +40,10 @@ namespace _3_PL.View
             dgv_show.Columns[5].Name = "Số lượng";
             dgv_show.Columns[6].Name = "Trạng thái";
             var lstcthh = iqlhh.GetsList();
+            
             foreach (var item in lstcthh)
             {
-                dgv_show.Rows.Add(item.Id, item.Ma, item.Ten,item.IdSizeGiay,
+                dgv_show.Rows.Add(item.Id, item.Ma, item.Ten,item.SoSize,
                     item.GiaBan,item.SoLuongTon, item.TrangThai == 1 ? "Còn sản xuất" : "Ngừng sản xuất");
             }
             dgv_show.AllowUserToAddRows = false;
@@ -48,7 +51,21 @@ namespace _3_PL.View
 
         private void dgv_show_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow dgvr = dgv_show.Rows[e.RowIndex];
+                vmqlyhanghoa = iqlhh.GetsList().FirstOrDefault(x => x.Id == Guid.Parse(dgvr.Cells[0].Value.ToString()));
+                cbb_tengiay.Text = vmqlyhanghoa.Ten;
+                //vmqlyhanghoa.GiaBan = tb_gia.Text ;
+                if (dgvr.Cells[3].Value.ToString() == "Còn sản xuất")
+                {
+                    rdb_con.Checked = true;
+                }
+                else
+                {
+                    rdb_ngung.Checked = true;
+                }
+            }
         }
 
         public void loadComboBox()
@@ -71,6 +88,11 @@ namespace _3_PL.View
         }
 
         private void btn_them_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgv_show_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

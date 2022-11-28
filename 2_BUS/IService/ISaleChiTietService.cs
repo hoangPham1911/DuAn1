@@ -14,5 +14,6 @@ namespace _2_BUS.IService
         bool update(SaleChiTietUpdateView sale);
 
         List<SaleChiTietViewModels> GetDanhMuc();
+        List<QlyHangHoaViewModels> GetsList();
     }
 }

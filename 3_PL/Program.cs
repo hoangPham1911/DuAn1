@@ -17,7 +17,7 @@ namespace _3_PL
             Application.SetCompatibleTextRenderingDefault(false);
             ApplicationConfiguration.Initialize();
 
-            Application.Run(new FrmDangNhap());
+            Application.Run(new FrmSale());
 
         }
     }
