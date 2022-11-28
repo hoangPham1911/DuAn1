@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using _1_DAL.Context;
 
@@ -11,9 +12,10 @@ using _1_DAL.Context;
 namespace _1_DAL.Migrations
 {
     [DbContext(typeof(ManagerContext))]
-    partial class ManagerContextModelSnapshot : ModelSnapshot
+    [Migration("20221127151510_cart_v11")]
+    partial class cart_v11
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -388,6 +390,8 @@ namespace _1_DAL.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("IdKh");
+
                     b.HasIndex("IdNv");
 
                     b.HasIndex(new[] { "Ma" }, "UQ_HoaDon")
@@ -528,6 +532,9 @@ namespace _1_DAL.Migrations
                     b.Property<Guid?>("IdViDiem")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid?>("KhachHangId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime>("NgaySuDung")
                         .HasColumnType("datetime2");
 
@@ -549,6 +556,8 @@ namespace _1_DAL.Migrations
                     b.HasIndex("IdQuyDoiDiem");
 
                     b.HasIndex("IdViDiem");
+
+                    b.HasIndex("KhachHangId");
 
                     b.ToTable("LichSuDiemTieuDung");
                 });
@@ -855,19 +864,16 @@ namespace _1_DAL.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("(newid())");
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("IdKhachHang")
+                    b.Property<Guid>("IdKhachHang")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int?>("TongDiem")
                         .HasColumnType("int");
 
                     b.Property<string>("TrangThai")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(max)")
-                        .HasDefaultValueSql("((0))");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -940,9 +946,15 @@ namespace _1_DAL.Migrations
 
             modelBuilder.Entity("_1_DAL.Models.HoaDon", b =>
                 {
+                    b.HasOne("_1_DAL.Models.KhachHang", "IdKhNavigation")
+                        .WithMany("HoaDons")
+                        .HasForeignKey("IdKh");
+
                     b.HasOne("_1_DAL.Models.NhanVien", "IdNvNavigation")
                         .WithMany("HoaDons")
                         .HasForeignKey("IdNv");
+
+                    b.Navigation("IdKhNavigation");
 
                     b.Navigation("IdNvNavigation");
                 });
@@ -1005,6 +1017,10 @@ namespace _1_DAL.Migrations
                     b.HasOne("_1_DAL.Models.ViDiem", "IdViDiemNavigation")
                         .WithMany("LichSuDiemTieuDungs")
                         .HasForeignKey("IdViDiem");
+
+                    b.HasOne("_1_DAL.Models.KhachHang", null)
+                        .WithMany("LichSuDiemTieuDungs")
+                        .HasForeignKey("KhachHangId");
 
                     b.Navigation("IdHoaDonNavigation");
 
@@ -1082,6 +1098,13 @@ namespace _1_DAL.Migrations
                     b.Navigation("HoaDonChiTiets");
 
                     b.Navigation("LichSuDiems");
+                });
+
+            modelBuilder.Entity("_1_DAL.Models.KhachHang", b =>
+                {
+                    b.Navigation("HoaDons");
+
+                    b.Navigation("LichSuDiemTieuDungs");
                 });
 
             modelBuilder.Entity("_1_DAL.Models.LoaiGiay", b =>

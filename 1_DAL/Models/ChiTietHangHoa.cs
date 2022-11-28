@@ -40,7 +40,7 @@ namespace _1_DAL.Models
         public decimal? GiaNhap { get; set; }
         [Column(TypeName = "decimal(20, 0)")]
         public decimal? GiaBan { get; set; }
-
+        public string MaQRCode { get; set; }
         public int TrangThai { get; set; }
 
         [ForeignKey(nameof(IdSizeGiay))]

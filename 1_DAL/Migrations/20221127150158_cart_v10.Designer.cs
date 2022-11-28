@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using _1_DAL.Context;
 
@@ -11,9 +12,10 @@ using _1_DAL.Context;
 namespace _1_DAL.Migrations
 {
     [DbContext(typeof(ManagerContext))]
-    partial class ManagerContextModelSnapshot : ModelSnapshot
+    [Migration("20221127150158_cart_v10")]
+    partial class cart_v10
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -388,6 +390,8 @@ namespace _1_DAL.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("IdKh");
+
                     b.HasIndex("IdNv");
 
                     b.HasIndex(new[] { "Ma" }, "UQ_HoaDon")
@@ -439,6 +443,9 @@ namespace _1_DAL.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<int?>("DiemTichDiem")
+                        .HasColumnType("int");
+
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
@@ -446,9 +453,6 @@ namespace _1_DAL.Migrations
                         .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
-
-                    b.Property<Guid?>("IdVi")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Ma")
                         .IsRequired()
@@ -479,10 +483,6 @@ namespace _1_DAL.Migrations
                         .HasDefaultValueSql("((0))");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("IdVi")
-                        .IsUnique()
-                        .HasFilter("[IdVi] IS NOT NULL");
 
                     b.HasIndex(new[] { "Ma" }, "UQ_KhachHang")
                         .IsUnique();
@@ -528,11 +528,11 @@ namespace _1_DAL.Migrations
                     b.Property<Guid?>("IdViDiem")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid?>("KhachHangId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime>("NgaySuDung")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("SoDiemCong")
-                        .HasColumnType("int");
 
                     b.Property<int>("SoDiemTieuDung")
                         .HasColumnType("int");
@@ -549,6 +549,8 @@ namespace _1_DAL.Migrations
                     b.HasIndex("IdQuyDoiDiem");
 
                     b.HasIndex("IdViDiem");
+
+                    b.HasIndex("KhachHangId");
 
                     b.ToTable("LichSuDiemTieuDung");
                 });
@@ -855,19 +857,16 @@ namespace _1_DAL.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("(newid())");
-
-                    b.Property<Guid?>("IdKhachHang")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("TongDiem")
-                        .HasColumnType("int");
+                    b.Property<string>("Ten")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TrangThai")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(max)")
-                        .HasDefaultValueSql("((0))");
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal?>("TyLeQuyDoi")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
@@ -940,9 +939,15 @@ namespace _1_DAL.Migrations
 
             modelBuilder.Entity("_1_DAL.Models.HoaDon", b =>
                 {
+                    b.HasOne("_1_DAL.Models.KhachHang", "IdKhNavigation")
+                        .WithMany("HoaDons")
+                        .HasForeignKey("IdKh");
+
                     b.HasOne("_1_DAL.Models.NhanVien", "IdNvNavigation")
                         .WithMany("HoaDons")
                         .HasForeignKey("IdNv");
+
+                    b.Navigation("IdKhNavigation");
 
                     b.Navigation("IdNvNavigation");
                 });
@@ -962,15 +967,6 @@ namespace _1_DAL.Migrations
                     b.Navigation("IdChiTietSpNavigation");
 
                     b.Navigation("IdHoaDonNavigation");
-                });
-
-            modelBuilder.Entity("_1_DAL.Models.KhachHang", b =>
-                {
-                    b.HasOne("_1_DAL.Models.ViDiem", "ViDiems")
-                        .WithOne("KhachHangs")
-                        .HasForeignKey("_1_DAL.Models.KhachHang", "IdVi");
-
-                    b.Navigation("ViDiems");
                 });
 
             modelBuilder.Entity("_1_DAL.Models.KieuDanhMuc", b =>
@@ -1005,6 +1001,10 @@ namespace _1_DAL.Migrations
                     b.HasOne("_1_DAL.Models.ViDiem", "IdViDiemNavigation")
                         .WithMany("LichSuDiemTieuDungs")
                         .HasForeignKey("IdViDiem");
+
+                    b.HasOne("_1_DAL.Models.KhachHang", null)
+                        .WithMany("LichSuDiemTieuDungs")
+                        .HasForeignKey("KhachHangId");
 
                     b.Navigation("IdHoaDonNavigation");
 
@@ -1084,6 +1084,13 @@ namespace _1_DAL.Migrations
                     b.Navigation("LichSuDiems");
                 });
 
+            modelBuilder.Entity("_1_DAL.Models.KhachHang", b =>
+                {
+                    b.Navigation("HoaDons");
+
+                    b.Navigation("LichSuDiemTieuDungs");
+                });
+
             modelBuilder.Entity("_1_DAL.Models.LoaiGiay", b =>
                 {
                     b.Navigation("ChiTietHangHoas");
@@ -1123,9 +1130,6 @@ namespace _1_DAL.Migrations
 
             modelBuilder.Entity("_1_DAL.Models.ViDiem", b =>
                 {
-                    b.Navigation("KhachHangs")
-                        .IsRequired();
-
                     b.Navigation("LichSuDiemTieuDungs");
                 });
 #pragma warning restore 612, 618
