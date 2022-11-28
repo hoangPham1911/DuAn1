@@ -31,25 +31,14 @@ namespace _3_PL.View
 
         private void bt_dangnhap_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
 
             NhanVienViewModels staff = _NhanVienServices.GetAll().FirstOrDefault(p => p.Email.Contains(tb_tenguoidung.Text));
 
-
-
-
-=======
-            NhanVienViewModels staff = _NhanVienServices.GetAll().FirstOrDefault(p => p.Email.Contains(tb_tenguoidung.Text));
->>>>>>> 49461b5ffdc641713135e78fbc2d95cbc54839fe
             try
             {
                 var userName = _NhanVienServices.GetAll().FirstOrDefault(p => p.Ma == tb_tenguoidung.Text).Email;
                 var pass = _NhanVienServices.GetAll().FirstOrDefault(p => p.MatKhau == tb_mk.Text).MatKhau;
-<<<<<<< HEAD
 
-
-=======
->>>>>>> 49461b5ffdc641713135e78fbc2d95cbc54839fe
                 if (staff.Email == userName && staff.MatKhau == pass)
                 {
                     _IdStaff = staff.Id;

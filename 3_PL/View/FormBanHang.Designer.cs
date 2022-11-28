@@ -1468,12 +1468,7 @@
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-<<<<<<< HEAD
-=======
-            // textBox5
-            // 
-<<<<<<< HEAD
+
             this.groupBox1.Controls.Add(this.flhd3);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
 
@@ -1552,21 +1547,6 @@
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 380);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(59, 25);
-            this.label7.TabIndex = 156;
-            this.label7.Text = "label7";
-=======
-            this.textBox5.Location = new System.Drawing.Point(3, 3);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(125, 85);
-            this.textBox5.TabIndex = 0;
->>>>>>> 49461b5ffdc641713135e78fbc2d95cbc54839fe
-            // 
->>>>>>> ece666ce1e9de2f6348de197c4d293d2e7a2cdc8
             // FormBanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
