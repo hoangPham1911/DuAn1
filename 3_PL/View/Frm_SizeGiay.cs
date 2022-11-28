@@ -69,14 +69,16 @@ namespace _3_PL.View
             }
         }
 
+   //     Guid id;
         private void dgv_showsize_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow dgvr = dgv_showsize.Rows[e.RowIndex];
                 vmsz = isize.GetSizeGiay().FirstOrDefault(x => x.Id == Guid.Parse(dgvr.Cells[0].Value.ToString()));
                 tb_ma.Text = vmsz.Ma;
-                //tb_sosize.Text = vmsz.SoSize;
+                vmsz.SoSize = Convert.ToInt32(tb_sosize.Text) ;
                 if (dgvr.Cells[3].Value.ToString() == "Còn hàng")
                 {
                     rdb_con.Checked = true;
@@ -94,7 +96,7 @@ namespace _3_PL.View
             {
                 Id = Guid.NewGuid(),
                 Ma = tb_ma.Text,
-                //SoSize = tb_sosize,
+                SoSize = Convert.ToInt32(tb_sosize.Text),
                 TrangThai = rdb_con.Checked ? 1 : 0
             };
             MessageBox.Show(isize.add(sz));
@@ -104,6 +106,7 @@ namespace _3_PL.View
         private void btn_sua_Click(object sender, EventArgs e)
         {
             vmsz.Ma = tb_ma.Text;
+            vmsz.SoSize = Convert.ToInt32(tb_sosize.Text);
             vmsz.TrangThai = rdb_con.Checked ? 1 : 0;
             MessageBox.Show(isize.update(vmsz));
             loadData();

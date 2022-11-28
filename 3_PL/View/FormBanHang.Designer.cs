@@ -1469,6 +1469,104 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+<<<<<<< HEAD
+=======
+            // textBox5
+            // 
+<<<<<<< HEAD
+            this.groupBox1.Controls.Add(this.flhd3);
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+
+            this.groupBox1.Location = new System.Drawing.Point(788, 159);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(128, 579);
+            this.groupBox1.Location = new System.Drawing.Point(1117, 283);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBox1.Size = new System.Drawing.Size(191, 935);
+
+            this.groupBox1.TabIndex = 139;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Chờ Giao Hàng";
+            // 
+            // flhd3
+            // 
+            this.flhd3.BackColor = System.Drawing.Color.PeachPuff;
+            this.flhd3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flhd3.Location = new System.Drawing.Point(4, 27);
+            this.flhd3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.flhd3.Name = "flhd3";
+
+            this.flhd3.Size = new System.Drawing.Size(122, 559);
+
+            this.flhd3.Size = new System.Drawing.Size(183, 905);
+
+            this.flhd3.TabIndex = 0;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.flhoadon);
+            this.groupBox5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+
+            this.groupBox5.Location = new System.Drawing.Point(635, 161);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox5.Size = new System.Drawing.Size(150, 577);
+
+            this.groupBox5.Location = new System.Drawing.Point(907, 283);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBox5.Size = new System.Drawing.Size(206, 938);
+
+            this.groupBox5.TabIndex = 138;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Chưa Thanh Toán";
+            // 
+            // flhoadon
+            // 
+            this.flhoadon.BackColor = System.Drawing.Color.PeachPuff;
+            this.flhoadon.Controls.Add(this.splitter1);
+            this.flhoadon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flhoadon.Location = new System.Drawing.Point(4, 27);
+            this.flhoadon.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.flhoadon.Name = "flhoadon";
+
+            this.flhoadon.Size = new System.Drawing.Size(144, 557);
+
+            this.flhoadon.Size = new System.Drawing.Size(198, 908);
+            this.flhoadon.TabIndex = 0;
+            // 
+            // splitter1
+            // 
+            this.splitter1.Location = new System.Drawing.Point(4, 3);
+            this.splitter1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(6, 0);
+            this.splitter1.TabIndex = 0;
+            this.splitter1.TabStop = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(3, 380);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(59, 25);
+            this.label7.TabIndex = 156;
+            this.label7.Text = "label7";
+=======
+            this.textBox5.Location = new System.Drawing.Point(3, 3);
+            this.textBox5.Multiline = true;
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(125, 85);
+            this.textBox5.TabIndex = 0;
+>>>>>>> 49461b5ffdc641713135e78fbc2d95cbc54839fe
+            // 
+>>>>>>> ece666ce1e9de2f6348de197c4d293d2e7a2cdc8
             // FormBanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);

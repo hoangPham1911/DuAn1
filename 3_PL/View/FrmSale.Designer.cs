@@ -47,12 +47,14 @@
             this.rdb_con = new System.Windows.Forms.RadioButton();
             this.rdb_ngung = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbb_ma = new System.Windows.Forms.ComboBox();
             this.cbb_tengiay = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dt_ngayketthuc = new System.Windows.Forms.DateTimePicker();
             this.dt_ngaybatdau = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
-            this.cbb_ma = new System.Windows.Forms.ComboBox();
+            this.tb_gia = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -153,13 +155,14 @@
             this.dgv_show.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_show.BackgroundColor = System.Drawing.Color.PeachPuff;
             this.dgv_show.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_show.Location = new System.Drawing.Point(14, 30);
+            this.dgv_show.Location = new System.Drawing.Point(19, 30);
             this.dgv_show.Name = "dgv_show";
             this.dgv_show.RowHeadersWidth = 62;
             this.dgv_show.RowTemplate.Height = 33;
             this.dgv_show.Size = new System.Drawing.Size(914, 225);
             this.dgv_show.TabIndex = 0;
             this.dgv_show.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_show_CellClick);
+            this.dgv_show.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_show_CellContentClick);
             // 
             // groupBox3
             // 
@@ -191,7 +194,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 46);
+            this.label1.Location = new System.Drawing.Point(59, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 25);
             this.label1.TabIndex = 1;
@@ -200,7 +203,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 264);
+            this.label2.Location = new System.Drawing.Point(59, 291);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 25);
             this.label2.TabIndex = 2;
@@ -209,7 +212,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 105);
+            this.label4.Location = new System.Drawing.Point(50, 96);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(120, 25);
             this.label4.TabIndex = 4;
@@ -218,7 +221,7 @@
             // rdb_con
             // 
             this.rdb_con.AutoSize = true;
-            this.rdb_con.Location = new System.Drawing.Point(155, 262);
+            this.rdb_con.Location = new System.Drawing.Point(194, 289);
             this.rdb_con.Name = "rdb_con";
             this.rdb_con.Size = new System.Drawing.Size(140, 29);
             this.rdb_con.TabIndex = 7;
@@ -229,7 +232,7 @@
             // rdb_ngung
             // 
             this.rdb_ngung.AutoSize = true;
-            this.rdb_ngung.Location = new System.Drawing.Point(300, 262);
+            this.rdb_ngung.Location = new System.Drawing.Point(339, 289);
             this.rdb_ngung.Name = "rdb_ngung";
             this.rdb_ngung.Size = new System.Drawing.Size(164, 29);
             this.rdb_ngung.TabIndex = 8;
@@ -240,6 +243,8 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.DarkSalmon;
+            this.groupBox1.Controls.Add(this.tb_gia);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.cbb_ma);
             this.groupBox1.Controls.Add(this.cbb_tengiay);
             this.groupBox1.Controls.Add(this.label5);
@@ -258,10 +263,19 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chi tiết giảm giá";
             // 
+            // cbb_ma
+            // 
+            this.cbb_ma.FormattingEnabled = true;
+            this.cbb_ma.Location = new System.Drawing.Point(192, 250);
+            this.cbb_ma.Name = "cbb_ma";
+            this.cbb_ma.Size = new System.Drawing.Size(302, 33);
+            this.cbb_ma.TabIndex = 15;
+            this.cbb_ma.SelectedIndexChanged += new System.EventHandler(this.cbb_ma_SelectedIndexChanged);
+            // 
             // cbb_tengiay
             // 
             this.cbb_tengiay.FormattingEnabled = true;
-            this.cbb_tengiay.Location = new System.Drawing.Point(152, 43);
+            this.cbb_tengiay.Location = new System.Drawing.Point(192, 41);
             this.cbb_tengiay.Name = "cbb_tengiay";
             this.cbb_tengiay.Size = new System.Drawing.Size(302, 33);
             this.cbb_tengiay.TabIndex = 14;
@@ -270,7 +284,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(19, 208);
+            this.label5.Location = new System.Drawing.Point(59, 253);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(82, 25);
             this.label5.TabIndex = 13;
@@ -278,14 +292,14 @@
             // 
             // dt_ngayketthuc
             // 
-            this.dt_ngayketthuc.Location = new System.Drawing.Point(154, 153);
+            this.dt_ngayketthuc.Location = new System.Drawing.Point(194, 144);
             this.dt_ngayketthuc.Name = "dt_ngayketthuc";
             this.dt_ngayketthuc.Size = new System.Drawing.Size(300, 31);
             this.dt_ngayketthuc.TabIndex = 11;
             // 
             // dt_ngaybatdau
             // 
-            this.dt_ngaybatdau.Location = new System.Drawing.Point(154, 105);
+            this.dt_ngaybatdau.Location = new System.Drawing.Point(194, 96);
             this.dt_ngaybatdau.Name = "dt_ngaybatdau";
             this.dt_ngaybatdau.Size = new System.Drawing.Size(300, 31);
             this.dt_ngaybatdau.TabIndex = 10;
@@ -293,20 +307,29 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 159);
+            this.label3.Location = new System.Drawing.Point(54, 150);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(122, 25);
             this.label3.TabIndex = 9;
             this.label3.Text = "Ngày kết thúc";
             // 
-            // cbb_ma
+            // tb_gia
             // 
-            this.cbb_ma.FormattingEnabled = true;
-            this.cbb_ma.Location = new System.Drawing.Point(152, 205);
-            this.cbb_ma.Name = "cbb_ma";
-            this.cbb_ma.Size = new System.Drawing.Size(302, 33);
-            this.cbb_ma.TabIndex = 15;
-            this.cbb_ma.SelectedIndexChanged += new System.EventHandler(this.cbb_ma_SelectedIndexChanged);
+            this.tb_gia.Location = new System.Drawing.Point(194, 196);
+            this.tb_gia.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_gia.Name = "tb_gia";
+            this.tb_gia.Size = new System.Drawing.Size(302, 31);
+            this.tb_gia.TabIndex = 45;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(61, 196);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(120, 25);
+            this.label6.TabIndex = 44;
+            this.label6.Text = "Giá sản phẩm";
             // 
             // FrmSale
             // 
@@ -357,5 +380,7 @@
         private Label label3;
         private ComboBox cbb_tengiay;
         private ComboBox cbb_ma;
+        private TextBox tb_gia;
+        private Label label6;
     }
 }
