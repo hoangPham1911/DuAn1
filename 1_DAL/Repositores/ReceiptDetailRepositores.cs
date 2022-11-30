@@ -58,6 +58,23 @@ namespace _1.DAL.Repostiores
                 throw;
             }
         }
+        public bool removeSP(Guid Id)
+        {
+            try
+            {
+                HoaDonChiTiet Spct = _dbContext.HoaDonChiTiets.SingleOrDefault(p => p.IdChiTietSp == Id);
+                _dbContext.HoaDonChiTiets.Remove(Spct);
+                _dbContext.SaveChanges();
+
+                return true;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         public bool update(HoaDonChiTiet hd)
         {
 

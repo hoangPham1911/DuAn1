@@ -90,7 +90,6 @@ namespace _2_BUS.Service
             if (_IreceiptDetailRepository.remove(Hoadonld)) return true;
             return false;
         }
-
         public List<HoaDonChiTietViewModel> timkiemhdtheoid(Guid id)
         {         
             return (from a in _ProductRepository.getAll()
@@ -110,6 +109,12 @@ namespace _2_BUS.Service
                         ThanhTien = b.GiaBan * c.SoLuong
                     }).ToList();
 
+        }
+
+        public bool XoaSpTrongHoaDonChiTiet(Guid Id)
+        {
+            if (_IreceiptDetailRepository.removeSP(Id)) return true;
+            return false;
         }
     }
 }

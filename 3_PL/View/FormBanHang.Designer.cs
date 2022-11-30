@@ -47,36 +47,6 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tb_tienKhachDua = new System.Windows.Forms.TextBox();
-            this.label57 = new System.Windows.Forms.Label();
-            this.tb_tienThua = new System.Windows.Forms.TextBox();
-            this.label58 = new System.Windows.Forms.Label();
-            this.btn_ThanhToan = new System.Windows.Forms.Button();
-            this.label44 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.label48 = new System.Windows.Forms.Label();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.radioButton8 = new System.Windows.Forms.RadioButton();
-            this.label49 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.tb_TienKhachCanTra = new System.Windows.Forms.TextBox();
-            this.tb_thue = new System.Windows.Forms.TextBox();
-            this.txt_tongTienHoaDon = new System.Windows.Forms.TextBox();
-            this.label50 = new System.Windows.Forms.Label();
-            this.label51 = new System.Windows.Forms.Label();
-            this.label53 = new System.Windows.Forms.Label();
-            this.label54 = new System.Windows.Forms.Label();
-            this.label55 = new System.Windows.Forms.Label();
-            this.z = new System.Windows.Forms.Label();
-            this.btn_FormdatHang = new System.Windows.Forms.Button();
-            this.btn_FormHoaDon = new System.Windows.Forms.Button();
             this.pn_dathang = new System.Windows.Forms.Panel();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
@@ -110,6 +80,36 @@
             this.label34 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tb_tienKhachDua = new System.Windows.Forms.TextBox();
+            this.label57 = new System.Windows.Forms.Label();
+            this.tb_tienThua = new System.Windows.Forms.TextBox();
+            this.label58 = new System.Windows.Forms.Label();
+            this.btn_ThanhToan = new System.Windows.Forms.Button();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.label48 = new System.Windows.Forms.Label();
+            this.radioButton6 = new System.Windows.Forms.RadioButton();
+            this.radioButton8 = new System.Windows.Forms.RadioButton();
+            this.label49 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.tb_TienKhachCanTra = new System.Windows.Forms.TextBox();
+            this.tb_thue = new System.Windows.Forms.TextBox();
+            this.txt_tongTienHoaDon = new System.Windows.Forms.TextBox();
+            this.label50 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label55 = new System.Windows.Forms.Label();
+            this.z = new System.Windows.Forms.Label();
+            this.btn_FormdatHang = new System.Windows.Forms.Button();
+            this.btn_FormHoaDon = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.tb_tenNv = new System.Windows.Forms.Button();
@@ -335,6 +335,7 @@
             // 
             this.panel5.BackColor = System.Drawing.Color.BurlyWood;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.pn_dathang);
             this.panel5.Controls.Add(this.radioButton2);
             this.panel5.Controls.Add(this.radioButton1);
             this.panel5.Controls.Add(this.dateTimePicker1);
@@ -369,373 +370,6 @@
             this.panel5.Size = new System.Drawing.Size(290, 537);
             this.panel5.TabIndex = 116;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.radioButton2.Location = new System.Drawing.Point(149, 326);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(86, 19);
-            this.radioButton2.TabIndex = 158;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Thanh Toán";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.radioButton1.Location = new System.Drawing.Point(6, 360);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(137, 19);
-            this.radioButton1.TabIndex = 105;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Đang Chờ Giao Hàng";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(162, 212);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(122, 23);
-            this.dateTimePicker1.TabIndex = 157;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(3, 216);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 19);
-            this.label3.TabIndex = 156;
-            this.label3.Text = "Ngày Tao";
-            // 
-            // tb_tienKhachDua
-            // 
-            this.tb_tienKhachDua.BackColor = System.Drawing.Color.BurlyWood;
-            this.tb_tienKhachDua.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_tienKhachDua.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tb_tienKhachDua.Location = new System.Drawing.Point(128, 141);
-            this.tb_tienKhachDua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tb_tienKhachDua.Name = "tb_tienKhachDua";
-            this.tb_tienKhachDua.Size = new System.Drawing.Size(119, 22);
-            this.tb_tienKhachDua.TabIndex = 155;
-            this.tb_tienKhachDua.Text = "0";
-            this.tb_tienKhachDua.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.tb_tienKhachDua.TextChanged += new System.EventHandler(this.tb_tienKhachDua_TextChanged);
-            this.tb_tienKhachDua.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_tienKhachDua_KeyPress);
-            // 
-            // label57
-            // 
-            this.label57.AutoSize = true;
-            this.label57.ForeColor = System.Drawing.Color.Maroon;
-            this.label57.Location = new System.Drawing.Point(253, 184);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(31, 15);
-            this.label57.TabIndex = 154;
-            this.label57.Text = "VND";
-            // 
-            // tb_tienThua
-            // 
-            this.tb_tienThua.BackColor = System.Drawing.Color.BurlyWood;
-            this.tb_tienThua.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_tienThua.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tb_tienThua.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.tb_tienThua.Location = new System.Drawing.Point(138, 179);
-            this.tb_tienThua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tb_tienThua.Name = "tb_tienThua";
-            this.tb_tienThua.ReadOnly = true;
-            this.tb_tienThua.Size = new System.Drawing.Size(109, 22);
-            this.tb_tienThua.TabIndex = 153;
-            this.tb_tienThua.Text = "0";
-            this.tb_tienThua.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.tb_tienThua.TextChanged += new System.EventHandler(this.tb_tienThua_TextChanged);
-            // 
-            // label58
-            // 
-            this.label58.AutoSize = true;
-            this.label58.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label58.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label58.Location = new System.Drawing.Point(5, 182);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(131, 19);
-            this.label58.TabIndex = 152;
-            this.label58.Text = "Tiền Thừa Trả Khách";
-            // 
-            // btn_ThanhToan
-            // 
-            this.btn_ThanhToan.BackColor = System.Drawing.Color.RosyBrown;
-            this.btn_ThanhToan.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_ThanhToan.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_ThanhToan.Location = new System.Drawing.Point(67, 446);
-            this.btn_ThanhToan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_ThanhToan.Name = "btn_ThanhToan";
-            this.btn_ThanhToan.Size = new System.Drawing.Size(155, 42);
-            this.btn_ThanhToan.TabIndex = 64;
-            this.btn_ThanhToan.Text = "Thanh Toán";
-            this.btn_ThanhToan.UseVisualStyleBackColor = false;
-            this.btn_ThanhToan.Click += new System.EventHandler(this.btn_ThanhToan_Click);
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.ForeColor = System.Drawing.Color.Maroon;
-            this.label44.Location = new System.Drawing.Point(253, 146);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(31, 15);
-            this.label44.TabIndex = 86;
-            this.label44.Text = "VND";
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.ForeColor = System.Drawing.Color.Maroon;
-            this.label45.Location = new System.Drawing.Point(253, 113);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(31, 15);
-            this.label45.TabIndex = 85;
-            this.label45.Text = "VND";
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.ForeColor = System.Drawing.Color.Maroon;
-            this.label46.Location = new System.Drawing.Point(253, 16);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(31, 15);
-            this.label46.TabIndex = 84;
-            this.label46.Text = "VND";
-            // 
-            // dateTimePicker3
-            // 
-            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker3.Location = new System.Drawing.Point(163, 257);
-            this.dateTimePicker3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(122, 23);
-            this.dateTimePicker3.TabIndex = 82;
-            // 
-            // richTextBox2
-            // 
-            this.richTextBox2.BackColor = System.Drawing.Color.BurlyWood;
-            this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox2.Location = new System.Drawing.Point(67, 398);
-            this.richTextBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(190, 22);
-            this.richTextBox2.TabIndex = 80;
-            this.richTextBox2.Text = "Nhap Noi Dung";
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label48.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label48.Location = new System.Drawing.Point(2, 396);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(59, 19);
-            this.label48.TabIndex = 79;
-            this.label48.Text = "Ghi Chú";
-            // 
-            // radioButton6
-            // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.radioButton6.Location = new System.Drawing.Point(6, 327);
-            this.radioButton6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(117, 19);
-            this.radioButton6.TabIndex = 78;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "Chưa Thanh Toán";
-            this.radioButton6.UseVisualStyleBackColor = true;
-            // 
-            // radioButton8
-            // 
-            this.radioButton8.AutoSize = true;
-            this.radioButton8.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.radioButton8.Location = new System.Drawing.Point(149, 360);
-            this.radioButton8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioButton8.Name = "radioButton8";
-            this.radioButton8.Size = new System.Drawing.Size(64, 19);
-            this.radioButton8.TabIndex = 76;
-            this.radioButton8.TabStop = true;
-            this.radioButton8.Text = "Đã Hủy";
-            this.radioButton8.UseVisualStyleBackColor = true;
-            // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label49.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label49.Location = new System.Drawing.Point(3, 76);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(106, 19);
-            this.label49.TabIndex = 66;
-            this.label49.Text = "Giảm giá (Point)";
-            // 
-            // textBox7
-            // 
-            this.textBox7.BackColor = System.Drawing.Color.BurlyWood;
-            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox7.Location = new System.Drawing.Point(161, 76);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(86, 22);
-            this.textBox7.TabIndex = 72;
-            this.textBox7.Text = "0";
-            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
-            this.textBox7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox7_KeyPress);
-            // 
-            // tb_TienKhachCanTra
-            // 
-            this.tb_TienKhachCanTra.BackColor = System.Drawing.Color.BurlyWood;
-            this.tb_TienKhachCanTra.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_TienKhachCanTra.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.tb_TienKhachCanTra.ForeColor = System.Drawing.Color.Firebrick;
-            this.tb_TienKhachCanTra.Location = new System.Drawing.Point(115, 108);
-            this.tb_TienKhachCanTra.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tb_TienKhachCanTra.Name = "tb_TienKhachCanTra";
-            this.tb_TienKhachCanTra.ReadOnly = true;
-            this.tb_TienKhachCanTra.Size = new System.Drawing.Size(132, 22);
-            this.tb_TienKhachCanTra.TabIndex = 70;
-            this.tb_TienKhachCanTra.Text = "0";
-            this.tb_TienKhachCanTra.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.tb_TienKhachCanTra.TextChanged += new System.EventHandler(this.tb_TienKhachCanTra_TextChanged);
-            // 
-            // tb_thue
-            // 
-            this.tb_thue.BackColor = System.Drawing.Color.BurlyWood;
-            this.tb_thue.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_thue.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tb_thue.Location = new System.Drawing.Point(115, 43);
-            this.tb_thue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tb_thue.Name = "tb_thue";
-            this.tb_thue.Size = new System.Drawing.Size(132, 22);
-            this.tb_thue.TabIndex = 71;
-            this.tb_thue.Text = "0";
-            this.tb_thue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.tb_thue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox10_KeyPress);
-            // 
-            // txt_tongTienHoaDon
-            // 
-            this.txt_tongTienHoaDon.BackColor = System.Drawing.Color.BurlyWood;
-            this.txt_tongTienHoaDon.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_tongTienHoaDon.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txt_tongTienHoaDon.ForeColor = System.Drawing.Color.DarkRed;
-            this.txt_tongTienHoaDon.Location = new System.Drawing.Point(111, 10);
-            this.txt_tongTienHoaDon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt_tongTienHoaDon.Name = "txt_tongTienHoaDon";
-            this.txt_tongTienHoaDon.ReadOnly = true;
-            this.txt_tongTienHoaDon.Size = new System.Drawing.Size(136, 22);
-            this.txt_tongTienHoaDon.TabIndex = 73;
-            this.txt_tongTienHoaDon.Text = "0";
-            this.txt_tongTienHoaDon.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label50
-            // 
-            this.label50.AutoSize = true;
-            this.label50.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label50.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label50.Location = new System.Drawing.Point(4, 261);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(116, 19);
-            this.label50.TabIndex = 62;
-            this.label50.Text = "Ngày Thanh Toán";
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label51.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label51.Location = new System.Drawing.Point(4, 300);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(72, 19);
-            this.label51.TabIndex = 61;
-            this.label51.Text = "Trạng Thái";
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label53.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label53.Location = new System.Drawing.Point(5, 146);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(118, 19);
-            this.label53.TabIndex = 63;
-            this.label53.Text = "Số tiền khách đưa";
-            // 
-            // label54
-            // 
-            this.label54.AutoSize = true;
-            this.label54.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label54.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label54.Location = new System.Drawing.Point(3, 109);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(99, 19);
-            this.label54.TabIndex = 65;
-            this.label54.Text = "Khách cần trả";
-            // 
-            // label55
-            // 
-            this.label55.AutoSize = true;
-            this.label55.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label55.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label55.Location = new System.Drawing.Point(3, 49);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(62, 19);
-            this.label55.TabIndex = 67;
-            this.label55.Text = "Thuế (%)";
-            // 
-            // z
-            // 
-            this.z.AutoSize = true;
-            this.z.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.z.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.z.Location = new System.Drawing.Point(3, 12);
-            this.z.Name = "z";
-            this.z.Size = new System.Drawing.Size(108, 19);
-            this.z.TabIndex = 68;
-            this.z.Text = "Tổng tiền (VND)";
-            // 
-            // btn_FormdatHang
-            // 
-            this.btn_FormdatHang.BackColor = System.Drawing.Color.LightSalmon;
-            this.btn_FormdatHang.FlatAppearance.BorderSize = 0;
-            this.btn_FormdatHang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_FormdatHang.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_FormdatHang.Location = new System.Drawing.Point(122, 2);
-            this.btn_FormdatHang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_FormdatHang.Name = "btn_FormdatHang";
-            this.btn_FormdatHang.Size = new System.Drawing.Size(122, 34);
-            this.btn_FormdatHang.TabIndex = 1;
-            this.btn_FormdatHang.Text = "Đặt hàng";
-            this.btn_FormdatHang.UseVisualStyleBackColor = false;
-            this.btn_FormdatHang.Click += new System.EventHandler(this.btn_FormdatHang_Click);
-            // 
-            // btn_FormHoaDon
-            // 
-            this.btn_FormHoaDon.BackColor = System.Drawing.Color.LightSalmon;
-            this.btn_FormHoaDon.FlatAppearance.BorderSize = 0;
-            this.btn_FormHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_FormHoaDon.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_FormHoaDon.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_FormHoaDon.Location = new System.Drawing.Point(-3, 3);
-            this.btn_FormHoaDon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_FormHoaDon.Name = "btn_FormHoaDon";
-            this.btn_FormHoaDon.Size = new System.Drawing.Size(122, 33);
-            this.btn_FormHoaDon.TabIndex = 2;
-            this.btn_FormHoaDon.Text = "Hóa đơn";
-            this.btn_FormHoaDon.UseVisualStyleBackColor = false;
-            this.btn_FormHoaDon.Click += new System.EventHandler(this.btn_FormHoaDon_Click);
             // 
             // pn_dathang
             // 
@@ -773,7 +407,7 @@
             this.pn_dathang.Controls.Add(this.label34);
             this.pn_dathang.Controls.Add(this.label35);
             this.pn_dathang.Controls.Add(this.label36);
-            this.pn_dathang.Location = new System.Drawing.Point(812, 5);
+            this.pn_dathang.Location = new System.Drawing.Point(-1, -1);
             this.pn_dathang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pn_dathang.Name = "pn_dathang";
             this.pn_dathang.Size = new System.Drawing.Size(293, 537);
@@ -1169,6 +803,373 @@
             this.label36.Size = new System.Drawing.Size(62, 19);
             this.label36.TabIndex = 67;
             this.label36.Text = "Thuế (%)";
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.radioButton2.Location = new System.Drawing.Point(149, 326);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(86, 19);
+            this.radioButton2.TabIndex = 158;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Thanh Toán";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.radioButton1.Location = new System.Drawing.Point(6, 360);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(137, 19);
+            this.radioButton1.TabIndex = 105;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Đang Chờ Giao Hàng";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(162, 212);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(122, 23);
+            this.dateTimePicker1.TabIndex = 157;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label3.Location = new System.Drawing.Point(3, 216);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 19);
+            this.label3.TabIndex = 156;
+            this.label3.Text = "Ngày Tao";
+            // 
+            // tb_tienKhachDua
+            // 
+            this.tb_tienKhachDua.BackColor = System.Drawing.Color.BurlyWood;
+            this.tb_tienKhachDua.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_tienKhachDua.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_tienKhachDua.Location = new System.Drawing.Point(128, 141);
+            this.tb_tienKhachDua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_tienKhachDua.Name = "tb_tienKhachDua";
+            this.tb_tienKhachDua.Size = new System.Drawing.Size(119, 22);
+            this.tb_tienKhachDua.TabIndex = 155;
+            this.tb_tienKhachDua.Text = "0";
+            this.tb_tienKhachDua.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tb_tienKhachDua.TextChanged += new System.EventHandler(this.tb_tienKhachDua_TextChanged);
+            this.tb_tienKhachDua.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_tienKhachDua_KeyPress);
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.ForeColor = System.Drawing.Color.Maroon;
+            this.label57.Location = new System.Drawing.Point(253, 184);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(31, 15);
+            this.label57.TabIndex = 154;
+            this.label57.Text = "VND";
+            // 
+            // tb_tienThua
+            // 
+            this.tb_tienThua.BackColor = System.Drawing.Color.BurlyWood;
+            this.tb_tienThua.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_tienThua.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_tienThua.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.tb_tienThua.Location = new System.Drawing.Point(138, 179);
+            this.tb_tienThua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_tienThua.Name = "tb_tienThua";
+            this.tb_tienThua.ReadOnly = true;
+            this.tb_tienThua.Size = new System.Drawing.Size(109, 22);
+            this.tb_tienThua.TabIndex = 153;
+            this.tb_tienThua.Text = "0";
+            this.tb_tienThua.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tb_tienThua.TextChanged += new System.EventHandler(this.tb_tienThua_TextChanged);
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label58.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label58.Location = new System.Drawing.Point(5, 182);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(131, 19);
+            this.label58.TabIndex = 152;
+            this.label58.Text = "Tiền Thừa Trả Khách";
+            // 
+            // btn_ThanhToan
+            // 
+            this.btn_ThanhToan.BackColor = System.Drawing.Color.RosyBrown;
+            this.btn_ThanhToan.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_ThanhToan.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_ThanhToan.Location = new System.Drawing.Point(67, 446);
+            this.btn_ThanhToan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_ThanhToan.Name = "btn_ThanhToan";
+            this.btn_ThanhToan.Size = new System.Drawing.Size(155, 42);
+            this.btn_ThanhToan.TabIndex = 64;
+            this.btn_ThanhToan.Text = "Thanh Toán";
+            this.btn_ThanhToan.UseVisualStyleBackColor = false;
+            this.btn_ThanhToan.Click += new System.EventHandler(this.btn_ThanhToan_Click);
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.ForeColor = System.Drawing.Color.Maroon;
+            this.label44.Location = new System.Drawing.Point(253, 146);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(31, 15);
+            this.label44.TabIndex = 86;
+            this.label44.Text = "VND";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.ForeColor = System.Drawing.Color.Maroon;
+            this.label45.Location = new System.Drawing.Point(253, 113);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(31, 15);
+            this.label45.TabIndex = 85;
+            this.label45.Text = "VND";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.ForeColor = System.Drawing.Color.Maroon;
+            this.label46.Location = new System.Drawing.Point(253, 16);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(31, 15);
+            this.label46.TabIndex = 84;
+            this.label46.Text = "VND";
+            // 
+            // dateTimePicker3
+            // 
+            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker3.Location = new System.Drawing.Point(163, 257);
+            this.dateTimePicker3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateTimePicker3.Name = "dateTimePicker3";
+            this.dateTimePicker3.Size = new System.Drawing.Size(122, 23);
+            this.dateTimePicker3.TabIndex = 82;
+            // 
+            // richTextBox2
+            // 
+            this.richTextBox2.BackColor = System.Drawing.Color.BurlyWood;
+            this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox2.Location = new System.Drawing.Point(67, 398);
+            this.richTextBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(190, 22);
+            this.richTextBox2.TabIndex = 80;
+            this.richTextBox2.Text = "Nhap Noi Dung";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label48.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label48.Location = new System.Drawing.Point(2, 396);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(59, 19);
+            this.label48.TabIndex = 79;
+            this.label48.Text = "Ghi Chú";
+            // 
+            // radioButton6
+            // 
+            this.radioButton6.AutoSize = true;
+            this.radioButton6.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.radioButton6.Location = new System.Drawing.Point(6, 327);
+            this.radioButton6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioButton6.Name = "radioButton6";
+            this.radioButton6.Size = new System.Drawing.Size(117, 19);
+            this.radioButton6.TabIndex = 78;
+            this.radioButton6.TabStop = true;
+            this.radioButton6.Text = "Chưa Thanh Toán";
+            this.radioButton6.UseVisualStyleBackColor = true;
+            // 
+            // radioButton8
+            // 
+            this.radioButton8.AutoSize = true;
+            this.radioButton8.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.radioButton8.Location = new System.Drawing.Point(149, 360);
+            this.radioButton8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioButton8.Name = "radioButton8";
+            this.radioButton8.Size = new System.Drawing.Size(64, 19);
+            this.radioButton8.TabIndex = 76;
+            this.radioButton8.TabStop = true;
+            this.radioButton8.Text = "Đã Hủy";
+            this.radioButton8.UseVisualStyleBackColor = true;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label49.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label49.Location = new System.Drawing.Point(3, 76);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(106, 19);
+            this.label49.TabIndex = 66;
+            this.label49.Text = "Giảm giá (Point)";
+            // 
+            // textBox7
+            // 
+            this.textBox7.BackColor = System.Drawing.Color.BurlyWood;
+            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox7.Location = new System.Drawing.Point(161, 76);
+            this.textBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(86, 22);
+            this.textBox7.TabIndex = 72;
+            this.textBox7.Text = "0";
+            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
+            this.textBox7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox7_KeyPress);
+            // 
+            // tb_TienKhachCanTra
+            // 
+            this.tb_TienKhachCanTra.BackColor = System.Drawing.Color.BurlyWood;
+            this.tb_TienKhachCanTra.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_TienKhachCanTra.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tb_TienKhachCanTra.ForeColor = System.Drawing.Color.Firebrick;
+            this.tb_TienKhachCanTra.Location = new System.Drawing.Point(115, 108);
+            this.tb_TienKhachCanTra.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_TienKhachCanTra.Name = "tb_TienKhachCanTra";
+            this.tb_TienKhachCanTra.ReadOnly = true;
+            this.tb_TienKhachCanTra.Size = new System.Drawing.Size(132, 22);
+            this.tb_TienKhachCanTra.TabIndex = 70;
+            this.tb_TienKhachCanTra.Text = "0";
+            this.tb_TienKhachCanTra.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tb_TienKhachCanTra.TextChanged += new System.EventHandler(this.tb_TienKhachCanTra_TextChanged);
+            // 
+            // tb_thue
+            // 
+            this.tb_thue.BackColor = System.Drawing.Color.BurlyWood;
+            this.tb_thue.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_thue.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_thue.Location = new System.Drawing.Point(115, 43);
+            this.tb_thue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_thue.Name = "tb_thue";
+            this.tb_thue.Size = new System.Drawing.Size(132, 22);
+            this.tb_thue.TabIndex = 71;
+            this.tb_thue.Text = "0";
+            this.tb_thue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tb_thue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox10_KeyPress);
+            // 
+            // txt_tongTienHoaDon
+            // 
+            this.txt_tongTienHoaDon.BackColor = System.Drawing.Color.BurlyWood;
+            this.txt_tongTienHoaDon.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_tongTienHoaDon.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txt_tongTienHoaDon.ForeColor = System.Drawing.Color.DarkRed;
+            this.txt_tongTienHoaDon.Location = new System.Drawing.Point(111, 10);
+            this.txt_tongTienHoaDon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_tongTienHoaDon.Name = "txt_tongTienHoaDon";
+            this.txt_tongTienHoaDon.ReadOnly = true;
+            this.txt_tongTienHoaDon.Size = new System.Drawing.Size(136, 22);
+            this.txt_tongTienHoaDon.TabIndex = 73;
+            this.txt_tongTienHoaDon.Text = "0";
+            this.txt_tongTienHoaDon.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label50.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label50.Location = new System.Drawing.Point(4, 261);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(116, 19);
+            this.label50.TabIndex = 62;
+            this.label50.Text = "Ngày Thanh Toán";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label51.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label51.Location = new System.Drawing.Point(4, 300);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(72, 19);
+            this.label51.TabIndex = 61;
+            this.label51.Text = "Trạng Thái";
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label53.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label53.Location = new System.Drawing.Point(5, 146);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(118, 19);
+            this.label53.TabIndex = 63;
+            this.label53.Text = "Số tiền khách đưa";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label54.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label54.Location = new System.Drawing.Point(3, 109);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(99, 19);
+            this.label54.TabIndex = 65;
+            this.label54.Text = "Khách cần trả";
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label55.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label55.Location = new System.Drawing.Point(3, 49);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(62, 19);
+            this.label55.TabIndex = 67;
+            this.label55.Text = "Thuế (%)";
+            // 
+            // z
+            // 
+            this.z.AutoSize = true;
+            this.z.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.z.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.z.Location = new System.Drawing.Point(3, 12);
+            this.z.Name = "z";
+            this.z.Size = new System.Drawing.Size(108, 19);
+            this.z.TabIndex = 68;
+            this.z.Text = "Tổng tiền (VND)";
+            // 
+            // btn_FormdatHang
+            // 
+            this.btn_FormdatHang.BackColor = System.Drawing.Color.LightSalmon;
+            this.btn_FormdatHang.FlatAppearance.BorderSize = 0;
+            this.btn_FormdatHang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_FormdatHang.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_FormdatHang.Location = new System.Drawing.Point(122, 2);
+            this.btn_FormdatHang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_FormdatHang.Name = "btn_FormdatHang";
+            this.btn_FormdatHang.Size = new System.Drawing.Size(122, 34);
+            this.btn_FormdatHang.TabIndex = 1;
+            this.btn_FormdatHang.Text = "Đặt hàng";
+            this.btn_FormdatHang.UseVisualStyleBackColor = false;
+            this.btn_FormdatHang.Click += new System.EventHandler(this.btn_FormdatHang_Click);
+            // 
+            // btn_FormHoaDon
+            // 
+            this.btn_FormHoaDon.BackColor = System.Drawing.Color.LightSalmon;
+            this.btn_FormHoaDon.FlatAppearance.BorderSize = 0;
+            this.btn_FormHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_FormHoaDon.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_FormHoaDon.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_FormHoaDon.Location = new System.Drawing.Point(-3, 3);
+            this.btn_FormHoaDon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_FormHoaDon.Name = "btn_FormHoaDon";
+            this.btn_FormHoaDon.Size = new System.Drawing.Size(122, 33);
+            this.btn_FormHoaDon.TabIndex = 2;
+            this.btn_FormHoaDon.Text = "Hóa đơn";
+            this.btn_FormHoaDon.UseVisualStyleBackColor = false;
+            this.btn_FormHoaDon.Click += new System.EventHandler(this.btn_FormHoaDon_Click);
             // 
             // panel2
             // 
@@ -1594,7 +1595,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSalmon;
             this.ClientSize = new System.Drawing.Size(1370, 702);
-            this.Controls.Add(this.pn_dathang);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.button2);

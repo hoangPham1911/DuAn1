@@ -11,6 +11,8 @@ namespace _1.DAL.IRepostiories
     {
         bool add(HoaDonChiTiet rd);
         bool remove(Guid IdHoaDon);
+        bool removeSP(Guid IdHoaDon);
+
         bool update(HoaDonChiTiet rd);
 
         List<HoaDonChiTiet> GetAll();
