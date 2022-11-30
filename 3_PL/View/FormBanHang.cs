@@ -284,30 +284,45 @@ namespace _3_PL.View
 
         void loadReceipt()
         {
-            dgv_GioHang1.Rows.Clear();
-            dgv_GioHang1.ColumnCount = 8;
-            dgv_GioHang1.Columns[0].Name = "STT";
-            dgv_GioHang1.Columns[1].Name = "Mã SP";
-            dgv_GioHang1.Columns[2].Name = "Tên SP";
-            dgv_GioHang1.Columns[3].Name = "Số Lượng";
-            dgv_GioHang1.Columns[4].Name = "Đơn Gía";
-            dgv_GioHang1.Columns[5].Name = "Thanh Tiền";
-            dgv_GioHang1.Columns[6].Name = "IDSPCT";
-            dgv_GioHang1.Columns[7].Name = "IDHD";
-            dgv_GioHang1.Columns[7].Visible = false;
-            dgv_GioHang1.Columns[6].Visible = false;
-            int n = 1;
-            foreach (var item in _ListReceiptProduct2)
+            try
             {
-                dgv_GioHang1.Rows.Add(n++, item.MaSP, item.TenSp, item.SoLuong, item.DonGia, item.ThanhTien, item.IdSpCt, item.IdHoaDon);
+                if (InvokeRequired)
+                {
+                    this.Invoke(new MethodInvoker(loadReceipt));
+                    return;
+                }
+                dgv_GioHang1.Rows.Clear();
+                dgv_GioHang1.ColumnCount = 8;
+                dgv_GioHang1.Columns[0].Name = "STT";
+                dgv_GioHang1.Columns[1].Name = "Mã SP";
+                dgv_GioHang1.Columns[2].Name = "Tên SP";
+                dgv_GioHang1.Columns[3].Name = "Số Lượng";
+                dgv_GioHang1.Columns[4].Name = "Đơn Gía";
+                dgv_GioHang1.Columns[5].Name = "Thanh Tiền";
+                dgv_GioHang1.Columns[6].Name = "IDSPCT";
+                dgv_GioHang1.Columns[7].Name = "IDHD";
+                dgv_GioHang1.Columns[7].Visible = false;
+                dgv_GioHang1.Columns[6].Visible = false;
+                int n = 1;
+                foreach (var item in _ListReceiptProduct2)
+                {
+                    dgv_GioHang1.Rows.Add(n++, item.MaSP, item.TenSp, item.SoLuong, item.DonGia, item.ThanhTien, item.IdSpCt, item.IdHoaDon);
+                }
             }
+
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
         public Button createButton()
         {
             Button btn = new Button();
             return btn;
         }
-        
+
         public void loadhoadonduyet()
         {
             try
@@ -320,8 +335,14 @@ namespace _3_PL.View
                     button.Location = new Point(62, 62);
                     button.Size = new Size(63, 90);
                     button.Visible = true;
-                    button.Click += btnsender_Click;
-                 //   button.DoubleClick = loadGioHang();
+                    if (_ListGioHang.Count() != 0)
+                    {
+                        MessageBox.Show("Bạn Cần Tạo Hóa Đơn Trong Gio Hàng Đã :v");
+                    }
+                    else
+                        button.Click += btnsender_Click;
+
+                    //   button.DoubleClick = loadGioHang();
                     button.ForeColor = Color.Aquamarine;
                     button.Text = x.Ma + Environment.NewLine + (x.TinhTrang == 2
                         ? "Chưa Thanh Toán"
@@ -388,8 +409,8 @@ namespace _3_PL.View
         }
         private void button2_Click(object sender, EventArgs e)
         {
-
-            if (_ListGioHang.Any())
+          
+            if (_ListGioHang.Any() && _ListGioHang.Count() !=0)
             {
                 HoaDonChiTietThemViewModel HoaDonCT = new HoaDonChiTietThemViewModel();
                 HoaDonCT.IdHoaDon = addHoaDon();
@@ -409,19 +430,24 @@ namespace _3_PL.View
                 MessageBox.Show("Tao hoa don thanh cong");
                 loadhoadonduyet();
             }
-            else if (_ListReceiptProduct.Count() != 0)
+            if (_ListReceiptProduct2.Count() == _ListReceiptProduct.Count())
             {
-                HoaDonChiTietThemViewModel HoaDonCT = new HoaDonChiTietThemViewModel();
-                HoaDonCT.IdHoaDon = addHoaDon();
+                return;
+            }
+            else if (_ListReceiptProduct2.Any() && _ListReceiptProduct2.Count !=0)
+            {
+
                 _HoaDonChiTietService.XoaHoaDonChiTiet(IdHoaDon);
                 _HoaDonService.XoaHoaDon(IdHoaDon);
+                HoaDonChiTietThemViewModel HoaDonCT2 = new HoaDonChiTietThemViewModel();
+                HoaDonCT2.IdHoaDon = addHoaDon();
                 foreach (var item in _ListReceiptProduct2)
                 {
-                    HoaDonCT.IdChiTietSp = item.IdSpCt;
-                    HoaDonCT.SoLuong = item.SoLuong;
-                    HoaDonCT.ThanhTien = item.DonGia * item.SoLuong;
-                    HoaDonCT.TinhTrang = 2;
-                    _HoaDonChiTietService.ThemHoaDonChiTiet(HoaDonCT);
+                    HoaDonCT2.IdChiTietSp = item.IdSpCt;
+                    HoaDonCT2.SoLuong = item.SoLuong;
+                    HoaDonCT2.ThanhTien = item.DonGia * item.SoLuong;
+                    HoaDonCT2.TinhTrang = 2;
+                    _HoaDonChiTietService.ThemHoaDonChiTiet(HoaDonCT2);
                     var sp = _HangHoaChiTietServices.GetAllSoLuong().FirstOrDefault(x => x.IdSpCt == item.IdSpCt);
                     sp.SoLuong -= item.SoLuong;
                     _HangHoaChiTietServices.updateSoLuong(sp);
@@ -429,6 +455,7 @@ namespace _3_PL.View
                 _ListReceiptProduct2.RemoveRange(0, _ListReceiptProduct2.Count());
                 loadReceipt();
                 MessageBox.Show("Tao hoa don thanh cong");
+                flhoadon.Controls.Remove(createButton());
                 loadhoadonduyet();
             }
             else
@@ -736,49 +763,50 @@ namespace _3_PL.View
                 SpInHD.ThanhTien = donGia * soLuong;
                 SpInHD.IdHoaDon = IdHoaDon;
                 //    MessageBox.Show(IdHoaDon.ToString());
-                
-                if (_ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IDSpCt) != null)
+                if(_ListReceiptProduct2.Count() != 0)
                 {
-                    _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IDSpCt).SoLuong = _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IDSpCt).SoLuong + int.Parse(tb_count.Text);
+                    if (_ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IDSpCt) != null)
+                    {
+                        _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IDSpCt).SoLuong = _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IDSpCt).SoLuong + int.Parse(tb_count.Text);
+                    }
+                    else
+                    {
+                        _ListReceiptProduct2.Add(SpInHD);
+                    }
+                    if (sp.SoLuongTon <= 0)
+                    {
+                        MessageBox.Show("So Luong Cua Sp Nay Khong Du");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thêm Thành Công123");
+                        loadReceipt();
+                    }
                 }
-                else
+   
+                if (_ListGioHang.Count() == 0 && _ListReceiptProduct2.Count() == 0)
                 {
-                    _ListReceiptProduct2.Add(SpInHD);
-                }
-                if (sp.SoLuongTon <= 0)
-                {
-                    MessageBox.Show("So Luong Cua Sp Nay Khong Du");
-                }
-                else
-                {
-                    MessageBox.Show("Thêm Thành Công");
-                    loadReceipt();
-                }
-                //else
-                //{
-                //if (_ListGioHang.Count() == 0)
-                //{
-                //    _ListGioHang.Add(gioHang);
-                //}
-                //else if (_ListGioHang.FirstOrDefault(p => p.IdCTSP == IDSpCt) != null)
-                //{
-                //    _ListGioHang.FirstOrDefault(p => p.IdCTSP == IDSpCt).SoLuong = _ListGioHang.FirstOrDefault(p => p.IdCTSP == IDSpCt).SoLuong + int.Parse(tb_count.Text);
-                //}
-                //else
-                //{
-                //    _ListGioHang.Add(gioHang);
+                    _ListGioHang.Add(gioHang);
 
-                //}
-                //if (sp.SoLuongTon <= 0)
-                //{
-                //    MessageBox.Show("So Luong Cua Sp Nay Khong Du");
-                //}
-                //else
-                //{
-                //    MessageBox.Show("Them Thanh Cong");
-                //    loadGioHang();
-                //}
-                //}
+                    if (_ListGioHang.FirstOrDefault(p => p.IdCTSP == IDSpCt) != null)
+                    {
+                        _ListGioHang.FirstOrDefault(p => p.IdCTSP == IDSpCt).SoLuong = _ListGioHang.FirstOrDefault(p => p.IdCTSP == IDSpCt).SoLuong + int.Parse(tb_count.Text);
+                    }
+                    else
+                    {
+                        _ListGioHang.Add(gioHang);
+
+                    }
+                    if (sp.SoLuongTon <= 0)
+                    {
+                        MessageBox.Show("So Luong Cua Sp Nay Khong Du");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Them Thanh Cong345");
+                        loadGioHang();
+                    }
+                }
 
             }
         }
