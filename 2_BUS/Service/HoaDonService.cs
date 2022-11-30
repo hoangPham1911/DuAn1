@@ -42,7 +42,7 @@ namespace _2_BUS.Services
                         TenShip = a.TenShip,
                         SoTienQuyDoi = a.SoTienQuyDoi,
                         SoDiemSuDung = a.SoDiemSuDung,
-                        TenNguoiShip = a.TenNguoiShip,
+                        TenKhachHang = a.TenKhachHang,
                         PhanTramGiamGia = a.PhanTramGiamGia,
 
                     }).ToList();
@@ -83,7 +83,7 @@ namespace _2_BUS.Services
                 hoaDon.NgayShip = Hoadonold.NgayShip;
                 hoaDon.TinhTrang = Hoadonold.TinhTrang;
                 hoaDon.Thue = Hoadonold.Thue;
-                hoaDon.TenNguoiShip = Hoadonold.TenNguoiShip;
+                hoaDon.TenKhachHang = Hoadonold.TenKhachHang;
                 hoaDon.TenShip = Hoadonold.TenShip;
                 hoaDon.SoDiemSuDung = Hoadonold.SoDiemSuDung;
                 hoaDon.SoTienQuyDoi = Hoadonold.SoTienQuyDoi;
@@ -117,11 +117,9 @@ namespace _2_BUS.Services
             }
         }
 
-        public string XoaHoaDon(SuaHoaDonModels SuaHD)
+        public string XoaHoaDon(Guid SuaHD)
         {
-
-            var hoaDon = HoaDonRepos.getAllReceipt().FirstOrDefault(p => p.Id == SuaHD.IdHoaDon);
-            if (HoaDonRepos.removeReceipt(hoaDon))
+            if (HoaDonRepos.removeReceipt(SuaHD))
                 return "thanh cong xoa";
             return "That Bai";
         }

@@ -41,11 +41,11 @@ namespace _1.DAL.Repostiores
             return _dbContext.HoaDonChiTiets.ToList();
         }
 
-        public bool remove( Guid IdSpCt)
+        public bool remove( Guid IdHoaDon)
         {
             try
             {
-                HoaDonChiTiet Spct = _dbContext.HoaDonChiTiets.SingleOrDefault(p => p.IdChiTietSp == IdSpCt);
+                HoaDonChiTiet Spct = _dbContext.HoaDonChiTiets.SingleOrDefault(p => p.IdHoaDon == IdHoaDon);
                 _dbContext.HoaDonChiTiets.Remove(Spct);
                 _dbContext.SaveChanges();
 

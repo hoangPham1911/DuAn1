@@ -37,11 +37,12 @@ namespace _1.DAL.Repostiores
             return _dbContext.HoaDons.ToList();
 
         }
-        public bool removeReceipt(HoaDon hdId)
+        public bool removeReceipt(Guid hdId)
         {
             try
             {
-                _dbContext.HoaDons.Remove(hdId);
+                HoaDon hoaDon = _dbContext.HoaDons.SingleOrDefault(p=>p.Id == hdId);
+                _dbContext.HoaDons.Remove(hoaDon);
                 _dbContext.SaveChanges();
                 return true;
             }

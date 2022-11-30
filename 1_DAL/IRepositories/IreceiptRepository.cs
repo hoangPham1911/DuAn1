@@ -11,7 +11,7 @@ namespace _1.DAL.IRepositories
     {
         List<HoaDon> getAllReceipt();
         bool addReceipt(HoaDon hd);
-        bool removeReceipt(HoaDon hd);
+        bool removeReceipt(Guid hd);
 
         bool updateReceipt(HoaDon hd);
                         

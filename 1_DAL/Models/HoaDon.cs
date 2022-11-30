@@ -46,7 +46,7 @@ namespace _1_DAL.Models
         public string? TenShip { get; set; }
         public decimal ? SoTienQuyDoi { get; set; }
         public int? SoDiemSuDung { get; set; }
-        public string? TenNguoiShip { get; set; }
+        public string? TenKhachHang { get; set; }
         public decimal? PhanTramGiamGia { get; set; }
 
         [ForeignKey(nameof(IdNv))]

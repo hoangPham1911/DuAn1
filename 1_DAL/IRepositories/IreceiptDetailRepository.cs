@@ -10,7 +10,7 @@ namespace _1.DAL.IRepostiories
     public interface IreceiptDetailRepository
     {
         bool add(HoaDonChiTiet rd);
-        bool remove(Guid IdSpCt);
+        bool remove(Guid IdHoaDon);
         bool update(HoaDonChiTiet rd);
 
         List<HoaDonChiTiet> GetAll();

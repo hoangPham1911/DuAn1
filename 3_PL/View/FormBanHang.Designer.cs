@@ -45,14 +45,10 @@
             this.button8 = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.txtDTD = new System.Windows.Forms.TextBox();
-            this.cbxRank = new System.Windows.Forms.ComboBox();
-            this.cbxKH = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.tb_tienKhachDua = new System.Windows.Forms.TextBox();
@@ -67,9 +63,7 @@
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.label48 = new System.Windows.Forms.Label();
             this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
             this.radioButton8 = new System.Windows.Forms.RadioButton();
-            this.radioButton9 = new System.Windows.Forms.RadioButton();
             this.label49 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.tb_TienKhachCanTra = new System.Windows.Forms.TextBox();
@@ -84,6 +78,7 @@
             this.btn_FormdatHang = new System.Windows.Forms.Button();
             this.btn_FormHoaDon = new System.Windows.Forms.Button();
             this.pn_dathang = new System.Windows.Forms.Panel();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -99,12 +94,12 @@
             this.dtp_ship = new System.Windows.Forms.DateTimePicker();
             this.rtx_ghichu2 = new System.Windows.Forms.RichTextBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.rbt_dathangchuathanhtoan = new System.Windows.Forms.RadioButton();
-            this.rbt_dathangdacoc = new System.Windows.Forms.RadioButton();
-            this.rbt_dathangdahuy = new System.Windows.Forms.RadioButton();
-            this.rbt_dathangchogiaohang = new System.Windows.Forms.RadioButton();
+            this.rbt_chuathanhtoan = new System.Windows.Forms.RadioButton();
+            this.rbt_dacoc = new System.Windows.Forms.RadioButton();
+            this.rbt_dahuy = new System.Windows.Forms.RadioButton();
+            this.rbt_giaohang = new System.Windows.Forms.RadioButton();
             this.label26 = new System.Windows.Forms.Label();
-            this.txt_dathanggiamgia = new System.Windows.Forms.TextBox();
+            this.tb_point = new System.Windows.Forms.TextBox();
             this.txt_coc = new System.Windows.Forms.TextBox();
             this.txt_dathangkhachtra = new System.Windows.Forms.TextBox();
             this.txt_dathangthue = new System.Windows.Forms.TextBox();
@@ -116,7 +111,20 @@
             this.label35 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
             this.tb_tenNv = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbxKH = new System.Windows.Forms.ComboBox();
+            this.cbxRank = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.txtDTD = new System.Windows.Forms.TextBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dgv_GioHang1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
@@ -126,7 +134,6 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.flhoadon = new System.Windows.Forms.FlowLayoutPanel();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.flhd3 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -142,13 +149,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_product)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.pn_dathang.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_GioHang1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -156,7 +166,6 @@
             this.groupBox5.SuspendLayout();
             this.flhoadon.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.flhd3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_down)).BeginInit();
@@ -168,7 +177,7 @@
             this.pic_cam.Location = new System.Drawing.Point(377, 2);
             this.pic_cam.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pic_cam.Name = "pic_cam";
-            this.pic_cam.Size = new System.Drawing.Size(534, 157);
+            this.pic_cam.Size = new System.Drawing.Size(546, 153);
             this.pic_cam.TabIndex = 120;
             this.pic_cam.TabStop = false;
             // 
@@ -216,7 +225,7 @@
             this.dgv_product.RowHeadersWidth = 62;
             this.dgv_product.RowTemplate.Height = 80;
             this.dgv_product.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_product.Size = new System.Drawing.Size(607, 308);
+            this.dgv_product.Size = new System.Drawing.Size(612, 231);
             this.dgv_product.TabIndex = 1;
             this.dgv_product.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_product_CellClick);
             // 
@@ -305,98 +314,29 @@
             // 
             this.panel8.BackColor = System.Drawing.SystemColors.Highlight;
             this.panel8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel8.Location = new System.Drawing.Point(381, 0);
+            this.panel8.Location = new System.Drawing.Point(369, 0);
             this.panel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(13, 736);
+            this.panel8.Size = new System.Drawing.Size(13, 659);
             this.panel8.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(13, 10);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(28, 20);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(13, 35);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(28, 20);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(13, 59);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(28, 30);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 1;
-            this.pictureBox5.TabStop = false;
-            // 
-            // txtDTD
-            // 
-            this.txtDTD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDTD.Location = new System.Drawing.Point(156, 66);
-            this.txtDTD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtDTD.Name = "txtDTD";
-            this.txtDTD.Size = new System.Drawing.Size(129, 23);
-            this.txtDTD.TabIndex = 2;
-            this.txtDTD.Text = "--Điểm tiêu dùng--";
-            // 
-            // cbxRank
-            // 
-            this.cbxRank.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbxRank.FormattingEnabled = true;
-            this.cbxRank.Location = new System.Drawing.Point(53, 66);
-            this.cbxRank.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbxRank.Name = "cbxRank";
-            this.cbxRank.Size = new System.Drawing.Size(98, 23);
-            this.cbxRank.TabIndex = 4;
-            this.cbxRank.Text = "--Bậc--";
-            this.cbxRank.TextChanged += new System.EventHandler(this.cbxRank_TextChanged);
-            // 
-            // cbxKH
-            // 
-            this.cbxKH.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbxKH.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbxKH.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbxKH.FormattingEnabled = true;
-            this.cbxKH.Location = new System.Drawing.Point(53, 34);
-            this.cbxKH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbxKH.Name = "cbxKH";
-            this.cbxKH.Size = new System.Drawing.Size(232, 23);
-            this.cbxKH.TabIndex = 4;
-            this.cbxKH.Text = "--Tên Tài Khoản Hoặc SĐT Khách Hàng--";
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Controls.Add(this.btn_FormdatHang);
             this.panel3.Controls.Add(this.btn_FormHoaDon);
-            this.panel3.Location = new System.Drawing.Point(3, 89);
+            this.panel3.Location = new System.Drawing.Point(3, 87);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(296, 652);
+            this.panel3.Size = new System.Drawing.Size(290, 572);
             this.panel3.TabIndex = 1;
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.BurlyWood;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.radioButton2);
+            this.panel5.Controls.Add(this.radioButton1);
             this.panel5.Controls.Add(this.dateTimePicker1);
             this.panel5.Controls.Add(this.label3);
             this.panel5.Controls.Add(this.tb_tienKhachDua);
@@ -411,9 +351,7 @@
             this.panel5.Controls.Add(this.richTextBox2);
             this.panel5.Controls.Add(this.label48);
             this.panel5.Controls.Add(this.radioButton6);
-            this.panel5.Controls.Add(this.radioButton7);
             this.panel5.Controls.Add(this.radioButton8);
-            this.panel5.Controls.Add(this.radioButton9);
             this.panel5.Controls.Add(this.label49);
             this.panel5.Controls.Add(this.textBox7);
             this.panel5.Controls.Add(this.tb_TienKhachCanTra);
@@ -425,12 +363,38 @@
             this.panel5.Controls.Add(this.label54);
             this.panel5.Controls.Add(this.label55);
             this.panel5.Controls.Add(this.z);
-            this.panel5.Location = new System.Drawing.Point(3, 37);
+            this.panel5.Location = new System.Drawing.Point(0, 35);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(290, 608);
+            this.panel5.Size = new System.Drawing.Size(290, 537);
             this.panel5.TabIndex = 116;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.radioButton2.Location = new System.Drawing.Point(149, 326);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(86, 19);
+            this.radioButton2.TabIndex = 158;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Thanh Toán";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.radioButton1.Location = new System.Drawing.Point(6, 360);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(137, 19);
+            this.radioButton1.TabIndex = 105;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Đang Chờ Giao Hàng";
+            this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // dateTimePicker1
             // 
@@ -509,10 +473,10 @@
             this.btn_ThanhToan.BackColor = System.Drawing.Color.RosyBrown;
             this.btn_ThanhToan.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_ThanhToan.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_ThanhToan.Location = new System.Drawing.Point(68, 461);
+            this.btn_ThanhToan.Location = new System.Drawing.Point(67, 446);
             this.btn_ThanhToan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_ThanhToan.Name = "btn_ThanhToan";
-            this.btn_ThanhToan.Size = new System.Drawing.Size(157, 44);
+            this.btn_ThanhToan.Size = new System.Drawing.Size(155, 42);
             this.btn_ThanhToan.TabIndex = 64;
             this.btn_ThanhToan.Text = "Thanh Toán";
             this.btn_ThanhToan.UseVisualStyleBackColor = false;
@@ -561,10 +525,10 @@
             // 
             this.richTextBox2.BackColor = System.Drawing.Color.BurlyWood;
             this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox2.Location = new System.Drawing.Point(68, 398);
+            this.richTextBox2.Location = new System.Drawing.Point(67, 398);
             this.richTextBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(193, 23);
+            this.richTextBox2.Size = new System.Drawing.Size(190, 22);
             this.richTextBox2.TabIndex = 80;
             this.richTextBox2.Text = "Nhap Noi Dung";
             // 
@@ -592,24 +556,11 @@
             this.radioButton6.Text = "Chưa Thanh Toán";
             this.radioButton6.UseVisualStyleBackColor = true;
             // 
-            // radioButton7
-            // 
-            this.radioButton7.AutoSize = true;
-            this.radioButton7.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.radioButton7.Location = new System.Drawing.Point(6, 358);
-            this.radioButton7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(63, 19);
-            this.radioButton7.TabIndex = 77;
-            this.radioButton7.TabStop = true;
-            this.radioButton7.Text = "Đã Cọc";
-            this.radioButton7.UseVisualStyleBackColor = true;
-            // 
             // radioButton8
             // 
             this.radioButton8.AutoSize = true;
             this.radioButton8.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.radioButton8.Location = new System.Drawing.Point(160, 358);
+            this.radioButton8.Location = new System.Drawing.Point(149, 360);
             this.radioButton8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.radioButton8.Name = "radioButton8";
             this.radioButton8.Size = new System.Drawing.Size(64, 19);
@@ -617,19 +568,6 @@
             this.radioButton8.TabStop = true;
             this.radioButton8.Text = "Đã Hủy";
             this.radioButton8.UseVisualStyleBackColor = true;
-            // 
-            // radioButton9
-            // 
-            this.radioButton9.AutoSize = true;
-            this.radioButton9.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.radioButton9.Location = new System.Drawing.Point(162, 327);
-            this.radioButton9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioButton9.Name = "radioButton9";
-            this.radioButton9.Size = new System.Drawing.Size(106, 19);
-            this.radioButton9.TabIndex = 75;
-            this.radioButton9.TabStop = true;
-            this.radioButton9.Text = "Chờ Giao Hàng";
-            this.radioButton9.UseVisualStyleBackColor = true;
             // 
             // label49
             // 
@@ -718,7 +656,7 @@
             this.label51.AutoSize = true;
             this.label51.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label51.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label51.Location = new System.Drawing.Point(3, 306);
+            this.label51.Location = new System.Drawing.Point(4, 300);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(72, 19);
             this.label51.TabIndex = 61;
@@ -774,10 +712,10 @@
             this.btn_FormdatHang.FlatAppearance.BorderSize = 0;
             this.btn_FormdatHang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_FormdatHang.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_FormdatHang.Location = new System.Drawing.Point(129, 4);
+            this.btn_FormdatHang.Location = new System.Drawing.Point(122, 2);
             this.btn_FormdatHang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_FormdatHang.Name = "btn_FormdatHang";
-            this.btn_FormdatHang.Size = new System.Drawing.Size(122, 31);
+            this.btn_FormdatHang.Size = new System.Drawing.Size(122, 34);
             this.btn_FormdatHang.TabIndex = 1;
             this.btn_FormdatHang.Text = "Đặt hàng";
             this.btn_FormdatHang.UseVisualStyleBackColor = false;
@@ -790,10 +728,10 @@
             this.btn_FormHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_FormHoaDon.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_FormHoaDon.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_FormHoaDon.Location = new System.Drawing.Point(3, 4);
+            this.btn_FormHoaDon.Location = new System.Drawing.Point(-3, 3);
             this.btn_FormHoaDon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_FormHoaDon.Name = "btn_FormHoaDon";
-            this.btn_FormHoaDon.Size = new System.Drawing.Size(122, 31);
+            this.btn_FormHoaDon.Size = new System.Drawing.Size(122, 33);
             this.btn_FormHoaDon.TabIndex = 2;
             this.btn_FormHoaDon.Text = "Hóa đơn";
             this.btn_FormHoaDon.UseVisualStyleBackColor = false;
@@ -803,6 +741,7 @@
             // 
             this.pn_dathang.BackColor = System.Drawing.Color.BurlyWood;
             this.pn_dathang.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pn_dathang.Controls.Add(this.radioButton3);
             this.pn_dathang.Controls.Add(this.label2);
             this.pn_dathang.Controls.Add(this.textBox4);
             this.pn_dathang.Controls.Add(this.textBox1);
@@ -818,12 +757,12 @@
             this.pn_dathang.Controls.Add(this.dtp_ship);
             this.pn_dathang.Controls.Add(this.rtx_ghichu2);
             this.pn_dathang.Controls.Add(this.label25);
-            this.pn_dathang.Controls.Add(this.rbt_dathangchuathanhtoan);
-            this.pn_dathang.Controls.Add(this.rbt_dathangdacoc);
-            this.pn_dathang.Controls.Add(this.rbt_dathangdahuy);
-            this.pn_dathang.Controls.Add(this.rbt_dathangchogiaohang);
+            this.pn_dathang.Controls.Add(this.rbt_chuathanhtoan);
+            this.pn_dathang.Controls.Add(this.rbt_dacoc);
+            this.pn_dathang.Controls.Add(this.rbt_dahuy);
+            this.pn_dathang.Controls.Add(this.rbt_giaohang);
             this.pn_dathang.Controls.Add(this.label26);
-            this.pn_dathang.Controls.Add(this.txt_dathanggiamgia);
+            this.pn_dathang.Controls.Add(this.tb_point);
             this.pn_dathang.Controls.Add(this.txt_coc);
             this.pn_dathang.Controls.Add(this.txt_dathangkhachtra);
             this.pn_dathang.Controls.Add(this.txt_dathangthue);
@@ -834,11 +773,24 @@
             this.pn_dathang.Controls.Add(this.label34);
             this.pn_dathang.Controls.Add(this.label35);
             this.pn_dathang.Controls.Add(this.label36);
-            this.pn_dathang.Location = new System.Drawing.Point(155, 20);
+            this.pn_dathang.Location = new System.Drawing.Point(812, 5);
             this.pn_dathang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pn_dathang.Name = "pn_dathang";
-            this.pn_dathang.Size = new System.Drawing.Size(63, 113);
+            this.pn_dathang.Size = new System.Drawing.Size(293, 537);
             this.pn_dathang.TabIndex = 114;
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.radioButton3.Location = new System.Drawing.Point(152, 382);
+            this.radioButton3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(86, 19);
+            this.radioButton3.TabIndex = 159;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "Thanh Toán";
+            this.radioButton3.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -934,10 +886,10 @@
             this.btn_DatHang.BackColor = System.Drawing.Color.RosyBrown;
             this.btn_DatHang.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_DatHang.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_DatHang.Location = new System.Drawing.Point(33, 402);
+            this.btn_DatHang.Location = new System.Drawing.Point(64, 487);
             this.btn_DatHang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_DatHang.Name = "btn_DatHang";
-            this.btn_DatHang.Size = new System.Drawing.Size(188, 42);
+            this.btn_DatHang.Size = new System.Drawing.Size(161, 44);
             this.btn_DatHang.TabIndex = 92;
             this.btn_DatHang.Text = "Đặt Hàng";
             this.btn_DatHang.UseVisualStyleBackColor = false;
@@ -995,10 +947,10 @@
             // 
             this.rtx_ghichu2.BackColor = System.Drawing.Color.BurlyWood;
             this.rtx_ghichu2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtx_ghichu2.Location = new System.Drawing.Point(68, 437);
+            this.rtx_ghichu2.Location = new System.Drawing.Point(69, 441);
             this.rtx_ghichu2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rtx_ghichu2.Name = "rtx_ghichu2";
-            this.rtx_ghichu2.Size = new System.Drawing.Size(255, 17);
+            this.rtx_ghichu2.Size = new System.Drawing.Size(219, 17);
             this.rtx_ghichu2.TabIndex = 80;
             this.rtx_ghichu2.Text = "Nhap Noi Dung";
             // 
@@ -1007,63 +959,63 @@
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label25.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label25.Location = new System.Drawing.Point(3, 435);
+            this.label25.Location = new System.Drawing.Point(4, 439);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(59, 19);
             this.label25.TabIndex = 79;
             this.label25.Text = "Ghi Chú";
             // 
-            // rbt_dathangchuathanhtoan
+            // rbt_chuathanhtoan
             // 
-            this.rbt_dathangchuathanhtoan.AutoSize = true;
-            this.rbt_dathangchuathanhtoan.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.rbt_dathangchuathanhtoan.Location = new System.Drawing.Point(21, 369);
-            this.rbt_dathangchuathanhtoan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rbt_dathangchuathanhtoan.Name = "rbt_dathangchuathanhtoan";
-            this.rbt_dathangchuathanhtoan.Size = new System.Drawing.Size(117, 19);
-            this.rbt_dathangchuathanhtoan.TabIndex = 78;
-            this.rbt_dathangchuathanhtoan.TabStop = true;
-            this.rbt_dathangchuathanhtoan.Text = "Chưa Thanh Toán";
-            this.rbt_dathangchuathanhtoan.UseVisualStyleBackColor = true;
+            this.rbt_chuathanhtoan.AutoSize = true;
+            this.rbt_chuathanhtoan.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.rbt_chuathanhtoan.Location = new System.Drawing.Point(6, 382);
+            this.rbt_chuathanhtoan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rbt_chuathanhtoan.Name = "rbt_chuathanhtoan";
+            this.rbt_chuathanhtoan.Size = new System.Drawing.Size(117, 19);
+            this.rbt_chuathanhtoan.TabIndex = 78;
+            this.rbt_chuathanhtoan.TabStop = true;
+            this.rbt_chuathanhtoan.Text = "Chưa Thanh Toán";
+            this.rbt_chuathanhtoan.UseVisualStyleBackColor = true;
             // 
-            // rbt_dathangdacoc
+            // rbt_dacoc
             // 
-            this.rbt_dathangdacoc.AutoSize = true;
-            this.rbt_dathangdacoc.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.rbt_dathangdacoc.Location = new System.Drawing.Point(149, 403);
-            this.rbt_dathangdacoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rbt_dathangdacoc.Name = "rbt_dathangdacoc";
-            this.rbt_dathangdacoc.Size = new System.Drawing.Size(63, 19);
-            this.rbt_dathangdacoc.TabIndex = 77;
-            this.rbt_dathangdacoc.TabStop = true;
-            this.rbt_dathangdacoc.Text = "Đã Cọc";
-            this.rbt_dathangdacoc.UseVisualStyleBackColor = true;
+            this.rbt_dacoc.AutoSize = true;
+            this.rbt_dacoc.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.rbt_dacoc.Location = new System.Drawing.Point(152, 418);
+            this.rbt_dacoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rbt_dacoc.Name = "rbt_dacoc";
+            this.rbt_dacoc.Size = new System.Drawing.Size(63, 19);
+            this.rbt_dacoc.TabIndex = 77;
+            this.rbt_dacoc.TabStop = true;
+            this.rbt_dacoc.Text = "Đã Cọc";
+            this.rbt_dacoc.UseVisualStyleBackColor = true;
             // 
-            // rbt_dathangdahuy
+            // rbt_dahuy
             // 
-            this.rbt_dathangdahuy.AutoSize = true;
-            this.rbt_dathangdahuy.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.rbt_dathangdahuy.Location = new System.Drawing.Point(219, 402);
-            this.rbt_dathangdahuy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rbt_dathangdahuy.Name = "rbt_dathangdahuy";
-            this.rbt_dathangdahuy.Size = new System.Drawing.Size(64, 19);
-            this.rbt_dathangdahuy.TabIndex = 76;
-            this.rbt_dathangdahuy.TabStop = true;
-            this.rbt_dathangdahuy.Text = "Đã Hủy";
-            this.rbt_dathangdahuy.UseVisualStyleBackColor = true;
+            this.rbt_dahuy.AutoSize = true;
+            this.rbt_dahuy.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.rbt_dahuy.Location = new System.Drawing.Point(224, 418);
+            this.rbt_dahuy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rbt_dahuy.Name = "rbt_dahuy";
+            this.rbt_dahuy.Size = new System.Drawing.Size(64, 19);
+            this.rbt_dahuy.TabIndex = 76;
+            this.rbt_dahuy.TabStop = true;
+            this.rbt_dahuy.Text = "Đã Hủy";
+            this.rbt_dahuy.UseVisualStyleBackColor = true;
             // 
-            // rbt_dathangchogiaohang
+            // rbt_giaohang
             // 
-            this.rbt_dathangchogiaohang.AutoSize = true;
-            this.rbt_dathangchogiaohang.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.rbt_dathangchogiaohang.Location = new System.Drawing.Point(21, 403);
-            this.rbt_dathangchogiaohang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rbt_dathangchogiaohang.Name = "rbt_dathangchogiaohang";
-            this.rbt_dathangchogiaohang.Size = new System.Drawing.Size(106, 19);
-            this.rbt_dathangchogiaohang.TabIndex = 75;
-            this.rbt_dathangchogiaohang.TabStop = true;
-            this.rbt_dathangchogiaohang.Text = "Chờ Giao Hàng";
-            this.rbt_dathangchogiaohang.UseVisualStyleBackColor = true;
+            this.rbt_giaohang.AutoSize = true;
+            this.rbt_giaohang.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.rbt_giaohang.Location = new System.Drawing.Point(5, 418);
+            this.rbt_giaohang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rbt_giaohang.Name = "rbt_giaohang";
+            this.rbt_giaohang.Size = new System.Drawing.Size(137, 19);
+            this.rbt_giaohang.TabIndex = 75;
+            this.rbt_giaohang.TabStop = true;
+            this.rbt_giaohang.Text = "Đang Chờ Giao Hàng";
+            this.rbt_giaohang.UseVisualStyleBackColor = true;
             // 
             // label26
             // 
@@ -1072,22 +1024,23 @@
             this.label26.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label26.Location = new System.Drawing.Point(5, 76);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(160, 19);
+            this.label26.Size = new System.Drawing.Size(110, 19);
             this.label26.TabIndex = 66;
-            this.label26.Text = "Giảm giá (1Point=500đ) ";
+            this.label26.Text = "Giảm giá (Point) ";
             // 
-            // txt_dathanggiamgia
+            // tb_point
             // 
-            this.txt_dathanggiamgia.BackColor = System.Drawing.Color.BurlyWood;
-            this.txt_dathanggiamgia.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_dathanggiamgia.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_dathanggiamgia.Location = new System.Drawing.Point(162, 75);
-            this.txt_dathanggiamgia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt_dathanggiamgia.Name = "txt_dathanggiamgia";
-            this.txt_dathanggiamgia.Size = new System.Drawing.Size(84, 22);
-            this.txt_dathanggiamgia.TabIndex = 72;
-            this.txt_dathanggiamgia.Text = "0";
-            this.txt_dathanggiamgia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tb_point.BackColor = System.Drawing.Color.BurlyWood;
+            this.tb_point.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_point.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_point.Location = new System.Drawing.Point(123, 75);
+            this.tb_point.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_point.Name = "tb_point";
+            this.tb_point.Size = new System.Drawing.Size(123, 22);
+            this.tb_point.TabIndex = 72;
+            this.tb_point.Text = "0";
+            this.tb_point.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tb_point.TextChanged += new System.EventHandler(this.tb_point_TextChanged);
             // 
             // txt_coc
             // 
@@ -1095,14 +1048,15 @@
             this.txt_coc.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_coc.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_coc.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.txt_coc.Location = new System.Drawing.Point(119, 139);
+            this.txt_coc.Location = new System.Drawing.Point(152, 139);
             this.txt_coc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_coc.Name = "txt_coc";
             this.txt_coc.ReadOnly = true;
-            this.txt_coc.Size = new System.Drawing.Size(127, 22);
+            this.txt_coc.Size = new System.Drawing.Size(94, 22);
             this.txt_coc.TabIndex = 69;
             this.txt_coc.Text = "0";
             this.txt_coc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_coc.TextChanged += new System.EventHandler(this.txt_coc_TextChanged);
             // 
             // txt_dathangkhachtra
             // 
@@ -1118,6 +1072,8 @@
             this.txt_dathangkhachtra.TabIndex = 70;
             this.txt_dathangkhachtra.Text = "0";
             this.txt_dathangkhachtra.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_dathangkhachtra.TextChanged += new System.EventHandler(this.txt_dathangkhachtra_TextChanged);
+            this.txt_dathangkhachtra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_dathangkhachtra_KeyPress);
             // 
             // txt_dathangthue
             // 
@@ -1131,6 +1087,7 @@
             this.txt_dathangthue.TabIndex = 71;
             this.txt_dathangthue.Text = "0";
             this.txt_dathangthue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_dathangthue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_dathangthue_KeyPress);
             // 
             // txt_dathangtongtien
             // 
@@ -1216,31 +1173,190 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Orchid;
+            this.panel2.Controls.Add(this.button4);
             this.panel2.Controls.Add(this.tb_tenNv);
             this.panel2.Controls.Add(this.panel3);
+            this.panel2.Controls.Add(this.comboBox1);
             this.panel2.Controls.Add(this.cbxKH);
             this.panel2.Controls.Add(this.cbxRank);
+            this.panel2.Controls.Add(this.comboBox2);
             this.panel2.Controls.Add(this.txtDTD);
             this.panel2.Controls.Add(this.pictureBox5);
+            this.panel2.Controls.Add(this.textBox5);
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Controls.Add(this.pictureBox8);
             this.panel2.Controls.Add(this.panel8);
-            this.panel2.Location = new System.Drawing.Point(919, 2);
+            this.panel2.Controls.Add(this.pictureBox10);
+            this.panel2.Controls.Add(this.pictureBox9);
+            this.panel2.Location = new System.Drawing.Point(929, 2);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(394, 736);
+            this.panel2.Size = new System.Drawing.Size(382, 659);
             this.panel2.TabIndex = 0;
+            // 
+            // button4
+            // 
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button4.Location = new System.Drawing.Point(40, 3);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(232, 24);
+            this.button4.TabIndex = 12;
+            this.button4.Text = "--Tên nhân viên--";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.UseVisualStyleBackColor = true;
             // 
             // tb_tenNv
             // 
             this.tb_tenNv.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_tenNv.Location = new System.Drawing.Point(53, 6);
+            this.tb_tenNv.Location = new System.Drawing.Point(-942, -182);
             this.tb_tenNv.Name = "tb_tenNv";
             this.tb_tenNv.Size = new System.Drawing.Size(232, 24);
             this.tb_tenNv.TabIndex = 5;
             this.tb_tenNv.Text = "--Tên nhân viên--";
             this.tb_tenNv.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.tb_tenNv.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(40, 31);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(232, 23);
+            this.comboBox1.TabIndex = 10;
+            this.comboBox1.Text = "--Tên Tài Khoản Hoặc SĐT Khách Hàng--";
+            // 
+            // cbxKH
+            // 
+            this.cbxKH.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbxKH.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbxKH.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbxKH.FormattingEnabled = true;
+            this.cbxKH.Location = new System.Drawing.Point(-942, -154);
+            this.cbxKH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbxKH.Name = "cbxKH";
+            this.cbxKH.Size = new System.Drawing.Size(232, 23);
+            this.cbxKH.TabIndex = 4;
+            this.cbxKH.Text = "--Tên Tài Khoản Hoặc SĐT Khách Hàng--";
+            // 
+            // cbxRank
+            // 
+            this.cbxRank.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbxRank.FormattingEnabled = true;
+            this.cbxRank.Location = new System.Drawing.Point(-942, -122);
+            this.cbxRank.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbxRank.Name = "cbxRank";
+            this.cbxRank.Size = new System.Drawing.Size(98, 23);
+            this.cbxRank.TabIndex = 4;
+            this.cbxRank.Text = "--Bậc--";
+            this.cbxRank.TextChanged += new System.EventHandler(this.cbxRank_TextChanged);
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(40, 63);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(98, 23);
+            this.comboBox2.TabIndex = 11;
+            this.comboBox2.Text = "--Bậc--";
+            // 
+            // txtDTD
+            // 
+            this.txtDTD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDTD.Location = new System.Drawing.Point(-839, -122);
+            this.txtDTD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtDTD.Name = "txtDTD";
+            this.txtDTD.Size = new System.Drawing.Size(129, 23);
+            this.txtDTD.TabIndex = 2;
+            this.txtDTD.Text = "--Điểm tiêu dùng--";
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(-982, -129);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(28, 30);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 1;
+            this.pictureBox5.TabStop = false;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox5.Location = new System.Drawing.Point(143, 63);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(129, 23);
+            this.textBox5.TabIndex = 9;
+            this.textBox5.Text = "--Điểm tiêu dùng--";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(-982, -153);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(28, 20);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(-982, -178);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(28, 20);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(0, 56);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(28, 30);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox8.TabIndex = 6;
+            this.pictureBox8.TabStop = false;
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
+            this.pictureBox10.Location = new System.Drawing.Point(0, 7);
+            this.pictureBox10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(28, 20);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox10.TabIndex = 8;
+            this.pictureBox10.TabStop = false;
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
+            this.pictureBox9.Location = new System.Drawing.Point(0, 32);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(28, 20);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox9.TabIndex = 7;
+            this.pictureBox9.TabStop = false;
             // 
             // groupBox4
             // 
@@ -1268,6 +1384,7 @@
             this.dgv_GioHang1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_GioHang1.Size = new System.Drawing.Size(612, 164);
             this.dgv_GioHang1.TabIndex = 154;
+            this.dgv_GioHang1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_GioHang1_CellClick);
             // 
             // button1
             // 
@@ -1324,7 +1441,7 @@
             this.groupBox5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox5.Size = new System.Drawing.Size(146, 576);
+            this.groupBox5.Size = new System.Drawing.Size(146, 501);
             this.groupBox5.TabIndex = 138;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Chưa Thanh Toán";
@@ -1337,7 +1454,7 @@
             this.flhoadon.Location = new System.Drawing.Point(4, 19);
             this.flhoadon.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.flhoadon.Name = "flhoadon";
-            this.flhoadon.Size = new System.Drawing.Size(138, 554);
+            this.flhoadon.Size = new System.Drawing.Size(138, 479);
             this.flhoadon.TabIndex = 0;
             // 
             // splitter1
@@ -1349,14 +1466,6 @@
             this.splitter1.TabIndex = 0;
             this.splitter1.TabStop = false;
             // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(3, 3);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(118, 31);
-            this.textBox5.TabIndex = 1;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.flhd3);
@@ -1365,7 +1474,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox1.Size = new System.Drawing.Size(129, 576);
+            this.groupBox1.Size = new System.Drawing.Size(143, 501);
             this.groupBox1.TabIndex = 139;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chờ Giao Hàng";
@@ -1373,12 +1482,11 @@
             // flhd3
             // 
             this.flhd3.BackColor = System.Drawing.Color.PeachPuff;
-            this.flhd3.Controls.Add(this.textBox5);
             this.flhd3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flhd3.Location = new System.Drawing.Point(4, 19);
             this.flhd3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.flhd3.Name = "flhd3";
-            this.flhd3.Size = new System.Drawing.Size(121, 554);
+            this.flhd3.Size = new System.Drawing.Size(135, 479);
             this.flhd3.TabIndex = 0;
             // 
             // groupBox2
@@ -1392,7 +1500,7 @@
             this.groupBox2.Controls.Add(this.dgv_product);
             this.groupBox2.Location = new System.Drawing.Point(9, 374);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(620, 364);
+            this.groupBox2.Size = new System.Drawing.Size(624, 287);
             this.groupBox2.TabIndex = 137;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "San Pham";
@@ -1485,7 +1593,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSalmon;
-            this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.ClientSize = new System.Drawing.Size(1370, 702);
             this.Controls.Add(this.pn_dathang);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox5);
@@ -1506,9 +1614,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_product)).EndInit();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
@@ -1516,6 +1621,12 @@
             this.pn_dathang.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_GioHang1)).EndInit();
@@ -1524,8 +1635,6 @@
             this.groupBox5.ResumeLayout(false);
             this.flhoadon.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            this.flhd3.ResumeLayout(false);
-            this.flhd3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
@@ -1551,12 +1660,6 @@
         private Button button8;
         private PictureBox pictureBox3;
         private Panel panel8;
-        public PictureBox pictureBox1;
-        public PictureBox pictureBox2;
-        public PictureBox pictureBox5;
-        public TextBox txtDTD;
-        public ComboBox cbxRank;
-        public ComboBox cbxKH;
         private Panel panel3;
         private Panel pn_dathang;
         private Label label33;
@@ -1566,12 +1669,12 @@
         private DateTimePicker dtp_ship;
         private RichTextBox rtx_ghichu2;
         private Label label25;
-        private RadioButton rbt_dathangchuathanhtoan;
-        private RadioButton rbt_dathangdacoc;
-        private RadioButton rbt_dathangdahuy;
-        private RadioButton rbt_dathangchogiaohang;
+        private RadioButton rbt_chuathanhtoan;
+        private RadioButton rbt_dacoc;
+        private RadioButton rbt_dahuy;
+        private RadioButton rbt_giaohang;
         private Label label26;
-        private TextBox txt_dathanggiamgia;
+        private TextBox tb_point;
         private Button btn_ThanhToan;
         private TextBox txt_coc;
         private TextBox txt_dathangkhachtra;
@@ -1605,9 +1708,7 @@
         private RichTextBox richTextBox2;
         private Label label48;
         private RadioButton radioButton6;
-        private RadioButton radioButton7;
         private RadioButton radioButton8;
-        private RadioButton radioButton9;
         private Label label49;
         private TextBox textBox7;
         private TextBox tb_TienKhachCanTra;
@@ -1622,7 +1723,6 @@
         private TextBox tb_tienKhachDua;
         private System.Windows.Forms.Timer timer1;
         private PictureBox pictureBox6;
-        private Button tb_tenNv;
         private ComboBox cbo_webcam;
         private Label label4;
         private Label label6;
@@ -1644,6 +1744,22 @@
         private Label label2;
         private DateTimePicker dateTimePicker1;
         private Label label3;
-        private TextBox textBox5;
+        private Button button4;
+        private Button tb_tenNv;
+        public ComboBox comboBox1;
+        public ComboBox cbxKH;
+        public ComboBox cbxRank;
+        public ComboBox comboBox2;
+        public TextBox txtDTD;
+        public PictureBox pictureBox5;
+        public TextBox textBox5;
+        public PictureBox pictureBox2;
+        public PictureBox pictureBox1;
+        public PictureBox pictureBox8;
+        public PictureBox pictureBox10;
+        public PictureBox pictureBox9;
+        private RadioButton radioButton2;
+        private RadioButton radioButton1;
+        private RadioButton radioButton3;
     }
 }
