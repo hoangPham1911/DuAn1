@@ -20,6 +20,11 @@ namespace _2_BUS.Service
         {
             _khachHangRepository = new ClientRepositores();
         }
+
+        public List<KhachHangViewModels> GetAllDiemKhachHang()
+        {
+            throw new NotImplementedException();
+        }
         public List<KhachHangViewModels> GetAllKhachHangDB()
         {
             _khachHangViewModels =

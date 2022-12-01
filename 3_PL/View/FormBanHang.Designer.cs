@@ -101,7 +101,7 @@
             this.tb_point = new System.Windows.Forms.TextBox();
             this.txt_coc = new System.Windows.Forms.TextBox();
             this.txt_dathangkhachtra = new System.Windows.Forms.TextBox();
-            this.txt_dathangthue = new System.Windows.Forms.TextBox();
+            this.txt_thue = new System.Windows.Forms.TextBox();
             this.txt_dathangtongtien = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
@@ -575,6 +575,7 @@
             this.textBox7.Location = new System.Drawing.Point(161, 76);
             this.textBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox7.Name = "textBox7";
+            this.textBox7.ReadOnly = true;
             this.textBox7.Size = new System.Drawing.Size(86, 22);
             this.textBox7.TabIndex = 72;
             this.textBox7.Text = "0";
@@ -752,7 +753,7 @@
             this.pn_dathang.Controls.Add(this.tb_point);
             this.pn_dathang.Controls.Add(this.txt_coc);
             this.pn_dathang.Controls.Add(this.txt_dathangkhachtra);
-            this.pn_dathang.Controls.Add(this.txt_dathangthue);
+            this.pn_dathang.Controls.Add(this.txt_thue);
             this.pn_dathang.Controls.Add(this.txt_dathangtongtien);
             this.pn_dathang.Controls.Add(this.label27);
             this.pn_dathang.Controls.Add(this.label28);
@@ -760,10 +761,10 @@
             this.pn_dathang.Controls.Add(this.label34);
             this.pn_dathang.Controls.Add(this.label35);
             this.pn_dathang.Controls.Add(this.label36);
-            this.pn_dathang.Location = new System.Drawing.Point(3, 122);
+            this.pn_dathang.Location = new System.Drawing.Point(932, 124);
             this.pn_dathang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pn_dathang.Name = "pn_dathang";
-            this.pn_dathang.Size = new System.Drawing.Size(293, 537);
+            this.pn_dathang.Size = new System.Drawing.Size(290, 537);
             this.pn_dathang.TabIndex = 114;
             // 
             // radioButton3
@@ -934,7 +935,7 @@
             // 
             this.rtx_ghichu2.BackColor = System.Drawing.Color.BurlyWood;
             this.rtx_ghichu2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtx_ghichu2.Location = new System.Drawing.Point(69, 441);
+            this.rtx_ghichu2.Location = new System.Drawing.Point(64, 446);
             this.rtx_ghichu2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rtx_ghichu2.Name = "rtx_ghichu2";
             this.rtx_ghichu2.Size = new System.Drawing.Size(219, 17);
@@ -946,7 +947,7 @@
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label25.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label25.Location = new System.Drawing.Point(4, 439);
+            this.label25.Location = new System.Drawing.Point(-1, 444);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(59, 19);
             this.label25.TabIndex = 79;
@@ -1023,6 +1024,7 @@
             this.tb_point.Location = new System.Drawing.Point(123, 75);
             this.tb_point.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_point.Name = "tb_point";
+            this.tb_point.ReadOnly = true;
             this.tb_point.Size = new System.Drawing.Size(123, 22);
             this.tb_point.TabIndex = 72;
             this.tb_point.Text = "0";
@@ -1062,19 +1064,19 @@
             this.txt_dathangkhachtra.TextChanged += new System.EventHandler(this.txt_dathangkhachtra_TextChanged);
             this.txt_dathangkhachtra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_dathangkhachtra_KeyPress);
             // 
-            // txt_dathangthue
+            // txt_thue
             // 
-            this.txt_dathangthue.BackColor = System.Drawing.Color.BurlyWood;
-            this.txt_dathangthue.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_dathangthue.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_dathangthue.Location = new System.Drawing.Point(73, 44);
-            this.txt_dathangthue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt_dathangthue.Name = "txt_dathangthue";
-            this.txt_dathangthue.Size = new System.Drawing.Size(173, 22);
-            this.txt_dathangthue.TabIndex = 71;
-            this.txt_dathangthue.Text = "0";
-            this.txt_dathangthue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txt_dathangthue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_dathangthue_KeyPress);
+            this.txt_thue.BackColor = System.Drawing.Color.BurlyWood;
+            this.txt_thue.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_thue.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_thue.Location = new System.Drawing.Point(74, 43);
+            this.txt_thue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_thue.Name = "txt_thue";
+            this.txt_thue.Size = new System.Drawing.Size(173, 22);
+            this.txt_thue.TabIndex = 71;
+            this.txt_thue.Text = "0";
+            this.txt_thue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_thue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_dathangthue_KeyPress);
             // 
             // txt_dathangtongtien
             // 
@@ -1160,7 +1162,6 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Orchid;
-            this.panel2.Controls.Add(this.pn_dathang);
             this.panel2.Controls.Add(this.button4);
             this.panel2.Controls.Add(this.tb_tenNv);
             this.panel2.Controls.Add(this.panel3);
@@ -1582,6 +1583,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSalmon;
             this.ClientSize = new System.Drawing.Size(1370, 702);
+            this.Controls.Add(this.pn_dathang);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.button2);
@@ -1664,7 +1666,7 @@
         private Button btn_ThanhToan;
         private TextBox txt_coc;
         private TextBox txt_dathangkhachtra;
-        private TextBox txt_dathangthue;
+        private TextBox txt_thue;
         private TextBox txt_dathangtongtien;
         private Label label27;
         private Label label28;
