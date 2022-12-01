@@ -528,7 +528,7 @@ namespace _3_PL.View
                 }
 
                 suaHoaDonModels.NgayThanhToan = DateTime.Now;
-                suaHoaDonModels.Thue = decimal.Parse(txt_thue.Text);
+             
                 MessageBox.Show(_HoaDonService.SuaHoaDon(suaHoaDonModels));
 
                 loadGioHang();
@@ -748,8 +748,8 @@ namespace _3_PL.View
             if (decimal.TryParse(tb_tienKhachDua.Text, out decimal x))
             {
                 tb_tienThua.Text = (decimal.Parse(tb_tienKhachDua.Text) - decimal.Parse(txt_tongTienHoaDon.Text)).ToString();
-                tb_TienKhachCanTra.Text = (int.Parse(txt_tongTienHoaDon.Text) + int.Parse(tb_thue.Text) - int.Parse(textBox7.Text)).ToString();
-                txt_dathangkhachtra.Text = (int.Parse(txt_dathangtongtien.Text) + int.Parse(tb_thue.Text) - int.Parse(tb_point.Text)).ToString();
+                tb_TienKhachCanTra.Text = (int.Parse(txt_tongTienHoaDon.Text)  - int.Parse(textBox7.Text)).ToString();
+                txt_dathangkhachtra.Text = (int.Parse(txt_dathangtongtien.Text)  - int.Parse(tb_point.Text)).ToString();
             }
 
         }
@@ -998,6 +998,15 @@ namespace _3_PL.View
 
         private void btn_DatHang_Click(object sender, EventArgs e)
         {
+            if (textBox9.Text.Length != 10)
+            {
+                MessageBox.Show("SĐT Không Đúng Định Dạng");
+            }
+            else if(textBox9.Text =="" || textBox8.Text ==""|| textBox1.Text == "" || textBox3.Text == "" || textBox4.Text == "")
+            {
+                MessageBox.Show("Bạn Chưa Nhập Đầy Đủ Thông Tin");
+            }
+            else
             {
                 SuaHoaDonModels suaHoaDonModels = _HoaDonService.GetAllHoaDonDB().FirstOrDefault(p => p.IdHoaDon == IdHoaDon);
                 if (rbt_chuathanhtoan.Checked)
@@ -1013,7 +1022,9 @@ namespace _3_PL.View
                 {
                     suaHoaDonModels.TinhTrang = 1;
                 }
+                suaHoaDonModels.TenShip = textBox8.Text;
 
+                suaHoaDonModels.SDTShip = textBox9.Text;
                 suaHoaDonModels.NgayShip = DateTime.Now;
                 suaHoaDonModels.NgayNhan = DateTime.Now;
                 suaHoaDonModels.NgayThanhToan = DateTime.Now;
@@ -1099,6 +1110,16 @@ namespace _3_PL.View
             IdReceiptInCart = Guid.Parse(dgv_GioHang1.CurrentRow.Cells[6].Value.ToString());
             //    MessageBox.Show(IdReceiptInCart.ToString());
             textBox2.Text = dgv_GioHang1.CurrentRow.Cells[3].Value.ToString();
+        }
+
+        private void textBox9_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            checkNumber(sender, e);
+        }
+
+        private void textBox4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            checkNumber(sender, e);
         }
     }
 }
