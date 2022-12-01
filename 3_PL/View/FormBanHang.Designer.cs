@@ -244,18 +244,18 @@
             // cbo_webcam
             // 
             this.cbo_webcam.FormattingEnabled = true;
-            this.cbo_webcam.Location = new System.Drawing.Point(17, 18);
+            this.cbo_webcam.Location = new System.Drawing.Point(6, 18);
             this.cbo_webcam.Name = "cbo_webcam";
-            this.cbo_webcam.Size = new System.Drawing.Size(105, 23);
+            this.cbo_webcam.Size = new System.Drawing.Size(127, 23);
             this.cbo_webcam.TabIndex = 138;
             // 
             // btn_reload
             // 
             this.btn_reload.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_reload.Location = new System.Drawing.Point(17, 105);
+            this.btn_reload.Location = new System.Drawing.Point(6, 111);
             this.btn_reload.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_reload.Name = "btn_reload";
-            this.btn_reload.Size = new System.Drawing.Size(105, 26);
+            this.btn_reload.Size = new System.Drawing.Size(127, 35);
             this.btn_reload.TabIndex = 130;
             this.btn_reload.Text = "ReLoad";
             this.btn_reload.UseVisualStyleBackColor = true;
@@ -264,10 +264,10 @@
             // 
             this.button9.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button9.Location = new System.Drawing.Point(17, 78);
+            this.button9.Location = new System.Drawing.Point(6, 78);
             this.button9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(105, 29);
+            this.button9.Size = new System.Drawing.Size(127, 29);
             this.button9.TabIndex = 129;
             this.button9.Text = "Stop";
             this.button9.UseVisualStyleBackColor = true;
@@ -277,10 +277,10 @@
             // 
             this.button8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button8.Location = new System.Drawing.Point(17, 46);
+            this.button8.Location = new System.Drawing.Point(6, 46);
             this.button8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(105, 28);
+            this.button8.Size = new System.Drawing.Size(127, 28);
             this.button8.TabIndex = 128;
             this.button8.Text = "Mở";
             this.button8.UseVisualStyleBackColor = true;

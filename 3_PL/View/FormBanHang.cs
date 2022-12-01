@@ -62,10 +62,10 @@ namespace _3_PL.View
             loadGioHang();
             LoadCbxRank();
             load();
+            loadDonDatHang();
             loadhoadonduyet();
             radioButton6.Checked = true;
             rbt_chuathanhtoan.Checked = true;
-            loadDonDatHang();
         }
 
         void LoadCbxRank()

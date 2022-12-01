@@ -198,9 +198,7 @@ namespace _1_DAL.Context
                 entity.Property(e => e.Id).HasDefaultValueSql("(newid())");
                 entity.Property(e => e.Ma).IsUnicode(false);
                 entity.Property(e => e.TrangThai).HasDefaultValueSql("((0))");
-                
-
-
+               
             });
             modelBuilder.Entity<LichSuDiemTieuDung>(entity =>
             {

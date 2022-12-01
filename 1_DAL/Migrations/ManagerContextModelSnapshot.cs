@@ -596,12 +596,14 @@ namespace _1_DAL.Migrations
                         .HasColumnType("uniqueidentifier")
                         .HasDefaultValueSql("(newid())");
 
-                    b.Property<byte[]>("Anh")
-                        .HasColumnType("image")
-                        .HasColumnName("img");
+                    b.Property<string>("Anh")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CMND")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DuongDan")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
