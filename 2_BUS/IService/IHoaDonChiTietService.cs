@@ -7,7 +7,7 @@ namespace _2_BUS.IService
         bool ThemHoaDonChiTiet(HoaDonChiTietThemViewModel Hoadonnew);
         bool SuaHoaDonChiTiet(HoaDonChiTietUpdateView Hoadonold);
         bool XoaHoaDonChiTiet(Guid Hoadonold);
-        bool XoaSpTrongHoaDonChiTiet(Guid Id);
+        bool XoaSpTrongHoaDonChiTiet(Guid Id, Guid IdHoaDon);
 
         public List<HoaDonChiTietViewModel> GetAllHoaDonDB();
         public List<SanPhamTrongHoaDonViewModels> GetAllProductInReceipt();

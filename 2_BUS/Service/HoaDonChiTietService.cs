@@ -111,9 +111,9 @@ namespace _2_BUS.Service
 
         }
 
-        public bool XoaSpTrongHoaDonChiTiet(Guid Id)
+        public bool XoaSpTrongHoaDonChiTiet(Guid Id, Guid IdHoaDon)
         {
-            if (_IreceiptDetailRepository.removeSP(Id)) return true;
+            if (_IreceiptDetailRepository.removeSP(Id,IdHoaDon)) return true;
             return false;
         }
     }

@@ -45,10 +45,12 @@ namespace _1.DAL.Repostiores
         {
             try
             {
-                HoaDonChiTiet Spct = _dbContext.HoaDonChiTiets.SingleOrDefault(p => p.IdHoaDon == IdHoaDon);
-                _dbContext.HoaDonChiTiets.Remove(Spct);
-                _dbContext.SaveChanges();
-
+                List<HoaDonChiTiet> Spct = _dbContext.HoaDonChiTiets.Where(p => p.IdHoaDon == IdHoaDon).ToList();
+                foreach (var item in Spct)
+                {
+                    _dbContext.HoaDonChiTiets.Remove(item);
+                    _dbContext.SaveChanges();
+                }             
                 return true;
 
             }
@@ -58,11 +60,11 @@ namespace _1.DAL.Repostiores
                 throw;
             }
         }
-        public bool removeSP(Guid Id)
+        public bool removeSP(Guid IdSpCt, Guid IdHoaDon)
         {
             try
             {
-                HoaDonChiTiet Spct = _dbContext.HoaDonChiTiets.SingleOrDefault(p => p.IdChiTietSp == Id);
+                HoaDonChiTiet Spct = _dbContext.HoaDonChiTiets.SingleOrDefault(p => p.IdChiTietSp == IdSpCt && p.IdHoaDon == IdHoaDon);
                 _dbContext.HoaDonChiTiets.Remove(Spct);
                 _dbContext.SaveChanges();
 
