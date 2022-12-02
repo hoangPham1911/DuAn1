@@ -36,7 +36,6 @@
             this.pic_cl = new System.Windows.Forms.PictureBox();
             this.pic_mavach = new System.Windows.Forms.PictureBox();
             this.pic_nsx = new System.Windows.Forms.PictureBox();
-            this.pic_danhmuc = new System.Windows.Forms.PictureBox();
             this.cbo_mahh = new System.Windows.Forms.TextBox();
             this.pic_exit = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -56,7 +55,6 @@
             this.cbo_tenquocgia = new System.Windows.Forms.ComboBox();
             this.cbo_sizegiay = new System.Windows.Forms.ComboBox();
             this.cbo_tencl = new System.Windows.Forms.ComboBox();
-            this.cbo_danhmuc = new System.Windows.Forms.ComboBox();
             this.cbo_nsx = new System.Windows.Forms.ComboBox();
             this.tmrTime = new System.Windows.Forms.Timer(this.components);
             this.chk_hethang = new System.Windows.Forms.CheckBox();
@@ -74,7 +72,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txt_mavach = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -87,7 +84,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pic_cl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_mavach)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_nsx)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_danhmuc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_exit)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -164,17 +160,6 @@
             this.pic_nsx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_nsx.TabIndex = 145;
             this.pic_nsx.TabStop = false;
-            // 
-            // pic_danhmuc
-            // 
-            this.pic_danhmuc.Image = ((System.Drawing.Image)(resources.GetObject("pic_danhmuc.Image")));
-            this.pic_danhmuc.Location = new System.Drawing.Point(379, 605);
-            this.pic_danhmuc.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.pic_danhmuc.Name = "pic_danhmuc";
-            this.pic_danhmuc.Size = new System.Drawing.Size(30, 29);
-            this.pic_danhmuc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pic_danhmuc.TabIndex = 146;
-            this.pic_danhmuc.TabStop = false;
             // 
             // cbo_mahh
             // 
@@ -386,16 +371,6 @@
             this.cbo_tencl.TabIndex = 123;
             this.cbo_tencl.Click += new System.EventHandler(this.cbo_tencl_Click);
             // 
-            // cbo_danhmuc
-            // 
-            this.cbo_danhmuc.FormattingEnabled = true;
-            this.cbo_danhmuc.Location = new System.Drawing.Point(222, 607);
-            this.cbo_danhmuc.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.cbo_danhmuc.Name = "cbo_danhmuc";
-            this.cbo_danhmuc.Size = new System.Drawing.Size(151, 28);
-            this.cbo_danhmuc.TabIndex = 125;
-            this.cbo_danhmuc.Click += new System.EventHandler(this.cbo_danhmuc_Click);
-            // 
             // cbo_nsx
             // 
             this.cbo_nsx.FormattingEnabled = true;
@@ -569,17 +544,6 @@
             this.label5.TabIndex = 104;
             this.label5.Text = "Mã Vạch";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(35, 611);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(76, 20);
-            this.label4.TabIndex = 103;
-            this.label4.Text = "Danh Mục";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -659,7 +623,6 @@
             this.Controls.Add(this.pic_cl);
             this.Controls.Add(this.pic_mavach);
             this.Controls.Add(this.pic_nsx);
-            this.Controls.Add(this.pic_danhmuc);
             this.Controls.Add(this.cbo_mahh);
             this.Controls.Add(this.pic_exit);
             this.Controls.Add(this.panel1);
@@ -674,7 +637,6 @@
             this.Controls.Add(this.cbo_tenquocgia);
             this.Controls.Add(this.cbo_sizegiay);
             this.Controls.Add(this.cbo_tencl);
-            this.Controls.Add(this.cbo_danhmuc);
             this.Controls.Add(this.cbo_nsx);
             this.Controls.Add(this.chk_hethang);
             this.Controls.Add(this.chk_conhang);
@@ -691,7 +653,6 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txt_mavach);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -705,7 +666,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pic_cl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_mavach)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_nsx)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_danhmuc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_exit)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -727,7 +687,6 @@
         private PictureBox pic_cl;
         private PictureBox pic_mavach;
         private PictureBox pic_nsx;
-        private PictureBox pic_danhmuc;
         private TextBox cbo_mahh;
         private PictureBox pic_exit;
         private Panel panel1;
@@ -742,7 +701,6 @@
         private ComboBox cbo_tenquocgia;
         private ComboBox cbo_sizegiay;
         private ComboBox cbo_tencl;
-        private ComboBox cbo_danhmuc;
         private ComboBox cbo_nsx;
         private System.Windows.Forms.Timer tmrTime;
         private CheckBox chk_hethang;
@@ -760,7 +718,6 @@
         private Label label6;
         private TextBox txt_mavach;
         private Label label5;
-        private Label label4;
         private Label label3;
         private Label label2;
         private Label label1;
