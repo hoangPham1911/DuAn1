@@ -743,7 +743,7 @@
             this.pn_dathang.Controls.Add(this.label29);
             this.pn_dathang.Controls.Add(this.label34);
             this.pn_dathang.Controls.Add(this.label35);
-            this.pn_dathang.Location = new System.Drawing.Point(632, 122);
+            this.pn_dathang.Location = new System.Drawing.Point(0, 125);
             this.pn_dathang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pn_dathang.Name = "pn_dathang";
             this.pn_dathang.Size = new System.Drawing.Size(292, 534);
@@ -1207,6 +1207,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Orchid;
+            this.panel2.Controls.Add(this.pn_dathang);
             this.panel2.Controls.Add(this.button4);
             this.panel2.Controls.Add(this.tb_tenNv);
             this.panel2.Controls.Add(this.panel3);
@@ -1287,7 +1288,6 @@
             this.cbxRank.Size = new System.Drawing.Size(98, 23);
             this.cbxRank.TabIndex = 4;
             this.cbxRank.Text = "--Bậc--";
-          //  this.cbxRank.TextChanged += new System.EventHandler(this.cbxRank_TextChanged);
             // 
             // comboBox2
             // 
@@ -1628,7 +1628,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSalmon;
             this.ClientSize = new System.Drawing.Size(1370, 702);
-            this.Controls.Add(this.pn_dathang);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.button2);

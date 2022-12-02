@@ -28,8 +28,9 @@ namespace _3_PL.View
         private ISizeGiayServices _sizegiayser;
         public FrmHangHoa()
         {
+           
+            InitializeComponent();
             _sender = this;
-            loaddata();
             qlhhser = new QlyHangHoaServices();
             _anhser = new AnhService();
             _dmser = new DanhMucServices();
@@ -38,7 +39,8 @@ namespace _3_PL.View
             _quocgiaser = new QuocGiaServices();
             _sizegiayser = new SizeGiayServices();
             _loaigiayser = new LoaiGiayServices();
-            InitializeComponent();
+            loaddata();
+
         }
 
         public void Alert(string mess)
@@ -49,12 +51,12 @@ namespace _3_PL.View
 
         public void loaddata()
         {
-            ArrayList row = new ArrayList();
+            //ArrayList row = new ArrayList();
 
-            row = new ArrayList();
-            row.Add("Thêm");
-            row.Add("Sửa");
-            row.Add("Xóa");
+            //row = new ArrayList();
+            //row.Add("Thêm");
+            //row.Add("Sửa");
+            //row.Add("Xóa");
 
             dgrid_sanpham.ColumnCount = 15;
             dgrid_sanpham.Columns[0].Name = "IDHH";
@@ -77,7 +79,7 @@ namespace _3_PL.View
             dgrid_sanpham.Rows.Clear();
             foreach (var x in qlhhser.GetsList().Where(c => c.TrangThai == 1))
             {
-                dgrid_sanpham.Rows.Add(x.IdSp, x.Id, x.Ma, x.Ten, x.Mavach,_nsxser.GetNhasanxuat().FirstOrDefault(c=>c.Id == x.IdNsx).Ten, x.SoLuongTon,x.IdAnh, x.TrangThai == 1 ? "Còn Hàng" : "Hết Hàng",x.GiaNhap,x.GiaBan,_chatlieuser.GetChatLieu().FirstOrDefault(c=>c.Id == x.IdChatLieu).Ten,_sizegiayser.GetSizeGiay().FirstOrDefault(c=>c.Id == x.IdSizeGiay).SoSize,_quocgiaser.GetQuocGia().FirstOrDefault(c=>c.Id == x.IdQuocGia).Ten,_loaigiayser.GetLoaiGiay().FirstOrDefault(c=>c.Id == x.IdLoaiGiay).Ten);
+                dgrid_sanpham.Rows.Add(x.IdSp, x.Id, x.Ma, x.Ten, x.Mavach, _nsxser.GetNhasanxuat().FirstOrDefault(c => c.Id == x.IdNsx).Ten, x.SoLuongTon, x.IdAnh, x.TrangThai == 1 ? "Còn Hàng" : "Hết Hàng", x.GiaNhap, x.GiaBan, _chatlieuser.GetChatLieu().FirstOrDefault(c => c.Id == x.IdChatLieu).Ten, _sizegiayser.GetSizeGiay().FirstOrDefault(c => c.Id == x.IdSizeGiay).SoSize, _quocgiaser.GetQuocGia().FirstOrDefault(c => c.Id == x.IdQuocGia).Ten, _loaigiayser.GetLoaiGiay().FirstOrDefault(c => c.Id == x.IdLoaiGiay).Ten);
             }
         }
 

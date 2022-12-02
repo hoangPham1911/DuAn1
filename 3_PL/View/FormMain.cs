@@ -99,7 +99,7 @@ namespace _3_PL.View
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-
+            OpenChildForm(new FrmHangHoa(),sender);
         }
 
         private void button2_Click_1(object sender, EventArgs e)
@@ -112,6 +112,22 @@ namespace _3_PL.View
             if (activeForm != null)
                 activeForm.Close();
             Reset();
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            OpenChildForm(new Frm_HoaDon(), sender);
+        }
+
+        private void btn_quanlynhanvien_Click_1(object sender, EventArgs e)
+        {
+            OpenChildForm(new frmNhanViens(), sender);
+
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            OpenChildForm(new Frm_KhachHang(), sender);
         }
     }
 }
