@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSale));
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -47,16 +46,14 @@
             this.rdb_con = new System.Windows.Forms.RadioButton();
             this.rdb_ngung = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tb_gia = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.cbb_tengiay = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tb_giamgia = new System.Windows.Forms.TextBox();
             this.dt_ngayketthuc = new System.Windows.Forms.DateTimePicker();
             this.dt_ngaybatdau = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
-            this.cbb_tengiay = new System.Windows.Forms.ComboBox();
-
+            this.tb_gia = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.cbb_ma = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -84,13 +81,8 @@
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.DarkSalmon;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-
-            this.pictureBox3.Location = new System.Drawing.Point(103, 208);
-
             this.pictureBox3.Location = new System.Drawing.Point(72, 134);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(29, 24);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -100,13 +92,8 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.DarkSalmon;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-
-            this.pictureBox2.Location = new System.Drawing.Point(91, 137);
- 
             this.pictureBox2.Location = new System.Drawing.Point(64, 92);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(37, 20);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -117,9 +104,8 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.DarkSalmon;
             this.pictureBox1.Image = global::_3_PL.Properties.Resources.add_user;
-            this.pictureBox1.Location = new System.Drawing.Point(91, 55);
             this.pictureBox1.Location = new System.Drawing.Point(64, 43);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(37, 28);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -129,12 +115,8 @@
             // btn_sua
             // 
             this.btn_sua.BackColor = System.Drawing.Color.DarkSalmon;
-
-            this.btn_sua.Location = new System.Drawing.Point(42, 127);
- 
             this.btn_sua.Location = new System.Drawing.Point(29, 86);
-            this.btn_sua.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-
+            this.btn_sua.Margin = new System.Windows.Forms.Padding(2);
             this.btn_sua.Name = "btn_sua";
             this.btn_sua.Size = new System.Drawing.Size(168, 34);
             this.btn_sua.TabIndex = 34;
@@ -144,12 +126,8 @@
             // btn_xoa
             // 
             this.btn_xoa.BackColor = System.Drawing.Color.DarkSalmon;
-
-            this.btn_xoa.Location = new System.Drawing.Point(42, 199);
- 
             this.btn_xoa.Location = new System.Drawing.Point(29, 129);
-            this.btn_xoa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-
+            this.btn_xoa.Margin = new System.Windows.Forms.Padding(2);
             this.btn_xoa.Name = "btn_xoa";
             this.btn_xoa.Size = new System.Drawing.Size(167, 34);
             this.btn_xoa.TabIndex = 33;
@@ -160,12 +138,8 @@
             // 
             this.btn_them.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btn_them.BackColor = System.Drawing.Color.DarkSalmon;
-
-            this.btn_them.Location = new System.Drawing.Point(42, 44);
- 
             this.btn_them.Location = new System.Drawing.Point(29, 36);
-            this.btn_them.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-
+            this.btn_them.Margin = new System.Windows.Forms.Padding(2);
             this.btn_them.Name = "btn_them";
             this.btn_them.Size = new System.Drawing.Size(167, 41);
             this.btn_them.TabIndex = 32;
@@ -184,12 +158,8 @@
             this.dgv_show.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_show.BackgroundColor = System.Drawing.Color.PeachPuff;
             this.dgv_show.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-
-            this.dgv_show.Location = new System.Drawing.Point(14, 30);
- 
             this.dgv_show.Location = new System.Drawing.Point(13, 18);
-            this.dgv_show.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-
+            this.dgv_show.Margin = new System.Windows.Forms.Padding(2);
             this.dgv_show.Name = "dgv_show";
             this.dgv_show.RowHeadersWidth = 62;
             this.dgv_show.RowTemplate.Height = 33;
@@ -202,9 +172,9 @@
             this.groupBox3.BackColor = System.Drawing.Color.DarkSalmon;
             this.groupBox3.Controls.Add(this.dgv_show);
             this.groupBox3.Location = new System.Drawing.Point(8, 7);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox3.Size = new System.Drawing.Size(670, 172);
             this.groupBox3.TabIndex = 50;
             this.groupBox3.TabStop = false;
@@ -220,9 +190,9 @@
             this.groupBox2.Controls.Add(this.btn_xoa);
             this.groupBox2.Controls.Add(this.btn_them);
             this.groupBox2.Location = new System.Drawing.Point(452, 188);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(227, 200);
             this.groupBox2.TabIndex = 49;
             this.groupBox2.TabStop = false;
@@ -231,12 +201,8 @@
             // label1
             // 
             this.label1.AutoSize = true;
-
-            this.label1.Location = new System.Drawing.Point(19, 46);
- 
             this.label1.Location = new System.Drawing.Point(41, 26);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 15);
             this.label1.TabIndex = 1;
@@ -245,12 +211,8 @@
             // label2
             // 
             this.label2.AutoSize = true;
-
-            this.label2.Location = new System.Drawing.Point(20, 264);
- 
             this.label2.Location = new System.Drawing.Point(41, 175);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 15);
             this.label2.TabIndex = 2;
@@ -259,12 +221,8 @@
             // label4
             // 
             this.label4.AutoSize = true;
-
-            this.label4.Location = new System.Drawing.Point(10, 105);
- 
             this.label4.Location = new System.Drawing.Point(35, 58);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(78, 15);
             this.label4.TabIndex = 4;
@@ -273,12 +231,8 @@
             // rdb_con
             // 
             this.rdb_con.AutoSize = true;
-
-            this.rdb_con.Location = new System.Drawing.Point(155, 262);
- 
             this.rdb_con.Location = new System.Drawing.Point(136, 173);
-            this.rdb_con.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-
+            this.rdb_con.Margin = new System.Windows.Forms.Padding(2);
             this.rdb_con.Name = "rdb_con";
             this.rdb_con.Size = new System.Drawing.Size(93, 19);
             this.rdb_con.TabIndex = 7;
@@ -289,12 +243,8 @@
             // rdb_ngung
             // 
             this.rdb_ngung.AutoSize = true;
-
-            this.rdb_ngung.Location = new System.Drawing.Point(300, 262);
- 
             this.rdb_ngung.Location = new System.Drawing.Point(237, 173);
-            this.rdb_ngung.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-
+            this.rdb_ngung.Margin = new System.Windows.Forms.Padding(2);
             this.rdb_ngung.Name = "rdb_ngung";
             this.rdb_ngung.Size = new System.Drawing.Size(108, 19);
             this.rdb_ngung.TabIndex = 8;
@@ -317,20 +267,67 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(8, 188);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(435, 200);
             this.groupBox1.TabIndex = 48;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chi tiết giảm giá";
             // 
-
+            // cbb_tengiay
+            // 
+            this.cbb_tengiay.FormattingEnabled = true;
+            this.cbb_tengiay.Location = new System.Drawing.Point(136, 23);
+            this.cbb_tengiay.Margin = new System.Windows.Forms.Padding(2);
+            this.cbb_tengiay.Name = "cbb_tengiay";
+            this.cbb_tengiay.Size = new System.Drawing.Size(211, 23);
+            this.cbb_tengiay.TabIndex = 14;
+            this.cbb_tengiay.SelectedIndexChanged += new System.EventHandler(this.cbb_tengiay_SelectedIndexChanged);
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(19, 208);
- 
+            this.label5.Location = new System.Drawing.Point(41, 152);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(54, 15);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Giảm giá";
+            // 
+            // tb_giamgia
+            // 
+            this.tb_giamgia.Location = new System.Drawing.Point(152, 208);
+            this.tb_giamgia.Name = "tb_giamgia";
+            this.tb_giamgia.Size = new System.Drawing.Size(302, 23);
+            this.tb_giamgia.TabIndex = 12;
+            // 
+            // dt_ngayketthuc
+            // 
+            this.dt_ngayketthuc.Location = new System.Drawing.Point(136, 86);
+            this.dt_ngayketthuc.Margin = new System.Windows.Forms.Padding(2);
+            this.dt_ngayketthuc.Name = "dt_ngayketthuc";
+            this.dt_ngayketthuc.Size = new System.Drawing.Size(211, 23);
+            this.dt_ngayketthuc.TabIndex = 11;
+            // 
+            // dt_ngaybatdau
+            // 
+            this.dt_ngaybatdau.Location = new System.Drawing.Point(136, 58);
+            this.dt_ngaybatdau.Margin = new System.Windows.Forms.Padding(2);
+            this.dt_ngaybatdau.Name = "dt_ngaybatdau";
+            this.dt_ngaybatdau.Size = new System.Drawing.Size(211, 23);
+            this.dt_ngaybatdau.TabIndex = 10;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(38, 90);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(81, 15);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Ngày kết thúc";
+            // 
             // tb_gia
             // 
             this.tb_gia.Location = new System.Drawing.Point(136, 118);
@@ -347,82 +344,6 @@
             this.label6.TabIndex = 44;
             this.label6.Text = "Giá sản phẩm";
             // 
-            // cbb_tengiay
-            // 
-            this.cbb_tengiay.FormattingEnabled = true;
-            this.cbb_tengiay.Location = new System.Drawing.Point(134, 25);
-            this.cbb_tengiay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cbb_tengiay.Name = "cbb_tengiay";
-            this.cbb_tengiay.Size = new System.Drawing.Size(213, 23);
-            this.cbb_tengiay.TabIndex = 14;
-            this.cbb_tengiay.SelectedIndexChanged += new System.EventHandler(this.cbb_tengiay_SelectedIndexChanged);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(41, 152);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(54, 15);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "Giảm giá";
-            // 
-            // tb_giamgia
-            // 
-            this.tb_giamgia.Location = new System.Drawing.Point(152, 208);
-            this.tb_giamgia.Name = "tb_giamgia";
-            this.tb_giamgia.Size = new System.Drawing.Size(302, 31);
-            this.tb_giamgia.TabIndex = 12;
-            // 
-            // dt_ngayketthuc
-            // 
-
-            this.dt_ngayketthuc.Location = new System.Drawing.Point(154, 153);
- 
-            this.dt_ngayketthuc.Location = new System.Drawing.Point(136, 86);
-            this.dt_ngayketthuc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-
-            this.dt_ngayketthuc.Name = "dt_ngayketthuc";
-            this.dt_ngayketthuc.Size = new System.Drawing.Size(211, 23);
-            this.dt_ngayketthuc.TabIndex = 11;
-            // 
-            // dt_ngaybatdau
-            // 
- 
-            this.dt_ngaybatdau.Location = new System.Drawing.Point(154, 105);
- 
-            this.dt_ngaybatdau.Location = new System.Drawing.Point(136, 58);
-            this.dt_ngaybatdau.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-
-            this.dt_ngaybatdau.Name = "dt_ngaybatdau";
-            this.dt_ngaybatdau.Size = new System.Drawing.Size(211, 23);
-            this.dt_ngaybatdau.TabIndex = 10;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
- 
-            this.label3.Location = new System.Drawing.Point(14, 159);
- 
-            this.label3.Location = new System.Drawing.Point(38, 90);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 15);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Ngày kết thúc";
-            // 
- 
-            // cbb_tengiay
-            // 
-            this.cbb_tengiay.FormattingEnabled = true;
-            this.cbb_tengiay.Location = new System.Drawing.Point(152, 43);
-            this.cbb_tengiay.Name = "cbb_tengiay";
-            this.cbb_tengiay.Size = new System.Drawing.Size(302, 33);
-            this.cbb_tengiay.TabIndex = 14;
-            this.cbb_tengiay.SelectedIndexChanged += new System.EventHandler(this.cbb_tengiay_SelectedIndexChanged);
- 
             // cbb_ma
             // 
             this.cbb_ma.FormattingEnabled = true;
@@ -431,19 +352,17 @@
             this.cbb_ma.Name = "cbb_ma";
             this.cbb_ma.Size = new System.Drawing.Size(213, 23);
             this.cbb_ma.TabIndex = 15;
-   
-
             // 
             // FrmSale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PeachPuff;
-            this.ClientSize = new System.Drawing.Size(695, 401);
+            this.ClientSize = new System.Drawing.Size(702, 412);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmSale";
             this.Text = "FrmSale";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

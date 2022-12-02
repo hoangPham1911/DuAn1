@@ -51,8 +51,8 @@ namespace _3_PL.View
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow dgvr = dgv_show.Rows[e.RowIndex];
-                vmqlyhanghoa = iqlhh.GetsList().FirstOrDefault(x => x.Id == Guid.Parse(dgvr.Cells[0].Value.ToString()));
-                cbb_tengiay.Text = vmqlyhanghoa.Ten;
+              //  vmqlyhanghoa = iqlhh.GetsList().FirstOrDefault(x => x.Id == Guid.Parse(dgvr.Cells[0].Value.ToString()));
+               // cbb_tengiay.Text = vmqlyhanghoa.Ten;
                 //vmqlyhanghoa.GiaBan = tb_gia.Text ;
                 if (dgvr.Cells[3].Value.ToString() == "Còn sản xuất")
                 {
