@@ -27,7 +27,13 @@ namespace _3_PL.View
         private static FrmHangHoa _sender;
         public FrmHangHoa()
         {
+<<<<<<< HEAD
             InitializeComponent();
+=======
+           
+            InitializeComponent();
+            _sender = this;
+>>>>>>> 6c82abc2e18c0e6a80b82106db9e7f00b3658d0e
             qlhhser = new QlyHangHoaServices();
             _anhser = new AnhService();
             _nsxser = new NsxServices();
@@ -35,7 +41,10 @@ namespace _3_PL.View
             _quocgiaser = new QuocGiaServices();
             _sizegiayser = new SizeGiayServices();
             _loaigiayser = new LoaiGiayServices();
+<<<<<<< HEAD
             _sender = this;
+=======
+>>>>>>> 6c82abc2e18c0e6a80b82106db9e7f00b3658d0e
             loaddata();
 
         }
@@ -48,6 +57,16 @@ namespace _3_PL.View
 
         public void loaddata()
         {
+<<<<<<< HEAD
+=======
+            //ArrayList row = new ArrayList();
+
+            //row = new ArrayList();
+            //row.Add("Thêm");
+            //row.Add("Sửa");
+            //row.Add("Xóa");
+
+>>>>>>> 6c82abc2e18c0e6a80b82106db9e7f00b3658d0e
             dgrid_sanpham.ColumnCount = 15;
             dgrid_sanpham.Columns[0].Name = "IDHH";
             dgrid_sanpham.Columns[0].Visible = false;
@@ -69,7 +88,11 @@ namespace _3_PL.View
             dgrid_sanpham.Rows.Clear();
             foreach (var x in qlhhser.GetsList().Where(c => c.TrangThai == 1))
             {
+<<<<<<< HEAD
                 dgrid_sanpham.Rows.Add(x.IdSp, x.Id, x.Ma, x.Ten, x.Mavach, _nsxser.GetNhasanxuat().FirstOrDefault(c => c.Id == x.IdNsx).Ten, x.SoLuongTon, _anhser.GetAnh().FirstOrDefault(c => c.ID == x.IdAnh).DuongDan, x.TrangThai == 1 ? "Còn Hàng" : "Hết Hàng", x.GiaNhap, x.GiaBan, _chatlieuser.GetChatLieu().FirstOrDefault(c => c.Id == x.IdChatLieu).Ten, _sizegiayser.GetSizeGiay().FirstOrDefault(c => c.Id == x.IdSizeGiay).SoSize, _quocgiaser.GetQuocGia().FirstOrDefault(c => c.Id == x.IdQuocGia).Ten, _loaigiayser.GetLoaiGiay().FirstOrDefault(c => c.Id == x.IdLoaiGiay).Ten);
+=======
+                dgrid_sanpham.Rows.Add(x.IdSp, x.Id, x.Ma, x.Ten, x.Mavach, _nsxser.GetNhasanxuat().FirstOrDefault(c => c.Id == x.IdNsx).Ten, x.SoLuongTon, x.IdAnh, x.TrangThai == 1 ? "Còn Hàng" : "Hết Hàng", x.GiaNhap, x.GiaBan, _chatlieuser.GetChatLieu().FirstOrDefault(c => c.Id == x.IdChatLieu).Ten, _sizegiayser.GetSizeGiay().FirstOrDefault(c => c.Id == x.IdSizeGiay).SoSize, _quocgiaser.GetQuocGia().FirstOrDefault(c => c.Id == x.IdQuocGia).Ten, _loaigiayser.GetLoaiGiay().FirstOrDefault(c => c.Id == x.IdLoaiGiay).Ten);
+>>>>>>> 6c82abc2e18c0e6a80b82106db9e7f00b3658d0e
             }
         }
 

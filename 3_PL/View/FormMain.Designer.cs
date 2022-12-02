@@ -282,6 +282,7 @@
             this.button4.TabIndex = 7;
             this.button4.Text = "Khách Hàng";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click_1);
             // 
             // btn_quanlynhanvien
             // 
@@ -298,6 +299,7 @@
             this.btn_quanlynhanvien.TabIndex = 6;
             this.btn_quanlynhanvien.Text = "Nhân Viên";
             this.btn_quanlynhanvien.UseVisualStyleBackColor = true;
+            this.btn_quanlynhanvien.Click += new System.EventHandler(this.btn_quanlynhanvien_Click_1);
             // 
             // btn_thongke
             // 
@@ -330,6 +332,7 @@
             this.button3.TabIndex = 4;
             this.button3.Text = "Hóa Đơn";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // button2
             // 

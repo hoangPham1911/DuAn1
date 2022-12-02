@@ -64,8 +64,10 @@ namespace _3_PL.View
             load();
             loadDonDatHang();
             loadhoadonduyet();
+            //   loaiTienThua();
             radioButton6.Checked = true;
             rbt_chuathanhtoan.Checked = true;
+
         }
 
         void LoadCbxRank()
@@ -80,10 +82,7 @@ namespace _3_PL.View
             var nv = _NhanVienServices.GetAll().FirstOrDefault(p => p.Id == FrmDangNhap._IdStaff);
             string hoTenNV = nv.Ho + " " + nv.TenDem + " " + nv.Ten;
             button4.Text = hoTenNV;
-            foreach (var item in _KhachHangServices.GetAllKhachHangDB().Select(p => p.Ma))
-            {
-                comboBox1.Items.Add(item);
-            }
+          
 
         }
         private void loadProduct()
@@ -116,7 +115,6 @@ namespace _3_PL.View
             // checkbox
             foreach (var item in _ListProduct)
             {
-                ///   AnhViewModels image = _AnhService.GetAnh().FirstOrDefault(p => p.ID == item.IdAnh);
                 dgv_product.Rows.Add(item.IdSp, n++, item.Ma, item.Ten, item.GiaBan,
               item.IdHangHoaChiTiet, item.SoLuongTon
               );
@@ -272,8 +270,9 @@ namespace _3_PL.View
             {
                 tien += item.ThanhTien;
             }
-            txt_tongTienHoaDon.Text = tien.ToString();
-            txt_dathangtongtien.Text = tien.ToString();
+            CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
+            txt_tongTienHoaDon.Text = Convert.ToInt32(tien).ToString("#,###", cul.NumberFormat);
+            txt_dathangtongtien.Text = Convert.ToInt32(tien).ToString("#,###", cul.NumberFormat);
             status = _HoaDonService.GetAllHoaDonDB().FirstOrDefault(p => p.IdHoaDon == IdHoaDon).TinhTrang;
             if (status == 2) radioButton6.Checked = true;
             // them sau
@@ -337,7 +336,8 @@ namespace _3_PL.View
                     button.Location = new Point(62, 62);
                     button.Size = new Size(63, 90);
                     button.Visible = true;
-                    button.Click += btnsender_Click;
+                    if (_ListGioHang.Count() != 0 || !_ListGioHang.Any())
+                        button.Click += btnsender_Click;
 
                     //   button.DoubleClick = loadGioHang();
                     button.ForeColor = Color.Aquamarine;
@@ -470,6 +470,7 @@ namespace _3_PL.View
                 loadGioHang();
                 MessageBox.Show("Tao hoa don thanh cong");
                 loadhoadonduyet();
+                //  loadDonDatHang();
             }
             //if (_ListReceiptProduct2.Count() == _ListReceiptProduct.Count())
             //{
@@ -528,7 +529,7 @@ namespace _3_PL.View
                 }
 
                 suaHoaDonModels.NgayThanhToan = DateTime.Now;
-             
+
                 MessageBox.Show(_HoaDonService.SuaHoaDon(suaHoaDonModels));
 
                 loadGioHang();
@@ -748,25 +749,40 @@ namespace _3_PL.View
             if (decimal.TryParse(tb_tienKhachDua.Text, out decimal x))
             {
                 tb_tienThua.Text = (decimal.Parse(tb_tienKhachDua.Text) - decimal.Parse(txt_tongTienHoaDon.Text)).ToString();
-                tb_TienKhachCanTra.Text = (int.Parse(txt_tongTienHoaDon.Text)  - int.Parse(textBox7.Text)).ToString();
-                txt_dathangkhachtra.Text = (int.Parse(txt_dathangtongtien.Text)  - int.Parse(tb_point.Text)).ToString();
+                tb_TienKhachCanTra.Text = (int.Parse(txt_tongTienHoaDon.Text) - int.Parse(textBox7.Text)).ToString();
+            }
+            if (decimal.TryParse(txt_coc.Text, out decimal y))
+            {
+                txt_coc.Text = (decimal.Parse(tb_tienKhachDua.Text) - decimal.Parse(txt_tongTienHoaDon.Text)).ToString();
+
             }
 
         }
         private void tb_tienThua_TextChanged(object sender, EventArgs e)
         {
-            loaiTienThua();
+           // loaiTienThua();
         }
 
         private void tb_tienKhachDua_TextChanged(object sender, EventArgs e)
         {
-            loaiTienThua();
+            decimal khachdua;
+            decimal khachtra;
+
+            CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
+            string fkhachtra = Convert.ToString(tb_TienKhachCanTra.Text);
+            string tkhachtra = fkhachtra.Replace(".", "");
+
+            string fkhachdua = Convert.ToString(tb_tienKhachDua.Text);
+            string tkhachdua = fkhachdua.Replace(".", "");
+            double ftienthua = Convert.ToDouble(Convert.ToDouble(tkhachdua) - Convert.ToDouble(tkhachtra));
+           
+            tb_tienThua.Text = Convert.ToInt32(ftienthua).ToString("#,###", cul.NumberFormat);
         }
+    
         Guid IDSpCt;
         private void dgv_product_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             IDSpCt = Guid.Parse(dgv_product.CurrentRow.Cells[5].Value.ToString());
-
         }
 
         private void btn_FormHoaDon_Click(object sender, EventArgs e)
@@ -784,39 +800,6 @@ namespace _3_PL.View
             checkNumber(sender, e);
         }
 
-        private void loadInformationClinet()
-        {
-            textBox3.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Ma == comboBox1.Text).Ten;
-            textBox1.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Ma == comboBox1.Text).DiaChi;
-            textBox4.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Ma == comboBox1.Text).Sdt;
-
-        }
-        private void textBox3_TextChanged_1(object sender, EventArgs e)
-        {
-            if (_KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Ma == comboBox1.Text) != null)
-            {
-                loadInformationClinet();
-            }
-
-        }
-
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
-        {
-            if (_KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Ma == comboBox1.Text) != null)
-            {
-                loadInformationClinet();
-            }
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-            if (_KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Ma == comboBox1.Text) != null)
-            {
-                loadInformationClinet();
-            }
-
-        }
         private void button3_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Bạn Muốn Thêm Sp Này Vào Gio Hàng Chứ?", "Thông Báo", MessageBoxButtons.YesNo);
@@ -852,7 +835,6 @@ namespace _3_PL.View
                     SpInHD.TenSp = TenSp;
                     SpInHD.ThanhTien = donGia * soLuong;
                     SpInHD.IdHoaDon = IdHoaDon;
-                    //    MessageBox.Show(IdHoaDon.ToString());
                     if (_ListReceiptProduct2.Count() != 0)
                     {
                         if (_ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IDSpCt) != null)
@@ -875,28 +857,27 @@ namespace _3_PL.View
                     }
                     else
                     {
-                        if (_ListGioHang.Count() == 0 || _ListReceiptProduct2.Count() == 0)
+
+                        if (_ListGioHang.Count() == 0)
                         {
                             _ListGioHang.Add(gioHang);
-                        }
-
-                        if (_ListGioHang.FirstOrDefault(p => p.IdCTSP == IDSpCt) != null)
-                        {
-                            _ListGioHang.FirstOrDefault(p => p.IdCTSP == IDSpCt).SoLuong = _ListGioHang.FirstOrDefault(p => p.IdCTSP == IDSpCt).SoLuong + int.Parse(tb_count.Text);
-                        }
-                        else
-                        {
-                            _ListGioHang.Add(gioHang);
-
-                        }
-                        if (sp.SoLuongTon <= 0)
-                        {
-                            MessageBox.Show("So Luong Cua Sp Nay Khong Du");
-                        }
-                        else
-                        {
                             MessageBox.Show("Them Thanh Cong345");
                             loadGioHang();
+
+                        }
+                        else if (_ListGioHang.FirstOrDefault(p => p.IdCTSP == IDSpCt) != null)
+                        {
+                            _ListGioHang.FirstOrDefault(p => p.IdCTSP == IDSpCt).SoLuong = _ListGioHang.FirstOrDefault(p => p.IdCTSP == IDSpCt).SoLuong + int.Parse(tb_count.Text);
+                            MessageBox.Show("Them Thanh Cong345");
+                            loadGioHang();
+
+                        }
+                        else
+                        {
+                            _ListGioHang.Add(gioHang);
+                            MessageBox.Show("Them Thanh Cong345");
+                            loadGioHang();
+
                         }
                     }
 
@@ -1002,7 +983,7 @@ namespace _3_PL.View
             {
                 MessageBox.Show("SĐT Không Đúng Định Dạng");
             }
-            else if(textBox9.Text =="" || textBox8.Text ==""|| textBox1.Text == "" || textBox3.Text == "" || textBox4.Text == "")
+            else if (textBox9.Text == "" || textBox8.Text == "" || textBox1.Text == "" || textBox3.Text == "" || textBox4.Text == "")
             {
                 MessageBox.Show("Bạn Chưa Nhập Đầy Đủ Thông Tin");
             }
@@ -1051,12 +1032,7 @@ namespace _3_PL.View
 
         private void tb_TienKhachCanTra_TextChanged(object sender, EventArgs e)
         {
-            loaiTienThua();
-        }
-
-        private void cbxRank_TextChanged(object sender, EventArgs e)
-        {
-
+            //loaiTienThua();
         }
 
         private void FormBanHang_FormClosing(object sender, FormClosingEventArgs e)
@@ -1086,18 +1062,43 @@ namespace _3_PL.View
             {
                 tb_point.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Ma == cbxKH.Text).DiemTichDiem.ToString();
                 textBox7.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Ma == cbxKH.Text).DiemTichDiem.ToString();
+                decimal giamgia;
+
+                string tt = Convert.ToString(txt_dathangtongtien.Text);
+                string fn = tt.Replace(".", "");
+                giamgia = Convert.ToDecimal(tb_point.Text);
+
+                double khach = Convert.ToDouble(Convert.ToInt32(tt));
+
+                CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
+
+                txt_dathangkhachtra.Text = Convert.ToInt32(khach).ToString("#,###", cul.NumberFormat);
+
 
             }
         }
 
+
+
         private void txt_dathangkhachtra_TextChanged(object sender, EventArgs e)
         {
-            loaiTienThua();
+            
         }
 
         private void txt_coc_TextChanged(object sender, EventArgs e)
         {
-            loaiTienThua();
+            decimal khachdua;
+            decimal khachtra;
+
+            CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
+            string fkhachtra = Convert.ToString(txt_coc.Text);
+            string tkhachtra = fkhachtra.Replace(".", "");
+
+            string fkhachdua = Convert.ToString(txt_dathangkhachtra.Text);
+            string tkhachdua = fkhachdua.Replace(".", "");
+            double ftienthua = Convert.ToDouble(Convert.ToDouble(tkhachtra) - Convert.ToDouble(tkhachdua));
+
+            textBox6.Text = Convert.ToInt32(ftienthua).ToString("#,###", cul.NumberFormat);
         }
 
         private void txt_dathangkhachtra_KeyPress(object sender, KeyPressEventArgs e)
@@ -1120,6 +1121,63 @@ namespace _3_PL.View
         private void textBox4_KeyPress(object sender, KeyPressEventArgs e)
         {
             checkNumber(sender, e);
+        }
+
+        private void txt_dathangtongtien_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string coc = txt_dathangtongtien.Text;
+                string fncoc = coc.Replace(".", "");
+
+                CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
+
+                txt_dathangkhachtra.Text = Convert.ToInt32(fncoc).ToString("#,###", cul.NumberFormat);
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(Convert.ToString(ex.Message), "Không Được Nhập Chữ Hoặc Kí Tự Đặc Biệt1");
+                return;
+            }
+        }
+
+        private void txt_tongTienHoaDon_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string coc = txt_tongTienHoaDon.Text;
+                string fncoc = coc.Replace(".", "");
+
+                CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
+
+                tb_TienKhachCanTra.Text = Convert.ToInt32(fncoc).ToString("#,###", cul.NumberFormat);
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(Convert.ToString(ex.Message), "Không Được Nhập Chữ Hoặc Kí Tự Đặc Biệt1");
+                return;
+            }
+        }
+
+        private void textBox10_TextChanged(object sender, EventArgs e)
+        {
+            if(_KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p=>p.Sdt == textBox10.Text).Sdt != null)
+            {
+                textBox3.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt == textBox10.Text).Ten;
+                textBox1.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt == textBox10.Text).DiaChi;
+                textBox4.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt == textBox10.Text).Sdt;
+
+            }
         }
     }
 }
