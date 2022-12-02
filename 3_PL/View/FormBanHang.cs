@@ -119,7 +119,6 @@ namespace _3_PL.View
               item.IdHangHoaChiTiet, item.SoLuongTon
               );
             }
-
             dgv_product.AllowUserToAddRows = false;
             dgv_product.Columns[1].Width = 30;
             dgv_product.Columns[6].Width = 50;
