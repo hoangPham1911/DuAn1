@@ -10,6 +10,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -20,9 +21,22 @@ namespace _3_PL.View
 {
     public partial class FrmChiTietHangHoa : Form
     {
+        private string mahh = "";
+        private string tenhh = "";
+        private string nsx = "";
+        private string trangthai = "";
+        private string mavach = "";
+        private string soluong = "";
+        private string gianhap = "";
+        private string giaban = "";
+        private string chatlieu = "";
+        private string sizegiay = "";
+        private string loaigiay = "";
+        private string tenquocgia = "";
+        private string anh = "";
+
         private IQlyHangHoaServices _qlhhser;
         private IAnhService _anhser;
-        //private IDanhMucServices _dmser;
         private INsxServices _nsxser;
         private IChatLieuServices _chatlieuser;
         private ILoaiGiayServices _loaigiayser;
@@ -36,8 +50,6 @@ namespace _3_PL.View
         private string ok;
         private Guid id;
         private Guid idcthh;
-
-        //string mahh, string nsx, string danhmuc, string trangthai, string mavach, string soluong, string gianhap, string giaban, string tenchatlieu, string sizegiay, string loaigiay, string quocgia, string anh, string model
         public FrmChiTietHangHoa(Guid idcthh, Guid idhh ,string mahh, string tenhh, string nsx, string trangthai, string mavach, string soluong,
             string gianhap, string giaban, string chatlieu, string sizegiay, string loaigiay, string tenquocgia, string anh)
         {
@@ -50,8 +62,43 @@ namespace _3_PL.View
             _sizegiayser = new SizeGiayServices();
             _loaigiayser = new LoaiGiayServices();
             InitializeComponent();
+            //loadsugesstion();
+            this.mahh = mahh;
+            this.id = idhh;
+            this.idcthh = idcthh;
+            this.tenhh = tenhh;
+            this.nsx = nsx;
+            this.trangthai = trangthai;
+            this.mavach = mavach;
+            this.soluong = soluong;
+            this.gianhap = gianhap;
+            this.giaban = giaban;
+            this.chatlieu = chatlieu;
+            this.sizegiay = sizegiay;
+            this.loaigiay = loaigiay;
+            this.tenquocgia = tenquocgia;
+            this.anh = anh;
+            cbo_anh.Text = anh;
+            cbo_mahh.Text = mahh;
+            cbo_nsx.Text = nsx;
+            cbo_loaigiay.Text = loaigiay;
+            cbo_sizegiay.Text = sizegiay;
+            cbo_tencl.Text = chatlieu;
+            cbo_tenhh.Text = tenhh;
+            chk_conhang.Checked = trangthai == "Còn Hàng";
+            chk_hethang.Checked = trangthai == "Hết Hàng";
+            txt_mavach.Text = mavach;
+            txt_soluong.Text = soluong;
+            txt_giaban.Text = giaban;
+            txt_gianhap.Text = gianhap;
+            cbo_tenquocgia.Text = tenquocgia;
+            var request = WebRequest.Create(anh);
+            using (var response = request.GetResponse())
+            using (var stream = response.GetResponseStream())
+            {
+                pic_anhhanghoa.Image = Bitmap.FromStream(stream);
+            }
         }
-
 
         //public void loadanhmuc()
         //{
@@ -266,17 +313,17 @@ namespace _3_PL.View
                 return false;
             }
             //danh mục
-            if (cbo_danhmuc.Text.Length <= 3)
-            {
-                MessageBox.Show("Tên danh mục phải trên 3 ký tự", "ERR");
-                return false;
-            }
-            if (Regex.IsMatch(cbo_danhmuc.Text, @"^[a-zA-Z]") == false)
-            {
+            //if (cbo_danhmuc.Text.Length <= 3)
+            //{
+            //    MessageBox.Show("Tên danh mục phải trên 3 ký tự", "ERR");
+            //    return false;
+            //}
+            //if (Regex.IsMatch(cbo_danhmuc.Text, @"^[a-zA-Z]") == false)
+            //{
 
-                MessageBox.Show("Tên danh mục không được chứa số", "ERR");
-                return false;
-            }
+            //    MessageBox.Show("Tên danh mục không được chứa số", "ERR");
+            //    return false;
+            //}
             //nhà sản xuất
             if (cbo_nsx.Text.Length <= 3)
             {
@@ -506,7 +553,7 @@ namespace _3_PL.View
                         Ten = cbo_tenhh.Text,
                         Ma = cbo_mahh.Text,
                         TrangThai = Convert.ToInt32(chk_conhang.Checked),
-                        IdNsx = _nsxser.GetNhasanxuat().Where(c => c.Ten == cbo_danhmuc.Text).Select(c => c.Id).FirstOrDefault()
+                        IdNsx = _nsxser.GetNhasanxuat().Where(c => c.Ten == cbo_nsx.Text).Select(c => c.Id).FirstOrDefault()
                     });
 
                     _qlhhser.addcthanghoa(new ChiTietHangHoaThemViewModels()
@@ -803,7 +850,7 @@ namespace _3_PL.View
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    FrmCreateNewBarCode frmCreateNewBarCode = new FrmCreateNewBarCode(Guid.Parse(_qlhhser.GetsList().Where(c=>c.IdSp == id).Select(c=>c.IdSp).FirstOrDefault().ToString()), Guid.Parse(_qlhhser.GetsList().Where(c => c.Id == idcthh).Select(c => c.Id).FirstOrDefault().ToString()), cbo_mahh.Text, cbo_tenhh.Text, cbo_nsx.Text, chk_conhang.Text, txt_mavach.Text, txt_soluong.Text, txt_gianhap.Text, txt_giaban.Text, cbo_tencl.Text, cbo_loaigiay.Text, cbo_sizegiay.Text, cbo_tenquocgia.Text, cbo_anh.Text);
+                    FrmCreateNewBarCode frmCreateNewBarCode = new FrmCreateNewBarCode(Guid.Parse(_qlhhser.GetsList().Where(c=>c.Id == idcthh).Select(c=>c.Id).FirstOrDefault().ToString()), Guid.Parse(_qlhhser.GetsList().Where(c => c.IdSp == id).Select(c => c.Id).FirstOrDefault().ToString()), cbo_mahh.Text, cbo_tenhh.Text, cbo_nsx.Text, chk_conhang.Text, txt_mavach.Text, txt_soluong.Text, txt_gianhap.Text, txt_giaban.Text, cbo_tencl.Text, cbo_loaigiay.Text, cbo_sizegiay.Text, cbo_tenquocgia.Text, cbo_anh.Text);
                     for (int i = 0; i < 1; i++)
                     {
                         this.Alert("Tiến Hành Tạo Mã Vạch Thôi Nào");

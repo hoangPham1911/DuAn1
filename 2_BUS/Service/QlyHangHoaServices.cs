@@ -86,7 +86,14 @@ namespace _2_BUS.Service
                         GiaBan = a.GiaBan,
                         GiaNhap = a.GiaNhap,
                         SoSize = e.SoSize,
-                        Mavach = a.MaQRCode
+                        Mavach = a.MaQRCode,
+                        TenNsx = d.Ten,
+                        TenChatLieu = g.Ten,
+                        TenLoaiGiay = f.Ten,
+                        TenQuocGia = c.Ten,
+                        SizeGiay = e.SoSize,
+                        DuongDanAnh = h.DuongDan,
+                        TenSp = b.Ten
 
                     }).ToList();
         }
