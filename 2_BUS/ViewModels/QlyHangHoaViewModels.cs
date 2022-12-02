@@ -23,6 +23,7 @@ namespace _2_BUS.ViewModels
         public string MoTa { get; set; }
         public int? SoLuongTon { get; set; }
         public decimal? GiaNhap { get; set; }
+        public string? Mavach { get; set; }
         public decimal? GiaBan { get; set; }
         public int SoSize { get; set; }
     }

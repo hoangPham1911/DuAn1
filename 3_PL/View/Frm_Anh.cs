@@ -328,7 +328,6 @@ namespace _3_PL.View
                 cbx_CoAnh.Checked = Convert.ToString(dgv_anh.Rows[rowindex].Cells[4].Value) == "Hoạt động";
                 cbx_Kcoanh.Checked = Convert.ToString(dgv_anh.Rows[rowindex].Cells[4].Value) == "Không hoạt động";
                 var request = WebRequest.Create(Convert.ToString(dgv_anh.Rows[rowindex].Cells[3].Value));
-
                 using (var response = request.GetResponse())
                 using (var stream = response.GetResponseStream())
                 {

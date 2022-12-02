@@ -66,7 +66,7 @@ namespace _2_BUS.Service
                     join e in _iSizeshoesRepository.getAll() on a.IdSizeGiay equals e.Id
                     join f in _iLoaiGiayRepository.getAll() on a.IdLoaiGiay equals f.Id
                     join g in _iChatLieuRepository.getAll() on a.IdChatLieu equals g.Id
-                   // join h in _iAnhRepositoriy.getAll() on a.IdAnh equals h.ID
+                    join h in _iAnhRepositoriy.getAll() on a.IdAnh equals h.ID
                     select new QlyHangHoaViewModels
                     {
                         Id = a.Id,
@@ -76,7 +76,7 @@ namespace _2_BUS.Service
                         IdSizeGiay = e.Id,
                         IdLoaiGiay = f.Id,
                         IdChatLieu = g.Id,
-                      //  IdAnh = h ==null ? null :h.ID,
+                        IdAnh = h.ID,
                         Ma = b.Ma,
                         Ten = b.Ten,
                         TrangThai = b.TrangThai,
@@ -85,7 +85,9 @@ namespace _2_BUS.Service
                         SoLuongTon = a.SoLuongTon,
                         GiaBan = a.GiaBan,
                         GiaNhap = a.GiaNhap,
-                         SoSize = e.SoSize
+                        SoSize = e.SoSize,
+                        Mavach = a.MaQRCode
+
                     }).ToList();
         }
 

@@ -39,12 +39,8 @@
             this.pic_danhmuc = new System.Windows.Forms.PictureBox();
             this.cbo_mahh = new System.Windows.Forms.TextBox();
             this.pic_exit = new System.Windows.Forms.PictureBox();
-            this.txt_model = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.btn_xoa = new System.Windows.Forms.Button();
             this.btn_sua = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -82,6 +78,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.pic_anhadd = new System.Windows.Forms.PictureBox();
+            this.cbo_anh = new System.Windows.Forms.ComboBox();
+            this.label16 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pic_dungtich)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_xuatxu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_nhomhuong)).BeginInit();
@@ -91,12 +90,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pic_danhmuc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_exit)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_anhhanghoa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_cammera)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_anhadd)).BeginInit();
             this.SuspendLayout();
             // 
             // pic_dungtich
@@ -153,6 +152,7 @@
             this.pic_mavach.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_mavach.TabIndex = 147;
             this.pic_mavach.TabStop = false;
+            this.pic_mavach.DoubleClick += new System.EventHandler(this.pic_mavach_DoubleClick);
             // 
             // pic_nsx
             // 
@@ -188,39 +188,19 @@
             // pic_exit
             // 
             this.pic_exit.Image = ((System.Drawing.Image)(resources.GetObject("pic_exit.Image")));
-            this.pic_exit.Location = new System.Drawing.Point(1141, 9);
+            this.pic_exit.Location = new System.Drawing.Point(1221, 12);
             this.pic_exit.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.pic_exit.Name = "pic_exit";
             this.pic_exit.Size = new System.Drawing.Size(88, 40);
             this.pic_exit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_exit.TabIndex = 143;
             this.pic_exit.TabStop = false;
-            // 
-            // txt_model
-            // 
-            this.txt_model.Location = new System.Drawing.Point(1055, 745);
-            this.txt_model.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.txt_model.Name = "txt_model";
-            this.txt_model.Size = new System.Drawing.Size(151, 27);
-            this.txt_model.TabIndex = 141;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label8.Location = new System.Drawing.Point(875, 745);
-            this.label8.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(52, 20);
-            this.label8.TabIndex = 139;
-            this.label8.Text = "Model";
+            this.pic_exit.Click += new System.EventHandler(this.pic_exit_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.RosyBrown;
-            this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.pictureBox4);
-            this.panel1.Controls.Add(this.btn_xoa);
             this.panel1.Controls.Add(this.btn_sua);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.pictureBox2);
@@ -232,23 +212,11 @@
             this.panel1.Size = new System.Drawing.Size(1344, 65);
             this.panel1.TabIndex = 137;
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.DarkSalmon;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(843, 12);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(33, 32);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 159;
-            this.pictureBox3.TabStop = false;
-            // 
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.DarkSalmon;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(624, 15);
+            this.pictureBox4.Location = new System.Drawing.Point(750, 19);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(42, 27);
@@ -256,33 +224,23 @@
             this.pictureBox4.TabIndex = 160;
             this.pictureBox4.TabStop = false;
             // 
-            // btn_xoa
-            // 
-            this.btn_xoa.BackColor = System.Drawing.Color.DarkSalmon;
-            this.btn_xoa.Location = new System.Drawing.Point(792, 5);
-            this.btn_xoa.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btn_xoa.Name = "btn_xoa";
-            this.btn_xoa.Size = new System.Drawing.Size(191, 45);
-            this.btn_xoa.TabIndex = 155;
-            this.btn_xoa.Text = "     Xóa";
-            this.btn_xoa.UseVisualStyleBackColor = false;
-            // 
             // btn_sua
             // 
             this.btn_sua.BackColor = System.Drawing.Color.DarkSalmon;
-            this.btn_sua.Location = new System.Drawing.Point(577, 5);
+            this.btn_sua.Location = new System.Drawing.Point(703, 9);
             this.btn_sua.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btn_sua.Name = "btn_sua";
             this.btn_sua.Size = new System.Drawing.Size(192, 45);
             this.btn_sua.TabIndex = 156;
             this.btn_sua.Text = "     Sửa";
             this.btn_sua.UseVisualStyleBackColor = false;
+            this.btn_sua.Click += new System.EventHandler(this.btn_sua_Click);
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.DarkSalmon;
             this.pictureBox1.Image = global::_3_PL.Properties.Resources.add_user;
-            this.pictureBox1.Location = new System.Drawing.Point(407, 15);
+            this.pictureBox1.Location = new System.Drawing.Point(532, 18);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(42, 29);
@@ -294,7 +252,7 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.DarkSalmon;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(617, 13);
+            this.pictureBox2.Location = new System.Drawing.Point(769, 18);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(42, 27);
@@ -306,13 +264,14 @@
             // 
             this.btn_them.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btn_them.BackColor = System.Drawing.Color.DarkSalmon;
-            this.btn_them.Location = new System.Drawing.Point(367, 5);
+            this.btn_them.Location = new System.Drawing.Point(492, 8);
             this.btn_them.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btn_them.Name = "btn_them";
             this.btn_them.Size = new System.Drawing.Size(191, 47);
             this.btn_them.TabIndex = 154;
             this.btn_them.Text = "     Thêm";
             this.btn_them.UseVisualStyleBackColor = false;
+            this.btn_them.Click += new System.EventHandler(this.btn_them_Click);
             // 
             // cbo_tenhh
             // 
@@ -324,6 +283,7 @@
             this.cbo_tenhh.Name = "cbo_tenhh";
             this.cbo_tenhh.Size = new System.Drawing.Size(151, 28);
             this.cbo_tenhh.TabIndex = 136;
+            this.cbo_tenhh.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cbo_tenhh_KeyUp);
             // 
             // San
             // 
@@ -355,6 +315,7 @@
             this.btn_close.TabIndex = 133;
             this.btn_close.Text = "Tắt";
             this.btn_close.UseVisualStyleBackColor = true;
+            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
             // btn_cammera
             // 
@@ -365,6 +326,7 @@
             this.btn_cammera.TabIndex = 132;
             this.btn_cammera.Text = "Mở";
             this.btn_cammera.UseVisualStyleBackColor = true;
+            this.btn_cammera.Click += new System.EventHandler(this.btn_cammera_Click);
             // 
             // cbo_webcam
             // 
@@ -392,6 +354,7 @@
             this.cbo_loaigiay.Name = "cbo_loaigiay";
             this.cbo_loaigiay.Size = new System.Drawing.Size(151, 28);
             this.cbo_loaigiay.TabIndex = 127;
+            this.cbo_loaigiay.Click += new System.EventHandler(this.cbo_loaigiay_Click);
             // 
             // cbo_tenquocgia
             // 
@@ -401,6 +364,7 @@
             this.cbo_tenquocgia.Name = "cbo_tenquocgia";
             this.cbo_tenquocgia.Size = new System.Drawing.Size(151, 28);
             this.cbo_tenquocgia.TabIndex = 128;
+            this.cbo_tenquocgia.Click += new System.EventHandler(this.cbo_tenquocgia_Click);
             // 
             // cbo_sizegiay
             // 
@@ -410,6 +374,7 @@
             this.cbo_sizegiay.Name = "cbo_sizegiay";
             this.cbo_sizegiay.Size = new System.Drawing.Size(151, 28);
             this.cbo_sizegiay.TabIndex = 126;
+            this.cbo_sizegiay.Click += new System.EventHandler(this.cbo_sizegiay_Click);
             // 
             // cbo_tencl
             // 
@@ -419,6 +384,7 @@
             this.cbo_tencl.Name = "cbo_tencl";
             this.cbo_tencl.Size = new System.Drawing.Size(151, 28);
             this.cbo_tencl.TabIndex = 123;
+            this.cbo_tencl.Click += new System.EventHandler(this.cbo_tencl_Click);
             // 
             // cbo_danhmuc
             // 
@@ -428,6 +394,7 @@
             this.cbo_danhmuc.Name = "cbo_danhmuc";
             this.cbo_danhmuc.Size = new System.Drawing.Size(151, 28);
             this.cbo_danhmuc.TabIndex = 125;
+            this.cbo_danhmuc.Click += new System.EventHandler(this.cbo_danhmuc_Click);
             // 
             // cbo_nsx
             // 
@@ -437,6 +404,7 @@
             this.cbo_nsx.Name = "cbo_nsx";
             this.cbo_nsx.Size = new System.Drawing.Size(151, 28);
             this.cbo_nsx.TabIndex = 124;
+            this.cbo_nsx.Click += new System.EventHandler(this.cbo_nsx_Click);
             // 
             // tmrTime
             // 
@@ -447,31 +415,33 @@
             // 
             this.chk_hethang.AutoSize = true;
             this.chk_hethang.ForeColor = System.Drawing.Color.White;
-            this.chk_hethang.Location = new System.Drawing.Point(329, 732);
+            this.chk_hethang.Location = new System.Drawing.Point(329, 791);
             this.chk_hethang.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.chk_hethang.Name = "chk_hethang";
             this.chk_hethang.Size = new System.Drawing.Size(95, 24);
             this.chk_hethang.TabIndex = 120;
             this.chk_hethang.Text = "Hết Hàng";
             this.chk_hethang.UseVisualStyleBackColor = true;
+            this.chk_hethang.CheckedChanged += new System.EventHandler(this.chk_hethang_CheckedChanged);
             // 
             // chk_conhang
             // 
             this.chk_conhang.AutoSize = true;
             this.chk_conhang.ForeColor = System.Drawing.Color.White;
-            this.chk_conhang.Location = new System.Drawing.Point(222, 732);
+            this.chk_conhang.Location = new System.Drawing.Point(222, 791);
             this.chk_conhang.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.chk_conhang.Name = "chk_conhang";
             this.chk_conhang.Size = new System.Drawing.Size(97, 24);
             this.chk_conhang.TabIndex = 119;
             this.chk_conhang.Text = "Còn Hàng";
             this.chk_conhang.UseVisualStyleBackColor = true;
+            this.chk_conhang.CheckedChanged += new System.EventHandler(this.chk_conhang_CheckedChanged);
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(35, 733);
+            this.label15.Location = new System.Drawing.Point(35, 792);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(78, 20);
@@ -586,6 +556,7 @@
             this.txt_mavach.Name = "txt_mavach";
             this.txt_mavach.Size = new System.Drawing.Size(151, 27);
             this.txt_mavach.TabIndex = 105;
+            this.txt_mavach.TextChanged += new System.EventHandler(this.txt_mavach_TextChanged);
             // 
             // label5
             // 
@@ -642,12 +613,46 @@
             this.label1.TabIndex = 100;
             this.label1.Text = "Mã Hàng Hóa";
             // 
+            // pic_anhadd
+            // 
+            this.pic_anhadd.Image = ((System.Drawing.Image)(resources.GetObject("pic_anhadd.Image")));
+            this.pic_anhadd.Location = new System.Drawing.Point(379, 739);
+            this.pic_anhadd.Name = "pic_anhadd";
+            this.pic_anhadd.Size = new System.Drawing.Size(34, 29);
+            this.pic_anhadd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_anhadd.TabIndex = 156;
+            this.pic_anhadd.TabStop = false;
+            // 
+            // cbo_anh
+            // 
+            this.cbo_anh.FormattingEnabled = true;
+            this.cbo_anh.Location = new System.Drawing.Point(222, 737);
+            this.cbo_anh.Name = "cbo_anh";
+            this.cbo_anh.Size = new System.Drawing.Size(151, 28);
+            this.cbo_anh.TabIndex = 155;
+            this.cbo_anh.SelectedIndexChanged += new System.EventHandler(this.cbo_anh_SelectedIndexChanged);
+            this.cbo_anh.Click += new System.EventHandler(this.cbo_anh_Click);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Location = new System.Drawing.Point(35, 737);
+            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(86, 20);
+            this.label16.TabIndex = 154;
+            this.label16.Text = "Dường Dẫn";
+            // 
             // FrmChiTietHangHoa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightPink;
             this.ClientSize = new System.Drawing.Size(1344, 999);
+            this.Controls.Add(this.pic_anhadd);
+            this.Controls.Add(this.cbo_anh);
+            this.Controls.Add(this.label16);
             this.Controls.Add(this.pic_dungtich);
             this.Controls.Add(this.pic_xuatxu);
             this.Controls.Add(this.pic_nhomhuong);
@@ -657,8 +662,6 @@
             this.Controls.Add(this.pic_danhmuc);
             this.Controls.Add(this.cbo_mahh);
             this.Controls.Add(this.pic_exit);
-            this.Controls.Add(this.txt_model);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.cbo_tenhh);
             this.Controls.Add(this.San);
@@ -695,6 +698,7 @@
             this.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.Name = "FrmChiTietHangHoa";
             this.Text = "FrmEditHangHoa";
+            this.Load += new System.EventHandler(this.FrmChiTietHangHoa_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pic_dungtich)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_xuatxu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_nhomhuong)).EndInit();
@@ -704,12 +708,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pic_danhmuc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_exit)).EndInit();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_anhhanghoa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_cammera)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_anhadd)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -726,8 +730,6 @@
         private PictureBox pic_danhmuc;
         private TextBox cbo_mahh;
         private PictureBox pic_exit;
-        private TextBox txt_model;
-        private Label label8;
         private Panel panel1;
         private ComboBox cbo_tenhh;
         private Label San;
@@ -766,8 +768,9 @@
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private Button btn_them;
-        private PictureBox pictureBox3;
-        private Button btn_xoa;
         private PictureBox pictureBox4;
+        private PictureBox pic_anhadd;
+        private ComboBox cbo_anh;
+        private Label label16;
     }
 }
