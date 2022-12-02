@@ -42,7 +42,7 @@ namespace _2_BUS.Services
                         TenShip = a.TenShip,
                         SoTienQuyDoi = a.SoTienQuyDoi,
                         SoDiemSuDung = a.SoDiemSuDung,
-                        TenKhachHang = a.TenKhachHang,
+                    //    TenKhachHang = a.TenKhachHang,
                         PhanTramGiamGia = a.PhanTramGiamGia,
 
                     }).ToList();
@@ -83,7 +83,7 @@ namespace _2_BUS.Services
                 hoaDon.NgayShip = Hoadonold.NgayShip;
                 hoaDon.TinhTrang = Hoadonold.TinhTrang;
                 hoaDon.Thue = Hoadonold.Thue;
-                hoaDon.TenKhachHang = Hoadonold.TenKhachHang;
+          //      hoaDon.TenKhachHang = Hoadonold.TenKhachHang;
                 hoaDon.TenShip = Hoadonold.TenShip;
                 hoaDon.SoDiemSuDung = Hoadonold.SoDiemSuDung;
                 hoaDon.SoTienQuyDoi = Hoadonold.SoTienQuyDoi;

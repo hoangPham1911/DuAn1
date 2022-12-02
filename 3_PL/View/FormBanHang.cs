@@ -82,10 +82,7 @@ namespace _3_PL.View
             var nv = _NhanVienServices.GetAll().FirstOrDefault(p => p.Id == FrmDangNhap._IdStaff);
             string hoTenNV = nv.Ho + " " + nv.TenDem + " " + nv.Ten;
             button4.Text = hoTenNV;
-            foreach (var item in _KhachHangServices.GetAllKhachHangDB().Select(p => p.Ma))
-            {
-                comboBox1.Items.Add(item);
-            }
+          
 
         }
         private void loadProduct()
@@ -118,7 +115,6 @@ namespace _3_PL.View
             // checkbox
             foreach (var item in _ListProduct)
             {
-                ///   AnhViewModels image = _AnhService.GetAnh().FirstOrDefault(p => p.ID == item.IdAnh);
                 dgv_product.Rows.Add(item.IdSp, n++, item.Ma, item.Ten, item.GiaBan,
               item.IdHangHoaChiTiet, item.SoLuongTon
               );
@@ -804,39 +800,6 @@ namespace _3_PL.View
             checkNumber(sender, e);
         }
 
-        private void loadInformationClinet()
-        {
-            textBox3.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Ma == comboBox1.Text).Ten;
-            textBox1.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Ma == comboBox1.Text).DiaChi;
-            textBox4.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Ma == comboBox1.Text).Sdt;
-
-        }
-        private void textBox3_TextChanged_1(object sender, EventArgs e)
-        {
-            if (_KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Ma == comboBox1.Text) != null)
-            {
-                loadInformationClinet();
-            }
-
-        }
-
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
-        {
-            if (_KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Ma == comboBox1.Text) != null)
-            {
-                loadInformationClinet();
-            }
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-            if (_KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Ma == comboBox1.Text) != null)
-            {
-                loadInformationClinet();
-            }
-
-        }
         private void button3_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Bạn Muốn Thêm Sp Này Vào Gio Hàng Chứ?", "Thông Báo", MessageBoxButtons.YesNo);
@@ -1203,6 +1166,17 @@ namespace _3_PL.View
 
                 MessageBox.Show(Convert.ToString(ex.Message), "Không Được Nhập Chữ Hoặc Kí Tự Đặc Biệt1");
                 return;
+            }
+        }
+
+        private void textBox10_TextChanged(object sender, EventArgs e)
+        {
+            if(_KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p=>p.Sdt == textBox10.Text).Sdt != null)
+            {
+                textBox3.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt == textBox10.Text).Ten;
+                textBox1.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt == textBox10.Text).DiaChi;
+                textBox4.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt == textBox10.Text).Sdt;
+
             }
         }
     }
