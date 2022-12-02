@@ -18,25 +18,21 @@ namespace _2_BUS.Service
     public class SaleChiTietService : ISaleChiTietService
     {
         public ISaleDetailRepository _SaleDetailRepository;
+        public ISaleRepository _ISaleRepository;
+
         public IProductRepository ihanghoa;
         IProductDetailRepository _IHangHoaChiTietRepository;
-        IQuocGiaRepository _iQuocgiaRepository;
-        INsxRepository _iNsxRepository;
         ISizeShoseRepository _iSizeshoesRepository;
         ILoaiGiayRepository _iLoaiGiayRepository;
-        IChatLieuRepository _iChatLieuRepository;
-        IImageRepositoriy _iAnhRepositoriy;
+        
         public SaleChiTietService()
         {
+            _ISaleRepository = new SaleRepositores();
             _SaleDetailRepository = new SaleDetailRepositores();
             _IHangHoaChiTietRepository = new ProductDetailRepositores();
             ihanghoa = new ProductRepositores();
-            _iQuocgiaRepository = new QuocGiaRepositores();
-            _iNsxRepository = new NsxRepositores();
             _iSizeshoesRepository = new SizeShoseRepositores();
             _iLoaiGiayRepository = new LoaiGiayRepositores();
-            _iChatLieuRepository = new ChatLieuRepositores();
-            _iAnhRepositoriy = new ImageRepositoriy();
         }
         public bool add(SaleChiTietThemView sale)
         {
@@ -46,53 +42,37 @@ namespace _2_BUS.Service
                 return true;
             return false;
         }
-
-        public List<SaleChiTietViewModels> GetDanhMuc()
-        {
-            return (from a in _SaleDetailRepository.getAll()
-                    join b in ihanghoa.getAll() on a.IdChiTietHangHoa equals b.Id
-                    select new SaleChiTietViewModels
-                    {
-                        /*IdHangHoa = IdHangHoaCt*/
-                        IdHangHoa = a.IdChiTietHangHoa,
-                        IdSale = a.IdSale,
-                       
-                        
-                        //GiamTheoKhoangTien = a.SaleTheoKhoangTien,
-                        //GiamTheoPhanTram = a.SaleTheoPhanTram,
-
-                    }).ToList();
-        }
-        public List<QlyHangHoaViewModels> GetsList()
+        public List<SaleChiTietViewModels> GetsList()
 
         {
             return (from a in _IHangHoaChiTietRepository.getAll()
                     join b in ihanghoa.getAll() on a.IdSp equals b.Id
-                    join c in _iQuocgiaRepository.getAll() on a.IdQuocGia equals c.Id
-                    join d in _iNsxRepository.getAll() on b.IdNsx equals d.Id
                     join e in _iSizeshoesRepository.getAll() on a.IdSizeGiay equals e.Id
                     join f in _iLoaiGiayRepository.getAll() on a.IdLoaiGiay equals f.Id
-                    join g in _iChatLieuRepository.getAll() on a.IdChatLieu equals g.Id
-                    join h in _iAnhRepositoriy.getAll() on a.IdAnh equals h.ID
-                    select new QlyHangHoaViewModels
+                    join h in _SaleDetailRepository.getAll() on a.Id equals h.IdChiTietHangHoa
+                    join g in _ISaleRepository.getAll() on h.IdSale equals g.Id
+                    
+                    select new SaleChiTietViewModels
                     {
-                        Id = a.Id,
+                        IdCtSp = a.Id,
                         IdSp = b.Id,
-                        IdQuocGia = c.Id,
-                        IdNsx = d.Id,
                         IdSizeGiay = e.Id,
                         IdLoaiGiay = f.Id,
-                        IdChatLieu = g.Id,
-                        IdAnh = h.ID,
                         Ma = b.Ma,
                         Ten = b.Ten,
                         TrangThai = b.TrangThai,
-                        NamBh = a.NamBh,
                         MoTa = a.MoTa,
                         SoLuongTon = a.SoLuongTon,
                         GiaBan = a.GiaBan,
-                        GiaNhap = a.GiaNhap,
-                        SoSize = e.SoSize
+                        SoSize = e.SoSize,
+                        IdSaleChiTiet = h.IdSale,
+                        SoTienSauKhiGiam = h.SoTienSauKhiGiam,
+                        IdSale = g.Id,
+                        NgayBatDau = g.NgayBatDau,
+                        NgayKetThuc = g.NgayKetThuc,
+                        MaGiamGia = g.MaGiamGia,
+                        TenChuongTrinh = g.TenChuongTrinh,
+                        SaleTheoPhanTram = g.SaleTheoPhanTram,
                         
                     }).ToList();
         }

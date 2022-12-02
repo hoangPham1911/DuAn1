@@ -82,7 +82,7 @@ namespace _3_PL.View
                     x.TinhTrang == 1 ? "Da TT" : x.TinhTrang == 0 ? "Chua TT" : x.TinhTrang == 2 ? "Chờ Giao Hàng" : x.TinhTrang == 3 ? "Da Huy" : "Đã Cọc",
                     x.Thue,
                     x.SDTShip,
-                    x.TenNguoiShip,
+                    x.TenKhachHang,
                     x.TenShip,
                     x.SoTienQuyDoi,
                     x.SoDiemSuDung,
@@ -130,7 +130,7 @@ namespace _3_PL.View
             rdb_dacoc.Checked = hd.TinhTrang == 4;
             txt_thue.Text = hd.Thue.ToString();
             txt_sdtShip.Text = hd.SDTShip.ToString();
-            txt_tenguoiship.Text = hd.TenNguoiShip.ToString();
+            txt_tenguoiship.Text = hd.TenKhachHang.ToString();
             txt_tenship.Text = hd.TenShip.ToString();
             txt_sotienquydoi.Text = hd.SoTienQuyDoi.ToString();
             txt_sodiemtieudung.Text = hd.SoDiemSuDung.ToString();
@@ -169,7 +169,7 @@ namespace _3_PL.View
             suaHoaDon.NgayNhan = dtp_ngaynhan.Value;
             suaHoaDon.TinhTrang = rdb_datt.Checked ? 1 : rdb_chuatt.Checked ? 0 : rdb_chogiaohang.Checked ? 2 : rdb_dahuy.Checked ? 3 : 4;
             suaHoaDon.SDTShip = txt_sdtShip.Text;
-            suaHoaDon.TenNguoiShip = txt_tenguoiship.Text;
+            suaHoaDon.TenKhachHang = txt_tenguoiship.Text;
             suaHoaDon.TenShip = txt_tenship.Text;
             suaHoaDon.Thue = Convert.ToDecimal(txt_thue.Text);
             suaHoaDon.SoTienQuyDoi = Convert.ToDecimal(txt_sotienquydoi.Text);

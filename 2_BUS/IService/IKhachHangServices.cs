@@ -13,6 +13,8 @@ namespace _2_BUS.IService
         string SuaKhachHang(SuaKhachHangViewModels obj);
         string XoaKhachHang(Guid idKh);
         List<KhachHangViewModels> GetAllKhachHangDB();
+        List<KhachHangViewModels> GetAllDiemKhachHang();
+
         //List<KhachHangViewModels> TimKiem(string maKH);
     }
 }

@@ -41,11 +41,30 @@ namespace _1.DAL.Repostiores
             return _dbContext.HoaDonChiTiets.ToList();
         }
 
-        public bool remove( Guid IdSpCt)
+        public bool remove( Guid IdHoaDon)
         {
             try
             {
-                HoaDonChiTiet Spct = _dbContext.HoaDonChiTiets.SingleOrDefault(p => p.IdChiTietSp == IdSpCt);
+                List<HoaDonChiTiet> Spct = _dbContext.HoaDonChiTiets.Where(p => p.IdHoaDon == IdHoaDon).ToList();
+                foreach (var item in Spct)
+                {
+                    _dbContext.HoaDonChiTiets.Remove(item);
+                    _dbContext.SaveChanges();
+                }             
+                return true;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public bool removeSP(Guid IdSpCt, Guid IdHoaDon)
+        {
+            try
+            {
+                HoaDonChiTiet Spct = _dbContext.HoaDonChiTiets.SingleOrDefault(p => p.IdChiTietSp == IdSpCt && p.IdHoaDon == IdHoaDon);
                 _dbContext.HoaDonChiTiets.Remove(Spct);
                 _dbContext.SaveChanges();
 
