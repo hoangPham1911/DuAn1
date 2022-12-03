@@ -193,6 +193,10 @@
             this.pPreDHoaDon.Name = "pPreDHoaDon";
             this.pPreDHoaDon.Visible = false;
             // 
+            // pDHoaDon
+            // 
+            this.pDHoaDon.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.pDHoaDon_PrintPage);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -1234,6 +1238,7 @@
             this.textBox10.TabIndex = 115;
             this.textBox10.Text = "--SĐT Khách Hàng--";
             this.textBox10.TextChanged += new System.EventHandler(this.textBox10_TextChanged);
+            this.textBox10.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox10_KeyPress_1);
             // 
             // button4
             // 

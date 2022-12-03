@@ -51,6 +51,7 @@ namespace _2_BUS.Service
                     join d in _HoaDonRepos.getAllReceipt() on c.IdHoaDon equals d.Id
                     select new SanPhamTrongHoaDonViewModels
                     {
+                        IdsP = a.Id,
                         MaSP = a.Ma,
                         TenSp = a.Ten,
                         SoLuong = c.SoLuong,
