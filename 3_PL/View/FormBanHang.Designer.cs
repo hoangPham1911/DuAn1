@@ -359,7 +359,7 @@
             this.panel5.Location = new System.Drawing.Point(5, 40);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(292, 529);
+            this.panel5.Size = new System.Drawing.Size(292, 389);
             this.panel5.TabIndex = 116;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
@@ -913,12 +913,12 @@
             // btn_DatHang
             // 
             this.btn_DatHang.BackColor = System.Drawing.Color.RosyBrown;
-            this.btn_DatHang.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_DatHang.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_DatHang.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_DatHang.Location = new System.Drawing.Point(64, 487);
+            this.btn_DatHang.Location = new System.Drawing.Point(64, 478);
             this.btn_DatHang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_DatHang.Name = "btn_DatHang";
-            this.btn_DatHang.Size = new System.Drawing.Size(161, 44);
+            this.btn_DatHang.Size = new System.Drawing.Size(167, 36);
             this.btn_DatHang.TabIndex = 92;
             this.btn_DatHang.Text = "Đặt Hàng";
             this.btn_DatHang.UseVisualStyleBackColor = false;
