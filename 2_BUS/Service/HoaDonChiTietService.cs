@@ -23,7 +23,7 @@ namespace _2_BUS.Service
         {
             _IProductDetailRepository = new ProductDetailRepositores();
             _ProductRepository = new ProductRepositores();
-            _IreceiptDetailRepository = new ReceiptDetailRepositores();
+            _IreceiptDetailRepository = new ReceiptDetailRepositores(); 
             _HoaDonRepos = new ReceiptRepositores();
         }
        
@@ -61,12 +61,13 @@ namespace _2_BUS.Service
                     }).ToList();
         }
 
-        public bool SuaHoaDonChiTiet(HoaDonChiTietUpdateView Hoadons)
+        public bool SuaHoaDonChiTiet(HoaDonChiTietViewModel Hoadons)
         {
             HoaDonChiTiet hdct = _IreceiptDetailRepository.GetAll().FirstOrDefault(p => p.IdHoaDon == Hoadons.IdHoaDon);
             hdct.GiamGia = Hoadons.GiamGia;
             hdct.SoLuong = Hoadons.SoLuong;
             hdct.ThanhTien = Hoadons.ThanhTien;
+            hdct.TrangThai = Hoadons.TrangThai;
             if (_IreceiptDetailRepository.update(hdct)) return true;
             return false;
         }

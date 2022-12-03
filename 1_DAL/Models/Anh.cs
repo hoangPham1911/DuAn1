@@ -28,7 +28,7 @@ namespace _1_DAL.Models
         [StringLength(50)]
         public string?Ten { get; set; }
 
-        public string? DuongDan { get; set; }
+        public string DuongDan { get; set; }
         public int TrangThai { get; set; }
 
         [InverseProperty(nameof(ChiTietHangHoa.IdAnhNavigation))]

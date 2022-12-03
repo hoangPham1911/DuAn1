@@ -5,7 +5,7 @@ namespace _2_BUS.IService
     public interface IHoaDonChiTietService
     {
         bool ThemHoaDonChiTiet(HoaDonChiTietThemViewModel Hoadonnew);
-        bool SuaHoaDonChiTiet(HoaDonChiTietUpdateView Hoadonold);
+        bool SuaHoaDonChiTiet(HoaDonChiTietViewModel Hoadonold);
         bool XoaHoaDonChiTiet(Guid Hoadonold);
         bool XoaSpTrongHoaDonChiTiet(Guid Id, Guid IdHoaDon);
 
