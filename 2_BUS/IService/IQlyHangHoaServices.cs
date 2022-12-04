@@ -12,11 +12,13 @@ namespace _2_BUS.IService
     {
         bool addhanghoa(HangHoaThemViewModels hh);
         bool deletehanghoa(HangHoaViewModels idhh);
-        bool updatehanghoa(HangHoaUpdateViewModels hh);
+        bool updatehanghoa(HangHoaViewModels hh);
         bool addcthanghoa(ChiTietHangHoaThemViewModels cthh);
         bool deletecthanghoa(Guid idcthh);
-        bool updatecthanghoa(ChiTietHangHoaUpdateViewModels cthh);
-      
+        bool updatehanghoact(ChiTietHangHoaUpdateViewModels hh);
+
+        public Guid IdSp(HangHoaViewModels product);
+
         List<QlyHangHoaViewModels> GetsList();
         List<HangHoaViewModels> GetsListHH();
         List<ChiTietHangHoaViewModels> GetsListCTHH();

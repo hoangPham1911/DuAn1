@@ -27,13 +27,7 @@ namespace _3_PL.View
         private static FrmHangHoa _sender;
         public FrmHangHoa()
         {
-<<<<<<< HEAD
             InitializeComponent();
-=======
-           
-            InitializeComponent();
-            _sender = this;
->>>>>>> 6c82abc2e18c0e6a80b82106db9e7f00b3658d0e
             qlhhser = new QlyHangHoaServices();
             _anhser = new AnhService();
             _nsxser = new NsxServices();
@@ -41,10 +35,8 @@ namespace _3_PL.View
             _quocgiaser = new QuocGiaServices();
             _sizegiayser = new SizeGiayServices();
             _loaigiayser = new LoaiGiayServices();
-<<<<<<< HEAD
             _sender = this;
-=======
->>>>>>> 6c82abc2e18c0e6a80b82106db9e7f00b3658d0e
+            loadloc();
             loaddata();
 
         }
@@ -55,18 +47,17 @@ namespace _3_PL.View
             frmAlert.showAlert(mess);
         }
 
+        void loadloc()
+        {
+            ArrayList row = new ArrayList();
+
+            row = new ArrayList();
+            row.Add("Giá");
+            row.Add("Số Lượng");
+            cbo_loc.Items.AddRange(row.ToArray());
+        }
         public void loaddata()
         {
-<<<<<<< HEAD
-=======
-            //ArrayList row = new ArrayList();
-
-            //row = new ArrayList();
-            //row.Add("Thêm");
-            //row.Add("Sửa");
-            //row.Add("Xóa");
-
->>>>>>> 6c82abc2e18c0e6a80b82106db9e7f00b3658d0e
             dgrid_sanpham.ColumnCount = 15;
             dgrid_sanpham.Columns[0].Name = "IDHH";
             dgrid_sanpham.Columns[0].Visible = false;
@@ -86,42 +77,39 @@ namespace _3_PL.View
             dgrid_sanpham.Columns[13].Name = "Tên quốc gia";
             dgrid_sanpham.Columns[14].Name = "Loại giày";
             dgrid_sanpham.Rows.Clear();
-            foreach (var x in qlhhser.GetsList().Where(c => c.TrangThai == 1))
+            foreach (var x in qlhhser.GetsList())
             {
-<<<<<<< HEAD
-                dgrid_sanpham.Rows.Add(x.IdSp, x.Id, x.Ma, x.Ten, x.Mavach, _nsxser.GetNhasanxuat().FirstOrDefault(c => c.Id == x.IdNsx).Ten, x.SoLuongTon, _anhser.GetAnh().FirstOrDefault(c => c.ID == x.IdAnh).DuongDan, x.TrangThai == 1 ? "Còn Hàng" : "Hết Hàng", x.GiaNhap, x.GiaBan, _chatlieuser.GetChatLieu().FirstOrDefault(c => c.Id == x.IdChatLieu).Ten, _sizegiayser.GetSizeGiay().FirstOrDefault(c => c.Id == x.IdSizeGiay).SoSize, _quocgiaser.GetQuocGia().FirstOrDefault(c => c.Id == x.IdQuocGia).Ten, _loaigiayser.GetLoaiGiay().FirstOrDefault(c => c.Id == x.IdLoaiGiay).Ten);
-=======
-                dgrid_sanpham.Rows.Add(x.IdSp, x.Id, x.Ma, x.Ten, x.Mavach, _nsxser.GetNhasanxuat().FirstOrDefault(c => c.Id == x.IdNsx).Ten, x.SoLuongTon, x.IdAnh, x.TrangThai == 1 ? "Còn Hàng" : "Hết Hàng", x.GiaNhap, x.GiaBan, _chatlieuser.GetChatLieu().FirstOrDefault(c => c.Id == x.IdChatLieu).Ten, _sizegiayser.GetSizeGiay().FirstOrDefault(c => c.Id == x.IdSizeGiay).SoSize, _quocgiaser.GetQuocGia().FirstOrDefault(c => c.Id == x.IdQuocGia).Ten, _loaigiayser.GetLoaiGiay().FirstOrDefault(c => c.Id == x.IdLoaiGiay).Ten);
->>>>>>> 6c82abc2e18c0e6a80b82106db9e7f00b3658d0e
+                //dgrid_sanpham.Rows.Add(x.IdSp, x.Id, x.Ma, x.Ten, x.Mavach, _nsxser.GetNhasanxuat().FirstOrDefault(c => c.Id == x.IdNsx).Ten, x.SoLuongTon, _anhser.GetAnh().FirstOrDefault(c => c.ID == x.IdAnh).DuongDan, x.TrangThai == 1 ? "Còn Hàng" : "Hết Hàng", x.GiaNhap, x.GiaBan, _chatlieuser.GetChatLieu().FirstOrDefault(c => c.Id == x.IdChatLieu).Ten, _sizegiayser.GetSizeGiay().FirstOrDefault(c => c.Id == x.IdSizeGiay).SoSize, _quocgiaser.GetQuocGia().FirstOrDefault(c => c.Id == x.IdQuocGia).Ten, _loaigiayser.GetLoaiGiay().FirstOrDefault(c => c.Id == x.IdLoaiGiay).Ten);
+                dgrid_sanpham.Rows.Add(x.IdSp, x.Id, x.Ma, x.Ten, x.Mavach, x.TenNsx, x.SoLuongTon, x.DuongDanAnh, x.TrangThai == 1 ? "Còn Hàng" : "Hết Hàng", x.GiaNhap, x.GiaBan, x.TenChatLieu, x.SoSize, x.TenQuocGia, x.TenLoaiGiay);
             }
         }
 
         //string mahh, string nsx, string trangthai, string mavach, string soluong, string gianhap, string giaban, string tenchatlieu, string sizegiay, string loaigiay, string quocgia, string anh
         public static void loaddatasender()
         {
-           _sender.dgrid_sanpham.ColumnCount = 15;
-           _sender.dgrid_sanpham.Columns[0].Name = "IDHH";
-           _sender.dgrid_sanpham.Columns[0].Visible = false;
-           _sender.dgrid_sanpham.Columns[1].Name = "IDCTHH";
-           _sender.dgrid_sanpham.Columns[1].Visible = false;
-           _sender.dgrid_sanpham.Columns[2].Name = "Mã Hàng Hóa";
-           _sender.dgrid_sanpham.Columns[3].Name = "Tên Hàng Hóa";
-           _sender.dgrid_sanpham.Columns[4].Name = "Mã vạch";
-           _sender.dgrid_sanpham.Columns[5].Name = "Nhà sản xuất";
-           _sender.dgrid_sanpham.Columns[6].Name = "Số lượng";
-           _sender.dgrid_sanpham.Columns[7].Name = "Ảnh";
-           _sender.dgrid_sanpham.Columns[8].Name = "Trạng thái";
-           _sender.dgrid_sanpham.Columns[9].Name = "Giá nhập";
-           _sender.dgrid_sanpham.Columns[10].Name = "Đơn giá bán";
-           _sender.dgrid_sanpham.Columns[11].Name = "Tên chất liệu chính";
-           _sender.dgrid_sanpham.Columns[12].Name = "Size giày";
-           _sender.dgrid_sanpham.Columns[13].Name = "Tên quốc gia";
-           _sender.dgrid_sanpham.Columns[14].Name = "Loại giày";
-           _sender.dgrid_sanpham.Rows.Clear();
+            _sender.dgrid_sanpham.ColumnCount = 15;
+            _sender.dgrid_sanpham.Columns[0].Name = "IDHH";
+            _sender.dgrid_sanpham.Columns[0].Visible = false;
+            _sender.dgrid_sanpham.Columns[1].Name = "IDCTHH";
+            _sender.dgrid_sanpham.Columns[1].Visible = false;
+            _sender.dgrid_sanpham.Columns[2].Name = "Mã Hàng Hóa";
+            _sender.dgrid_sanpham.Columns[3].Name = "Tên Hàng Hóa";
+            _sender.dgrid_sanpham.Columns[4].Name = "Mã vạch";
+            _sender.dgrid_sanpham.Columns[5].Name = "Nhà sản xuất";
+            _sender.dgrid_sanpham.Columns[6].Name = "Số lượng";
+            _sender.dgrid_sanpham.Columns[7].Name = "Ảnh";
+            _sender.dgrid_sanpham.Columns[8].Name = "Trạng thái";
+            _sender.dgrid_sanpham.Columns[9].Name = "Giá nhập";
+            _sender.dgrid_sanpham.Columns[10].Name = "Đơn giá bán";
+            _sender.dgrid_sanpham.Columns[11].Name = "Tên chất liệu chính";
+            _sender.dgrid_sanpham.Columns[12].Name = "Size giày";
+            _sender.dgrid_sanpham.Columns[13].Name = "Tên quốc gia";
+            _sender.dgrid_sanpham.Columns[14].Name = "Loại giày";
+            _sender.dgrid_sanpham.Rows.Clear();
             _sender.dgrid_sanpham.Rows.Clear();
             foreach (var x in _sender.qlhhser.GetsList().Where(c => c.TrangThai == 1))
             {
-                _sender.dgrid_sanpham.Rows.Add(x.IdSp, x.Id, x.Ma, x.Ten, x.Mavach, x.TenNsx, x.DuongDanAnh, x.SoLuongTon, x.TrangThai == 1 ? "Còn Hàng" : "Hết Hàng", x.GiaNhap, x.GiaBan, x.TenChatLieu, x.SoSize, x.TenQuocGia, x.TenLoaiGiay);
+                _sender.dgrid_sanpham.Rows.Add(x.IdSp, x.Id, x.Ma, x.Ten, x.Mavach, x.TenNsx, x.SoLuongTon, x.DuongDanAnh, x.TrangThai == 1 ? "Còn Hàng" : "Hết Hàng", x.GiaNhap, x.GiaBan, x.TenChatLieu, x.SoSize, x.TenQuocGia, x.TenLoaiGiay);
             }
 
 
@@ -148,8 +136,144 @@ namespace _3_PL.View
             FrmChiTietHangHoa frmBackView = new FrmChiTietHangHoa(idhh, idcthh, mahh, tenhh, nsx, trangthai, mavach, soluong,
             gianhap, giaban, chatlieu, sizegiay, loaigiay, tenquocgia, anh);
             frmBackView.Show();
+            this.Hide();
+
+        }
+
+        void loaddatafortimkiem(string ma)
+        {
+            dgrid_sanpham.ColumnCount = 15;
+            dgrid_sanpham.Columns[0].Name = "IDHH";
+            dgrid_sanpham.Columns[0].Visible = false;
+            dgrid_sanpham.Columns[1].Name = "IDCTHH";
+            dgrid_sanpham.Columns[1].Visible = false;
+            dgrid_sanpham.Columns[2].Name = "Mã Hàng Hóa";
+            dgrid_sanpham.Columns[3].Name = "Tên Hàng Hóa";
+            dgrid_sanpham.Columns[4].Name = "Mã vạch";
+            dgrid_sanpham.Columns[5].Name = "Nhà sản xuất";
+            dgrid_sanpham.Columns[6].Name = "Số lượng";
+            dgrid_sanpham.Columns[7].Name = "Ảnh";
+            dgrid_sanpham.Columns[8].Name = "Trạng thái";
+            dgrid_sanpham.Columns[9].Name = "Giá nhập";
+            dgrid_sanpham.Columns[10].Name = "Đơn giá bán";
+            dgrid_sanpham.Columns[11].Name = "Tên chất liệu chính";
+            dgrid_sanpham.Columns[12].Name = "Size giày";
+            dgrid_sanpham.Columns[13].Name = "Tên quốc gia";
+            dgrid_sanpham.Columns[14].Name = "Loại giày";
+            dgrid_sanpham.Rows.Clear();
+            foreach (var x in qlhhser.GetsList().Where(c => c.TrangThai == 1 && c.Ma.Contains(txt_timkiem.Text)))
+            {
+                dgrid_sanpham.Rows.Add(x.IdSp, x.Id, x.Ma, x.Ten, x.Mavach, _nsxser.GetNhasanxuat().FirstOrDefault(c => c.Id == x.IdNsx).Ten, x.SoLuongTon, _anhser.GetAnh().FirstOrDefault(c => c.ID == x.IdAnh).DuongDan, x.TrangThai == 1 ? "Còn Hàng" : "Hết Hàng", x.GiaNhap, x.GiaBan, _chatlieuser.GetChatLieu().FirstOrDefault(c => c.Id == x.IdChatLieu).Ten, _sizegiayser.GetSizeGiay().FirstOrDefault(c => c.Id == x.IdSizeGiay).SoSize, _quocgiaser.GetQuocGia().FirstOrDefault(c => c.Id == x.IdQuocGia).Ten, _loaigiayser.GetLoaiGiay().FirstOrDefault(c => c.Id == x.IdLoaiGiay).Ten);
+
+            }
+        }
+
+        void loaddataforlocsoluong(string soluong)
+        {
+            dgrid_sanpham.ColumnCount = 15;
+            dgrid_sanpham.Columns[0].Name = "IDHH";
+            dgrid_sanpham.Columns[0].Visible = false;
+            dgrid_sanpham.Columns[1].Name = "IDCTHH";
+            dgrid_sanpham.Columns[1].Visible = false;
+            dgrid_sanpham.Columns[2].Name = "Mã Hàng Hóa";
+            dgrid_sanpham.Columns[3].Name = "Tên Hàng Hóa";
+            dgrid_sanpham.Columns[4].Name = "Mã vạch";
+            dgrid_sanpham.Columns[5].Name = "Nhà sản xuất";
+            dgrid_sanpham.Columns[6].Name = "Số lượng";
+            dgrid_sanpham.Columns[7].Name = "Ảnh";
+            dgrid_sanpham.Columns[8].Name = "Trạng thái";
+            dgrid_sanpham.Columns[9].Name = "Giá nhập";
+            dgrid_sanpham.Columns[10].Name = "Đơn giá bán";
+            dgrid_sanpham.Columns[11].Name = "Tên chất liệu chính";
+            dgrid_sanpham.Columns[12].Name = "Size giày";
+            dgrid_sanpham.Columns[13].Name = "Tên quốc gia";
+            dgrid_sanpham.Columns[14].Name = "Loại giày";
+            dgrid_sanpham.Rows.Clear();
+            foreach (var x in qlhhser.GetsList().Where(c => c.TrangThai == 1).OrderByDescending(c => c.SoLuongTon))
+            {
+                dgrid_sanpham.Rows.Add(x.IdSp, x.Id, x.Ma, x.Ten, x.Mavach, _nsxser.GetNhasanxuat().FirstOrDefault(c => c.Id == x.IdNsx).Ten, x.SoLuongTon, _anhser.GetAnh().FirstOrDefault(c => c.ID == x.IdAnh).DuongDan, x.TrangThai == 1 ? "Còn Hàng" : "Hết Hàng", x.GiaNhap, x.GiaBan, _chatlieuser.GetChatLieu().FirstOrDefault(c => c.Id == x.IdChatLieu).Ten, _sizegiayser.GetSizeGiay().FirstOrDefault(c => c.Id == x.IdSizeGiay).SoSize, _quocgiaser.GetQuocGia().FirstOrDefault(c => c.Id == x.IdQuocGia).Ten, _loaigiayser.GetLoaiGiay().FirstOrDefault(c => c.Id == x.IdLoaiGiay).Ten);
+
+            }
+
+        }
+
+        void loaddataforloc(string locgia)
+        {
+            dgrid_sanpham.ColumnCount = 15;
+            dgrid_sanpham.Columns[0].Name = "IDHH";
+            dgrid_sanpham.Columns[0].Visible = false;
+            dgrid_sanpham.Columns[1].Name = "IDCTHH";
+            dgrid_sanpham.Columns[1].Visible = false;
+            dgrid_sanpham.Columns[2].Name = "Mã Hàng Hóa";
+            dgrid_sanpham.Columns[3].Name = "Tên Hàng Hóa";
+            dgrid_sanpham.Columns[4].Name = "Mã vạch";
+            dgrid_sanpham.Columns[5].Name = "Nhà sản xuất";
+            dgrid_sanpham.Columns[6].Name = "Số lượng";
+            dgrid_sanpham.Columns[7].Name = "Ảnh";
+            dgrid_sanpham.Columns[8].Name = "Trạng thái";
+            dgrid_sanpham.Columns[9].Name = "Giá nhập";
+            dgrid_sanpham.Columns[10].Name = "Đơn giá bán";
+            dgrid_sanpham.Columns[11].Name = "Tên chất liệu chính";
+            dgrid_sanpham.Columns[12].Name = "Size giày";
+            dgrid_sanpham.Columns[13].Name = "Tên quốc gia";
+            dgrid_sanpham.Columns[14].Name = "Loại giày";
+            dgrid_sanpham.Rows.Clear();
+            foreach (var x in qlhhser.GetsList().Where(c => c.TrangThai == 1).OrderByDescending(c => c.GiaBan))
+            {
+                dgrid_sanpham.Rows.Add(x.IdSp, x.Id, x.Ma, x.Ten, x.Mavach, _nsxser.GetNhasanxuat().FirstOrDefault(c => c.Id == x.IdNsx).Ten, x.SoLuongTon, _anhser.GetAnh().FirstOrDefault(c => c.ID == x.IdAnh).DuongDan, x.TrangThai == 1 ? "Còn Hàng" : "Hết Hàng", x.GiaNhap, x.GiaBan, _chatlieuser.GetChatLieu().FirstOrDefault(c => c.Id == x.IdChatLieu).Ten, _sizegiayser.GetSizeGiay().FirstOrDefault(c => c.Id == x.IdSizeGiay).SoSize, _quocgiaser.GetQuocGia().FirstOrDefault(c => c.Id == x.IdQuocGia).Ten, _loaigiayser.GetLoaiGiay().FirstOrDefault(c => c.Id == x.IdLoaiGiay).Ten);
 
 
+            }
+
+
+        }
+
+        private void txt_timkiem_KeyUp(object sender, KeyEventArgs e)
+        {
+            loaddatafortimkiem(txt_timkiem.Text);
+        }
+
+        private void cbo_loc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbo_loc.Text == "Giá")
+            {
+                loaddataforloc("Giá");
+                return;
+            }
+            if (cbo_loc.Text == "Số Lượng")
+            {
+                loaddataforlocsoluong("Số Lượng");
+                return;
+            }
+            if (cbo_loc.Text == "")
+            {
+                loaddata();
+                return;
+            }
+        }
+
+        private void chaasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_ChatLieu frm_ChatLieu = new Frm_ChatLieu();
+            frm_ChatLieu.ShowDialog();
+        }
+
+        private void loạiGiàyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_LoaiGiay frm_LoaiGiay = new Frm_LoaiGiay();
+            frm_LoaiGiay.ShowDialog();
+        }
+
+        private void sizeGiàyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_SizeGiay frm_SizeGiay = new Frm_SizeGiay();
+            frm_SizeGiay.ShowDialog();
+        }
+
+        private void xuấtXứToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_QuocGia frm_QuocGia = new Frm_QuocGia();
+            frm_QuocGia.ShowDialog();
         }
     }
 }
