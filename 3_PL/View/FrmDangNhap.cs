@@ -60,5 +60,10 @@ namespace _3_PL.View
             FormQuenMatKhau frmqmk = new FormQuenMatKhau();
             frmqmk.Show();
         }
+
+        private void FrmDangNhap_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

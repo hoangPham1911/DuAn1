@@ -83,5 +83,10 @@ namespace _3_PL.View
         {
 
         }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
