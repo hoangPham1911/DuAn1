@@ -18,9 +18,11 @@ using System.Runtime.CompilerServices;
 using _1_DAL.Models;
 using System.Globalization;
 using ZXing;
+using System.IO;
 using static System.Resources.ResXFileRef;
 using Microsoft.VisualBasic;
 using System.Text.RegularExpressions;
+
 
 namespace _3_PL.View
 {
@@ -62,12 +64,14 @@ namespace _3_PL.View
             loadGioHang();
             LoadCbxRank();
             load();
+            //     loadDonDatHang();
+            loadDonDatCoc();
             loadDonDatHang();
             loadhoadonduyet();
-            //   loaiTienThua();
             radioButton6.Checked = true;
             rbt_chuathanhtoan.Checked = true;
-
+            btn_DatHang.Enabled = false;
+            btn_ThanhToan.Enabled = false;
         }
 
         void LoadCbxRank()
@@ -82,14 +86,45 @@ namespace _3_PL.View
             var nv = _NhanVienServices.GetAll().FirstOrDefault(p => p.Id == FrmDangNhap._IdStaff);
             string hoTenNV = nv.Ho + " " + nv.TenDem + " " + nv.Ten;
             button4.Text = hoTenNV;
-          
+        }
 
+        void image()
+        {
+
+            try
+            {
+                if (InvokeRequired) // Line #1
+                {
+                    this.Invoke(new MethodInvoker(image));
+                    return;
+                }
+                DataGridViewImageColumn img = new DataGridViewImageColumn();
+                img.HeaderText = "Ảnh";
+                img.Name = "img_sp";
+                img.ImageLayout = DataGridViewImageCellLayout.Zoom;
+                dgv_product.Columns.Add(img);
+
+                for (int i = 0; i < dgv_product.RowCount - 1; i++)
+                {
+                    Image img1 = Image.FromFile(Convert.ToString(dgv_product.Rows[i].Cells["IMG"].Value));
+
+                    dgv_product.Rows[i].Cells["img_sp"].Value = img1;
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(Convert.ToString(ex), "Liên Hệ Với 19008198 để sửa lỗi");
+                return;
+
+            }
         }
         private void loadProduct()
         {
 
             dgv_product.Rows.Clear();
-            dgv_product.ColumnCount = 7;
+            dgv_product.ColumnCount = 8;
             dgv_product.Columns[0].Name = "IdSp";
             dgv_product.Columns[1].Name = "STT";
             dgv_product.Columns[2].Name = "Mã SP";
@@ -97,37 +132,32 @@ namespace _3_PL.View
             dgv_product.Columns[4].Name = "Gía Bán";
             dgv_product.Columns[5].Name = "IdSpDetail";
             dgv_product.Columns[6].Name = "Số Lượng Ton";
+            dgv_product.Columns[7].Name = "IMG";
             dgv_product.Columns[5].Visible = false;
+            dgv_product.Columns[7].Visible = false;
             dgv_product.Columns[0].Visible = false;
             int n = 1;
             _ListProduct = _SanPhamService.GetSanPham();
             if (tb_search.Text != "")
                 _ListProduct = _SanPhamService.GetSanPham().Where(p => p.Ten.Contains(tb_search.Text)).ToList();
-            // anh
-            DataGridViewImageColumn dtgImg = new DataGridViewImageColumn();
-            dtgImg.Name = "Data Image";
-            dtgImg.HeaderText = "IMG";
-            dtgImg.ImageLayout = DataGridViewImageCellLayout.Stretch;
-            dgv_product.Columns.Add(dtgImg);
-            dgv_product.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgv_product.RowTemplate.Height = 50;
-            dtgImg.DataPropertyName = "img";
-            // checkbox
+
             foreach (var item in _ListProduct)
             {
+                AnhViewModels anh = _AnhService.GetAnh().Where(c => c.ID == item.IdAnh).FirstOrDefault();
                 dgv_product.Rows.Add(item.IdSp, n++, item.Ma, item.Ten, item.GiaBan,
-              item.IdHangHoaChiTiet, item.SoLuongTon
+              item.IdHangHoaChiTiet, item.SoLuongTon, item.IdAnh != null ? anh.DuongDan : null
               );
             }
+            image();
 
             dgv_product.AllowUserToAddRows = false;
-            dgv_product.Columns[1].Width = 30;
-            dgv_product.Columns[6].Width = 50;
-            dgv_product.Columns[7].Width = 50;
-            dgv_product.Columns[2].Width = 50;
-            dgv_product.Columns[3].Width = 60;
-            dgv_product.Columns[4].Width = 60;
-            dgv_product.Columns[5].Width = 60;
+            dgv_product.Columns[1].Width = 50;
+            dgv_product.Columns[6].Width = 60;
+            dgv_product.Columns[7].Width = 70;
+            dgv_product.Columns[2].Width = 70;
+            dgv_product.Columns[3].Width = 70;
+            dgv_product.Columns[4].Width = 70;
+            dgv_product.Columns[5].Width = 70;
 
         }
         private void loadGioHang()
@@ -151,40 +181,6 @@ namespace _3_PL.View
             }
             dgv_GioHang1.AllowUserToAddRows = false;
 
-        }
-        void image()
-        {
-            try
-            {
-                if (InvokeRequired) // Line #1
-                {
-                    this.Invoke(new MethodInvoker(image));
-                    return;
-                }
-
-                DataGridViewImageColumn img = new DataGridViewImageColumn();
-                img.HeaderText = "IMG";
-                img.Name = "img_sp";
-                img.ImageLayout = DataGridViewImageCellLayout.Stretch;
-                dgv_product.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dgv_product.RowTemplate.Height = 100;
-                dgv_product.Columns[7].Width = 100;
-                img.DataPropertyName = "img";
-                for (int i = 0; i < dgv_product.RowCount; i++)
-                {
-                    Image img1 = Image.FromFile(Convert.ToString(dgv_product.Rows[i].Cells["Ảnh"].Value));
-
-                    dgv_product.Rows[i].Cells["img_sp"].Value = img1;
-
-                }
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(Convert.ToString(ex), "Liên Hệ Với 19008198 để sửa lỗi");
-                return;
-
-            }
         }
 
         void refreshcam()
@@ -213,14 +209,44 @@ namespace _3_PL.View
         }
         private void btn_FormdatHang_Click(object sender, EventArgs e)
         {
-            pn_dathang.Visible = Visible;
+            panel5.Visible = false;
+            pn_dathang.Visible = true;
 
         }
         string MaHd = "";
+        private string GenerateRandomOTP(int iOTPLength, string[] saAllowedCharacters)
+
+        {
+
+            string sOTP = String.Empty;
+
+            string sTempChars = String.Empty;
+
+            Random rand = new Random();
+
+            for (int i = 0; i < iOTPLength; i++)
+
+            {
+
+                int p = rand.Next(0, saAllowedCharacters.Length);
+
+                sTempChars = saAllowedCharacters[rand.Next(0, saAllowedCharacters.Length)];
+
+                sOTP += sTempChars;
+
+            }
+
+            return sOTP;
+
+        }
         private Guid addHoaDon()
         {
+            string[] saAllowedCharacters = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "a", "b", "c", "d", "f", "e", "q",
+                "w", "r", "t", "y", "u", "i", "o", "p", "h","j","k","l","c","v","b","n","m","o","p","z","x" };
+
+
             ThemHoaDonModels ThemHoaDon = new ThemHoaDonModels();
-            ThemHoaDon.Ma = "HD0000" + (_HoaDonService.GetAllHoaDonDB().Count + 1).ToString();
+            ThemHoaDon.Ma = "HD" + GenerateRandomOTP(4, saAllowedCharacters);
             ThemHoaDon.NgayTao = DateTime.Today;
             maHd = ThemHoaDon.Ma;
             ThemHoaDon.TinhTrang = 2;
@@ -233,56 +259,172 @@ namespace _3_PL.View
             foreach (FilterInfo device in filterInfoCollection)
                 cbo_webcam.Items.Add(device.Name);
             cbo_webcam.SelectedIndex = 0;
-
         }
-
+        int checkHD = 0;
         private void btnsender_Click(object sender, EventArgs e)
         {
+
+            button2.Enabled = false;
+            if (_ListReceiptProduct2.Count() != 0)
+            {
+                btn_ThanhToan.Enabled = true;
+                btn_DatHang.Enabled = true;
+            }
+            else
+            {
+                btn_ThanhToan.Enabled = false;
+                btn_DatHang.Enabled = false;
+            }
             dgv_GioHang1.Rows.Clear();
             Guid acbc = ((sender as Button).Tag as SuaHoaDonModels).IdHoaDon;
-            IdHoaDon = acbc;
-
-            dgv_GioHang1.ColumnCount = 8;
-            dgv_GioHang1.Columns[0].Name = "STT";
-            dgv_GioHang1.Columns[1].Name = "Mã SP";
-            dgv_GioHang1.Columns[2].Name = "Tên SP";
-            dgv_GioHang1.Columns[3].Name = "Số Lượng";
-            dgv_GioHang1.Columns[4].Name = "Đơn Gía";
-            dgv_GioHang1.Columns[5].Name = "Thanh Tiền";
-            dgv_GioHang1.Columns[6].Name = "IDSPCT";
-            dgv_GioHang1.Columns[7].Name = "IDHD";
-            dgv_GioHang1.Columns[6].Visible = false;
-            dgv_GioHang1.Columns[7].Visible = false;
-            int n = 1;
-            _ListReceiptProduct = _HoaDonChiTietService.GetAllProductInReceipt().Where(p => p.IdHoaDon == acbc).ToList();
-
-            foreach (var item in _ListReceiptProduct)
             {
-                dgv_GioHang1.Rows.Add(n++, item.MaSP, item.TenSp, item.SoLuong, item.DonGia, item.ThanhTien, item.IdSpCt, item.IdHoaDon);
+                IdHoaDon = acbc;
+                dgv_GioHang1.ColumnCount = 8;
+                dgv_GioHang1.Columns[0].Name = "STT";
+                dgv_GioHang1.Columns[1].Name = "Mã SP";
+                dgv_GioHang1.Columns[2].Name = "Tên SP";
+                dgv_GioHang1.Columns[3].Name = "Số Lượng";
+                dgv_GioHang1.Columns[4].Name = "Đơn Gía";
+                dgv_GioHang1.Columns[5].Name = "Thanh Tiền";
+                dgv_GioHang1.Columns[6].Name = "IDSPCT";
+                dgv_GioHang1.Columns[7].Name = "IDHD";
+                dgv_GioHang1.Columns[6].Visible = false;
+                dgv_GioHang1.Columns[7].Visible = false;
+                int n = 1;
+                {
+                    _ListReceiptProduct = _HoaDonChiTietService.GetAllProductInReceipt().Where(p => p.IdHoaDon == acbc).ToList();
+
+                    foreach (var item in _ListReceiptProduct)
+                    {
+                        dgv_GioHang1.Rows.Add(n++, item.MaSP, item.TenSp, item.SoLuong, item.DonGia, item.ThanhTien, item.IdSpCt, item.IdHoaDon);
+                    }
+                    if (_ListReceiptProduct2.Count() == 0)
+                        _ListReceiptProduct2.AddRange(_ListReceiptProduct);
+                    else if (_ListReceiptProduct2.Count() > 0)
+                    {
+                        _ListReceiptProduct2.RemoveRange(0, _ListReceiptProduct2.Count());
+                    }
+                    decimal? tien = 0;
+                    var price = _HoaDonChiTietService.GetAllProductInReceipt().Where(p => p.IdHoaDon == IdHoaDon);
+                    foreach (var item in price)
+                    {
+                        tien += item.ThanhTien;
+                    }
+                    if (tien != 0)
+                    {
+                        CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
+                        txt_tongTienHoaDon.Text = Convert.ToInt32(tien).ToString("#,###", cul.NumberFormat);
+                        txt_dathangtongtien.Text = Convert.ToInt32(tien).ToString("#,###", cul.NumberFormat);
+                        status = _HoaDonService.GetAllHoaDonDB().FirstOrDefault(p => p.IdHoaDon == IdHoaDon).TinhTrang;
+                    }
+                    if (status == 2)
+                    {
+                        radioButton6.Checked = true;
+                        rbt_chuathanhtoan.Checked = true;
+
+                    }
+                    else if (status == 3)
+                    {
+                        rbt_giaohang.Checked = true;
+
+                    }
+                    else if (status == 7)
+                    {
+                        rbt_dacoc.Checked = true;
+
+                    }
+                    else if (status == 6)
+                    {
+                        rbt_dahuy.Checked = true;
+                        radioButton8.Checked = true;
+                    }
+                }
             }
-            _ListReceiptProduct2.AddRange(_ListReceiptProduct);
-            IdHoaDon = Guid.Parse(dgv_GioHang1.CurrentRow.Cells[7].Value.ToString());
-            maHd = dgv_GioHang1.CurrentRow.Cells[2].Value.ToString();
-            decimal? tien = 0;
-            var price = _HoaDonChiTietService.GetAllProductInReceipt().Where(p => p.IdHoaDon == IdHoaDon);
-
-            foreach (var item in price)
-            {
-                tien += item.ThanhTien;
-            }
-            CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
-            txt_tongTienHoaDon.Text = Convert.ToInt32(tien).ToString("#,###", cul.NumberFormat);
-            txt_dathangtongtien.Text = Convert.ToInt32(tien).ToString("#,###", cul.NumberFormat);
-            status = _HoaDonService.GetAllHoaDonDB().FirstOrDefault(p => p.IdHoaDon == IdHoaDon).TinhTrang;
-            if (status == 2) radioButton6.Checked = true;
-            // them sau
-
-
-
-
 
         }
+        private void btnsender_Click1(object sender, EventArgs e)
+        {
+            checkHD++;
+            button2.Enabled = false;
+            if (_ListReceiptProduct2.Count() != 0)
+            {
+                btn_ThanhToan.Enabled = true;
+                btn_DatHang.Enabled = true;
 
+            }
+            else
+            {
+                btn_ThanhToan.Enabled = false;
+                btn_DatHang.Enabled = false;
+            }
+
+            dgv_GioHang1.Rows.Clear();
+            Guid acbc = ((sender as Button).Tag as SuaHoaDonModels).IdHoaDon;
+            {
+                IdHoaDon = acbc;
+                dgv_GioHang1.ColumnCount = 8;
+                dgv_GioHang1.Columns[0].Name = "STT";
+                dgv_GioHang1.Columns[1].Name = "Mã SP";
+                dgv_GioHang1.Columns[2].Name = "Tên SP";
+                dgv_GioHang1.Columns[3].Name = "Số Lượng";
+                dgv_GioHang1.Columns[4].Name = "Đơn Gía";
+                dgv_GioHang1.Columns[5].Name = "Thanh Tiền";
+                dgv_GioHang1.Columns[6].Name = "IDSPCT";
+                dgv_GioHang1.Columns[7].Name = "IDHD";
+                dgv_GioHang1.Columns[6].Visible = false;
+                dgv_GioHang1.Columns[7].Visible = false;
+                int n = 1;
+                {
+                    _ListReceiptProduct = _HoaDonChiTietService.GetAllProductInReceipt().Where(p => p.IdHoaDon == acbc).ToList();
+
+                    foreach (var item in _ListReceiptProduct)
+                    {
+                        dgv_GioHang1.Rows.Add(n++, item.MaSP, item.TenSp, item.SoLuong, item.DonGia, item.ThanhTien, item.IdSpCt, item.IdHoaDon);
+                    }
+                    if (_ListReceiptProduct2.Count() == 0)
+                        _ListReceiptProduct2.AddRange(_ListReceiptProduct);
+                    else
+                        _ListReceiptProduct2.RemoveRange(0, _ListReceiptProduct2.Count());
+                    decimal? tien = 0;
+                    var price = _HoaDonChiTietService.GetAllProductInReceipt().Where(p => p.IdHoaDon == IdHoaDon);
+                    foreach (var item in price)
+                    {
+                        tien += item.ThanhTien;
+                    }
+                    if (tien != 0)
+                    {
+                        CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
+                        txt_tongTienHoaDon.Text = Convert.ToInt32(tien).ToString("#,###", cul.NumberFormat);
+                        txt_dathangtongtien.Text = Convert.ToInt32(tien).ToString("#,###", cul.NumberFormat);
+                        status = _HoaDonService.GetAllHoaDonDB().FirstOrDefault(p => p.IdHoaDon == IdHoaDon).TinhTrang;
+                    }
+
+
+                    if (status == 2)
+                    {
+                        radioButton6.Checked = true;
+                        rbt_chuathanhtoan.Checked = true;
+
+                    }
+                    else if (status == 3)
+                    {
+                        rbt_giaohang.Checked = true;
+
+                    }
+                    else if (status == 7)
+                    {
+                        rbt_dacoc.Checked = true;
+
+                    }
+                    else if (status == 6)
+                    {
+                        rbt_dahuy.Checked = true;
+                        radioButton8.Checked = true;
+                    }
+                }
+            }
+
+        }
         void loadReceipt()
         {
             try
@@ -336,30 +478,32 @@ namespace _3_PL.View
                     button.Location = new Point(62, 62);
                     button.Size = new Size(63, 90);
                     button.Visible = true;
-                    if (_ListGioHang.Count() != 0 || !_ListGioHang.Any())
-                        button.Click += btnsender_Click;
-
+                    button.Click += btnsender_Click;
                     //   button.DoubleClick = loadGioHang();
                     button.ForeColor = Color.Aquamarine;
                     button.Text = x.Ma + Environment.NewLine + (x.TinhTrang == 2
                         ? "Chưa Thanh Toán"
-                        : (x.TinhTrang == 3 ? "Đang Chờ Giao Hàng" : "Đã Hủy"));
+                        : (x.TinhTrang == 3 ? "Đang Chờ Giao Hàng" : (x.TinhTrang == 7 ? "Đã Cọc" : "Đã Hủy")));
                     button.Tag = x;
 
                     switch (x.TinhTrang)
                     {
                         case 2:
                             {
-                                button.BackColor = Color.Red;
-                                flhoadon.Controls.Add(button);
+                                button.BackColor = Color.Orange;
                                 break;
                             }
                         case 3:
                             button.BackColor = Color.BlueViolet;
-                            flhd3.Controls.Add(button);
+                            break;
+                        case 6:
+                            button.BackColor = Color.Red;
+                            break;
+                        case 7:
+                            button.BackColor = Color.CadetBlue;
                             break;
                     }
-
+                    flhoadon.Controls.Add(button);
                 }
             }
             catch (Exception ex)
@@ -382,29 +526,83 @@ namespace _3_PL.View
                     button.Location = new Point(62, 62);
                     button.Size = new Size(63, 90);
                     button.Visible = true;
-                    button.Click += btnsender_Click;
+                    button.Click += btnsender_Click1;
 
                     //   button.DoubleClick = loadGioHang();
                     button.ForeColor = Color.Aquamarine;
                     button.Text = x.Ma + Environment.NewLine + (x.TinhTrang == 2
-                        ? "Chưa Thanh Toán"
-                        : (x.TinhTrang == 3 ? "Đang Chờ Giao Hàng" : "Đã Hủy"));
+                       ? "Chưa Thanh Toán"
+                       : (x.TinhTrang == 3 ? "Chờ Giao Hàng(đặt hàng)" : (x.TinhTrang == 7 ? "Đã Cọc" : "Đã Hủy")));
                     button.Tag = x;
 
                     switch (x.TinhTrang)
                     {
                         case 2:
                             {
-                                button.BackColor = Color.Red;
-                                flhoadon.Controls.Add(button);
+                                button.BackColor = Color.Orange;
                                 break;
                             }
                         case 3:
                             button.BackColor = Color.BlueViolet;
-                            flhd3.Controls.Add(button);
+                            break;
+                        case 6:
+                            button.BackColor = Color.Red;
+                            break;
+                        case 7:
+                            button.BackColor = Color.CadetBlue;
                             break;
                     }
+                    flhd3.Controls.Add(button);
+                }
+            }
+            catch (Exception ex)
+            {
 
+                MessageBox.Show(Convert.ToString(ex), "Liên Hệ Với 19008198 để sửa lỗi");
+                return;
+
+            }
+        }
+
+        public void loadDonDatCoc()
+        {
+            try
+            {
+                flhoadon.Controls.Clear();
+
+                foreach (var x in _HoaDonService.GetAllHoaDonDB().Where(p => p.TinhTrang == 7))
+                {
+                    Button button = createButton();
+                    button.Location = new Point(62, 62);
+                    button.Size = new Size(63, 90);
+                    button.Visible = true;
+                    button.Click += btnsender_Click1;
+
+                    //   button.DoubleClick = loadGioHang();
+                    button.ForeColor = Color.Aquamarine;
+                    button.Text = x.Ma + Environment.NewLine + (x.TinhTrang == 2
+                       ? "Chưa Thanh Toán"
+                       : (x.TinhTrang == 3 ? "Chờ Giao Hàng(đặt hàng)" : (x.TinhTrang == 7 ? "Đã Cọc" : "Đã Hủy")));
+                    button.Tag = x;
+
+                    switch (x.TinhTrang)
+                    {
+                        case 2:
+                            {
+                                button.BackColor = Color.Orange;
+                                break;
+                            }
+                        case 3:
+                            button.BackColor = Color.BlueViolet;
+                            break;
+                        case 6:
+                            button.BackColor = Color.Red;
+                            break;
+                        case 7:
+                            button.BackColor = Color.CadetBlue;
+                            break;
+                    }
+                    flhd3.Controls.Add(button);
                 }
             }
             catch (Exception ex)
@@ -445,95 +643,133 @@ namespace _3_PL.View
         }
         private void button9_Click(object sender, EventArgs e)
         {
-            videoCaptureDevice.SignalToStop();
-            refreshcam();
+            DialogResult dialogResult = MessageBox.Show("Bạn Muốn Tắt Camera chứ?", "Thông Báo", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                videoCaptureDevice.SignalToStop();
+                refreshcam();
+            }
+
         }
         private void button2_Click(object sender, EventArgs e)
         {
-
-            if (_ListGioHang.Any() && _ListGioHang.Count() != 0)
+            DialogResult dialogResult = MessageBox.Show("Bạn Tạo Hóa Đơn Chứ?", "Thông Báo", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
             {
-                HoaDonChiTietThemViewModel HoaDonCT = new HoaDonChiTietThemViewModel();
-                HoaDonCT.IdHoaDon = addHoaDon();
-                foreach (var item in _ListGioHang)
+                if (_ListGioHang.Any() && _ListGioHang.Count() != 0 && _ListGioHang.Count() != 0)
                 {
-                    HoaDonCT.IdChiTietSp = item.IdCTSP;
-                    HoaDonCT.SoLuong = item.SoLuong;
-                    HoaDonCT.ThanhTien = item.DonGia * item.SoLuong;
-                    HoaDonCT.TinhTrang = 2;
-                    _HoaDonChiTietService.ThemHoaDonChiTiet(HoaDonCT);
-                    var sp = _HangHoaChiTietServices.GetAllSoLuong().FirstOrDefault(x => x.IdSpCt == item.IdCTSP);
-                    sp.SoLuong -= item.SoLuong;
-                    _HangHoaChiTietServices.updateSoLuong(sp);
+                    HoaDonChiTietThemViewModel HoaDonCT = new HoaDonChiTietThemViewModel();
+                    HoaDonCT.IdHoaDon = addHoaDon();
+                    foreach (var item in _ListGioHang)
+                    {
+                        HoaDonCT.IdChiTietSp = item.IdCTSP;
+                        HoaDonCT.SoLuong = item.SoLuong;
+                        HoaDonCT.ThanhTien = item.DonGia * item.SoLuong;
+                        HoaDonCT.TinhTrang = 2;
+                        _HoaDonChiTietService.ThemHoaDonChiTiet(HoaDonCT);
+                        var sp = _HangHoaChiTietServices.GetAllSoLuong().FirstOrDefault(x => x.IdSpCt == item.IdCTSP);
+                        sp.SoLuong -= item.SoLuong;
+                        _HangHoaChiTietServices.updateSoLuong(sp);
+                    }
+                    _ListGioHang.RemoveRange(0, _ListGioHang.Count());
+                    MessageBox.Show("Tạo Hóa Đơn Thành Công");
+                    loadGioHang();
+                    loadhoadonduyet();
+
                 }
-                _ListGioHang.RemoveRange(0, _ListGioHang.Count);
-                loadGioHang();
-                MessageBox.Show("Tao hoa don thanh cong");
-                loadhoadonduyet();
+                //else if(_ListReceiptProduct2.Count() == _ListReceiptProduct.Count())
+                //{
+                //    foreach (var item in _ListReceiptProduct2)
+                //    {
+                //        HoaDonChiTietViewModel hd = _HoaDonChiTietService.GetAllHoaDonDB().FirstOrDefault(p => p.IdChiTietSp == item.IdSpCt);
+                //        hd.SoLuong = int.Parse(textBox2.Text);                  
+                //    }
+                //    HangHoaChiTietUpdateThanhToan sp = _HangHoaChiTietServices.GetAllSoLuong().FirstOrDefault(p => p.IdSpCt == IdReceiptInCart);
+                //    sp.SoLuong = int.Parse(dgv_product.CurrentRow.Cells[6].Value.ToString());
+                //    _HangHoaChiTietServices.updateSoLuong(sp);
+                //}
+                else if (_ListReceiptProduct2.Any() || _ListReceiptProduct2.Count() != 0)
+                {
+                    _HoaDonChiTietService.XoaHoaDonChiTiet(IdHoaDon);
+                    HoaDonChiTietThemViewModel HoaDonCT2 = new HoaDonChiTietThemViewModel();
+                    foreach (var item in _ListReceiptProduct2)
+                    {
+                        HoaDonCT2.IdHoaDon = IdHoaDon;
+                        HoaDonCT2.IdChiTietSp = item.IdSpCt;
+                        HoaDonCT2.SoLuong = item.SoLuong;
+                        //MessageBox.Show(item.SoLuong.ToString());
+                        HoaDonCT2.ThanhTien = item.DonGia * item.SoLuong;
+                        HoaDonCT2.TinhTrang = 2;
+                        _HoaDonChiTietService.ThemHoaDonChiTiet(HoaDonCT2);
+                        HangHoaChiTietUpdateThanhToan sp = _HangHoaChiTietServices.GetAllSoLuong().FirstOrDefault(p => p.IdSpCt == item.IdSpCt);
+                        sp.SoLuong -= item.SoLuong;
+                        _HangHoaChiTietServices.updateSoLuong(sp);
+                    }
+                    _ListReceiptProduct2.RemoveRange(0, _ListReceiptProduct2.Count());
+                    loadReceipt();
+                    MessageBox.Show("Update Hóa Đơn Thành Công");
+                    //  loadReceipt();
+                    flhoadon.Controls.Remove(createButton());
+                    loadDonDatHang();
+                    loadhoadonduyet();
+
+                }
+                else
+                {
+                    MessageBox.Show("Loi");
+                }
                 //  loadDonDatHang();
-            }
-            //if (_ListReceiptProduct2.Count() == _ListReceiptProduct.Count())
-            //{
-
-            //    return;
-            //}
-            else if (_ListReceiptProduct2.Any())
-            {
-
-                _HoaDonChiTietService.XoaHoaDonChiTiet(IdHoaDon);
-                _HoaDonService.XoaHoaDon(IdHoaDon);
-                HoaDonChiTietThemViewModel HoaDonCT2 = new HoaDonChiTietThemViewModel();
-                HoaDonCT2.IdHoaDon = addHoaDon();
-                foreach (var item in _ListReceiptProduct2)
-                {
-                    HoaDonCT2.IdChiTietSp = item.IdSpCt;
-                    HoaDonCT2.SoLuong = item.SoLuong;
-                    HoaDonCT2.ThanhTien = item.DonGia * item.SoLuong;
-                    HoaDonCT2.TinhTrang = 2;
-                    _HoaDonChiTietService.ThemHoaDonChiTiet(HoaDonCT2);
-                    var sp = _HangHoaChiTietServices.GetAllSoLuong().FirstOrDefault(x => x.IdSpCt == item.IdSpCt);
-                    sp.SoLuong -= item.SoLuong;
-                    _HangHoaChiTietServices.updateSoLuong(sp);
-                }
-                _ListReceiptProduct2.RemoveRange(0, _ListReceiptProduct2.Count());
-                loadReceipt();
-                MessageBox.Show("Tao hoa don thanh cong");
-                flhoadon.Controls.Remove(createButton());
-                loadhoadonduyet();
-            }
-            else
-            {
-                MessageBox.Show("Loi");
             }
         }
 
         private void btn_ThanhToan_Click(object sender, EventArgs e)
         {
-            if (!radioButton1.Checked || !radioButton8.Checked || !radioButton2.Checked || !radioButton6.Checked)
+
+            DialogResult dialogResult = MessageBox.Show("Bạn Đồng Ý Thanh Toán Hóa Đơn Chứ?", "Thông Báo", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
             {
-                MessageBox.Show("Vui lòng chọn trạng thái cho đơn hàng");
-            }
-            else
-            {
-                SuaHoaDonModels suaHoaDonModels = _HoaDonService.GetAllHoaDonDB().FirstOrDefault(p => p.IdHoaDon == IdHoaDon);
-                if (radioButton6.Checked)
+                if (checkHD != 0)
                 {
-                    suaHoaDonModels.TinhTrang = 2;
+                    MessageBox.Show("Bạn Cần vào bên đặt hàng để thực hiện nhé");
                 }
-                else if (radioButton1.Checked) suaHoaDonModels.TinhTrang = 3;
-                else if (radioButton8.Checked) suaHoaDonModels.TinhTrang = 6;
-                else if (radioButton2.Checked)
+                else
                 {
-                    suaHoaDonModels.TinhTrang = 1;
-                    flhoadon.Controls.Remove(createButton());
+                    SuaHoaDonModels suaHoaDonModels = _HoaDonService.GetAllHoaDonDB().FirstOrDefault(p => p.IdHoaDon == IdHoaDon);
+                    HoaDonChiTietViewModel hoaDonCt = _HoaDonChiTietService.GetAllHoaDonDB().FirstOrDefault(p => p.IdHoaDon == IdHoaDon);
+                    if (radioButton6.Checked)
+                    {
+                        suaHoaDonModels.TinhTrang = 2;
+                        hoaDonCt.TrangThai = 2;
+
+                    }
+                    else if (radioButton1.Checked)
+                    {
+                        suaHoaDonModels.TinhTrang = 3;
+                        suaHoaDonModels.TinhTrang = 3;
+                    }
+                    else if (radioButton8.Checked)
+                    {
+                        suaHoaDonModels.TinhTrang = 6;
+                        suaHoaDonModels.TinhTrang = 6;
+                    }
+                    else if (radioButton2.Checked)
+                    {
+                        suaHoaDonModels.TinhTrang = 1;
+                        hoaDonCt.TrangThai = 1;
+
+                        flhoadon.Controls.Remove(createButton());
+                    }
+
+                    suaHoaDonModels.NgayThanhToan = DateTime.Now;
+                    if (_HoaDonChiTietService.SuaHoaDonChiTiet(hoaDonCt))
+                    {
+                        MessageBox.Show(_HoaDonService.SuaHoaDon(suaHoaDonModels));
+                    }
+                    loadGioHang();
+                    loadhoadonduyet();
+                    if(radioButton1.Checked)
+                    inHoaDon();
                 }
-
-                suaHoaDonModels.NgayThanhToan = DateTime.Now;
-
-                MessageBox.Show(_HoaDonService.SuaHoaDon(suaHoaDonModels));
-
-                loadGioHang();
-                loadhoadonduyet();
 
             }
 
@@ -743,24 +979,9 @@ namespace _3_PL.View
             }
         }
 
-        public void loaiTienThua()
-        {
-
-            if (decimal.TryParse(tb_tienKhachDua.Text, out decimal x))
-            {
-                tb_tienThua.Text = (decimal.Parse(tb_tienKhachDua.Text) - decimal.Parse(txt_tongTienHoaDon.Text)).ToString();
-                tb_TienKhachCanTra.Text = (int.Parse(txt_tongTienHoaDon.Text) - int.Parse(textBox7.Text)).ToString();
-            }
-            if (decimal.TryParse(txt_coc.Text, out decimal y))
-            {
-                txt_coc.Text = (decimal.Parse(tb_tienKhachDua.Text) - decimal.Parse(txt_tongTienHoaDon.Text)).ToString();
-
-            }
-
-        }
         private void tb_tienThua_TextChanged(object sender, EventArgs e)
         {
-           // loaiTienThua();
+
         }
 
         private void tb_tienKhachDua_TextChanged(object sender, EventArgs e)
@@ -775,10 +996,18 @@ namespace _3_PL.View
             string fkhachdua = Convert.ToString(tb_tienKhachDua.Text);
             string tkhachdua = fkhachdua.Replace(".", "");
             double ftienthua = Convert.ToDouble(Convert.ToDouble(tkhachdua) - Convert.ToDouble(tkhachtra));
-           
+
             tb_tienThua.Text = Convert.ToInt32(ftienthua).ToString("#,###", cul.NumberFormat);
+            if (ftienthua < 0)
+            {
+                btn_ThanhToan.Enabled = false;
+            }
+            else
+            {
+                btn_ThanhToan.Enabled = true;
+            }
         }
-    
+
         Guid IDSpCt;
         private void dgv_product_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -787,7 +1016,8 @@ namespace _3_PL.View
 
         private void btn_FormHoaDon_Click(object sender, EventArgs e)
         {
-            pn_dathang.Visible = false;
+            panel5.Visible = true;
+
         }
         Guid IdHoaDon; int? status; string maHd = "";
         private void panel5_Paint(object sender, PaintEventArgs e)
@@ -802,6 +1032,7 @@ namespace _3_PL.View
 
         private void button3_Click(object sender, EventArgs e)
         {
+            button2.Enabled = true;
             DialogResult dialogResult = MessageBox.Show("Bạn Muốn Thêm Sp Này Vào Gio Hàng Chứ?", "Thông Báo", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
@@ -837,23 +1068,23 @@ namespace _3_PL.View
                     SpInHD.IdHoaDon = IdHoaDon;
                     if (_ListReceiptProduct2.Count() != 0)
                     {
-                        if (_ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IDSpCt) != null)
+
+                        if (_ListReceiptProduct2.FirstOrDefault(p => p.IdHoaDon == IdHoaDon) != null || _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IDSpCt) != null)
                         {
                             _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IDSpCt).SoLuong = _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IDSpCt).SoLuong + int.Parse(tb_count.Text);
+                            MessageBox.Show("Thêm Vào Giỏ Hàng Thành Công");
+                            loadReceipt();
+
                         }
                         else
                         {
                             _ListReceiptProduct2.Add(SpInHD);
-                        }
-                        if (sp.SoLuongTon <= 0)
-                        {
-                            MessageBox.Show("So Luong Cua Sp Nay Khong Du");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Thêm Thành Công123");
+                            MessageBox.Show("Thêm Vào Giỏ Hàng Thành Công");
+                            tb_count.Text = 0.ToString();
                             loadReceipt();
+
                         }
+
                     }
                     else
                     {
@@ -861,21 +1092,24 @@ namespace _3_PL.View
                         if (_ListGioHang.Count() == 0)
                         {
                             _ListGioHang.Add(gioHang);
-                            MessageBox.Show("Them Thanh Cong345");
+                            MessageBox.Show("Thêm Vào Hóa Đơn Thành Công");
+                            tb_count.Text = 0.ToString();
                             loadGioHang();
 
                         }
                         else if (_ListGioHang.FirstOrDefault(p => p.IdCTSP == IDSpCt) != null)
                         {
                             _ListGioHang.FirstOrDefault(p => p.IdCTSP == IDSpCt).SoLuong = _ListGioHang.FirstOrDefault(p => p.IdCTSP == IDSpCt).SoLuong + int.Parse(tb_count.Text);
-                            MessageBox.Show("Them Thanh Cong345");
+                            MessageBox.Show("Thêm Vào Hóa Đơn Thành Công");
+                            tb_count.Text = 0.ToString();
                             loadGioHang();
 
                         }
                         else
                         {
                             _ListGioHang.Add(gioHang);
-                            MessageBox.Show("Them Thanh Cong345");
+                            MessageBox.Show("Thêm Vào Hóa Đơn Thành Công");
+                            tb_count.Text = 0.ToString();
                             loadGioHang();
 
                         }
@@ -887,6 +1121,7 @@ namespace _3_PL.View
         }
         private void button1_Click(object sender, EventArgs e)
         {
+            button2.Enabled = true;
             if (int.Parse(textBox2.Text) == 0 && _ListGioHang.Count() != 0)
             {
                 DialogResult dialogResult = MessageBox.Show("Số Lượng Bạn Nhập Sản Phẩm Trong Gio Hàng Này Là 0 (xóa) \n Bạn có muốn tiếp tục cập nhật chứ ???", "Thông Báo", MessageBoxButtons.YesNo);
@@ -899,7 +1134,7 @@ namespace _3_PL.View
             }
             else if (int.Parse(textBox2.Text) == 0 && _ListReceiptProduct2.Count() != 0)
             {
-                DialogResult dialogResult = MessageBox.Show("Số Lượng Bạn Nhập Sản Phẩm Trong Gio Hàng Này Là 0 (xóa) \n Bạn có muốn tiếp tục cập nhật chứ!!!!! ???", "Thông Báo", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Số Lượng Bạn Nhập Sản Phẩm Trong Hoa Don Này Là 0 (xóa) \n Bạn có muốn tiếp tục cập nhật chứ ???", "Thông Báo", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     //  MessageBox.Show(IdReceiptInCart.ToString());
@@ -923,26 +1158,38 @@ namespace _3_PL.View
                     {
                         if (int.Parse(dgv_GioHang1.CurrentRow.Cells[3].Value.ToString()) < int.Parse(textBox2.Text) && _ListGioHang.FirstOrDefault(p => p.IdCTSP == IdReceiptInCart) != null)
                         {
-                            dgv_product.CurrentRow.Cells[6].Value = int.Parse(dgv_product.CurrentRow.Cells[6].Value.ToString()) - int.Parse(textBox2.Text);
-                            dgv_GioHang1.CurrentRow.Cells[3].Value = int.Parse(textBox2.Text);
+                            dgv_product.CurrentRow.Cells[6].Value = int.Parse(dgv_product.CurrentRow.Cells[6].Value.ToString()) - (int.Parse(textBox2.Text) - int.Parse(dgv_GioHang1.CurrentRow.Cells[3].Value.ToString()));
+                            _ListGioHang.FirstOrDefault(p => p.IdCTSP == IDSpCt).SoLuong = int.Parse(textBox2.Text);
+                            loadGioHang();
                         }
                         else if (int.Parse(dgv_GioHang1.CurrentRow.Cells[3].Value.ToString()) > int.Parse(textBox2.Text) && _ListGioHang.FirstOrDefault(p => p.IdCTSP == IdReceiptInCart) != null)
                         {
                             dgv_product.CurrentRow.Cells[6].Value = int.Parse(dgv_product.CurrentRow.Cells[6].Value.ToString()) + (int.Parse(dgv_GioHang1.CurrentRow.Cells[3].Value.ToString()) - int.Parse(textBox2.Text));
-                            dgv_GioHang1.CurrentRow.Cells[3].Value = int.Parse(textBox2.Text);
+                            _ListGioHang.FirstOrDefault(p => p.IdCTSP == IDSpCt).SoLuong = int.Parse(textBox2.Text);
+                            loadGioHang();
                         }
-                        else if (int.Parse(dgv_GioHang1.CurrentRow.Cells[3].Value.ToString()) < int.Parse(textBox2.Text) && _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IdReceiptInCart) != null)
+                        else
+                        if (int.Parse(dgv_GioHang1.CurrentRow.Cells[3].Value.ToString()) < int.Parse(textBox2.Text) && _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IdReceiptInCart) != null)
                         {
-                            dgv_product.CurrentRow.Cells[6].Value = int.Parse(dgv_product.CurrentRow.Cells[6].Value.ToString()) - int.Parse(textBox2.Text);
-                            dgv_GioHang1.CurrentRow.Cells[3].Value = int.Parse(textBox2.Text);
+                            dgv_product.CurrentRow.Cells[6].Value = int.Parse(dgv_product.CurrentRow.Cells[6].Value.ToString()) - (int.Parse(textBox2.Text) - int.Parse(dgv_GioHang1.CurrentRow.Cells[3].Value.ToString()));
+                            _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IdReceiptInCart).SoLuong = int.Parse(textBox2.Text);
+                            //   MessageBox.Show(_ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IdReceiptInCart).SoLuong.ToString());
+
+                            loadReceipt();
                         }
                         else if (int.Parse(dgv_GioHang1.CurrentRow.Cells[3].Value.ToString()) > int.Parse(textBox2.Text) && _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IdReceiptInCart) != null)
 
                         {
+                            //  _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IDSpCt).SoLuong = _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IDSpCt).SoLuong + int.Parse(tb_count.Text);
                             dgv_product.CurrentRow.Cells[6].Value = int.Parse(dgv_product.CurrentRow.Cells[6].Value.ToString()) + (int.Parse(dgv_GioHang1.CurrentRow.Cells[3].Value.ToString()) - int.Parse(textBox2.Text));
-                            dgv_GioHang1.CurrentRow.Cells[3].Value = int.Parse(textBox2.Text);
+                            _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IdReceiptInCart).SoLuong = int.Parse(textBox2.Text);
+                            //       MessageBox.Show(_ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IdReceiptInCart).SoLuong.ToString());
+                            loadReceipt();
+
                         }
                         MessageBox.Show("Cập Nhật Thành Công");
+
+
                     }
                 }
             }
@@ -951,6 +1198,7 @@ namespace _3_PL.View
 
         private void pictureBox7_Click(object sender, EventArgs e)
         {
+            n = int.Parse(textBox2.Text);
             n++;
             textBox2.Text = n.ToString();
         }
@@ -966,6 +1214,7 @@ namespace _3_PL.View
             }
             else
             {
+                n = int.Parse(textBox2.Text);
                 n--;
             }
         }
@@ -979,43 +1228,71 @@ namespace _3_PL.View
 
         private void btn_DatHang_Click(object sender, EventArgs e)
         {
-            if (textBox9.Text.Length != 10)
-            {
-                MessageBox.Show("SĐT Không Đúng Định Dạng");
-            }
-            else if (textBox9.Text == "" || textBox8.Text == "" || textBox1.Text == "" || textBox3.Text == "" || textBox4.Text == "")
-            {
-                MessageBox.Show("Bạn Chưa Nhập Đầy Đủ Thông Tin");
-            }
-            else
-            {
-                SuaHoaDonModels suaHoaDonModels = _HoaDonService.GetAllHoaDonDB().FirstOrDefault(p => p.IdHoaDon == IdHoaDon);
-                if (rbt_chuathanhtoan.Checked)
-                    suaHoaDonModels.TinhTrang = 2;
-                else if (rbt_giaohang.Checked)
-                {
-                    suaHoaDonModels.TinhTrang = 3;
-                    flhoadon.Controls.Remove(createButton());
-                }
-                else if (rbt_dahuy.Checked) suaHoaDonModels.TinhTrang = 6;
-                else if (rbt_dacoc.Checked) suaHoaDonModels.TinhTrang = 7;
-                else if (radioButton3.Checked)
-                {
-                    suaHoaDonModels.TinhTrang = 1;
-                }
-                suaHoaDonModels.TenShip = textBox8.Text;
 
-                suaHoaDonModels.SDTShip = textBox9.Text;
-                suaHoaDonModels.NgayShip = DateTime.Now;
-                suaHoaDonModels.NgayNhan = DateTime.Now;
-                suaHoaDonModels.NgayThanhToan = DateTime.Now;
-                MessageBox.Show(_HoaDonService.SuaHoaDon(suaHoaDonModels));
-                _ListReceiptProduct2.RemoveRange(0, _ListReceiptProduct2.Count());
-                _ListReceiptProduct.RemoveRange(0, _ListReceiptProduct.Count());
-                flhd3.Controls.Remove(createButton());
-                loadGioHang();
-                loadDonDatHang();
+            DialogResult dialogResult = MessageBox.Show("Bạn Muốn Thanh Toán Hóa Đơn?", "Thông Báo", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                if (checkHD != 0)
+                {
+                    MessageBox.Show("Bạn Cần vào bên Hóa Đơn để thực hiện nhé");
+                }
+                else
+                {
+                    if (textBox9.Text.Length != 10)
+                    {
+                        MessageBox.Show("SĐT Không Đúng Định Dạng");
+                    }
+                    else if (textBox9.Text == "" || textBox8.Text == "" || textBox1.Text == "" || textBox3.Text == "" || textBox4.Text == "")
+                    {
+                        MessageBox.Show("Bạn Chưa Nhập Đầy Đủ Thông Tin");
+                    }
+                    else
+                    {
+                        SuaHoaDonModels suaHoaDonModels = _HoaDonService.GetAllHoaDonDB().FirstOrDefault(p => p.IdHoaDon == IdHoaDon);
+                        HoaDonChiTietViewModel hdct = _HoaDonChiTietService.GetAllHoaDonDB().FirstOrDefault(p => p.IdHoaDon == IdHoaDon);
+
+                        if (rbt_chuathanhtoan.Checked)
+                        {
+                            suaHoaDonModels.TinhTrang = 2;
+                            hdct.TrangThai = 2;
+
+                        }
+                        else if (rbt_giaohang.Checked)
+                        {
+                            suaHoaDonModels.TinhTrang = 3;
+                            hdct.TrangThai = 3;
+                            flhoadon.Controls.Remove(createButton());
+                            loadhoadonduyet();
+
+                        }
+                        else if (rbt_dahuy.Checked) suaHoaDonModels.TinhTrang = 6;
+                        else if (rbt_dacoc.Checked)
+                        {
+                            hdct.TrangThai = 7;
+                            suaHoaDonModels.TinhTrang = 7;
+
+                        }
+                        else if (radioButton3.Checked)
+                        {
+                            hdct.TrangThai = 1;
+                            suaHoaDonModels.TinhTrang = 1;
+                            flhd3.Controls.Remove(createButton());
+                        }
+                        suaHoaDonModels.TenShip = textBox8.Text;
+                        suaHoaDonModels.SDTShip = textBox9.Text;
+                        suaHoaDonModels.NgayShip = DateTime.Now;
+                        suaHoaDonModels.NgayNhan = DateTime.Now;
+                        suaHoaDonModels.NgayThanhToan = DateTime.Now;
+                        if (_HoaDonChiTietService.SuaHoaDonChiTiet(hdct))
+                            MessageBox.Show(_HoaDonService.SuaHoaDon(suaHoaDonModels));
+                        _ListReceiptProduct2.RemoveRange(0, _ListReceiptProduct2.Count());
+                        _ListReceiptProduct.RemoveRange(0, _ListReceiptProduct.Count());
+                    }
+                }
+
             }
+
+
 
         }
 
@@ -1078,13 +1355,6 @@ namespace _3_PL.View
             }
         }
 
-
-
-        private void txt_dathangkhachtra_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
         private void txt_coc_TextChanged(object sender, EventArgs e)
         {
             decimal khachdua;
@@ -1099,6 +1369,11 @@ namespace _3_PL.View
             double ftienthua = Convert.ToDouble(Convert.ToDouble(tkhachtra) - Convert.ToDouble(tkhachdua));
 
             textBox6.Text = Convert.ToInt32(ftienthua).ToString("#,###", cul.NumberFormat);
+            if (ftienthua < 0)
+            {
+                btn_DatHang.Enabled = false;
+            }
+            else btn_DatHang.Enabled = true;
         }
 
         private void txt_dathangkhachtra_KeyPress(object sender, KeyPressEventArgs e)
@@ -1141,7 +1416,7 @@ namespace _3_PL.View
             catch (Exception ex)
             {
 
-                MessageBox.Show(Convert.ToString(ex.Message), "Không Được Nhập Chữ Hoặc Kí Tự Đặc Biệt1");
+                MessageBox.Show(Convert.ToString(ex.Message), "Không Được Nhập Chữ Hoặc Kí Tự Đặc Biệt");
                 return;
             }
         }
@@ -1157,9 +1432,6 @@ namespace _3_PL.View
 
                 tb_TienKhachCanTra.Text = Convert.ToInt32(fncoc).ToString("#,###", cul.NumberFormat);
 
-
-
-
             }
             catch (Exception ex)
             {
@@ -1171,13 +1443,226 @@ namespace _3_PL.View
 
         private void textBox10_TextChanged(object sender, EventArgs e)
         {
-            if(_KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p=>p.Sdt == textBox10.Text).Sdt != null)
+            try
             {
-                textBox3.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt == textBox10.Text).Ten;
-                textBox1.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt == textBox10.Text).DiaChi;
-                textBox4.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt == textBox10.Text).Sdt;
+                textBox3.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt.Contains(textBox10.Text)).Ten;
+                textBox1.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt.Contains(textBox10.Text)).DiaChi;
+                textBox4.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt.Contains(textBox10.Text)).Sdt;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Khong Tim Thay SDT");
+                throw;
+            }
+        }
+
+        private void textBox10_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            checkNumber(sender, e);
+        }
+        public static string NumberToText(double inputNumber, bool suffix = true)
+        {
+            string[] unitNumbers = new string[]
+                      {"không", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín"};
+            string[] placeValues = new string[] { "", "nghìn", "triệu", "tỷ" };
+            bool isNegative = false;
+
+            // -12345678.3445435 => "-12345678"
+            string sNumber = inputNumber.ToString("#");
+            double number = Convert.ToDouble(sNumber);
+            if (number < 0)
+            {
+                number = -number;
+                sNumber = number.ToString();
+                isNegative = true;
+            }
+
+
+            int ones, tens, hundreds;
+
+            int positionDigit = sNumber.Length; // last -> first
+
+            string result = " ";
+
+
+            if (positionDigit == 0)
+                result = unitNumbers[0] + result;
+            else
+            {
+                // 0:       ###
+                // 1: nghìn ###,###
+                // 2: triệu ###,###,###
+                // 3: tỷ    ###,###,###,###
+                int placeValue = 0;
+
+                while (positionDigit > 0)
+                {
+                    // Check last 3 digits remain ### (hundreds tens ones)
+                    tens = hundreds = -1;
+                    ones = Convert.ToInt32(sNumber.Substring(positionDigit - 1, 1));
+                    positionDigit--;
+                    if (positionDigit > 0)
+                    {
+                        tens = Convert.ToInt32(sNumber.Substring(positionDigit - 1, 1));
+                        positionDigit--;
+                        if (positionDigit > 0)
+                        {
+                            hundreds = Convert.ToInt32(sNumber.Substring(positionDigit - 1, 1));
+                            positionDigit--;
+                        }
+                    }
+
+                    if ((ones > 0) || (tens > 0) || (hundreds > 0) || (placeValue == 3))
+                        result = placeValues[placeValue] + result;
+
+                    placeValue++;
+                    if (placeValue > 3) placeValue = 1;
+
+                    if ((ones == 1) && (tens > 1))
+                        result = "một " + result;
+                    else
+                    {
+                        if ((ones == 5) && (tens > 0))
+                            result = "lăm " + result;
+                        else if (ones > 0)
+                            result = unitNumbers[ones] + " " + result;
+                    }
+
+                    if (tens < 0)
+                        break;
+                    else
+                    {
+                        if ((tens == 0) && (ones > 0)) result = "lẻ " + result;
+                        if (tens == 1) result = "mười " + result;
+                        if (tens > 1) result = unitNumbers[tens] + " mươi " + result;
+                    }
+
+                    if (hundreds < 0) break;
+                    else
+                    {
+                        if ((hundreds > 0) || (tens > 0) || (ones > 0))
+                            result = unitNumbers[hundreds] + " trăm " + result;
+                    }
+
+                    result = " " + result;
+                }
+            }
+
+            result = result.Trim();
+            if (isNegative) result = "Âm " + result;
+            return result + (suffix ? " đồng chẵn" : "");
+
+        }
+        void inHoaDon()
+        {
+            pPreDHoaDon.Document = pDHoaDon;
+            pPreDHoaDon.ShowDialog();
+        }
+        private void pDHoaDon_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            try
+            {
+                {
+                    var w = pDHoaDon.DefaultPageSettings.PaperSize.Width;
+                    //Lấy tên cửa hàng
+
+                    e.Graphics.DrawString(
+                        "PerSoft Perfume".ToUpper(), new Font("Courier New", 12, FontStyle.Bold), Brushes.Black,
+                        new PointF(100, 20));
+                    //Mã hóa đơn
+
+                    e.Graphics.DrawString(
+                        String.Format("{0}", _HoaDonService.GetAllHoaDonDB().Where(c => c.IdHoaDon == IdHoaDon).Select(c => c.Ma).FirstOrDefault()),
+                        new Font("Courier New", 12, FontStyle.Bold),
+                        Brushes.Black, new PointF(w / 2 + 200, 20));
+                    e.Graphics.DrawString(
+                        String.Format("{0}", DateTime.Now.ToString("dd/MM/yyyy HH:MM")),
+                        new Font("Courier New", 12, FontStyle.Bold),
+                        Brushes.Black, new PointF(w / 2 + 200, 45));
+
+                    Pen blackPEn = new Pen(Color.Black, 1);
+                    var y = 70;
+
+                    Point p1 = new Point(10, y);
+                    Point p2 = new Point(w - 10, y);
+                    e.Graphics.DrawLine(blackPEn, p1, p2);
+
+                    y += 30;
+                    e.Graphics.DrawString(
+                        "Phiếu Thanh Toán".ToUpper(), new Font("Courier New", 30, FontStyle.Bold), Brushes.Black,
+                        new PointF(190, y));
+
+
+                    y += 80;
+                    e.Graphics.DrawString("STT", new Font("Varial", 10, FontStyle.Bold), Brushes.Black, new Point(10, y));
+                    e.Graphics.DrawString("Tên hàng hóa", new Font("Varial", 10, FontStyle.Bold), Brushes.Black,
+                        new Point(50, y));
+                    e.Graphics.DrawString("Số lượng", new Font("Varial", 10, FontStyle.Bold), Brushes.Black,
+                        new Point(w / 2, y));
+                    e.Graphics.DrawString("Đơn giá", new Font("Varial", 10, FontStyle.Bold), Brushes.Black,
+                        new Point(w / 2 + 100, y));
+                    e.Graphics.DrawString("Thành tiền", new Font("Varial", 10, FontStyle.Bold), Brushes.Black,
+                        new Point(w - 200, y));
+                    var list = _HoaDonChiTietService.GetAllHoaDonDB().Where(x => x.IdHoaDon == IdHoaDon);
+
+                    int i = 1;
+                    y += 20;
+                    foreach (var x in _HoaDonChiTietService.GetAllProductInReceipt().Where(x => x.IdHoaDon == IdHoaDon))
+                    {
+                        e.Graphics.DrawString(string.Format("{0}", i++), new Font("Varial", 8, FontStyle.Bold), Brushes.Black,
+                            new Point(10, y));
+                        e.Graphics.DrawString("" + _HangHoaChiTietServices.GetsList()
+                                                  .Where(c => c.IdSp == x.IdsP)
+                                                  .Select(c => c.Ten).FirstOrDefault() + " " +
+                                              _HangHoaChiTietServices.GetsList().Where(c =>
+                                                      c.Id == x.IdSpCt)
+                                                  .Select(c => c.MoTa).FirstOrDefault(),
+                            new Font("Varial", 8, FontStyle.Bold), Brushes.Black, new Point(50, y));
+                        e.Graphics.DrawString(string.Format("{0:N0}", x.SoLuong), new Font("Varial", 8, FontStyle.Bold),
+                            Brushes.Black, new Point(w / 2, y));
+                        e.Graphics.DrawString(string.Format("{0:N0}", x.DonGia), new Font("Varial", 8, FontStyle.Bold),
+                            Brushes.Black, new Point(w / 2 + 100, y));
+                        e.Graphics.DrawString(string.Format("{0:N0}", Convert.ToInt32(Convert.ToInt32(x.SoLuong) * Convert.ToInt32(x.DonGia))), new Font("Varial", 8, FontStyle.Bold),
+                            Brushes.Black, new Point(w - 200, y));
+                        y += 20;
+                    }
+
+                    y += 40;
+                    p1 = new Point(10, y);
+                    p2 = new Point(w - 10, y);
+                    e.Graphics.DrawLine(blackPEn, p1, p2);
+
+                    string tt = Convert.ToString(txt_tongTienHoaDon.Text);
+                    string fn = tt.Replace(".", "");
+                    y += 20;
+                    e.Graphics.DrawString(string.Format("Tổng tiền :"), new Font("Varial", 13, FontStyle.Bold), Brushes.Black,
+                        new Point(w / 2, y));
+                    e.Graphics.DrawString(tb_TienKhachCanTra.Text + "VND", new Font("Varial", 13, FontStyle.Bold), Brushes.Black,
+                        new Point(w - 200, y));
+                    y += 20;
+                    e.Graphics.DrawString(string.Format("Tiền khách đưa : "), new Font("Varial", 13, FontStyle.Bold),
+                        Brushes.Black, new Point(w / 2, y));
+                    e.Graphics.DrawString(tb_tienKhachDua.Text + "VND", new Font("Varial", 13, FontStyle.Bold), Brushes.Black,
+                        new Point(w - 200, y));
+                    y += 20;
+                    e.Graphics.DrawString(string.Format("Trả khách :"), new Font("Varial", 13, FontStyle.Bold), Brushes.Black,
+                        new Point(w / 2, y));
+                    e.Graphics.DrawString(tb_tienThua.Text + "VND", new Font("Varial", 13, FontStyle.Bold), Brushes.Black,
+                        new Point(w - 200, y));
+                    y += 20;
+                    e.Graphics.DrawString(
+                        string.Format("Thành chữ : {0} VND", NumberToText(Convert.ToDouble(fn))),
+                        new Font("Varial", 13, FontStyle.Bold), Brushes.Black, new Point(w / 2 - 30, y));
+
+                };
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Convert.ToString(ex), "Liên Hệ Với 19008198 để sửa lỗi");
+                return;
 
             }
+
         }
     }
 }
