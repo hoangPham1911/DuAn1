@@ -13,13 +13,15 @@ namespace _1_DAL.Models
     {
         public QuyDoiDiem()
         {
-            LichSuDiemTieuDungs = new HashSet<LichSuDiemTieuDung>();
+          
         }
         [Key]
         public Guid Id { get; set; }
         public string? Ten { get; set; }
         public decimal? TyLeQuyDoi { get; set; }
         public string? TrangThai { get; set; }
-        public virtual ICollection<LichSuDiemTieuDung> LichSuDiemTieuDungs { get; set; }
+        public Guid? IdVi { get; set; }
+        [ForeignKey(nameof(IdVi))]
+        public virtual ViDiem IdQuyDoiDiemNavigation { get; set; }
     }
 }

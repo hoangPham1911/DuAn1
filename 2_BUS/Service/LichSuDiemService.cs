@@ -27,7 +27,7 @@ namespace _2_BUS.Service
             lichSuDiem.SoDiemTieuDung = lichSuDiem.SoDiemTieuDung;
             lichSuDiem.IdViDiem = lichSuDiem.IdViDiem;
             lichSuDiem.IdHoaDon = lichSuDiem.IdHoaDon;
-            lichSuDiem.IdQuyDoiDiem = lichSuDiem.IdQuyDoiDiem;
+
             if (_IlichSuDiem.add(lichSuDiem)) return true;
             else return false;
         }
@@ -38,7 +38,7 @@ namespace _2_BUS.Service
             {
                 IdHoaDon = a.IdHoaDon,
                 IdLichSuDiem = a.IdLichSuDiem,
-                IdQuyDoiDiem = a.IdQuyDoiDiem,
+
                 IdViDiem = a.IdViDiem,
                 NgaySuDung = a.NgaySuDung,
                 SoDiemTieuDung = a.SoDiemTieuDung,
@@ -62,7 +62,7 @@ namespace _2_BUS.Service
             lichSuDiem.SoDiemTieuDung = lichSuDiem.SoDiemTieuDung;
             lichSuDiem.IdViDiem = lichSuDiem.IdViDiem;
             lichSuDiem.IdHoaDon = lichSuDiem.IdHoaDon;
-            lichSuDiem.IdQuyDoiDiem = lichSuDiem.IdQuyDoiDiem;
+  
             if (_IlichSuDiem.update(lichSuDiem)) return true;
             else return false;
         }

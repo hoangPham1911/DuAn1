@@ -17,18 +17,13 @@ namespace _1_DAL.Models
         }
         [Key]
         public Guid IdLichSuDiem { get; set; }
-        public DateTime NgaySuDung { get; set; }
-        public int SoDiemTieuDung { get; set; }
-        public int SoDiemCong { get; set; }
-
-        public int TrangThai { get; set; }
-        public Guid? IdQuyDoiDiem { get; set; }
+        public DateTime? NgaySuDung { get; set; }
+        public int? SoDiemTieuDung { get; set; }
+        public int? SoDiemCong { get; set; }
+        public int? TrangThai { get; set; }
         public Guid? IdViDiem { get; set; }
         public Guid? IdHoaDon { get; set; }
-
-        [ForeignKey(nameof(IdQuyDoiDiem))]
-        [InverseProperty(nameof(QuyDoiDiem.LichSuDiemTieuDungs))]
-        public virtual QuyDoiDiem IdQuyDoiDiemNavigation { get; set; }
+       
 
         [ForeignKey(nameof(IdViDiem))]
         [InverseProperty(nameof(ViDiem.LichSuDiemTieuDungs))]

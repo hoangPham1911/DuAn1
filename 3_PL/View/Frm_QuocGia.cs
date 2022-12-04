@@ -44,15 +44,7 @@ namespace _3_PL.View
 
         private void btn_them_Click(object sender, EventArgs e)
         {
-            QuocGiaViewModels x = new QuocGiaViewModels()
-            {
-                Id = Guid.NewGuid(),
-                Ma = tb_ma.Text,
-                Ten = tb_ten.Text,
-                TrangThai = rdb_con.Checked ? 1 : 0
-            };
-            MessageBox.Show(iqg.add(x));
-            loadData();
+          
         }
 
         private void btn_xoa_Click(object sender, EventArgs e)
@@ -65,11 +57,7 @@ namespace _3_PL.View
 
         private void btn_sua_Click(object sender, EventArgs e)
         {
-            viewqg.Ma = tb_ma.Text;
-            viewqg.Ten = tb_ten.Text;
-            viewqg.TrangThai = rdb_con.Checked ? 1 : 0;
-            MessageBox.Show(iqg.update(viewqg));
-            loadData();
+         
         }
         private void dgv_show_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -88,6 +76,28 @@ namespace _3_PL.View
                     rdb_ngung.Checked = true;
                 }
             }
+        }
+
+        private void btn_them_Click_1(object sender, EventArgs e)
+        {
+            QuocGiaViewModels x = new QuocGiaViewModels()
+            {
+                Id = Guid.NewGuid(),
+                Ma = tb_ma.Text,
+                Ten = tb_ten.Text,
+                TrangThai = rdb_con.Checked ? 1 : 0
+            };
+            MessageBox.Show(iqg.add(x));
+            loadData();
+        }
+
+        private void btn_sua_Click_1(object sender, EventArgs e)
+        {
+            viewqg.Ma = tb_ma.Text;
+            viewqg.Ten = tb_ten.Text;
+            viewqg.TrangThai = rdb_con.Checked ? 1 : 0;
+            MessageBox.Show(iqg.update(viewqg));
+            loadData();
         }
     }
 }

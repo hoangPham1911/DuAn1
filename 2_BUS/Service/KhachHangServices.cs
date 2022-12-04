@@ -30,9 +30,8 @@ namespace _2_BUS.Service
             throw new NotImplementedException();
         }
         public List<KhachHangViewModels> GetAllKhachHangDB()
-        {
-            _khachHangViewModels =
-                (from a in _khachHangRepository.getAll() join b in _TichDiemRepositores.getAll() on a.IdVi equals b.Id into kh_table from p in kh_table.DefaultIfEmpty()
+        {        
+              return  (from a in _khachHangRepository.getAll() join b in _TichDiemRepositores.getAll() on a.IdVi equals b.Id into kh_table from p in kh_table.DefaultIfEmpty()
                  select new KhachHangViewModels()
                  {
                      Idkh = a.Id,
@@ -49,7 +48,6 @@ namespace _2_BUS.Service
                      tongDiem = p == null ? 0: p.TongDiem
 
                  }).ToList();
-            return _khachHangViewModels;
         }
 
         public string SuaKhachHang(SuaKhachHangViewModels obj)

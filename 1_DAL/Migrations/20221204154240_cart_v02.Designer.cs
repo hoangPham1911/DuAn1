@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using _1_DAL.Context;
 
@@ -11,9 +12,10 @@ using _1_DAL.Context;
 namespace _1_DAL.Migrations
 {
     [DbContext(typeof(ManagerContext))]
-    partial class ManagerContextModelSnapshot : ModelSnapshot
+    [Migration("20221204154240_cart_v02")]
+    partial class cart_v02
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -525,6 +527,9 @@ namespace _1_DAL.Migrations
                     b.Property<Guid?>("IdHoaDon")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid?>("IdQuyDoiDiem")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<Guid?>("IdViDiem")
                         .HasColumnType("uniqueidentifier");
 
@@ -545,6 +550,8 @@ namespace _1_DAL.Migrations
                     b.HasKey("IdLichSuDiem");
 
                     b.HasIndex("IdHoaDon");
+
+                    b.HasIndex("IdQuyDoiDiem");
 
                     b.HasIndex("IdViDiem");
 
@@ -735,9 +742,6 @@ namespace _1_DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("IdVi")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("Ten")
                         .HasColumnType("nvarchar(max)");
 
@@ -748,8 +752,6 @@ namespace _1_DAL.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("IdVi");
 
                     b.ToTable("BangQuyDoiDiem");
                 });
@@ -1007,11 +1009,17 @@ namespace _1_DAL.Migrations
                         .WithMany("LichSuDiems")
                         .HasForeignKey("IdHoaDon");
 
+                    b.HasOne("_1_DAL.Models.QuyDoiDiem", "IdQuyDoiDiemNavigation")
+                        .WithMany("LichSuDiemTieuDungs")
+                        .HasForeignKey("IdQuyDoiDiem");
+
                     b.HasOne("_1_DAL.Models.ViDiem", "IdViDiemNavigation")
                         .WithMany("LichSuDiemTieuDungs")
                         .HasForeignKey("IdViDiem");
 
                     b.Navigation("IdHoaDonNavigation");
+
+                    b.Navigation("IdQuyDoiDiemNavigation");
 
                     b.Navigation("IdViDiemNavigation");
                 });
@@ -1023,15 +1031,6 @@ namespace _1_DAL.Migrations
                         .HasForeignKey("IdCv");
 
                     b.Navigation("IdCvNavigation");
-                });
-
-            modelBuilder.Entity("_1_DAL.Models.QuyDoiDiem", b =>
-                {
-                    b.HasOne("_1_DAL.Models.ViDiem", "IdQuyDoiDiemNavigation")
-                        .WithMany("QuyDoiDiems")
-                        .HasForeignKey("IdVi");
-
-                    b.Navigation("IdQuyDoiDiemNavigation");
                 });
 
             modelBuilder.Entity("_1_DAL.Models.SaleChiTiet", b =>
@@ -1123,6 +1122,11 @@ namespace _1_DAL.Migrations
                     b.Navigation("HangHoaChiTiet");
                 });
 
+            modelBuilder.Entity("_1_DAL.Models.QuyDoiDiem", b =>
+                {
+                    b.Navigation("LichSuDiemTieuDungs");
+                });
+
             modelBuilder.Entity("_1_DAL.Models.Sale", b =>
                 {
                     b.Navigation("SaleChiTiets");
@@ -1139,8 +1143,6 @@ namespace _1_DAL.Migrations
                         .IsRequired();
 
                     b.Navigation("LichSuDiemTieuDungs");
-
-                    b.Navigation("QuyDoiDiems");
                 });
 #pragma warning restore 612, 618
         }

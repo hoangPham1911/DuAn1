@@ -14,5 +14,7 @@ namespace _2_BUS.ViewModels
         public string? TrangThai { get; set; }
         public Guid? IdKH { get; set; }
         public string? STD { get; set; }
+        public int? Tong { get; set; }
+
     }
 }

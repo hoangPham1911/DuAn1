@@ -1308,7 +1308,7 @@ namespace _3_PL.View
 
         private void textBox7_TextChanged(object sender, EventArgs e)
         {
-     
+
         }
 
         private void tb_TienKhachCanTra_TextChanged(object sender, EventArgs e)
@@ -1406,12 +1406,17 @@ namespace _3_PL.View
         {
             try
             {
+
                 string coc = txt_tongTienHoaDon.Text;
                 string fncoc = coc.Replace(".", "");
 
                 CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
 
                 tb_TienKhachCanTra.Text = Convert.ToInt32(fncoc).ToString("#,###", cul.NumberFormat);
+
+              
+
+
 
             }
             catch (Exception ex)
@@ -1426,12 +1431,11 @@ namespace _3_PL.View
         {
             try
             {
+
                 textBox3.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt.Contains(textBox10.Text)).Ten;
                 textBox1.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt.Contains(textBox10.Text)).DiaChi;
                 textBox4.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt.Contains(textBox10.Text)).Sdt;
-                if (_KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt.Contains(textBox10.Text)).tongDiem != null)
-                    textBox5.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt.Contains(textBox10.Text)).tongDiem.ToString();
-                else textBox5.Text = 0.ToString();
+                textBox5.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt.Contains(textBox10.Text)).tongDiem.ToString();
 
             }
             catch (Exception)
@@ -1652,23 +1656,72 @@ namespace _3_PL.View
 
         private void textBox11_TextChanged(object sender, EventArgs e)
         {
-            textBox7.Text = (int.Parse(textBox11.Text) * _QuyDoiDiemService.GetDiem().FirstOrDefault(p=>p.STD.Contains(textBox10.Text)).TyLeQuyDoi).ToString();
         }
 
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
-            if(int.Parse(textBox5.Text) == 0)
+            if (int.Parse(textBox5.Text) == 0)
             {
                 textBox7.Text = 0.ToString();
-                textBox7.Enabled = true;
-                textBox11.Enabled = true;
+                textBox7.Enabled = false;
+                textBox11.Enabled = false;
 
             }
             else
             {
-                textBox7.Enabled = false;
-                textBox11.Enabled = false;
+                //textBox7.Enabled = true;
+                //textBox11.Enabled = true;
+                //string point = textBox7.Text;
+                //string fncoc = point.Replace(".", "");
+
+                CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
+                textBox7.Text = _QuyDoiDiemService.GetDiem().FirstOrDefault(p => p.STD.Contains(textBox10.Text)).TyLeQuyDoi.ToString();
+                textBox13.Text = _QuyDoiDiemService.GetDiem().FirstOrDefault(p => p.STD.Contains(textBox10.Text)).TyLeQuyDoi.ToString();
+                //    textBox7.Text = Convert.ToInt32(fncoc).ToString("#,###", cul.NumberFormat);               
             }
+        }
+
+        private void textBox11_TextChanged_1(object sender, EventArgs e)
+        {
+            CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
+            string tongTien2 = textBox11.Text.ToString();
+            string fTongTien1 = tongTien2.Replace(".00", "");
+            string point = (_QuyDoiDiemService.GetDiem().FirstOrDefault(p => p.STD.Contains(textBox10.Text)).TyLeQuyDoi).ToString();
+            string fncoc = point.Replace(".00", "");
+            decimal tien = (decimal.Parse(fTongTien1) * decimal.Parse(fncoc));
+            textBox7.Text = Convert.ToDouble(tien).ToString("#,###", cul.NumberFormat);
+
+            string tongTien = txt_tongTienHoaDon.Text.ToString();
+            string fTongTien = tongTien.Replace(".", "");
+
+            string Point = textBox7.Text.ToString();
+            string Fpoint = Point.Replace(".00", "");
+            double TienKhachTra = Convert.ToDouble(fTongTien) - Convert.ToDouble(Fpoint);
+
+            tb_TienKhachCanTra.Text = Convert.ToInt32(TienKhachTra).ToString("#,###", cul.NumberFormat);
+
+        }
+
+        private void textBox12_TextChanged(object sender, EventArgs e)
+        {
+            CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
+            string tongTien2 = textBox12.Text.ToString();
+            string fTongTien1 = tongTien2.Replace(".00", "");
+            string point = (_QuyDoiDiemService.GetDiem().FirstOrDefault(p => p.STD.Contains(textBox10.Text)).TyLeQuyDoi).ToString();
+            string fncoc = point.Replace(".00", "");
+            decimal tien = (decimal.Parse(fTongTien1) * decimal.Parse(fncoc));
+            textBox13.Text = Convert.ToInt32(tien).ToString("#,###", cul.NumberFormat);
+
+            string tongTien = txt_dathangtongtien.Text.ToString();
+            string fTongTien = tongTien.Replace(".", "");
+
+            string Point = textBox12.Text.ToString();
+            string Fpoint = Point.Replace(".00", "");
+            double TienKhachTra = Convert.ToDouble(fTongTien) - Convert.ToDouble(Fpoint);
+
+            txt_dathangkhachtra.Text = Convert.ToInt32(TienKhachTra).ToString("#,###", cul.NumberFormat);
+
+
         }
     }
 }

@@ -103,15 +103,6 @@
             this.pic_loaigiay.TabIndex = 149;
             this.pic_loaigiay.TabStop = false;
             this.pic_loaigiay.DoubleClick += new System.EventHandler(this.pic_loaigiay_DoubleClick);
-
-            //this.pic_dungtich.Image = ((System.Drawing.Image)(resources.GetObject("pic_dungtich.Image")));
-            //this.pic_dungtich.Location = new System.Drawing.Point(1058, 525);
-            //this.pic_dungtich.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            //this.pic_dungtich.Name = "pic_dungtich";
-            //this.pic_dungtich.Size = new System.Drawing.Size(29, 22);
-            //this.pic_dungtich.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            //this.pic_dungtich.TabIndex = 149;
-            //this.pic_dungtich.TabStop = false;
             // 
             // pic_xuatxu
             // 
@@ -127,7 +118,6 @@
             // 
             // pic_sizegiay
             // 
-
             this.pic_sizegiay.Image = ((System.Drawing.Image)(resources.GetObject("pic_sizegiay.Image")));
             this.pic_sizegiay.Location = new System.Drawing.Point(1209, 612);
             this.pic_sizegiay.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
@@ -137,16 +127,6 @@
             this.pic_sizegiay.TabIndex = 151;
             this.pic_sizegiay.TabStop = false;
             this.pic_sizegiay.DoubleClick += new System.EventHandler(this.pic_sizegiay_DoubleClick);
-
-            //this.pic_nhomhuong.Image = ((System.Drawing.Image)(resources.GetObject("pic_nhomhuong.Image")));
-            //this.pic_nhomhuong.Location = new System.Drawing.Point(1058, 459);
-            //this.pic_nhomhuong.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            //this.pic_nhomhuong.Name = "pic_nhomhuong";
-            //this.pic_nhomhuong.Size = new System.Drawing.Size(29, 22);
-            //this.pic_nhomhuong.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            //this.pic_nhomhuong.TabIndex = 151;
-            //this.pic_nhomhuong.TabStop = false;
-
             // 
             // pic_cl
             // 
@@ -158,22 +138,7 @@
             this.pic_cl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_cl.TabIndex = 153;
             this.pic_cl.TabStop = false;
-
             this.pic_cl.DoubleClick += new System.EventHandler(this.pic_cl_DoubleClick);
-
-            // 
-            // pic_mavach
-            // 
-            //this.pic_mavach.Image = ((System.Drawing.Image)(resources.GetObject("pic_mavach.Image")));
-            //this.pic_mavach.Location = new System.Drawing.Point(332, 424);
-            //this.pic_mavach.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            //this.pic_mavach.Name = "pic_mavach";
-            //this.pic_mavach.Size = new System.Drawing.Size(23, 22);
-            //this.pic_mavach.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            //this.pic_mavach.TabIndex = 147;
-            //this.pic_mavach.TabStop = false;
-            //this.pic_mavach.DoubleClick += new System.EventHandler(this.pic_mavach_DoubleClick);
-
             // 
             // pic_nsx
             // 
@@ -191,17 +156,11 @@
             // 
             this.cbo_mahh.AllowDrop = true;
             this.cbo_mahh.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cbo_mahh.Location = new System.Drawing.Point(222, 489);
-            this.cbo_mahh.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.cbo_mahh.Name = "cbo_mahh";
-            this.cbo_mahh.Size = new System.Drawing.Size(151, 27);
-
             this.cbo_mahh.Location = new System.Drawing.Point(194, 367);
             this.cbo_mahh.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.cbo_mahh.Name = "cbo_mahh";
             this.cbo_mahh.ReadOnly = true;
             this.cbo_mahh.Size = new System.Drawing.Size(133, 23);
-
             this.cbo_mahh.TabIndex = 144;
             // 
             // pic_exit
@@ -225,7 +184,7 @@
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.btn_them);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 645);
+            this.panel1.Location = new System.Drawing.Point(0, 698);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1176, 49);
@@ -236,7 +195,7 @@
             this.pictureBox4.BackColor = System.Drawing.Color.DarkSalmon;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(656, 14);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(37, 20);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -247,7 +206,7 @@
             // 
             this.btn_sua.BackColor = System.Drawing.Color.DarkSalmon;
             this.btn_sua.Location = new System.Drawing.Point(615, 7);
-            this.btn_sua.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_sua.Margin = new System.Windows.Forms.Padding(2);
             this.btn_sua.Name = "btn_sua";
             this.btn_sua.Size = new System.Drawing.Size(168, 34);
             this.btn_sua.TabIndex = 156;
@@ -260,7 +219,7 @@
             this.pictureBox1.BackColor = System.Drawing.Color.DarkSalmon;
             this.pictureBox1.Image = global::_3_PL.Properties.Resources.add_user;
             this.pictureBox1.Location = new System.Drawing.Point(466, 14);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(37, 22);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -272,7 +231,7 @@
             this.pictureBox2.BackColor = System.Drawing.Color.DarkSalmon;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(673, 14);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(37, 20);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -284,7 +243,7 @@
             this.btn_them.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btn_them.BackColor = System.Drawing.Color.DarkSalmon;
             this.btn_them.Location = new System.Drawing.Point(430, 6);
-            this.btn_them.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_them.Margin = new System.Windows.Forms.Padding(2);
             this.btn_them.Name = "btn_them";
             this.btn_them.Size = new System.Drawing.Size(167, 35);
             this.btn_them.TabIndex = 154;
@@ -425,7 +384,7 @@
             this.chk_hethang.AutoSize = true;
             this.chk_hethang.ForeColor = System.Drawing.Color.White;
             this.chk_hethang.Location = new System.Drawing.Point(288, 593);
-            this.chk_hethang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chk_hethang.Margin = new System.Windows.Forms.Padding(2);
             this.chk_hethang.Name = "chk_hethang";
             this.chk_hethang.Size = new System.Drawing.Size(77, 19);
             this.chk_hethang.TabIndex = 120;
@@ -438,7 +397,7 @@
             this.chk_conhang.AutoSize = true;
             this.chk_conhang.ForeColor = System.Drawing.Color.White;
             this.chk_conhang.Location = new System.Drawing.Point(194, 593);
-            this.chk_conhang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chk_conhang.Margin = new System.Windows.Forms.Padding(2);
             this.chk_conhang.Name = "chk_conhang";
             this.chk_conhang.Size = new System.Drawing.Size(80, 19);
             this.chk_conhang.TabIndex = 119;
@@ -504,7 +463,7 @@
             // txt_giaban
             // 
             this.txt_giaban.Location = new System.Drawing.Point(925, 387);
-            this.txt_giaban.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_giaban.Margin = new System.Windows.Forms.Padding(2);
             this.txt_giaban.Name = "txt_giaban";
             this.txt_giaban.Size = new System.Drawing.Size(131, 23);
             this.txt_giaban.TabIndex = 111;
@@ -523,7 +482,7 @@
             // txt_gianhap
             // 
             this.txt_gianhap.Location = new System.Drawing.Point(925, 357);
-            this.txt_gianhap.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_gianhap.Margin = new System.Windows.Forms.Padding(2);
             this.txt_gianhap.Name = "txt_gianhap";
             this.txt_gianhap.Size = new System.Drawing.Size(131, 23);
             this.txt_gianhap.TabIndex = 109;
@@ -542,7 +501,7 @@
             // txt_soluong
             // 
             this.txt_soluong.Location = new System.Drawing.Point(194, 516);
-            this.txt_soluong.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_soluong.Margin = new System.Windows.Forms.Padding(2);
             this.txt_soluong.Name = "txt_soluong";
             this.txt_soluong.Size = new System.Drawing.Size(133, 23);
             this.txt_soluong.TabIndex = 107;
@@ -561,7 +520,7 @@
             // txt_mavach
             // 
             this.txt_mavach.Location = new System.Drawing.Point(194, 424);
-            this.txt_mavach.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_mavach.Margin = new System.Windows.Forms.Padding(2);
             this.txt_mavach.Name = "txt_mavach";
             this.txt_mavach.Size = new System.Drawing.Size(133, 23);
             this.txt_mavach.TabIndex = 105;
@@ -650,7 +609,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightPink;
-            this.ClientSize = new System.Drawing.Size(1176, 694);
+            this.ClientSize = new System.Drawing.Size(1176, 747);
             this.Controls.Add(this.pic_anhadd);
             this.Controls.Add(this.cbo_anh);
             this.Controls.Add(this.label16);

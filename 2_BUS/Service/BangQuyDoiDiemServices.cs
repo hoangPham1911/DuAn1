@@ -20,13 +20,13 @@ namespace _2_BUS.Service
         IClientRepository _khachHangRepository;
         ITichDiemRepositores _TichDiemRepositores;
         IHistoryPointRepository _IlichSuDiem;
-
         public BangQuyDoiDiemServices()
         {
             _BangQuyDoiDiem = new BangQuyDoiDiemRepositories();
             _khachHangRepository = new ClientRepositores();
             _TichDiemRepositores = new TichDiemRepositores();
             _IlichSuDiem = new HistoryPointRepositores();
+            
         }
         public bool add(BangQuyDoiDiemViewModels vi)
         {
@@ -41,10 +41,7 @@ namespace _2_BUS.Service
 
         public List<BangQuyDoiDiemViewModels> GetDiem()
         {
-            return (from a in _BangQuyDoiDiem.getAll() 
-                    join b in _IlichSuDiem.getAll() on a.Id equals b.IdQuyDoiDiem
-                    join c in _TichDiemRepositores.getAll() on b.IdViDiem equals c.Id
-                    join d in _khachHangRepository.getAll() on c.IdKhachHang equals d.Id
+            return (from a in _BangQuyDoiDiem.getAll() join b in _TichDiemRepositores.getAll() on a.IdVi equals b.Id join c in _khachHangRepository.getAll() on b.Id equals c.IdVi
                     select new
                     BangQuyDoiDiemViewModels
                     {
@@ -52,8 +49,8 @@ namespace _2_BUS.Service
                         TyLeQuyDoi = a.TyLeQuyDoi,
                         Ten = a.Ten,
                         TrangThai = a.TrangThai,
-                        IdKH = d.Id,
-                        STD = d.Sdt
+                        Tong = b.TongDiem,
+                        STD = c.Sdt
                     }).ToList();
         }
 
