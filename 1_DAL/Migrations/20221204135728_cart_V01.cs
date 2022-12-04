@@ -5,11 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace _1_DAL.Migrations
 {
-<<<<<<<< HEAD:1_DAL/Migrations/20221202061222_cart_v20.cs
-    public partial class cart_v20 : Migration
-========
-    public partial class cart_v01 : Migration
->>>>>>>> 9bca4fa7f073b4ce8cfcf32a40c37830dc977ea3:1_DAL/Migrations/20221202093339_cart_v01.cs
+    public partial class cart_V01 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -20,7 +16,7 @@ namespace _1_DAL.Migrations
                     ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false, defaultValueSql: "(newid())"),
                     MaAnh = table.Column<string>(type: "varchar(20)", unicode: false, maxLength: 20, nullable: false),
                     Ten = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
-                    DuongDan = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DuongDan = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TrangThai = table.Column<int>(type: "int", nullable: false, defaultValueSql: "((0))")
                 },
                 constraints: table =>
@@ -171,7 +167,7 @@ namespace _1_DAL.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false, defaultValueSql: "(newid())"),
                     TongDiem = table.Column<int>(type: "int", nullable: true),
-                    TrangThai = table.Column<string>(type: "nvarchar(max)", nullable: true, defaultValueSql: "((0))"),
+                    TrangThai = table.Column<int>(type: "int", nullable: true, defaultValueSql: "((0))"),
                     IdKhachHang = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
@@ -385,10 +381,6 @@ namespace _1_DAL.Migrations
                     TenShip = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SoTienQuyDoi = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
                     SoDiemSuDung = table.Column<int>(type: "int", nullable: true),
-<<<<<<<< HEAD:1_DAL/Migrations/20221202061222_cart_v20.cs
-                    TenKhachHang = table.Column<string>(type: "nvarchar(max)", nullable: true),
-========
->>>>>>>> 9bca4fa7f073b4ce8cfcf32a40c37830dc977ea3:1_DAL/Migrations/20221202093339_cart_v01.cs
                     PhanTramGiamGia = table.Column<decimal>(type: "decimal(18,2)", nullable: true)
                 },
                 constraints: table =>

@@ -69,7 +69,7 @@ namespace _3_PL.View
         {
             foreach (var item in iqlhh.GetsList())
             {
-                cbb_tengiay.Items.Add(item.Ten);
+              //  cbb_tengiay.Items.Add(item.Ten);
             }
             
         }

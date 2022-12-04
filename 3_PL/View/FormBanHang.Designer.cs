@@ -147,6 +147,9 @@
             this.btn_up = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pic_cam)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_product)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -330,6 +333,9 @@
             // 
             this.panel5.BackColor = System.Drawing.Color.BurlyWood;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.label12);
+            this.panel5.Controls.Add(this.textBox11);
+            this.panel5.Controls.Add(this.label11);
             this.panel5.Controls.Add(this.radioButton1);
             this.panel5.Controls.Add(this.radioButton2);
             this.panel5.Controls.Add(this.dateTimePicker1);
@@ -565,11 +571,11 @@
             // label49
             // 
             this.label49.AutoSize = true;
-            this.label49.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label49.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label49.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label49.Location = new System.Drawing.Point(6, 38);
             this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(106, 19);
+            this.label49.Size = new System.Drawing.Size(88, 13);
             this.label49.TabIndex = 66;
             this.label49.Text = "Giảm giá (Point)";
             // 
@@ -577,12 +583,11 @@
             // 
             this.textBox7.BackColor = System.Drawing.Color.BurlyWood;
             this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox7.Location = new System.Drawing.Point(118, 37);
+            this.textBox7.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox7.Location = new System.Drawing.Point(149, 37);
             this.textBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox7.Name = "textBox7";
-            this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(113, 22);
+            this.textBox7.Size = new System.Drawing.Size(82, 18);
             this.textBox7.TabIndex = 72;
             this.textBox7.Text = "0";
             this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -1065,7 +1070,6 @@
             this.tb_point.Location = new System.Drawing.Point(124, 38);
             this.tb_point.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_point.Name = "tb_point";
-            this.tb_point.ReadOnly = true;
             this.tb_point.Size = new System.Drawing.Size(114, 22);
             this.tb_point.TabIndex = 72;
             this.tb_point.Text = "0";
@@ -1328,6 +1332,7 @@
             this.textBox5.Size = new System.Drawing.Size(129, 23);
             this.textBox5.TabIndex = 9;
             this.textBox5.Text = "--Điểm tiêu dùng--";
+            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // pictureBox2
             // 
@@ -1619,6 +1624,41 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.Maroon;
+            this.label11.Location = new System.Drawing.Point(240, 43);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(31, 15);
+            this.label11.TabIndex = 160;
+            this.label11.Text = "VND";
+            // 
+            // textBox11
+            // 
+            this.textBox11.BackColor = System.Drawing.Color.BurlyWood;
+            this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox11.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textBox11.ForeColor = System.Drawing.Color.DarkRed;
+            this.textBox11.Location = new System.Drawing.Point(93, 37);
+            this.textBox11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.ReadOnly = true;
+            this.textBox11.Size = new System.Drawing.Size(30, 18);
+            this.textBox11.TabIndex = 161;
+            this.textBox11.Text = "0";
+            this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox11.TextChanged += new System.EventHandler(this.textBox11_TextChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(127, 38);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(20, 15);
+            this.label12.TabIndex = 162;
+            this.label12.Text = "->";
+            // 
             // FormBanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1793,5 +1833,8 @@
         private Label label8;
         private TextBox textBox10;
         private RadioButton radioButton1;
+        private Label label12;
+        private TextBox textBox11;
+        private Label label11;
     }
 }

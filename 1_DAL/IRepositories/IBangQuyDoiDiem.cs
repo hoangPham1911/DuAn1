@@ -10,7 +10,7 @@ namespace _1_DAL.IRepositories
     public interface IBangQuyDoiDiem
     {
         bool add(QuyDoiDiem diem);
-        bool remove(QuyDoiDiem id);
+        bool remove(Guid id);
         List<QuyDoiDiem> getAll();
 
         bool update(QuyDoiDiem diem);

@@ -12,17 +12,8 @@ using _1_DAL.Context;
 namespace _1_DAL.Migrations
 {
     [DbContext(typeof(ManagerContext))]
-<<<<<<< HEAD:1_DAL/Migrations/20221204031531_cart_v01.Designer.cs
-    [Migration("20221204031531_cart_v01")]
-=======
-<<<<<<<< HEAD:1_DAL/Migrations/20221202061222_cart_v20.Designer.cs
-    [Migration("20221202061222_cart_v20")]
-    partial class cart_v20
-========
-    [Migration("20221202093339_cart_v01")]
->>>>>>> c22c372b06f919d37bb2f652b796ec50e5bd0917:1_DAL/Migrations/20221202093339_cart_v01.Designer.cs
-    partial class cart_v01
->>>>>>>> 9bca4fa7f073b4ce8cfcf32a40c37830dc977ea3:1_DAL/Migrations/20221202093339_cart_v01.Designer.cs
+    [Migration("20221204135728_cart_V01")]
+    partial class cart_V01
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

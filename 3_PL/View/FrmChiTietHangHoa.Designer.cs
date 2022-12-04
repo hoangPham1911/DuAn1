@@ -94,7 +94,6 @@
             // 
             // pic_loaigiay
             // 
-<<<<<<< HEAD
             this.pic_loaigiay.Image = ((System.Drawing.Image)(resources.GetObject("pic_loaigiay.Image")));
             this.pic_loaigiay.Location = new System.Drawing.Point(1209, 700);
             this.pic_loaigiay.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
@@ -104,16 +103,15 @@
             this.pic_loaigiay.TabIndex = 149;
             this.pic_loaigiay.TabStop = false;
             this.pic_loaigiay.DoubleClick += new System.EventHandler(this.pic_loaigiay_DoubleClick);
-=======
-            this.pic_dungtich.Image = ((System.Drawing.Image)(resources.GetObject("pic_dungtich.Image")));
-            this.pic_dungtich.Location = new System.Drawing.Point(1058, 525);
-            this.pic_dungtich.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.pic_dungtich.Name = "pic_dungtich";
-            this.pic_dungtich.Size = new System.Drawing.Size(29, 22);
-            this.pic_dungtich.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pic_dungtich.TabIndex = 149;
-            this.pic_dungtich.TabStop = false;
->>>>>>> 12a0efad125b886ba14cb91810348be84333867d
+
+            //this.pic_dungtich.Image = ((System.Drawing.Image)(resources.GetObject("pic_dungtich.Image")));
+            //this.pic_dungtich.Location = new System.Drawing.Point(1058, 525);
+            //this.pic_dungtich.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            //this.pic_dungtich.Name = "pic_dungtich";
+            //this.pic_dungtich.Size = new System.Drawing.Size(29, 22);
+            //this.pic_dungtich.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            //this.pic_dungtich.TabIndex = 149;
+            //this.pic_dungtich.TabStop = false;
             // 
             // pic_xuatxu
             // 
@@ -129,7 +127,7 @@
             // 
             // pic_sizegiay
             // 
-<<<<<<< HEAD
+
             this.pic_sizegiay.Image = ((System.Drawing.Image)(resources.GetObject("pic_sizegiay.Image")));
             this.pic_sizegiay.Location = new System.Drawing.Point(1209, 612);
             this.pic_sizegiay.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
@@ -139,16 +137,16 @@
             this.pic_sizegiay.TabIndex = 151;
             this.pic_sizegiay.TabStop = false;
             this.pic_sizegiay.DoubleClick += new System.EventHandler(this.pic_sizegiay_DoubleClick);
-=======
-            this.pic_nhomhuong.Image = ((System.Drawing.Image)(resources.GetObject("pic_nhomhuong.Image")));
-            this.pic_nhomhuong.Location = new System.Drawing.Point(1058, 459);
-            this.pic_nhomhuong.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.pic_nhomhuong.Name = "pic_nhomhuong";
-            this.pic_nhomhuong.Size = new System.Drawing.Size(29, 22);
-            this.pic_nhomhuong.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pic_nhomhuong.TabIndex = 151;
-            this.pic_nhomhuong.TabStop = false;
->>>>>>> 12a0efad125b886ba14cb91810348be84333867d
+
+            //this.pic_nhomhuong.Image = ((System.Drawing.Image)(resources.GetObject("pic_nhomhuong.Image")));
+            //this.pic_nhomhuong.Location = new System.Drawing.Point(1058, 459);
+            //this.pic_nhomhuong.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            //this.pic_nhomhuong.Name = "pic_nhomhuong";
+            //this.pic_nhomhuong.Size = new System.Drawing.Size(29, 22);
+            //this.pic_nhomhuong.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            //this.pic_nhomhuong.TabIndex = 151;
+            //this.pic_nhomhuong.TabStop = false;
+
             // 
             // pic_cl
             // 
@@ -160,22 +158,22 @@
             this.pic_cl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_cl.TabIndex = 153;
             this.pic_cl.TabStop = false;
-<<<<<<< HEAD
+
             this.pic_cl.DoubleClick += new System.EventHandler(this.pic_cl_DoubleClick);
-=======
+
             // 
             // pic_mavach
             // 
-            this.pic_mavach.Image = ((System.Drawing.Image)(resources.GetObject("pic_mavach.Image")));
-            this.pic_mavach.Location = new System.Drawing.Point(332, 424);
-            this.pic_mavach.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.pic_mavach.Name = "pic_mavach";
-            this.pic_mavach.Size = new System.Drawing.Size(23, 22);
-            this.pic_mavach.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pic_mavach.TabIndex = 147;
-            this.pic_mavach.TabStop = false;
-            this.pic_mavach.DoubleClick += new System.EventHandler(this.pic_mavach_DoubleClick);
->>>>>>> 12a0efad125b886ba14cb91810348be84333867d
+            //this.pic_mavach.Image = ((System.Drawing.Image)(resources.GetObject("pic_mavach.Image")));
+            //this.pic_mavach.Location = new System.Drawing.Point(332, 424);
+            //this.pic_mavach.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            //this.pic_mavach.Name = "pic_mavach";
+            //this.pic_mavach.Size = new System.Drawing.Size(23, 22);
+            //this.pic_mavach.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            //this.pic_mavach.TabIndex = 147;
+            //this.pic_mavach.TabStop = false;
+            //this.pic_mavach.DoubleClick += new System.EventHandler(this.pic_mavach_DoubleClick);
+
             // 
             // pic_nsx
             // 
@@ -191,20 +189,19 @@
             // 
             // cbo_mahh
             // 
-<<<<<<< HEAD
             this.cbo_mahh.AllowDrop = true;
             this.cbo_mahh.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.cbo_mahh.Location = new System.Drawing.Point(222, 489);
             this.cbo_mahh.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.cbo_mahh.Name = "cbo_mahh";
             this.cbo_mahh.Size = new System.Drawing.Size(151, 27);
-=======
+
             this.cbo_mahh.Location = new System.Drawing.Point(194, 367);
             this.cbo_mahh.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.cbo_mahh.Name = "cbo_mahh";
             this.cbo_mahh.ReadOnly = true;
             this.cbo_mahh.Size = new System.Drawing.Size(133, 23);
->>>>>>> 12a0efad125b886ba14cb91810348be84333867d
+
             this.cbo_mahh.TabIndex = 144;
             // 
             // pic_exit

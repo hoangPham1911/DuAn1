@@ -40,6 +40,9 @@ namespace _3_PL.View
         List<GioHangViewModel> _ListGioHang;
         List<SanPhamTrongHoaDonViewModels> _ListReceiptProduct;
         List<SanPhamTrongHoaDonViewModels> _ListReceiptProduct2;
+        IBangQuyDoiDiemServices _QuyDoiDiemService;
+        ILichSuDiemService _LichSuDiemService;
+        IViDiemService _ViDiemService;
 
         VideoCaptureDevice videoCaptureDevice;
         // camera dung de ghi hinh
@@ -47,6 +50,9 @@ namespace _3_PL.View
         public FormBanHang()
         {
             InitializeComponent();
+            _QuyDoiDiemService = new BangQuyDoiDiemServices();
+            _ViDiemService = new ViDiemService();
+            _LichSuDiemService = new LichSuDiemService();
             _KhachHangServices = new KhachHangServices();
             _AnhService = new AnhService();
             _HoaDonChiTietService = new HoaDonChiTietService();
@@ -1302,13 +1308,7 @@ namespace _3_PL.View
 
         private void textBox7_TextChanged(object sender, EventArgs e)
         {
-            if (_KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Ma == cbxKH.Text).tongDiem == null)
-            {
-                textBox7.Text = 0.ToString();
-            }
-            else
-                textBox7.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Ma == cbxKH.Text).tongDiem.ToString();
-
+     
         }
 
         private void tb_TienKhachCanTra_TextChanged(object sender, EventArgs e)
@@ -1334,29 +1334,6 @@ namespace _3_PL.View
 
         private void tb_point_TextChanged(object sender, EventArgs e)
         {
-            if (_KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Ma == cbxKH.Text).tongDiem == null)
-            {
-                tb_point.Text = 0.ToString();
-                textBox7.Text = 0.ToString();
-            }
-            else
-            {
-                tb_point.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Ma == cbxKH.Text).tongDiem.ToString();
-                textBox7.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Ma == cbxKH.Text).tongDiem.ToString();
-                decimal giamgia;
-
-                string tt = Convert.ToString(txt_dathangtongtien.Text);
-                string fn = tt.Replace(".", "");
-                giamgia = Convert.ToDecimal(tb_point.Text);
-
-                double khach = Convert.ToDouble(Convert.ToInt32(tt));
-
-                CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
-
-                txt_dathangkhachtra.Text = Convert.ToInt32(khach).ToString("#,###", cul.NumberFormat);
-
-
-            }
         }
 
         private void txt_coc_TextChanged(object sender, EventArgs e)
@@ -1452,7 +1429,9 @@ namespace _3_PL.View
                 textBox3.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt.Contains(textBox10.Text)).Ten;
                 textBox1.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt.Contains(textBox10.Text)).DiaChi;
                 textBox4.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt.Contains(textBox10.Text)).Sdt;
-                textBox5.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt.Contains(textBox10.Text)).tongDiem.ToString();
+                if (_KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt.Contains(textBox10.Text)).tongDiem != null)
+                    textBox5.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt.Contains(textBox10.Text)).tongDiem.ToString();
+                else textBox5.Text = 0.ToString();
 
             }
             catch (Exception)
@@ -1669,6 +1648,27 @@ namespace _3_PL.View
 
             }
 
+        }
+
+        private void textBox11_TextChanged(object sender, EventArgs e)
+        {
+            textBox7.Text = (int.Parse(textBox11.Text) * _QuyDoiDiemService.GetDiem().FirstOrDefault(p=>p.STD.Contains(textBox10.Text)).TyLeQuyDoi).ToString();
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+            if(int.Parse(textBox5.Text) == 0)
+            {
+                textBox7.Text = 0.ToString();
+                textBox7.Enabled = true;
+                textBox11.Enabled = true;
+
+            }
+            else
+            {
+                textBox7.Enabled = false;
+                textBox11.Enabled = false;
+            }
         }
     }
 }
