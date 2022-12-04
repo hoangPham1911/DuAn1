@@ -65,5 +65,11 @@ namespace _3_PL.View
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmDangKy frmdk = new FrmDangKy();
+            frmdk.Show();
+        }
     }
 }
