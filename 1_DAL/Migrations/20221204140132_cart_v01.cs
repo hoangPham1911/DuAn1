@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace _1_DAL.Migrations
 {
-    public partial class cart_V01 : Migration
+    public partial class cart_v01 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
