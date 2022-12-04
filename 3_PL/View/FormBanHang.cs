@@ -767,8 +767,8 @@ namespace _3_PL.View
                     }
                     loadGioHang();
                     loadhoadonduyet();
-                    if(radioButton1.Checked)
-                    inHoaDon();
+                    if (radioButton1.Checked)
+                        inHoaDon();
                 }
 
             }
@@ -1287,6 +1287,10 @@ namespace _3_PL.View
                             MessageBox.Show(_HoaDonService.SuaHoaDon(suaHoaDonModels));
                         _ListReceiptProduct2.RemoveRange(0, _ListReceiptProduct2.Count());
                         _ListReceiptProduct.RemoveRange(0, _ListReceiptProduct.Count());
+                        if (radioButton3.Checked)
+                        {
+                            inHoaDon();
+                        }
                     }
                 }
 
@@ -1298,12 +1302,12 @@ namespace _3_PL.View
 
         private void textBox7_TextChanged(object sender, EventArgs e)
         {
-            if (_KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Ma == cbxKH.Text).DiemTichDiem == null)
+            if (_KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Ma == cbxKH.Text).tongDiem == null)
             {
                 textBox7.Text = 0.ToString();
             }
             else
-                textBox7.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Ma == cbxKH.Text).DiemTichDiem.ToString();
+                textBox7.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Ma == cbxKH.Text).tongDiem.ToString();
 
         }
 
@@ -1330,15 +1334,15 @@ namespace _3_PL.View
 
         private void tb_point_TextChanged(object sender, EventArgs e)
         {
-            if (_KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Ma == cbxKH.Text).DiemTichDiem == null)
+            if (_KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Ma == cbxKH.Text).tongDiem == null)
             {
                 tb_point.Text = 0.ToString();
                 textBox7.Text = 0.ToString();
             }
             else
             {
-                tb_point.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Ma == cbxKH.Text).DiemTichDiem.ToString();
-                textBox7.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Ma == cbxKH.Text).DiemTichDiem.ToString();
+                tb_point.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Ma == cbxKH.Text).tongDiem.ToString();
+                textBox7.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Ma == cbxKH.Text).tongDiem.ToString();
                 decimal giamgia;
 
                 string tt = Convert.ToString(txt_dathangtongtien.Text);
@@ -1448,6 +1452,8 @@ namespace _3_PL.View
                 textBox3.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt.Contains(textBox10.Text)).Ten;
                 textBox1.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt.Contains(textBox10.Text)).DiaChi;
                 textBox4.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt.Contains(textBox10.Text)).Sdt;
+                textBox5.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt.Contains(textBox10.Text)).tongDiem.ToString();
+
             }
             catch (Exception)
             {

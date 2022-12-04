@@ -19,7 +19,7 @@ namespace _1_DAL.Models
         [Key]
         public Guid Id { get; set; }
         public int? TongDiem { get; set; }
-        public string? TrangThai { get; set; }
+        public int? TrangThai { get; set; }
         public Guid? IdKhachHang { get; set; }
 
         public virtual ICollection<LichSuDiemTieuDung> LichSuDiemTieuDungs { get; set; }

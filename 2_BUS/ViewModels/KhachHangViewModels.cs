@@ -12,7 +12,8 @@ namespace _2_BUS.ViewModels
     public class KhachHangViewModels
     {
         public Guid Idkh { get; set; }
-      
+        public Guid? IdVi { get; set; }  
+        public int? tongDiem { get; set; }
         public string Ma { get; set; }
        
         public string Ten { get; set; }
@@ -31,7 +32,5 @@ namespace _2_BUS.ViewModels
         public string DiaChi { get; set; }
 
         public int? TrangThai { get; set; }
-
-        public int? DiemTichDiem { get; set; }
     }
 }

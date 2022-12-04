@@ -10,7 +10,7 @@ namespace _2_BUS.ViewModels
     {
         public Guid Id { get; set; }
         public int? TongDiem { get; set; }
-        public string? TrangThai { get; set; }
+        public int? TrangThai { get; set; }
         public Guid? IdKhachHang { get; set; }
     }
 }

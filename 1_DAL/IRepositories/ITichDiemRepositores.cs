@@ -10,7 +10,7 @@ namespace _1_DAL.IRepositories
     public interface ITichDiemRepositores
     {
         bool add(ViDiem type);
-        bool remove(ViDiem id);
+        bool remove(Guid id);
         List<ViDiem> getAll();
 
         bool update(ViDiem type);

@@ -38,11 +38,12 @@ namespace _1_DAL.Repositores
             return _DbContext.LichSuDiemTieuDungs.ToList();
         }
 
-        public bool remove(LichSuDiemTieuDung id)
+        public bool remove(Guid id)
         {
             try
             {
-                _DbContext.LichSuDiemTieuDungs.Remove(id);
+                LichSuDiemTieuDung ls = _DbContext.LichSuDiemTieuDungs.FirstOrDefault(p=>p.IdLichSuDiem == id);
+                _DbContext.LichSuDiemTieuDungs.Remove(ls);
                 _DbContext.SaveChanges();
                 return true;
             }

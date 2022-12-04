@@ -57,7 +57,7 @@ namespace _3_PL.View
                     item.SoCCCD,
                     item.GioiTinh,
                     item.NamSinh,
-                    item.DiemTichDiem,
+                    item.tongDiem,
                     item.TrangThai == 1 ? "Hoạt động" : "Không hoạt động"
                     );
             }

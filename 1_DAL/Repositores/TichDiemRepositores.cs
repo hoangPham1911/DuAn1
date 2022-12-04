@@ -38,11 +38,12 @@ namespace _1_DAL.Repositores
            return _DBcontext.ViDiems.ToList();
         }
 
-        public bool remove(ViDiem id)
+        public bool remove(Guid id)
         {
             try
             {
-                _DBcontext.ViDiems.Remove(id);
+                ViDiem vi = _DBcontext.ViDiems.SingleOrDefault(p => p.Id == id);
+                _DBcontext.ViDiems.Remove(vi);
                 _DBcontext.SaveChanges();
                 return true;
             }

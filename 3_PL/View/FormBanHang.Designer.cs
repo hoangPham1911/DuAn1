@@ -359,7 +359,7 @@
             this.panel5.Location = new System.Drawing.Point(5, 40);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(292, 389);
+            this.panel5.Size = new System.Drawing.Size(292, 527);
             this.panel5.TabIndex = 116;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 

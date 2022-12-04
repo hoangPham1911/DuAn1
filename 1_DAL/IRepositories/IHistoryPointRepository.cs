@@ -10,7 +10,7 @@ namespace _1_DAL.IRepostiories
     public interface IHistoryPointRepository
     {
         bool add(LichSuDiemTieuDung point);
-        bool remove(LichSuDiemTieuDung id);
+        bool remove(Guid id);
         List<LichSuDiemTieuDung> getAll();
 
         bool update(LichSuDiemTieuDung point);

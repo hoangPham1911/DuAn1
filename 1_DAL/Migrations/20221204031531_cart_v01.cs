@@ -16,7 +16,7 @@ namespace _1_DAL.Migrations
                     ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false, defaultValueSql: "(newid())"),
                     MaAnh = table.Column<string>(type: "varchar(20)", unicode: false, maxLength: 20, nullable: false),
                     Ten = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
-                    DuongDan = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DuongDan = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TrangThai = table.Column<int>(type: "int", nullable: false, defaultValueSql: "((0))")
                 },
                 constraints: table =>
@@ -167,7 +167,7 @@ namespace _1_DAL.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false, defaultValueSql: "(newid())"),
                     TongDiem = table.Column<int>(type: "int", nullable: true),
-                    TrangThai = table.Column<string>(type: "nvarchar(max)", nullable: true, defaultValueSql: "((0))"),
+                    TrangThai = table.Column<int>(type: "int", nullable: true, defaultValueSql: "((0))"),
                     IdKhachHang = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>

@@ -1,6 +1,8 @@
 ﻿using _1.DAL.IRepostiories;
 using _1.DAL.Repostiores;
+using _1_DAL.IRepositories;
 using _1_DAL.Models;
+using _1_DAL.Repositores;
 using _2_BUS.IService;
 using _2_BUS.ViewModels;
 using System;
@@ -15,10 +17,12 @@ namespace _2_BUS.Service
     {
         private IClientRepository _khachHangRepository;
         private List<KhachHangViewModels> _khachHangViewModels;
-       
+        private ITichDiemRepositores _TichDiemRepositores;
         public KhachHangServices()
         {
             _khachHangRepository = new ClientRepositores();
+            _khachHangViewModels = new List<KhachHangViewModels>();
+            _TichDiemRepositores = new TichDiemRepositores();
         }
 
         public List<KhachHangViewModels> GetAllDiemKhachHang()
@@ -28,20 +32,21 @@ namespace _2_BUS.Service
         public List<KhachHangViewModels> GetAllKhachHangDB()
         {
             _khachHangViewModels =
-                (from a in _khachHangRepository.getAll()
+                (from a in _khachHangRepository.getAll() join b in _TichDiemRepositores.getAll() on a.IdVi equals b.Id into kh_table from p in kh_table.DefaultIfEmpty()
                  select new KhachHangViewModels()
                  {
                      Idkh = a.Id,
                      Ma = a.Ma,
                      Ten = a.Ten,
-                     GioiTinh = a.GioiTinh, 
+                     GioiTinh = a.GioiTinh,
                      Email = a.Email,
-                     SoCCCD = a.SoCCCD, 
+                     SoCCCD = a.SoCCCD,
                      NamSinh = a.NamSinh,
                      Sdt = a.Sdt,
                      DiaChi = a.DiaChi,
                      TrangThai = a.TrangThai,
-                 
+                     IdVi = p == null ?null: p.Id,
+                     tongDiem = p == null ? 0: p.TongDiem
 
                  }).ToList();
             return _khachHangViewModels;

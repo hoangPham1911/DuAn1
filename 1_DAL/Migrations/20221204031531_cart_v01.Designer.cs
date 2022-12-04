@@ -12,7 +12,7 @@ using _1_DAL.Context;
 namespace _1_DAL.Migrations
 {
     [DbContext(typeof(ManagerContext))]
-    [Migration("20221202093339_cart_v01")]
+    [Migration("20221204031531_cart_v01")]
     partial class cart_v01
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,6 +32,7 @@ namespace _1_DAL.Migrations
                         .HasDefaultValueSql("(newid())");
 
                     b.Property<string>("DuongDan")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MaAnh")
@@ -868,9 +869,9 @@ namespace _1_DAL.Migrations
                     b.Property<int?>("TongDiem")
                         .HasColumnType("int");
 
-                    b.Property<string>("TrangThai")
+                    b.Property<int?>("TrangThai")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(max)")
+                        .HasColumnType("int")
                         .HasDefaultValueSql("((0))");
 
                     b.HasKey("Id");

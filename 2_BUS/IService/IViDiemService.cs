@@ -9,9 +9,9 @@ namespace _2_BUS.IService
 {
     public interface IViDiemService
     {
-        bool add(ViDiemViewModel img);
-        bool remove(Guid img);
-        bool update(ViDiemViewModel img);
+        bool add(ViDiemViewModel vi);
+        bool remove(Guid vi);
+        bool update(ViDiemViewModel vi);
 
         List<ViDiemViewModel> GetViDiem();
     }

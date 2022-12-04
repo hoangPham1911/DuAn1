@@ -1,7 +1,9 @@
 ﻿using _1.DAL.IRepositories;
+using _1.DAL.IRepostiories;
 using _1.DAL.Repostiores;
 using _1_DAL.Context;
 using _1_DAL.Models;
+using _2_BUS.IService;
 using _2_BUS.IServices;
 using _2_BUS.ViewModels;
 using System;
@@ -16,14 +18,16 @@ namespace _2_BUS.Services
     {
 
         IreceiptRepository HoaDonRepos;
+        IClientRepository clientRepository;
 
         public HoaDonService()
         {
             HoaDonRepos = new ReceiptRepositores();
+            clientRepository = new ClientRepositores();
         }
         public List<SuaHoaDonModels> GetAllHoaDonDB()
         {
-            return (from a in HoaDonRepos.getAllReceipt()
+            return (from a in HoaDonRepos.getAllReceipt() 
                     select
                     new SuaHoaDonModels
                     {
@@ -34,15 +38,14 @@ namespace _2_BUS.Services
                         NgayNhan = a.NgayNhan,
                         NgayShip = a.NgayShip,
                         NgayTao = a.NgayTao,
-                        NgayThanhToan = a.NgayThanhToan,
-                        //      IdNv = a.IdNv,
+                        NgayThanhToan = a.NgayThanhToan,                       
                         Thue = a.Thue,
                         TinhTrang = a.TinhTrang,
                         SDTShip = a.SDTShip,
                         TenShip = a.TenShip,
                         SoTienQuyDoi = a.SoTienQuyDoi,
                         SoDiemSuDung = a.SoDiemSuDung,
-                    //    TenKhachHang = a.TenKhachHang,
+                        //    TenKhachHang = a.TenKhachHang,
                         PhanTramGiamGia = a.PhanTramGiamGia,
 
                     }).ToList();
