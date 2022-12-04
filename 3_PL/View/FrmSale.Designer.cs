@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSale));
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -47,6 +46,10 @@
             this.rdb_con = new System.Windows.Forms.RadioButton();
             this.rdb_ngung = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+<<<<<<< HEAD
+=======
+            this.cbb_tengiay = new System.Windows.Forms.ComboBox();
+>>>>>>> 9bca4fa7f073b4ce8cfcf32a40c37830dc977ea3
             this.label5 = new System.Windows.Forms.Label();
             this.tb_sotiengiamgia = new System.Windows.Forms.TextBox();
             this.dt_ngayketthuc = new System.Windows.Forms.DateTimePicker();
@@ -84,8 +87,13 @@
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.DarkSalmon;
+<<<<<<< HEAD
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(107, 253);
+=======
+            this.pictureBox3.Location = new System.Drawing.Point(72, 134);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
+>>>>>>> 9bca4fa7f073b4ce8cfcf32a40c37830dc977ea3
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(41, 40);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -95,8 +103,13 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.DarkSalmon;
+<<<<<<< HEAD
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(95, 183);
+=======
+            this.pictureBox2.Location = new System.Drawing.Point(64, 92);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
+>>>>>>> 9bca4fa7f073b4ce8cfcf32a40c37830dc977ea3
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(53, 33);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -107,7 +120,12 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.DarkSalmon;
             this.pictureBox1.Image = global::_3_PL.Properties.Resources.add_user;
+<<<<<<< HEAD
             this.pictureBox1.Location = new System.Drawing.Point(95, 102);
+=======
+            this.pictureBox1.Location = new System.Drawing.Point(64, 43);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+>>>>>>> 9bca4fa7f073b4ce8cfcf32a40c37830dc977ea3
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(53, 47);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -117,7 +135,12 @@
             // btn_sua
             // 
             this.btn_sua.BackColor = System.Drawing.Color.DarkSalmon;
+<<<<<<< HEAD
             this.btn_sua.Location = new System.Drawing.Point(45, 173);
+=======
+            this.btn_sua.Location = new System.Drawing.Point(29, 86);
+            this.btn_sua.Margin = new System.Windows.Forms.Padding(2);
+>>>>>>> 9bca4fa7f073b4ce8cfcf32a40c37830dc977ea3
             this.btn_sua.Name = "btn_sua";
             this.btn_sua.Size = new System.Drawing.Size(240, 57);
             this.btn_sua.TabIndex = 34;
@@ -127,7 +150,12 @@
             // btn_xoa
             // 
             this.btn_xoa.BackColor = System.Drawing.Color.DarkSalmon;
+<<<<<<< HEAD
             this.btn_xoa.Location = new System.Drawing.Point(45, 245);
+=======
+            this.btn_xoa.Location = new System.Drawing.Point(29, 129);
+            this.btn_xoa.Margin = new System.Windows.Forms.Padding(2);
+>>>>>>> 9bca4fa7f073b4ce8cfcf32a40c37830dc977ea3
             this.btn_xoa.Name = "btn_xoa";
             this.btn_xoa.Size = new System.Drawing.Size(239, 57);
             this.btn_xoa.TabIndex = 33;
@@ -138,7 +166,12 @@
             // 
             this.btn_them.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btn_them.BackColor = System.Drawing.Color.DarkSalmon;
+<<<<<<< HEAD
             this.btn_them.Location = new System.Drawing.Point(45, 90);
+=======
+            this.btn_them.Location = new System.Drawing.Point(29, 36);
+            this.btn_them.Margin = new System.Windows.Forms.Padding(2);
+>>>>>>> 9bca4fa7f073b4ce8cfcf32a40c37830dc977ea3
             this.btn_them.Name = "btn_them";
             this.btn_them.Size = new System.Drawing.Size(239, 68);
             this.btn_them.TabIndex = 32;
@@ -158,7 +191,12 @@
             this.dgv_show.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_show.BackgroundColor = System.Drawing.Color.PeachPuff;
             this.dgv_show.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+<<<<<<< HEAD
             this.dgv_show.Location = new System.Drawing.Point(19, 30);
+=======
+            this.dgv_show.Location = new System.Drawing.Point(13, 18);
+            this.dgv_show.Margin = new System.Windows.Forms.Padding(2);
+>>>>>>> 9bca4fa7f073b4ce8cfcf32a40c37830dc977ea3
             this.dgv_show.Name = "dgv_show";
             this.dgv_show.RowHeadersWidth = 62;
             this.dgv_show.RowTemplate.Height = 33;
@@ -170,9 +208,17 @@
             // 
             this.groupBox3.BackColor = System.Drawing.Color.DarkSalmon;
             this.groupBox3.Controls.Add(this.dgv_show);
+<<<<<<< HEAD
             this.groupBox3.Location = new System.Drawing.Point(11, 12);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(957, 287);
+=======
+            this.groupBox3.Location = new System.Drawing.Point(8, 7);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox3.Size = new System.Drawing.Size(670, 172);
+>>>>>>> 9bca4fa7f073b4ce8cfcf32a40c37830dc977ea3
             this.groupBox3.TabIndex = 50;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thông tin sản phẩm";
@@ -186,9 +232,17 @@
             this.groupBox2.Controls.Add(this.btn_sua);
             this.groupBox2.Controls.Add(this.btn_xoa);
             this.groupBox2.Controls.Add(this.btn_them);
+<<<<<<< HEAD
             this.groupBox2.Location = new System.Drawing.Point(646, 313);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(324, 360);
+=======
+            this.groupBox2.Location = new System.Drawing.Point(452, 188);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Size = new System.Drawing.Size(227, 200);
+>>>>>>> 9bca4fa7f073b4ce8cfcf32a40c37830dc977ea3
             this.groupBox2.TabIndex = 49;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Chức năng";
@@ -196,7 +250,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
+<<<<<<< HEAD
             this.label1.Location = new System.Drawing.Point(50, 103);
+=======
+            this.label1.Location = new System.Drawing.Point(41, 26);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+>>>>>>> 9bca4fa7f073b4ce8cfcf32a40c37830dc977ea3
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(145, 25);
             this.label1.TabIndex = 1;
@@ -205,7 +264,12 @@
             // label2
             // 
             this.label2.AutoSize = true;
+<<<<<<< HEAD
             this.label2.Location = new System.Drawing.Point(50, 257);
+=======
+            this.label2.Location = new System.Drawing.Point(41, 175);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+>>>>>>> 9bca4fa7f073b4ce8cfcf32a40c37830dc977ea3
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 25);
             this.label2.TabIndex = 2;
@@ -214,7 +278,12 @@
             // label4
             // 
             this.label4.AutoSize = true;
+<<<<<<< HEAD
             this.label4.Location = new System.Drawing.Point(50, 153);
+=======
+            this.label4.Location = new System.Drawing.Point(35, 58);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+>>>>>>> 9bca4fa7f073b4ce8cfcf32a40c37830dc977ea3
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(120, 25);
             this.label4.TabIndex = 4;
@@ -223,7 +292,12 @@
             // rdb_con
             // 
             this.rdb_con.AutoSize = true;
+<<<<<<< HEAD
             this.rdb_con.Location = new System.Drawing.Point(185, 257);
+=======
+            this.rdb_con.Location = new System.Drawing.Point(136, 173);
+            this.rdb_con.Margin = new System.Windows.Forms.Padding(2);
+>>>>>>> 9bca4fa7f073b4ce8cfcf32a40c37830dc977ea3
             this.rdb_con.Name = "rdb_con";
             this.rdb_con.Size = new System.Drawing.Size(140, 29);
             this.rdb_con.TabIndex = 7;
@@ -234,7 +308,12 @@
             // rdb_ngung
             // 
             this.rdb_ngung.AutoSize = true;
+<<<<<<< HEAD
             this.rdb_ngung.Location = new System.Drawing.Point(330, 257);
+=======
+            this.rdb_ngung.Location = new System.Drawing.Point(237, 173);
+            this.rdb_ngung.Margin = new System.Windows.Forms.Padding(2);
+>>>>>>> 9bca4fa7f073b4ce8cfcf32a40c37830dc977ea3
             this.rdb_ngung.Name = "rdb_ngung";
             this.rdb_ngung.Size = new System.Drawing.Size(164, 29);
             this.rdb_ngung.TabIndex = 8;
@@ -258,13 +337,22 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
+<<<<<<< HEAD
             this.groupBox1.Location = new System.Drawing.Point(11, 313);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(621, 360);
+=======
+            this.groupBox1.Location = new System.Drawing.Point(8, 188);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(435, 200);
+>>>>>>> 9bca4fa7f073b4ce8cfcf32a40c37830dc977ea3
             this.groupBox1.TabIndex = 48;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chi tiết giảm giá";
             // 
+<<<<<<< HEAD
             // label5
             // 
             this.label5.AutoSize = true;
@@ -287,21 +375,70 @@
             this.dt_ngayketthuc.Location = new System.Drawing.Point(194, 199);
             this.dt_ngayketthuc.Name = "dt_ngayketthuc";
             this.dt_ngayketthuc.Size = new System.Drawing.Size(300, 31);
+=======
+            // cbb_tengiay
+            // 
+            this.cbb_tengiay.FormattingEnabled = true;
+            this.cbb_tengiay.Location = new System.Drawing.Point(136, 23);
+            this.cbb_tengiay.Margin = new System.Windows.Forms.Padding(2);
+            this.cbb_tengiay.Name = "cbb_tengiay";
+            this.cbb_tengiay.Size = new System.Drawing.Size(211, 23);
+            this.cbb_tengiay.TabIndex = 14;
+            this.cbb_tengiay.SelectedIndexChanged += new System.EventHandler(this.cbb_tengiay_SelectedIndexChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(41, 152);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(54, 15);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Giảm giá";
+            // 
+            // tb_giamgia
+            // 
+            this.tb_giamgia.Location = new System.Drawing.Point(152, 208);
+            this.tb_giamgia.Name = "tb_giamgia";
+            this.tb_giamgia.Size = new System.Drawing.Size(302, 23);
+            this.tb_giamgia.TabIndex = 12;
+            // 
+            // dt_ngayketthuc
+            // 
+            this.dt_ngayketthuc.Location = new System.Drawing.Point(136, 86);
+            this.dt_ngayketthuc.Margin = new System.Windows.Forms.Padding(2);
+            this.dt_ngayketthuc.Name = "dt_ngayketthuc";
+            this.dt_ngayketthuc.Size = new System.Drawing.Size(211, 23);
+>>>>>>> 9bca4fa7f073b4ce8cfcf32a40c37830dc977ea3
             this.dt_ngayketthuc.TabIndex = 11;
             // 
             // dt_ngaybatdau
             // 
+<<<<<<< HEAD
             this.dt_ngaybatdau.Location = new System.Drawing.Point(194, 153);
             this.dt_ngaybatdau.Name = "dt_ngaybatdau";
             this.dt_ngaybatdau.Size = new System.Drawing.Size(300, 31);
+=======
+            this.dt_ngaybatdau.Location = new System.Drawing.Point(136, 58);
+            this.dt_ngaybatdau.Margin = new System.Windows.Forms.Padding(2);
+            this.dt_ngaybatdau.Name = "dt_ngaybatdau";
+            this.dt_ngaybatdau.Size = new System.Drawing.Size(211, 23);
+>>>>>>> 9bca4fa7f073b4ce8cfcf32a40c37830dc977ea3
             this.dt_ngaybatdau.TabIndex = 10;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+<<<<<<< HEAD
             this.label3.Location = new System.Drawing.Point(50, 205);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(122, 25);
+=======
+            this.label3.Location = new System.Drawing.Point(38, 90);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(81, 15);
+>>>>>>> 9bca4fa7f073b4ce8cfcf32a40c37830dc977ea3
             this.label3.TabIndex = 9;
             this.label3.Text = "Ngày kết thúc";
             // 
@@ -329,6 +466,7 @@
             this.cbb_ma.Name = "cbb_ma";
             this.cbb_ma.Size = new System.Drawing.Size(213, 33);
             this.cbb_ma.TabIndex = 15;
+<<<<<<< HEAD
             // 
             // tb_ma
             // 
@@ -352,16 +490,26 @@
             this.label7.Size = new System.Drawing.Size(112, 25);
             this.label7.TabIndex = 16;
             this.label7.Text = "Số tiền giảm";
+=======
+>>>>>>> 9bca4fa7f073b4ce8cfcf32a40c37830dc977ea3
             // 
             // FrmSale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PeachPuff;
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(993, 717);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
+=======
+            this.ClientSize = new System.Drawing.Size(702, 412);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBox3);
+            this.Margin = new System.Windows.Forms.Padding(2);
+>>>>>>> 9bca4fa7f073b4ce8cfcf32a40c37830dc977ea3
             this.Name = "FrmSale";
             this.Text = "FrmSale";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

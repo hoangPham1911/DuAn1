@@ -374,9 +374,6 @@ namespace _1_DAL.Migrations
                     b.Property<decimal?>("SoTienQuyDoi")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("TenKhachHang")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("TenShip")
                         .HasColumnType("nvarchar(max)");
 

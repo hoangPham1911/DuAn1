@@ -57,6 +57,9 @@ namespace _1_DAL.Context
             //"Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=hoangpham;Password=19112002");
             //optionsBuilder.UseSqlServer("Data Source=DESKTOP-PJLRIKK\\SQLEXPRESS;" +
             //"Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=ph28227;Password=ph28227");
+            //optionsBuilder.UseSqlServer("Data Source=KIRO\\SQLEXPRESS;" +
+            //"Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=quannh;Password=123456");
+
 
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -94,7 +97,7 @@ namespace _1_DAL.Context
                 entity.Property(e => e.Sdt).IsUnicode(false);
                 entity.Property(e => e.TrangThai).HasDefaultValueSql("((0))");
                 entity.Property(e => e.Sdt).IsRequired(false);
-                
+
 
             });
             modelBuilder.Entity<ChucVu>(entity =>
@@ -137,7 +140,7 @@ namespace _1_DAL.Context
                 entity.Property(e => e.ID).HasDefaultValueSql("(newid())");
                 entity.Property(e => e.MaAnh).IsUnicode(false);
                 entity.Property(e => e.TrangThai).HasDefaultValueSql("((0))");
-               
+
             });
 
             modelBuilder.Entity<HoaDon>(entity =>
@@ -153,7 +156,7 @@ namespace _1_DAL.Context
                 entity.Property(e => e.NamBh).HasDefaultValueSql("((0))");
                 entity.Property(e => e.GiaBan).HasDefaultValueSql("((0))");
                 entity.Property(e => e.GiaNhap).HasDefaultValueSql("((0))");
-         
+
 
             });
             modelBuilder.Entity<DanhMuc>(entity =>
@@ -193,7 +196,7 @@ namespace _1_DAL.Context
                 entity.Property(e => e.Id).HasDefaultValueSql("(newid())");
                 entity.Property(e => e.Ma).IsUnicode(false);
                 entity.Property(e => e.TrangThai).HasDefaultValueSql("((0))");
-               
+
             });
             modelBuilder.Entity<LichSuDiemTieuDung>(entity =>
             {

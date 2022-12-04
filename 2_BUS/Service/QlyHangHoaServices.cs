@@ -69,8 +69,8 @@ namespace _2_BUS.Service
                     join h in _iAnhRepositoriy.getAll() on a.IdAnh equals h.ID
                     select new QlyHangHoaViewModels
                     {
-                        Id = a.Id,
                         IdSp = b.Id,
+                        Id = a.Id,
                         IdQuocGia = c.Id,
                         IdNsx = d.Id,
                         IdSizeGiay = e.Id,
@@ -80,13 +80,18 @@ namespace _2_BUS.Service
                         Ma = b.Ma,
                         Ten = b.Ten,
                         TrangThai = b.TrangThai,
-                        NamBh = a.NamBh,
-                        MoTa = a.MoTa,
                         SoLuongTon = a.SoLuongTon,
                         GiaBan = a.GiaBan,
                         GiaNhap = a.GiaNhap,
                         SoSize = e.SoSize,
-                        Mavach = a.MaQRCode
+                        Mavach = a.MaQRCode,
+                        TenNsx = d.Ten,
+                        TenChatLieu = g.Ten,
+                        TenLoaiGiay = f.Ten,
+                        TenQuocGia = c.Ten,
+                        SizeGiay = e.SoSize,
+                        DuongDanAnh = h.DuongDan,
+                        TenSp = b.Ten
 
                     }).ToList();
         }
@@ -142,11 +147,10 @@ namespace _2_BUS.Service
             chiTietHangHoa.IdLoaiGiay = HangHoas.IdLoaiGiay;
             chiTietHangHoa.IdChatLieu = HangHoas.IdChatLieu;
             chiTietHangHoa.IdAnh = HangHoas.IdAnh;
-            chiTietHangHoa.NamBh = HangHoas.NamBh;
             chiTietHangHoa.SoLuongTon = HangHoas.SoLuongTon;
-            chiTietHangHoa.MoTa = HangHoas.MoTa;
             chiTietHangHoa.GiaNhap = HangHoas.GiaNhap;
             chiTietHangHoa.GiaBan = HangHoas.GiaBan;
+            chiTietHangHoa.IdSp = HangHoas.IdSp;
             if (_IHangHoaChiTietRepository.add(chiTietHangHoa))
             {
                 return true;
@@ -163,27 +167,46 @@ namespace _2_BUS.Service
             return false;
         }
 
-        public bool updatecthanghoa(ChiTietHangHoaUpdateViewModels HangHoas)
+        public bool updatehanghoa(HangHoaViewModels product)
         {
-
-            ChiTietHangHoa chiTietHangHoa = new ChiTietHangHoa();
-            chiTietHangHoa.IdQuocGia = HangHoas.IdQuocGia;
-            chiTietHangHoa.IdSizeGiay = HangHoas.IdSizeGiay;
-            chiTietHangHoa.IdLoaiGiay = HangHoas.IdLoaiGiay;
-            chiTietHangHoa.IdChatLieu = HangHoas.IdChatLieu;
-            chiTietHangHoa.IdAnh = HangHoas.IdAnh;
-            chiTietHangHoa.NamBh = HangHoas.NamBh;
-            chiTietHangHoa.SoLuongTon = HangHoas.SoLuongTon;
-            chiTietHangHoa.MoTa = HangHoas.MoTa;
-            chiTietHangHoa.GiaNhap = HangHoas.GiaNhap;
-            chiTietHangHoa.GiaBan = HangHoas.GiaBan;
-            if (_IHangHoaChiTietRepository.update(chiTietHangHoa))
+            try
             {
+                HangHoa sp = _iHangHoaRepository.getAll().FirstOrDefault(c => c.Id == product.Id);
+                sp.Ten = product.Ten;
+                sp.Ma = product.Ma;
+                sp.TrangThai = product.TrangThai;
+                sp.IdNsx = product.IdNsx;
+                _iHangHoaRepository.update(sp);
                 return true;
             }
-            else
+            catch (Exception)
             {
                 return false;
+                throw;
+            }
+        }
+
+        public bool updatehanghoact(ChiTietHangHoaUpdateViewModels product)
+        {
+            try
+            {
+                ChiTietHangHoa sp = _IHangHoaChiTietRepository.getAll().FirstOrDefault(c => c.Id == product.Id);
+                sp.IdQuocGia = product.IdQuocGia;
+                sp.IdLoaiGiay = product.IdLoaiGiay;
+                sp.IdSizeGiay = product.IdSizeGiay;
+                sp.IdChatLieu = product.IdChatLieu;
+                sp.IdAnh = product.IdAnh;
+                sp.MaQRCode = product.Mavach;
+                sp.SoLuongTon = product.SoLuongTon;
+                sp.GiaNhap = product.GiaNhap;
+                sp.GiaBan = product.GiaBan;
+                _IHangHoaChiTietRepository.update(sp);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
             }
         }
 
@@ -205,23 +228,25 @@ namespace _2_BUS.Service
             }
         }
 
-        public bool updatehanghoa(HangHoaUpdateViewModels HangHoas)
+        public Guid IdSp(HangHoaViewModels product)
         {
-            HangHoa hangHoa = new HangHoa();
-            hangHoa.IdNsx = HangHoas.IdNsx;
-            hangHoa.Ma = HangHoas.Ma;
-            hangHoa.Ten = HangHoas.Ten;
-            hangHoa.TrangThai = HangHoas.TrangThai;
-            if (_iHangHoaRepository.update(hangHoa))
+            try
             {
-
-                return true;
+                var sp = new HangHoa();
+                sp.Ten = product.Ten;
+                sp.Ma = product.Ma;
+                sp.TrangThai = product.TrangThai;
+                sp.IdNsx = product.IdNsx;
+                _iHangHoaRepository.add(sp);
+                return sp.Id;
             }
-            else
+            catch (Exception)
             {
-                return false;
+                return Guid.Parse(null);
+                throw;
             }
         }
+            
 
         public bool deletehanghoa(HangHoaViewModels hanghoaid)
         {

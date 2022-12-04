@@ -29,5 +29,12 @@ namespace _2_BUS.ViewModels
         public string? Mavach { get; set; }
         public decimal? GiaBan { get; set; }
         public int SoSize { get; set; }
+        public string TenSp { get; set; }
+        public string TenQuocGia { get; set; }
+        public string TenLoaiGiay { get; set; }
+        public int SizeGiay { get; set; }
+        public string DuongDanAnh { get; set; }
+        public string TenChatLieu { get; set; }
+        public string TenNsx { get; set; }
     }
 }

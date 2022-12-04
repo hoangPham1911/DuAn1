@@ -8,6 +8,7 @@ namespace _2_BUS.ViewModels
 {
     public class SanPhamTrongHoaDonViewModels
     {
+        public Guid IdsP { get; set; }
         public Guid IdHoaDon { get; set; }
         public Guid IdSpCt { get; set; }
         public decimal? DonGia { get; set; }
