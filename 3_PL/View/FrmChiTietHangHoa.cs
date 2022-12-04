@@ -44,13 +44,14 @@ namespace _3_PL.View
         private ISizeGiayServices _sizegiayser;
         FilterInfoCollection filterInfoCollection;
         VideoCaptureDevice videoCaptureDevice;
+        ChiTietHangHoaUpdateViewModels cthh = new ChiTietHangHoaUpdateViewModels();
         private Guid zen;
         private Guid? zennsx;
         private Guid zendanhmuc;
         private string ok;
         private Guid id;
         private Guid idcthh;
-        public FrmChiTietHangHoa(Guid idcthh, Guid idhh ,string mahh, string tenhh, string nsx, string trangthai, string mavach, string soluong,
+        public FrmChiTietHangHoa(Guid idcthh, Guid idhh, string mahh, string tenhh, string nsx, string trangthai, string mavach, string soluong,
             string gianhap, string giaban, string chatlieu, string sizegiay, string loaigiay, string tenquocgia, string anh)
         {
             _qlhhser = new QlyHangHoaServices();
@@ -98,6 +99,12 @@ namespace _3_PL.View
             {
                 pic_anhhanghoa.Image = Bitmap.FromStream(stream);
             }
+            loadnsx();
+            loadchatlieu();
+            loadsizegiay();
+            loadloaigiay();
+            loadquocgia(); 
+            loaddpath();
         }
 
         //public void loadanhmuc()
@@ -242,13 +249,13 @@ namespace _3_PL.View
             //
             if (cbo_mahh.Text.Length <= 3 && cbo_mahh.Text.Length >= 10)
             {
-                MessageBox.Show("Mã nước hoa phải trên 3 ký tự và nhỏ hơn 10 kí tự", "ERR");
+                MessageBox.Show("Mã hàng hóa phải trên 3 ký tự và nhỏ hơn 10 kí tự", "ERR");
                 return false;
             }
             if (Regex.IsMatch(cbo_mahh.Text, @"[0-9]+") == false)
             {
 
-                MessageBox.Show("Mã nước hoa Bắt buộc phải chứa số", "ERR");
+                MessageBox.Show("Mã Hàng hóa Bắt buộc phải chứa số", "ERR");
                 return false;
             }
             if (Regex.IsMatch(txt_giaban.Text, @"^[a-zA-Z0-9 ]*$") == false)
@@ -274,7 +281,7 @@ namespace _3_PL.View
             if (Regex.IsMatch(cbo_mahh.Text, @"[0-9]+") == false)
             {
 
-                MessageBox.Show("Mã nước hoa Bắt buộc phải chứa số", "ERR");
+                MessageBox.Show("Mã hàng hóa Bắt buộc phải chứa số", "ERR");
                 return false;
             }
 
@@ -351,25 +358,20 @@ namespace _3_PL.View
             //loai giay
             if (cbo_loaigiay.Text.Length <= 3)
             {
-                MessageBox.Show("Tên Vật Chứa phải trên 3 ký tự", "ERR");
+                MessageBox.Show("Tên loại giày phải trên 3 ký tự", "ERR");
                 return false;
             }
             if (Regex.IsMatch(cbo_loaigiay.Text, @"^[a-zA-Z]") == false)
             {
 
-                MessageBox.Show("Tên Vật Chứa  không được chứa số", "ERR");
+                MessageBox.Show("Tên loại giày  không được chứa số", "ERR");
                 return false;
             }
             // size giay
-            if (cbo_sizegiay.Text.Length <= 3)
-            {
-                MessageBox.Show("Tên Nhóm Hương phải trên 3 ký tự", "ERR");
-                return false;
-            }
-            if (Regex.IsMatch(cbo_sizegiay.Text, @"^[a-zA-Z]") == false)
+            if (Regex.IsMatch(cbo_sizegiay.Text, @"^\d+$") == false)
             {
 
-                MessageBox.Show("Tên Nhóm Hương  không được chứa số", "ERR");
+                MessageBox.Show("Size giày không được chứa chữ cái", "ERR");
                 return false;
             }
             //quốc gia
@@ -481,6 +483,22 @@ namespace _3_PL.View
             }
         }
 
+        private Guid Sp()
+        {
+            HangHoaViewModels product = new HangHoaViewModels();
+            product.Ma = cbo_mahh.Text;
+            product.Ten = cbo_tenhh.Text;
+            product.IdNsx = _nsxser.GetNhasanxuat().Where(c => c.Ten == cbo_nsx.Text).Select(c => c.Id).FirstOrDefault();
+            if (chk_conhang.Checked)
+            {
+                product.TrangThai = 1;
+            }
+            else
+            {
+                product.TrangThai = 0;
+            }
+            return _qlhhser.IdSp(product);
+        }
         private void btn_them_Click(object sender, EventArgs e)
         {
             try
@@ -489,12 +507,6 @@ namespace _3_PL.View
 
                 if (dialogResult == DialogResult.Yes)
                 {
-
-                    //if (_dmser.GetDanhMuc().Any(c => c.Ten == cbo_danhmuc.Text) == false)
-                    //{
-                    //    MessageBox.Show("Tên Danh Mục Không Hợp Lệ", "ERR");
-                    //    return;
-                    //}
 
                     // nhà sản xuất
 
@@ -506,7 +518,7 @@ namespace _3_PL.View
 
                     //size giay
 
-                    if (_sizegiayser.GetSizeGiay().Any(c => c.SoSize == Convert.ToInt32(cbo_tencl.Text)) == false)
+                    if (_sizegiayser.GetSizeGiay().Any(c => c.SoSize == Convert.ToInt32(cbo_sizegiay.Text)) == false)
                     {
                         MessageBox.Show("Size giày Không Hợp Lệ", "ERR");
                         return;
@@ -531,7 +543,7 @@ namespace _3_PL.View
                     // chất liệu
                     if (_chatlieuser.GetChatLieu().Any(c => c.Ten == cbo_tencl.Text) == false)
                     {
-                        MessageBox.Show("Tên Nhóm Hương Không Hợp Lệ", "ERR");
+                        MessageBox.Show("Tên chất liệu Không Hợp Lệ", "ERR");
                         return;
                     }
 
@@ -548,41 +560,38 @@ namespace _3_PL.View
                     {
                         return;
                     }
-                    _qlhhser.addhanghoa(new HangHoaThemViewModels()
-                    {
-                        Ten = cbo_tenhh.Text,
-                        Ma = cbo_mahh.Text,
-                        TrangThai = Convert.ToInt32(chk_conhang.Checked),
-                        IdNsx = _nsxser.GetNhasanxuat().Where(c => c.Ten == cbo_nsx.Text).Select(c => c.Id).FirstOrDefault()
-                    });
 
-                    _qlhhser.addcthanghoa(new ChiTietHangHoaThemViewModels()
                     {
-                        SoLuongTon = Convert.ToInt32(txt_soluong.Text),
-                        GiaNhap = Convert.ToDecimal(txt_gianhap.Text),
-                        GiaBan = Convert.ToDecimal(txt_giaban.Text),
-                        IdChatLieu = _chatlieuser.GetChatLieu().Where(c => c.Ten == cbo_tencl.Text).Select(c => c.Id).FirstOrDefault(),
-                        IdLoaiGiay = _loaigiayser.GetLoaiGiay().Where(c => c.Ten == cbo_loaigiay.Text).Select(c => c.Id).FirstOrDefault(),
-                        IdSp = _qlhhser.GetsListHH().Max(c => c.Id),
-                        IdQuocGia = _quocgiaser.GetQuocGia().Where(c => c.Ten == cbo_tenquocgia.Text).Select(c => c.Id).FirstOrDefault(),
-                        IdSizeGiay = _sizegiayser.GetSizeGiay().Where(c => c.SoSize == Convert.ToDouble(cbo_sizegiay.Text)).Select(c => c.Id).FirstOrDefault(),
-                        IdAnh = _anhser.GetAnh().Where(c => c.DuongDan == cbo_anh.Text).Select(c => c.ID).FirstOrDefault(),
-                        //Mavach = txt_mavach.Text.Trim()
-                    });
-                    reset();
-                    for (int i = 0; i < 2; i++)
-                    {
-                        this.Alert("Thêm Thành Công");
+                        _qlhhser.addcthanghoa(new ChiTietHangHoaThemViewModels()
 
+                        {
+                            IdSp = Sp(),
+                            SoLuongTon = Convert.ToInt32(txt_soluong.Text),
+                            GiaNhap = Convert.ToDecimal(txt_gianhap.Text),
+                            GiaBan = Convert.ToDecimal(txt_giaban.Text),
+                            IdChatLieu = _chatlieuser.GetChatLieu().Where(c => c.Ten == cbo_tencl.Text).Select(c => c.Id).FirstOrDefault(),
+                            IdLoaiGiay = _loaigiayser.GetLoaiGiay().Where(c => c.Ten == cbo_loaigiay.Text).Select(c => c.Id).FirstOrDefault(),
+                            IdQuocGia = _quocgiaser.GetQuocGia().Where(c => c.Ten == cbo_tenquocgia.Text).Select(c => c.Id).FirstOrDefault(),
+                            IdSizeGiay = _sizegiayser.GetSizeGiay().Where(c => c.SoSize == Convert.ToDouble(cbo_sizegiay.Text)).Select(c => c.Id).FirstOrDefault(),
+                            IdAnh = _anhser.GetAnh().Where(c => c.DuongDan == cbo_anh.Text).Select(c => c.ID).FirstOrDefault(),
+                            Mavach = txt_mavach.Text
+
+                        });
+                        reset();
+                        for (int i = 0; i < 2; i++)
+                        {
+                            this.Alert("Thêm Thành Công");
+
+                        }
+
+                    };
+
+                    if (dialogResult == DialogResult.No)
+                    {
+                        return;
                     }
 
-                };
-
-                if (dialogResult == DialogResult.No)
-                {
-                    return;
                 }
-
             }
             catch (Exception ex)
             {
@@ -619,118 +628,6 @@ namespace _3_PL.View
 
         }
 
-        private void btn_sua_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                DialogResult dialogResult = MessageBox.Show("bạn có muốn sửa hay không", "Thông Báo", MessageBoxButtons.YesNo);
-
-                if (dialogResult == DialogResult.Yes)
-                {
-                    if (_qlhhser.GetsList().Any(c => c.Mavach == txt_mavach.Text) == true)
-                    {
-                        MessageBox.Show("Mã  Vạch Đã tồn Tại yêu cầu nhập mã khác", "ERR");
-                        return;
-                    }
-
-                    //if (_dmser.GetDanhMuc().Any(c => c.Ten == cbo_danhmuc.Text) == false)
-                    //{
-                    //    MessageBox.Show("Tên Danh Mục Không Hợp Lệ", "ERR");
-                    //    return;
-                    //}
-
-                    // nhà sản xuất
-
-                    if (_nsxser.GetNhasanxuat().Any(c => c.Ten == cbo_nsx.Text) == false)
-                    {
-                        MessageBox.Show("Tên Nhà Sản Xuất Không Hợp Lệ", "ERR");
-                        return;
-                    }
-
-                    //size giay
-
-                    if (_sizegiayser.GetSizeGiay().Any(c => c.SoSize == Convert.ToInt32(cbo_tencl.Text)) == false)
-                    {
-                        MessageBox.Show("Size giày Không Hợp Lệ", "ERR");
-                        return;
-                    }
-
-                    //ảnh
-
-                    if (_anhser.GetAnh().Any(c => c.DuongDan == cbo_anh.Text) == false)
-                    {
-                        MessageBox.Show("Dường Dẫn Không Hợp Lệ", "ERR");
-                        return;
-
-                    }
-                    //loai giay
-
-                    if (_loaigiayser.GetLoaiGiay().Any(c => c.Ten == cbo_loaigiay.Text) == false)
-                    {
-                        MessageBox.Show("Tên Loại Giày Không Hợp Lệ", "ERR");
-                        return;
-                    }
-
-                    // chất liệu
-                    if (_chatlieuser.GetChatLieu().Any(c => c.Ten == cbo_tencl.Text) == false)
-                    {
-                        MessageBox.Show("Tên Nhóm Hương Không Hợp Lệ", "ERR");
-                        return;
-                    }
-
-                    // quốc gia
-
-                    if (_quocgiaser.GetQuocGia().Any(c => c.Ten == cbo_tenquocgia.Text) == false)
-                    {
-                        MessageBox.Show("Tên Quốc Gia Không Hợp Lệ", "ERR");
-                        return;
-                    }
-
-
-                    if (check() == false)
-                    {
-                        return;
-                    }
-
-                    ChiTietHangHoaUpdateViewModels cthh = new ChiTietHangHoaUpdateViewModels();
-                    HangHoaUpdateViewModels hh = new HangHoaUpdateViewModels();
-                    QlyHangHoaViewModels qlhh = new QlyHangHoaViewModels();
-                    hh.Ma = cbo_mahh.Text;
-                    hh.Ten = cbo_tenhh.Text;
-                    hh.IdNsx = _nsxser.GetNhasanxuat().Where(c => c.Ten == cbo_nsx.Text).Select(c => c.Id).FirstOrDefault();
-                    hh.TrangThai = Convert.ToInt32(chk_conhang.Checked);
-                    cthh.SoLuongTon = Convert.ToInt32(txt_soluong.Text);
-                    qlhh.Mavach = txt_mavach.Text.Trim();
-                    cthh.GiaNhap = Convert.ToDecimal(txt_gianhap.Text);
-                    cthh.GiaBan = Convert.ToDecimal(txt_giaban.Text);
-                    cthh.IdChatLieu = _chatlieuser.GetChatLieu().Where(c => c.Ten == cbo_tencl.Text).Select(c => c.Id).FirstOrDefault();
-                    cthh.IdLoaiGiay = _loaigiayser.GetLoaiGiay().Where(c => c.Ten == cbo_loaigiay.Text).Select(c => c.Id).FirstOrDefault();
-                    cthh.IdQuocGia = _quocgiaser.GetQuocGia().Where(c => c.Ten == cbo_tenquocgia.Text).Select(c => c.Id).FirstOrDefault();
-                    cthh.IdAnh = _anhser.GetAnh().Where(c => c.DuongDan == cbo_anh.Text).Select(c => c.ID).FirstOrDefault();
-                    cthh.IdSizeGiay = _sizegiayser.GetSizeGiay().Where(c => c.SoSize == Convert.ToInt32(cbo_sizegiay.Text)).Select(c => c.Id).FirstOrDefault();
-                    cthh.IdSp = _qlhhser.GetsListHH().Where(c => c.Ten == cbo_tenhh.Text).Select(c => c.Id).FirstOrDefault();
-                    _qlhhser.updatehanghoa(hh);
-                    _qlhhser.updatecthanghoa(cthh);
-                    for (int i = 0; i < 2; i++)
-                    {
-                        this.Alert("Đã Xác Nhận Cập Nhật Nếu Đồng Ý Hãy Tiến Hành Lưu");
-
-                    }
-
-                };
-
-                if (dialogResult == DialogResult.No)
-                {
-                    return;
-                }
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(Convert.ToString(ex), "Liên Hệ Với Quân");
-                return;
-            }
-        }
 
         private void chk_conhang_CheckedChanged(object sender, EventArgs e)
         {
@@ -814,78 +711,78 @@ namespace _3_PL.View
 
         private void cbo_nsx_Click(object sender, EventArgs e)
         {
-            loadnsx();
+            //loadnsx();
         }
 
         private void cbo_anh_Click(object sender, EventArgs e)
         {
-            loaddpath();
+            //loaddpath();
         }
 
         private void cbo_tencl_Click(object sender, EventArgs e)
         {
-            loadchatlieu();
+            //loadchatlieu();
         }
 
         private void cbo_sizegiay_Click(object sender, EventArgs e)
         {
-            loadsizegiay();
+            //loadsizegiay();
         }
 
         private void cbo_tenquocgia_Click(object sender, EventArgs e)
         {
-            loadquocgia();
+            //loadquocgia();
         }
 
         private void cbo_loaigiay_Click(object sender, EventArgs e)
         {
-            loadloaigiay();
+            //loadloaigiay();
         }
 
         private void pic_mavach_DoubleClick(object sender, EventArgs e)
         {
-            try
-            {
-                DialogResult dialogResult = MessageBox.Show("Bạn Có Muốn Tạo Mã Vạch Hay Không  ?", "Thông Báo", MessageBoxButtons.YesNo);
+            //try
+            //{
+            //    DialogResult dialogResult = MessageBox.Show("Bạn Có Muốn Tạo Mã Vạch Hay Không  ?", "Thông Báo", MessageBoxButtons.YesNo);
 
-                if (dialogResult == DialogResult.Yes)
-                {
-                    FrmCreateNewBarCode frmCreateNewBarCode = new FrmCreateNewBarCode(Guid.Parse(_qlhhser.GetsList().Where(c=>c.Id == idcthh).Select(c=>c.Id).FirstOrDefault().ToString()), Guid.Parse(_qlhhser.GetsList().Where(c => c.IdSp == id).Select(c => c.Id).FirstOrDefault().ToString()), cbo_mahh.Text, cbo_tenhh.Text, cbo_nsx.Text, chk_conhang.Text, txt_mavach.Text, txt_soluong.Text, txt_gianhap.Text, txt_giaban.Text, cbo_tencl.Text, cbo_loaigiay.Text, cbo_sizegiay.Text, cbo_tenquocgia.Text, cbo_anh.Text);
-                    for (int i = 0; i < 1; i++)
-                    {
-                        this.Alert("Tiến Hành Tạo Mã Vạch Thôi Nào");
+            //    if (dialogResult == DialogResult.Yes)
+            //    {
+            //        FrmCreateNewBarCode frmCreateNewBarCode = new FrmCreateNewBarCode(Guid.Parse(_qlhhser.GetsList().Where(c=>c.Id == idcthh).Select(c=>c.Id).FirstOrDefault().ToString()), Guid.Parse(_qlhhser.GetsList().Where(c => c.IdSp == id).Select(c => c.Id).FirstOrDefault().ToString()), cbo_mahh.Text, cbo_tenhh.Text, cbo_nsx.Text, chk_conhang.Text, txt_mavach.Text, txt_soluong.Text, txt_gianhap.Text, txt_giaban.Text, cbo_tencl.Text, cbo_loaigiay.Text, cbo_sizegiay.Text, cbo_tenquocgia.Text, cbo_anh.Text);
+            //        for (int i = 0; i < 1; i++)
+            //        {
+            //            this.Alert("Tiến Hành Tạo Mã Vạch Thôi Nào");
 
-                    }
-                    frmCreateNewBarCode.Show();
+            //        }
+            //        frmCreateNewBarCode.Show();
 
 
-                };
+            //    };
 
-                if (dialogResult == DialogResult.No)
-                {
-                    for (int a = 0; a < 2; a++)
-                    {
-                        this.AlertErr(" Thất Bại");
+            //    if (dialogResult == DialogResult.No)
+            //    {
+            //        for (int a = 0; a < 2; a++)
+            //        {
+            //            this.AlertErr(" Thất Bại");
 
-                    }
-                    return;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(Convert.ToString(ex), "Liên Hệ Với Quân");
-                return;
+            //        }
+            //        return;
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(Convert.ToString(ex), "Liên Hệ Với Quân");
+            //    return;
 
-            }
+            //}
         }
 
         private void txt_mavach_TextChanged(object sender, EventArgs e)
         {
-            if (zenbarcode() == true)
-            {
+            //if (zenbarcode() == true)
+            //{
 
-                return;
-            }
+            //    return;
+            //}
         }
 
         private void cbo_tenhh_KeyUp(object sender, KeyEventArgs e)
@@ -923,6 +820,344 @@ namespace _3_PL.View
                     }
 
                 }
+            }
+        }
+
+        private void pic_loaigiay_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult dialogResult = MessageBox.Show("Bạn Có Muốn Tạo Mới loại giày Hay Không  ?", "Thông Báo", MessageBoxButtons.YesNo);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Frm_LoaiGiay frm_LoaiGiay = new Frm_LoaiGiay();
+                    for (int i = 0; i < 1; i++)
+                    {
+                        this.Alert("Tiến Hành Tạo Mới loại giày Thôi Nào");
+
+                    }
+                    frm_LoaiGiay.Show();
+
+
+                };
+
+                if (dialogResult == DialogResult.No)
+                {
+                    for (int a = 0; a < 2; a++)
+                    {
+                        this.AlertErr("Thất Bại");
+
+                    }
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Convert.ToString(ex), "Liên Hệ Với Quân");
+                return;
+
+            }
+        }
+
+        private void pic_xuatxu_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult dialogResult = MessageBox.Show("Bạn Có Muốn Tạo Mới xuất xứ Hay Không  ?", "Thông Báo", MessageBoxButtons.YesNo);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Frm_QuocGia frm_QuocGia = new Frm_QuocGia();
+                    for (int i = 0; i < 1; i++)
+                    {
+                        this.Alert("Tiến Hành Tạo Mới Xuất xứ Thôi Nào");
+
+                    }
+                    frm_QuocGia.Show();
+
+
+                };
+
+                if (dialogResult == DialogResult.No)
+                {
+                    for (int a = 0; a < 2; a++)
+                    {
+                        this.AlertErr("Thất Bại");
+
+                    }
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Convert.ToString(ex), "Liên Hệ Với Quân");
+                return;
+
+            }
+        }
+
+        private void pic_sizegiay_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult dialogResult = MessageBox.Show("Bạn Có Muốn Tạo Mới size giày Hay Không  ?", "Thông Báo", MessageBoxButtons.YesNo);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Frm_SizeGiay frm_SizeGiay = new Frm_SizeGiay();
+                    for (int i = 0; i < 1; i++)
+                    {
+                        this.Alert("Tiến Hành Tạo Mới size giày Thôi Nào");
+
+                    }
+                    frm_SizeGiay.Show();
+
+
+                };
+
+                if (dialogResult == DialogResult.No)
+                {
+                    for (int a = 0; a < 2; a++)
+                    {
+                        this.AlertErr("Thất Bại");
+
+                    }
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Convert.ToString(ex), "Liên Hệ Với Quân");
+                return;
+
+            }
+        }
+
+        private void pic_cl_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult dialogResult = MessageBox.Show("Bạn Có Muốn Tạo Mới chất liệu Hay Không  ?", "Thông Báo", MessageBoxButtons.YesNo);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Frm_ChatLieu Frm_ChatLieu = new Frm_ChatLieu();
+                    for (int i = 0; i < 1; i++)
+                    {
+                        this.Alert("Tiến Hành Tạo Mới chất liệu Thôi Nào");
+
+                    }
+                    Frm_ChatLieu.Show();
+
+
+                };
+
+                if (dialogResult == DialogResult.No)
+                {
+                    for (int a = 0; a < 2; a++)
+                    {
+                        this.AlertErr("Thất Bại");
+
+                    }
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Convert.ToString(ex), "Liên Hệ Với Quân");
+                return;
+
+            }
+        }
+
+        private void pic_anhadd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult dialogResult = MessageBox.Show("Bạn Có Muốn Tạo Mới Ảnh Hay Không  ?", "Thông Báo", MessageBoxButtons.YesNo);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Frm_Anh frm_Anh = new Frm_Anh();
+                    for (int i = 0; i < 1; i++)
+                    {
+                        this.Alert("Tiến Hành Tạo Mới Ảnh Thôi Nào");
+
+                    }
+                    frm_Anh.Show();
+
+
+                };
+
+                if (dialogResult == DialogResult.No)
+                {
+                    for (int a = 0; a < 2; a++)
+                    {
+                        this.AlertErr("Thất Bại");
+
+                    }
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Convert.ToString(ex), "Liên Hệ Với Quân");
+                return;
+
+            }
+        }
+
+        private void pic_nsx_DoubleClick(object sender, EventArgs e)
+        {
+
+            try
+            {
+                DialogResult dialogResult = MessageBox.Show("Bạn Có Muốn Tạo Mới NSX Hay Không  ?", "Thông Báo", MessageBoxButtons.YesNo);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Frm_NSX frm_NSX = new Frm_NSX();
+                    for (int i = 0; i < 1; i++)
+                    {
+                        this.Alert("Tiến Hành Tạo Mới NSX Thôi Nào");
+
+                    }
+                    frm_NSX.Show();
+
+
+                };
+
+                if (dialogResult == DialogResult.No)
+                {
+                    for (int a = 0; a < 2; a++)
+                    {
+                        this.AlertErr("Thất Bại");
+
+                    }
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Convert.ToString(ex), "Liên Hệ Với Quân");
+                return;
+
+            }
+        }
+
+        private bool updatehh()
+        {
+            HangHoaViewModels product = new HangHoaViewModels();
+            product.Id = id;
+            product.Ma = cbo_mahh.Text;
+            product.Ten = cbo_tenhh.Text;
+            product.TrangThai = 1;
+            product.IdNsx = _nsxser.GetNhasanxuat().Where(c => c.Ten == cbo_nsx.Text).Select(c => c.Id).FirstOrDefault();
+            return _qlhhser.updatehanghoa(product);
+        }
+
+
+        private void btn_sua_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult dialogResult = MessageBox.Show("bạn có muốn sửa hay không", "Thông Báo", MessageBoxButtons.YesNo);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    //if (_qlhhser.GetsList().Any(c => c.Mavach == txt_mavach.Text) == true)
+                    //{
+                    //    MessageBox.Show("Mã  Vạch Đã tồn Tại yêu cầu nhập mã khác", "ERR");
+                    //    return;
+                    //}
+
+
+                    // nhà sản xuất
+
+                    if (_nsxser.GetNhasanxuat().Any(c => c.Ten == cbo_nsx.Text) == false)
+                    {
+                        MessageBox.Show("Tên Nhà Sản Xuất Không Hợp Lệ", "ERR");
+                        return;
+                    }
+
+                    //size giay
+
+                    if (_sizegiayser.GetSizeGiay().Any(c => c.SoSize == Convert.ToInt32(cbo_sizegiay.Text)) == false)
+                    {
+                        MessageBox.Show("Size giày Không Hợp Lệ", "ERR");
+                        return;
+                    }
+
+                    //ảnh
+
+                    if (_anhser.GetAnh().Any(c => c.DuongDan == cbo_anh.Text) == false)
+                    {
+                        MessageBox.Show("Dường Dẫn Không Hợp Lệ", "ERR");
+                        return;
+
+                    }
+                    //loai giay
+
+                    if (_loaigiayser.GetLoaiGiay().Any(c => c.Ten == cbo_loaigiay.Text) == false)
+                    {
+                        MessageBox.Show("Tên Loại Giày Không Hợp Lệ", "ERR");
+                        return;
+                    }
+
+                    // chất liệu
+                    if (_chatlieuser.GetChatLieu().Any(c => c.Ten == cbo_tencl.Text) == false)
+                    {
+                        MessageBox.Show("Tên chất liệu Không Hợp Lệ", "ERR");
+                        return;
+                    }
+
+                    // quốc gia
+
+                    if (_quocgiaser.GetQuocGia().Any(c => c.Ten == cbo_tenquocgia.Text) == false)
+                    {
+                        MessageBox.Show("Tên Quốc Gia Không Hợp Lệ", "ERR");
+                        return;
+                    }
+
+
+                    if (check() == false)
+                    {
+                        return;
+                    }
+
+                    if (updatehh())
+                    {
+                        cthh.Id = idcthh;
+                        cthh.SoLuongTon = Convert.ToInt32(txt_soluong.Text);
+                        cthh.Mavach = txt_mavach.Text.Trim();
+                        cthh.GiaNhap = Convert.ToDecimal(txt_gianhap.Text);
+                        cthh.GiaBan = Convert.ToDecimal(txt_giaban.Text);
+                        cthh.IdChatLieu = _chatlieuser.GetChatLieu().Where(c => c.Ten == cbo_tencl.Text).Select(c => c.Id).FirstOrDefault();
+                        cthh.IdLoaiGiay = _loaigiayser.GetLoaiGiay().Where(c => c.Ten == cbo_loaigiay.Text).Select(c => c.Id).FirstOrDefault();
+                        cthh.IdQuocGia = _quocgiaser.GetQuocGia().Where(c => c.Ten == cbo_tenquocgia.Text).Select(c => c.Id).FirstOrDefault();
+                        cthh.IdAnh = _anhser.GetAnh().Where(c => c.DuongDan == cbo_anh.Text).Select(c => c.ID).FirstOrDefault();
+                        cthh.IdSizeGiay = _sizegiayser.GetSizeGiay().Where(c => c.SoSize == Convert.ToInt32(cbo_sizegiay.Text)).Select(c => c.Id).FirstOrDefault();
+                    };
+                    _qlhhser.updatehanghoact(cthh);
+                    for (int i = 0; i < 2; i++)
+                    {
+                        this.Alert("Đã Xác Nhận Cập Nhật");
+
+                    }
+
+                };
+
+                if (dialogResult == DialogResult.No)
+                {
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(Convert.ToString(ex), "Liên Hệ Với Quân");
+                return;
             }
         }
     }

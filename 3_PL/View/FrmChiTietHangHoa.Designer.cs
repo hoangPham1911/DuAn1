@@ -30,11 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmChiTietHangHoa));
-            this.pic_dungtich = new System.Windows.Forms.PictureBox();
+            this.pic_loaigiay = new System.Windows.Forms.PictureBox();
             this.pic_xuatxu = new System.Windows.Forms.PictureBox();
-            this.pic_nhomhuong = new System.Windows.Forms.PictureBox();
+            this.pic_sizegiay = new System.Windows.Forms.PictureBox();
             this.pic_cl = new System.Windows.Forms.PictureBox();
-            this.pic_mavach = new System.Windows.Forms.PictureBox();
             this.pic_nsx = new System.Windows.Forms.PictureBox();
             this.cbo_mahh = new System.Windows.Forms.TextBox();
             this.pic_exit = new System.Windows.Forms.PictureBox();
@@ -78,11 +77,10 @@
             this.pic_anhadd = new System.Windows.Forms.PictureBox();
             this.cbo_anh = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_dungtich)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_loaigiay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_xuatxu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_nhomhuong)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_sizegiay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_cl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_mavach)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_nsx)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_exit)).BeginInit();
             this.panel1.SuspendLayout();
@@ -94,8 +92,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.pic_anhadd)).BeginInit();
             this.SuspendLayout();
             // 
-            // pic_dungtich
+            // pic_loaigiay
             // 
+<<<<<<< HEAD
+            this.pic_loaigiay.Image = ((System.Drawing.Image)(resources.GetObject("pic_loaigiay.Image")));
+            this.pic_loaigiay.Location = new System.Drawing.Point(1209, 700);
+            this.pic_loaigiay.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.pic_loaigiay.Name = "pic_loaigiay";
+            this.pic_loaigiay.Size = new System.Drawing.Size(33, 29);
+            this.pic_loaigiay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_loaigiay.TabIndex = 149;
+            this.pic_loaigiay.TabStop = false;
+            this.pic_loaigiay.DoubleClick += new System.EventHandler(this.pic_loaigiay_DoubleClick);
+=======
             this.pic_dungtich.Image = ((System.Drawing.Image)(resources.GetObject("pic_dungtich.Image")));
             this.pic_dungtich.Location = new System.Drawing.Point(1058, 525);
             this.pic_dungtich.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
@@ -104,6 +113,7 @@
             this.pic_dungtich.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_dungtich.TabIndex = 149;
             this.pic_dungtich.TabStop = false;
+>>>>>>> 12a0efad125b886ba14cb91810348be84333867d
             // 
             // pic_xuatxu
             // 
@@ -115,9 +125,21 @@
             this.pic_xuatxu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_xuatxu.TabIndex = 150;
             this.pic_xuatxu.TabStop = false;
+            this.pic_xuatxu.DoubleClick += new System.EventHandler(this.pic_xuatxu_DoubleClick);
             // 
-            // pic_nhomhuong
+            // pic_sizegiay
             // 
+<<<<<<< HEAD
+            this.pic_sizegiay.Image = ((System.Drawing.Image)(resources.GetObject("pic_sizegiay.Image")));
+            this.pic_sizegiay.Location = new System.Drawing.Point(1209, 612);
+            this.pic_sizegiay.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.pic_sizegiay.Name = "pic_sizegiay";
+            this.pic_sizegiay.Size = new System.Drawing.Size(33, 29);
+            this.pic_sizegiay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_sizegiay.TabIndex = 151;
+            this.pic_sizegiay.TabStop = false;
+            this.pic_sizegiay.DoubleClick += new System.EventHandler(this.pic_sizegiay_DoubleClick);
+=======
             this.pic_nhomhuong.Image = ((System.Drawing.Image)(resources.GetObject("pic_nhomhuong.Image")));
             this.pic_nhomhuong.Location = new System.Drawing.Point(1058, 459);
             this.pic_nhomhuong.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
@@ -126,6 +148,7 @@
             this.pic_nhomhuong.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_nhomhuong.TabIndex = 151;
             this.pic_nhomhuong.TabStop = false;
+>>>>>>> 12a0efad125b886ba14cb91810348be84333867d
             // 
             // pic_cl
             // 
@@ -137,6 +160,9 @@
             this.pic_cl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_cl.TabIndex = 153;
             this.pic_cl.TabStop = false;
+<<<<<<< HEAD
+            this.pic_cl.DoubleClick += new System.EventHandler(this.pic_cl_DoubleClick);
+=======
             // 
             // pic_mavach
             // 
@@ -149,6 +175,7 @@
             this.pic_mavach.TabIndex = 147;
             this.pic_mavach.TabStop = false;
             this.pic_mavach.DoubleClick += new System.EventHandler(this.pic_mavach_DoubleClick);
+>>>>>>> 12a0efad125b886ba14cb91810348be84333867d
             // 
             // pic_nsx
             // 
@@ -160,14 +187,24 @@
             this.pic_nsx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_nsx.TabIndex = 145;
             this.pic_nsx.TabStop = false;
+            this.pic_nsx.DoubleClick += new System.EventHandler(this.pic_nsx_DoubleClick);
             // 
             // cbo_mahh
             // 
+<<<<<<< HEAD
+            this.cbo_mahh.AllowDrop = true;
+            this.cbo_mahh.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cbo_mahh.Location = new System.Drawing.Point(222, 489);
+            this.cbo_mahh.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.cbo_mahh.Name = "cbo_mahh";
+            this.cbo_mahh.Size = new System.Drawing.Size(151, 27);
+=======
             this.cbo_mahh.Location = new System.Drawing.Point(194, 367);
             this.cbo_mahh.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.cbo_mahh.Name = "cbo_mahh";
             this.cbo_mahh.ReadOnly = true;
             this.cbo_mahh.Size = new System.Drawing.Size(133, 23);
+>>>>>>> 12a0efad125b886ba14cb91810348be84333867d
             this.cbo_mahh.TabIndex = 144;
             // 
             // pic_exit
@@ -587,6 +624,7 @@
             this.pic_anhadd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_anhadd.TabIndex = 156;
             this.pic_anhadd.TabStop = false;
+            this.pic_anhadd.Click += new System.EventHandler(this.pic_anhadd_Click);
             // 
             // cbo_anh
             // 
@@ -619,11 +657,10 @@
             this.Controls.Add(this.pic_anhadd);
             this.Controls.Add(this.cbo_anh);
             this.Controls.Add(this.label16);
-            this.Controls.Add(this.pic_dungtich);
+            this.Controls.Add(this.pic_loaigiay);
             this.Controls.Add(this.pic_xuatxu);
-            this.Controls.Add(this.pic_nhomhuong);
+            this.Controls.Add(this.pic_sizegiay);
             this.Controls.Add(this.pic_cl);
-            this.Controls.Add(this.pic_mavach);
             this.Controls.Add(this.pic_nsx);
             this.Controls.Add(this.cbo_mahh);
             this.Controls.Add(this.pic_exit);
@@ -662,11 +699,10 @@
             this.Name = "FrmChiTietHangHoa";
             this.Text = "FrmEditHangHoa";
             this.Load += new System.EventHandler(this.FrmChiTietHangHoa_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pic_dungtich)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_loaigiay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_xuatxu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_nhomhuong)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_sizegiay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_cl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_mavach)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_nsx)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_exit)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -683,11 +719,10 @@
 
         #endregion
 
-        private PictureBox pic_dungtich;
+        private PictureBox pic_loaigiay;
         private PictureBox pic_xuatxu;
-        private PictureBox pic_nhomhuong;
+        private PictureBox pic_sizegiay;
         private PictureBox pic_cl;
-        private PictureBox pic_mavach;
         private PictureBox pic_nsx;
         private TextBox cbo_mahh;
         private PictureBox pic_exit;

@@ -78,5 +78,15 @@ namespace _3_PL.View
         {
 
         }
+
+        private void btn_them_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

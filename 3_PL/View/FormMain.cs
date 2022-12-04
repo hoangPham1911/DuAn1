@@ -129,5 +129,10 @@ namespace _3_PL.View
         {
             OpenChildForm(new Frm_KhachHang(), sender);
         }
+
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+            bt_hoadon.Enabled = bt_sanpham.Enabled = btn_thongke.Enabled = btn_quanlynhanvien.Enabled = false;
+        }
     }
 }
