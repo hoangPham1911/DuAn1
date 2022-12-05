@@ -3,6 +3,10 @@ using _2_BUS.IServices;
 using _2_BUS.Service;
 using _2_BUS.Services;
 using _2_BUS.ViewModels;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using Document = iTextSharp.text.Document;
+using PageSize = iTextSharp.text.PageSize;
 
 namespace _3_PL.View
 {
@@ -50,7 +54,7 @@ namespace _3_PL.View
         void LoadDTG()
         {
             dtg_showHD.Rows.Clear();
-            dtg_showHD.ColumnCount = 16;       
+            dtg_showHD.ColumnCount = 16;
             dtg_showHD.Columns[0].Name = "ID";
             dtg_showHD.Columns[0].Visible = false;
             dtg_showHD.Columns[1].Name = "MAHD";
@@ -80,7 +84,7 @@ namespace _3_PL.View
                     x.NgayShip,
                     x.NgayNhan,
                     x.TinhTrang == 1 ? "Da TT" : x.TinhTrang == 0 ? "Chua TT" : x.TinhTrang == 2 ? "Chờ Giao Hàng" : x.TinhTrang == 3 ? "Da Huy" : "Đã Cọc",
-                    x.Thue,
+                    //x.Thue,
                     x.SDTShip,
                     x.TenKhachHang,
                     x.TenShip,
@@ -128,7 +132,6 @@ namespace _3_PL.View
             rdb_chogiaohang.Checked = hd.TinhTrang == 2;
             rdb_dahuy.Checked = hd.TinhTrang == 3;
             rdb_dacoc.Checked = hd.TinhTrang == 4;
-            txt_thue.Text = hd.Thue.ToString();
             txt_sdtShip.Text = hd.SDTShip.ToString();
             txt_tenguoiship.Text = hd.TenKhachHang.ToString();
             txt_tenship.Text = hd.TenShip.ToString();
@@ -152,7 +155,7 @@ namespace _3_PL.View
             ctspINhoadon.Show();
         }
 
-        
+
 
         private void btn_suaHD_Click(object sender, EventArgs e)
         {
@@ -171,7 +174,6 @@ namespace _3_PL.View
             suaHoaDon.SDTShip = txt_sdtShip.Text;
             suaHoaDon.TenKhachHang = txt_tenguoiship.Text;
             suaHoaDon.TenShip = txt_tenship.Text;
-            suaHoaDon.Thue = Convert.ToDecimal(txt_thue.Text);
             suaHoaDon.SoTienQuyDoi = Convert.ToDecimal(txt_sotienquydoi.Text);
             suaHoaDon.SoDiemSuDung = Convert.ToInt32(txt_sodiemtieudung.Text);
             suaHoaDon.PhanTramGiamGia = Convert.ToDecimal(txt_phantramgiamgia.Text);
@@ -185,12 +187,164 @@ namespace _3_PL.View
                 }
                 else MessageBox.Show("Chinh Sua that bai");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Chinh Sua that bai");
             }
 
 
+        }
+
+        private void btn_in_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            // excel
+
+            
+
+
+            try
+            {
+                DialogResult dialogResult = MessageBox.Show("bạn có muốn Xuất Ra File PDF Hay Không", "Thông Báo", MessageBoxButtons.YesNo);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    dtg_showHD.SelectAll();
+                    DataObject copydata = dtg_showHD.GetClipboardContent();
+                    if (copydata != null) Clipboard.SetDataObject(copydata);
+                    Microsoft.Office.Interop.Excel.Application xlapp = new Microsoft.Office.Interop.Excel.Application();
+                    xlapp.Visible = true;
+                    Microsoft.Office.Interop.Excel.Workbook _xlwook;
+                    Microsoft.Office.Interop.Excel.Worksheet _xlsheet;
+                    object misedadata = System.Reflection.Missing.Value;
+                    _xlwook = xlapp.Workbooks.Add(misedadata);
+
+                    _xlsheet = (Microsoft.Office.Interop.Excel.Worksheet)_xlwook.Worksheets.get_Item(1);
+                    Microsoft.Office.Interop.Excel.Range xlr = (Microsoft.Office.Interop.Excel.Range)_xlsheet.Cells[1, 1];
+                    xlr.Select();
+                    _xlsheet.PasteSpecial(xlr/*,Type.Missing,Type.Missing,Type.Missing,Type.Missing,Type.Missing,Type.Missing*/);
+                    for (int i = 0; i < 2; i++)
+                    {
+
+                        MessageBox.Show("Xuất Ra File PDF Thành Công");
+
+                    }
+                    return;
+                }
+                if (dialogResult == DialogResult.No)
+                {
+                    for (int i = 0; i < 2; i++)
+                    {
+
+                        MessageBox.Show("Xuất Ra File PDF Thất Bại");
+
+                    }
+                    return;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                for (int i = 0; i < 2; i++)
+                {
+
+                    MessageBox.Show("Lỗi Rồi" + ex.Message);
+
+                }
+
+                return;
+            }
+
+
+        }
+
+
+        public void exportdata(DataGridView dgw, string filename)
+        {
+            BaseFont bf = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, BaseFont.EMBEDDED);
+            PdfPTable pdfPTable = new PdfPTable(dgw.Columns.Count);
+            pdfPTable.DefaultCell.Padding = 3;
+            pdfPTable.WidthPercentage = 100;
+            pdfPTable.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfPTable.DefaultCell.BorderWidth = 1;
+
+            iTextSharp.text.Font text = new iTextSharp.text.Font(bf, 10, iTextSharp.text.Font.NORMAL);
+            //Add header;
+            foreach (DataGridViewColumn col in dtg_showHD.Columns)
+            {
+                PdfPCell pdfPCell = new PdfPCell(new Phrase(col.HeaderText));
+                pdfPTable.AddCell(pdfPCell);
+            }
+            foreach (DataGridViewRow row in dtg_showHD.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    pdfPTable.AddCell(new Phrase(Convert.ToString(cell.Value), text));
+                }
+            }
+            var savefiledialog = new SaveFileDialog();
+            savefiledialog.FileName = filename;
+            savefiledialog.DefaultExt = ".pdf";
+            if (savefiledialog.ShowDialog() == DialogResult.OK)
+            {
+                using (FileStream stream = new FileStream(savefiledialog.FileName, FileMode.Create))
+                {
+                    Document pdfdoc = new Document(PageSize.A1, 10f, 10f, 10f, 10f);
+                    PdfWriter.GetInstance(pdfdoc, stream);
+                    pdfdoc.Open();
+                    pdfdoc.Add(pdfPTable);
+                    pdfdoc.Close();
+                    stream.Close();
+                }
+            }
+
+
+        }
+
+        private void pictureBox_PDF_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult dialogResult = MessageBox.Show("bạn có muốn Xuất Ra File PDF Hay Không", "Thông Báo", MessageBoxButtons.YesNo);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    exportdata(dtg_showHD, "test");
+                    for (int i = 0; i < 2; i++)
+                    {
+
+                        MessageBox.Show("Xuất Ra File PDF Thành Công");
+
+                    }
+                    return;
+                }
+                if (dialogResult == DialogResult.No)
+                {
+                    for (int i = 0; i < 2; i++)
+                    {
+
+                        MessageBox.Show("Xuất Ra File PDF Thất Bại");
+
+                    }
+                    return;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                for (int i = 0; i < 2; i++)
+                {
+
+                    MessageBox.Show("Lỗi Rồi" + ex.Message);
+
+                }
+
+                return;
+            }
         }
     }
 }

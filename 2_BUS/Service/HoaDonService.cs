@@ -39,7 +39,7 @@ namespace _2_BUS.Services
                         NgayShip = a.NgayShip,
                         NgayTao = a.NgayTao,
                         NgayThanhToan = a.NgayThanhToan,                       
-                        Thue = a.Thue,
+                        //Thue = a.Thue,
                         TinhTrang = a.TinhTrang,
                         SDTShip = a.SDTShip,
                         TenShip = a.TenShip,
@@ -64,7 +64,7 @@ namespace _2_BUS.Services
             hoaDon.NgayShip = IdHoaDon.NgayShip;
             hoaDon.NgayNhan = IdHoaDon.NgayNhan;
             hoaDon.TinhTrang = IdHoaDon.TinhTrang;
-            hoaDon.Thue = IdHoaDon.Thue;
+            //hoaDon.Thue = IdHoaDon.Thue;
             if (HoaDonRepos.addReceipt(hoaDon)) return hoaDon.Id;
             return Guid.Parse(null);
         }
@@ -85,7 +85,7 @@ namespace _2_BUS.Services
                 hoaDon.NgayThanhToan = Hoadonold.NgayThanhToan;
                 hoaDon.NgayShip = Hoadonold.NgayShip;
                 hoaDon.TinhTrang = Hoadonold.TinhTrang;
-                hoaDon.Thue = Hoadonold.Thue;
+                //hoaDon.Thue = Hoadonold.Thue;
           //      hoaDon.TenKhachHang = Hoadonold.TenKhachHang;
                 hoaDon.TenShip = Hoadonold.TenShip;
                 hoaDon.SoDiemSuDung = Hoadonold.SoDiemSuDung;
