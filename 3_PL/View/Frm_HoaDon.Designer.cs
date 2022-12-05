@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txt_timkiem = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_HoaDon));
             this.cbb_khachhang = new System.Windows.Forms.ComboBox();
             this.cbb_MaHoaDon = new System.Windows.Forms.ComboBox();
             this.cbb_nhanvien = new System.Windows.Forms.ComboBox();
@@ -48,7 +47,6 @@
             this.btn_suaHD = new System.Windows.Forms.Button();
             this.txt_phantramgiamgia = new System.Windows.Forms.TextBox();
             this.txt_tenship = new System.Windows.Forms.TextBox();
-            this.txt_thue = new System.Windows.Forms.TextBox();
             this.txt_sotienquydoi = new System.Windows.Forms.TextBox();
             this.txt_sodiemtieudung = new System.Windows.Forms.TextBox();
             this.txt_sdtShip = new System.Windows.Forms.TextBox();
@@ -61,35 +59,20 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox_PDF = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txt_timkiem = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_showHD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_PDF)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // txt_timkiem
-            // 
-            this.txt_timkiem.Location = new System.Drawing.Point(425, 475);
-            this.txt_timkiem.Margin = new System.Windows.Forms.Padding(2);
-            this.txt_timkiem.Name = "txt_timkiem";
-            this.txt_timkiem.Size = new System.Drawing.Size(205, 23);
-            this.txt_timkiem.TabIndex = 95;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label17.ForeColor = System.Drawing.Color.Black;
-            this.label17.Location = new System.Drawing.Point(320, 474);
-            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(71, 20);
-            this.label17.TabIndex = 94;
-            this.label17.Text = "Tìm kiếm";
             // 
             // cbb_khachhang
             // 
@@ -207,7 +190,7 @@
             // 
             this.dtg_showHD.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtg_showHD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtg_showHD.Location = new System.Drawing.Point(95, 514);
+            this.dtg_showHD.Location = new System.Drawing.Point(81, 422);
             this.dtg_showHD.Name = "dtg_showHD";
             this.dtg_showHD.RowTemplate.Height = 25;
             this.dtg_showHD.Size = new System.Drawing.Size(1396, 254);
@@ -221,13 +204,14 @@
             this.btn_in.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_in.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_in.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btn_in.Location = new System.Drawing.Point(1142, 459);
+            this.btn_in.Location = new System.Drawing.Point(1196, 234);
             this.btn_in.Margin = new System.Windows.Forms.Padding(2);
             this.btn_in.Name = "btn_in";
             this.btn_in.Size = new System.Drawing.Size(53, 50);
             this.btn_in.TabIndex = 80;
             this.btn_in.Text = "In";
             this.btn_in.UseVisualStyleBackColor = false;
+            this.btn_in.Click += new System.EventHandler(this.btn_in_Click);
             // 
             // btn_chitiethoadon
             // 
@@ -236,7 +220,7 @@
             this.btn_chitiethoadon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_chitiethoadon.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_chitiethoadon.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btn_chitiethoadon.Location = new System.Drawing.Point(95, 459);
+            this.btn_chitiethoadon.Location = new System.Drawing.Point(85, 343);
             this.btn_chitiethoadon.Margin = new System.Windows.Forms.Padding(2);
             this.btn_chitiethoadon.Name = "btn_chitiethoadon";
             this.btn_chitiethoadon.Size = new System.Drawing.Size(96, 50);
@@ -263,7 +247,7 @@
             // 
             // txt_phantramgiamgia
             // 
-            this.txt_phantramgiamgia.Location = new System.Drawing.Point(848, 340);
+            this.txt_phantramgiamgia.Location = new System.Drawing.Point(850, 311);
             this.txt_phantramgiamgia.Margin = new System.Windows.Forms.Padding(2);
             this.txt_phantramgiamgia.Name = "txt_phantramgiamgia";
             this.txt_phantramgiamgia.Size = new System.Drawing.Size(205, 23);
@@ -271,23 +255,15 @@
             // 
             // txt_tenship
             // 
-            this.txt_tenship.Location = new System.Drawing.Point(848, 200);
+            this.txt_tenship.Location = new System.Drawing.Point(850, 171);
             this.txt_tenship.Margin = new System.Windows.Forms.Padding(2);
             this.txt_tenship.Name = "txt_tenship";
             this.txt_tenship.Size = new System.Drawing.Size(205, 23);
             this.txt_tenship.TabIndex = 74;
             // 
-            // txt_thue
-            // 
-            this.txt_thue.Location = new System.Drawing.Point(848, 67);
-            this.txt_thue.Margin = new System.Windows.Forms.Padding(2);
-            this.txt_thue.Name = "txt_thue";
-            this.txt_thue.Size = new System.Drawing.Size(205, 23);
-            this.txt_thue.TabIndex = 73;
-            // 
             // txt_sotienquydoi
             // 
-            this.txt_sotienquydoi.Location = new System.Drawing.Point(848, 250);
+            this.txt_sotienquydoi.Location = new System.Drawing.Point(850, 221);
             this.txt_sotienquydoi.Margin = new System.Windows.Forms.Padding(2);
             this.txt_sotienquydoi.Name = "txt_sotienquydoi";
             this.txt_sotienquydoi.Size = new System.Drawing.Size(205, 23);
@@ -295,7 +271,7 @@
             // 
             // txt_sodiemtieudung
             // 
-            this.txt_sodiemtieudung.Location = new System.Drawing.Point(848, 290);
+            this.txt_sodiemtieudung.Location = new System.Drawing.Point(850, 261);
             this.txt_sodiemtieudung.Margin = new System.Windows.Forms.Padding(2);
             this.txt_sodiemtieudung.Name = "txt_sodiemtieudung";
             this.txt_sodiemtieudung.Size = new System.Drawing.Size(205, 23);
@@ -303,7 +279,7 @@
             // 
             // txt_sdtShip
             // 
-            this.txt_sdtShip.Location = new System.Drawing.Point(848, 110);
+            this.txt_sdtShip.Location = new System.Drawing.Point(850, 81);
             this.txt_sdtShip.Margin = new System.Windows.Forms.Padding(2);
             this.txt_sdtShip.Name = "txt_sdtShip";
             this.txt_sdtShip.Size = new System.Drawing.Size(205, 23);
@@ -311,7 +287,7 @@
             // 
             // txt_tenguoiship
             // 
-            this.txt_tenguoiship.Location = new System.Drawing.Point(848, 150);
+            this.txt_tenguoiship.Location = new System.Drawing.Point(850, 121);
             this.txt_tenguoiship.Margin = new System.Windows.Forms.Padding(2);
             this.txt_tenguoiship.Name = "txt_tenguoiship";
             this.txt_tenguoiship.Size = new System.Drawing.Size(205, 23);
@@ -370,7 +346,7 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(615, 343);
+            this.label16.Location = new System.Drawing.Point(617, 314);
             this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(157, 20);
@@ -394,7 +370,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(615, 203);
+            this.label13.Location = new System.Drawing.Point(617, 174);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(72, 20);
@@ -406,31 +382,19 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(615, 293);
+            this.label15.Location = new System.Drawing.Point(617, 264);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(147, 20);
             this.label15.TabIndex = 56;
             this.label15.Text = "Số Điểm Tiêu Dùng";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(617, 70);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(45, 20);
-            this.label7.TabIndex = 59;
-            this.label7.Text = "Thuế";
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(615, 153);
+            this.label12.Location = new System.Drawing.Point(617, 124);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(117, 20);
@@ -442,7 +406,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(615, 249);
+            this.label14.Location = new System.Drawing.Point(617, 220);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(123, 20);
@@ -466,7 +430,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(615, 109);
+            this.label11.Location = new System.Drawing.Point(617, 80);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(90, 20);
@@ -497,12 +461,60 @@
             this.label1.TabIndex = 53;
             this.label1.Text = "Mã Hóa Đơn";
             // 
+            // pictureBox_PDF
+            // 
+            this.pictureBox_PDF.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox_PDF.ErrorImage")));
+            this.pictureBox_PDF.Image = global::_3_PL.Properties.Resources.icons8_pdf_50;
+            this.pictureBox_PDF.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox_PDF.InitialImage")));
+            this.pictureBox_PDF.Location = new System.Drawing.Point(1232, 371);
+            this.pictureBox_PDF.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.pictureBox_PDF.Name = "pictureBox_PDF";
+            this.pictureBox_PDF.Size = new System.Drawing.Size(94, 46);
+            this.pictureBox_PDF.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox_PDF.TabIndex = 96;
+            this.pictureBox_PDF.TabStop = false;
+            this.pictureBox_PDF.Click += new System.EventHandler(this.pictureBox_PDF_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::_3_PL.Properties.Resources.icons8_microsoft_excel_2019_48;
+            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(1107, 371);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(48, 48);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 97;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label17.ForeColor = System.Drawing.Color.Black;
+            this.label17.Location = new System.Drawing.Point(264, 369);
+            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(71, 20);
+            this.label17.TabIndex = 94;
+            this.label17.Text = "Tìm kiếm";
+            // 
+            // txt_timkiem
+            // 
+            this.txt_timkiem.Location = new System.Drawing.Point(369, 370);
+            this.txt_timkiem.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_timkiem.Name = "txt_timkiem";
+            this.txt_timkiem.Size = new System.Drawing.Size(205, 23);
+            this.txt_timkiem.TabIndex = 95;
+            // 
             // Frm_HoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(1545, 777);
+            this.ClientSize = new System.Drawing.Size(1762, 897);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBox_PDF);
             this.Controls.Add(this.txt_timkiem);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.cbb_khachhang);
@@ -523,7 +535,6 @@
             this.Controls.Add(this.btn_suaHD);
             this.Controls.Add(this.txt_phantramgiamgia);
             this.Controls.Add(this.txt_tenship);
-            this.Controls.Add(this.txt_thue);
             this.Controls.Add(this.txt_sotienquydoi);
             this.Controls.Add(this.txt_sodiemtieudung);
             this.Controls.Add(this.txt_sdtShip);
@@ -536,29 +547,27 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label15);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.ForeColor = System.Drawing.Color.Black;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Frm_HoaDon";
             this.Text = "Frm_Hoadon";
             this.TransparencyKey = System.Drawing.Color.PaleTurquoise;
             this.Load += new System.EventHandler(this.Frm_Receipt_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtg_showHD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_PDF)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private TextBox txt_timkiem;
-        private Label label17;
         private ComboBox cbb_khachhang;
         private ComboBox cbb_MaHoaDon;
         private ComboBox cbb_nhanvien;
@@ -577,7 +586,6 @@
         private Button btn_suaHD;
         private TextBox txt_phantramgiamgia;
         private TextBox txt_tenship;
-        private TextBox txt_thue;
         private TextBox txt_sotienquydoi;
         private TextBox txt_sodiemtieudung;
         private TextBox txt_sdtShip;
@@ -590,12 +598,15 @@
         private Label label10;
         private Label label13;
         private Label label15;
-        private Label label7;
         private Label label12;
         private Label label14;
         private Label label4;
         private Label label11;
         private Label label2;
         private Label label1;
+        private PictureBox pictureBox_PDF;
+        private PictureBox pictureBox1;
+        private Label label17;
+        private TextBox txt_timkiem;
     }
 }

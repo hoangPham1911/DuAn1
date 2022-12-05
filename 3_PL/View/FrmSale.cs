@@ -1,6 +1,7 @@
 ﻿using _1_DAL.Models;
 using _2_BUS.IService;
 using _2_BUS.Service;
+using _2_BUS.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,9 @@ namespace _3_PL.View
     public partial class FrmSale : Form
     {
         private IQlyHangHoaServices iqlhh;
+        private SaleViewModel viewsale;
+        private QlyHangHoaViewModels viewqlhh;
+        private ISaleService isale;
 
         public FrmSale()
         {
@@ -40,8 +44,8 @@ namespace _3_PL.View
             var lstcthh = iqlhh.GetsList();
             foreach (var item in lstcthh)
             {
-                dgv_show.Rows.Add(item.Id, item.Ma, item.Ten,item.IdSizeGiay,
-                    item.GiaBan,item.SoLuongTon, item.TrangThai == 1 ? "Còn sản xuất" : "Ngừng sản xuất");
+                dgv_show.Rows.Add(item.Id, item.Ma, item.Ten, item.IdSizeGiay,
+                    item.GiaBan, item.SoLuongTon, item.TrangThai == 1 ? "Còn sản xuất" : "Ngừng sản xuất");
             }
             dgv_show.AllowUserToAddRows = false;
         }
@@ -51,8 +55,8 @@ namespace _3_PL.View
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow dgvr = dgv_show.Rows[e.RowIndex];
-              //  vmqlyhanghoa = iqlhh.GetsList().FirstOrDefault(x => x.Id == Guid.Parse(dgvr.Cells[0].Value.ToString()));
-               // cbb_tengiay.Text = vmqlyhanghoa.Ten;
+                //  vmqlyhanghoa = iqlhh.GetsList().FirstOrDefault(x => x.Id == Guid.Parse(dgvr.Cells[0].Value.ToString()));
+                // cbb_tengiay.Text = vmqlyhanghoa.Ten;
                 //vmqlyhanghoa.GiaBan = tb_gia.Text ;
                 if (dgvr.Cells[3].Value.ToString() == "Còn sản xuất")
                 {
@@ -67,11 +71,7 @@ namespace _3_PL.View
 
         public void loadComboBox()
         {
-            foreach (var item in iqlhh.GetsList())
-            {
-              //  cbb_tengiay.Items.Add(item.Ten);
-            }
-            
+
         }
 
         private void cbb_tengiay_SelectedIndexChanged(object sender, EventArgs e)
@@ -81,12 +81,51 @@ namespace _3_PL.View
 
         private void btn_them_Click(object sender, EventArgs e)
         {
+            SaleViewModel x = new SaleViewModel()
+            {
+                Id = Guid.NewGuid(),
+                MaGiamGia = tb_ma.Text,
+                TenChuongTrinh = tb_tenct.Text,
+                NgayBatDau = dt_ngaybatdau.Value,
+                NgayKetThuc = dt_ngayketthuc.Value,
+                GiamGia = cbb_ma.Text,
+                TrangThai = rdb_con.Checked ? 1 : 0
+            };
+            if (isale.add(x))
+            {
+                MessageBox.Show("Them Thanh Cong");
+            };
 
+            loadData();
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_sua_Click(object sender, EventArgs e)
+        {
+            viewsale.MaGiamGia = tb_ma.Text;
+            viewsale.TenChuongTrinh = tb_tenct.Text;
+            viewsale.NgayBatDau = dt_ngaybatdau.Value;
+            viewsale.NgayKetThuc = dt_ngayketthuc.Value;
+            viewsale.GiamGia = tb_sotiengiam.Text;
+            viewsale.TrangThai = rdb_con.Checked ? 1 : 0;
+            if (isale.update(viewsale))
+            {
+                MessageBox.Show("Sua Thanh Cong");
+            };
+            loadData();
+
+        }
+
+        private void btn_xoa_Click(object sender, EventArgs e)
+        {
+            if (viewsale == null)
+            {
+
+            }
         }
     }
 }

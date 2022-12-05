@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace _2_BUS.IService
 {
-    public interface ISaleService 
+    public interface ISaleService
     {
-        bool add(SaleThemViewModel sale);
+        bool add(SaleViewModel sale);
         bool remove(SaleViewModel sale);
-        bool update(SaleSuaViewModel sale);
+        bool update(SaleViewModel sale);
 
         List<SaleViewModel> GetDanhMuc();
     }

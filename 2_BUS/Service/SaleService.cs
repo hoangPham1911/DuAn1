@@ -19,7 +19,7 @@ namespace _2_BUS.Service
         {
             _SaleRepository = new SaleRepositores();
         }
-        public bool add(SaleThemViewModel sale)
+        public bool add(SaleViewModel sale)
         {
             var addSale = new Sale();
             addSale.MaGiamGia = sale.MaGiamGia;
@@ -45,11 +45,11 @@ namespace _2_BUS.Service
         public bool remove(SaleViewModel sale)
         {
             var IdSale = _SaleRepository.getAll().FirstOrDefault(p => p.Id == sale.Id);
-           if(_SaleRepository.remove(IdSale)) return true;
+            if (_SaleRepository.remove(IdSale)) return true;
             return false;
         }
 
-        public bool update(SaleSuaViewModel sale)
+        public bool update(SaleViewModel sale)
         {
             var addSale = _SaleRepository.getAll().FirstOrDefault(p => p.Id == sale.Id);
             addSale.MaGiamGia = sale.MaGiamGia;
