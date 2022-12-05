@@ -41,7 +41,9 @@ namespace _2_BUS.Service
 
         public List<BangQuyDoiDiemViewModels> GetDiem()
         {
-            return (from a in _BangQuyDoiDiem.getAll() join b in _TichDiemRepositores.getAll() on a.IdVi equals b.Id join c in _khachHangRepository.getAll() on b.Id equals c.IdVi
+            return (from a in _BangQuyDoiDiem.getAll() 
+                    join b in _TichDiemRepositores.getAll() on a.Id equals b.IdQuyDoiDiem 
+                    join c in _khachHangRepository.getAll() on b.Id equals c.IdVi
                     select new
                     BangQuyDoiDiemViewModels
                     {

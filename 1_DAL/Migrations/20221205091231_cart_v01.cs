@@ -168,11 +168,17 @@ namespace _1_DAL.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false, defaultValueSql: "(newid())"),
                     TongDiem = table.Column<int>(type: "int", nullable: true),
                     TrangThai = table.Column<int>(type: "int", nullable: true, defaultValueSql: "((0))"),
-                    IdKhachHang = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    IdKhachHang = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    IdQuyDoiDiem = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ViDiem", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ViDiem_BangQuyDoiDiem_IdQuyDoiDiem",
+                        column: x => x.IdQuyDoiDiem,
+                        principalTable: "BangQuyDoiDiem",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -379,8 +385,8 @@ namespace _1_DAL.Migrations
                     Thue = table.Column<decimal>(type: "decimal(18,2)", maxLength: 50, nullable: false),
                     SDTShip = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     TenShip = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    SoTienQuyDoi = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
-                    SoDiemSuDung = table.Column<int>(type: "int", nullable: true),
+                    SoTienQuyDoi = table.Column<decimal>(type: "decimal(18,2)", nullable: true, defaultValueSql: "((0))"),
+                    SoDiemSuDung = table.Column<int>(type: "int", nullable: true, defaultValueSql: "((0))"),
                     PhanTramGiamGia = table.Column<decimal>(type: "decimal(18,2)", nullable: true)
                 },
                 constraints: table =>
@@ -456,22 +462,16 @@ namespace _1_DAL.Migrations
                 columns: table => new
                 {
                     IdLichSuDiem = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    NgaySuDung = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    SoDiemTieuDung = table.Column<int>(type: "int", nullable: false),
-                    SoDiemCong = table.Column<int>(type: "int", nullable: false),
-                    TrangThai = table.Column<int>(type: "int", nullable: false, defaultValueSql: "((0))"),
-                    IdQuyDoiDiem = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    NgaySuDung = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    SoDiemTieuDung = table.Column<int>(type: "int", nullable: true, defaultValueSql: "((0))"),
+                    SoDiemCong = table.Column<int>(type: "int", nullable: true, defaultValueSql: "((0))"),
+                    TrangThai = table.Column<int>(type: "int", nullable: true, defaultValueSql: "((0))"),
                     IdViDiem = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     IdHoaDon = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_LichSuDiemTieuDung", x => x.IdLichSuDiem);
-                    table.ForeignKey(
-                        name: "FK_LichSuDiemTieuDung_BangQuyDoiDiem_IdQuyDoiDiem",
-                        column: x => x.IdQuyDoiDiem,
-                        principalTable: "BangQuyDoiDiem",
-                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_LichSuDiemTieuDung_HoaDon_IdHoaDon",
                         column: x => x.IdHoaDon,
@@ -599,11 +599,6 @@ namespace _1_DAL.Migrations
                 column: "IdHoaDon");
 
             migrationBuilder.CreateIndex(
-                name: "IX_LichSuDiemTieuDung_IdQuyDoiDiem",
-                table: "LichSuDiemTieuDung",
-                column: "IdQuyDoiDiem");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_LichSuDiemTieuDung_IdViDiem",
                 table: "LichSuDiemTieuDung",
                 column: "IdViDiem");
@@ -664,6 +659,11 @@ namespace _1_DAL.Migrations
                 table: "SizeGiay",
                 column: "Ma",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ViDiem_IdQuyDoiDiem",
+                table: "ViDiem",
+                column: "IdQuyDoiDiem");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -685,9 +685,6 @@ namespace _1_DAL.Migrations
 
             migrationBuilder.DropTable(
                 name: "DanhMuc");
-
-            migrationBuilder.DropTable(
-                name: "BangQuyDoiDiem");
 
             migrationBuilder.DropTable(
                 name: "HoaDon");
@@ -730,6 +727,9 @@ namespace _1_DAL.Migrations
 
             migrationBuilder.DropTable(
                 name: "NSX");
+
+            migrationBuilder.DropTable(
+                name: "BangQuyDoiDiem");
         }
     }
 }

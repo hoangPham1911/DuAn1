@@ -13,15 +13,16 @@ namespace _1_DAL.Models
     {
         public QuyDoiDiem()
         {
-          
+            ViDiems = new HashSet<ViDiem>();
         }
         [Key]
         public Guid Id { get; set; }
         public string? Ten { get; set; }
         public decimal? TyLeQuyDoi { get; set; }
         public string? TrangThai { get; set; }
-        public Guid? IdVi { get; set; }
-        [ForeignKey(nameof(IdVi))]
-        public virtual ViDiem IdQuyDoiDiemNavigation { get; set; }
+
+   
+        public virtual ICollection<ViDiem> ViDiems { get; set; }
+
     }
 }

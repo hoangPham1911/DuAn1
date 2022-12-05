@@ -14,7 +14,7 @@ namespace _1_DAL.Models
     {
         public ViDiem()
         {
-            QuyDoiDiems = new HashSet<QuyDoiDiem>();
+         //   QuyDoiDiems = new HashSet<QuyDoiDiem>();
             LichSuDiemTieuDungs = new HashSet<LichSuDiemTieuDung>();
         }
         [Key]
@@ -22,12 +22,18 @@ namespace _1_DAL.Models
         public int? TongDiem { get; set; }
         public int? TrangThai { get; set; }
         public Guid? IdKhachHang { get; set; }
-        [InverseProperty(nameof(QuyDoiDiem.IdQuyDoiDiemNavigation))]
-        public virtual ICollection<QuyDoiDiem> QuyDoiDiems { get; set; }
+        public Guid? IdQuyDoiDiem { get; set; }
+
+        //[InverseProperty(nameof(QuyDoiDiem.IdQuyDoiDiemNavigation))]
+        //public virtual ICollection<QuyDoiDiem> QuyDoiDiems { get; set; }
 
         [InverseProperty(nameof(LichSuDiemTieuDung.IdViDiemNavigation))]
         public virtual ICollection<LichSuDiemTieuDung> LichSuDiemTieuDungs { get; set; }
-        public virtual KhachHang KhachHangs { get; set; }
+
+        public virtual KhachHang KhachHangs { get; set; }   
+        [ForeignKey(nameof(IdQuyDoiDiem))]
+        public virtual QuyDoiDiem QuyDoiDiemsNaVigration { get; set; }
+
     }
 }
 

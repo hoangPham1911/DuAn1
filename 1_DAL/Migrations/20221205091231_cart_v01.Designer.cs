@@ -12,7 +12,7 @@ using _1_DAL.Context;
 namespace _1_DAL.Migrations
 {
     [DbContext(typeof(ManagerContext))]
-    [Migration("20221204140132_cart_v01")]
+    [Migration("20221205091231_cart_v01")]
     partial class cart_v01
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -372,10 +372,14 @@ namespace _1_DAL.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<int?>("SoDiemSuDung")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValueSql("((0))");
 
                     b.Property<decimal?>("SoTienQuyDoi")
-                        .HasColumnType("decimal(18,2)");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("decimal(18,2)")
+                        .HasDefaultValueSql("((0))");
 
                     b.Property<string>("TenShip")
                         .HasColumnType("nvarchar(max)");
@@ -527,22 +531,23 @@ namespace _1_DAL.Migrations
                     b.Property<Guid?>("IdHoaDon")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("IdQuyDoiDiem")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid?>("IdViDiem")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("NgaySuDung")
+                    b.Property<DateTime?>("NgaySuDung")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("SoDiemCong")
-                        .HasColumnType("int");
+                    b.Property<int?>("SoDiemCong")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValueSql("((0))");
 
-                    b.Property<int>("SoDiemTieuDung")
-                        .HasColumnType("int");
+                    b.Property<int?>("SoDiemTieuDung")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValueSql("((0))");
 
-                    b.Property<int>("TrangThai")
+                    b.Property<int?>("TrangThai")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasDefaultValueSql("((0))");
@@ -550,8 +555,6 @@ namespace _1_DAL.Migrations
                     b.HasKey("IdLichSuDiem");
 
                     b.HasIndex("IdHoaDon");
-
-                    b.HasIndex("IdQuyDoiDiem");
 
                     b.HasIndex("IdViDiem");
 
@@ -866,6 +869,9 @@ namespace _1_DAL.Migrations
                     b.Property<Guid?>("IdKhachHang")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid?>("IdQuyDoiDiem")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<int?>("TongDiem")
                         .HasColumnType("int");
 
@@ -875,6 +881,8 @@ namespace _1_DAL.Migrations
                         .HasDefaultValueSql("((0))");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("IdQuyDoiDiem");
 
                     b.ToTable("ViDiem");
                 });
@@ -1009,17 +1017,11 @@ namespace _1_DAL.Migrations
                         .WithMany("LichSuDiems")
                         .HasForeignKey("IdHoaDon");
 
-                    b.HasOne("_1_DAL.Models.QuyDoiDiem", "IdQuyDoiDiemNavigation")
-                        .WithMany("LichSuDiemTieuDungs")
-                        .HasForeignKey("IdQuyDoiDiem");
-
                     b.HasOne("_1_DAL.Models.ViDiem", "IdViDiemNavigation")
                         .WithMany("LichSuDiemTieuDungs")
                         .HasForeignKey("IdViDiem");
 
                     b.Navigation("IdHoaDonNavigation");
-
-                    b.Navigation("IdQuyDoiDiemNavigation");
 
                     b.Navigation("IdViDiemNavigation");
                 });
@@ -1050,6 +1052,15 @@ namespace _1_DAL.Migrations
                     b.Navigation("ChiTietHangHoaNavigation");
 
                     b.Navigation("SaleNavigation");
+                });
+
+            modelBuilder.Entity("_1_DAL.Models.ViDiem", b =>
+                {
+                    b.HasOne("_1_DAL.Models.QuyDoiDiem", "QuyDoiDiemsNaVigration")
+                        .WithMany("ViDiems")
+                        .HasForeignKey("IdQuyDoiDiem");
+
+                    b.Navigation("QuyDoiDiemsNaVigration");
                 });
 
             modelBuilder.Entity("_1_DAL.Models.Anh", b =>
@@ -1124,7 +1135,7 @@ namespace _1_DAL.Migrations
 
             modelBuilder.Entity("_1_DAL.Models.QuyDoiDiem", b =>
                 {
-                    b.Navigation("LichSuDiemTieuDungs");
+                    b.Navigation("ViDiems");
                 });
 
             modelBuilder.Entity("_1_DAL.Models.Sale", b =>
