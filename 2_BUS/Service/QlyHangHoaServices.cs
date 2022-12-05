@@ -70,7 +70,7 @@ namespace _2_BUS.Service
                     select new QlyHangHoaViewModels
                     {
                         IdSp = b.Id,
-                        Id = a.Id,
+                          Id = a.Id,
                         IdQuocGia = c.Id,
                         IdNsx = d.Id,
                         IdSizeGiay = e.Id,

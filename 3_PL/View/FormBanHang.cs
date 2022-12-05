@@ -353,7 +353,7 @@ namespace _3_PL.View
         {
             checkHD++;
             button2.Enabled = false;
-            
+
             if (_ListReceiptProduct2.Count() != 0)
             {
                 btn_ThanhToan.Enabled = true;
@@ -417,7 +417,7 @@ namespace _3_PL.View
                     else if (status == 3)
                     {
                         rbt_giaohang.Checked = true;
-                  //      textBox12.Visible = true;
+                        //      textBox12.Visible = true;
 
                     }
                     else if (status == 7)
@@ -719,8 +719,6 @@ namespace _3_PL.View
                     MessageBox.Show("Update Hóa Đơn Thành Công");
                     //  loadReceipt();
                     flhoadon.Controls.Remove(createButton());
-                    loadDonDatHang();
-                    loadhoadonduyet();
 
                 }
                 else
@@ -800,13 +798,13 @@ namespace _3_PL.View
                                 lichSuDiemViewModels.IdHoaDon = IdHoaDon;
                                 //MessageBox.Show(lichSuDiemViewModels.IdHoaDon.ToString());
                                 _LichSuDiemService.add(lichSuDiemViewModels);
-                                ViDiemViewModel viDiem = new ViDiemViewModel();                             
+                                ViDiemViewModel viDiem = new ViDiemViewModel();
                                 viDiem.TongDiem = int.Parse(textBox5.Text) - int.Parse(textBox11.Text);
                                 viDiem.TrangThai = 1;
                                 var IdKh = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt.Contains(textBox10.Text)).Idkh;
                                 viDiem.IdKhachHang = IdKh;
-                                if(_ViDiemService.GetViDiem().FirstOrDefault(p => p.IdKhachHang == IdKh) !=null)
-                                viDiem.Id = _ViDiemService.GetViDiem().FirstOrDefault(p => p.IdKhachHang == IdKh).Id;
+                                if (_ViDiemService.GetViDiem().FirstOrDefault(p => p.IdKhachHang == IdKh) != null)
+                                    viDiem.Id = _ViDiemService.GetViDiem().FirstOrDefault(p => p.IdKhachHang == IdKh).Id;
                                 _ViDiemService.update(viDiem);
                             }
                         }
@@ -979,11 +977,16 @@ namespace _3_PL.View
                                 if (_ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == Guid.Parse(maQR[0])) != null)
                                 {
                                     _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == Guid.Parse(maQR[0])).SoLuong = _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == Guid.Parse(maQR[0])).SoLuong + int.Parse(content);
+                                    MessageBox.Show("Thêm Thành Công123");
+                                    loadReceipt();
+                                    button2.Enabled = true;
                                 }
                                 else
                                 {
                                     _ListReceiptProduct2.Add(SpInHD);
                                     MessageBox.Show("Thêm Thành Công123");
+                                    loadReceipt();
+                                    button2.Enabled = true;
 
                                 }
 
@@ -994,15 +997,26 @@ namespace _3_PL.View
                                 if (_ListGioHang.Count() == 0 && _ListReceiptProduct2.Count() == 0)
                                 {
                                     _ListGioHang.Add(gioHang);
+                                    loadGioHang();
+                                    MessageBox.Show("Thêm Thành Công345");
+                                    button2.Enabled = true;
+
                                 }
-                                if (_ListGioHang.FirstOrDefault(p => p.IdCTSP == Guid.Parse(maQR[0])) != null)
+                                else if (_ListGioHang.FirstOrDefault(p => p.IdCTSP == Guid.Parse(maQR[0])) != null)
                                 {
                                     _ListGioHang.FirstOrDefault(p => p.IdCTSP == Guid.Parse(maQR[0])).SoLuong = _ListGioHang.FirstOrDefault(p => p.IdCTSP == Guid.Parse(maQR[0])).SoLuong + int.Parse(content);
+                                    loadGioHang();
+                                    MessageBox.Show("Thêm Thành Công345");
+                                    button2.Enabled = true;
+
                                 }
                                 else
                                 {
                                     _ListGioHang.Add(gioHang);
-                                    MessageBox.Show("Thêm Thành Công");
+                                    loadGioHang();
+                                    MessageBox.Show("Thêm Thành Công345");
+                                    button2.Enabled = true;
+
                                 }
                             }
 
@@ -1014,8 +1028,7 @@ namespace _3_PL.View
                         MessageBox.Show("Hông Có Sp Này ");
                     }
                     timer1.Stop();
-                    loadGioHang();
-                    loadReceipt();
+                    
 
                 }
                 catch (Exception ex)
@@ -1503,14 +1516,14 @@ namespace _3_PL.View
         {
             try
             {
-                if(_KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt.Contains(textBox10.Text)) != null)
+                if (_KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt.Contains(textBox10.Text)) != null)
                 {
                     textBox5.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt.Contains(textBox10.Text)).tongDiem.ToString();
                     textBox1.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt.Contains(textBox10.Text)).DiaChi;
                     textBox4.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt.Contains(textBox10.Text)).Sdt;
                     textBox3.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt.Contains(textBox10.Text)).Ten;
 
-                }             
+                }
             }
             catch (Exception)
             {
@@ -1749,11 +1762,11 @@ namespace _3_PL.View
                 //string fncoc = point.Replace(".", "");
 
                 CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
-                if(_QuyDoiDiemService.GetDiem().FirstOrDefault(p => p.STD.Contains(textBox10.Text)) != null)
+                if (_QuyDoiDiemService.GetDiem().FirstOrDefault(p => p.STD.Contains(textBox10.Text)) != null)
                 {
                     textBox7.Text = _QuyDoiDiemService.GetDiem().FirstOrDefault(p => p.STD.Contains(textBox10.Text)).TyLeQuyDoi.ToString();
                     textBox13.Text = _QuyDoiDiemService.GetDiem().FirstOrDefault(p => p.STD.Contains(textBox10.Text)).TyLeQuyDoi.ToString();
-                }            
+                }
             }
         }
 
@@ -1762,7 +1775,7 @@ namespace _3_PL.View
             CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
             string tongTien2 = textBox11.Text.ToString();
             string fTongTien1 = tongTien2.Replace(".00", "");
-            if(_QuyDoiDiemService.GetDiem().FirstOrDefault(p => p.STD.Contains(textBox10.Text)) != null)
+            if (_QuyDoiDiemService.GetDiem().FirstOrDefault(p => p.STD.Contains(textBox10.Text)) != null)
             {
                 string point = (_QuyDoiDiemService.GetDiem().FirstOrDefault(p => p.STD.Contains(textBox10.Text)).TyLeQuyDoi).ToString();
                 string fncoc = point.Replace(".00", "");
@@ -1773,18 +1786,18 @@ namespace _3_PL.View
                 string fTongTien = tongTien.Replace(".", "");
                 double TienKhachTra = Convert.ToDouble(fTongTien) - Convert.ToDouble(tien);
                 tb_TienKhachCanTra.Text = Convert.ToInt32(TienKhachTra).ToString("#,###", cul.NumberFormat);
-                if(tb_TienKhachCanTra.Text == "")
+                if (tb_TienKhachCanTra.Text == "")
                 {
                     tb_TienKhachCanTra.Text = 0.ToString();
                 }
             }
-         
+
 
         }
 
         private void textBox12_TextChanged(object sender, EventArgs e)
         {
-           if(_QuyDoiDiemService.GetDiem().FirstOrDefault(p => p.STD.Contains(textBox10.Text)) != null)
+            if (_QuyDoiDiemService.GetDiem().FirstOrDefault(p => p.STD.Contains(textBox10.Text)) != null)
             {
                 CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
                 string tongTien2 = textBox12.Text.ToString();

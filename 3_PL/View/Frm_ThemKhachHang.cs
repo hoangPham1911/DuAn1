@@ -1,4 +1,5 @@
-﻿using _2_BUS.IService;
+﻿using _1_DAL.Models;
+using _2_BUS.IService;
 using _2_BUS.Service;
 using _2_BUS.ViewModels;
 using System;
@@ -16,12 +17,14 @@ namespace _3_PL.View
     public partial class Frm_ThemKhachHang : Form
     {
         public IKhachHangServices khachHangServices;
-        
+        public IBangQuyDoiDiemServices bangQuyDoiDiemServices;
+        public IViDiemService viDiemService;
         
         public Frm_ThemKhachHang()
         {
             khachHangServices = new KhachHangServices();
-            
+            bangQuyDoiDiemServices = new BangQuyDoiDiemServices();
+            viDiemService = new ViDiemService();
             InitializeComponent();
         }
 
@@ -39,8 +42,7 @@ namespace _3_PL.View
             {
                 MessageBox.Show("Mã khách hàng đã tồn tại");
             }
-            ThemKhachHangViewModels kh = new ThemKhachHangViewModels()
-            { };
+            ThemKhachHangViewModels kh = new ThemKhachHangViewModels();
             kh.Ma = txtMaKH.Text + tb_SoCCCD.Text;
             kh.Ten = txtTenKH.Text;
             kh.SoCCCD = tb_SoCCCD.Text;
@@ -50,8 +52,13 @@ namespace _3_PL.View
             kh.GioiTinh = tb_GioiTinh.Text;
             kh.NamSinh = dtp_NamSinh.Value;
             kh.TrangThai = rd_hd.Checked ? 1 : 0;
-            
             MessageBox.Show(khachHangServices.ThemKhachHang(kh));
+            ViDiemViewModel vi = new ViDiemViewModel();
+            vi.TrangThai = 1;
+            vi.IdKhachHang = khachHangServices.GetAllKhachHangDB().Max(c => c.Idkh);
+            vi.TongDiem = int.Parse(textBox1.Text);
+            vi.IdQuyDoiDiem = bangQuyDoiDiemServices.GetDiem().FirstOrDefault(p => p.Ten == 1.ToString()).Id;
+            viDiemService.add(vi);
         }
 
         private void btnExit_Click(object sender, EventArgs e)

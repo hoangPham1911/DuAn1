@@ -31,6 +31,7 @@ namespace _2_BUS.Service
             vi.TongDiem = viDiems.TongDiem;
             vi.TrangThai = viDiems.TrangThai;
             vi.IdKhachHang = viDiems.IdKhachHang;
+            vi.IdQuyDoiDiem = viDiems.IdQuyDoiDiem;
             if (_ViTichDiemRepositores.add(vi)) return true;
             return false;
         }

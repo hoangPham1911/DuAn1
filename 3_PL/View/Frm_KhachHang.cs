@@ -136,5 +136,11 @@ namespace _3_PL.View
                 loadDTG();
             }
         }
+
+        private void btn_them_Click(object sender, EventArgs e)
+        {
+            Frm_ThemKhachHang khachHang = new Frm_ThemKhachHang();
+            khachHang.ShowDialog();
+        }
     }
 }
