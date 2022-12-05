@@ -23,10 +23,10 @@ namespace _2_BUS.Service
             LichSuDiemTieuDung lichSuDiem = new LichSuDiemTieuDung();
             lichSuDiem.NgaySuDung = ls.NgaySuDung;
             lichSuDiem.TrangThai = ls.TrangThai;
-            lichSuDiem.SoDiemCong = lichSuDiem.SoDiemCong;
-            lichSuDiem.SoDiemTieuDung = lichSuDiem.SoDiemTieuDung;
-            lichSuDiem.IdViDiem = lichSuDiem.IdViDiem;
-            lichSuDiem.IdHoaDon = lichSuDiem.IdHoaDon;
+            lichSuDiem.SoDiemCong = ls.SoDiemCong;
+            lichSuDiem.SoDiemTieuDung = ls.SoDiemTieuDung;
+            lichSuDiem.IdViDiem = ls.IdViDiem;
+            lichSuDiem.IdHoaDon = ls.IdHoaDon;
 
             if (_IlichSuDiem.add(lichSuDiem)) return true;
             else return false;

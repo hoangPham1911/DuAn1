@@ -148,6 +148,9 @@ namespace _1_DAL.Context
                 entity.Property(e => e.Id).HasDefaultValueSql("(newid())");
                 entity.Property(e => e.Ma).IsUnicode(false);
                 entity.Property(e => e.TinhTrang).HasDefaultValueSql("((0))");
+                entity.Property(e => e.SoTienQuyDoi).HasDefaultValueSql("((0))");
+                entity.Property(e => e.SoDiemSuDung).HasDefaultValueSql("((0))");
+
             });
             modelBuilder.Entity<ChiTietHangHoa>(entity =>
             {
@@ -201,6 +204,8 @@ namespace _1_DAL.Context
             modelBuilder.Entity<LichSuDiemTieuDung>(entity =>
             {
                 entity.Property(e => e.TrangThai).HasDefaultValueSql("((0))");
+                entity.Property(e => e.SoDiemCong).HasDefaultValueSql("((0))");
+                entity.Property(e => e.SoDiemTieuDung).HasDefaultValueSql("((0))");
 
             });
         }

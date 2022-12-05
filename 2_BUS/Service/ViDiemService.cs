@@ -58,12 +58,11 @@ namespace _2_BUS.Service
         public bool update(ViDiemViewModel viDiems)
         {
             ViDiem vi = _ViTichDiemRepositores.getAll().FirstOrDefault(p=>p.Id == viDiems.Id);
-            vi.TongDiem = viDiems.TongDiem;
             vi.TrangThai = viDiems.TrangThai;
             vi.IdKhachHang = viDiems.IdKhachHang;
+            vi.TongDiem = viDiems.TongDiem;
             if (_ViTichDiemRepositores.update(vi)) return true;
             return false;
         }
-
     }
 }
