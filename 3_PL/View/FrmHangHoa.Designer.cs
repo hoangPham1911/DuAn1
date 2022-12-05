@@ -34,12 +34,14 @@
             this.loạiGiàyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sizeGiàyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xuấtXứToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nhàSảnXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ảnhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_them = new System.Windows.Forms.Button();
             this.txt_timkiem = new System.Windows.Forms.TextBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cbo_loc = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgrid_sanpham = new System.Windows.Forms.DataGridView();
@@ -48,7 +50,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_sanpham)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,7 +61,9 @@
             this.chaasToolStripMenuItem,
             this.loạiGiàyToolStripMenuItem,
             this.sizeGiàyToolStripMenuItem,
-            this.xuấtXứToolStripMenuItem});
+            this.xuấtXứToolStripMenuItem,
+            this.nhàSảnXuấtToolStripMenuItem,
+            this.ảnhToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 3, 0, 3);
@@ -96,15 +99,29 @@
             this.xuấtXứToolStripMenuItem.Text = "Xuất xứ";
             this.xuấtXứToolStripMenuItem.Click += new System.EventHandler(this.xuấtXứToolStripMenuItem_Click);
             // 
+            // nhàSảnXuấtToolStripMenuItem
+            // 
+            this.nhàSảnXuấtToolStripMenuItem.Name = "nhàSảnXuấtToolStripMenuItem";
+            this.nhàSảnXuấtToolStripMenuItem.Size = new System.Drawing.Size(108, 24);
+            this.nhàSảnXuấtToolStripMenuItem.Text = "Nhà sản xuất";
+            this.nhàSảnXuấtToolStripMenuItem.Click += new System.EventHandler(this.nhàSảnXuấtToolStripMenuItem_Click);
+            // 
+            // ảnhToolStripMenuItem
+            // 
+            this.ảnhToolStripMenuItem.Name = "ảnhToolStripMenuItem";
+            this.ảnhToolStripMenuItem.Size = new System.Drawing.Size(49, 24);
+            this.ảnhToolStripMenuItem.Text = "Ảnh";
+            this.ảnhToolStripMenuItem.Click += new System.EventHandler(this.ảnhToolStripMenuItem_Click);
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.SaddleBrown;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.btn_them);
             this.panel2.Controls.Add(this.txt_timkiem);
             this.panel2.Controls.Add(this.pictureBox6);
             this.panel2.Controls.Add(this.pictureBox4);
             this.panel2.Controls.Add(this.pictureBox5);
-            this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.cbo_loc);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(0, 31);
@@ -112,6 +129,19 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1498, 77);
             this.panel2.TabIndex = 86;
+            // 
+            // btn_them
+            // 
+            this.btn_them.BackColor = System.Drawing.Color.Peru;
+            this.btn_them.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_them.Font = new System.Drawing.Font("Poor Richard", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_them.Location = new System.Drawing.Point(855, 19);
+            this.btn_them.Name = "btn_them";
+            this.btn_them.Size = new System.Drawing.Size(155, 29);
+            this.btn_them.TabIndex = 95;
+            this.btn_them.Text = "Thêm Hàng Hóa";
+            this.btn_them.UseVisualStyleBackColor = false;
+            this.btn_them.Click += new System.EventHandler(this.btn_them_Click);
             // 
             // txt_timkiem
             // 
@@ -155,17 +185,6 @@
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 91;
             this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(502, 17);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(58, 36);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
             // 
             // cbo_loc
             // 
@@ -223,7 +242,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_sanpham)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -242,9 +260,11 @@
         private PictureBox pictureBox6;
         private PictureBox pictureBox4;
         private PictureBox pictureBox5;
-        private PictureBox pictureBox1;
         private ComboBox cbo_loc;
         private Label label1;
         private DataGridView dgrid_sanpham;
+        private Button btn_them;
+        private ToolStripMenuItem nhàSảnXuấtToolStripMenuItem;
+        private ToolStripMenuItem ảnhToolStripMenuItem;
     }
 }
