@@ -17,7 +17,6 @@ namespace _3_PL.View
     public partial class FrmHangHoa : Form
     {
         private IQlyHangHoaServices qlhhser;
-        private IQlyHangHoaServices _qlhhser;
         private IAnhService _anhser;
         private INsxServices _nsxser;
         private IChatLieuServices _chatlieuser;
@@ -27,22 +26,15 @@ namespace _3_PL.View
         private static FrmHangHoa _sender;
         public FrmHangHoa()
         {
+                    
             InitializeComponent();
-
-           
-            InitializeComponent();
-            _sender = this;
             qlhhser = new QlyHangHoaServices();
-            _anhser = new AnhService();
-            _nsxser = new NsxServices();
             _chatlieuser = new ChatLieuServices();
             _quocgiaser = new QuocGiaServices();
             _sizegiayser = new SizeGiayServices();
             _loaigiayser = new LoaiGiayServices();
             _sender = this;
-
             loadloc();
-
             loaddata();
 
         }
@@ -89,10 +81,6 @@ namespace _3_PL.View
 
                 //dgrid_sanpham.Rows.Add(x.IdSp, x.Id, x.Ma, x.Ten, x.Mavach, _nsxser.GetNhasanxuat().FirstOrDefault(c => c.Id == x.IdNsx).Ten, x.SoLuongTon, _anhser.GetAnh().FirstOrDefault(c => c.ID == x.IdAnh).DuongDan, x.TrangThai == 1 ? "Còn Hàng" : "Hết Hàng", x.GiaNhap, x.GiaBan, _chatlieuser.GetChatLieu().FirstOrDefault(c => c.Id == x.IdChatLieu).Ten, _sizegiayser.GetSizeGiay().FirstOrDefault(c => c.Id == x.IdSizeGiay).SoSize, _quocgiaser.GetQuocGia().FirstOrDefault(c => c.Id == x.IdQuocGia).Ten, _loaigiayser.GetLoaiGiay().FirstOrDefault(c => c.Id == x.IdLoaiGiay).Ten);
                 dgrid_sanpham.Rows.Add(x.IdSp, x.Id, x.Ma, x.Ten, x.Mavach, x.TenNsx, x.SoLuongTon, x.DuongDanAnh, x.TrangThai == 1 ? "Còn Hàng" : "Hết Hàng", x.GiaNhap, x.GiaBan, x.TenChatLieu, x.SoSize, x.TenQuocGia, x.TenLoaiGiay);
-
-                dgrid_sanpham.Rows.Add(x.IdSp, x.Id, x.Ma, x.Ten, x.Mavach, _nsxser.GetNhasanxuat().FirstOrDefault(c => c.Id == x.IdNsx).Ten, x.SoLuongTon, _anhser.GetAnh().FirstOrDefault(c => c.ID == x.IdAnh).DuongDan, x.TrangThai == 1 ? "Còn Hàng" : "Hết Hàng", x.GiaNhap, x.GiaBan, _chatlieuser.GetChatLieu().FirstOrDefault(c => c.Id == x.IdChatLieu).Ten, _sizegiayser.GetSizeGiay().FirstOrDefault(c => c.Id == x.IdSizeGiay).SoSize, _quocgiaser.GetQuocGia().FirstOrDefault(c => c.Id == x.IdQuocGia).Ten, _loaigiayser.GetLoaiGiay().FirstOrDefault(c => c.Id == x.IdLoaiGiay).Ten);
-
-                dgrid_sanpham.Rows.Add(x.IdSp, x.Id, x.Ma, x.Ten, x.Mavach, _nsxser.GetNhasanxuat().FirstOrDefault(c => c.Id == x.IdNsx).Ten, x.SoLuongTon, x.IdAnh, x.TrangThai == 1 ? "Còn Hàng" : "Hết Hàng", x.GiaNhap, x.GiaBan, _chatlieuser.GetChatLieu().FirstOrDefault(c => c.Id == x.IdChatLieu).Ten, _sizegiayser.GetSizeGiay().FirstOrDefault(c => c.Id == x.IdSizeGiay).SoSize, _quocgiaser.GetQuocGia().FirstOrDefault(c => c.Id == x.IdQuocGia).Ten, _loaigiayser.GetLoaiGiay().FirstOrDefault(c => c.Id == x.IdLoaiGiay).Ten);
 
 
             }
@@ -288,6 +276,24 @@ namespace _3_PL.View
         {
             Frm_QuocGia frm_QuocGia = new Frm_QuocGia();
             frm_QuocGia.ShowDialog();
+        }
+
+        private void btn_them_Click(object sender, EventArgs e)
+        {
+            FrmThemHH frmThemHH = new FrmThemHH();
+            frmThemHH.ShowDialog();
+        }
+
+        private void nhàSảnXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_NSX frm_NSX = new Frm_NSX();
+            frm_NSX.ShowDialog();
+        }
+
+        private void ảnhToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_Anh frm_Anh = new Frm_Anh();
+            frm_Anh.ShowDialog();
         }
     }
 }

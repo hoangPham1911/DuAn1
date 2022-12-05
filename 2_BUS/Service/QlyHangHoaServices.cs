@@ -171,7 +171,7 @@ namespace _2_BUS.Service
         {
             try
             {
-                HangHoa sp = _iHangHoaRepository.getAll().FirstOrDefault(c => c.Id == product.Id);
+                var sp = _iHangHoaRepository.getAll().FirstOrDefault(c => c.Id == product.Id);
                 sp.Ten = product.Ten;
                 sp.Ma = product.Ma;
                 sp.TrangThai = product.TrangThai;

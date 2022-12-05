@@ -51,7 +51,7 @@ namespace _3_PL.View
         private string ok;
         private Guid id;
         private Guid idcthh;
-        public FrmChiTietHangHoa(Guid idcthh, Guid idhh, string mahh, string tenhh, string nsx, string trangthai, string mavach, string soluong,
+        public FrmChiTietHangHoa(Guid idhh, Guid idcthh, string mahh, string tenhh, string nsx, string trangthai, string mavach, string soluong,
             string gianhap, string giaban, string chatlieu, string sizegiay, string loaigiay, string tenquocgia, string anh)
         {
             _qlhhser = new QlyHangHoaServices();
@@ -787,40 +787,40 @@ namespace _3_PL.View
 
         private void cbo_tenhh_KeyUp(object sender, KeyEventArgs e)
         {
-            for (int i = 0; i < _qlhhser.GetsList().Count; i++)
-            {
-                if (cbo_tenhh.Text == _qlhhser.GetsList()[i].Ten)
-                {
-                    DialogResult dialogResult = MessageBox.Show("Bạn Có Muốn Tái Sử Dụng 1 Số Thuộc Tính Cơ Bản Của Sản Phầm Cùng Tên Này Không ?", "Thông Báo", MessageBoxButtons.YesNo);
+            //for (int i = 0; i < _qlhhser.GetsList().Count; i++)
+            //{
+            //    if (cbo_tenhh.Text == _qlhhser.GetsList()[i].Ten)
+            //    {
+            //        DialogResult dialogResult = MessageBox.Show("Bạn Có Muốn Tái Sử Dụng 1 Số Thuộc Tính Cơ Bản Của Sản Phầm Cùng Tên Này Không ?", "Thông Báo", MessageBoxButtons.YesNo);
 
-                    if (dialogResult == DialogResult.Yes)
-                    {
-                        zen = _qlhhser.GetsList().Where(c => c.Mavach == txt_mavach.Text).Select(c => c.Id).FirstOrDefault();
-                        cbo_tenhh.Text = Convert.ToString(_qlhhser.GetsList().Where(c => c.Id == zen).Select(c => c.Ten).FirstOrDefault());
-                        zennsx = _qlhhser.GetsList().Where(c => c.Id == zen).Select(c => c.IdNsx).FirstOrDefault();
-                        cbo_nsx.Text = Convert.ToString(_nsxser.GetNhasanxuat().Where(c => c.Id == zennsx).Select(c => c.Ten).FirstOrDefault());
-                        txt_giaban.Text = Convert.ToString(_qlhhser.GetsList().Where(c => c.Mavach == txt_mavach.Text).Select(c => c.GiaBan).FirstOrDefault());
-                        txt_gianhap.Text = Convert.ToString(_qlhhser.GetsList().Where(c => c.Mavach == txt_mavach.Text).Select(c => c.GiaNhap).FirstOrDefault());
-                        for (int a = 0; a < 2; a++)
-                        {
-                            this.Alert("Bạn Đã Sử Dụng Thành Công");
+            //        if (dialogResult == DialogResult.Yes)
+            //        {
+            //            zen = _qlhhser.GetsList().Where(c => c.Mavach == txt_mavach.Text).Select(c => c.Id).FirstOrDefault();
+            //            cbo_tenhh.Text = Convert.ToString(_qlhhser.GetsList().Where(c => c.Id == zen).Select(c => c.Ten).FirstOrDefault());
+            //            zennsx = _qlhhser.GetsList().Where(c => c.Id == zen).Select(c => c.IdNsx).FirstOrDefault();
+            //            cbo_nsx.Text = Convert.ToString(_nsxser.GetNhasanxuat().Where(c => c.Id == zennsx).Select(c => c.Ten).FirstOrDefault());
+            //            txt_giaban.Text = Convert.ToString(_qlhhser.GetsList().Where(c => c.Mavach == txt_mavach.Text).Select(c => c.GiaBan).FirstOrDefault());
+            //            txt_gianhap.Text = Convert.ToString(_qlhhser.GetsList().Where(c => c.Mavach == txt_mavach.Text).Select(c => c.GiaNhap).FirstOrDefault());
+            //            for (int a = 0; a < 2; a++)
+            //            {
+            //                this.Alert("Bạn Đã Sử Dụng Thành Công");
 
-                        }
-                        return;
-                    };
+            //            }
+            //            return;
+            //        };
 
-                    if (dialogResult == DialogResult.No)
-                    {
-                        for (int a = 0; a < 2; a++)
-                        {
-                            this.AlertErr(" Sử Dụng Thất Bại");
+            //        if (dialogResult == DialogResult.No)
+            //        {
+            //            for (int a = 0; a < 2; a++)
+            //            {
+            //                this.AlertErr(" Sử Dụng Thất Bại");
 
-                        }
-                        return;
-                    }
+            //            }
+            //            return;
+            //        }
 
-                }
-            }
+            //    }
+            //}
         }
 
         private void pic_loaigiay_DoubleClick(object sender, EventArgs e)
@@ -1158,6 +1158,80 @@ namespace _3_PL.View
 
                 MessageBox.Show(Convert.ToString(ex), "Liên Hệ Với Quân");
                 return;
+            }
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult dialogResult = MessageBox.Show("Bạn Có Muốn Tạo Mới size giày Hay Không  ?", "Thông Báo", MessageBoxButtons.YesNo);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Frm_SizeGiay frm_SizeGiay = new Frm_SizeGiay();
+                    for (int i = 0; i < 1; i++)
+                    {
+                        this.Alert("Tiến Hành Tạo Mới size giày Thôi Nào");
+
+                    }
+                    frm_SizeGiay.Show();
+
+
+                };
+
+                if (dialogResult == DialogResult.No)
+                {
+                    for (int a = 0; a < 2; a++)
+                    {
+                        this.AlertErr("Thất Bại");
+
+                    }
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Convert.ToString(ex), "Liên Hệ Với Quân");
+                return;
+
+            }
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult dialogResult = MessageBox.Show("Bạn Có Muốn Tạo Mới loại giày Hay Không  ?", "Thông Báo", MessageBoxButtons.YesNo);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Frm_LoaiGiay frm_LoaiGiay = new Frm_LoaiGiay();
+                    for (int i = 0; i < 1; i++)
+                    {
+                        this.Alert("Tiến Hành Tạo Mới loại giày Thôi Nào");
+
+                    }
+                    frm_LoaiGiay.Show();
+
+
+                };
+
+                if (dialogResult == DialogResult.No)
+                {
+                    for (int a = 0; a < 2; a++)
+                    {
+                        this.AlertErr("Thất Bại");
+
+                    }
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Convert.ToString(ex), "Liên Hệ Với Quân");
+                return;
+
             }
         }
     }
