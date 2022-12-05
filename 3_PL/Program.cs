@@ -18,7 +18,7 @@ namespace _3_PL
             ApplicationConfiguration.Initialize();
         //    Application.Run(new Frm_NSX());
 
-            Application.Run(new FrmDangNhap());
+            Application.Run(new FrmSale());
 
         }
     }
