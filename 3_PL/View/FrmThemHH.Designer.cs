@@ -36,9 +36,7 @@
             this.cbo_anh = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_them = new System.Windows.Forms.Button();
-            this.pic_loaigiay = new System.Windows.Forms.PictureBox();
             this.pic_xuatxu = new System.Windows.Forms.PictureBox();
-            this.pic_sizegiay = new System.Windows.Forms.PictureBox();
             this.pic_cl = new System.Windows.Forms.PictureBox();
             this.pic_nsx = new System.Windows.Forms.PictureBox();
             this.cbo_mahh = new System.Windows.Forms.TextBox();
@@ -78,9 +76,7 @@
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pic_anhadd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_loaigiay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_xuatxu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_sizegiay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_cl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_nsx)).BeginInit();
             this.panel1.SuspendLayout();
@@ -100,6 +96,7 @@
             this.pic_anhadd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_anhadd.TabIndex = 197;
             this.pic_anhadd.TabStop = false;
+            this.pic_anhadd.Click += new System.EventHandler(this.pic_anhadd_Click);
             // 
             // label16
             // 
@@ -151,17 +148,6 @@
             this.btn_them.UseVisualStyleBackColor = false;
             this.btn_them.Click += new System.EventHandler(this.btn_them_Click);
             // 
-            // pic_loaigiay
-            // 
-            this.pic_loaigiay.Image = ((System.Drawing.Image)(resources.GetObject("pic_loaigiay.Image")));
-            this.pic_loaigiay.Location = new System.Drawing.Point(1373, 890);
-            this.pic_loaigiay.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.pic_loaigiay.Name = "pic_loaigiay";
-            this.pic_loaigiay.Size = new System.Drawing.Size(38, 39);
-            this.pic_loaigiay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pic_loaigiay.TabIndex = 191;
-            this.pic_loaigiay.TabStop = false;
-            // 
             // pic_xuatxu
             // 
             this.pic_xuatxu.Image = ((System.Drawing.Image)(resources.GetObject("pic_xuatxu.Image")));
@@ -172,17 +158,7 @@
             this.pic_xuatxu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_xuatxu.TabIndex = 192;
             this.pic_xuatxu.TabStop = false;
-            // 
-            // pic_sizegiay
-            // 
-            this.pic_sizegiay.Image = ((System.Drawing.Image)(resources.GetObject("pic_sizegiay.Image")));
-            this.pic_sizegiay.Location = new System.Drawing.Point(1373, 773);
-            this.pic_sizegiay.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.pic_sizegiay.Name = "pic_sizegiay";
-            this.pic_sizegiay.Size = new System.Drawing.Size(38, 39);
-            this.pic_sizegiay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pic_sizegiay.TabIndex = 193;
-            this.pic_sizegiay.TabStop = false;
+            this.pic_xuatxu.Click += new System.EventHandler(this.pic_xuatxu_Click);
             // 
             // pic_cl
             // 
@@ -194,6 +170,7 @@
             this.pic_cl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_cl.TabIndex = 194;
             this.pic_cl.TabStop = false;
+            this.pic_cl.Click += new System.EventHandler(this.pic_cl_Click);
             // 
             // pic_nsx
             // 
@@ -205,6 +182,7 @@
             this.pic_nsx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_nsx.TabIndex = 190;
             this.pic_nsx.TabStop = false;
+            this.pic_nsx.Click += new System.EventHandler(this.pic_nsx_Click);
             // 
             // cbo_mahh
             // 
@@ -222,10 +200,10 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.btn_them);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 797);
+            this.panel1.Location = new System.Drawing.Point(0, 805);
             this.panel1.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1297, 65);
+            this.panel1.Size = new System.Drawing.Size(1249, 65);
             this.panel1.TabIndex = 187;
             // 
             // cbo_tenhh
@@ -546,6 +524,7 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 198;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // pictureBox5
             // 
@@ -557,6 +536,7 @@
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 199;
             this.pictureBox5.TabStop = false;
+            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
             // 
             // pictureBox6
             // 
@@ -575,16 +555,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightPink;
-            this.ClientSize = new System.Drawing.Size(1297, 862);
+            this.ClientSize = new System.Drawing.Size(1249, 870);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pic_anhadd);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.cbo_anh);
-            this.Controls.Add(this.pic_loaigiay);
             this.Controls.Add(this.pic_xuatxu);
-            this.Controls.Add(this.pic_sizegiay);
             this.Controls.Add(this.pic_cl);
             this.Controls.Add(this.pic_nsx);
             this.Controls.Add(this.cbo_mahh);
@@ -624,9 +602,7 @@
             this.Load += new System.EventHandler(this.FrmThemHH_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pic_anhadd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_loaigiay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_xuatxu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_sizegiay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_cl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_nsx)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -648,9 +624,7 @@
         private ComboBox cbo_anh;
         private PictureBox pictureBox1;
         private Button btn_them;
-        private PictureBox pic_loaigiay;
         private PictureBox pic_xuatxu;
-        private PictureBox pic_sizegiay;
         private PictureBox pic_cl;
         private PictureBox pic_nsx;
         private TextBox cbo_mahh;
