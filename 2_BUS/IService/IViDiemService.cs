@@ -12,7 +12,7 @@ namespace _2_BUS.IService
         bool add(ViDiemViewModel vi);
         bool remove(Guid vi);
         bool update(ViDiemViewModel vi);
-
+        public Guid getId(ViDiemViewModel viDiems);
         List<ViDiemViewModel> GetViDiem();
     }
 }

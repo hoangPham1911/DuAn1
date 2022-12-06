@@ -7,6 +7,7 @@ using _1_DAL.Repostiores;
 using _2_BUS.IService;
 using _2_BUS.ViewModels;
 using AForge.Video.DirectShow;
+using Microsoft.EntityFrameworkCore.Query.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,13 +28,20 @@ namespace _2_BUS.Service
         public bool add(ViDiemViewModel viDiems)
         {
             ViDiem vi = new ViDiem();
-            vi.Id = viDiems.Id;
             vi.TongDiem = viDiems.TongDiem;
             vi.TrangThai = viDiems.TrangThai;
-            vi.IdKhachHang = viDiems.IdKhachHang;
             vi.IdQuyDoiDiem = viDiems.IdQuyDoiDiem;
             if (_ViTichDiemRepositores.add(vi)) return true;
             return false;
+        }
+        public Guid getId(ViDiemViewModel viDiems)
+        {
+            ViDiem vi = new ViDiem();
+            vi.TongDiem = viDiems.TongDiem;
+            vi.TrangThai = viDiems.TrangThai;
+            vi.IdQuyDoiDiem = viDiems.IdQuyDoiDiem;
+            if (_ViTichDiemRepositores.add(vi)) return vi.Id;
+            return Guid.Parse(null);
         }
 
         public List<ViDiemViewModel> GetViDiem()

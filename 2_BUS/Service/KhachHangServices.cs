@@ -5,6 +5,7 @@ using _1_DAL.Models;
 using _1_DAL.Repositores;
 using _2_BUS.IService;
 using _2_BUS.ViewModels;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace _2_BUS.Service
             _khachHangViewModels = new List<KhachHangViewModels>();
             _TichDiemRepositores = new TichDiemRepositores();
         }
-
+       
         public List<KhachHangViewModels> GetAllDiemKhachHang()
         {
             throw new NotImplementedException();
@@ -84,7 +85,7 @@ namespace _2_BUS.Service
                 Sdt = obj.Sdt,
                 DiaChi = obj.DiaChi,
                 TrangThai = obj.TrangThai,
- 
+                IdVi = obj.IdVi
             };
 
             if (_khachHangRepository.add(khachHang)) return "Thêm thành công";

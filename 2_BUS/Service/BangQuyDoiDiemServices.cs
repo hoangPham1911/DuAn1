@@ -56,6 +56,19 @@ namespace _2_BUS.Service
                     }).ToList();
         }
 
+        public List<BangQuyDoiDiemViewModels> Get()
+        {
+            return (from a in _BangQuyDoiDiem.getAll()
+         
+                    select new
+                    BangQuyDoiDiemViewModels
+                    {
+                        Id = a.Id,
+                        TyLeQuyDoi = a.TyLeQuyDoi,
+                        Ten = a.Ten,
+                        TrangThai = a.TrangThai,
+                    }).ToList();
+        }
         public bool remove(Guid vi)
         {
             if (_BangQuyDoiDiem.remove(vi)) return true;

@@ -27,7 +27,15 @@ namespace _3_PL.View
             viDiemService = new ViDiemService();
             InitializeComponent();
         }
-
+        private Guid ViDiem()
+        {
+            ViDiemViewModel vi = new ViDiemViewModel();
+            vi.TrangThai = 1;
+            vi.TongDiem = int.Parse(textBox1.Text);
+            vi.IdQuyDoiDiem = bangQuyDoiDiemServices.Get().FirstOrDefault(p => p.Ten.Contains(1.ToString())).Id;
+            MessageBox.Show(vi.IdQuyDoiDiem.ToString());
+            return viDiemService.getId(vi);
+        }
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (txtMaKH.Text == "" && txtTenKH.Text == "" && tb_SoCCCD.Text == "" && txtDT.Text == "" && txtDiaChi.Text == "" && txtEmail.Text == "" && tb_GioiTinh.Text == "")
@@ -42,23 +50,22 @@ namespace _3_PL.View
             {
                 MessageBox.Show("Mã khách hàng đã tồn tại");
             }
-            ThemKhachHangViewModels kh = new ThemKhachHangViewModels();
-            kh.Ma = txtMaKH.Text + tb_SoCCCD.Text;
-            kh.Ten = txtTenKH.Text;
-            kh.SoCCCD = tb_SoCCCD.Text;
-            kh.Sdt = txtDT.Text;
-            kh.DiaChi = txtDiaChi.Text;
-            kh.Email = txtEmail.Text;
-            kh.GioiTinh = tb_GioiTinh.Text;
-            kh.NamSinh = dtp_NamSinh.Value;
-            kh.TrangThai = rd_hd.Checked ? 1 : 0;
-            MessageBox.Show(khachHangServices.ThemKhachHang(kh));
-            ViDiemViewModel vi = new ViDiemViewModel();
-            vi.TrangThai = 1;
-            vi.IdKhachHang = khachHangServices.GetAllKhachHangDB().Max(c => c.Idkh);
-            vi.TongDiem = int.Parse(textBox1.Text);
-            vi.IdQuyDoiDiem = bangQuyDoiDiemServices.GetDiem().FirstOrDefault(p => p.Ten == 1.ToString()).Id;
-            viDiemService.add(vi);
+            else
+            {
+                ThemKhachHangViewModels kh = new ThemKhachHangViewModels();
+                kh.Ma = txtMaKH.Text + tb_SoCCCD.Text;
+                kh.Ten = txtTenKH.Text;
+                kh.SoCCCD = tb_SoCCCD.Text;
+                kh.Sdt = txtDT.Text;
+                kh.DiaChi = txtDiaChi.Text;
+                kh.Email = txtEmail.Text;
+                kh.GioiTinh = tb_GioiTinh.Text;
+                kh.NamSinh = dtp_NamSinh.Value;
+                kh.TrangThai = rd_hd.Checked ? 1 : 0;
+                kh.IdVi = ViDiem();
+                MessageBox.Show(khachHangServices.ThemKhachHang(kh));
+            }
+
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -70,6 +77,21 @@ namespace _3_PL.View
         private void button1_Click(object sender, EventArgs e)
         {
             System.Environment.Exit(0);
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+     (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -13,7 +13,7 @@ namespace _2_BUS.ViewModels
         public string Ma { get; set; }
 
         public string Ten { get; set; }
-
+        public Guid? IdVi { get; set; }
 
         public string GioiTinh { get; set; }
 
