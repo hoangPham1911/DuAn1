@@ -18,7 +18,6 @@ namespace _3_PL.View
     public partial class BangQuyDoiDiem : Form
     {
         IBangQuyDoiDiemServices _QuyDoiDiemService;
-        public static Guid IdQuyDoi;
         public BangQuyDoiDiem()
         {
             InitializeComponent();
@@ -44,7 +43,6 @@ namespace _3_PL.View
                     bangQuyDoi1.TrangThai = "Hoạt Đông";
                     bangQuyDoi1.Ten = 1.ToString();
                     bangQuyDoi1.Id = _QuyDoiDiemService.GetDiem().FirstOrDefault(p => p.Ten == 1.ToString()).Id;
-                    IdQuyDoi = _QuyDoiDiemService.GetDiem().FirstOrDefault(p => p.Ten == 1.ToString()).Id;
                     if (_QuyDoiDiemService.update(bangQuyDoi1))
                     {
                         MessageBox.Show("Cap Nhat quy doi thanh cong");
@@ -58,8 +56,6 @@ namespace _3_PL.View
                     if (_QuyDoiDiemService.add(bangQuyDoi))
                     {
                         MessageBox.Show("quy doi thanh cong");
-                        IdQuyDoi = _QuyDoiDiemService.GetDiem().Max(c => c.Id);
-                        MessageBox.Show(IdQuyDoi.ToString());
                     }   
                 }
                   

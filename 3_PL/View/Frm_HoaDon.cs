@@ -204,12 +204,10 @@ namespace _3_PL.View
         {
             // excel
 
-            
-
-
+          
             try
             {
-                DialogResult dialogResult = MessageBox.Show("bạn có muốn Xuất Ra File PDF Hay Không", "Thông Báo", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("bạn có muốn Xuất Ra File Excel Hay Không", "Thông Báo", MessageBoxButtons.YesNo);
 
                 if (dialogResult == DialogResult.Yes)
                 {
@@ -230,7 +228,7 @@ namespace _3_PL.View
                     for (int i = 0; i < 2; i++)
                     {
 
-                        MessageBox.Show("Xuất Ra File PDF Thành Công");
+                        MessageBox.Show("Xuất Ra File Excel Thành Công");
 
                     }
                     return;
@@ -240,7 +238,7 @@ namespace _3_PL.View
                     for (int i = 0; i < 2; i++)
                     {
 
-                        MessageBox.Show("Xuất Ra File PDF Thất Bại");
+                        MessageBox.Show("Xuất Ra File Excel Thất Bại");
 
                     }
                     return;

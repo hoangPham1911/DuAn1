@@ -37,7 +37,6 @@ namespace _2_BUS.Service
         public Guid getId(ViDiemViewModel viDiems)
         {
             ViDiem vi = new ViDiem();
-            vi.TongDiem = viDiems.TongDiem;
             vi.TrangThai = viDiems.TrangThai;
             vi.IdQuyDoiDiem = viDiems.IdQuyDoiDiem;
             if (_ViTichDiemRepositores.add(vi)) return vi.Id;

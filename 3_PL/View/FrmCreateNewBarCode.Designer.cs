@@ -75,7 +75,7 @@ namespace _3_GUI_PresentaionLayers
             // 
             this.txt_QRcode.Location = new System.Drawing.Point(160, 215);
             this.txt_QRcode.Name = "txt_QRcode";
-            this.txt_QRcode.Size = new System.Drawing.Size(277, 27);
+            this.txt_QRcode.Size = new System.Drawing.Size(277, 23);
             this.txt_QRcode.TabIndex = 2;
             // 
             // pictureBox1
@@ -144,7 +144,7 @@ namespace _3_GUI_PresentaionLayers
             // 
             this.textBox1.Location = new System.Drawing.Point(237, 255);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(277, 27);
+            this.textBox1.Size = new System.Drawing.Size(277, 23);
             this.textBox1.TabIndex = 19;
             // 
             // pictureBox3
@@ -187,7 +187,7 @@ namespace _3_GUI_PresentaionLayers
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label5.Location = new System.Drawing.Point(158, 262);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(71, 20);
+            this.label5.Size = new System.Drawing.Size(57, 15);
             this.label5.TabIndex = 18;
             this.label5.Text = "QRCode :";
             // 
@@ -225,7 +225,7 @@ namespace _3_GUI_PresentaionLayers
             this.label6.ForeColor = System.Drawing.Color.Maroon;
             this.label6.Location = new System.Drawing.Point(469, 20);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(58, 20);
+            this.label6.Size = new System.Drawing.Size(47, 15);
             this.label6.TabIndex = 17;
             this.label6.Text = "In PDF :";
             // 
@@ -235,7 +235,7 @@ namespace _3_GUI_PresentaionLayers
             this.label7.ForeColor = System.Drawing.Color.Maroon;
             this.label7.Location = new System.Drawing.Point(274, 20);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(79, 20);
+            this.label7.Size = new System.Drawing.Size(64, 15);
             this.label7.TabIndex = 17;
             this.label7.Text = "Xác Nhận :";
             // 
@@ -245,7 +245,7 @@ namespace _3_GUI_PresentaionLayers
             this.label8.ForeColor = System.Drawing.Color.Maroon;
             this.label8.Location = new System.Drawing.Point(4, 20);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(155, 20);
+            this.label8.Size = new System.Drawing.Size(123, 15);
             this.label8.TabIndex = 16;
             this.label8.Text = "Tạo Mới Mã QRCode :";
             // 

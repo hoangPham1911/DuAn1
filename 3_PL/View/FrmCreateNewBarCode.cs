@@ -32,8 +32,8 @@ namespace _3_GUI_PresentaionLayers
         private string loaigiay = "";
         private string tennquocgia = "";
         private string anh = "";
-        public string sender = "";
-        public FrmCreateNewBarCode(Guid idct, Guid id,string mahh, string tenhh, string nsx, string trangthai, string mavach, string soluong,
+      //  public string sender = "";
+        public FrmCreateNewBarCode(Guid idct, string tenhh, string mahh, Guid id, string nsx, string trangthai, string mavach, string soluong,
             string gianhap, string giaban, string chatlieu, string sizegiay, string loaigiay, string tenquocgia, string anh)
         {
             InitializeComponent();
@@ -51,6 +51,8 @@ namespace _3_GUI_PresentaionLayers
             this.loaigiay = loaigiay;
             this.tennquocgia = tenquocgia;
             this.anh = anh;
+           // this.danhmuc = DanhMuc;
+
 
         }
         public void Alert(string mess)
@@ -74,11 +76,15 @@ namespace _3_GUI_PresentaionLayers
                 ch = Convert.ToChar(Convert.ToInt32(Math.Floor(26 * random.NextDouble() + 65)));
                 builder.Append(ch);
             }
-            if (lowerCase)
+            if (lowerCase)  
                 return builder.ToString().ToLower();
             return builder.ToString();
         }
-
+        private string createQR()
+        {
+            return (id + "\n" + tenhh + "\n" + mahh + "\n" +  id+ "\n" + nsx + "\n" + trangthai + "\n" + soluong + "\n" +
+                decimal.Parse(giaban) + "\n " + chatlieu + "\n" + sizegiay + "\n" + loaigiay+ "\n" + tennquocgia);
+        }
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("bạn có muốn tạo mã QR Code hay không", "Thông Báo", MessageBoxButtons.YesNo);
@@ -86,14 +92,12 @@ namespace _3_GUI_PresentaionLayers
             if (dialogResult == DialogResult.Yes)
             {
                 QRCodeGenerator qRCode = new QRCodeGenerator();
-                QRCodeData qRCodeData = qRCode.CreateQrCode(txt_QRcode.Text, QRCodeGenerator.ECCLevel.L);
+                QRCodeData qRCodeData = qRCode.CreateQrCode(createQR(), QRCodeGenerator.ECCLevel.L);
                 QRCode qR = new QRCode(qRCodeData);
                 Pic_QRcode.Image = qR.GetGraphic(5);
                 for (int i = 0; i < 2; i++)
                 {
-
                     this.Alert("Tạo Mã QR Code Thành Công");
-
                 }
 
                 return;
@@ -116,7 +120,7 @@ namespace _3_GUI_PresentaionLayers
 
             if (dialogResult == DialogResult.Yes)
             {
-                FrmChiTietHangHoa frm_EditHangHoa = new FrmChiTietHangHoa(idct,id,mahh,tenhh, nsx, trangthai, Convert.ToString(txt_QRcode.Text), soluong,
+                FrmChiTietHangHoa frm_EditHangHoa = new FrmChiTietHangHoa(idct, id, mahh, tenhh, nsx, trangthai, Convert.ToString(txt_QRcode.Text), soluong,
              gianhap, giaban, chatlieu, sizegiay, loaigiay, tennquocgia, anh);
 
                 this.Hide();
