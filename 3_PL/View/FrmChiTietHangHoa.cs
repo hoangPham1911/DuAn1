@@ -34,7 +34,6 @@ namespace _3_PL.View
         private string loaigiay = "";
         private string tenquocgia = "";
         private string anh = "";
-
         private IQlyHangHoaServices _qlhhser;
         private IAnhService _anhser;
         private INsxServices _nsxser;
@@ -56,14 +55,12 @@ namespace _3_PL.View
         {
             _qlhhser = new QlyHangHoaServices();
             _anhser = new AnhService();
-            //_dmser = new DanhMucServices();
             _nsxser = new NsxServices();
             _chatlieuser = new ChatLieuServices();
             _quocgiaser = new QuocGiaServices();
             _sizegiayser = new SizeGiayServices();
             _loaigiayser = new LoaiGiayServices();
             InitializeComponent();
-            //loadsugesstion();
             this.mahh = mahh;
             this.id = idhh;
             this.idcthh = idcthh;
@@ -107,13 +104,6 @@ namespace _3_PL.View
             loaddpath();
         }
 
-        //public void loadanhmuc()
-        //{
-        //    foreach (var x in _dmser.GetDanhMuc())
-        //    {
-        //        cbo_danhmuc.Items.Add(x.Ten);
-        //    }
-        //}
         public void loadnsx()
         {
             foreach (var x in _nsxser.GetNhasanxuat())
@@ -266,10 +256,6 @@ namespace _3_PL.View
             }
 
             //check trùng
-            //danh mục
-
-
-
 
 
             //macl
@@ -319,19 +305,7 @@ namespace _3_PL.View
                 MessageBox.Show("đơn giá bán không được chứa chữ cái", "ERR");
                 return false;
             }
-            //danh mục
-            //if (cbo_danhmuc.Text.Length <= 3)
-            //{
-            //    MessageBox.Show("Tên danh mục phải trên 3 ký tự", "ERR");
-            //    return false;
-            //}
-            //if (Regex.IsMatch(cbo_danhmuc.Text, @"^[a-zA-Z]") == false)
-            //{
-
-            //    MessageBox.Show("Tên danh mục không được chứa số", "ERR");
-            //    return false;
-            //}
-            //nhà sản xuất
+          
             if (cbo_nsx.Text.Length <= 3)
             {
                 MessageBox.Show("Tên Nhà Sản Xuất phải trên 3 ký tự", "ERR");
@@ -704,124 +678,7 @@ namespace _3_PL.View
             connection.Close();
         }
 
-        private void cbo_danhmuc_Click(object sender, EventArgs e)
-        {
-            //loadanhmuc();
-        }
-
-        private void cbo_nsx_Click(object sender, EventArgs e)
-        {
-            //loadnsx();
-        }
-
-        private void cbo_anh_Click(object sender, EventArgs e)
-        {
-            //loaddpath();
-        }
-
-        private void cbo_tencl_Click(object sender, EventArgs e)
-        {
-            //loadchatlieu();
-        }
-
-        private void cbo_sizegiay_Click(object sender, EventArgs e)
-        {
-            //loadsizegiay();
-        }
-
-        private void cbo_tenquocgia_Click(object sender, EventArgs e)
-        {
-            //loadquocgia();
-        }
-
-        private void cbo_loaigiay_Click(object sender, EventArgs e)
-        {
-            //loadloaigiay();
-        }
-
-        private void pic_mavach_DoubleClick(object sender, EventArgs e)
-        {
-            //try
-            //{
-            //    DialogResult dialogResult = MessageBox.Show("Bạn Có Muốn Tạo Mã Vạch Hay Không  ?", "Thông Báo", MessageBoxButtons.YesNo);
-
-            //    if (dialogResult == DialogResult.Yes)
-            //    {
-            //        FrmCreateNewBarCode frmCreateNewBarCode = new FrmCreateNewBarCode(Guid.Parse(_qlhhser.GetsList().Where(c=>c.Id == idcthh).Select(c=>c.Id).FirstOrDefault().ToString()), Guid.Parse(_qlhhser.GetsList().Where(c => c.IdSp == id).Select(c => c.Id).FirstOrDefault().ToString()), cbo_mahh.Text, cbo_tenhh.Text, cbo_nsx.Text, chk_conhang.Text, txt_mavach.Text, txt_soluong.Text, txt_gianhap.Text, txt_giaban.Text, cbo_tencl.Text, cbo_loaigiay.Text, cbo_sizegiay.Text, cbo_tenquocgia.Text, cbo_anh.Text);
-            //        for (int i = 0; i < 1; i++)
-            //        {
-            //            this.Alert("Tiến Hành Tạo Mã Vạch Thôi Nào");
-
-            //        }
-            //        frmCreateNewBarCode.Show();
-
-
-            //    };
-
-            //    if (dialogResult == DialogResult.No)
-            //    {
-            //        for (int a = 0; a < 2; a++)
-            //        {
-            //            this.AlertErr(" Thất Bại");
-
-            //        }
-            //        return;
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(Convert.ToString(ex), "Liên Hệ Với Quân");
-            //    return;
-
-            //}
-        }
-
-        private void txt_mavach_TextChanged(object sender, EventArgs e)
-        {
-            //if (zenbarcode() == true)
-            //{
-
-            //    return;
-            //}
-        }
-
-        private void cbo_tenhh_KeyUp(object sender, KeyEventArgs e)
-        {
-            //for (int i = 0; i < _qlhhser.GetsList().Count; i++)
-            //{
-            //    if (cbo_tenhh.Text == _qlhhser.GetsList()[i].Ten)
-            //    {
-            //        DialogResult dialogResult = MessageBox.Show("Bạn Có Muốn Tái Sử Dụng 1 Số Thuộc Tính Cơ Bản Của Sản Phầm Cùng Tên Này Không ?", "Thông Báo", MessageBoxButtons.YesNo);
-
-            //        if (dialogResult == DialogResult.Yes)
-            //        {
-            //            zen = _qlhhser.GetsList().Where(c => c.Mavach == txt_mavach.Text).Select(c => c.Id).FirstOrDefault();
-            //            cbo_tenhh.Text = Convert.ToString(_qlhhser.GetsList().Where(c => c.Id == zen).Select(c => c.Ten).FirstOrDefault());
-            //            zennsx = _qlhhser.GetsList().Where(c => c.Id == zen).Select(c => c.IdNsx).FirstOrDefault();
-            //            cbo_nsx.Text = Convert.ToString(_nsxser.GetNhasanxuat().Where(c => c.Id == zennsx).Select(c => c.Ten).FirstOrDefault());
-            //            txt_giaban.Text = Convert.ToString(_qlhhser.GetsList().Where(c => c.Mavach == txt_mavach.Text).Select(c => c.GiaBan).FirstOrDefault());
-            //            txt_gianhap.Text = Convert.ToString(_qlhhser.GetsList().Where(c => c.Mavach == txt_mavach.Text).Select(c => c.GiaNhap).FirstOrDefault());
-            //            for (int a = 0; a < 2; a++)
-            //            {
-            //                this.Alert("Bạn Đã Sử Dụng Thành Công");
-
-            //            }
-            //            return;
-            //        };
-
-            //        if (dialogResult == DialogResult.No)
-            //        {
-            //            for (int a = 0; a < 2; a++)
-            //            {
-            //                this.AlertErr(" Sử Dụng Thất Bại");
-
-            //            }
-            //            return;
-            //        }
-
-            //    }
-            //}
-        }
+     
 
         private void pic_loaigiay_DoubleClick(object sender, EventArgs e)
         {
@@ -1066,12 +923,6 @@ namespace _3_PL.View
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    //if (_qlhhser.GetsList().Any(c => c.Mavach == txt_mavach.Text) == true)
-                    //{
-                    //    MessageBox.Show("Mã  Vạch Đã tồn Tại yêu cầu nhập mã khác", "ERR");
-                    //    return;
-                    //}
-
 
                     // nhà sản xuất
 
@@ -1210,6 +1061,43 @@ namespace _3_PL.View
                     for (int i = 0; i < 1; i++)
                     {
                         this.Alert("Tiến Hành Tạo Mới loại giày Thôi Nào");
+
+                    }
+                    frm_LoaiGiay.Show();
+
+
+                };
+
+                if (dialogResult == DialogResult.No)
+                {
+                    for (int a = 0; a < 2; a++)
+                    {
+                        this.AlertErr("Thất Bại");
+
+                    }
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Convert.ToString(ex), "Liên Hệ Với Quân");
+                return;
+
+            }
+        }
+
+        private void pic_nsx_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult dialogResult = MessageBox.Show("Bạn Có Muốn Tạo Mới NSX Hay Không  ?", "Thông Báo", MessageBoxButtons.YesNo);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Frm_NSX frm_LoaiGiay = new Frm_NSX();
+                    for (int i = 0; i < 1; i++)
+                    {
+                        this.Alert("Tiến Hành Tạo Mới NSX Thôi Nào");
 
                     }
                     frm_LoaiGiay.Show();

@@ -589,5 +589,227 @@ namespace _3_PL.View
             Image img1 = Image.FromFile(cbo_anh.Text);
             pic_anhhanghoa.Image = img1;
         }
+
+        private void pic_nsx_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult dialogResult = MessageBox.Show("Bạn Có Muốn Tạo Mới xuất xứ Hay Không  ?", "Thông Báo", MessageBoxButtons.YesNo);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Frm_QuocGia frm_QuocGia = new Frm_QuocGia();
+                    for (int i = 0; i < 1; i++)
+                    {
+                        this.Alert("Tiến Hành Tạo Mới Xuất xứ Thôi Nào");
+
+                    }
+                    frm_QuocGia.Show();
+
+
+                };
+
+                if (dialogResult == DialogResult.No)
+                {
+                    for (int a = 0; a < 2; a++)
+                    {
+                        this.AlertErr("Thất Bại");
+
+                    }
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Convert.ToString(ex), "Liên Hệ Với Quân");
+                return;
+
+            }
+        }
+
+        private void pic_anhadd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult dialogResult = MessageBox.Show("Bạn Có Muốn Tạo Mới Ảnh Hay Không  ?", "Thông Báo", MessageBoxButtons.YesNo);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Frm_Anh frm_Anh = new Frm_Anh();
+                    for (int i = 0; i < 1; i++)
+                    {
+                        this.Alert("Tiến Hành Tạo Mới Ảnh Thôi Nào");
+
+                    }
+                    frm_Anh.Show();
+
+
+                };
+
+                if (dialogResult == DialogResult.No)
+                {
+                    for (int a = 0; a < 2; a++)
+                    {
+                        this.AlertErr("Thất Bại");
+
+                    }
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Convert.ToString(ex), "Liên Hệ Với Quân");
+                return;
+
+            }
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult dialogResult = MessageBox.Show("Bạn Có Muốn Tạo Mới loại giày Hay Không  ?", "Thông Báo", MessageBoxButtons.YesNo);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Frm_LoaiGiay frm_LoaiGiay = new Frm_LoaiGiay();
+                    for (int i = 0; i < 1; i++)
+                    {
+                        this.Alert("Tiến Hành Tạo Mới loại giày Thôi Nào");
+
+                    }
+                    frm_LoaiGiay.Show();
+
+
+                };
+
+                if (dialogResult == DialogResult.No)
+                {
+                    for (int a = 0; a < 2; a++)
+                    {
+                        this.AlertErr("Thất Bại");
+
+                    }
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Convert.ToString(ex), "Liên Hệ Với Quân");
+                return;
+
+            }
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult dialogResult = MessageBox.Show("Bạn Có Muốn Tạo Mới size giày Hay Không  ?", "Thông Báo", MessageBoxButtons.YesNo);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Frm_SizeGiay frm_SizeGiay = new Frm_SizeGiay();
+                    for (int i = 0; i < 1; i++)
+                    {
+                        this.Alert("Tiến Hành Tạo Mới size giày Thôi Nào");
+
+                    }
+                    frm_SizeGiay.Show();
+
+
+                };
+
+                if (dialogResult == DialogResult.No)
+                {
+                    for (int a = 0; a < 2; a++)
+                    {
+                        this.AlertErr("Thất Bại");
+
+                    }
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Convert.ToString(ex), "Liên Hệ Với Quân");
+                return;
+
+            }
+        }
+
+        private void pic_xuatxu_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult dialogResult = MessageBox.Show("Bạn Có Muốn Tạo Mới xuất xứ Hay Không  ?", "Thông Báo", MessageBoxButtons.YesNo);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Frm_QuocGia frm_QuocGia = new Frm_QuocGia();
+                    for (int i = 0; i < 1; i++)
+                    {
+                        this.Alert("Tiến Hành Tạo Mới Xuất xứ Thôi Nào");
+
+                    }
+                    frm_QuocGia.Show();
+
+
+                };
+
+                if (dialogResult == DialogResult.No)
+                {
+                    for (int a = 0; a < 2; a++)
+                    {
+                        this.AlertErr("Thất Bại");
+
+                    }
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Convert.ToString(ex), "Liên Hệ Với Quân");
+                return;
+
+            }
+        }
+
+        private void pic_cl_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult dialogResult = MessageBox.Show("Bạn Có Muốn Tạo Mới chất liệu Hay Không  ?", "Thông Báo", MessageBoxButtons.YesNo);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Frm_ChatLieu Frm_ChatLieu = new Frm_ChatLieu();
+                    for (int i = 0; i < 1; i++)
+                    {
+                        this.Alert("Tiến Hành Tạo Mới chất liệu Thôi Nào");
+
+                    }
+                    Frm_ChatLieu.Show();
+
+
+                };
+
+                if (dialogResult == DialogResult.No)
+                {
+                    for (int a = 0; a < 2; a++)
+                    {
+                        this.AlertErr("Thất Bại");
+
+                    }
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Convert.ToString(ex), "Liên Hệ Với Quân");
+                return;
+
+            }
+        }
     }
 }
