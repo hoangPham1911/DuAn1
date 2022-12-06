@@ -22,6 +22,18 @@ namespace _2_BUS.Service
             quocGiarp = new QuocGiaRepositores();
             lstQuocGia = new List<QuocGiaViewModels>();
         }
+        public Guid IdQuocGia(QuocGiaViewModels CL)
+        {
+            QuocGia x = new QuocGia()
+            {
+                Id = CL.Id,
+                Ma = CL.Ma,
+                Ten = CL.Ten,
+                TrangThai = CL.TrangThai
+            };
+            if (quocGiarp.add(x)) return x.Id;
+            else return Guid.Empty;
+        }
         public string add(QuocGiaViewModels QG)
         {
             if (QG == null) return "Không Thành Công";

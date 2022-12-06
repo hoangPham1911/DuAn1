@@ -14,7 +14,8 @@ namespace _2_BUS.IService
         string add(SizeGiayViewModels size);
         string remove(SizeGiayViewModels size);
         string update(SizeGiayViewModels size);
-
+        public Guid IdSize(SizeGiayViewModels CL);
+ 
         List<SizeGiayViewModels> GetSizeGiay();
     }
 }

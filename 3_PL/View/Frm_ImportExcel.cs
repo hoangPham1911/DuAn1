@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using _2_BUS.IService;
+using _2_BUS.Service;
 using _2_BUS.ViewModels;
 using OfficeOpenXml;
 namespace _3_PL.View
@@ -22,16 +23,15 @@ namespace _3_PL.View
         ISizeGiayServices _SizeGiayServices;
         IQlyHangHoaServices _QlyHangHoaServices;
 
-        int stt;
+   
         string maSp;
         string tenSp;
         int namBH;
-        int TrangThai;
         string moTa;
         decimal giaNhap;
         decimal giaBan;
         int SoLuongTon;
-        string color;
+        int soSize;
         string QuocGia;
         string Nsx;
         string loaiGiay;
@@ -40,8 +40,16 @@ namespace _3_PL.View
         public Frm_ImportExcel()
         {
             InitializeComponent();
+            dgv_product.AllowUserToAddRows = false;
+            _ProducterService = new HangHoaServices();
+            _LoaiGiayServices = new LoaiGiayServices();
+            _QuocGiaServices = new QuocGiaServices();
+            _ChatLieuService = new ChatLieuServices();
+            _NsxServices = new NsxServices();
+            _SizeGiayServices = new SizeGiayServices();
+            _QlyHangHoaServices = new QlyHangHoaServices();
         }
-        
+
         private void pictureBox6_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -60,11 +68,13 @@ namespace _3_PL.View
             dt.Columns.Add("Gía Nhập");
             dt.Columns.Add("Gía Bán");
             dt.Columns.Add("Số Lượng Ton");
-            dt.Columns.Add("Nhà Sản Xuất"); 
+            dt.Columns.Add("Nhà Sản Xuất");
             dt.Columns.Add("Quốc Gia");
             dt.Columns.Add("Loại Gìay");
             dt.Columns.Add("Chất Liệu");
-            
+            dt.Columns.Add("Size Gìay");
+
+
             try
             {
                 // mo file excel
@@ -88,8 +98,8 @@ namespace _3_PL.View
                         var Nsx = worksheet.Cells[i, j++].Value;
                         var chatLieu = worksheet.Cells[i, j++].Value;
                         var QuocGia = worksheet.Cells[i, j++].Value;
-
-                        dt.Rows.Add(stt, maSp, tenSp, namBH, moTa, giaNhap, giaBan, soLuong, Nsx, QuocGia,loaiGiay,chatLieu);
+                        var SoSize = worksheet.Cells[i, j++].Value;
+                        dt.Rows.Add(stt, maSp, tenSp, namBH, moTa, giaNhap, giaBan, soLuong, Nsx,loaiGiay, chatLieu, QuocGia,SoSize);
                     }
                     catch (Exception)
                     {
@@ -108,12 +118,13 @@ namespace _3_PL.View
 
         private void button1_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < dgv_product.Rows.Count; i++)
+            for (int i = 1; i < dgv_product.Rows.Count; i++)
             {
                 try
                 {
-                    stt = int.Parse(dgv_product.Rows[i].Cells[0].Value.ToString());
+                 
                     maSp = dgv_product.Rows[i].Cells[1].Value.ToString();
+             
                     tenSp = dgv_product.Rows[i].Cells[2].Value.ToString();
                     namBH = int.Parse(dgv_product.Rows[i].Cells[3].Value.ToString());
                     moTa = dgv_product.Rows[i].Cells[4].Value.ToString();
@@ -124,49 +135,73 @@ namespace _3_PL.View
                     Nsx = dgv_product.Rows[i].Cells[8].Value.ToString();
                     loaiGiay = dgv_product.Rows[i].Cells[10].Value.ToString();
                     QuocGia = dgv_product.Rows[i].Cells[11].Value.ToString();
+                    ChatLieu = dgv_product.Rows[i].Cells[12].Value.ToString();
+                    var chatLieu = new ChatLieuViewModels()
+                    {
+                        Ma = (_ChatLieuService.GetChatLieu().Count + 1).ToString(),
+                        Ten = ChatLieu,
+                        TrangThai = 1
+                    };
+
+                    Guid IdChatLieu = _ChatLieuService.IdChatLieu(chatLieu);
+                    //// MessageBox.Show(dongSp.ToString());
+
+                    var LoaiGiay = new LoaiGiayViewModels()
+                    {
+                        Ma = (_LoaiGiayServices.GetLoaiGiay().Count + 1).ToString(),
+                        Ten = loaiGiay,
+                        TrangThai = 1
+                    };
+                    Guid idLoaiGiay = _LoaiGiayServices.IdSize(LoaiGiay);
+
+                    var nsx = new NsxViewModels()
+                    {
+                        Ma = (_NsxServices.GetNhasanxuat().Count + 1).ToString(),
+                        Ten = Nsx,
+                        TrangThai = 1
+                    };
+                    Guid nhaSx = _NsxServices.IdSize(nsx);
+
+                    var Size = new SizeGiayViewModels()
+                    {
+                        Ma = (_SizeGiayServices.GetSizeGiay().Count + 1).ToString(),
+                        SoSize = soSize,
+                        TrangThai = 1
+                    };
+                    Guid IdSize = _SizeGiayServices.IdSize(Size);
+
+                    var QuocGiaa = new QuocGiaViewModels()
+                    {
+                        Ma = (_QuocGiaServices.GetQuocGia().Count + 1).ToString(),
+                        Ten = QuocGia,
+                        TrangThai = 1
+                    };
+                    Guid IdQuocGia = _QuocGiaServices.IdQuocGia(QuocGiaa);
 
                     var product = new HangHoaViewModels()
                     {
                         Ma = maSp,
                         Ten = tenSp,
+                        TrangThai = 1,
+                        IdNsx = nhaSx
                     };
                     Guid sp = _QlyHangHoaServices.IdSp(product);
-
-                    //var sameProduct = new SameProductCreate()
-                    //{
-                    //    Ma = (_ManagerSameProduct.getAllProduct().Count + 1).ToString(),
-                    //    Ten = tenSp,
-                    //};
-
-                    //Guid dongSp = _ManagerSameProduct.Id(sameProduct);
-                    //// MessageBox.Show(dongSp.ToString());
-
-                    //var mauSac = new ColorCreateView()
-                    //{
-                    //    Ma = (_ManagerColor.getAllProduct().Count + 1).ToString(),
-                    //    Ten = color
-
-                    //};
-                    //Guid idMauSac = _ManagerColor.IdColor(mauSac);
-                    //var nsx = new ProducterrCreateView()
-                    //{
-                    //    Ma = (_ProducterService.getAllProduct().Count + 1).ToString(),
-                    //    Ten = Nsx
-                    //};
-                    //Guid nhaSx = _ProducterService.Id(nsx);
-                    //var spCt = new ProductDetailCreateNew()
-                    //{
-                    //    MoTa = moTa,
-                    //    SoLuongTon = soLuong,
-                    //    GiaBan = giaBan,
-                    //    GiaNhap = giaNhap,
-                    //    IdDongSp = dongSp,
-                    //    IdSp = sp,
-                    //    IdMauSac = idMauSac,
-                    //    IdNsx = nhaSx,
-                    //    NamBh = namBH
-                    //};
-                    //_productsDetailService.add(spCt);
+                    var spCt = new ChiTietHangHoaThemViewModels()
+                    {
+                        MoTa = moTa,
+                        TrangThai = 1,
+                        SoLuongTon = SoLuongTon,
+                        GiaBan = giaBan,
+                        GiaNhap = giaNhap,
+                        IdSizeGiay = IdSize,
+                        IdSp = sp,
+                        IdLoaiGiay = idLoaiGiay,
+                        IdChatLieu = IdChatLieu,
+                        NamBh = namBH,
+                        IdQuocGia = IdQuocGia
+                    };
+                    _QlyHangHoaServices.addcthanghoa(spCt);
+                  
                 }
                 catch (Exception)
                 {
@@ -176,7 +211,8 @@ namespace _3_PL.View
             }
             MessageBox.Show("Them Thanh Cong");
 
+
         }
     }
-    }
+}
 

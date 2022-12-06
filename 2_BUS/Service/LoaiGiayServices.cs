@@ -22,6 +22,18 @@ namespace _2_BUS.Service
             loaiGiayrp = new LoaiGiayRepositores();
             lstLoaiGiay = new List<LoaiGiayViewModels>();
         }
+        public Guid IdSize(LoaiGiayViewModels CL)
+        {
+            LoaiGiay x = new LoaiGiay()
+            {
+                Id = CL.Id,
+                Ma = CL.Ma,
+                Ten = CL.Ten,
+                TrangThai = CL.TrangThai
+            };
+            if (loaiGiayrp.add(x)) return x.Id;
+            else return Guid.Empty;
+        }
         public string add(LoaiGiayViewModels LG)
         {
             if (LG == null) return "Không Thành Công";

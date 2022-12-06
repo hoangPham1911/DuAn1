@@ -20,6 +20,18 @@ namespace _2_BUS.Service
             sizeGiay = new SizeShoseRepositores();
             lstSizeGiay = new List<SizeGiayViewModels>();
         }
+        public Guid IdSize(SizeGiayViewModels CL)
+        {
+            SizeGiay x = new SizeGiay()
+            {
+                Id = CL.Id,
+                Ma = CL.Ma,
+                SoSize = CL.SoSize,
+                TrangThai = CL.TrangThai
+            };
+            if (sizeGiay.add(x)) return x.Id;
+            else return Guid.Empty;
+        }
         public string add(SizeGiayViewModels size)
         {
             if (size == null) return "Không Thành Công";

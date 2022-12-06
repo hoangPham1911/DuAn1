@@ -150,6 +150,8 @@ namespace _2_BUS.Service
             chiTietHangHoa.SoLuongTon = HangHoas.SoLuongTon;
             chiTietHangHoa.GiaNhap = HangHoas.GiaNhap;
             chiTietHangHoa.GiaBan = HangHoas.GiaBan;
+            chiTietHangHoa.MoTa = HangHoas.MoTa;
+            chiTietHangHoa.NamBh = HangHoas.NamBh;
             chiTietHangHoa.IdSp = HangHoas.IdSp;
             if (_IHangHoaChiTietRepository.add(chiTietHangHoa))
             {

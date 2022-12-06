@@ -12,7 +12,7 @@ namespace _2_BUS.IService
         string add(LoaiGiayViewModels loaigiay);
         string remove(LoaiGiayViewModels loaigiay);
         string update(LoaiGiayViewModels loaigiay);
-
+        public Guid IdSize(LoaiGiayViewModels CL);
         List<LoaiGiayViewModels> GetLoaiGiay();
     }
 }

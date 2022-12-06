@@ -12,7 +12,7 @@ namespace _2_BUS.IService
         string add(NsxViewModels NSX);
         string remove(NsxViewModels NSX);
         string update(NsxViewModels NSX);
-
+        public Guid IdSize(NsxViewModels CL);
         List<NsxViewModels> GetNhasanxuat();
     }
 }

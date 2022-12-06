@@ -12,7 +12,7 @@ namespace _2_BUS.IService
         string add(ChatLieuViewModels chatlieu);
         string remove(ChatLieuViewModels chatlieu);
         string update(ChatLieuViewModels chatlieu);
-
+        public Guid IdChatLieu(ChatLieuViewModels CL);
         List<ChatLieuViewModels> GetChatLieu();
     }
 }

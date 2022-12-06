@@ -44,7 +44,18 @@ namespace _2_BUS.Service
             }
             else { return "Trùng mã rồi"; }
         }
-
+        public Guid IdChatLieu(ChatLieuViewModels CL)
+        {
+            ChatLieu x = new ChatLieu()
+            {
+                Id = CL.Id,
+                Ma = CL.Ma,
+                Ten = CL.Ten,
+                TrangThai = CL.TrangThai
+            };
+            if (chatLieurp.add(x)) return x.Id;
+            else return Guid.Empty;
+        }
         public List<ChatLieuViewModels> GetChatLieu()
         {
             lstChatLieu = (from cl in chatLieurp.getAll()

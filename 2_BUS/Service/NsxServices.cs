@@ -44,7 +44,18 @@ namespace _2_BUS.Service
             }
             else { return "Trùng rồi"; }
         }
-
+        public Guid IdSize(NsxViewModels CL)
+        {
+            Nsx x = new Nsx()
+            {
+                Id = CL.Id,
+                Ma = CL.Ma,
+                Ten = CL.Ten,
+                TrangThai = CL.TrangThai
+            };
+            if (insxrp.add(x)) return x.Id;
+            else return Guid.Empty;
+        }
         public List<NsxViewModels> GetNhasanxuat()
         {
             lstNsx = (from nsx in insxrp.getAll()

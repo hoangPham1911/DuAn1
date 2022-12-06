@@ -38,7 +38,6 @@ namespace _2_BUS.Service
             {
                 IdHoaDon = a.IdHoaDon,
                 IdLichSuDiem = a.IdLichSuDiem,
-
                 IdViDiem = a.IdViDiem,
                 NgaySuDung = a.NgaySuDung,
                 SoDiemTieuDung = a.SoDiemTieuDung,
