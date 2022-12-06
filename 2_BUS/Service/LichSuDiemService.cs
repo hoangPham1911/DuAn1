@@ -14,9 +14,13 @@ namespace _2_BUS.Service
     public class LichSuDiemService : ILichSuDiemService
     {
         public IHistoryPointRepository _IlichSuDiem;
+        public IKhachHangServices _ikhachHang;
+        public IViDiemService _iviDiemService;
         public LichSuDiemService()
         {
             _IlichSuDiem = new HistoryPointRepositores();
+            _ikhachHang = new KhachHangServices();
+            _iviDiemService = new ViDiemService();
         }
         public bool add(LichSuDiemViewModels ls)
         {
@@ -34,12 +38,17 @@ namespace _2_BUS.Service
 
         public List<LichSuDiemViewModels> GetLichSuDiem()
         {
-            return (from a in _IlichSuDiem.getAll() select new LichSuDiemViewModels
+            return (from a in _IlichSuDiem.getAll() 
+                    join b in _iviDiemService.GetViDiem() on a.IdViDiem equals b.Id
+                    join c in _ikhachHang.GetAllDiemKhachHang() on b.IdKhachHang equals c.Idkh
+                    select new LichSuDiemViewModels
             {
                 IdHoaDon = a.IdHoaDon,
                 IdLichSuDiem = a.IdLichSuDiem,
-
                 IdViDiem = a.IdViDiem,
+                IdKhachHang = c.Idkh,
+                MaKH = c.Ma,
+                TenKH = c.Ten,
                 NgaySuDung = a.NgaySuDung,
                 SoDiemTieuDung = a.SoDiemTieuDung,
                 SoDiemCong = a.SoDiemCong,
