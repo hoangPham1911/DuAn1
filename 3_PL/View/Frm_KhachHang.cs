@@ -102,6 +102,10 @@ namespace _3_PL.View
             {
                 MessageBox.Show("Vui lòng chọn khách hàng");
             }
+            else if (khachHangServices.GetAllKhachHangDB().Any(p => p.Ten == tb_maKhachHang.Text))
+            {
+                MessageBox.Show("Mã khách hàng đã tồn tại");
+            }
             else
             {
                 SuaKhachHangViewModels nv = new SuaKhachHangViewModels()
@@ -141,6 +145,22 @@ namespace _3_PL.View
         {
             Frm_ThemKhachHang khachHang = new Frm_ThemKhachHang();
             khachHang.ShowDialog();
+        }
+
+        private void tb_cccd_TextChanged(object sender, EventArgs e)
+        {
+            if (tb_cccd.Text.All(Char.IsDigit) == false)
+            {
+                tb_cccd.Text = tb_cccd.Text.Substring(0, tb_cccd.Text.Length - 1);
+            }
+        }
+
+        private void tb_sDT_TextChanged(object sender, EventArgs e)
+        {
+            if (tb_sDT.Text.All(Char.IsDigit) == false)
+            {
+                tb_sDT.Text = tb_sDT.Text.Substring(0, tb_sDT.Text.Length - 1);
+            }
         }
     }
 }

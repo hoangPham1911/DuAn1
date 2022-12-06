@@ -9,6 +9,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -37,7 +38,9 @@ namespace _3_PL.View
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (txtMaKH.Text == "" && txtTenKH.Text == "" && tb_SoCCCD.Text == "" && txtDT.Text == "" && txtDiaChi.Text == "" && txtEmail.Text == "" && tb_GioiTinh.Text == "")
+            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+
+            if (txtMaKH.Text == "" && txtTenKH.Text == "" && tb_SoCCCD.Text == "" && txtDT.Text == "" && txtDiaChi.Text == "" && txtEmail.Text == "")
             {
                 MessageBox.Show("Mời nhập đầy đủ thông tin");
             }
@@ -49,6 +52,14 @@ namespace _3_PL.View
             {
                 MessageBox.Show("Mã khách hàng đã tồn tại");
             }
+            else if (!ckb_Nam.Checked && !ckb_nu.Checked)
+            {
+                MessageBox.Show("Vui lòng chọn giới tính");
+            }
+            else if (regex.Match(txtEmail.Text).Success)
+            {
+                MessageBox.Show("Email sai");
+            }
             else
             {
                 ThemKhachHangViewModels kh = new ThemKhachHangViewModels();
@@ -58,7 +69,7 @@ namespace _3_PL.View
                 kh.Sdt = txtDT.Text;
                 kh.DiaChi = txtDiaChi.Text;
                 kh.Email = txtEmail.Text;
-                kh.GioiTinh = tb_GioiTinh.Text;
+                kh.GioiTinh = ckb_Nam.Checked ? "Nam" : "Nữ";
                 kh.NamSinh = dtp_NamSinh.Value;
                 kh.TrangThai = rd_hd.Checked ? 1 : 0;
                 kh.IdVi = ViDiem();
@@ -70,12 +81,12 @@ namespace _3_PL.View
         private void btnExit_Click(object sender, EventArgs e)
         {
             
-            System.Environment.Exit(0);
+            this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            System.Environment.Exit(0);
+            this.Close();
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
@@ -90,6 +101,42 @@ namespace _3_PL.View
             if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void tb_SoCCCD_TextChanged(object sender, EventArgs e)
+        {
+            if (tb_SoCCCD.Text.All(Char.IsDigit) == false)
+            {
+                tb_SoCCCD.Text = tb_SoCCCD.Text.Substring(0,tb_SoCCCD.Text.Length-1);
+            }
+            
+        }
+
+        private void txtDT_TextChanged(object sender, EventArgs e)
+        {
+            if (txtDT.Text.All(Char.IsDigit) == false)
+            {
+                txtDT.Text = txtDT.Text.Substring(0, txtDT.Text.Length - 1);
+            }
+        }
+
+        private void ckb_Nam_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckb_Nam.Checked)
+            {
+                ckb_Nam.Checked = true;
+                ckb_nu.Checked = false;
+            }
+           
+        }
+
+        private void ckb_nu_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckb_nu.Checked)
+            {
+                ckb_Nam.Checked = false;
+                ckb_nu.Checked = true;
             }
         }
     }

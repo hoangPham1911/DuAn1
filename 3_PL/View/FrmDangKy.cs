@@ -15,6 +15,7 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Timer = System.Windows.Forms.Timer;
 using _1_DAL.Models;
+using Org.BouncyCastle.Asn1.Cmp;
 
 namespace _3_PL.View
 {
@@ -31,6 +32,7 @@ namespace _3_PL.View
         private static Timer _timer;
 
         private static FrmDangKy _instance;
+        private int xacnhan = 0;
 
         public FrmDangKy()
         {
@@ -97,12 +99,27 @@ namespace _3_PL.View
             {
                 MessageBox.Show("Nhập lại mật khẩu sai");
             }
+            else if (tb_ma.Text == "")
+            {
+                MessageBox.Show("Mời nhập mã");
+            }
+            else if (nhanVienServices.GetAll().Any(p => p.Ten == tb_ma.Text))
+            {
+                MessageBox.Show("Mã đã tồn tại");
+            }
+            else if (xacnhan == 0)
+            {
+                MessageBox.Show("Vui lòng nhập và xác nhận mã OTP");
+            }
+            else if (!rdNam.Checked && !rdNu.Checked)
+            {
+                MessageBox.Show("Vui lòng chọn giới tính");
+            }
             else {
                 if (nhanVienServices.Them(nhanvien) == true)
                 {
                     MessageBox.Show("Đăng ký thành công");
-                    FrmDangNhap frmdn = new FrmDangNhap();
-                    frmdn.ShowDialog();
+                    this.Close();
                 }
                 else
                 {
@@ -206,6 +223,7 @@ namespace _3_PL.View
             if (_code.ToString().Equals(codeConfirm) && _timer != null)
             {
                 // cho phép làm gì đó
+                xacnhan = 1;
                 MessageBox.Show("Đăng nhập thành công !!!", "Thông báo",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 stopTimer();
@@ -245,6 +263,22 @@ namespace _3_PL.View
         private void cb_ChucVu_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void tb_cccd_TextChanged(object sender, EventArgs e)
+        {
+            if (tb_cccd.Text.All(Char.IsDigit) == false)
+            {
+                tb_cccd.Text = tb_cccd.Text.Substring(0, tb_cccd.Text.Length - 1);
+            }
+        }
+
+        private void tb_sdt_TextChanged(object sender, EventArgs e)
+        {
+            if (tb_sdt.Text.All(Char.IsDigit) == false)
+            {
+                tb_sdt.Text = tb_sdt.Text.Substring(0, tb_sdt.Text.Length - 1);
+            }
         }
     }
 }
