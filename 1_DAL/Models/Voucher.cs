@@ -10,13 +10,13 @@ using System.Xml.Linq;
 
 namespace _1_DAL.Models
 {
-    [Table("Sale")]
+    [Table("Voucher")]
     [Index(nameof(MaGiamGia), Name = "UQ_MaGiamGia", IsUnique = true)]
-    public partial class Sale
+    public partial class Voucher
     {
-        public Sale()
+        public Voucher()
         {
-            SaleChiTiets = new HashSet<SaleChiTiet>();
+            HoaDons =new HashSet<HoaDon>();
         }
         [Key]
         public Guid Id { get; set; }
@@ -27,11 +27,10 @@ namespace _1_DAL.Models
         [StringLength(30)]
         public string TenChuongTrinh { get; set; }
         public int TrangThai { get; set; }
-        public decimal? SaleTheoPhanTram { get; set; }
-        public decimal? SaleTheoKhoangTien { get; set; }
-        public decimal? DieuKienGiamGia { get; set; }
+
+        public decimal? SoTienGiamGia { get; set; }
         public DateTime NgayBatDau { get; set; }
         public DateTime NgayKetThuc { get; set; }
-        public virtual ICollection<SaleChiTiet> SaleChiTiets { get; set; }
+        public virtual ICollection<HoaDon> HoaDons { get; set; }
     }
 }

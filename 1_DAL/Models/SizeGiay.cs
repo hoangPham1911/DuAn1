@@ -25,8 +25,6 @@ namespace _1_DAL.Models
         public int SoSize { get; set; }
 
         public int TrangThai { get; set; }
-
-    //    [InverseProperty(nameof(ChiTietHangHoa.IdSizeNavigation))]
         public virtual ICollection<ChiTietHangHoa> ChiTietHangHoas { get; set; }
     }
 }

@@ -23,6 +23,7 @@ namespace _3_PL.View
             InitializeComponent();
             _QuyDoiDiemService = new BangQuyDoiDiemServices();
             load();
+            Ba.Checked = true;
         }
         public void load()
         {
@@ -40,7 +41,14 @@ namespace _3_PL.View
                 {
                     BangQuyDoiDiemViewModels bangQuyDoi1 = new BangQuyDoiDiemViewModels();
                     bangQuyDoi1.TyLeQuyDoi = decimal.Parse(textBox2.Text);
-                    bangQuyDoi1.TrangThai = "Hoạt Đông";
+                    if (Ba.Checked)
+                    {
+                        bangQuyDoi1.TrangThai = "Áp Dụng";
+                    }
+                    else
+                    {
+                        bangQuyDoi1.TrangThai = "Không Áp Dụng";
+                    }
                     bangQuyDoi1.Ten = 1.ToString();
                     bangQuyDoi1.Id = _QuyDoiDiemService.GetDiem().FirstOrDefault(p => p.Ten == 1.ToString()).Id;
                     if (_QuyDoiDiemService.update(bangQuyDoi1))
@@ -52,7 +60,14 @@ namespace _3_PL.View
                 {
                     BangQuyDoiDiemViewModels bangQuyDoi = new BangQuyDoiDiemViewModels();
                     bangQuyDoi.TyLeQuyDoi = decimal.Parse(textBox2.Text);
-                    bangQuyDoi.TrangThai = "Hoạt Đông";
+                    if (radioButton2.Checked)
+                    {
+                        bangQuyDoi.TrangThai = "Áp Dụng";
+                    }
+                    else
+                    {
+                        bangQuyDoi.TrangThai = "Không Áp Dụng";
+                    }
                     if (_QuyDoiDiemService.add(bangQuyDoi))
                     {
                         MessageBox.Show("quy doi thanh cong");

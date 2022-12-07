@@ -35,13 +35,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.Ba = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(364, 225);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(142, 23);
+            this.textBox2.Size = new System.Drawing.Size(209, 23);
             this.textBox2.TabIndex = 1;
             this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress_1);
             // 
@@ -56,7 +58,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(531, 224);
+            this.button1.Location = new System.Drawing.Point(579, 224);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 24);
             this.button1.TabIndex = 3;
@@ -101,11 +103,35 @@
             this.label5.TabIndex = 7;
             this.label5.Text = "1";
             // 
+            // Ba
+            // 
+            this.Ba.AutoSize = true;
+            this.Ba.Location = new System.Drawing.Point(364, 266);
+            this.Ba.Name = "Ba";
+            this.Ba.Size = new System.Drawing.Size(72, 19);
+            this.Ba.TabIndex = 8;
+            this.Ba.TabStop = true;
+            this.Ba.Text = "Áp Dụng";
+            this.Ba.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(463, 266);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(110, 19);
+            this.radioButton2.TabIndex = 9;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Không Áp Dụng";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
             // BangQuyDoiDiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.radioButton2);
+            this.Controls.Add(this.Ba);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -128,5 +154,7 @@
         private Label label3;
         private Label label4;
         private Label label5;
+        private RadioButton Ba;
+        private RadioButton radioButton2;
     }
 }

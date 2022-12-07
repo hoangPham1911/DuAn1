@@ -9,9 +9,9 @@ namespace _2_BUS.IService
 {
     public interface IManagerServiceSale
     {
-        bool add(Sale sale);
-        bool remove(Sale id);
-        List<Sale> getAll();
-        bool update(Sale sale);
+        bool add(Voucher sale);
+        bool remove(Voucher id);
+        List<Voucher> getAll();
+        bool update(Voucher sale);
     }
 }

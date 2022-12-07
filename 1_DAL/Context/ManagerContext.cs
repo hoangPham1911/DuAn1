@@ -35,8 +35,7 @@ namespace _1_DAL.Context
         public virtual DbSet<DanhMuc> DanhMucs { get; set; }
         public virtual DbSet<ChatLieu> ChatLieus { get; set; }
         public virtual DbSet<LichSuDiemTieuDung> LichSuDiemTieuDungs { get; set; }
-        public virtual DbSet<SaleChiTiet> SaleChiTiets { get; set; }
-        public virtual DbSet<Sale> Sales { get; set; }
+        public virtual DbSet<Voucher> Sales { get; set; }
         public virtual DbSet<Anh> Anhs { get; set; }
         public virtual DbSet<GiaoCa> GiaoCas { get; set; }
         public virtual DbSet<ViDiem> ViDiems { get; set; }
@@ -64,13 +63,6 @@ namespace _1_DAL.Context
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
-            modelBuilder.Entity<SaleChiTiet>(entity =>
-            {
-                entity.HasKey(e => new { e.IdHoaDon, e.IdSale });
-                entity.Property(e => e.TrangThai).HasDefaultValueSql("((0))");
-
-            });
 
             modelBuilder.Entity<HoaDonChiTiet>(entity =>
             {

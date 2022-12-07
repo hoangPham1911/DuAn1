@@ -124,11 +124,10 @@ namespace _3_PL.View
             DialogResult dialogResult = MessageBox.Show("Bạn Muốn Lưu Dữ Liệu chứ ?", "Thông Báo", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                for (int i = 1; i < dgv_product.Rows.Count; i++)
+                for (int i = 0; i < dgv_product.Rows.Count; i++)
                 {
                     try
                     {
-
                         maSp = dgv_product.Rows[i].Cells[1].Value.ToString();
                         tenSp = dgv_product.Rows[i].Cells[2].Value.ToString();
                         namBH = int.Parse(dgv_product.Rows[i].Cells[3].Value.ToString());
@@ -141,6 +140,7 @@ namespace _3_PL.View
                         loaiGiay = dgv_product.Rows[i].Cells[10].Value.ToString();
                         QuocGia = dgv_product.Rows[i].Cells[11].Value.ToString();
                         ChatLieu = dgv_product.Rows[i].Cells[12].Value.ToString();
+
                         var chatLieu = new ChatLieuViewModels()
                         {
                             Ma = (_ChatLieuService.GetChatLieu().Count + 1).ToString(),
@@ -191,6 +191,8 @@ namespace _3_PL.View
                             IdNsx = nhaSx
                         };
                         Guid sp = _QlyHangHoaServices.IdSp(product);
+
+
                         var spCt = new ChiTietHangHoaThemViewModels()
                         {
                             MoTa = moTa,
@@ -210,7 +212,6 @@ namespace _3_PL.View
                     }
                     catch (Exception)
                     {
-
                         throw;
                     }
                 }

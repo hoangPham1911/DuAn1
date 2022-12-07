@@ -71,5 +71,10 @@ namespace _3_PL.View
             FrmDangKy frmdk = new FrmDangKy();
             frmdk.Show();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

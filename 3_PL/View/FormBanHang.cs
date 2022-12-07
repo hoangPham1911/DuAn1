@@ -1806,7 +1806,6 @@ namespace _3_PL.View
                 string fncoc = point.Replace(".00", "");
                 decimal tien = (decimal.Parse(fTongTien1) * decimal.Parse(fncoc));
                 textBox13.Text = Convert.ToInt32(tien).ToString("#,###", cul.NumberFormat);
-
                 string tongTien = txt_dathangtongtien.Text.ToString();
                 string fTongTien = tongTien.Replace(".", "");
 

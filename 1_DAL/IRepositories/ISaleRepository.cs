@@ -9,10 +9,10 @@ namespace _1_DAL.IRepositories
 {
     public interface ISaleRepository
     {
-        bool add(Sale sale);
-        bool remove(Sale id);
-        List<Sale> getAll();
+        bool add(Voucher sale);
+        bool remove(Voucher id);
+        List<Voucher> getAll();
 
-        bool update(Sale sale);
+        bool update(Voucher sale);
     }
 }

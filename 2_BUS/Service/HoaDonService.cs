@@ -46,7 +46,7 @@ namespace _2_BUS.Services
                         SoTienQuyDoi = a.SoTienQuyDoi,
                         SoDiemSuDung = a.SoDiemSuDung,
                         //    TenKhachHang = a.TenKhachHang,
-                        PhanTramGiamGia = a.PhanTramGiamGia,
+                    //    PhanTramGiamGia = a.PhanTramGiamGia,
 
                     }).ToList();
 
@@ -89,7 +89,7 @@ namespace _2_BUS.Services
                 hoaDon.TenShip = Hoadonold.TenShip;
                 hoaDon.SoDiemSuDung = Hoadonold.SoDiemSuDung;
                 hoaDon.SoTienQuyDoi = Hoadonold.SoTienQuyDoi;
-                hoaDon.PhanTramGiamGia= Hoadonold.PhanTramGiamGia;
+           //     hoaDon.PhanTramGiamGia= Hoadonold.PhanTramGiamGia;
                 HoaDonRepos.updateReceipt(hoaDon);
                 return "thanh cong";
             }

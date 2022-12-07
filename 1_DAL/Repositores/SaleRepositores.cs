@@ -17,7 +17,7 @@ namespace _1_DAL.Repositores
         {
             _DbContext = new ManagerContext();
         }
-        public bool add(Sale sale)
+        public bool add(Voucher sale)
         {
             try
             {
@@ -32,13 +32,13 @@ namespace _1_DAL.Repositores
             }
         }
 
-        public List<Sale> getAll()
+        public List<Voucher> getAll()
         {
             return _DbContext.Sales.ToList();
 
         }
 
-        public bool remove(Sale id)
+        public bool remove(Voucher id)
         {
             try
             {
@@ -53,7 +53,7 @@ namespace _1_DAL.Repositores
             }
         }
 
-        public bool update(Sale sale)
+        public bool update(Voucher sale)
         {
             try
             {

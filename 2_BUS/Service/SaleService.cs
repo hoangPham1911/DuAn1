@@ -21,7 +21,7 @@ namespace _2_BUS.Service
         }
         public bool add(SaleViewModel sale)
         {
-            var addSale = new Sale();
+            var addSale = new Voucher();
             addSale.MaGiamGia = sale.MaGiamGia;
             addSale.TrangThai = sale.TrangThai;
             addSale.TenChuongTrinh = sale.TenChuongTrinh;

@@ -19,8 +19,6 @@ namespace _1_DAL.Models
         {
             HoaDonChiTiets = new HashSet<HoaDonChiTiet>();
             LichSuDiems = new HashSet<LichSuDiemTieuDung>();
-            SaleChiTiets = new HashSet<SaleChiTiet>();
-
         }
 
         [Key]
@@ -47,7 +45,7 @@ namespace _1_DAL.Models
         public string? TenShip { get; set; }
         public decimal ? SoTienQuyDoi { get; set; }
         public int? SoDiemSuDung { get; set; }
-        public decimal? PhanTramGiamGia { get; set; }
+        public string? MaGiamGia { get; set; }
 
         [ForeignKey(nameof(IdNv))]
         [InverseProperty(nameof(NhanVien.HoaDons))]
@@ -61,7 +59,7 @@ namespace _1_DAL.Models
         public virtual ICollection<HoaDonChiTiet> HoaDonChiTiets { get; set; }
         [InverseProperty(nameof(LichSuDiemTieuDung.IdHoaDonNavigation))]
         public virtual ICollection<LichSuDiemTieuDung> LichSuDiems { get; set; }  
-        public virtual ICollection<SaleChiTiet> SaleChiTiets { get; set; }
+        public virtual Voucher VoucherNavigration { get; set; }
 
 
     }
