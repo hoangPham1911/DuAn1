@@ -295,5 +295,51 @@ namespace _3_PL.View
             Frm_Anh frm_Anh = new Frm_Anh();
             frm_Anh.ShowDialog();
         }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("bạn có muốn xuất file pdf  hay không", "Thông Báo", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+
+                ReportFileToPDF reportFileToPDF = new ReportFileToPDF();
+                reportFileToPDF.Show();
+                for (int a = 0; a < 1; a++)
+                {
+                    this.Alert("Hãy Tiến Hành Xuát Ra File PDF Thôi Nào !");
+
+                }
+            };
+
+            if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("bạn có muốn thêm số lượng Lớn sản phẩm bằng file excel hay không", "Thông Báo", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                Frm_ImportExcel frmAddDataFormExcelToDB = new Frm_ImportExcel();
+                for (int a = 0; a < 2; a++)
+                {
+                    this.Alert("Hãy Tiến Hành Thêm Số Lượng Lớn Thôi Nào !");
+
+                }
+                frmAddDataFormExcelToDB.Show();
+
+
+            };
+
+            if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
+
+        }
     }
 }
