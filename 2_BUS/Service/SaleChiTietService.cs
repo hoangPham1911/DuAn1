@@ -49,7 +49,7 @@ namespace _2_BUS.Service
                     join b in ihanghoa.getAll() on a.IdSp equals b.Id
                     join e in _iSizeshoesRepository.getAll() on a.IdSizeGiay equals e.Id
                     join f in _iLoaiGiayRepository.getAll() on a.IdLoaiGiay equals f.Id
-                    join h in _SaleDetailRepository.getAll() on a.Id equals h.IdChiTietHangHoa
+                    join h in _SaleDetailRepository.getAll() on a.Id equals h.IdHoaDon
                     join g in _ISaleRepository.getAll() on h.IdSale equals g.Id
                     
                     select new SaleChiTietViewModels
@@ -88,7 +88,7 @@ namespace _2_BUS.Service
         {
             var addSale = _SaleDetailRepository.getAll().FirstOrDefault(p => p.IdSale == sale.IdSale);
             addSale.IdSale = sale.IdSale;
-            addSale.IdChiTietHangHoa = sale.IdHangHoa;
+            addSale.IdHoaDon = sale.IdHoaDon;
             //addSale.SaleTheoPhanTram = sale.GiamTheoPhanTram;
             //addSale.SaleTheoKhoangTien = sale.GiamTheoKhoangTien;
             if (_SaleDetailRepository.update(addSale))

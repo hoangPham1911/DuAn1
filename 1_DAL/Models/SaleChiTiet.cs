@@ -21,7 +21,7 @@ namespace _1_DAL.Models
         public Guid IdSale { get; set; }
         [Key]
         [Required]
-        public Guid IdChiTietHangHoa { get; set; }
+        public Guid IdHoaDon { get; set; }
         
         public decimal? DonGia { get; set; }
         public decimal? SoTienSauKhiGiam { get; set; }
@@ -32,8 +32,8 @@ namespace _1_DAL.Models
 
         public virtual Sale SaleNavigation { get; set; }
 
-        [ForeignKey(nameof(IdChiTietHangHoa))]
-        [InverseProperty(nameof(ChiTietHangHoa.SaleChiTiets))]
-        public virtual ChiTietHangHoa ChiTietHangHoaNavigation { get; set; }
+        [ForeignKey(nameof(IdHoaDon))]
+        [InverseProperty(nameof(HoaDon.SaleChiTiets))]
+        public virtual HoaDon HoaDonNavigration { get; set; }
     }
 }

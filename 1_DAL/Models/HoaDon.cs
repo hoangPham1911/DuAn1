@@ -19,6 +19,7 @@ namespace _1_DAL.Models
         {
             HoaDonChiTiets = new HashSet<HoaDonChiTiet>();
             LichSuDiems = new HashSet<LichSuDiemTieuDung>();
+            SaleChiTiets = new HashSet<SaleChiTiet>();
 
         }
 
@@ -59,7 +60,9 @@ namespace _1_DAL.Models
         [InverseProperty(nameof(HoaDonChiTiet.IdHoaDonNavigation))]
         public virtual ICollection<HoaDonChiTiet> HoaDonChiTiets { get; set; }
         [InverseProperty(nameof(LichSuDiemTieuDung.IdHoaDonNavigation))]
-        public virtual ICollection<LichSuDiemTieuDung> LichSuDiems { get; set; }    
+        public virtual ICollection<LichSuDiemTieuDung> LichSuDiems { get; set; }  
+        public virtual ICollection<SaleChiTiet> SaleChiTiets { get; set; }
+
 
     }
 }

@@ -67,7 +67,7 @@ namespace _1_DAL.Context
 
             modelBuilder.Entity<SaleChiTiet>(entity =>
             {
-                entity.HasKey(e => new { e.IdChiTietHangHoa, e.IdSale });
+                entity.HasKey(e => new { e.IdHoaDon, e.IdSale });
                 entity.Property(e => e.TrangThai).HasDefaultValueSql("((0))");
 
             });

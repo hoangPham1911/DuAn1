@@ -16,7 +16,6 @@ namespace _1_DAL.Models
         public ChiTietHangHoa()
         {
             HoaDonChiTiets = new HashSet<HoaDonChiTiet>();
-            SaleChiTiets = new HashSet<SaleChiTiet>();
         }
 
         [Key]
@@ -68,8 +67,6 @@ namespace _1_DAL.Models
         [ForeignKey(nameof(IdSp))]
         [InverseProperty(nameof(HangHoa.ChiTietSps))]
         public virtual HangHoa IdSpNavigation { get; set; } // Thuộc tính điều hướng tham chiếu
-
-        public virtual ICollection<SaleChiTiet> SaleChiTiets { get; set; }
         public virtual ICollection<HoaDonChiTiet> HoaDonChiTiets { get; set; }
     }
 }
