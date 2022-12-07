@@ -1,4 +1,8 @@
-﻿using System;
+﻿using _1_DAL.Models;
+using _2_BUS.IService;
+using _2_BUS.Service;
+using _2_BUS.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,10 +18,14 @@ namespace _3_PL.View
     {
         private Form activeForm;
         private Button currentButton;
+        private IChucVuServices ichucvu;
+        private INhanVienServices inhanvien;
         public FormMain()
         {
             InitializeComponent();
 
+            inhanvien = new NhanVienServices();
+            ichucvu = new ChucVuServices();
         }
         private void ActivateButton(object btnSender)
         {
@@ -132,8 +140,32 @@ namespace _3_PL.View
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            //bt_hoadon.Enabled = bt_sanpham.Enabled = btn_thongke.Enabled = btn_quanlynhanvien.Enabled = false;
-            
+            txt_email.Enabled = textBox1.Enabled = false;
+            var nv = inhanvien.GetAll().FirstOrDefault();
+            txt_email.Text = nv.Ten;
+            var cv = ichucvu.GetAll().FirstOrDefault();
+            textBox1.Text = cv.Ten;
+            if (textBox1.Text == "Nhân viên")
+            {
+                bt_sanpham.Enabled = btn_thongke.Enabled = btn_quanlynhanvien.Enabled = false;
+            }
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_email_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Bạn muốn thoát chương trình ?", "Cảnh báo!!!", MessageBoxButtons.YesNo) != DialogResult.Yes)
+                e.Cancel = true;
         }
     }
 }

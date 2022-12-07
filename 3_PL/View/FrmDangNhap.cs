@@ -15,13 +15,15 @@ namespace _3_PL.View
 {
     public partial class FrmDangNhap : Form
     {
-        INhanVienServices _NhanVienServices;
+        INhanVienServices inhanvien;
+        IChucVuServices ichucVu;
         public static Guid _IdStaff;
 
         public FrmDangNhap()
         {
             InitializeComponent();
-            _NhanVienServices = new NhanVienServices();
+            inhanvien = new NhanVienServices();
+            ichucVu = new ChucVuServices();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -32,23 +34,17 @@ namespace _3_PL.View
         private void bt_dangnhap_Click(object sender, EventArgs e)
         {
 
-            NhanVienViewModels staff = _NhanVienServices.GetAll().FirstOrDefault(p => p.Ma.Contains(tb_tenguoidung.Text));
-
-            try
+            var logiN = inhanvien.GetAll().Where(p => p.Ma == tb_tenguoidung.Text && p.MatKhau == tb_mk.Text).FirstOrDefault();
+            if (logiN != null)
             {
-                var userName = _NhanVienServices.GetAll().FirstOrDefault(p => p.Ma == tb_tenguoidung.Text).Ma;
-                var pass = _NhanVienServices.GetAll().FirstOrDefault(p => p.MatKhau == tb_mk.Text).MatKhau;
-
-                if (staff.Ma == userName && staff.MatKhau == pass)
-                {
-                    _IdStaff = staff.Id;
-                    FormMain formMain = new FormMain();
-                    formMain.ShowDialog();
-                }
+                this.Hide();
+                FormMain formMain = new FormMain();
+                formMain.ShowDialog();
+                this.Close();
             }
-            catch (Exception)
+            else
             {
-                MessageBox.Show("Mật Khẩu bạn nhập không chính xác");
+                MessageBox.Show("Đăng nhập thất bại");
             }
 
 
@@ -75,6 +71,12 @@ namespace _3_PL.View
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void FrmDangNhap_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Bạn muốn thoát chương trình ?", "Cảnh báo!!!", MessageBoxButtons.YesNo) != DialogResult.Yes)
+                e.Cancel = true;
         }
     }
 }
