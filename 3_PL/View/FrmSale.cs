@@ -25,6 +25,7 @@ namespace _3_PL.View
         {
             InitializeComponent();
             iqlhh = new QlyHangHoaServices();
+            isale = new SaleService();
             loadData();
             loadComboBox();
         }
@@ -81,15 +82,14 @@ namespace _3_PL.View
 
         private void btn_them_Click(object sender, EventArgs e)
         {
-            SaleViewModel x = new SaleViewModel()
-            {
-                MaGiamGia = tb_ma.Text,
-                TenChuongTrinh = tb_tenct.Text,
-                NgayBatDau = dt_ngaybatdau.Value,
-                NgayKetThuc = dt_ngayketthuc.Value,
-                SoTienGiamGia = Convert.ToInt32(tb_sotiengiam.Text),
-                TrangThai = rdb_con.Checked ? 1 : 0
-            };
+            SaleViewModel x = new SaleViewModel();
+            x.MaGiamGia = tb_ma.Text;
+            x.TenChuongTrinh = tb_tenct.Text;
+            x.NgayBatDau = dt_ngaybatdau.Value;
+            x.NgayKetThuc = dt_ngayketthuc.Value;
+            x.SoTienGiamGia = Convert.ToDecimal(tb_sotiengiam.Text);
+            x.TrangThai = rdb_con.Checked ? 1 : 0;
+            
             if (isale.add(x))
             {
                 MessageBox.Show("Them Thanh Cong");
