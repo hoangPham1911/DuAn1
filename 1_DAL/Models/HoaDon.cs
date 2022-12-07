@@ -47,6 +47,8 @@ namespace _1_DAL.Models
         public int? SoDiemSuDung { get; set; }
         public string? MaGiamGia { get; set; }
 
+        public Guid? IdVouCher { get; set; }
+
         [ForeignKey(nameof(IdNv))]
         [InverseProperty(nameof(NhanVien.HoaDons))]
         public virtual NhanVien IdNvNavigation { get; set; }
@@ -58,7 +60,9 @@ namespace _1_DAL.Models
         [InverseProperty(nameof(HoaDonChiTiet.IdHoaDonNavigation))]
         public virtual ICollection<HoaDonChiTiet> HoaDonChiTiets { get; set; }
         [InverseProperty(nameof(LichSuDiemTieuDung.IdHoaDonNavigation))]
-        public virtual ICollection<LichSuDiemTieuDung> LichSuDiems { get; set; }  
+        public virtual ICollection<LichSuDiemTieuDung> LichSuDiems { get; set; }
+        [ForeignKey(nameof(IdVouCher))]
+        [InverseProperty(nameof(Voucher.HoaDons))]
         public virtual Voucher VoucherNavigration { get; set; }
 
 

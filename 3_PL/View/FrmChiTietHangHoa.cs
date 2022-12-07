@@ -4,6 +4,7 @@ using _2_BUS.ViewModels;
 using _3_GUI_PresentaionLayers;
 using AForge.Video.DirectShow;
 using Microsoft.Data.SqlClient;
+using QRCoder;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -102,6 +103,7 @@ namespace _3_PL.View
             loadloaigiay();
             loadquocgia(); 
             loaddpath();
+            
         }
 
         public void loadnsx()
@@ -620,7 +622,11 @@ namespace _3_PL.View
                 chk_conhang.Checked = false;
             }
         }
-
+        private string createQR()
+        {
+            return idcthh+ "\n" + tenhh.ToString() + "\n" + mahh.ToString() + "\n" + id + "\n" + nsx.ToString() + "\n" + trangthai.ToString() + "\n" + soluong.ToString() + "\n" +
+                decimal.Parse(giaban).ToString() + "\n " + chatlieu.ToString() + "\n" + sizegiay.ToString() + "\n" + loaigiay.ToString() + "\n" + tenquocgia.ToString();
+        }
         public bool zenbarcode()
         {
 
@@ -638,9 +644,13 @@ namespace _3_PL.View
                         cbo_nsx.Text = Convert.ToString(_nsxser.GetNhasanxuat().Where(c => c.Id == zennsx).Select(c => c.Ten).FirstOrDefault());
                         txt_giaban.Text = Convert.ToString(_qlhhser.GetsList().Where(c => c.Mavach == txt_mavach.Text).Select(c => c.GiaBan).FirstOrDefault());
                         txt_gianhap.Text = Convert.ToString(_qlhhser.GetsList().Where(c => c.Mavach == txt_mavach.Text).Select(c => c.GiaNhap).FirstOrDefault());
+                        QRCodeGenerator qRCode = new QRCodeGenerator();
+                        QRCodeData qRCodeData = qRCode.CreateQrCode(createQR(), QRCodeGenerator.ECCLevel.L);
+                        QRCode qR = new QRCode(qRCodeData);
+                        Pic_QRcode.Image = qR.GetGraphic(5);
                         for (int a = 0; a < 2; a++)
                         {
-                            this.Alert("Sử Dụng Thành Công");
+                            this.Alert("Tạo Mã QR Thành Công");
                         }
 
                         return true;
@@ -1121,6 +1131,29 @@ namespace _3_PL.View
                 return;
 
             }
+        }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            //MessageBox.Show(idcthh.ToString() + mahh.ToString());
+            MessageBox.Show(createQR());
+            DialogResult dialogResult = MessageBox.Show("Bạn Có Muốn Tạo Mã QR Không ?", "Thông Báo", MessageBoxButtons.YesNo);
+            if(DialogResult.Yes == dialogResult)
+            {
+                QRCodeGenerator qRCode = new QRCodeGenerator();
+                QRCodeData qRCodeData = qRCode.CreateQrCode(createQR(), QRCodeGenerator.ECCLevel.L);
+                QRCode qR = new QRCode(qRCodeData);
+                Pic_QRcode.Image = qR.GetGraphic(5);
+                for (int a = 0; a < 2; a++)
+                {
+                    this.Alert("Tạo Mã QR Thành Công");
+                }
+            }
+        }
+
+        private void cbo_mahh_TextChanged(object sender, EventArgs e)
+        {
+           // zenbarcode();
         }
     }
 }

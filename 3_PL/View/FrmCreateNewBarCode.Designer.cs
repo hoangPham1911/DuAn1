@@ -40,11 +40,9 @@ namespace _3_GUI_PresentaionLayers
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
@@ -140,17 +138,10 @@ namespace _3_GUI_PresentaionLayers
             this.label4.Size = new System.Drawing.Size(100, 23);
             this.label4.TabIndex = 0;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(237, 255);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(277, 23);
-            this.textBox1.TabIndex = 19;
-            // 
             // pictureBox3
             // 
             this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox3.Location = new System.Drawing.Point(237, 70);
+            this.pictureBox3.Location = new System.Drawing.Point(239, 130);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(277, 160);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -180,16 +171,6 @@ namespace _3_GUI_PresentaionLayers
             this.pictureBox5.TabIndex = 3;
             this.pictureBox5.TabStop = false;
             this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(158, 262);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 15);
-            this.label5.TabIndex = 18;
-            this.label5.Text = "QRCode :";
             // 
             // pictureBox6
             // 
@@ -253,9 +234,7 @@ namespace _3_GUI_PresentaionLayers
             // 
             this.BackColor = System.Drawing.Color.Pink;
             this.ClientSize = new System.Drawing.Size(765, 479);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.panel2);
             this.Name = "FrmCreateNewBarCode";
             ((System.ComponentModel.ISupportInitialize)(this.Pic_QRcode)).EndInit();
@@ -269,7 +248,6 @@ namespace _3_GUI_PresentaionLayers
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -285,11 +263,9 @@ namespace _3_GUI_PresentaionLayers
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private TextBox textBox1;
         private PictureBox pictureBox3;
         private PictureBox pictureBox4;
         private PictureBox pictureBox5;
-        private Label label5;
         private PictureBox pictureBox6;
         private Panel panel2;
         private Label label6;

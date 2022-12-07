@@ -36,7 +36,7 @@ namespace _3_PL.View
             _sender = this;
             loadloc();
             loaddata();
-
+            dgrid_sanpham.AllowUserToAddRows = false;
         }
 
         public void Alert(string mess)
