@@ -82,6 +82,7 @@ namespace _1_DAL.Context
                 entity.Property(e => e.TrangThai).HasDefaultValueSql("((0))");
 
             });
+
             modelBuilder.Entity<KhachHang>(entity =>
             {
                 entity.Property(e => e.Id).HasDefaultValueSql("(newid())");
@@ -96,6 +97,13 @@ namespace _1_DAL.Context
             {
                 entity.Property(e => e.Id).HasDefaultValueSql("(newid())");
                 entity.Property(e => e.Ma).IsUnicode(false);
+                entity.Property(e => e.TrangThai).HasDefaultValueSql("((0))");
+
+            });
+            modelBuilder.Entity<Voucher>(entity =>
+            {
+                entity.Property(e => e.Id).HasDefaultValueSql("(newid())");
+                entity.Property(e => e.MaGiamGia).IsUnicode(false);
                 entity.Property(e => e.TrangThai).HasDefaultValueSql("((0))");
 
             });

@@ -82,7 +82,7 @@ namespace _3_GUI_PresentaionLayers
         }
         private string createQR()
         {
-            return (id + "\n" + tenhh + "\n" + mahh + "\n" +  id+ "\n" + nsx + "\n" + trangthai + "\n" + soluong + "\n" +
+            return (idct + "\n" + tenhh + "\n" + mahh + "\n" +  id+ "\n" + nsx + "\n" + trangthai + "\n" + soluong + "\n" +
                 decimal.Parse(giaban) + "\n " + chatlieu + "\n" + sizegiay + "\n" + loaigiay+ "\n" + tennquocgia);
         }
         private void pictureBox4_Click(object sender, EventArgs e)
