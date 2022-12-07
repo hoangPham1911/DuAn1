@@ -23,8 +23,11 @@ namespace _2_BUS.Service
         {
             var addSale = new Voucher();
             addSale.MaGiamGia = sale.MaGiamGia;
-            addSale.TrangThai = sale.TrangThai;
             addSale.TenChuongTrinh = sale.TenChuongTrinh;
+            addSale.NgayBatDau = sale.NgayBatDau;
+            addSale.NgayKetThuc = sale.NgayKetThuc;
+            addSale.SoTienGiamGia = sale.SoTienGiamGia;
+            addSale.TrangThai = sale.TrangThai;
             if (_SaleRepository.add(addSale))
                 return true;
             return false;
@@ -38,6 +41,9 @@ namespace _2_BUS.Service
                         Id = a.Id,
                         MaGiamGia = a.MaGiamGia,
                         TenChuongTrinh = a.TenChuongTrinh,
+                        NgayBatDau = a.NgayBatDau,
+                        NgayKetThuc = a.NgayKetThuc,
+                        SoTienGiamGia = (decimal)a.SoTienGiamGia,
                         TrangThai = a.TrangThai
                     }).ToList();
         }
@@ -53,8 +59,11 @@ namespace _2_BUS.Service
         {
             var addSale = _SaleRepository.getAll().FirstOrDefault(p => p.Id == sale.Id);
             addSale.MaGiamGia = sale.MaGiamGia;
-            addSale.TrangThai = sale.TrangThai;
             addSale.TenChuongTrinh = sale.TenChuongTrinh;
+            addSale.NgayBatDau = sale.NgayBatDau;
+            addSale.NgayKetThuc = sale.NgayKetThuc;
+            addSale.SoTienGiamGia = sale.SoTienGiamGia;
+            addSale.TrangThai = sale.TrangThai;
             if (_SaleRepository.update(addSale))
                 return true;
             return false;

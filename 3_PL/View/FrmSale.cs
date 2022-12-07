@@ -36,7 +36,7 @@ namespace _3_PL.View
             dgv_show.Columns[0].Name = "ID";
             dgv_show.Columns[0].Visible = false;
             dgv_show.Columns[1].Name = "Mã";
-            dgv_show.Columns[2].Name = "Tên sản phẩm";
+            dgv_show.Columns[2].Name = "Tên chương trình";
             dgv_show.Columns[3].Name = "Size";
             dgv_show.Columns[4].Name = "Giá bán";
             dgv_show.Columns[5].Name = "Số lượng";
@@ -58,7 +58,7 @@ namespace _3_PL.View
                 //  vmqlyhanghoa = iqlhh.GetsList().FirstOrDefault(x => x.Id == Guid.Parse(dgvr.Cells[0].Value.ToString()));
                 // cbb_tengiay.Text = vmqlyhanghoa.Ten;
                 //vmqlyhanghoa.GiaBan = tb_gia.Text ;
-                if (dgvr.Cells[3].Value.ToString() == "Còn sản xuất")
+                if (dgvr.Cells[6].Value.ToString() == "Còn sản xuất")
                 {
                     rdb_con.Checked = true;
                 }
@@ -83,19 +83,17 @@ namespace _3_PL.View
         {
             SaleViewModel x = new SaleViewModel()
             {
-                Id = Guid.NewGuid(),
                 MaGiamGia = tb_ma.Text,
                 TenChuongTrinh = tb_tenct.Text,
                 NgayBatDau = dt_ngaybatdau.Value,
                 NgayKetThuc = dt_ngayketthuc.Value,
-                GiamGia = cbb_ma.Text,
+                SoTienGiamGia = Convert.ToInt32(tb_sotiengiam.Text),
                 TrangThai = rdb_con.Checked ? 1 : 0
             };
             if (isale.add(x))
             {
                 MessageBox.Show("Them Thanh Cong");
             };
-
             loadData();
         }
 
@@ -110,7 +108,7 @@ namespace _3_PL.View
             viewsale.TenChuongTrinh = tb_tenct.Text;
             viewsale.NgayBatDau = dt_ngaybatdau.Value;
             viewsale.NgayKetThuc = dt_ngayketthuc.Value;
-            viewsale.GiamGia = tb_sotiengiam.Text;
+            viewsale.SoTienGiamGia = Convert.ToInt32(tb_sotiengiam.Text);
             viewsale.TrangThai = rdb_con.Checked ? 1 : 0;
             if (isale.update(viewsale))
             {
