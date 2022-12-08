@@ -437,10 +437,10 @@
             this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox11.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.textBox11.ForeColor = System.Drawing.Color.DarkRed;
-            this.textBox11.Location = new System.Drawing.Point(87, 43);
+            this.textBox11.Location = new System.Drawing.Point(99, 43);
             this.textBox11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(42, 15);
+            this.textBox11.Size = new System.Drawing.Size(30, 15);
             this.textBox11.TabIndex = 161;
             this.textBox11.Text = "0";
             this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -660,7 +660,7 @@
             this.label49.AutoSize = true;
             this.label49.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label49.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label49.Location = new System.Drawing.Point(2, 43);
+            this.label49.Location = new System.Drawing.Point(7, 43);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(88, 13);
             this.label49.TabIndex = 66;

@@ -628,7 +628,7 @@ namespace _3_PL.View
             // 
             this.dtgShow_CTHD.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtgShow_CTHD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgShow_CTHD.Location = new System.Drawing.Point(229, 696);
+            this.dtgShow_CTHD.Location = new System.Drawing.Point(-13, 606);
             this.dtgShow_CTHD.Name = "dtgShow_CTHD";
             this.dtgShow_CTHD.RowTemplate.Height = 25;
             this.dtgShow_CTHD.Size = new System.Drawing.Size(1396, 205);
@@ -638,7 +638,7 @@ namespace _3_PL.View
             // 
             this.dtg_showHD.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtg_showHD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtg_showHD.Location = new System.Drawing.Point(229, 436);
+            this.dtg_showHD.Location = new System.Drawing.Point(-13, 346);
             this.dtg_showHD.Name = "dtg_showHD";
             this.dtg_showHD.RowTemplate.Height = 25;
             this.dtg_showHD.Size = new System.Drawing.Size(1396, 254);
@@ -859,7 +859,7 @@ namespace _3_PL.View
             // Frm_HoaDon
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(1854, 929);
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.pictureBox_PDF);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txt_timkiem);

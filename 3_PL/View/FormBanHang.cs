@@ -763,7 +763,34 @@ namespace _3_PL.View
                     {
                         suaHoaDonModels.TinhTrang = 1;
                         hoaDonCt.TrangThai = 1;
+                        LichSuDiemViewModels lichSuDiemViewModels = new LichSuDiemViewModels();
+                        if (_KhachHangServices.GetAllKhachHangDB().SingleOrDefault(p => p.Sdt.Contains(textBox10.Text)).IdVi != null)
+                        {
+                            lichSuDiemViewModels.IdViDiem = _KhachHangServices.GetAllKhachHangDB().SingleOrDefault(p => p.Sdt.Contains(textBox10.Text)).IdVi;
 
+                            if (textBox11.Text == "")
+                            {
+                                lichSuDiemViewModels.SoDiemTieuDung = 0;
+                            }
+                            else
+                            {
+                                lichSuDiemViewModels.SoDiemTieuDung = int.Parse(textBox11.Text);
+                                lichSuDiemViewModels.NgaySuDung = DateTime.Now;
+                                lichSuDiemViewModels.TrangThai = 1;
+                                lichSuDiemViewModels.IdHoaDon = IdHoaDon;
+                                lichSuDiemViewModels.SoDiemCong = int.Parse(textBox5.Text) - int.Parse(txt_tongTienHoaDon.Text) / int.Parse(textBox7.Text);
+                                //MessageBox.Show(lichSuDiemViewModels.IdHoaDon.ToString());
+                                _LichSuDiemService.add(lichSuDiemViewModels);
+                                ViDiemViewModel viDiem = new ViDiemViewModel();
+                                viDiem.TongDiem = int.Parse(textBox5.Text) - int.Parse(textBox11.Text) + lichSuDiemViewModels.SoDiemCong;
+                                viDiem.TrangThai = 1;
+                                var IdKh = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt.Contains(textBox10.Text)).Idkh;
+                                viDiem.IdKhachHang = IdKh;
+                                if (_ViDiemService.GetViDiem().FirstOrDefault(p => p.IdKhachHang == IdKh) != null)
+                                    viDiem.Id = _ViDiemService.GetViDiem().FirstOrDefault(p => p.IdKhachHang == IdKh).Id;
+                                _ViDiemService.update(viDiem);
+                            }
+                        }
                         flhoadon.Controls.Remove(createButton());
                     }
                     if (textBox11.Text == "")
@@ -781,33 +808,7 @@ namespace _3_PL.View
                     if (_HoaDonChiTietService.SuaHoaDonChiTiet(hoaDonCt))
                     {
                         MessageBox.Show(_HoaDonService.SuaHoaDon(suaHoaDonModels));
-                        LichSuDiemViewModels lichSuDiemViewModels = new LichSuDiemViewModels();
-                        if (_KhachHangServices.GetAllKhachHangDB().SingleOrDefault(p => p.Sdt.Contains(textBox10.Text)).IdVi != null)
-                        {
-                            lichSuDiemViewModels.IdViDiem = _KhachHangServices.GetAllKhachHangDB().SingleOrDefault(p => p.Sdt.Contains(textBox10.Text)).IdVi;
 
-                            if (textBox11.Text == "")
-                            {
-                                lichSuDiemViewModels.SoDiemTieuDung = 0;
-                            }
-                            else
-                            {
-                                lichSuDiemViewModels.SoDiemTieuDung = int.Parse(textBox11.Text);
-                                lichSuDiemViewModels.NgaySuDung = DateTime.Now;
-                                lichSuDiemViewModels.TrangThai = 1;
-                                lichSuDiemViewModels.IdHoaDon = IdHoaDon;
-                                //MessageBox.Show(lichSuDiemViewModels.IdHoaDon.ToString());
-                                _LichSuDiemService.add(lichSuDiemViewModels);
-                                ViDiemViewModel viDiem = new ViDiemViewModel();
-                                viDiem.TongDiem = int.Parse(textBox5.Text) - int.Parse(textBox11.Text);
-                                viDiem.TrangThai = 1;
-                                var IdKh = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt.Contains(textBox10.Text)).Idkh;
-                                viDiem.IdKhachHang = IdKh;
-                                if (_ViDiemService.GetViDiem().FirstOrDefault(p => p.IdKhachHang == IdKh) != null)
-                                    viDiem.Id = _ViDiemService.GetViDiem().FirstOrDefault(p => p.IdKhachHang == IdKh).Id;
-                                _ViDiemService.update(viDiem);
-                            }
-                        }
                     }
 
                     loadGioHang();
@@ -1352,37 +1353,26 @@ namespace _3_PL.View
                         {
                             hdct.TrangThai = 1;
                             suaHoaDonModels.TinhTrang = 1;
-                            flhd3.Controls.Remove(createButton());
-                            loadDonDatHang();
-                            loadDonDatCoc();
-                        }
-                        suaHoaDonModels.TenShip = textBox8.Text;
-                        suaHoaDonModels.SDTShip = textBox9.Text;
-                        suaHoaDonModels.NgayShip = DateTime.Now;
-                        suaHoaDonModels.NgayNhan = DateTime.Now;
-                        suaHoaDonModels.NgayThanhToan = DateTime.Now;
-                        if (_HoaDonChiTietService.SuaHoaDonChiTiet(hdct))
-                        {
-                            MessageBox.Show(_HoaDonService.SuaHoaDon(suaHoaDonModels));
                             LichSuDiemViewModels lichSuDiemViewModels = new LichSuDiemViewModels();
                             if (_KhachHangServices.GetAllKhachHangDB().SingleOrDefault(p => p.Sdt.Contains(textBox10.Text)).IdVi != null)
                             {
                                 lichSuDiemViewModels.IdViDiem = _KhachHangServices.GetAllKhachHangDB().SingleOrDefault(p => p.Sdt.Contains(textBox10.Text)).IdVi;
 
-                                if (textBox12.Text == "")
+                                if (textBox11.Text == "")
                                 {
                                     lichSuDiemViewModels.SoDiemTieuDung = 0;
                                 }
                                 else
                                 {
-                                    lichSuDiemViewModels.SoDiemTieuDung = int.Parse(textBox12.Text);
+                                    lichSuDiemViewModels.SoDiemTieuDung = int.Parse(textBox11.Text);
                                     lichSuDiemViewModels.NgaySuDung = DateTime.Now;
                                     lichSuDiemViewModels.TrangThai = 1;
                                     lichSuDiemViewModels.IdHoaDon = IdHoaDon;
+                                    lichSuDiemViewModels.SoDiemCong = int.Parse(textBox5.Text) - int.Parse(txt_tongTienHoaDon.Text) / int.Parse(textBox7.Text);
                                     //MessageBox.Show(lichSuDiemViewModels.IdHoaDon.ToString());
                                     _LichSuDiemService.add(lichSuDiemViewModels);
                                     ViDiemViewModel viDiem = new ViDiemViewModel();
-                                    viDiem.TongDiem = int.Parse(textBox5.Text) - int.Parse(textBox12.Text);
+                                    viDiem.TongDiem = int.Parse(textBox5.Text) - int.Parse(textBox11.Text) + lichSuDiemViewModels.SoDiemCong;
                                     viDiem.TrangThai = 1;
                                     var IdKh = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt.Contains(textBox10.Text)).Idkh;
                                     viDiem.IdKhachHang = IdKh;
@@ -1390,19 +1380,31 @@ namespace _3_PL.View
                                         viDiem.Id = _ViDiemService.GetViDiem().FirstOrDefault(p => p.IdKhachHang == IdKh).Id;
                                     _ViDiemService.update(viDiem);
                                 }
+                                flhd3.Controls.Remove(createButton());
+                                loadDonDatHang();
+                                loadDonDatCoc();
+                            }
+                            suaHoaDonModels.TenShip = textBox8.Text;
+                            suaHoaDonModels.SDTShip = textBox9.Text;
+                            suaHoaDonModels.NgayShip = DateTime.Now;
+                            suaHoaDonModels.NgayNhan = DateTime.Now;
+                            suaHoaDonModels.NgayThanhToan = DateTime.Now;
+                            if (_HoaDonChiTietService.SuaHoaDonChiTiet(hdct))
+                            {
+                                MessageBox.Show(_HoaDonService.SuaHoaDon(suaHoaDonModels));
+
+                            }
+                            _ListReceiptProduct2.RemoveRange(0, _ListReceiptProduct2.Count());
+                            _ListReceiptProduct.RemoveRange(0, _ListReceiptProduct.Count());
+                            if (radioButton3.Checked)
+                            {
+                                inHoaDon();
                             }
                         }
-                        _ListReceiptProduct2.RemoveRange(0, _ListReceiptProduct2.Count());
-                        _ListReceiptProduct.RemoveRange(0, _ListReceiptProduct.Count());
-                        if (radioButton3.Checked)
-                        {
-                            inHoaDon();
-                        }
                     }
+
                 }
-
             }
-
 
 
         }
