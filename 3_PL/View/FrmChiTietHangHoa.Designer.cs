@@ -64,8 +64,6 @@
             this.aaa = new System.Windows.Forms.Label();
             this.txt_soluong = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txt_mavach = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -123,7 +121,7 @@
             // pic_nsx
             // 
             this.pic_nsx.Image = ((System.Drawing.Image)(resources.GetObject("pic_nsx.Image")));
-            this.pic_nsx.Location = new System.Drawing.Point(332, 488);
+            this.pic_nsx.Location = new System.Drawing.Point(332, 431);
             this.pic_nsx.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.pic_nsx.Name = "pic_nsx";
             this.pic_nsx.Size = new System.Drawing.Size(26, 22);
@@ -317,7 +315,7 @@
             // cbo_nsx
             // 
             this.cbo_nsx.FormattingEnabled = true;
-            this.cbo_nsx.Location = new System.Drawing.Point(194, 486);
+            this.cbo_nsx.Location = new System.Drawing.Point(194, 429);
             this.cbo_nsx.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.cbo_nsx.Name = "cbo_nsx";
             this.cbo_nsx.Size = new System.Drawing.Size(133, 23);
@@ -332,7 +330,7 @@
             // 
             this.chk_hethang.AutoSize = true;
             this.chk_hethang.ForeColor = System.Drawing.Color.White;
-            this.chk_hethang.Location = new System.Drawing.Point(288, 593);
+            this.chk_hethang.Location = new System.Drawing.Point(288, 536);
             this.chk_hethang.Margin = new System.Windows.Forms.Padding(2);
             this.chk_hethang.Name = "chk_hethang";
             this.chk_hethang.Size = new System.Drawing.Size(77, 19);
@@ -345,7 +343,7 @@
             // 
             this.chk_conhang.AutoSize = true;
             this.chk_conhang.ForeColor = System.Drawing.Color.White;
-            this.chk_conhang.Location = new System.Drawing.Point(194, 593);
+            this.chk_conhang.Location = new System.Drawing.Point(194, 536);
             this.chk_conhang.Margin = new System.Windows.Forms.Padding(2);
             this.chk_conhang.Name = "chk_conhang";
             this.chk_conhang.Size = new System.Drawing.Size(80, 19);
@@ -358,7 +356,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(31, 594);
+            this.label15.Location = new System.Drawing.Point(31, 537);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(61, 15);
@@ -449,7 +447,7 @@
             // 
             // txt_soluong
             // 
-            this.txt_soluong.Location = new System.Drawing.Point(194, 516);
+            this.txt_soluong.Location = new System.Drawing.Point(194, 459);
             this.txt_soluong.Margin = new System.Windows.Forms.Padding(2);
             this.txt_soluong.Name = "txt_soluong";
             this.txt_soluong.Size = new System.Drawing.Size(133, 23);
@@ -459,37 +457,18 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(31, 520);
+            this.label6.Location = new System.Drawing.Point(31, 463);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 15);
             this.label6.TabIndex = 106;
             this.label6.Text = "Số Lượng";
             // 
-            // txt_mavach
-            // 
-            this.txt_mavach.Location = new System.Drawing.Point(194, 424);
-            this.txt_mavach.Margin = new System.Windows.Forms.Padding(2);
-            this.txt_mavach.Name = "txt_mavach";
-            this.txt_mavach.Size = new System.Drawing.Size(133, 23);
-            this.txt_mavach.TabIndex = 105;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(31, 428);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 15);
-            this.label5.TabIndex = 104;
-            this.label5.Text = "Mã Vạch";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(31, 490);
+            this.label3.Location = new System.Drawing.Point(31, 433);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 15);
@@ -521,7 +500,7 @@
             // pic_anhadd
             // 
             this.pic_anhadd.Image = ((System.Drawing.Image)(resources.GetObject("pic_anhadd.Image")));
-            this.pic_anhadd.Location = new System.Drawing.Point(332, 554);
+            this.pic_anhadd.Location = new System.Drawing.Point(332, 497);
             this.pic_anhadd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pic_anhadd.Name = "pic_anhadd";
             this.pic_anhadd.Size = new System.Drawing.Size(30, 22);
@@ -533,7 +512,7 @@
             // cbo_anh
             // 
             this.cbo_anh.FormattingEnabled = true;
-            this.cbo_anh.Location = new System.Drawing.Point(194, 553);
+            this.cbo_anh.Location = new System.Drawing.Point(194, 496);
             this.cbo_anh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbo_anh.Name = "cbo_anh";
             this.cbo_anh.Size = new System.Drawing.Size(133, 23);
@@ -544,7 +523,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(31, 553);
+            this.label16.Location = new System.Drawing.Point(31, 496);
             this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(67, 15);
@@ -668,8 +647,6 @@
             this.Controls.Add(this.aaa);
             this.Controls.Add(this.txt_soluong);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.txt_mavach);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -726,8 +703,6 @@
         private Label aaa;
         private TextBox txt_soluong;
         private Label label6;
-        private TextBox txt_mavach;
-        private Label label5;
         private Label label3;
         private Label label2;
         private Label label1;

@@ -86,7 +86,6 @@ namespace _3_PL.View
             cbo_tenhh.Text = tenhh;
             chk_conhang.Checked = trangthai == "Còn Hàng";
             chk_hethang.Checked = trangthai == "Hết Hàng";
-            txt_mavach.Text = mavach;
             txt_soluong.Text = soluong;
             txt_giaban.Text = giaban;
             txt_gianhap.Text = gianhap;
@@ -373,10 +372,7 @@ namespace _3_PL.View
             var result = reader.Decode(bitmap);
             if (result != null)
             {
-                txt_mavach.Invoke(new MethodInvoker(delegate ()
-                {
-                    txt_mavach.Text = result.ToString();
-                }));
+             
             }
             pic_cammera.Image = bitmap;
 
@@ -407,8 +403,7 @@ namespace _3_PL.View
 
         void reset()
         {
-            cbo_tenhh.Text = "";
-            txt_mavach.Text = "";
+            cbo_tenhh.Text = "";           
             txt_soluong.Text = "";
             txt_giaban.Text = "";
             txt_gianhap.Text = "";
@@ -550,9 +545,9 @@ namespace _3_PL.View
                             IdQuocGia = _quocgiaser.GetQuocGia().Where(c => c.Ten == cbo_tenquocgia.Text).Select(c => c.Id).FirstOrDefault(),
                             IdSizeGiay = _sizegiayser.GetSizeGiay().Where(c => c.SoSize == Convert.ToDouble(cbo_sizegiay.Text)).Select(c => c.Id).FirstOrDefault(),
                             IdAnh = _anhser.GetAnh().Where(c => c.DuongDan == cbo_anh.Text).Select(c => c.ID).FirstOrDefault(),
-                            Mavach = txt_mavach.Text
+                            Mavach = createQR()
 
-                        });
+                        }) ;
                         reset();
                         for (int i = 0; i < 2; i++)
                         {
@@ -626,43 +621,6 @@ namespace _3_PL.View
         {
             return idcthh+ "\n" + tenhh.ToString() + "\n" + mahh.ToString() + "\n" + id + "\n" + nsx.ToString() + "\n" + trangthai.ToString() + "\n" + soluong.ToString() + "\n" +
                 decimal.Parse(giaban).ToString() + "\n " + chatlieu.ToString() + "\n" + sizegiay.ToString() + "\n" + loaigiay.ToString() + "\n" + tenquocgia.ToString();
-        }
-        public bool zenbarcode()
-        {
-
-            for (int i = 0; i < _qlhhser.GetsList().Count; i++)
-            {
-                if (_qlhhser.GetsList()[i].Mavach == txt_mavach.Text)
-                {
-                    DialogResult dialogResult = MessageBox.Show("Mã Vạch Này Đã Tồn Tại Trong Hệ Thống ! Bạn Có Muốn Sử Dụng 1 Số Thuộc Tính Của Nó Hay Không ?", "Thông Báo", MessageBoxButtons.YesNo);
-
-                    if (dialogResult == DialogResult.Yes)
-                    {
-                        zen = _qlhhser.GetsList().Where(c => c.Mavach == txt_mavach.Text).Select(c => c.Id).FirstOrDefault();
-                        cbo_tenhh.Text = Convert.ToString(_qlhhser.GetsList().Where(c => c.Id == zen).Select(c => c.Ten).FirstOrDefault());
-                        zennsx = _qlhhser.GetsList().Where(c => c.Id == zen).Select(c => c.IdNsx).FirstOrDefault();
-                        cbo_nsx.Text = Convert.ToString(_nsxser.GetNhasanxuat().Where(c => c.Id == zennsx).Select(c => c.Ten).FirstOrDefault());
-                        txt_giaban.Text = Convert.ToString(_qlhhser.GetsList().Where(c => c.Mavach == txt_mavach.Text).Select(c => c.GiaBan).FirstOrDefault());
-                        txt_gianhap.Text = Convert.ToString(_qlhhser.GetsList().Where(c => c.Mavach == txt_mavach.Text).Select(c => c.GiaNhap).FirstOrDefault());
-                        QRCodeGenerator qRCode = new QRCodeGenerator();
-                        QRCodeData qRCodeData = qRCode.CreateQrCode(createQR(), QRCodeGenerator.ECCLevel.L);
-                        QRCode qR = new QRCode(qRCodeData);
-                        Pic_QRcode.Image = qR.GetGraphic(5);
-                        for (int a = 0; a < 2; a++)
-                        {
-                            this.Alert("Tạo Mã QR Thành Công");
-                        }
-
-                        return true;
-                    };
-
-                    if (dialogResult == DialogResult.No)
-                    {
-                        return true;
-                    }
-                }
-            }
-            return true;
         }
 
         public void loadsugesstion()
@@ -991,7 +949,7 @@ namespace _3_PL.View
                     {
                         cthh.Id = idcthh;
                         cthh.SoLuongTon = Convert.ToInt32(txt_soluong.Text);
-                        cthh.Mavach = txt_mavach.Text.Trim();
+                        cthh.Mavach = createQR();
                         cthh.GiaNhap = Convert.ToDecimal(txt_gianhap.Text);
                         cthh.GiaBan = Convert.ToDecimal(txt_giaban.Text);
                         cthh.IdChatLieu = _chatlieuser.GetChatLieu().Where(c => c.Ten == cbo_tencl.Text).Select(c => c.Id).FirstOrDefault();

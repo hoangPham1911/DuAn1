@@ -33,28 +33,10 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnLuu = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
-            this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvGiaoCa = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.thoiGianNhanCaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.thoiGianGiaoCaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idNvNhanCaTiepDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idNvTrongCaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tienBanDauDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tongTienTrongCaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tongTienMatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tongTienKhacDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tienPhatSinhDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ghiChuPhatSinhDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tongTienCaTruocDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.timeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tongTienMatRutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.strTrangThaiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.giaoCaViewModelsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
@@ -97,7 +79,6 @@
             this.groupBox2.BackColor = System.Drawing.Color.LightSalmon;
             this.groupBox2.Controls.Add(this.btnLuu);
             this.groupBox2.Controls.Add(this.btnThem);
-            this.groupBox2.Controls.Add(this.btnXoa);
             this.groupBox2.Controls.Add(this.btnSua);
             this.groupBox2.Controls.Add(this.btnClear);
             this.groupBox2.Location = new System.Drawing.Point(808, 8);
@@ -114,7 +95,7 @@
             this.btnLuu.BackColor = System.Drawing.Color.LightSalmon;
             this.btnLuu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnLuu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLuu.Location = new System.Drawing.Point(5, 235);
+            this.btnLuu.Location = new System.Drawing.Point(5, 192);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(150, 39);
             this.btnLuu.TabIndex = 56;
@@ -135,17 +116,6 @@
             this.btnThem.UseVisualStyleBackColor = false;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
-            // btnXoa
-            // 
-            this.btnXoa.BackColor = System.Drawing.Color.LightSalmon;
-            this.btnXoa.Location = new System.Drawing.Point(5, 134);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(150, 39);
-            this.btnXoa.TabIndex = 21;
-            this.btnXoa.Text = "   Xoá";
-            this.btnXoa.UseVisualStyleBackColor = false;
-            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
-            // 
             // btnSua
             // 
             this.btnSua.BackColor = System.Drawing.Color.LightSalmon;
@@ -160,7 +130,7 @@
             // btnClear
             // 
             this.btnClear.BackColor = System.Drawing.Color.LightSalmon;
-            this.btnClear.Location = new System.Drawing.Point(5, 186);
+            this.btnClear.Location = new System.Drawing.Point(5, 135);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(150, 43);
             this.btnClear.TabIndex = 23;
@@ -188,26 +158,8 @@
             this.dgvGiaoCa.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvGiaoCa.BackgroundColor = System.Drawing.Color.NavajoWhite;
             this.dgvGiaoCa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvGiaoCa.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.thoiGianNhanCaDataGridViewTextBoxColumn,
-            this.thoiGianGiaoCaDataGridViewTextBoxColumn,
-            this.idNvNhanCaTiepDataGridViewTextBoxColumn,
-            this.idNvTrongCaDataGridViewTextBoxColumn,
-            this.tienBanDauDataGridViewTextBoxColumn,
-            this.tongTienTrongCaDataGridViewTextBoxColumn,
-            this.tongTienMatDataGridViewTextBoxColumn,
-            this.tongTienKhacDataGridViewTextBoxColumn,
-            this.tienPhatSinhDataGridViewTextBoxColumn,
-            this.ghiChuPhatSinhDataGridViewTextBoxColumn,
-            this.tongTienCaTruocDataGridViewTextBoxColumn,
-            this.timeDataGridViewTextBoxColumn,
-            this.tongTienMatRutDataGridViewTextBoxColumn,
-            this.dataGridViewTextBoxColumn3,
-            this.strTrangThaiDataGridViewTextBoxColumn});
             this.dgvGiaoCa.DataSource = this.giaoCaViewModelsBindingSource;
-            this.dgvGiaoCa.Location = new System.Drawing.Point(13, 19);
+            this.dgvGiaoCa.Location = new System.Drawing.Point(5, 19);
             this.dgvGiaoCa.Name = "dgvGiaoCa";
             this.dgvGiaoCa.RowHeadersVisible = false;
             this.dgvGiaoCa.RowHeadersWidth = 62;
@@ -215,123 +167,6 @@
             this.dgvGiaoCa.Size = new System.Drawing.Size(940, 231);
             this.dgvGiaoCa.TabIndex = 33;
             this.dgvGiaoCa.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGiaoCa_CellClick);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Ma";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Mã";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // thoiGianNhanCaDataGridViewTextBoxColumn
-            // 
-            this.thoiGianNhanCaDataGridViewTextBoxColumn.DataPropertyName = "ThoiGianNhanCa";
-            this.thoiGianNhanCaDataGridViewTextBoxColumn.HeaderText = "Thời gian giao";
-            this.thoiGianNhanCaDataGridViewTextBoxColumn.Name = "thoiGianNhanCaDataGridViewTextBoxColumn";
-            // 
-            // thoiGianGiaoCaDataGridViewTextBoxColumn
-            // 
-            this.thoiGianGiaoCaDataGridViewTextBoxColumn.DataPropertyName = "ThoiGianGiaoCa";
-            this.thoiGianGiaoCaDataGridViewTextBoxColumn.HeaderText = "Thời gian nhận";
-            this.thoiGianGiaoCaDataGridViewTextBoxColumn.Name = "thoiGianGiaoCaDataGridViewTextBoxColumn";
-            // 
-            // idNvNhanCaTiepDataGridViewTextBoxColumn
-            // 
-            this.idNvNhanCaTiepDataGridViewTextBoxColumn.DataPropertyName = "NhanVienCaTiep";
-            this.idNvNhanCaTiepDataGridViewTextBoxColumn.HeaderText = "Nhân viên nhận";
-            this.idNvNhanCaTiepDataGridViewTextBoxColumn.Name = "idNvNhanCaTiepDataGridViewTextBoxColumn";
-            // 
-            // idNvTrongCaDataGridViewTextBoxColumn
-            // 
-            this.idNvTrongCaDataGridViewTextBoxColumn.DataPropertyName = "NhanVienTrongCa";
-            this.idNvTrongCaDataGridViewTextBoxColumn.HeaderText = "Nhân viên giao";
-            this.idNvTrongCaDataGridViewTextBoxColumn.Name = "idNvTrongCaDataGridViewTextBoxColumn";
-            // 
-            // tienBanDauDataGridViewTextBoxColumn
-            // 
-            this.tienBanDauDataGridViewTextBoxColumn.DataPropertyName = "TienBanDau";
-            this.tienBanDauDataGridViewTextBoxColumn.HeaderText = "TienBanDau";
-            this.tienBanDauDataGridViewTextBoxColumn.Name = "tienBanDauDataGridViewTextBoxColumn";
-            this.tienBanDauDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // tongTienTrongCaDataGridViewTextBoxColumn
-            // 
-            this.tongTienTrongCaDataGridViewTextBoxColumn.DataPropertyName = "TongTienTrongCa";
-            this.tongTienTrongCaDataGridViewTextBoxColumn.HeaderText = "TongTienTrongCa";
-            this.tongTienTrongCaDataGridViewTextBoxColumn.Name = "tongTienTrongCaDataGridViewTextBoxColumn";
-            this.tongTienTrongCaDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // tongTienMatDataGridViewTextBoxColumn
-            // 
-            this.tongTienMatDataGridViewTextBoxColumn.DataPropertyName = "TongTienMat";
-            this.tongTienMatDataGridViewTextBoxColumn.HeaderText = "TongTienMat";
-            this.tongTienMatDataGridViewTextBoxColumn.Name = "tongTienMatDataGridViewTextBoxColumn";
-            this.tongTienMatDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // tongTienKhacDataGridViewTextBoxColumn
-            // 
-            this.tongTienKhacDataGridViewTextBoxColumn.DataPropertyName = "TongTienKhac";
-            this.tongTienKhacDataGridViewTextBoxColumn.HeaderText = "TongTienKhac";
-            this.tongTienKhacDataGridViewTextBoxColumn.Name = "tongTienKhacDataGridViewTextBoxColumn";
-            this.tongTienKhacDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // tienPhatSinhDataGridViewTextBoxColumn
-            // 
-            this.tienPhatSinhDataGridViewTextBoxColumn.DataPropertyName = "TienPhatSinh";
-            this.tienPhatSinhDataGridViewTextBoxColumn.HeaderText = "TienPhatSinh";
-            this.tienPhatSinhDataGridViewTextBoxColumn.Name = "tienPhatSinhDataGridViewTextBoxColumn";
-            this.tienPhatSinhDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // ghiChuPhatSinhDataGridViewTextBoxColumn
-            // 
-            this.ghiChuPhatSinhDataGridViewTextBoxColumn.DataPropertyName = "GhiChuPhatSinh";
-            this.ghiChuPhatSinhDataGridViewTextBoxColumn.HeaderText = "Ghi chú";
-            this.ghiChuPhatSinhDataGridViewTextBoxColumn.Name = "ghiChuPhatSinhDataGridViewTextBoxColumn";
-            // 
-            // tongTienCaTruocDataGridViewTextBoxColumn
-            // 
-            this.tongTienCaTruocDataGridViewTextBoxColumn.DataPropertyName = "TongTienCaTruoc";
-            this.tongTienCaTruocDataGridViewTextBoxColumn.HeaderText = "TongTienCaTruoc";
-            this.tongTienCaTruocDataGridViewTextBoxColumn.Name = "tongTienCaTruocDataGridViewTextBoxColumn";
-            this.tongTienCaTruocDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // timeDataGridViewTextBoxColumn
-            // 
-            this.timeDataGridViewTextBoxColumn.DataPropertyName = "Time";
-            this.timeDataGridViewTextBoxColumn.HeaderText = "Time";
-            this.timeDataGridViewTextBoxColumn.Name = "timeDataGridViewTextBoxColumn";
-            this.timeDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // tongTienMatRutDataGridViewTextBoxColumn
-            // 
-            this.tongTienMatRutDataGridViewTextBoxColumn.DataPropertyName = "TongTienMatRut";
-            this.tongTienMatRutDataGridViewTextBoxColumn.HeaderText = "TongTienMatRut";
-            this.tongTienMatRutDataGridViewTextBoxColumn.Name = "tongTienMatRutDataGridViewTextBoxColumn";
-            this.tongTienMatRutDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "TrangThai";
-            this.dataGridViewTextBoxColumn3.HeaderText = "TrangThai";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Visible = false;
-            // 
-            // strTrangThaiDataGridViewTextBoxColumn
-            // 
-            this.strTrangThaiDataGridViewTextBoxColumn.DataPropertyName = "StrTrangThai";
-            this.strTrangThaiDataGridViewTextBoxColumn.HeaderText = "StrTrangThai";
-            this.strTrangThaiDataGridViewTextBoxColumn.Name = "strTrangThaiDataGridViewTextBoxColumn";
-            this.strTrangThaiDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // giaoCaViewModelsBindingSource
-            // 
-            this.giaoCaViewModelsBindingSource.DataSource = typeof(_2_BUS.ViewModels.GiaoCaViewModels);
             // 
             // btnTimKiem
             // 
@@ -575,7 +410,6 @@
         private GroupBox groupBox3;
         private DataGridView dgvGiaoCa;
         private Button btnThem;
-        private Button btnXoa;
         private Button btnSua;
         private Button btnClear;
         private Button btnTimKiem;

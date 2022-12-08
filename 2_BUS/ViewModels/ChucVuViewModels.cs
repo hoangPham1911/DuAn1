@@ -9,7 +9,7 @@ namespace _2_BUS.ViewModels
     public class ChucVuViewModels
     {
         public Guid Id { get; set; }
-    
+        public Guid? IdNv { get; set; }
         public string Ma { get; set; }
         public string Ho { get; set; }
         public string TenDem { get; set; }

@@ -54,23 +54,23 @@ namespace _3_PL.View
             visibleControl(true);
         }
 
-        private void btnXoa_Click(object sender, EventArgs e)
-        {
-            var resultConfirm = MessageBox.Show($"Bạn có chắc chắn muốn giao ca {_itemSelected.Ma} không?", caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (resultConfirm == DialogResult.Yes)
-            {
-                var result = _iGiaoCaService.Xoa(_itemSelected.Id);
-                if (result)
-                {
-                    MessageBox.Show($"Xoá thành công !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    loadData();
-                }
-                else
-                {
-                    MessageBox.Show($"Xoá giao ca không thành công !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-        }
+        //private void btnXoa_Click(object sender, EventArgs e)
+        //{
+        //    var resultConfirm = MessageBox.Show($"Bạn có chắc chắn muốn giao ca {_itemSelected.Ma} không?", caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+        //    if (resultConfirm == DialogResult.Yes)
+        //    {
+        //        var result = _iGiaoCaService.Xoa(_itemSelected.Id);
+        //        if (result)
+        //        {
+        //            MessageBox.Show($"Xoá thành công !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //            loadData();
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show($"Xoá giao ca không thành công !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //        }
+        //    }
+        //}
 
         private void btnClear_Click(object sender, EventArgs e)
         {

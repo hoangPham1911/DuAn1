@@ -140,12 +140,16 @@ namespace _3_PL.View
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            txt_email.Enabled = textBox1.Enabled = false;
-            var nv = inhanvien.GetAll().FirstOrDefault();
-            txt_email.Text = nv.Ten;
-            var cv = ichucvu.GetAll().FirstOrDefault();
-            textBox1.Text = cv.Ten;
-            if (textBox1.Text == "Nhân viên")
+            var nv = inhanvien.GetAll().FirstOrDefault(p=>p.Id == FrmDangNhap._IdStaff);
+            if (nv != null)
+            {
+                textBox1.Text = nv.Ten;
+            }
+
+            var cv = ichucvu.GetChucVu().FirstOrDefault(p=>p.IdNv == FrmDangNhap._IdStaff);
+            if (cv != null)
+                textBox2.Text = cv.Ten;
+            if (textBox2.Text == "Nhân viên")
             {
                 bt_sanpham.Enabled = btn_thongke.Enabled = btn_quanlynhanvien.Enabled = false;
             }

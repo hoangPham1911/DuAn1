@@ -37,6 +37,8 @@ namespace _3_PL.View
             var logiN = inhanvien.GetAll().Where(p => p.Ma == tb_tenguoidung.Text && p.MatKhau == tb_mk.Text).FirstOrDefault();
             if (logiN != null)
             {
+                _IdStaff = logiN.Id;
+
                 this.Hide();
                 FormMain formMain = new FormMain();
                 formMain.ShowDialog();

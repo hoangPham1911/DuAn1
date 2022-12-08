@@ -13,7 +13,7 @@ namespace _2_BUS.IService
         bool Them(ChucVuViewModels chucVu);
         bool Sua(ChucVuViewModels chucVu);
         bool Xoa(Guid Id);
-
+        public List<ChucVuViewModels> GetChucVu();
         List<ChucVuViewModels> TimKiem(string Ma);
     }
 }

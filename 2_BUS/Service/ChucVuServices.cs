@@ -6,6 +6,7 @@ using _2_BUS.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,9 +15,11 @@ namespace _2_BUS.Service
     public class ChucVuServices : IChucVuServices
     {
         private IPositionRepository _positionRepository;
+        private ISfattRepository _sfattRepository;
         public ChucVuServices()
         {
             _positionRepository = new PositionRepositores();
+            _sfattRepository = new SfattRepositores();
         }
         public List<ChucVuViewModels> GetAll()
         {
@@ -34,7 +37,17 @@ namespace _2_BUS.Service
             }
             return lstChucVuViewModel;
         }
-
+        public List<ChucVuViewModels> GetChucVu()
+        {
+            return (from a in _positionRepository.GetAll()
+                    join b in _sfattRepository.GetAll() on a.Id equals b.IdCv
+                    select new ChucVuViewModels
+                    {
+                        Id =a.Id,
+                        IdNv = b.Id,
+                        Ten = a.Ten
+                    }).ToList();
+        }
         public bool Sua(ChucVuViewModels chucVu)
         {
             var chucVuModel = new ChucVu

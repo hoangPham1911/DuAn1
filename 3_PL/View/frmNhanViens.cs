@@ -17,6 +17,7 @@ using System.Windows.Forms.Design;
 using System.Xml.Linq;
 using _1_DAL.Models;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
+using DocumentFormat.OpenXml.Spreadsheet;
 
 namespace _3_PL.View
 {
@@ -47,7 +48,6 @@ namespace _3_PL.View
         {
             InitializeComponent();
             _instance = this;
-            loadDataGridView();
         }
 
 
@@ -80,65 +80,65 @@ namespace _3_PL.View
         }
         private void sendOTP()
         {
-            try
-            {
-                var random = new Random();
-                _code = random.Next(100000, 1000000);
-                var fromMail = new MailAddress(mailAddress);
-                var toMail = new MailAddress(txtMailAddress.Text.Trim());
+            //try
+            //{
+            //    var random = new Random();
+            //    _code = random.Next(100000, 1000000);
+            //    var fromMail = new MailAddress(mailAddress);
+            //    var toMail = new MailAddress(txtMailAddress.Text.Trim());
 
-                var smtp = new SmtpClient
-                {
-                    Host = "smtp.gmail.com",
-                    Port = 587,
-                    EnableSsl = true,
-                    DeliveryMethod = SmtpDeliveryMethod.Network,
-                    UseDefaultCredentials = false,
-                    Credentials = new NetworkCredential(fromMail.Address, fromPass),
-                    Timeout = 20000
-                };
-                using (var message = new MailMessage(fromMail, toMail)
-                {
-                    Subject = subjectMail,
-                    Body = $"Mã OTP của bạn là: {_code}\nMã OTP có hiệu lực trong 60s"
-                })
-                {
-                    smtp.Send(message);
-                }
-                MessageBox.Show($"Send OTP thành công !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                startTimer();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Send OTP thất bại\n{ex.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                enableControl(false);
-            }
+            //    var smtp = new SmtpClient
+            //    {
+            //        Host = "smtp.gmail.com",
+            //        Port = 587,
+            //        EnableSsl = true,
+            //        DeliveryMethod = SmtpDeliveryMethod.Network,
+            //        UseDefaultCredentials = false,
+            //        Credentials = new NetworkCredential(fromMail.Address, fromPass),
+            //        Timeout = 20000
+            //    };
+            //    using (var message = new MailMessage(fromMail, toMail)
+            //    {
+            //        Subject = subjectMail,
+            //        Body = $"Mã OTP của bạn là: {_code}\nMã OTP có hiệu lực trong 60s"
+            //    })
+            //    {
+            //        smtp.Send(message);
+            //    }
+            //    MessageBox.Show($"Send OTP thành công !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    startTimer();
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show($"Send OTP thất bại\n{ex.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    enableControl(false);
+            //}
         }
 
         private void confirmOTP()
         {
-            var codeConfirm = txtOTP.Text.Trim();
-            if (_code.ToString().Equals(codeConfirm) && _timer != null)
-            {
-                // cho phép làm gì đó
-                MessageBox.Show("Đăng nhập thành công !!!", "Thông báo",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                stopTimer();
-            }
-            else if (_code.ToString().Equals(codeConfirm) && _timer == null)
-            {
-                // OTP đã hết hạn
-                var confirmMessage = MessageBox.Show("Mã OTP đã hết hiệu lực !!!\nBạn có muốn nhận lại OTP không?",
-                    "Thông báo", MessageBoxButtons.RetryCancel, MessageBoxIcon.Question);
-                if (confirmMessage == DialogResult.Retry)
-                {
-                    sendOTP();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Mã OTP không đúng !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+         //  var codeConfirm = txtOTP.Text.Trim();
+            //if (_code.ToString().Equals(codeConfirm) && _timer != null)
+            //{
+            ////    // cho phép làm gì đó
+            ////    MessageBox.Show("Đăng nhập thành công !!!", "Thông báo",
+            ////        MessageBoxButtons.OK, MessageBoxIcon.Information);
+            ////    stopTimer();
+            ////}
+            ////else if (_code.ToString().Equals(codeConfirm) && _timer == null)
+            ////{
+            ////    // OTP đã hết hạn
+            ////    var confirmMessage = MessageBox.Show("Mã OTP đã hết hiệu lực !!!\nBạn có muốn nhận lại OTP không?",
+            ////        "Thông báo", MessageBoxButtons.RetryCancel, MessageBoxIcon.Question);
+            ////    if (confirmMessage == DialogResult.Retry)
+            ////    {
+            ////        sendOTP();
+            ////    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Mã OTP không đúng !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
         }
 
         private static void startTimer()
@@ -162,7 +162,7 @@ namespace _3_PL.View
         }
         private void enableControl(bool isEnable)
         {
-            txtOTP.Enabled = btnXacNhan.Enabled = isEnable;
+     //       txtOTP.Enabled = btnXacNhan.Enabled = isEnable;
         }
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
@@ -183,19 +183,19 @@ namespace _3_PL.View
             visibleButton(true);
             ChonAnh();
         }
-        private void ChonAnh()
+        private byte[] ChonAnh()
         {
             try
             {
                 MemoryStream ms = new MemoryStream();
                 pckAnh.Image.Save(ms, pckAnh.Image.RawFormat);
                 byte[] img = ms.ToArray();
-                dgvNhanVien.Rows.Add("", img);
+                return img;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-               
+                return null;
             }
         }
         /// <summary>
@@ -230,7 +230,7 @@ namespace _3_PL.View
                 = txtQueQuan.Enabled = txtSDT.Enabled
                 = txtTen.Enabled = txtTenDem.Enabled
                 = dtpNamSinh.Enabled = cmChucVu.Enabled
-                = cbTrangThai.Enabled = rdNam.Enabled= pckAnh.Enabled
+                = cbTrangThai.Enabled = rdNam.Enabled = pckAnh.Enabled
                 = rdNu.Enabled = isEnable;
         }
         /// <summary>
@@ -260,7 +260,7 @@ namespace _3_PL.View
             txtTen.Focus();
             cmChucVu.SelectedIndex = 0;
             pckAnh.Image = null;
-           
+
         }
 
         private void bindingData()
@@ -277,6 +277,21 @@ namespace _3_PL.View
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        /// 
+
+        public Image ConvertByteArrayToImg(byte[] data)
+        {
+            if (data == null) return null;
+            else
+            {
+                using (MemoryStream ms = new MemoryStream(data))
+                {
+                    if (ms == null) return null;
+                    else
+                        return Image.FromStream(ms);
+                }
+            }
+        }
         private void bindingDataForControl(NhanVienViewModels obj)
         {
             this.txtMa.Text = obj.Ma;
@@ -289,7 +304,7 @@ namespace _3_PL.View
             this.txtTenDem.Text = obj.TenDem;
             this.dtpNamSinh.Text = Convert.ToString(obj.NamSinh);
             this.txtQueQuan.Text = obj.QueQuan;
-            
+           
 
             var chucVu = dataChucVuViewModels.Where(x => x.Id.ToString() == obj.IdCv?.ToString()).FirstOrDefault();
             if (chucVu != null)
@@ -301,7 +316,7 @@ namespace _3_PL.View
             this.rdNu.Checked = obj.GioiTinh == "Nữ";
 
             this.cbTrangThai.Checked = (obj.TrangThai != null && obj.TrangThai == 0); // TrangThai = 0 -> nhan vien con hoat dong
-            
+
 
         }
         /// <summary>
@@ -329,7 +344,7 @@ namespace _3_PL.View
             objSelected.TrangThai = cbTrangThai.Checked ? 0 : 1;
             objSelected.NamSinh = dtpNamSinh.Value.Date;
             objSelected.GioiTinh = rdNam.Checked ? "Nam" : "Nữ";
-                          
+            objSelected.Anh = ChonAnh();
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -423,6 +438,9 @@ namespace _3_PL.View
 
         private void dgvNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            DataGridViewRow row = dgvNhanVien.Rows[e.RowIndex];
+
+            this.pckAnh.Image = ConvertByteArrayToImg((byte[])row.Cells[14].Value);
             objSelected = dataNhanVienViewModels[e.RowIndex];
             if (objSelected != null)
             {
@@ -455,31 +473,12 @@ namespace _3_PL.View
             this.Close();
         }
 
-        void loadDataGridView()
-        {
-            DataGridViewImageColumn imageColumn = new DataGridViewImageColumn();
-            imageColumn.HeaderText = "Anh";
-            imageColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
-
-            DataGridViewTextBoxColumn textBoxColumn = new DataGridViewTextBoxColumn();
-            textBoxColumn.HeaderText = "Id";
-
-            dgvNhanVien.Columns.Add(textBoxColumn);
-            dgvNhanVien.Columns.Add(imageColumn);
-
-            dgvNhanVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvNhanVien.RowTemplate.Height = 120;
-
-
-
-        }
-
         private void btnChonAnh_Click(object sender, EventArgs e)
         {
             OpenFileDialog opt = new OpenFileDialog();
             opt.Filter = "Chon Anh(*.jpg;*.png;*.gif)|*.jpg;*.png;*.gif";
 
-            if(opt.ShowDialog()== DialogResult.OK)
+            if (opt.ShowDialog() == DialogResult.OK)
             {
                 pckAnh.Image = Image.FromFile(opt.FileName);
             }
