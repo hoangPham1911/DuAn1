@@ -54,6 +54,21 @@ namespace _3_PL.View
             }
            
         }
+        private byte[] ChonAnh()
+        {
+            try
+            {
+                MemoryStream ms = new MemoryStream();
+                ptb_anh.Image.Save(ms, ptb_anh.Image.RawFormat);
+                byte[] img = ms.ToArray();
+                return img;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+        }
         private void bt_dangky_Click(object sender, EventArgs e)
         {
             var chucvu = chucVuServices.GetAll().FirstOrDefault(x => x.Ten == cb_ChucVu.Text);
@@ -71,7 +86,7 @@ namespace _3_PL.View
             nhanvien.NamSinh = dtpNamSinh.Value;
             nhanvien.GioiTinh = rdNam.Checked ? "Nam" : "Nữ";
             nhanvien.IdCv = chucvu.Id;
-            nhanvien.Anh = null;
+            nhanvien.Anh = ChonAnh();
             if (tb_ho.Text == "" && tb_tenDem.Text == "" && tb_ten.Text == "")
             {
                 MessageBox.Show("Nhập họ và tên đầy đủ");

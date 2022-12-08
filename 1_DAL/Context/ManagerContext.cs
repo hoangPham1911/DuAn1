@@ -152,6 +152,7 @@ namespace _1_DAL.Context
                 entity.Property(e => e.TinhTrang).HasDefaultValueSql("((0))");
                 entity.Property(e => e.SoTienQuyDoi).HasDefaultValueSql("((0))");
                 entity.Property(e => e.SoDiemSuDung).HasDefaultValueSql("((0))");
+                entity.Property(e => e.TongTienNvTrongCa).HasDefaultValueSql("((0))");
 
             });
             modelBuilder.Entity<ChiTietHangHoa>(entity =>

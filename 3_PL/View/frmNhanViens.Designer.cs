@@ -35,7 +35,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnChonAnh = new System.Windows.Forms.Button();
             this.pckAnh = new System.Windows.Forms.PictureBox();
-            this.btnGiaoCa = new System.Windows.Forms.Button();
             this.btnLuu = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -122,7 +121,6 @@
             this.groupBox2.BackColor = System.Drawing.Color.LightSalmon;
             this.groupBox2.Controls.Add(this.btnChonAnh);
             this.groupBox2.Controls.Add(this.pckAnh);
-            this.groupBox2.Controls.Add(this.btnGiaoCa);
             this.groupBox2.Controls.Add(this.btnLuu);
             this.groupBox2.Controls.Add(this.pictureBox4);
             this.groupBox2.Controls.Add(this.pictureBox3);
@@ -133,9 +131,9 @@
             this.groupBox2.Controls.Add(this.btnSua);
             this.groupBox2.Controls.Add(this.btnClear);
             this.groupBox2.Location = new System.Drawing.Point(610, 8);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox2.Size = new System.Drawing.Size(643, 298);
             this.groupBox2.TabIndex = 31;
             this.groupBox2.TabStop = false;
@@ -161,20 +159,7 @@
             this.pckAnh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pckAnh.TabIndex = 57;
             this.pckAnh.TabStop = false;
-            // 
-            // btnGiaoCa
-            // 
-            this.btnGiaoCa.BackColor = System.Drawing.Color.LightSalmon;
-            this.btnGiaoCa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnGiaoCa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGiaoCa.Location = new System.Drawing.Point(161, 235);
-            this.btnGiaoCa.Name = "btnGiaoCa";
-            this.btnGiaoCa.Size = new System.Drawing.Size(120, 39);
-            this.btnGiaoCa.TabIndex = 56;
-            this.btnGiaoCa.Text = "Giao ca";
-            this.btnGiaoCa.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnGiaoCa.UseVisualStyleBackColor = false;
-            this.btnGiaoCa.Click += new System.EventHandler(this.btnGiaoCa_Click);
+            this.pckAnh.Click += new System.EventHandler(this.pckAnh_Click);
             // 
             // btnLuu
             // 
@@ -196,7 +181,7 @@
             this.pictureBox4.BackColor = System.Drawing.Color.DarkSalmon;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(28, 197);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(29, 24);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -208,7 +193,7 @@
             this.pictureBox3.BackColor = System.Drawing.Color.DarkSalmon;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(36, 140);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(29, 24);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -220,7 +205,7 @@
             this.pictureBox2.BackColor = System.Drawing.Color.DarkSalmon;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(28, 95);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(37, 20);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -232,7 +217,7 @@
             this.pictureBox1.BackColor = System.Drawing.Color.DarkSalmon;
             this.pictureBox1.Image = global::_3_PL.Properties.Resources.add_user;
             this.pictureBox1.Location = new System.Drawing.Point(28, 37);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(37, 28);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -289,9 +274,9 @@
             this.groupBox3.BackColor = System.Drawing.Color.LightSalmon;
             this.groupBox3.Controls.Add(this.dgvNhanVien);
             this.groupBox3.Location = new System.Drawing.Point(10, 311);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox3.Size = new System.Drawing.Size(1238, 242);
             this.groupBox3.TabIndex = 32;
             this.groupBox3.TabStop = false;
@@ -334,6 +319,7 @@
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
             this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.Visible = false;
             // 
@@ -341,12 +327,14 @@
             // 
             this.maDataGridViewTextBoxColumn.DataPropertyName = "Ma";
             this.maDataGridViewTextBoxColumn.HeaderText = "Mã";
+            this.maDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.maDataGridViewTextBoxColumn.Name = "maDataGridViewTextBoxColumn";
             // 
             // hoDataGridViewTextBoxColumn
             // 
             this.hoDataGridViewTextBoxColumn.DataPropertyName = "Ho";
             this.hoDataGridViewTextBoxColumn.HeaderText = "Ho";
+            this.hoDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.hoDataGridViewTextBoxColumn.Name = "hoDataGridViewTextBoxColumn";
             this.hoDataGridViewTextBoxColumn.Visible = false;
             // 
@@ -354,6 +342,7 @@
             // 
             this.tenDemDataGridViewTextBoxColumn.DataPropertyName = "TenDem";
             this.tenDemDataGridViewTextBoxColumn.HeaderText = "TenDem";
+            this.tenDemDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.tenDemDataGridViewTextBoxColumn.Name = "tenDemDataGridViewTextBoxColumn";
             this.tenDemDataGridViewTextBoxColumn.Visible = false;
             // 
@@ -361,6 +350,7 @@
             // 
             this.tenDataGridViewTextBoxColumn.DataPropertyName = "Ten";
             this.tenDataGridViewTextBoxColumn.HeaderText = "Ten";
+            this.tenDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.tenDataGridViewTextBoxColumn.Name = "tenDataGridViewTextBoxColumn";
             this.tenDataGridViewTextBoxColumn.Visible = false;
             // 
@@ -368,6 +358,7 @@
             // 
             this.hoTenDataGridViewTextBoxColumn.DataPropertyName = "HoTen";
             this.hoTenDataGridViewTextBoxColumn.HeaderText = "Họ tên";
+            this.hoTenDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.hoTenDataGridViewTextBoxColumn.Name = "hoTenDataGridViewTextBoxColumn";
             this.hoTenDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -375,48 +366,56 @@
             // 
             this.gioiTinhDataGridViewTextBoxColumn.DataPropertyName = "GioiTinh";
             this.gioiTinhDataGridViewTextBoxColumn.HeaderText = "Giới tính";
+            this.gioiTinhDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.gioiTinhDataGridViewTextBoxColumn.Name = "gioiTinhDataGridViewTextBoxColumn";
             // 
             // namSinhDataGridViewTextBoxColumn
             // 
             this.namSinhDataGridViewTextBoxColumn.DataPropertyName = "NamSinh";
             this.namSinhDataGridViewTextBoxColumn.HeaderText = "Năm sinh";
+            this.namSinhDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.namSinhDataGridViewTextBoxColumn.Name = "namSinhDataGridViewTextBoxColumn";
             // 
             // queQuanDataGridViewTextBoxColumn
             // 
             this.queQuanDataGridViewTextBoxColumn.DataPropertyName = "QueQuan";
             this.queQuanDataGridViewTextBoxColumn.HeaderText = "Quê quán";
+            this.queQuanDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.queQuanDataGridViewTextBoxColumn.Name = "queQuanDataGridViewTextBoxColumn";
             // 
             // sdtDataGridViewTextBoxColumn
             // 
             this.sdtDataGridViewTextBoxColumn.DataPropertyName = "Sdt";
             this.sdtDataGridViewTextBoxColumn.HeaderText = "Sđt";
+            this.sdtDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.sdtDataGridViewTextBoxColumn.Name = "sdtDataGridViewTextBoxColumn";
             // 
             // matKhauDataGridViewTextBoxColumn
             // 
             this.matKhauDataGridViewTextBoxColumn.DataPropertyName = "MatKhau";
             this.matKhauDataGridViewTextBoxColumn.HeaderText = "Mật khẩu";
+            this.matKhauDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.matKhauDataGridViewTextBoxColumn.Name = "matKhauDataGridViewTextBoxColumn";
             // 
             // emailDataGridViewTextBoxColumn
             // 
             this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
             this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
+            this.emailDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
             // 
             // cMNDDataGridViewTextBoxColumn
             // 
             this.cMNDDataGridViewTextBoxColumn.DataPropertyName = "CMND";
             this.cMNDDataGridViewTextBoxColumn.HeaderText = "CMND";
+            this.cMNDDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.cMNDDataGridViewTextBoxColumn.Name = "cMNDDataGridViewTextBoxColumn";
             // 
             // idCvDataGridViewTextBoxColumn
             // 
             this.idCvDataGridViewTextBoxColumn.DataPropertyName = "IdCv";
             this.idCvDataGridViewTextBoxColumn.HeaderText = "Chức vụ";
+            this.idCvDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.idCvDataGridViewTextBoxColumn.Name = "idCvDataGridViewTextBoxColumn";
             this.idCvDataGridViewTextBoxColumn.Visible = false;
             // 
@@ -424,6 +423,7 @@
             // 
             this.Anh.DataPropertyName = "Anh";
             this.Anh.HeaderText = "Anh";
+            this.Anh.MinimumWidth = 6;
             this.Anh.Name = "Anh";
             // 
             // nhanVienViewModelsBindingSource1
@@ -700,9 +700,9 @@
             this.groupBox1.Controls.Add(this.txtMa);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(10, 8);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Size = new System.Drawing.Size(599, 268);
             this.groupBox1.TabIndex = 30;
             this.groupBox1.TabStop = false;
@@ -713,7 +713,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PapayaWhip;
-            this.ClientSize = new System.Drawing.Size(1264, 546);
+            this.ClientSize = new System.Drawing.Size(1199, 546);
             this.Controls.Add(this.btnTimKiem);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -786,7 +786,6 @@
         private ComboBox cmChucVu;
         private CheckBox cbTrangThai;
         private GroupBox groupBox1;
-        private Button btnGiaoCa;
         private Button btnChonAnh;
         private PictureBox pckAnh;
         private DataGridViewTextBoxColumn trangThaiDataGridViewTextBoxColumn;

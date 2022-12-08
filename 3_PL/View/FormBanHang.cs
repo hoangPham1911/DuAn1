@@ -256,7 +256,6 @@ namespace _3_PL.View
             ThemHoaDon.NgayTao = DateTime.Today;
             maHd = ThemHoaDon.Ma;
             ThemHoaDon.TinhTrang = 2;
-
             ThemHoaDon.IdNv = FrmDangNhap._IdStaff;
             return _HoaDonService.GetIdHoaDon(ThemHoaDon);
         }
@@ -763,35 +762,7 @@ namespace _3_PL.View
                     {
                         suaHoaDonModels.TinhTrang = 1;
                         hoaDonCt.TrangThai = 1;
-                        LichSuDiemViewModels lichSuDiemViewModels = new LichSuDiemViewModels();
-                        if (_KhachHangServices.GetAllKhachHangDB().SingleOrDefault(p => p.Sdt.Contains(textBox10.Text)).IdVi != null)
-                        {
-                            lichSuDiemViewModels.IdViDiem = _KhachHangServices.GetAllKhachHangDB().SingleOrDefault(p => p.Sdt.Contains(textBox10.Text)).IdVi;
-
-                            if (textBox11.Text == "")
-                            {
-                                lichSuDiemViewModels.SoDiemTieuDung = 0;
-                            }
-                            else
-                            {
-                                lichSuDiemViewModels.SoDiemTieuDung = int.Parse(textBox11.Text);
-                                lichSuDiemViewModels.NgaySuDung = DateTime.Now;
-                                lichSuDiemViewModels.TrangThai = 1;
-                                lichSuDiemViewModels.IdHoaDon = IdHoaDon;
-                                lichSuDiemViewModels.SoDiemCong = int.Parse(textBox5.Text) - int.Parse(txt_tongTienHoaDon.Text) / int.Parse(textBox7.Text);
-                                //MessageBox.Show(lichSuDiemViewModels.IdHoaDon.ToString());
-                                _LichSuDiemService.add(lichSuDiemViewModels);
-                                ViDiemViewModel viDiem = new ViDiemViewModel();
-                                viDiem.TongDiem = int.Parse(textBox5.Text) - int.Parse(textBox11.Text) + lichSuDiemViewModels.SoDiemCong;
-                                viDiem.TrangThai = 1;
-                                var IdKh = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt.Contains(textBox10.Text)).Idkh;
-                                viDiem.IdKhachHang = IdKh;
-                                if (_ViDiemService.GetViDiem().FirstOrDefault(p => p.IdKhachHang == IdKh) != null)
-                                    viDiem.Id = _ViDiemService.GetViDiem().FirstOrDefault(p => p.IdKhachHang == IdKh).Id;
-                                _ViDiemService.update(viDiem);
-                            }
-                        }
-                        flhoadon.Controls.Remove(createButton());
+                       
                     }
                     if (textBox11.Text == "")
                     {
@@ -807,8 +778,46 @@ namespace _3_PL.View
                     suaHoaDonModels.NgayThanhToan = DateTime.Now;
                     if (_HoaDonChiTietService.SuaHoaDonChiTiet(hoaDonCt))
                     {
-                        MessageBox.Show(_HoaDonService.SuaHoaDon(suaHoaDonModels));
+                        if(_HoaDonService.Get().FirstOrDefault(p=>p.IdNv == FrmDangNhap._IdStaff && p.IdHoaDon == IdHoaDon) != null)
+                        {
+                           
+                            suaHoaDonModels.TongSoTienTrongCa += decimal.Parse(tb_TienKhachCanTra.Text);
+                        }
 
+                        MessageBox.Show(_HoaDonService.SuaHoaDon(suaHoaDonModels));
+                        if (radioButton2.Checked)
+                        {
+                            LichSuDiemViewModels lichSuDiemViewModels = new LichSuDiemViewModels();
+                            if (_KhachHangServices.GetAllKhachHangDB().SingleOrDefault(p => p.Sdt.Contains(textBox10.Text)) != null)
+                            {
+                                lichSuDiemViewModels.IdViDiem = _KhachHangServices.GetAllKhachHangDB().SingleOrDefault(p => p.Sdt.Contains(textBox10.Text)).IdVi;
+
+                                if (textBox11.Text == "")
+                                {
+                                    lichSuDiemViewModels.SoDiemTieuDung = 0;
+                                }
+                                else
+                                {
+                                    lichSuDiemViewModels.SoDiemTieuDung = int.Parse(textBox11.Text);
+                                    lichSuDiemViewModels.NgaySuDung = DateTime.Now;
+                                    lichSuDiemViewModels.TrangThai = 1;
+                                    lichSuDiemViewModels.IdHoaDon = IdHoaDon;
+                                    lichSuDiemViewModels.SoDiemCong = int.Parse(textBox5.Text) - int.Parse(txt_tongTienHoaDon.Text) / int.Parse(textBox7.Text);
+                                    //MessageBox.Show(lichSuDiemViewModels.IdHoaDon.ToString());
+                                    _LichSuDiemService.add(lichSuDiemViewModels);
+                                    ViDiemViewModel viDiem = new ViDiemViewModel();
+                                    viDiem.TongDiem = int.Parse(textBox5.Text) - int.Parse(textBox11.Text) + lichSuDiemViewModels.SoDiemCong;
+                                    viDiem.TrangThai = 1;
+                                    var IdKh = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt.Contains(textBox10.Text)).Idkh;
+                                    viDiem.IdKhachHang = IdKh;
+                                    if (_ViDiemService.GetViDiem().FirstOrDefault(p => p.IdKhachHang == IdKh) != null)
+                                        viDiem.Id = _ViDiemService.GetViDiem().FirstOrDefault(p => p.IdKhachHang == IdKh).Id;
+                                    _ViDiemService.update(viDiem);
+                                }
+                            }
+                            flhoadon.Controls.Remove(createButton());
+                            
+                        }
                     }
 
                     loadGioHang();
@@ -1047,26 +1056,34 @@ namespace _3_PL.View
 
         private void tb_tienKhachDua_TextChanged(object sender, EventArgs e)
         {
-            decimal khachdua;
-            decimal khachtra;
-
-            CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
-            string fkhachtra = Convert.ToString(tb_TienKhachCanTra.Text);
-            string tkhachtra = fkhachtra.Replace(".", "");
-
-            string fkhachdua = Convert.ToString(tb_tienKhachDua.Text);
-            string tkhachdua = fkhachdua.Replace(".", "");
-            double ftienthua = Convert.ToDouble(Convert.ToDouble(tkhachdua) - Convert.ToDouble(tkhachtra));
-
-            tb_tienThua.Text = Convert.ToInt32(ftienthua).ToString("#,###", cul.NumberFormat);
-            if (ftienthua < 0)
+            if(tb_tienKhachDua.Text == "")
             {
-                btn_ThanhToan.Enabled = false;
+                tb_tienKhachDua.Text = 0.ToString();
             }
             else
             {
-                btn_ThanhToan.Enabled = true;
+                decimal khachdua;
+                decimal khachtra;
+
+                CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
+                string fkhachtra = Convert.ToString(tb_TienKhachCanTra.Text);
+                string tkhachtra = fkhachtra.Replace(".", "");
+
+                string fkhachdua = Convert.ToString(tb_tienKhachDua.Text);
+                string tkhachdua = fkhachdua.Replace(".", "");
+                double ftienthua = Convert.ToDouble(Convert.ToDouble(tkhachdua) - Convert.ToDouble(tkhachtra));
+
+                tb_tienThua.Text = Convert.ToInt32(ftienthua).ToString("#,###", cul.NumberFormat);
+                if (ftienthua < 0)
+                {
+                    btn_ThanhToan.Enabled = false;
+                }
+                else
+                {
+                    btn_ThanhToan.Enabled = true;
+                }
             }
+            
         }
 
         Guid IDSpCt;
@@ -1790,24 +1807,32 @@ namespace _3_PL.View
 
         private void textBox11_TextChanged_1(object sender, EventArgs e)
         {
-            CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
-            string tongTien2 = textBox11.Text.ToString();
-            string fTongTien1 = tongTien2.Replace(".00", "");
-            if (_QuyDoiDiemService.GetDiem().FirstOrDefault(p => p.STD.Contains(textBox10.Text)) != null)
+            if (tb_TienKhachCanTra.Text == "")
             {
-                string point = (_QuyDoiDiemService.GetDiem().FirstOrDefault(p => p.STD.Contains(textBox10.Text)).TyLeQuyDoi).ToString();
-                string fncoc = point.Replace(".00", "");
-                decimal tien = (decimal.Parse(fTongTien1) * decimal.Parse(fncoc));
-                textBox7.Text = Convert.ToDouble(tien).ToString("#,###", cul.NumberFormat);
-
-                string tongTien = txt_tongTienHoaDon.Text.ToString();
-                string fTongTien = tongTien.Replace(".", "");
-                double TienKhachTra = Convert.ToDouble(fTongTien) - Convert.ToDouble(tien);
-                tb_TienKhachCanTra.Text = Convert.ToInt32(TienKhachTra).ToString("#,###", cul.NumberFormat);
-                if (tb_TienKhachCanTra.Text == "")
+                tb_TienKhachCanTra.Text = 0.ToString();
+            }
+            else
+            {
+                CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
+                string tongTien2 = textBox11.Text.ToString();
+                string fTongTien1 = tongTien2.Replace(".00", "");
+                if (_QuyDoiDiemService.GetDiem().FirstOrDefault(p => p.STD.Contains(textBox10.Text)) != null)
                 {
-                    tb_TienKhachCanTra.Text = 0.ToString();
+                    string point = (_QuyDoiDiemService.GetDiem().FirstOrDefault(p => p.STD.Contains(textBox10.Text)).TyLeQuyDoi).ToString();
+                    string fncoc = point.Replace(".00", "");
+                    decimal tien = (decimal.Parse(fTongTien1) * decimal.Parse(fncoc));
+                    textBox7.Text = Convert.ToDouble(tien).ToString("#,###", cul.NumberFormat);
+
+                    string tongTien = txt_tongTienHoaDon.Text.ToString();
+                    string fTongTien = tongTien.Replace(".", "");
+                    double TienKhachTra = Convert.ToDouble(fTongTien) - Convert.ToDouble(tien);
+                    tb_TienKhachCanTra.Text = Convert.ToInt32(TienKhachTra).ToString("#,###", cul.NumberFormat);
+                    if (tb_TienKhachCanTra.Text == "")
+                    {
+                        tb_TienKhachCanTra.Text = 0.ToString();
+                    }
                 }
+
             }
 
 

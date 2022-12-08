@@ -1,4 +1,6 @@
-﻿using _1.DAL.IRepositories;
+﻿using _1.DAL.DALServices;
+using _1.DAL.IDALServices;
+using _1.DAL.IRepositories;
 using _1.DAL.IRepostiories;
 using _1.DAL.Repostiores;
 using _1_DAL.Context;
@@ -18,16 +20,16 @@ namespace _2_BUS.Services
     {
 
         IreceiptRepository HoaDonRepos;
-        IClientRepository clientRepository;
+        ISfattRepository SfatttRepository;
 
         public HoaDonService()
         {
             HoaDonRepos = new ReceiptRepositores();
-            clientRepository = new ClientRepositores();
+            SfatttRepository = new SfattRepositores();
         }
         public List<SuaHoaDonModels> GetAllHoaDonDB()
         {
-            return (from a in HoaDonRepos.getAllReceipt() 
+            return (from a in HoaDonRepos.getAllReceipt()
                     select
                     new SuaHoaDonModels
                     {
@@ -38,7 +40,7 @@ namespace _2_BUS.Services
                         NgayNhan = a.NgayNhan,
                         NgayShip = a.NgayShip,
                         NgayTao = a.NgayTao,
-                        NgayThanhToan = a.NgayThanhToan,                       
+                        NgayThanhToan = a.NgayThanhToan,
                         //Thue = a.Thue,
                         TinhTrang = a.TinhTrang,
                         SDTShip = a.SDTShip,
@@ -46,12 +48,35 @@ namespace _2_BUS.Services
                         SoTienQuyDoi = a.SoTienQuyDoi,
                         SoDiemSuDung = a.SoDiemSuDung,
                         //    TenKhachHang = a.TenKhachHang,
-                    //    PhanTramGiamGia = a.PhanTramGiamGia,
+                        //    PhanTramGiamGia = a.PhanTramGiamGia,
 
                     }).ToList();
 
         }
-    
+        public List<SuaHoaDonModels> Get()
+        {
+            return (from a in HoaDonRepos.getAllReceipt()
+                    join b in SfatttRepository.GetAll() on a.IdNv equals b.Id
+                    select
+                    new SuaHoaDonModels
+                    {
+                        IdHoaDon = a.Id,
+                        IdNv = a.IdNv,
+                        Ma = a.Ma,
+                        NgayNhan = a.NgayNhan,
+                        NgayShip = a.NgayShip,
+                        NgayTao = a.NgayTao,
+                        NgayThanhToan = a.NgayThanhToan,
+                        TinhTrang = a.TinhTrang,
+                        SDTShip = a.SDTShip,
+                        TenShip = a.TenShip,
+                        SoTienQuyDoi = a.SoTienQuyDoi,
+                        SoDiemSuDung = a.SoDiemSuDung,
+                        TongSoTienTrongCa = a.TongTienNvTrongCa
+
+                    }).ToList();
+
+        }
 
         public Guid GetIdHoaDon(ThemHoaDonModels IdHoaDon)
         {
@@ -85,11 +110,11 @@ namespace _2_BUS.Services
                 hoaDon.NgayShip = Hoadonold.NgayShip;
                 hoaDon.TinhTrang = Hoadonold.TinhTrang;
                 //hoaDon.Thue = Hoadonold.Thue;
-          //      hoaDon.TenKhachHang = Hoadonold.TenKhachHang;
+                //      hoaDon.TenKhachHang = Hoadonold.TenKhachHang;
                 hoaDon.TenShip = Hoadonold.TenShip;
                 hoaDon.SoDiemSuDung = Hoadonold.SoDiemSuDung;
                 hoaDon.SoTienQuyDoi = Hoadonold.SoTienQuyDoi;
-           //     hoaDon.PhanTramGiamGia= Hoadonold.PhanTramGiamGia;
+                hoaDon.TongTienNvTrongCa = Hoadonold.TongSoTienTrongCa;
                 HoaDonRepos.updateReceipt(hoaDon);
                 return "thanh cong";
             }

@@ -31,7 +31,9 @@ namespace _2_BUS.ViewModels
         public decimal? SoTienQuyDoi { get; set; }
         public int? SoDiemSuDung { get; set; }
         public string TenKhachHang { get; set; }
-        public decimal? PhanTramGiamGia { get; set; }
+
+        public decimal TongSoTienTrongCa { get; set; }
+
     }
 }
 

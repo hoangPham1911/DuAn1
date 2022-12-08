@@ -45,8 +45,8 @@
             this.btnCloseChildForm = new System.Windows.Forms.Button();
             this.bt_sanpham = new System.Windows.Forms.Button();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.bt_khachhang = new System.Windows.Forms.Button();
             this.btn_quanlynhanvien = new System.Windows.Forms.Button();
@@ -75,7 +75,7 @@
             this.panelhome.Controls.Add(this.panelTitle);
             this.panelhome.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelhome.Location = new System.Drawing.Point(154, 0);
-            this.panelhome.Margin = new System.Windows.Forms.Padding(2);
+            this.panelhome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelhome.Name = "panelhome";
             this.panelhome.Size = new System.Drawing.Size(996, 449);
             this.panelhome.TabIndex = 7;
@@ -126,10 +126,10 @@
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox2.ForeColor = System.Drawing.Color.Maroon;
-            this.textBox2.Location = new System.Drawing.Point(182, 9);
+            this.textBox2.Location = new System.Drawing.Point(159, 7);
             this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(204, 19);
+            this.textBox2.Size = new System.Drawing.Size(178, 19);
             this.textBox2.TabIndex = 15;
             // 
             // textBox1
@@ -187,7 +187,7 @@
             this.bntMinimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.bntMinimize.ForeColor = System.Drawing.Color.Black;
             this.bntMinimize.Location = new System.Drawing.Point(1439, -35);
-            this.bntMinimize.Margin = new System.Windows.Forms.Padding(2);
+            this.bntMinimize.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.bntMinimize.Name = "bntMinimize";
             this.bntMinimize.Size = new System.Drawing.Size(60, 79);
             this.bntMinimize.TabIndex = 7;
@@ -204,7 +204,7 @@
             this.btnMaximize.ForeColor = System.Drawing.Color.White;
             this.btnMaximize.Image = ((System.Drawing.Image)(resources.GetObject("btnMaximize.Image")));
             this.btnMaximize.Location = new System.Drawing.Point(1476, -22);
-            this.btnMaximize.Margin = new System.Windows.Forms.Padding(2);
+            this.btnMaximize.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnMaximize.Name = "btnMaximize";
             this.btnMaximize.Size = new System.Drawing.Size(43, 38);
             this.btnMaximize.TabIndex = 6;
@@ -219,7 +219,7 @@
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnClose.ForeColor = System.Drawing.Color.Black;
             this.btnClose.Location = new System.Drawing.Point(1514, -23);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(46, 46);
             this.btnClose.TabIndex = 5;
@@ -250,7 +250,7 @@
             this.bt_sanpham.Image = ((System.Drawing.Image)(resources.GetObject("bt_sanpham.Image")));
             this.bt_sanpham.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.bt_sanpham.Location = new System.Drawing.Point(0, 48);
-            this.bt_sanpham.Margin = new System.Windows.Forms.Padding(2);
+            this.bt_sanpham.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.bt_sanpham.Name = "bt_sanpham";
             this.bt_sanpham.Size = new System.Drawing.Size(152, 36);
             this.bt_sanpham.TabIndex = 2;
@@ -262,8 +262,8 @@
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.panelMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelMenu.Controls.Add(this.button3);
             this.panelMenu.Controls.Add(this.pictureBox1);
-            this.panelMenu.Controls.Add(this.button2);
             this.panelMenu.Controls.Add(this.button1);
             this.panelMenu.Controls.Add(this.bt_khachhang);
             this.panelMenu.Controls.Add(this.btn_quanlynhanvien);
@@ -274,10 +274,26 @@
             this.panelMenu.Controls.Add(this.panelLogo);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
-            this.panelMenu.Margin = new System.Windows.Forms.Padding(2);
+            this.panelMenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(154, 449);
             this.panelMenu.TabIndex = 6;
+            // 
+            // button3
+            // 
+            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.button3.Location = new System.Drawing.Point(0, 300);
+            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(152, 36);
+            this.button3.TabIndex = 11;
+            this.button3.Text = "Người dùng";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click_2);
             // 
             // pictureBox1
             // 
@@ -289,22 +305,6 @@
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
-            // button2
-            // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.button2.Location = new System.Drawing.Point(0, 300);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(152, 36);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Khách Hàng";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // button1
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -313,7 +313,7 @@
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.button1.Location = new System.Drawing.Point(0, 264);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(152, 36);
             this.button1.TabIndex = 8;
@@ -330,7 +330,7 @@
             this.bt_khachhang.Image = ((System.Drawing.Image)(resources.GetObject("bt_khachhang.Image")));
             this.bt_khachhang.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.bt_khachhang.Location = new System.Drawing.Point(0, 228);
-            this.bt_khachhang.Margin = new System.Windows.Forms.Padding(2);
+            this.bt_khachhang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.bt_khachhang.Name = "bt_khachhang";
             this.bt_khachhang.Size = new System.Drawing.Size(152, 36);
             this.bt_khachhang.TabIndex = 7;
@@ -347,7 +347,7 @@
             this.btn_quanlynhanvien.Image = ((System.Drawing.Image)(resources.GetObject("btn_quanlynhanvien.Image")));
             this.btn_quanlynhanvien.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.btn_quanlynhanvien.Location = new System.Drawing.Point(0, 192);
-            this.btn_quanlynhanvien.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_quanlynhanvien.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_quanlynhanvien.Name = "btn_quanlynhanvien";
             this.btn_quanlynhanvien.Size = new System.Drawing.Size(152, 36);
             this.btn_quanlynhanvien.TabIndex = 6;
@@ -364,7 +364,7 @@
             this.btn_thongke.Image = ((System.Drawing.Image)(resources.GetObject("btn_thongke.Image")));
             this.btn_thongke.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.btn_thongke.Location = new System.Drawing.Point(0, 156);
-            this.btn_thongke.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_thongke.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_thongke.Name = "btn_thongke";
             this.btn_thongke.Size = new System.Drawing.Size(152, 36);
             this.btn_thongke.TabIndex = 5;
@@ -380,7 +380,7 @@
             this.bt_hoadon.Image = ((System.Drawing.Image)(resources.GetObject("bt_hoadon.Image")));
             this.bt_hoadon.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.bt_hoadon.Location = new System.Drawing.Point(0, 120);
-            this.bt_hoadon.Margin = new System.Windows.Forms.Padding(2);
+            this.bt_hoadon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.bt_hoadon.Name = "bt_hoadon";
             this.bt_hoadon.Size = new System.Drawing.Size(152, 36);
             this.bt_hoadon.TabIndex = 4;
@@ -397,7 +397,7 @@
             this.bt_banhang.Image = ((System.Drawing.Image)(resources.GetObject("bt_banhang.Image")));
             this.bt_banhang.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.bt_banhang.Location = new System.Drawing.Point(0, 84);
-            this.bt_banhang.Margin = new System.Windows.Forms.Padding(2);
+            this.bt_banhang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.bt_banhang.Name = "bt_banhang";
             this.bt_banhang.Size = new System.Drawing.Size(152, 36);
             this.bt_banhang.TabIndex = 3;
@@ -411,7 +411,7 @@
             this.panelLogo.Controls.Add(this.lblPer);
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Margin = new System.Windows.Forms.Padding(2);
+            this.panelLogo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelLogo.Name = "panelLogo";
             this.panelLogo.Size = new System.Drawing.Size(152, 48);
             this.panelLogo.TabIndex = 0;
@@ -501,10 +501,10 @@
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Timer timer3;
         private System.Windows.Forms.Timer time_autosendemil;
-        private Button button2;
         private Button button1;
         private PictureBox pictureBox1;
         private TextBox textBox1;
         private TextBox textBox2;
+        private Button button3;
     }
 }

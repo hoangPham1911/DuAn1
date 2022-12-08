@@ -425,6 +425,7 @@
             this.ptb_anh.Location = new System.Drawing.Point(871, 61);
             this.ptb_anh.Name = "ptb_anh";
             this.ptb_anh.Size = new System.Drawing.Size(276, 224);
+            this.ptb_anh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ptb_anh.TabIndex = 113;
             this.ptb_anh.TabStop = false;
             this.ptb_anh.Click += new System.EventHandler(this.pictureBox2_Click);

@@ -49,7 +49,7 @@ namespace _1_DAL.Models
 
         public Guid? IdVouCher { get; set; }
 
-        public decimal? TongTienNvTrongCa { get; set; }
+        public decimal TongTienNvTrongCa { get; set; }
 
         [ForeignKey(nameof(IdNv))]
         [InverseProperty(nameof(NhanVien.HoaDons))]

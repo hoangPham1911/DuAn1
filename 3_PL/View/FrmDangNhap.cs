@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.Design;
 
 namespace _3_PL.View
 {
@@ -18,6 +19,7 @@ namespace _3_PL.View
         INhanVienServices inhanvien;
         IChucVuServices ichucVu;
         public static Guid _IdStaff;
+        private string pass = string.Empty;
 
         public FrmDangNhap()
         {
@@ -34,21 +36,38 @@ namespace _3_PL.View
         private void bt_dangnhap_Click(object sender, EventArgs e)
         {
 
-            var logiN = inhanvien.GetAll().Where(p => p.Ma == tb_tenguoidung.Text && p.MatKhau == tb_mk.Text).FirstOrDefault();
-            if (logiN != null)
-            {
-                _IdStaff = logiN.Id;
+            //var logiN = inhanvien.GetAll().Where(p => p.Ma == tb_tenguoidung.Text && p.MatKhau == tb_mk.Text).FirstOrDefault();
+            //if (logiN != null)
+            //{
+            //    _IdStaff = logiN.Id;
 
-                this.Hide();
-                FormMain formMain = new FormMain();
-                formMain.ShowDialog();
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Đăng nhập thất bại");
-            }
+            //    this.Hide();
+            //    FormMain formMain = new FormMain();
+            //    formMain.ShowDialog();
+            //    this.Close();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Đăng nhập thất bại");
+            //}
 
+            if (!string.IsNullOrEmpty(tb_tenguoidung.Text.Trim()) && !string.IsNullOrEmpty(tb_mk.Text.Trim()))
+            {
+                var user = inhanvien.Login(tb_tenguoidung.Text.Trim(), tb_mk.Text.Trim());
+                if (user != null)
+                {
+                    _IdStaff = user.Id;
+                    this.Hide();
+                    Helpers.AccoutHelper.Instance.SetUserLogin(user);
+                    var frmMain = new FormMain();
+                    frmMain.Show();
+                    this.Visible = false;
+                }
+                else
+                {
+                    MessageBox.Show("Đăng nhập thất bại");
+                }
+            }
 
         }
 
@@ -79,6 +98,18 @@ namespace _3_PL.View
         {
             if (MessageBox.Show("Bạn muốn thoát chương trình ?", "Cảnh báo!!!", MessageBoxButtons.YesNo) != DialogResult.Yes)
                 e.Cancel = true;
+        }
+
+        private void cbHienThiMatKhau_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbHienThiMatKhau.Checked)
+            {
+                tb_mk.PasswordChar = '\0';
+            }
+            else
+            {
+                tb_mk.PasswordChar = '*';
+            }
         }
     }
 }

@@ -58,7 +58,7 @@ namespace _3_PL.View
         void LoadDTG()
         {
             dtg_showHD.Rows.Clear();
-            dtg_showHD.ColumnCount = 14;
+            dtg_showHD.ColumnCount = 13;
             dtg_showHD.Columns[0].Name = "ID";
             dtg_showHD.Columns[0].Visible = false;
             dtg_showHD.Columns[1].Name = "MAHD";
@@ -73,7 +73,6 @@ namespace _3_PL.View
             dtg_showHD.Columns[10].Name = "Tên Ship";
             dtg_showHD.Columns[11].Name = "Số Tiền Quy Đổi";
             dtg_showHD.Columns[12].Name = "Số Điểm Tiêu Dùng";
-            dtg_showHD.Columns[13].Name = "Phần Trăm Giảm Giá";
             foreach (var x in _HDService.GetAllHoaDonDB())
             {
                 dtg_showHD.Rows.Add(
@@ -90,8 +89,8 @@ namespace _3_PL.View
                     x.SDTShip,
                     x.TenShip,
                     x.SoTienQuyDoi,
-                    x.SoDiemSuDung,
-                    x.PhanTramGiamGia);
+                    x.SoDiemSuDung
+                 );
             }
 
         }
@@ -143,7 +142,6 @@ namespace _3_PL.View
                 txt_tenship.Text = hd.TenShip.ToString();
                 txt_sotienquydoi.Text = hd.SoTienQuyDoi.ToString();
                 txt_sodiemtieudung.Text = hd.SoDiemSuDung.ToString();
-                txt_phantramgiamgia.Text = hd.PhanTramGiamGia.ToString();
                 LoadCTHD(Currenid);
             }
             catch (Exception)
@@ -179,7 +177,6 @@ namespace _3_PL.View
             suaHoaDon.TenShip = txt_tenship.Text;
             suaHoaDon.SoTienQuyDoi = Convert.ToDecimal(txt_sotienquydoi.Text);
             suaHoaDon.SoDiemSuDung = Convert.ToInt32(txt_sodiemtieudung.Text);
-            suaHoaDon.PhanTramGiamGia = Convert.ToDecimal(txt_phantramgiamgia.Text);
 
             try
             {
