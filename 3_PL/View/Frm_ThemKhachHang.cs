@@ -38,7 +38,7 @@ namespace _3_PL.View
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            
 
             if (txtMaKH.Text == "" && txtTenKH.Text == "" && tb_SoCCCD.Text == "" && txtDT.Text == "" && txtDiaChi.Text == "" && txtEmail.Text == "")
             {
@@ -56,10 +56,7 @@ namespace _3_PL.View
             {
                 MessageBox.Show("Vui lòng chọn giới tính");
             }
-            else if (regex.Match(txtEmail.Text).Success)
-            {
-                MessageBox.Show("Email sai");
-            }
+            
             else
             {
                 ThemKhachHangViewModels kh = new ThemKhachHangViewModels();

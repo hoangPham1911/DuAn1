@@ -44,6 +44,10 @@ namespace _3_PL.View
             dtg_showKhachHang.Columns[11].Name = "Trạng thái";
             dtg_showKhachHang.Rows.Clear();
             khachHangViews = khachHangServices.GetAllKhachHangDB();
+            if (tb_timKiem.Text != "")
+            {
+                khachHangViews = khachHangViews.Where(p => p.Ten.Contains(tb_timKiem.Text)).ToList();
+            }
             foreach (var item in khachHangViews)
             {
                 dtg_showKhachHang.Rows.Add(
@@ -161,6 +165,11 @@ namespace _3_PL.View
             {
                 tb_sDT.Text = tb_sDT.Text.Substring(0, tb_sDT.Text.Length - 1);
             }
+        }
+
+        private void tb_timKiem_TextChanged(object sender, EventArgs e)
+        {
+            loadDTG();
         }
     }
 }

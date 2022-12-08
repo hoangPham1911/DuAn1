@@ -171,5 +171,15 @@ namespace _3_PL.View
             if (MessageBox.Show("Bạn muốn thoát chương trình ?", "Cảnh báo!!!", MessageBoxButtons.YesNo) != DialogResult.Yes)
                 e.Cancel = true;
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click_2(object sender, EventArgs e)
+        {
+            OpenChildForm(new Frm_ThongTinNguoiDung(), sender);
+        }
     }
 }

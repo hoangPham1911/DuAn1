@@ -483,6 +483,11 @@ namespace _3_PL.View
                 pckAnh.Image = Image.FromFile(opt.FileName);
             }
         }
+
+        private void pckAnh_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
     enum ACTION_CLICK
