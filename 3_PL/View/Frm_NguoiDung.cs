@@ -86,8 +86,18 @@ namespace _3_PL.View
             if (cv != null)
             {
                 lb_CV.Text = cv.Ten;
-            }     
+            }
+            if (lb_CV.Text == "Nhân Viên")
+            {
+                btnGiaoCa.Visible = false;
+            }
                 
+        }
+
+        private void btnGiaoCa_Click(object sender, EventArgs e)
+        {
+            var formGiaoCa = new frmGIaoCa();
+            formGiaoCa.Show();
         }
     }
 }
