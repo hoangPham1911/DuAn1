@@ -370,11 +370,38 @@ namespace _3_PL.View
 
         private void VideoCaptureDevice_NewFrame(object sender, AForge.Video.NewFrameEventArgs eventArgs)
         {
+         
             Bitmap bitmap = (Bitmap)eventArgs.Frame.Clone();
             BarcodeReader reader = new BarcodeReader();
             var result = reader.Decode(bitmap);
             if (result != null)
             {
+                string decoded = result.ToString().Trim();
+                string[] maQR = decoded.Split(new char[] { '\n' });
+                if (_qlhhser.GetsList().FirstOrDefault(p => p.Id == Guid.Parse(maQR[0])) != null)
+                {
+                    idcthh = Guid.Parse(maQR[0]);
+                    cbo_tenhh.Text = maQR[1];
+                    cbo_mahh.Text = maQR[2];
+                    id = Guid.Parse(maQR[3]);
+                    cbo_nsx.Text = maQR[4];
+                    if (maQR[5] == "Còn Hàng")
+                    {
+                        chk_conhang.Checked = true;
+                    }
+                    else
+                    {
+                        chk_hethang.Checked = true;
+                    }
+                    txt_soluong.Text = maQR[6];
+                    txt_giaban.Text = maQR[7];
+                    cbo_tencl.Text = maQR[8];
+                    cbo_sizegiay.Text = maQR[9];
+                    cbo_loaigiay.Text = maQR[10];
+                    cbo_tenquocgia.Text = maQR[11];
+                    cbo_anh.Text = maQR[12];
+                    MessageBox.Show("Thêm Sp Thành Công");
+                }
 
             }
             pic_cammera.Image = bitmap;
@@ -623,7 +650,7 @@ namespace _3_PL.View
         private string createQR()
         {
             return idcthh + "\n" + tenhh.ToString() + "\n" + mahh.ToString() + "\n" + id + "\n" + nsx.ToString() + "\n" + trangthai.ToString() + "\n" + soluong.ToString() + "\n" +
-                decimal.Parse(giaban).ToString() + "\n " + chatlieu.ToString() + "\n" + sizegiay.ToString() + "\n" + loaigiay.ToString() + "\n" + tenquocgia.ToString();
+                decimal.Parse(giaban).ToString() + "\n " + chatlieu.ToString() + "\n" + sizegiay.ToString() + "\n" + loaigiay.ToString() + "\n" + tenquocgia.ToString() + "\n" +anh;
         }
 
         public void loadsugesstion()
@@ -1116,7 +1143,7 @@ namespace _3_PL.View
 
         private void cbo_mahh_TextChanged(object sender, EventArgs e)
         {
-         
+
         }
 
         private void pictureBox7_Click(object sender, EventArgs e)
@@ -1317,6 +1344,11 @@ namespace _3_PL.View
             {
                 pictureBox6.Enabled = true;
             }
+        }
+
+        private void tmrTime_Tick(object sender, EventArgs e)
+        {
+
         }
     }
 }

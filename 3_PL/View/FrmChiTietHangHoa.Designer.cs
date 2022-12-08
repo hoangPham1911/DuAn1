@@ -349,6 +349,7 @@
             // 
             this.tmrTime.Enabled = true;
             this.tmrTime.Interval = 1000;
+            this.tmrTime.Tick += new System.EventHandler(this.tmrTime_Tick);
             // 
             // chk_hethang
             // 

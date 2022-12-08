@@ -1028,7 +1028,7 @@ namespace _3_PL.View
                         MessageBox.Show("Hông Có Sp Này ");
                     }
                     timer1.Stop();
-                    
+
 
                 }
                 catch (Exception ex)
@@ -1099,6 +1099,12 @@ namespace _3_PL.View
                 if (int.Parse(tb_count.Text) == 0)
                 {
                     MessageBox.Show("Vui Long Nhap So Luong");
+                    return;
+                }
+                else if (Convert.ToInt32(tb_count.Text) > Convert.ToInt32(_SanPhamService.GetSanPham().Where(c => c.IdHangHoaChiTiet == IDSpCt).Select(c => c.SoLuongTon).FirstOrDefault()))
+                {
+                    MessageBox.Show("Số Lượng Không Đủ");
+                    return;
                 }
                 else
                 {
@@ -1214,6 +1220,11 @@ namespace _3_PL.View
                     {
                         return;
                     }
+                    else if (Convert.ToInt32(tb_count.Text) > Convert.ToInt32(_SanPhamService.GetSanPham().Where(c => c.IdHangHoaChiTiet == IDSpCt).Select(c => c.SoLuongTon).FirstOrDefault()))
+                    {
+                        MessageBox.Show("Số Lượng Không Đủ");
+                        return;
+                    }
                     else
                     {
                         if (int.Parse(dgv_GioHang1.CurrentRow.Cells[3].Value.ToString()) < int.Parse(textBox2.Text) && _ListGioHang.FirstOrDefault(p => p.IdCTSP == IdReceiptInCart) != null)
@@ -1228,8 +1239,7 @@ namespace _3_PL.View
                             _ListGioHang.FirstOrDefault(p => p.IdCTSP == IDSpCt).SoLuong = int.Parse(textBox2.Text);
                             loadGioHang();
                         }
-                        else
-                        if (int.Parse(dgv_GioHang1.CurrentRow.Cells[3].Value.ToString()) < int.Parse(textBox2.Text) && _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IdReceiptInCart) != null)
+                        else if (int.Parse(dgv_GioHang1.CurrentRow.Cells[3].Value.ToString()) < int.Parse(textBox2.Text) && _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IdReceiptInCart) != null)
                         {
                             dgv_product.CurrentRow.Cells[6].Value = int.Parse(dgv_product.CurrentRow.Cells[6].Value.ToString()) - (int.Parse(textBox2.Text) - int.Parse(dgv_GioHang1.CurrentRow.Cells[3].Value.ToString()));
                             _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IdReceiptInCart).SoLuong = int.Parse(textBox2.Text);
@@ -1331,7 +1341,7 @@ namespace _3_PL.View
                             hdct.TrangThai = 6;
                         }
 
-                    
+
                         else if (rbt_dacoc.Checked)
                         {
                             hdct.TrangThai = 7;
