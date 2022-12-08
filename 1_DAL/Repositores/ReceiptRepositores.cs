@@ -52,6 +52,15 @@ namespace _1.DAL.Repostiores
                 throw;
             }
         }
+
+        public List<HoaDon> TimKiemTheomaHd(string MaHd)
+        {
+
+            var dsHoaDon = _dbContext.HoaDons.Where(x => x.Ma.ToLower().Contains(MaHd.ToLower()));
+
+            return dsHoaDon.ToList();
+        }
+
         public bool updateReceipt(HoaDon hd)
         {
 

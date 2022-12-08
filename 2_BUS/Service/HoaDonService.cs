@@ -118,6 +118,11 @@ namespace _2_BUS.Services
             }
         }
 
+        public List<HoaDon> timkiemHoadonTheoMa(string MaHoaDon)
+        {
+            return HoaDonRepos.TimKiemTheomaHd(MaHoaDon);
+        }
+
         public string XoaHoaDon(Guid SuaHD)
         {
             if (HoaDonRepos.removeReceipt(SuaHD))
