@@ -13,11 +13,11 @@ using System.Windows.Forms;
 
 namespace _3_PL.View
 {
-    public partial class Frm_ThongTinNguoiDung : Form
+    public partial class Frm_NguoiDung : Form
     {
         private INhanVienServices inhanvien;
         private IChucVuServices ichucvu;
-        public Frm_ThongTinNguoiDung()
+        public Frm_NguoiDung()
         {
             InitializeComponent();
             inhanvien = new NhanVienServices();

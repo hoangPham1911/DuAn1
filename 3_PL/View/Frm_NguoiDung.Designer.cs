@@ -1,6 +1,6 @@
 ﻿namespace _3_PL.View
 {
-    partial class Frm_ThongTinNguoiDung
+    partial class Frm_NguoiDung
     {
         /// <summary>
         /// Required designer variable.

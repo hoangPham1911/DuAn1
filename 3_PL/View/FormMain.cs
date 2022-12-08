@@ -179,7 +179,7 @@ namespace _3_PL.View
 
         private void button3_Click_2(object sender, EventArgs e)
         {
-            OpenChildForm(new Frm_ThongTinNguoiDung(), sender);
+            OpenChildForm(new Frm_NguoiDung(), sender);
         }
     }
 }

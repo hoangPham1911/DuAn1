@@ -45,6 +45,7 @@
             this.btnCloseChildForm = new System.Windows.Forms.Button();
             this.bt_sanpham = new System.Windows.Forms.Button();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -60,7 +61,6 @@
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.time_autosendemil = new System.Windows.Forms.Timer(this.components);
-            this.button3 = new System.Windows.Forms.Button();
             this.panelhome.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelTitle.SuspendLayout();
@@ -275,6 +275,22 @@
             this.panelMenu.Size = new System.Drawing.Size(176, 569);
             this.panelMenu.TabIndex = 6;
             // 
+            // button3
+            // 
+            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.button3.Location = new System.Drawing.Point(0, 429);
+            this.button3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(174, 46);
+            this.button3.TabIndex = 11;
+            this.button3.Text = "Người dùng";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click_2);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
@@ -446,22 +462,6 @@
             // time_autosendemil
             // 
             this.time_autosendemil.Enabled = true;
-            // 
-            // button3
-            // 
-            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.button3.Location = new System.Drawing.Point(0, 429);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(174, 46);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "Thông tin ";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click_2);
             // 
             // FormMain
             // 
