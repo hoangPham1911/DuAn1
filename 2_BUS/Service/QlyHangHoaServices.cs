@@ -70,7 +70,7 @@ namespace _2_BUS.Service
                     select new QlyHangHoaViewModels
                     {
                         IdSp = b.Id,
-                          Id = a.Id,
+                        Id = a.Id,
                         IdQuocGia = c.Id,
                         IdNsx = d.Id,
                         IdSizeGiay = e.Id,
@@ -211,7 +211,21 @@ namespace _2_BUS.Service
                 throw;
             }
         }
-
+        public bool updateMaQR(ChiTietHangHoaUpdateViewModels product)
+        {
+            try
+            {
+                ChiTietHangHoa sp = _IHangHoaChiTietRepository.getAll().FirstOrDefault(c => c.Id == product.Id);
+                sp.MaQRCode = product.Mavach;
+                _IHangHoaChiTietRepository.update(sp);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+        }
         public bool addhanghoa(HangHoaThemViewModels HangHoas)
         {
             HangHoa hangHoa = new HangHoa();
@@ -248,7 +262,7 @@ namespace _2_BUS.Service
                 throw;
             }
         }
-            
+
 
         public bool deletehanghoa(HangHoaViewModels hanghoaid)
         {

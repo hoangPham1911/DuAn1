@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -51,7 +52,7 @@ namespace _3_PL.View
         private string ok;
         private Guid id;
         private Guid idcthh;
-        public FrmChiTietHangHoa(Guid idhh, Guid idcthh, string mahh, string tenhh, string nsx, string trangthai, string mavach, string soluong,
+        public FrmChiTietHangHoa(Guid idhh, Guid idcthh, string mahh, string tenhh, string nsx, string trangthai, string soluong,
             string gianhap, string giaban, string chatlieu, string sizegiay, string loaigiay, string tenquocgia, string anh)
         {
             _qlhhser = new QlyHangHoaServices();
@@ -100,9 +101,11 @@ namespace _3_PL.View
             loadchatlieu();
             loadsizegiay();
             loadloaigiay();
-            loadquocgia(); 
+            loadquocgia();
             loaddpath();
-            
+            pictureBox7.Visible = false;
+            pictureBox8.Visible = false;
+
         }
 
         public void loadnsx()
@@ -306,7 +309,7 @@ namespace _3_PL.View
                 MessageBox.Show("đơn giá bán không được chứa chữ cái", "ERR");
                 return false;
             }
-          
+
             if (cbo_nsx.Text.Length <= 3)
             {
                 MessageBox.Show("Tên Nhà Sản Xuất phải trên 3 ký tự", "ERR");
@@ -372,7 +375,7 @@ namespace _3_PL.View
             var result = reader.Decode(bitmap);
             if (result != null)
             {
-             
+
             }
             pic_cammera.Image = bitmap;
 
@@ -403,7 +406,7 @@ namespace _3_PL.View
 
         void reset()
         {
-            cbo_tenhh.Text = "";           
+            cbo_tenhh.Text = "";
             txt_soluong.Text = "";
             txt_giaban.Text = "";
             txt_gianhap.Text = "";
@@ -547,7 +550,7 @@ namespace _3_PL.View
                             IdAnh = _anhser.GetAnh().Where(c => c.DuongDan == cbo_anh.Text).Select(c => c.ID).FirstOrDefault(),
                             Mavach = createQR()
 
-                        }) ;
+                        });
                         reset();
                         for (int i = 0; i < 2; i++)
                         {
@@ -619,7 +622,7 @@ namespace _3_PL.View
         }
         private string createQR()
         {
-            return idcthh+ "\n" + tenhh.ToString() + "\n" + mahh.ToString() + "\n" + id + "\n" + nsx.ToString() + "\n" + trangthai.ToString() + "\n" + soluong.ToString() + "\n" +
+            return idcthh + "\n" + tenhh.ToString() + "\n" + mahh.ToString() + "\n" + id + "\n" + nsx.ToString() + "\n" + trangthai.ToString() + "\n" + soluong.ToString() + "\n" +
                 decimal.Parse(giaban).ToString() + "\n " + chatlieu.ToString() + "\n" + sizegiay.ToString() + "\n" + loaigiay.ToString() + "\n" + tenquocgia.ToString();
         }
 
@@ -646,7 +649,7 @@ namespace _3_PL.View
             connection.Close();
         }
 
-     
+
 
         private void pic_loaigiay_DoubleClick(object sender, EventArgs e)
         {
@@ -1093,10 +1096,9 @@ namespace _3_PL.View
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show(idcthh.ToString() + mahh.ToString());
             MessageBox.Show(createQR());
             DialogResult dialogResult = MessageBox.Show("Bạn Có Muốn Tạo Mã QR Không ?", "Thông Báo", MessageBoxButtons.YesNo);
-            if(DialogResult.Yes == dialogResult)
+            if (DialogResult.Yes == dialogResult)
             {
                 QRCodeGenerator qRCode = new QRCodeGenerator();
                 QRCodeData qRCodeData = qRCode.CreateQrCode(createQR(), QRCodeGenerator.ECCLevel.L);
@@ -1106,12 +1108,215 @@ namespace _3_PL.View
                 {
                     this.Alert("Tạo Mã QR Thành Công");
                 }
+                pictureBox7.Visible = true;
+                pictureBox8.Visible = true;
+
             }
         }
 
         private void cbo_mahh_TextChanged(object sender, EventArgs e)
         {
-           // zenbarcode();
+         
+        }
+
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("bạn có muốn thêm hay không", "Thông Báo", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                cthh.Id = idcthh;
+                cthh.Mavach = createQR();
+                MessageBox.Show(_qlhhser.updateMaQR(cthh).ToString());
+                for (int i = 0; i < 2; i++)
+                {
+
+                    this.Alert("Thêm Mã Vạch Thành Công");
+
+                }
+
+            }
+            if (dialogResult == DialogResult.No)
+            {
+                for (int i = 0; i < 2; i++)
+                {
+
+                    this.Alert("Thêm Mã Vạch Thất Bại ");
+
+                }
+                return;
+            }
+        }
+        private void print(object sender, PrintPageEventArgs e)
+        {
+            Bitmap bitmap = new Bitmap(Pic_QRcode.Width, Pic_QRcode.Height);
+            Pic_QRcode.DrawToBitmap(bitmap, new Rectangle(0, 0, Pic_QRcode.Width, Pic_QRcode.Height));
+            e.Graphics.DrawImage(bitmap, 0, 0);
+            bitmap.Dispose();
+
+        }
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("bạn có in mã QR code thêm hay không", "Thông Báo", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                PrintDialog pd = new PrintDialog();
+                PrintDocument printDocument = new PrintDocument();
+                printDocument.PrintPage += print;
+                pd.Document = printDocument;
+
+                if (pd.ShowDialog() == DialogResult.OK)
+                {
+                    printDocument.Print();
+                }
+
+
+                return;
+            }
+            if (dialogResult == DialogResult.No)
+            {
+                for (int i = 0; i < 2; i++)
+                {
+
+                    this.AlertErr("Tạo File PDF Thất Bại ");
+
+                }
+                return;
+            }
+        }
+
+        private void cbo_mahh_TextChanged_1(object sender, EventArgs e)
+        {
+            if (mahh == cbo_mahh.Text)
+            {
+                pictureBox6.Enabled = false;
+            }
+            else
+            {
+                pictureBox6.Enabled = true;
+            }
+        }
+
+        private void cbo_tenhh_TextChanged(object sender, EventArgs e)
+        {
+            if (tenhh == cbo_tenhh.Text)
+            {
+                pictureBox6.Enabled = false;
+            }
+            else
+            {
+                pictureBox6.Enabled = true;
+            }
+        }
+
+        private void cbo_nsx_TextChanged(object sender, EventArgs e)
+        {
+
+            if (nsx == cbo_nsx.Text)
+            {
+                pictureBox6.Enabled = false;
+            }
+            else
+            {
+                pictureBox6.Enabled = true;
+            }
+        }
+
+        private void txt_soluong_TextChanged(object sender, EventArgs e)
+        {
+            if (soluong == txt_soluong.Text)
+            {
+                pictureBox6.Enabled = false;
+            }
+            else
+            {
+                pictureBox6.Enabled = true;
+            }
+        }
+
+        private void cbo_anh_TextChanged(object sender, EventArgs e)
+        {
+            if (cbo_anh.Text == anh)
+            {
+                pictureBox6.Enabled = false;
+            }
+            else
+            {
+                pictureBox6.Enabled = true;
+            }
+        }
+
+        private void txt_gianhap_TextChanged(object sender, EventArgs e)
+        {
+            if (gianhap == txt_gianhap.Text)
+            {
+                pictureBox6.Enabled = false;
+            }
+            else
+            {
+                pictureBox6.Enabled = true;
+            }
+        }
+
+        private void txt_giaban_TextChanged(object sender, EventArgs e)
+        {
+            if (giaban == txt_giaban.Text)
+            {
+                pictureBox6.Enabled = false;
+            }
+            else
+            {
+                pictureBox6.Enabled = true;
+            }
+        }
+
+        private void cbo_tencl_TextChanged(object sender, EventArgs e)
+        {
+            if (cbo_tencl.Text == chatlieu)
+            {
+                pictureBox6.Enabled = false;
+            }
+            else
+            {
+                pictureBox6.Enabled = true;
+            }
+        }
+
+        private void cbo_sizegiay_TextChanged(object sender, EventArgs e)
+        {
+            if (cbo_sizegiay.Text == soluong)
+            {
+                pictureBox6.Enabled = false;
+            }
+            else
+            {
+                pictureBox6.Enabled = true;
+            }
+        }
+
+        private void cbo_tenquocgia_TextChanged(object sender, EventArgs e)
+        {
+            if (cbo_tenquocgia.Text == tenquocgia)
+            {
+                pictureBox6.Enabled = false;
+            }
+            else
+            {
+                pictureBox6.Enabled = true;
+            }
+        }
+
+        private void cbo_loaigiay_TextChanged(object sender, EventArgs e)
+        {
+            if (cbo_loaigiay.Text == loaigiay)
+            {
+                pictureBox6.Enabled = false;
+            }
+            else
+            {
+                pictureBox6.Enabled = true;
+            }
         }
     }
 }

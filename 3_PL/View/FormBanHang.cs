@@ -751,12 +751,12 @@ namespace _3_PL.View
                     }
                     else if (radioButton1.Checked)
                     {
-                        suaHoaDonModels.TinhTrang = 3;
+                        hoaDonCt.TrangThai = 3;
                         suaHoaDonModels.TinhTrang = 3;
                     }
                     else if (radioButton8.Checked)
                     {
-                        suaHoaDonModels.TinhTrang = 6;
+                        hoaDonCt.TrangThai = 6;
                         suaHoaDonModels.TinhTrang = 6;
                     }
                     else if (radioButton2.Checked)
@@ -1325,7 +1325,13 @@ namespace _3_PL.View
                             loadhoadonduyet();
 
                         }
-                        else if (rbt_dahuy.Checked) suaHoaDonModels.TinhTrang = 6;
+                        else if (rbt_dahuy.Checked)
+                        {
+                            suaHoaDonModels.TinhTrang = 6;
+                            hdct.TrangThai = 6;
+                        }
+
+                    
                         else if (rbt_dacoc.Checked)
                         {
                             hdct.TrangThai = 7;

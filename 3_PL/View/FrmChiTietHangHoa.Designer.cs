@@ -33,9 +33,10 @@
             this.pic_xuatxu = new System.Windows.Forms.PictureBox();
             this.pic_cl = new System.Windows.Forms.PictureBox();
             this.pic_nsx = new System.Windows.Forms.PictureBox();
-            this.cbo_mahh = new System.Windows.Forms.TextBox();
             this.pic_exit = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btn_sua = new System.Windows.Forms.Button();
@@ -77,11 +78,14 @@
             this.btn_cammera = new System.Windows.Forms.Button();
             this.pic_cammera = new System.Windows.Forms.PictureBox();
             this.Pic_QRcode = new System.Windows.Forms.PictureBox();
+            this.cbo_mahh = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pic_xuatxu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_cl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_nsx)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_exit)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -131,18 +135,6 @@
             this.pic_nsx.Click += new System.EventHandler(this.pic_nsx_Click);
             this.pic_nsx.DoubleClick += new System.EventHandler(this.pic_nsx_DoubleClick);
             // 
-            // cbo_mahh
-            // 
-            this.cbo_mahh.AllowDrop = true;
-            this.cbo_mahh.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cbo_mahh.Location = new System.Drawing.Point(194, 367);
-            this.cbo_mahh.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.cbo_mahh.Name = "cbo_mahh";
-            this.cbo_mahh.ReadOnly = true;
-            this.cbo_mahh.Size = new System.Drawing.Size(133, 23);
-            this.cbo_mahh.TabIndex = 144;
-            this.cbo_mahh.TextChanged += new System.EventHandler(this.cbo_mahh_TextChanged);
-            // 
             // pic_exit
             // 
             this.pic_exit.Image = ((System.Drawing.Image)(resources.GetObject("pic_exit.Image")));
@@ -158,6 +150,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.RosyBrown;
+            this.panel1.Controls.Add(this.pictureBox8);
+            this.panel1.Controls.Add(this.pictureBox7);
             this.panel1.Controls.Add(this.pictureBox6);
             this.panel1.Controls.Add(this.pictureBox4);
             this.panel1.Controls.Add(this.btn_sua);
@@ -171,13 +165,37 @@
             this.panel1.Size = new System.Drawing.Size(1311, 49);
             this.panel1.TabIndex = 137;
             // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackColor = System.Drawing.Color.IndianRed;
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(1021, 8);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(76, 33);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox8.TabIndex = 162;
+            this.pictureBox8.TabStop = false;
+            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackColor = System.Drawing.Color.IndianRed;
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(923, 8);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(79, 33);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox7.TabIndex = 161;
+            this.pictureBox7.TabStop = false;
+            this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click);
+            // 
             // pictureBox6
             // 
             this.pictureBox6.BackColor = System.Drawing.Color.IndianRed;
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
             this.pictureBox6.Location = new System.Drawing.Point(821, 8);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(152, 33);
+            this.pictureBox6.Size = new System.Drawing.Size(86, 33);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox6.TabIndex = 159;
             this.pictureBox6.TabStop = false;
@@ -254,6 +272,7 @@
             this.cbo_tenhh.Name = "cbo_tenhh";
             this.cbo_tenhh.Size = new System.Drawing.Size(133, 23);
             this.cbo_tenhh.TabIndex = 136;
+            this.cbo_tenhh.TextChanged += new System.EventHandler(this.cbo_tenhh_TextChanged);
             // 
             // San
             // 
@@ -268,7 +287,7 @@
             // 
             // pic_anhhanghoa
             // 
-            this.pic_anhhanghoa.Location = new System.Drawing.Point(464, 388);
+            this.pic_anhhanghoa.Location = new System.Drawing.Point(464, 387);
             this.pic_anhhanghoa.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.pic_anhhanghoa.Name = "pic_anhhanghoa";
             this.pic_anhhanghoa.Size = new System.Drawing.Size(258, 221);
@@ -284,6 +303,7 @@
             this.cbo_loaigiay.Name = "cbo_loaigiay";
             this.cbo_loaigiay.Size = new System.Drawing.Size(133, 23);
             this.cbo_loaigiay.TabIndex = 127;
+            this.cbo_loaigiay.TextChanged += new System.EventHandler(this.cbo_loaigiay_TextChanged);
             // 
             // cbo_tenquocgia
             // 
@@ -293,6 +313,7 @@
             this.cbo_tenquocgia.Name = "cbo_tenquocgia";
             this.cbo_tenquocgia.Size = new System.Drawing.Size(133, 23);
             this.cbo_tenquocgia.TabIndex = 128;
+            this.cbo_tenquocgia.TextChanged += new System.EventHandler(this.cbo_tenquocgia_TextChanged);
             // 
             // cbo_sizegiay
             // 
@@ -302,6 +323,7 @@
             this.cbo_sizegiay.Name = "cbo_sizegiay";
             this.cbo_sizegiay.Size = new System.Drawing.Size(133, 23);
             this.cbo_sizegiay.TabIndex = 126;
+            this.cbo_sizegiay.TextChanged += new System.EventHandler(this.cbo_sizegiay_TextChanged);
             // 
             // cbo_tencl
             // 
@@ -311,6 +333,7 @@
             this.cbo_tencl.Name = "cbo_tencl";
             this.cbo_tencl.Size = new System.Drawing.Size(133, 23);
             this.cbo_tencl.TabIndex = 123;
+            this.cbo_tencl.TextChanged += new System.EventHandler(this.cbo_tencl_TextChanged);
             // 
             // cbo_nsx
             // 
@@ -320,6 +343,7 @@
             this.cbo_nsx.Name = "cbo_nsx";
             this.cbo_nsx.Size = new System.Drawing.Size(133, 23);
             this.cbo_nsx.TabIndex = 124;
+            this.cbo_nsx.TextChanged += new System.EventHandler(this.cbo_nsx_TextChanged);
             // 
             // tmrTime
             // 
@@ -414,6 +438,7 @@
             this.txt_giaban.Name = "txt_giaban";
             this.txt_giaban.Size = new System.Drawing.Size(131, 23);
             this.txt_giaban.TabIndex = 111;
+            this.txt_giaban.TextChanged += new System.EventHandler(this.txt_giaban_TextChanged);
             // 
             // bbbb
             // 
@@ -433,6 +458,7 @@
             this.txt_gianhap.Name = "txt_gianhap";
             this.txt_gianhap.Size = new System.Drawing.Size(131, 23);
             this.txt_gianhap.TabIndex = 109;
+            this.txt_gianhap.TextChanged += new System.EventHandler(this.txt_gianhap_TextChanged);
             // 
             // aaa
             // 
@@ -452,6 +478,7 @@
             this.txt_soluong.Name = "txt_soluong";
             this.txt_soluong.Size = new System.Drawing.Size(133, 23);
             this.txt_soluong.TabIndex = 107;
+            this.txt_soluong.TextChanged += new System.EventHandler(this.txt_soluong_TextChanged);
             // 
             // label6
             // 
@@ -518,6 +545,7 @@
             this.cbo_anh.Size = new System.Drawing.Size(133, 23);
             this.cbo_anh.TabIndex = 155;
             this.cbo_anh.SelectedIndexChanged += new System.EventHandler(this.cbo_anh_SelectedIndexChanged);
+            this.cbo_anh.TextChanged += new System.EventHandler(this.cbo_anh_TextChanged);
             // 
             // label16
             // 
@@ -587,7 +615,7 @@
             // 
             // pic_cammera
             // 
-            this.pic_cammera.Location = new System.Drawing.Point(127, 65);
+            this.pic_cammera.Location = new System.Drawing.Point(161, 67);
             this.pic_cammera.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.pic_cammera.Name = "pic_cammera";
             this.pic_cammera.Size = new System.Drawing.Size(895, 253);
@@ -604,12 +632,21 @@
             this.Pic_QRcode.TabIndex = 161;
             this.Pic_QRcode.TabStop = false;
             // 
+            // cbo_mahh
+            // 
+            this.cbo_mahh.Location = new System.Drawing.Point(194, 361);
+            this.cbo_mahh.Name = "cbo_mahh";
+            this.cbo_mahh.Size = new System.Drawing.Size(133, 23);
+            this.cbo_mahh.TabIndex = 162;
+            this.cbo_mahh.TextChanged += new System.EventHandler(this.cbo_mahh_TextChanged_1);
+            // 
             // FrmChiTietHangHoa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightPink;
             this.ClientSize = new System.Drawing.Size(1311, 725);
+            this.Controls.Add(this.cbo_mahh);
             this.Controls.Add(this.Pic_QRcode);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox3);
@@ -619,7 +656,6 @@
             this.Controls.Add(this.pic_xuatxu);
             this.Controls.Add(this.pic_cl);
             this.Controls.Add(this.pic_nsx);
-            this.Controls.Add(this.cbo_mahh);
             this.Controls.Add(this.pic_exit);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.cbo_tenhh);
@@ -659,6 +695,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pic_nsx)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_exit)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -678,7 +716,6 @@
         private PictureBox pic_xuatxu;
         private PictureBox pic_cl;
         private PictureBox pic_nsx;
-        private TextBox cbo_mahh;
         private PictureBox pic_exit;
         private Panel panel1;
         private ComboBox cbo_tenhh;
@@ -722,5 +759,8 @@
         private PictureBox pic_cammera;
         private PictureBox pictureBox6;
         private PictureBox Pic_QRcode;
+        private PictureBox pictureBox7;
+        private PictureBox pictureBox8;
+        private TextBox cbo_mahh;
     }
 }

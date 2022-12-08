@@ -135,7 +135,7 @@ namespace _3_PL.View
             string tenquocgia = Convert.ToString(dgrid_sanpham.Rows[e.RowIndex].Cells[13].Value);
             string loaigiay = Convert.ToString(dgrid_sanpham.Rows[e.RowIndex].Cells[14].Value);
             this.Alert("Chào Mừng Bạn Đến Với Thông Tin Chi Tiết Sản Phẩm");
-            FrmChiTietHangHoa frmBackView = new FrmChiTietHangHoa(idhh, idcthh, mahh, tenhh, nsx, trangthai, mavach, soluong,
+            FrmChiTietHangHoa frmBackView = new FrmChiTietHangHoa(idhh, idcthh, mahh, tenhh, nsx, trangthai, soluong,
             gianhap, giaban, chatlieu, sizegiay, loaigiay, tenquocgia, anh);
             frmBackView.Show();
             this.Hide();

@@ -181,7 +181,7 @@ namespace _3_PL.View
             cmChucVu.SelectedIndex = 0;
             enableControlInput(true);
             visibleButton(true);
-            ChonAnh();
+         
         }
         private byte[] ChonAnh()
         {
