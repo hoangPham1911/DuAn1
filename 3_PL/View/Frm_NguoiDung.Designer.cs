@@ -50,6 +50,7 @@
             this.lb_maNguoid = new System.Windows.Forms.Label();
             this.ptb_anh = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnGiaoCa = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_anh)).BeginInit();
             this.SuspendLayout();
@@ -300,12 +301,28 @@
             this.label3.TabIndex = 146;
             this.label3.Text = "Avartar người dùng";
             // 
-            // Frm_ThongTinNguoiDung
+            // btnGiaoCa
+            // 
+            this.btnGiaoCa.BackColor = System.Drawing.Color.LightSalmon;
+            this.btnGiaoCa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnGiaoCa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGiaoCa.Location = new System.Drawing.Point(605, 421);
+            this.btnGiaoCa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnGiaoCa.Name = "btnGiaoCa";
+            this.btnGiaoCa.Size = new System.Drawing.Size(137, 49);
+            this.btnGiaoCa.TabIndex = 147;
+            this.btnGiaoCa.Text = "Giao ca";
+            this.btnGiaoCa.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnGiaoCa.UseVisualStyleBackColor = false;
+            this.btnGiaoCa.Click += new System.EventHandler(this.btnGiaoCa_Click);
+            // 
+            // Frm_NguoiDung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PeachPuff;
             this.ClientSize = new System.Drawing.Size(943, 483);
+            this.Controls.Add(this.btnGiaoCa);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ptb_anh);
             this.Controls.Add(this.lb_hoten);
@@ -327,7 +344,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.panel1);
-            this.Name = "Frm_ThongTinNguoiDung";
+            this.Name = "Frm_NguoiDung";
             this.Text = "Frm_ThongTinNguoiDung";
             this.Load += new System.EventHandler(this.Frm_ThongTinNguoiDung_Load);
             this.panel1.ResumeLayout(false);
@@ -361,5 +378,6 @@
         private Label lb_maNguoid;
         private PictureBox ptb_anh;
         private Label label3;
+        private Button btnGiaoCa;
     }
 }
