@@ -45,6 +45,15 @@ namespace _2_BUS.Service
                 lstNhanVienViewModel.Add(nv2);
             }
             return lstNhanVienViewModel;
+
+            //var lstnhanViens = from chucVu in GetAll()
+            //                   join nhanVien in GetAll() on chucVu.Id equals nhanVien.IdCv
+            //                   select new NhanVien
+            //                   {
+            //                       IdCv = chucVu.Id,
+            //                       Id = nhanVien.Id
+            //                   };
+
         }
 
         public bool Sua(NhanVienViewModels nhanVien)
@@ -131,6 +140,23 @@ namespace _2_BUS.Service
         {
             var kq = _sfattRepository.Xoa(Id);
             return kq;
+        }
+
+        public NhanVienViewModels Login(string mail, string pass)
+        {
+            var user = _sfattRepository.Login(mail,pass);
+            if (user != null)
+            {
+                return new NhanVienViewModels
+                {
+                    Id = user.Id,
+                    Ho = user.Ho,
+                    TenDem = user.TenDem,
+                    Ten = user.Ten
+                };
+            }
+            else 
+                return null;
         }
     }
 }

@@ -15,5 +15,7 @@ namespace _2_BUS.IService
         bool Xoa(Guid Id);
 
         List<NhanVienViewModels> TimKiem(string Ma);
+
+        NhanVienViewModels Login(string mail, string pass);
     }
 }

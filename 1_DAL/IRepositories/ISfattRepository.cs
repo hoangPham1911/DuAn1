@@ -15,5 +15,6 @@ namespace _1.DAL.IDALServices
         bool Xoa(Guid Id);
         List<NhanVien> GetAll();
         List<NhanVien> TimKiem(string Ma);
+        NhanVien Login(string userName, string pass);
     }
 }

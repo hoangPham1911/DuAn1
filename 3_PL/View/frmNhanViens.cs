@@ -33,7 +33,6 @@ namespace _3_PL.View
 
 
 
-
         //Mã OTP
         private const string mailAddress = "tranvantien6620@gmail.com";
         private const string fromPass = "iekmmjfguxfgtzia";
@@ -48,6 +47,7 @@ namespace _3_PL.View
         {
             InitializeComponent();
             _instance = this;
+            loadDataGridView();
         }
 
 
@@ -181,6 +181,22 @@ namespace _3_PL.View
             cmChucVu.SelectedIndex = 0;
             enableControlInput(true);
             visibleButton(true);
+            ChonAnh();
+        }
+        private void ChonAnh()
+        {
+            try
+            {
+                MemoryStream ms = new MemoryStream();
+                pckAnh.Image.Save(ms, pckAnh.Image.RawFormat);
+                byte[] img = ms.ToArray();
+                dgvNhanVien.Rows.Add("", img);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+               
+            }
         }
         /// <summary>
         /// 
@@ -214,7 +230,7 @@ namespace _3_PL.View
                 = txtQueQuan.Enabled = txtSDT.Enabled
                 = txtTen.Enabled = txtTenDem.Enabled
                 = dtpNamSinh.Enabled = cmChucVu.Enabled
-                = cbTrangThai.Enabled = rdNam.Enabled
+                = cbTrangThai.Enabled = rdNam.Enabled= pckAnh.Enabled
                 = rdNu.Enabled = isEnable;
         }
         /// <summary>
@@ -243,6 +259,8 @@ namespace _3_PL.View
             rdNam.Checked = true;
             txtTen.Focus();
             cmChucVu.SelectedIndex = 0;
+            pckAnh.Image = null;
+           
         }
 
         private void bindingData()
@@ -271,6 +289,7 @@ namespace _3_PL.View
             this.txtTenDem.Text = obj.TenDem;
             this.dtpNamSinh.Text = Convert.ToString(obj.NamSinh);
             this.txtQueQuan.Text = obj.QueQuan;
+            
 
             var chucVu = dataChucVuViewModels.Where(x => x.Id.ToString() == obj.IdCv?.ToString()).FirstOrDefault();
             if (chucVu != null)
@@ -282,7 +301,7 @@ namespace _3_PL.View
             this.rdNu.Checked = obj.GioiTinh == "Nữ";
 
             this.cbTrangThai.Checked = (obj.TrangThai != null && obj.TrangThai == 0); // TrangThai = 0 -> nhan vien con hoat dong
-
+            
 
         }
         /// <summary>
@@ -310,7 +329,7 @@ namespace _3_PL.View
             objSelected.TrangThai = cbTrangThai.Checked ? 0 : 1;
             objSelected.NamSinh = dtpNamSinh.Value.Date;
             objSelected.GioiTinh = rdNam.Checked ? "Nam" : "Nữ";
-
+                          
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -408,6 +427,61 @@ namespace _3_PL.View
             if (objSelected != null)
             {
                 bindingDataForControl(objSelected);
+            }
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            var resultConfirm = MessageBox.Show($"Bạn có chắc chắn muốn giao ca {objSelected.Ten} không?", caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (resultConfirm == DialogResult.Yes)
+            {
+                var result = _iNhanVienService.Xoa(objSelected.Id);
+                if (result)
+                {
+                    MessageBox.Show($"Xoá thành công !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    loadData();
+                }
+                else
+                {
+                    MessageBox.Show($"Xoá giao ca không thành công !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+
+        private void btnGiaoCa_Click(object sender, EventArgs e)
+        {
+            var formGiaoCa = new frmGIaoCa();
+            formGiaoCa.Show();
+            this.Close();
+        }
+
+        void loadDataGridView()
+        {
+            DataGridViewImageColumn imageColumn = new DataGridViewImageColumn();
+            imageColumn.HeaderText = "Anh";
+            imageColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
+
+            DataGridViewTextBoxColumn textBoxColumn = new DataGridViewTextBoxColumn();
+            textBoxColumn.HeaderText = "Id";
+
+            dgvNhanVien.Columns.Add(textBoxColumn);
+            dgvNhanVien.Columns.Add(imageColumn);
+
+            dgvNhanVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvNhanVien.RowTemplate.Height = 120;
+
+
+
+        }
+
+        private void btnChonAnh_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog opt = new OpenFileDialog();
+            opt.Filter = "Chon Anh(*.jpg;*.png;*.gif)|*.jpg;*.png;*.gif";
+
+            if(opt.ShowDialog()== DialogResult.OK)
+            {
+                pckAnh.Image = Image.FromFile(opt.FileName);
             }
         }
     }

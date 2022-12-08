@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
+
 namespace _1.DAL.DALServices
 {
     public class SfattRepositores : ISfattRepository
@@ -33,7 +35,6 @@ namespace _1.DAL.DALServices
                 var daTaCu = _DBcontext.NhanViens.Find(nhanVien.Id);
                 if (daTaCu != null)
                 {
-                    daTaCu.Id = nhanVien.Id;
                     daTaCu.Ma = nhanVien.Ma;
                     daTaCu.TenDem = nhanVien.TenDem;
                     daTaCu.Ten = nhanVien.Ten;
@@ -48,7 +49,7 @@ namespace _1.DAL.DALServices
                     daTaCu.IdCv = nhanVien.IdCv;
                     daTaCu.TrangThai = nhanVien.TrangThai;
                     daTaCu.Anh = nhanVien.Anh;
-                    _DBcontext.NhanViens.Add(daTaCu);
+                    _DBcontext.NhanViens.Update(daTaCu);
                     _DBcontext.SaveChanges();
                     return true;
 
@@ -90,7 +91,7 @@ namespace _1.DAL.DALServices
 
         public bool Xoa(Guid Id)
         {
-            var nv1 = _DBcontext.NhanViens.Find(Id);
+            var nv1 = _DBcontext.NhanViens.Find();
             if (nv1 != null)
             {
                 _DBcontext.NhanViens.Remove(nv1);
@@ -101,6 +102,11 @@ namespace _1.DAL.DALServices
             {
                 return false;
             }
+        }
+
+        public NhanVien Login(string userName, string pass)
+        {
+            return _DBcontext.NhanViens.Where(x => (x.Email.ToUpper() == userName.ToUpper() & x.MatKhau == pass)).FirstOrDefault();
         }
     }
 }
