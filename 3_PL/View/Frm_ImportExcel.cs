@@ -22,6 +22,7 @@ namespace _3_PL.View
         INsxServices _NsxServices;
         ISizeGiayServices _SizeGiayServices;
         IQlyHangHoaServices _QlyHangHoaServices;
+        IAnhService _AnhService;
         string maSp;
         string tenSp;
         int namBH;
@@ -34,7 +35,7 @@ namespace _3_PL.View
         string Nsx;
         string loaiGiay;
         string ChatLieu;
-
+        string DuongDan;
         public Frm_ImportExcel()
         {
             InitializeComponent();
@@ -46,6 +47,7 @@ namespace _3_PL.View
             _NsxServices = new NsxServices();
             _SizeGiayServices = new SizeGiayServices();
             _QlyHangHoaServices = new QlyHangHoaServices();
+            _AnhService = new AnhService();
         }
 
         private void pictureBox6_Click(object sender, EventArgs e)
@@ -78,6 +80,7 @@ namespace _3_PL.View
                 dt.Columns.Add("Loại Gìay");
                 dt.Columns.Add("Chất Liệu");
                 dt.Columns.Add("Size Gìay");
+                dt.Columns.Add("Đường Dẫn");
                 try
                 {
                     // mo file excel
@@ -100,7 +103,9 @@ namespace _3_PL.View
                             var chatLieu = worksheet.Cells[i, j++].Value;
                             var QuocGia = worksheet.Cells[i, j++].Value;
                             var SoSize = worksheet.Cells[i, j++].Value;
-                            dt.Rows.Add(stt, maSp, tenSp, namBH, moTa, giaNhap, giaBan, soLuong, Nsx, loaiGiay, chatLieu, QuocGia, SoSize);
+                            var DgDan = worksheet.Cells[i, j++].Value;
+
+                            dt.Rows.Add(stt, maSp, tenSp, namBH, moTa, giaNhap, giaBan, soLuong, Nsx, loaiGiay, chatLieu, QuocGia, DgDan);
                         }
                         catch (Exception)
                         {
@@ -140,7 +145,7 @@ namespace _3_PL.View
                         loaiGiay = dgv_product.Rows[i].Cells[10].Value.ToString();
                         QuocGia = dgv_product.Rows[i].Cells[11].Value.ToString();
                         ChatLieu = dgv_product.Rows[i].Cells[12].Value.ToString();
-
+                        DuongDan = dgv_product.Rows[i].Cells[13].Value.ToString();
                         var chatLieu = new ChatLieuViewModels()
                         {
                             Ma = (_ChatLieuService.GetChatLieu().Count + 1).ToString(),
@@ -166,6 +171,16 @@ namespace _3_PL.View
                             TrangThai = 1
                         };
                         Guid nhaSx = _NsxServices.IdSize(nsx);
+
+                        var anh = new AnhViewModels()
+                        {
+                            MaAnh = (_AnhService.GetAnh().Count + 1).ToString(),
+                            DuongDan = DuongDan, 
+                            TrangThai = 1
+                        };
+
+                        
+                        Guid idAnh = _AnhService.Id(anh);
 
                         var Size = new SizeGiayViewModels()
                         {
@@ -205,7 +220,8 @@ namespace _3_PL.View
                             IdLoaiGiay = idLoaiGiay,
                             IdChatLieu = IdChatLieu,
                             NamBh = namBH,
-                            IdQuocGia = IdQuocGia
+                            IdQuocGia = IdQuocGia,
+                            IdAnh = idAnh
                         };
                         _QlyHangHoaServices.addcthanghoa(spCt);
 

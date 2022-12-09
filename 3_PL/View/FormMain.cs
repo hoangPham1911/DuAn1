@@ -188,7 +188,13 @@ namespace _3_PL.View
 
         private void button2_Click_2(object sender, EventArgs e)
         {
-            OpenChildForm(new frmGIaoCa(), sender);
+            DialogResult dialogResult = MessageBox.Show("Bạn Có Muốn Giao Ca Không?", "Thông Báo", MessageBoxButtons.YesNo);
+            if(DialogResult.Yes == DialogResult)
+            {
+                OpenChildForm(new frmGIaoCa(), sender);
+                this.Hide();
+            }
+
         }
 
         private void button4_Click_2(object sender, EventArgs e)

@@ -54,7 +54,7 @@ namespace _3_PL.View
             clearForm();
             enableControl(true);
             visibleControl(true);
-         
+
         }
 
         //private void btnXoa_Click(object sender, EventArgs e)
@@ -87,7 +87,7 @@ namespace _3_PL.View
             var result = true;
             var resultConfirm = DialogResult.No;
             if (_actionClick == ACTION_CLICK.ADD)
-               {
+            {
                 mess = $"Bạn có chắc chắn muốn giao ca không ?";
                 resultConfirm = MessageBox.Show(mess, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (resultConfirm == DialogResult.Yes)
@@ -109,7 +109,7 @@ namespace _3_PL.View
                 reloadData();
             }
 
-           
+
         }
 
         private void dgvGiaoCa_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -188,6 +188,9 @@ namespace _3_PL.View
             if (label1.Text == "Nhân Viên")
             {
                 txtTongTienBanDau.Enabled = false;
+                dgvGiaoCa.Enabled = false;
+                txtTimKiem.Enabled = false;
+                btnTimKiem.Enabled = false;
             }
 
         }
@@ -225,10 +228,10 @@ namespace _3_PL.View
             var nvBanGiao = lstNhanVien.Where(x => x.Id == _itemSelected.IdNvTrongCa).FirstOrDefault();
             txtNhanVienGiao.Text = nvBanGiao != null ? nvBanGiao.HoTen : "";
             var nvNhan = lstNhanVien.Where(y => y.Id == _itemSelected.IdNvNhanCaTiep).FirstOrDefault();
-            
+
             txtTienCaTruoc.Text = _itemSelected.TongTienCaTruoc.HasValue ? _itemSelected.TongTienCaTruoc.Value.ToString() : "";
             txtTienMat.Text = _itemSelected.TongTienMat.HasValue ? _itemSelected.TongTienMat.Value.ToString() : "";
-        //    txt_tienPhatSinh.Text = _itemSelected.TienPhatSinh.Value.ToString();
+            //    txt_tienPhatSinh.Text = _itemSelected.TienPhatSinh.Value.ToString();
             txtTongTienBanDau.Text = _itemSelected.TienBanDau.HasValue ? $"{_itemSelected.TienBanDau.ToString()}đ" : "0đ";
             dtpThoiGianGiao.Value = _itemSelected.ThoiGianGiaoCa;
             dtpThoiGianNhan.Value = _itemSelected.ThoiGianNhanCa;
@@ -242,7 +245,10 @@ namespace _3_PL.View
             }
             var timeNow = DateTime.Now;
             _itemSelected.Ma = $"GC{timeNow.Year}{timeNow.Month}{timeNow.Day}{timeNow.Hour}{timeNow.Minute}";
-            _itemSelected.TienBanDau = Convert.ToDecimal(txtTongTienBanDau.Text.Replace("đ", "")) + decimal.Parse(label9.Text) - decimal.Parse(txt_tienPhatSinh.Text) - decimal.Parse(textBox2.Text);
+            _itemSelected.TienBanDau = Convert.ToDecimal(txtTongTienBanDau.Text.Replace("đ", ""))
+                + decimal.Parse(label9.Text.Replace("đ", ""))
+                - decimal.Parse(txt_tienPhatSinh.Text.Replace("đ", ""))
+                - decimal.Parse(textBox2.Text.Replace("đ", ""));
             _itemSelected.GhiChuPhatSinh = txtGhiChu.Text;
             _itemSelected.TongTienCaTruoc = decimal.Parse(label9.Text);
             _itemSelected.TongTienMat = Convert.ToDecimal(!String.IsNullOrEmpty(txtTienMat.Text.Replace("đ", "")) ? txtTienMat.Text.Replace("đ", "") : "0");
@@ -250,7 +256,7 @@ namespace _3_PL.View
             _itemSelected.IdNvTrongCa = _userLoged.Id;
             _itemSelected.ThoiGianGiaoCa = dtpThoiGianGiao.Value;
             _itemSelected.ThoiGianNhanCa = dtpThoiGianNhan.Value;
-            _itemSelected.TongTienTrongCa = decimal.Parse(label9.Text); 
+            _itemSelected.TongTienTrongCa = decimal.Parse(label9.Text);
         }
 
         private void enableControl(bool isEnable)
@@ -259,7 +265,7 @@ namespace _3_PL.View
                 = txtTienCaTruoc.Enabled = txtTienMat.Enabled
                 = dtpThoiGianGiao.Enabled = dtpThoiGianNhan.Enabled
                 = isEnable;
-            if(label1.Text != "Nhân Viên")
+            if (label1.Text != "Nhân Viên")
             {
                 txtTongTienBanDau.Enabled = isEnable;
             }
@@ -272,7 +278,7 @@ namespace _3_PL.View
 
         private void cbNhanVienNhan_SelectedIndexChanged(object sender, EventArgs e)
         {
-       //     _nhanVienNhanCa = cbNhanVienNhan.SelectedItem as NhanVienViewModels;
+            //     _nhanVienNhanCa = cbNhanVienNhan.SelectedItem as NhanVienViewModels;
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)

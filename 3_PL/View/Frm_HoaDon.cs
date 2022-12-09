@@ -207,7 +207,6 @@ namespace _3_PL.View
             dtgShow_CTHD.Columns[4].Name = "Thành Tiền";
             dtgShow_CTHD.Columns[5].Name = "Trạng Thái";
             dtgShow_CTHD.Columns[6].Name = "Giảm Giá";
-
             foreach (var x in _HDCTservice.timkiemhdtheoid(Currenid))
             {
                 dtgShow_CTHD.Rows.Add(

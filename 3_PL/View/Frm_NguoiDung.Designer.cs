@@ -328,6 +328,11 @@
             this.label3.TabIndex = 146;
             this.label3.Text = "Avartar người dùng";
             // 
+<<<<<<< HEAD
+=======
+ 
+ 
+>>>>>>> e176fbb389ba51f9675ea5c6ad69d06a11648dac
             // btnGiaoCa
             // 
             this.btnGiaoCa.BackColor = System.Drawing.Color.LightSalmon;
@@ -356,19 +361,33 @@
             this.btnGiaoCa.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnGiaoCa.UseVisualStyleBackColor = false;
             // 
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> e176fbb389ba51f9675ea5c6ad69d06a11648dac
             // Frm_NguoiDung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PeachPuff;
+<<<<<<< HEAD
 
             this.ClientSize = new System.Drawing.Size(943, 483);
+=======
+ 
+            this.ClientSize = new System.Drawing.Size(943, 483);
+ 
+>>>>>>> e176fbb389ba51f9675ea5c6ad69d06a11648dac
 
             this.ClientSize = new System.Drawing.Size(857, 558);
 
             this.ClientSize = new System.Drawing.Size(943, 483);
 
             this.Controls.Add(this.btnGiaoCa);
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> e176fbb389ba51f9675ea5c6ad69d06a11648dac
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ptb_anh);
             this.Controls.Add(this.lb_hoten);
@@ -390,11 +409,21 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.panel1);
+<<<<<<< HEAD
 
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 
 
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+=======
+ 
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+ 
+
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
+ 
+>>>>>>> e176fbb389ba51f9675ea5c6ad69d06a11648dac
             this.Name = "Frm_NguoiDung";
             this.Text = "Frm_ThongTinNguoiDung";
             this.Load += new System.EventHandler(this.Frm_ThongTinNguoiDung_Load);
@@ -432,7 +461,15 @@
 
         private Label lb_tien;
         private Label label4;
+<<<<<<< HEAD
 
         private Button btnGiaoCa;
+=======
+ 
+ 
+
+        private Button btnGiaoCa;
+ 
+>>>>>>> e176fbb389ba51f9675ea5c6ad69d06a11648dac
     }
 }

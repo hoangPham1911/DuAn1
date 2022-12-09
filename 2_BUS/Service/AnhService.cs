@@ -30,6 +30,18 @@ namespace _2_BUS.Service
             return false;
         }
 
+        public Guid Id(AnhViewModels img)
+        {
+            Anh image = new Anh();
+            image.Ten = img.Ten;
+            image.MaAnh = img.MaAnh;
+            image.DuongDan = img.DuongDan;
+            image.TrangThai = img.TrangThai;
+            if (_ImageRepositoriy.add(image))
+                return image.ID;
+            return Guid.Empty;
+        }
+
         public List<AnhViewModels> GetAnh()
         {
             return (from a in _ImageRepositoriy.getAll()

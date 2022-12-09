@@ -12,7 +12,7 @@ namespace _2_BUS.IService
         bool add(AnhViewModels img);
         bool remove(AnhViewModels img);
         bool update(AnhViewModels img);
-
+        public Guid Id(AnhViewModels img);
         List<AnhViewModels> GetAnh();
     }
 }
