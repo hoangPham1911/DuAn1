@@ -190,5 +190,10 @@ namespace _3_PL.View
         {
             OpenChildForm(new frmGIaoCa(), sender);
         }
+
+        private void button4_Click_2(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
