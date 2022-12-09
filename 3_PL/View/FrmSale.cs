@@ -113,8 +113,7 @@ namespace _3_PL.View
             loadData();
 
         }
-
-        private void btn_xoa_Click(object sender, EventArgs e)
+        private void btn_xoa_Click_1(object sender, EventArgs e)
         {
 
         }
