@@ -70,6 +70,7 @@ namespace _3_PL.View
                     //    giaoCa.TrangThai = 1;
                     //    giaoCaServices.Them(giaoCa);
 
+<<<<<<< HEAD
                     //}
                     //else
                     //{
@@ -81,6 +82,19 @@ namespace _3_PL.View
                     //    giaoCaServices.Sua(giaoCaa);
                         
                     //}
+=======
+                    }
+                    else
+                    {
+                        //GiaoCaViewModels giaoCaa = giaoCaServices.GetAll().FirstOrDefault(p => p.Id == _IdStaff);
+                        //giaoCaa.IdNvNhanCaTiep = _IdStaff;
+                        //giaoCaa.ThoiGianNhanCa = DateTime.Now;
+                        //giaoCaa.ThoiGianGiaoCa = DateTime.Now;
+                        //giaoCaa.TrangThai = 1;
+                        //giaoCaServices.Sua(giaoCaa);
+
+                    }
+>>>>>>> 33adfc860d4bed21cc9a06469406698ded3d242f
                     
                     foreach (var item in _hoaDonService.Get().Where(p=>p.IdNv == user.Id))
                     {

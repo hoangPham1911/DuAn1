@@ -1,4 +1,5 @@
-﻿using _2_BUS.IService;
+﻿using _1_DAL.Models;
+using _2_BUS.IService;
 using _2_BUS.Service;
 using _2_BUS.ViewModels;
 using System;
@@ -35,6 +36,11 @@ namespace _3_PL.View
             dgv_show.Columns[2].Name = "Tên quốc gia";
             dgv_show.Columns[3].Name = "Trạng thái";
             var lstqg = iqg.GetQuocGia();
+            if (tb_timkiem.Text != "")
+            {
+                lstqg = lstqg.Where(x => x.Ma.ToLower().Contains(tb_timkiem.Text.ToLower())
+                || x.Ten.ToLower().Contains(tb_timkiem.Text.ToLower())).ToList();
+            }
             foreach (var item in lstqg)
             {
                 dgv_show.Rows.Add(item.Id, item.Ma, item.Ten, item.TrangThai == 1 ? "Còn hàng" : "Ngừng hết hàng");
@@ -49,9 +55,18 @@ namespace _3_PL.View
 
         private void btn_xoa_Click(object sender, EventArgs e)
         {
-            if (viewqg == null)
+            DialogResult dialogResult = MessageBox.Show("Bạn Có Muốn Xóa Nhà Sản Xuất Không?", "Thông Báo", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
             {
-
+                if (viewqg == null)
+                {
+                    MessageBox.Show("bạn chưa chọn nsx");
+                }
+                else
+                {
+                    MessageBox.Show(iqg.remove(viewqg));
+                    loadData();
+                }
             }
         }
 
@@ -80,23 +95,52 @@ namespace _3_PL.View
 
         private void btn_them_Click_1(object sender, EventArgs e)
         {
-            QuocGiaViewModels x = new QuocGiaViewModels()
+            DialogResult dialogResult = MessageBox.Show("Bạn Có Muốn Thêm Size Không?", "Thông Báo", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
             {
-                Id = Guid.NewGuid(),
-                Ma = tb_ma.Text,
-                Ten = tb_ten.Text,
-                TrangThai = rdb_con.Checked ? 1 : 0
-            };
-            MessageBox.Show(iqg.add(x));
-            loadData();
+                if (iqg.GetQuocGia().Any(c => c.Ma == tb_ma.Text))
+                {
+                    MessageBox.Show("Mã bị trùng");
+                }
+                else if (string.IsNullOrWhiteSpace(tb_ten.Text))
+                {
+                    MessageBox.Show("Tên quốc gia không được bỏ trống");
+                }
+                else if (rdb_con.Checked == false && rdb_ngung.Checked == false)
+                {
+
+                    MessageBox.Show("Vui lòng chọn trạng thái");
+                }
+                else
+                {
+                    QuocGiaViewModels x = new QuocGiaViewModels()
+                    {
+                        Id = Guid.NewGuid(),
+                        Ma = tb_ma.Text,
+                        Ten = tb_ten.Text,
+                        TrangThai = rdb_con.Checked ? 1 : 0
+                    };
+                    MessageBox.Show(iqg.add(x));
+                    loadData();
+                }
+            }
         }
 
         private void btn_sua_Click_1(object sender, EventArgs e)
         {
-            viewqg.Ma = tb_ma.Text;
-            viewqg.Ten = tb_ten.Text;
-            viewqg.TrangThai = rdb_con.Checked ? 1 : 0;
-            MessageBox.Show(iqg.update(viewqg));
+            DialogResult dialogResult = MessageBox.Show("Bạn Có Muốn Xóa Nhà Sản Xuất Không?", "Thông Báo", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                viewqg.Ma = tb_ma.Text;
+                viewqg.Ten = tb_ten.Text;
+                viewqg.TrangThai = rdb_con.Checked ? 1 : 0;
+                MessageBox.Show(iqg.update(viewqg));
+                loadData();
+            }
+        }
+
+        private void tb_timkiem_TextChanged(object sender, EventArgs e)
+        {
             loadData();
         }
     }

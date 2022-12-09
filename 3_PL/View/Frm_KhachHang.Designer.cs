@@ -38,13 +38,10 @@
             this.btn_sua = new System.Windows.Forms.Button();
             this.btn_xoa = new System.Windows.Forms.Button();
             this.btn_them = new System.Windows.Forms.Button();
-            this.tb_diemtichDiem = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.dtp_namsinh = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
             this.tb_cccd = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.tb_GioiTinh = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.tb_email = new System.Windows.Forms.TextBox();
             this.tb_tenKhachHang = new System.Windows.Forms.TextBox();
@@ -59,6 +56,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.rd_nam = new System.Windows.Forms.RadioButton();
+            this.rd_nu = new System.Windows.Forms.RadioButton();
+            this.label12 = new System.Windows.Forms.Label();
+            this.tb_diemtichDiem = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_showKhachHang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -170,23 +171,6 @@
             this.btn_them.UseVisualStyleBackColor = false;
             this.btn_them.Click += new System.EventHandler(this.btn_them_Click);
             // 
-            // tb_diemtichDiem
-            // 
-            this.tb_diemtichDiem.Location = new System.Drawing.Point(159, 203);
-            this.tb_diemtichDiem.Name = "tb_diemtichDiem";
-            this.tb_diemtichDiem.Size = new System.Drawing.Size(199, 26);
-            this.tb_diemtichDiem.TabIndex = 84;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 8.765218F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label12.Location = new System.Drawing.Point(18, 205);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(115, 20);
-            this.label12.TabIndex = 83;
-            this.label12.Text = "Điểm tích điểm";
-            // 
             // dtp_namsinh
             // 
             this.dtp_namsinh.Location = new System.Drawing.Point(571, 155);
@@ -221,13 +205,6 @@
             this.label10.Size = new System.Drawing.Size(68, 20);
             this.label10.TabIndex = 79;
             this.label10.Text = "Số CCCD";
-            // 
-            // tb_GioiTinh
-            // 
-            this.tb_GioiTinh.Location = new System.Drawing.Point(571, 106);
-            this.tb_GioiTinh.Name = "tb_GioiTinh";
-            this.tb_GioiTinh.Size = new System.Drawing.Size(201, 26);
-            this.tb_GioiTinh.TabIndex = 78;
             // 
             // label9
             // 
@@ -285,6 +262,7 @@
             this.cb_khongHoatDong.TabIndex = 71;
             this.cb_khongHoatDong.Text = "Không hoạt động";
             this.cb_khongHoatDong.UseVisualStyleBackColor = true;
+            this.cb_khongHoatDong.CheckedChanged += new System.EventHandler(this.cb_khongHoatDong_CheckedChanged);
             // 
             // cb_hoatDong
             // 
@@ -296,6 +274,7 @@
             this.cb_hoatDong.TabIndex = 70;
             this.cb_hoatDong.Text = "Hoạt động";
             this.cb_hoatDong.UseVisualStyleBackColor = true;
+            this.cb_hoatDong.CheckedChanged += new System.EventHandler(this.cb_hoatDong_CheckedChanged);
             // 
             // label6
             // 
@@ -357,19 +336,59 @@
             this.label1.TabIndex = 64;
             this.label1.Text = "Mã khách hàng";
             // 
+            // rd_nam
+            // 
+            this.rd_nam.AutoSize = true;
+            this.rd_nam.Location = new System.Drawing.Point(571, 110);
+            this.rd_nam.Name = "rd_nam";
+            this.rd_nam.Size = new System.Drawing.Size(59, 24);
+            this.rd_nam.TabIndex = 85;
+            this.rd_nam.TabStop = true;
+            this.rd_nam.Text = "Nam";
+            this.rd_nam.UseVisualStyleBackColor = true;
+            // 
+            // rd_nu
+            // 
+            this.rd_nu.AutoSize = true;
+            this.rd_nu.Location = new System.Drawing.Point(691, 110);
+            this.rd_nu.Name = "rd_nu";
+            this.rd_nu.Size = new System.Drawing.Size(47, 24);
+            this.rd_nu.TabIndex = 86;
+            this.rd_nu.TabStop = true;
+            this.rd_nu.Text = "Nữ";
+            this.rd_nu.UseVisualStyleBackColor = true;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 8.765218F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label12.Location = new System.Drawing.Point(18, 205);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(115, 20);
+            this.label12.TabIndex = 83;
+            this.label12.Text = "Điểm tích điểm";
+            // 
+            // tb_diemtichDiem
+            // 
+            this.tb_diemtichDiem.Location = new System.Drawing.Point(159, 203);
+            this.tb_diemtichDiem.Name = "tb_diemtichDiem";
+            this.tb_diemtichDiem.Size = new System.Drawing.Size(199, 26);
+            this.tb_diemtichDiem.TabIndex = 84;
+            // 
             // Frm_KhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PeachPuff;
             this.ClientSize = new System.Drawing.Size(1061, 624);
+            this.Controls.Add(this.rd_nu);
+            this.Controls.Add(this.rd_nam);
             this.Controls.Add(this.tb_diemtichDiem);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.dtp_namsinh);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.tb_cccd);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.tb_GioiTinh);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.tb_email);
             this.Controls.Add(this.tb_tenKhachHang);
@@ -416,13 +435,10 @@
         private Button btn_sua;
         private Button btn_xoa;
         private Button btn_them;
-        private TextBox tb_diemtichDiem;
-        private Label label12;
         private DateTimePicker dtp_namsinh;
         private Label label11;
         private TextBox tb_cccd;
         private Label label10;
-        private TextBox tb_GioiTinh;
         private Label label9;
         private TextBox tb_email;
         private TextBox tb_tenKhachHang;
@@ -437,5 +453,9 @@
         private Label label3;
         private Label label2;
         private Label label1;
+        private RadioButton rd_nam;
+        private RadioButton rd_nu;
+        private Label label12;
+        private TextBox tb_diemtichDiem;
     }
 }

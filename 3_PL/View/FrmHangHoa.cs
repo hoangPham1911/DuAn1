@@ -341,5 +341,10 @@ namespace _3_PL.View
             }
 
         }
+
+        private void FrmHangHoa_Load(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
