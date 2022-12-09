@@ -20,7 +20,7 @@ namespace _3_PL.View
 
         private SaleViewModel viewsale;
         private ISaleService isale;
-
+        private Guid idsale;
         public FrmSale()
         {
             InitializeComponent();
@@ -45,7 +45,7 @@ namespace _3_PL.View
             foreach (var item in lstsale)
             {
                 dgv_show.Rows.Add(item.Id, item.MaGiamGia, item.TenChuongTrinh, item.SoTienGiamGia, item.NgayBatDau, item.NgayKetThuc,
-                        item.TrangThai == 1 ? "Còn hạn " : "Hết hạn");
+                        item.TrangThai == 1 ? "Còn hạn" : "Hết hạn");
             }
             dgv_show.AllowUserToAddRows = false;
         }
@@ -53,13 +53,22 @@ namespace _3_PL.View
         private void dgv_show_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             viewsale = isale.GetDanhMuc().FirstOrDefault(c => c.Id == Guid.Parse(dgv_show.CurrentRow.Cells[0].Value.ToString()));
+            idsale = Guid.Parse(dgv_show.CurrentRow.Cells[0].Value.ToString());
             tb_ma.Text = dgv_show.CurrentRow.Cells[1].Value.ToString();
             tb_tenct.Text = dgv_show.CurrentRow.Cells[2].Value.ToString();
             dt_ngaybatdau.Value = Convert.ToDateTime(dgv_show.CurrentRow.Cells[4].Value);
             dt_ngayketthuc.Value = Convert.ToDateTime(dgv_show.CurrentRow.Cells[5].Value);
             tb_sotiengiamgia.Text = dgv_show.CurrentRow.Cells[3].Value.ToString();
-            rdb_con.Checked = dgv_show.CurrentRow.Cells[6].Value.ToString() == "Trạng thái";
-            rdb_con.Checked = dgv_show.CurrentRow.Cells[6].Value.ToString() == "Trạng thái";
+            if (dgv_show.CurrentRow.Cells[6].Value.ToString() == "Còn hạn")
+            {
+                rdb_con.Checked = true;
+            }
+            else
+            {
+                rdb_ngung.Checked = true;
+            }
+
+             
             
         }
 
@@ -119,21 +128,7 @@ namespace _3_PL.View
 
         private void btn_sua_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có muốn thêm ?", "Cảnh báo", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
-            {
-                viewsale.MaGiamGia = tb_ma.Text;
-                viewsale.TenChuongTrinh = tb_tenct.Text;
-                viewsale.NgayBatDau = dt_ngaybatdau.Value;
-                viewsale.NgayKetThuc = dt_ngayketthuc.Value;
-                viewsale.SoTienGiamGia = Convert.ToInt32(tb_sotiengiamgia.Text);
-                viewsale.TrangThai = rdb_con.Checked ? 1 : 0;
-                if (isale.update(viewsale))
-                {
-                    MessageBox.Show("Sửa thành công");
-                };
-                loadData();
-            }
+            
 
         }
         private void btn_xoa_Click_1(object sender, EventArgs e)
@@ -150,6 +145,26 @@ namespace _3_PL.View
                     MessageBox.Show("Xóa thành công");
                     loadData();
                 }
+            }
+        }
+
+        private void btn_sua_Click_1(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có muốn thêm ?", "Cảnh báo", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                viewsale.Id = idsale;
+                viewsale.MaGiamGia = tb_ma.Text;
+                viewsale.TenChuongTrinh = tb_tenct.Text;
+                viewsale.NgayBatDau = dt_ngaybatdau.Value;
+                viewsale.NgayKetThuc = dt_ngayketthuc.Value;
+                viewsale.SoTienGiamGia = Convert.ToDecimal(tb_sotiengiamgia.Text);
+                viewsale.TrangThai = rdb_con.Checked ? 1 : 0;
+                if (isale.update(viewsale))
+                {
+                    MessageBox.Show("Sửa thành công");
+                };
+                loadData();
             }
         }
     }
