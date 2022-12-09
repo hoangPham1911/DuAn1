@@ -327,28 +327,26 @@
             this.label3.Size = new System.Drawing.Size(201, 30);
             this.label3.TabIndex = 146;
             this.label3.Text = "Avartar người dùng";
-<<<<<<< HEAD
+
             // 
 
-=======
 
 
 
->>>>>>> 33adfc860d4bed21cc9a06469406698ded3d242f
+
+
             // Frm_NguoiDung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PeachPuff;
 
-<<<<<<< HEAD
-=======
-            this.ClientSize = new System.Drawing.Size(943, 483);
- 
-            this.ClientSize = new System.Drawing.Size(943, 483);
- 
 
->>>>>>> 33adfc860d4bed21cc9a06469406698ded3d242f
+
+            this.ClientSize = new System.Drawing.Size(943, 483);
+ 
+            this.ClientSize = new System.Drawing.Size(943, 483);
+ 
             this.ClientSize = new System.Drawing.Size(943, 555);
 
 
@@ -363,11 +361,11 @@
             this.ClientSize = new System.Drawing.Size(943, 483);
 
             this.Controls.Add(this.btnGiaoCa);
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 33adfc860d4bed21cc9a06469406698ded3d242f
+
+
+
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ptb_anh);
             this.Controls.Add(this.lb_hoten);
@@ -392,14 +390,13 @@
 
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 
-<<<<<<< HEAD
-=======
+
+
 
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 
->>>>>>> 33adfc860d4bed21cc9a06469406698ded3d242f
 
 
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

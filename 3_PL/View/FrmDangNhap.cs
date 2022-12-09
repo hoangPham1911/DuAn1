@@ -61,7 +61,7 @@ namespace _3_PL.View
                 _IdStaff = user.Id;
                 if (user != null)
                 {
-                    //if(giaoCaServices.GetAll().Count() != 0)
+                    //if (giaoCaServices.GetAll().Count() != 0)
                     //{
                     //    GiaoCaViewModels giaoCa = new GiaoCaViewModels();
                     //    giaoCa.IdNvNhanCaTiep = _IdStaff;
@@ -70,42 +70,30 @@ namespace _3_PL.View
                     //    giaoCa.TrangThai = 1;
                     //    giaoCaServices.Them(giaoCa);
 
-<<<<<<< HEAD
                     //}
                     //else
                     //{
-                    //    GiaoCaViewModels giaoCaa = giaoCaServices.GetAll().FirstOrDefault(p => p.Id == _IdStaff);
-                    //    giaoCaa.IdNvNhanCaTiep = _IdStaff;
-                    //    giaoCaa.ThoiGianNhanCa = DateTime.Now;
-                    //    giaoCaa.ThoiGianGiaoCa = DateTime.Now;
-                    //    giaoCaa.TrangThai = 1;
-                    //    giaoCaServices.Sua(giaoCaa);
-                        
-                    //}
-=======
-                    }
-                    else
-                    {
-                        //GiaoCaViewModels giaoCaa = giaoCaServices.GetAll().FirstOrDefault(p => p.Id == _IdStaff);
-                        //giaoCaa.IdNvNhanCaTiep = _IdStaff;
-                        //giaoCaa.ThoiGianNhanCa = DateTime.Now;
-                        //giaoCaa.ThoiGianGiaoCa = DateTime.Now;
-                        //giaoCaa.TrangThai = 1;
-                        //giaoCaServices.Sua(giaoCaa);
+                    //    //GiaoCaViewModels giaoCaa = giaoCaServices.GetAll().FirstOrDefault(p => p.Id == _IdStaff);
+                    //    //giaoCaa.IdNvNhanCaTiep = _IdStaff;
+                    //    //giaoCaa.ThoiGianNhanCa = DateTime.Now;
+                    //    //giaoCaa.ThoiGianGiaoCa = DateTime.Now;
+                    //    //giaoCaa.TrangThai = 1;
+                    //    //giaoCaServices.Sua(giaoCaa);
 
-                    }
->>>>>>> 33adfc860d4bed21cc9a06469406698ded3d242f
-                    
-                    foreach (var item in _hoaDonService.Get().Where(p=>p.IdNv == user.Id))
+                    //}
+
+                    foreach (var item in _hoaDonService.Get().Where(p => p.IdNv == user.Id))
                     {
                         item.TongSoTienTrongCa = 0;
                         _hoaDonService.UpdateSoTienNvTrongCa(item);
                     }
-                    this.Hide();
+                    //   this.Hide();
                     Helpers.AccoutHelper.Instance.SetUserLogin(user);
                     var frmMain = new FormMain();
                     frmMain.Show();
                     this.Visible = false;
+                    this.Close();
+
                 }
                 else
                 {

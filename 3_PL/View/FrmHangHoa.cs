@@ -37,6 +37,7 @@ namespace _3_PL.View
             loadloc();
             loaddata();
             dgrid_sanpham.AllowUserToAddRows = false;
+            
         }
 
         public void Alert(string mess)
@@ -65,6 +66,8 @@ namespace _3_PL.View
             dgrid_sanpham.Columns[2].Name = "Mã Hàng Hóa";
             dgrid_sanpham.Columns[3].Name = "Tên Hàng Hóa";
             dgrid_sanpham.Columns[4].Name = "Mã vạch";
+            dgrid_sanpham.Columns[4].Visible = false;
+
             dgrid_sanpham.Columns[5].Name = "Nhà sản xuất";
             dgrid_sanpham.Columns[6].Name = "Số lượng";
             dgrid_sanpham.Columns[7].Name = "Ảnh";

@@ -48,8 +48,8 @@ namespace _1_DAL.Context
             //"Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=linh123;Password=12345");
             //optionsBuilder.UseSqlServer("Data Source=DESKTOP-3S50L70\\SQLEXPRESS;" +
             //"Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=hoangpham;Password=19112002");
-            optionsBuilder.UseSqlServer("Data Source=DESKTOP-PJLRIKK\\SQLEXPRESS;" +
-            "Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=ph28227;Password=ph28227");
+            //optionsBuilder.UseSqlServer("Data Source=DESKTOP-PJLRIKK\\SQLEXPRESS;" +
+            //"Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=ph28227;Password=ph28227");
             //optionsBuilder.UseSqlServer("Data Source=KIRO\\SQLEXPRESS;" +
             //"Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=quannh;Password=123456");
             //optionsBuilder.UseSqlServer("Data Source=ADMIN-PC\\SQLEXPRESS;" +

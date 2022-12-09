@@ -143,9 +143,31 @@ namespace _3_PL.View
                 rdb_chogiaohang.Checked = hd.TinhTrang == 2;
                 rdb_dahuy.Checked = hd.TinhTrang == 3;
                 rdb_dacoc.Checked = hd.TinhTrang == 4;
-                txt_sdtShip.Text = hd.SDTShip.ToString();
-                txt_tenship.Text = hd.TenShip.ToString();
+                if (hd.SDTShip == null)
+                {
+                    txt_sdtShip.Text = "Trống";
+                }
+                else txt_sdtShip.Text = hd.SDTShip;
+
+                if (hd.TenShip == null)
+                {
+                    txt_tenship.Text = "Trống";
+                }
+                else txt_tenship.Text = hd.TenShip.ToString();
+
+
+                if (hd.SoTienQuyDoi == null)
+                {
+                    txt_sotienquydoi.Text = "Trống";
+                }
+                else 
                 txt_sotienquydoi.Text = hd.SoTienQuyDoi.ToString();
+
+                if (hd.SoDiemSuDung == null)
+                {
+                    txt_sdtShip.Text = "Trống";
+                }
+                else 
                 txt_sodiemtieudung.Text = hd.SoDiemSuDung.ToString();
              
                 if (hd.MaGiamGia == null)

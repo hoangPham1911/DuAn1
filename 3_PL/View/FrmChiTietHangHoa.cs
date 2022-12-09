@@ -91,12 +91,12 @@ namespace _3_PL.View
             txt_giaban.Text = giaban;
             txt_gianhap.Text = gianhap;
             cbo_tenquocgia.Text = tenquocgia;
-            var request = WebRequest.Create(anh);
-            using (var response = request.GetResponse())
-            using (var stream = response.GetResponseStream())
-            {
-                pic_anhhanghoa.Image = Bitmap.FromStream(stream);
-            }
+            //var request = WebRequest.Create(anh);
+            //using (var response = request.GetResponse())
+            //using (var stream = response.GetResponseStream())
+            //{
+            //    pic_anhhanghoa.Image = Bitmap.FromStream(stream);
+            //}
             loadnsx();
             loadchatlieu();
             loadsizegiay();

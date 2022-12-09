@@ -188,7 +188,7 @@ namespace _3_PL.View
             {
                 label1.Text = cv.Ten;
             }
-            if (label1.Text == "Nhân Viên")
+            if (label1.Text == "Nhân viên")
             {
                 txtTongTienBanDau.Enabled = false;
                 dgvGiaoCa.Visible = false;
@@ -269,7 +269,7 @@ namespace _3_PL.View
                 = txtTienCaTruoc.Enabled = txtTienMat.Enabled
                 = dtpThoiGianGiao.Enabled = dtpThoiGianNhan.Enabled
                 = isEnable;
-            if (label1.Text != "Nhân Viên")
+            if (label1.Text != "Nhân viên")
             {
                 txtTongTienBanDau.Enabled = isEnable;
             }

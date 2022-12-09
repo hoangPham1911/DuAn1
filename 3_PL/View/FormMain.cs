@@ -189,7 +189,7 @@ namespace _3_PL.View
         private void button2_Click_2(object sender, EventArgs e)
         {
 
-<<<<<<< HEAD
+
                 OpenChildForm(new frmGIaoCa(), sender);
                 //this.Hide();          
 
@@ -199,12 +199,12 @@ namespace _3_PL.View
             
 
 
-=======
+
            
                 OpenChildForm(new frmGIaoCa(), sender);
  
           
->>>>>>> 33adfc860d4bed21cc9a06469406698ded3d242f
+
         }
 
         private void button4_Click_2(object sender, EventArgs e)

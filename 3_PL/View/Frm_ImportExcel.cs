@@ -61,7 +61,7 @@ namespace _3_PL.View
                 {
                     txtFilePath.Text = openFileDialog.FileName;
                 }
-                
+
 
                 var package = new ExcelPackage(new FileInfo(txtFilePath.Text));
                 ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
@@ -76,15 +76,15 @@ namespace _3_PL.View
                 dt.Columns.Add("Gía Bán");
                 dt.Columns.Add("Số Lượng Ton");
                 dt.Columns.Add("Nhà Sản Xuất");
-                dt.Columns.Add("Quốc Gia");
                 dt.Columns.Add("Loại Gìay");
+                dt.Columns.Add("Quốc Gia");
                 dt.Columns.Add("Chất Liệu");
                 dt.Columns.Add("Size Gìay");
                 dt.Columns.Add("Đường Dẫn");
                 try
                 {
                     // mo file excel
-                   
+
                     for (int i = worksheet.Dimension.Start.Row + 1; i <= worksheet.Dimension.End.Row; i++)
                     {
                         try
@@ -98,14 +98,16 @@ namespace _3_PL.View
                             var giaNhap = worksheet.Cells[i, j++].Value;
                             var giaBan = worksheet.Cells[i, j++].Value;
                             var soLuong = worksheet.Cells[i, j++].Value;
-                            var loaiGiay = worksheet.Cells[i, j++].Value;
                             var Nsx = worksheet.Cells[i, j++].Value;
-                            var chatLieu = worksheet.Cells[i, j++].Value;
+                            var loaiGiay = worksheet.Cells[i, j++].Value;
                             var QuocGia = worksheet.Cells[i, j++].Value;
+
+                            var chatLieu = worksheet.Cells[i, j++].Value;
+                            
                             var SoSize = worksheet.Cells[i, j++].Value;
                             var DgDan = worksheet.Cells[i, j++].Value;
 
-                            dt.Rows.Add(stt, maSp, tenSp, namBH, moTa, giaNhap, giaBan, soLuong, Nsx, loaiGiay, chatLieu, QuocGia, DgDan);
+                            dt.Rows.Add(stt, maSp, tenSp, namBH, moTa, giaNhap, giaBan, soLuong, Nsx, loaiGiay, QuocGia, chatLieu, SoSize, DgDan);
                         }
                         catch (Exception)
                         {
@@ -143,8 +145,8 @@ namespace _3_PL.View
                         QuocGia = dgv_product.Rows[i].Cells[9].Value.ToString();
                         Nsx = dgv_product.Rows[i].Cells[8].Value.ToString();
                         loaiGiay = dgv_product.Rows[i].Cells[10].Value.ToString();
-                        QuocGia = dgv_product.Rows[i].Cells[11].Value.ToString();
-                        ChatLieu = dgv_product.Rows[i].Cells[12].Value.ToString();
+                        ChatLieu = dgv_product.Rows[i].Cells[11].Value.ToString();
+                        soSize = int.Parse(dgv_product.Rows[i].Cells[12].Value.ToString());
                         DuongDan = dgv_product.Rows[i].Cells[13].Value.ToString();
                         var chatLieu = new ChatLieuViewModels()
                         {
@@ -175,11 +177,11 @@ namespace _3_PL.View
                         var anh = new AnhViewModels()
                         {
                             MaAnh = (_AnhService.GetAnh().Count + 1).ToString(),
-                            DuongDan = DuongDan, 
+                            DuongDan = DuongDan,
                             TrangThai = 1
                         };
 
-                        
+
                         Guid idAnh = _AnhService.Id(anh);
 
                         var Size = new SizeGiayViewModels()
