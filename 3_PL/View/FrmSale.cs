@@ -16,18 +16,16 @@ namespace _3_PL.View
 {
     public partial class FrmSale : Form
     {
-        private IQlyHangHoaServices iqlhh;
+
         private SaleViewModel viewsale;
-        private QlyHangHoaViewModels viewqlhh;
         private ISaleService isale;
 
         public FrmSale()
         {
             InitializeComponent();
-            iqlhh = new QlyHangHoaServices();
             isale = new SaleService();
-            loadData();
-            loadComboBox();
+            viewsale = new SaleViewModel();
+            //loadData();
         }
 
         public void loadData()
@@ -36,17 +34,17 @@ namespace _3_PL.View
             dgv_show.ColumnCount = 7;
             dgv_show.Columns[0].Name = "ID";
             dgv_show.Columns[0].Visible = false;
-            dgv_show.Columns[1].Name = "Mã";
+            dgv_show.Columns[1].Name = "Mã giảm giá";
             dgv_show.Columns[2].Name = "Tên chương trình";
-            dgv_show.Columns[3].Name = "Size";
-            dgv_show.Columns[4].Name = "Giá bán";
-            dgv_show.Columns[5].Name = "Số lượng";
+            dgv_show.Columns[3].Name = "Giảm giá";
+            dgv_show.Columns[4].Name = "Ngày bắt đầu";
+            dgv_show.Columns[5].Name = "Ngày kết thúc";
             dgv_show.Columns[6].Name = "Trạng thái";
-            var lstcthh = iqlhh.GetsList();
-            foreach (var item in lstcthh)
+            var lstsale = isale.GetDanhMuc();
+            foreach (var item in lstsale)
             {
-                dgv_show.Rows.Add(item.Id, item.Ma, item.Ten, item.IdSizeGiay,
-                    item.GiaBan, item.SoLuongTon, item.TrangThai == 1 ? "Còn sản xuất" : "Ngừng sản xuất");
+                dgv_show.Rows.Add(item.Id, item.MaGiamGia, item.TenChuongTrinh, item.SoTienGiamGia, item.NgayBatDau, item.NgayKetThuc,
+                        item.TrangThai == 1 ? "Còn hạn " : "Hết hạn");
             }
             dgv_show.AllowUserToAddRows = false;
         }
@@ -59,7 +57,7 @@ namespace _3_PL.View
                 //  vmqlyhanghoa = iqlhh.GetsList().FirstOrDefault(x => x.Id == Guid.Parse(dgvr.Cells[0].Value.ToString()));
                 // cbb_tengiay.Text = vmqlyhanghoa.Ten;
                 //vmqlyhanghoa.GiaBan = tb_gia.Text ;
-                if (dgvr.Cells[6].Value.ToString() == "Còn sản xuất")
+                if (dgvr.Cells[6].Value.ToString() == "Hết hạn")
                 {
                     rdb_con.Checked = true;
                 }
@@ -70,11 +68,6 @@ namespace _3_PL.View
             }
         }
 
-        public void loadComboBox()
-        {
-
-        }
-
         private void cbb_tengiay_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -82,18 +75,21 @@ namespace _3_PL.View
 
         private void btn_them_Click(object sender, EventArgs e)
         {
-            SaleViewModel x = new SaleViewModel();
-            x.MaGiamGia = tb_ma.Text;
-            x.TenChuongTrinh = tb_tenct.Text;
-            x.NgayBatDau = dt_ngaybatdau.Value;
-            x.NgayKetThuc = dt_ngayketthuc.Value;
-            x.SoTienGiamGia = Convert.ToDecimal(tb_sotiengiam.Text);
-            x.TrangThai = rdb_con.Checked ? 1 : 0;
-            
+            SaleViewModel x = new SaleViewModel()
+            {
+                Id = Guid.NewGuid(),
+                MaGiamGia = tb_ma.Text,
+                TenChuongTrinh = tb_tenct.Text,
+                NgayBatDau = dt_ngaybatdau.Value,
+                NgayKetThuc = dt_ngayketthuc.Value,
+                SoTienGiamGia = Convert.ToInt32(tb_sotiengiamgia.Text),
+                TrangThai = rdb_con.Checked ? 1 : 0
+            };
             if (isale.add(x))
             {
                 MessageBox.Show("Them Thanh Cong");
             };
+
             loadData();
         }
 
@@ -108,7 +104,7 @@ namespace _3_PL.View
             viewsale.TenChuongTrinh = tb_tenct.Text;
             viewsale.NgayBatDau = dt_ngaybatdau.Value;
             viewsale.NgayKetThuc = dt_ngayketthuc.Value;
-            viewsale.SoTienGiamGia = Convert.ToInt32(tb_sotiengiam.Text);
+            viewsale.SoTienGiamGia = Convert.ToInt32(tb_sotiengiamgia.Text);
             viewsale.TrangThai = rdb_con.Checked ? 1 : 0;
             if (isale.update(viewsale))
             {
@@ -120,10 +116,8 @@ namespace _3_PL.View
 
         private void btn_xoa_Click(object sender, EventArgs e)
         {
-            if (viewsale == null)
-            {
 
-            }
         }
     }
 }
+
