@@ -70,7 +70,7 @@ namespace _3_PL.View
 
         private void btn_thongke_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FrmHangHoa(), sender);
+            OpenChildForm(new FrmThongKeDoanhThuNhanVien(), sender);
         }
 
         private void btn_quanlynhanvien_Click(object sender, EventArgs e)
@@ -188,8 +188,21 @@ namespace _3_PL.View
 
         private void button2_Click_2(object sender, EventArgs e)
         {
+<<<<<<< HEAD
                 OpenChildForm(new frmGIaoCa(), sender);
                 //this.Hide();          
+=======
+           
+                OpenChildForm(new frmGIaoCa(), sender);
+ 
+            
+
+>>>>>>> 98fe678e2d918f07bacf73a648d58f67009fce4c
+        }
+
+        private void button4_Click_2(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

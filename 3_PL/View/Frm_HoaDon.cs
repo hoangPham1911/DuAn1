@@ -50,15 +50,17 @@ namespace _3_PL.View
         }
         private void Frm_Receipt_Load(object sender, EventArgs e)
         {
-
+            Currenid = Guid.Empty;
         }
 
         int i = 1;
 
         void LoadDTG()
         {
+            Currenid = Guid.Empty;
+            dtg_showHD.AllowUserToAddRows = false;
             dtg_showHD.Rows.Clear();
-            dtg_showHD.ColumnCount = 13;
+            dtg_showHD.ColumnCount = 14;
             dtg_showHD.Columns[0].Name = "ID";
             dtg_showHD.Columns[0].Visible = false;
             dtg_showHD.Columns[1].Name = "MAHD";
@@ -73,6 +75,7 @@ namespace _3_PL.View
             dtg_showHD.Columns[10].Name = "Tên Ship";
             dtg_showHD.Columns[11].Name = "Số Tiền Quy Đổi";
             dtg_showHD.Columns[12].Name = "Số Điểm Tiêu Dùng";
+            dtg_showHD.Columns[13].Name = "Mã Giảm Giá";
             foreach (var x in _HDService.GetAllHoaDonDB())
             {
                 dtg_showHD.Rows.Add(
@@ -84,12 +87,12 @@ namespace _3_PL.View
                     x.NgayThanhToan,
                     x.NgayShip,
                     x.NgayNhan,
-                    x.TinhTrang == 1 ? "Da TT" : x.TinhTrang == 0 ? "Chua TT" : x.TinhTrang == 2 ? "Chờ Giao Hàng" : x.TinhTrang == 3 ? "Da Huy" : "Đã Cọc",
-                    //x.Thue,
+                    x.TinhTrang == 1 ? "Đã thanh toán" : x.TinhTrang == 2 ? "Chưa thanh toán" : x.TinhTrang == 3 ? "Đang Giao Hàng" : x.TinhTrang == 6 ? "Đã Hủy" : "Đã Cọc",
                     x.SDTShip,
                     x.TenShip,
                     x.SoTienQuyDoi,
-                    x.SoDiemSuDung
+                    x.SoDiemSuDung,
+                    x.MaGiamGia
                  );
             }
 
@@ -97,6 +100,8 @@ namespace _3_PL.View
 
         void TimKiemHoaDOnTheoMa(string MaHD)
         {
+            //dtg_showHD.AllowUserToAddRows = false;
+            Currenid = Guid.Empty;
             dtg_showHD.Rows.Clear();
             foreach (var x in _HDService.timkiemHoadonTheoMa(MaHD))
             {
@@ -109,13 +114,13 @@ namespace _3_PL.View
                     x.NgayThanhToan,
                     x.NgayShip,
                     x.NgayNhan,
-                    x.TinhTrang == 1 ? "Da TT" : x.TinhTrang == 0 ? "Chua TT" : x.TinhTrang == 2 ? "Chờ Giao Hàng" : x.TinhTrang == 3 ? "Da Huy" : "Đã Cọc",
-                    //x.Thue,
+              x.TinhTrang == 1 ? "Đã thanh toán" : x.TinhTrang == 2 ? "Chưa thanh toán" : x.TinhTrang == 3 ? "Đang Giao Hàng" : x.TinhTrang == 6 ? "Đã Hủy" : "Đã Cọc",
+
                     x.SDTShip,
                     x.TenShip,
                     x.SoTienQuyDoi,
-                    x.SoDiemSuDung
-                   /* x.PhanTramGiamGia*/);
+                    x.SoDiemSuDung,
+                   x.MaGiamGia);
             }
         }
 
@@ -142,11 +147,22 @@ namespace _3_PL.View
                 txt_tenship.Text = hd.TenShip.ToString();
                 txt_sotienquydoi.Text = hd.SoTienQuyDoi.ToString();
                 txt_sodiemtieudung.Text = hd.SoDiemSuDung.ToString();
+             
+                if (hd.MaGiamGia == null)
+                {
+                    txt_phantramgiamgia.Text = "";
+                }
+                else
+                {
+                    txt_phantramgiamgia.Text = hd.MaGiamGia.ToString();
+                }
+                
                 LoadCTHD(Currenid);
             }
             catch (Exception)
             {
-                LoadCTHD(Currenid);
+                //LoadCTHD(Currenid);
+                MessageBox.Show("Phải chọn vào chỗ có dữ liệu");
                 return;
             }
         }
@@ -162,35 +178,89 @@ namespace _3_PL.View
         private void btn_suaHD_Click(object sender, EventArgs e)
         {
 
-            var idkh = _KHService.GetAllKhachHangDB().FirstOrDefault(x => x.Ten == cbb_khachhang.Text);
-            var idnv = _NVService.GetAll().FirstOrDefault(x => x.Ten == cbb_nhanvien.Text);
-            SuaHoaDonModels suaHoaDon = new SuaHoaDonModels() { };
-            suaHoaDon.IdHoaDon = Currenid;
-            suaHoaDon.IdKh = _KHService.GetAllKhachHangDB().FirstOrDefault(x => x.Ten == cbb_khachhang.Text).Idkh;
-            suaHoaDon.IdNv = idnv.Id;
-            suaHoaDon.NgayTao = dtp_ngaytao.Value;
-            suaHoaDon.NgayThanhToan = dtp_ngaythanhtoan.Value;
-            suaHoaDon.NgayShip = dtp_ngayship.Value;
-            suaHoaDon.NgayNhan = dtp_ngaynhan.Value;
-            suaHoaDon.TinhTrang = rdb_datt.Checked ? 1 : rdb_chuatt.Checked ? 0 : rdb_chogiaohang.Checked ? 2 : rdb_dahuy.Checked ? 3 : 4;
-            suaHoaDon.SDTShip = txt_sdtShip.Text;
-            suaHoaDon.TenShip = txt_tenship.Text;
-            suaHoaDon.SoTienQuyDoi = Convert.ToDecimal(txt_sotienquydoi.Text);
-            suaHoaDon.SoDiemSuDung = Convert.ToInt32(txt_sodiemtieudung.Text);
+
+            //try
+            //{
+            //    if (_HDService.SuaHoaDon(suaHoaDon) != null)
+            //    {
+            //        MessageBox.Show("Chinh Sua Thanh Cong");
+            //        LoadDTG();
+            //    }
+            //    else MessageBox.Show("Chinh Sua that bai");
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Chinh Sua that bai");
+            //}
+
 
             try
             {
-                if (_HDService.SuaHoaDon(suaHoaDon) != null)
+
+                var idkh = _KHService.GetAllKhachHangDB().FirstOrDefault(x => x.Ten == cbb_khachhang.Text);
+                var idnv = _NVService.GetAll().FirstOrDefault(x => x.Ten == cbb_nhanvien.Text);
+
+                if (Currenid==Guid.Empty)
                 {
-                    MessageBox.Show("Chinh Sua Thanh Cong");
+                    MessageBox.Show("Chưa Chọn Hóa Đơn");
+                }
+                else if (cbb_nhanvien.Text == "")
+                {
+                    MessageBox.Show("Thiếu Nhân Viên rồi ");
+                }
+                else if (cbb_khachhang.Text == "")
+                {
+                    MessageBox.Show("Thiếu tên khách hàng rồi");
+                }
+                else if (txt_sdtShip.Text == "")
+                {
+                    MessageBox.Show("Thiếu số điện thoại Ship rồi");
+                }
+
+                else if (txt_tenship.Text == "")
+                {
+                    MessageBox.Show("Chưa có tên ship");
+
+                }
+                else if (txt_sotienquydoi.Text == "")
+                {
+                    MessageBox.Show("Chưa có số tiền quy đổi");
+
+                }
+                else if (txt_sodiemtieudung.Text == "")
+                {
+                    MessageBox.Show("Chưa có số điểm tiêu dùng");
+
+                }
+                else
+                {
+                  
+                    SuaHoaDonModels suaHoaDon = new SuaHoaDonModels() { };
+                    suaHoaDon.IdHoaDon = Currenid;
+                    suaHoaDon.IdKh = _KHService.GetAllKhachHangDB().FirstOrDefault(x => x.Ten == cbb_khachhang.Text).Idkh;
+                    suaHoaDon.IdNv = idnv.Id;
+                    suaHoaDon.NgayTao = dtp_ngaytao.Value;
+                    suaHoaDon.NgayThanhToan = dtp_ngaythanhtoan.Value;
+                    suaHoaDon.NgayShip = dtp_ngayship.Value;
+                    suaHoaDon.NgayNhan = dtp_ngaynhan.Value;
+                    suaHoaDon.TinhTrang = rdb_datt.Checked ? 1 : rdb_chuatt.Checked ? 2 : rdb_chogiaohang.Checked ? 3 : rdb_dahuy.Checked ? 6 : 7;
+                    suaHoaDon.SDTShip = txt_sdtShip.Text;
+                    suaHoaDon.TenShip = txt_tenship.Text;
+                    suaHoaDon.SoTienQuyDoi = Convert.ToDecimal(txt_sotienquydoi.Text);
+                    suaHoaDon.SoDiemSuDung = Convert.ToInt32(txt_sodiemtieudung.Text);
+                    _HDService.SuaHoaDon(suaHoaDon);
+                    MessageBox.Show("Chỉnh Sửa Thành Công");
                     LoadDTG();
                 }
-                else MessageBox.Show("Chinh Sua that bai");
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Chinh Sua that bai");
+                ex.Source = "Error";
             }
+
+
 
 
         }
@@ -207,6 +277,7 @@ namespace _3_PL.View
             dtgShow_CTHD.Columns[4].Name = "Thành Tiền";
             dtgShow_CTHD.Columns[5].Name = "Trạng Thái";
             dtgShow_CTHD.Columns[6].Name = "Giảm Giá";
+
             foreach (var x in _HDCTservice.timkiemhdtheoid(Currenid))
             {
                 dtgShow_CTHD.Rows.Add(
@@ -474,6 +545,7 @@ namespace _3_PL.View
             this.pictureBox_PDF.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox_PDF.TabIndex = 133;
             this.pictureBox_PDF.TabStop = false;
+            this.pictureBox_PDF.Click += new System.EventHandler(this.pictureBox_PDF_Click);
             // 
             // pictureBox1
             // 
@@ -487,6 +559,7 @@ namespace _3_PL.View
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 134;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // txt_timkiem
             // 
@@ -495,6 +568,7 @@ namespace _3_PL.View
             this.txt_timkiem.Name = "txt_timkiem";
             this.txt_timkiem.Size = new System.Drawing.Size(205, 23);
             this.txt_timkiem.TabIndex = 132;
+            this.txt_timkiem.TextChanged += new System.EventHandler(this.txt_timkiem_TextChanged);
             // 
             // label17
             // 
@@ -623,6 +697,7 @@ namespace _3_PL.View
             // dtgShow_CTHD
             // 
             this.dtgShow_CTHD.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtgShow_CTHD.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgShow_CTHD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgShow_CTHD.Location = new System.Drawing.Point(-13, 606);
             this.dtgShow_CTHD.Name = "dtgShow_CTHD";
@@ -633,12 +708,14 @@ namespace _3_PL.View
             // dtg_showHD
             // 
             this.dtg_showHD.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtg_showHD.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtg_showHD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_showHD.Location = new System.Drawing.Point(-13, 346);
             this.dtg_showHD.Name = "dtg_showHD";
             this.dtg_showHD.RowTemplate.Height = 25;
             this.dtg_showHD.Size = new System.Drawing.Size(1396, 254);
             this.dtg_showHD.TabIndex = 117;
+            this.dtg_showHD.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_showHD_CellClick);
             // 
             // btn_suaHD
             // 
@@ -752,9 +829,9 @@ namespace _3_PL.View
             this.label16.Location = new System.Drawing.Point(765, 278);
             this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(157, 20);
+            this.label16.Size = new System.Drawing.Size(102, 20);
             this.label16.TabIndex = 106;
-            this.label16.Text = "Phần Trăm Giảm Giá";
+            this.label16.Text = "Mã Giảm Giá";
             // 
             // label10
             // 
@@ -903,6 +980,6 @@ namespace _3_PL.View
 
         }
 
-       
+
     }
 }

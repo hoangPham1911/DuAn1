@@ -30,7 +30,8 @@ namespace _2_BUS.ViewModels
         public string? TenShip { get; set; }
         public decimal? SoTienQuyDoi { get; set; }
         public int? SoDiemSuDung { get; set; }
-        public string TenKhachHang { get; set; }
+        public string? MaGiamGia { get; set; }
+        public Guid? IdMaGiamGia { get; set; }
 
         public decimal TongSoTienTrongCa { get; set; }
 
