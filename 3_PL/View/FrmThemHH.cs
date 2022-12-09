@@ -214,7 +214,7 @@ namespace _3_PL.View
             //macl
             if (cbo_tencl.Text.Length <= 3)
             {
-                MessageBox.Show("Tên chất liệu nước hóa phải trên 3 ký tự", "ERR");
+                MessageBox.Show("Tên chất liệu phải trên 3 ký tự", "ERR");
                 return false;
             }
             if (Regex.IsMatch(cbo_mahh.Text, @"[0-9]+") == false)
@@ -461,7 +461,7 @@ namespace _3_PL.View
 
                     if (_anhser.GetAnh().Any(c => c.DuongDan == cbo_anh.Text) == false)
                     {
-                        MessageBox.Show("Dường Dẫn Không Hợp Lệ", "ERR");
+                        MessageBox.Show("Đường Dẫn Không Hợp Lệ", "ERR");
                         return;
 
                     }
