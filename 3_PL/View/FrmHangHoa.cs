@@ -24,6 +24,8 @@ namespace _3_PL.View
         private IQuocGiaServices _quocgiaser;
         private ISizeGiayServices _sizegiayser;
         private static FrmHangHoa _sender;
+        private IChucVuServices ichucvu;
+        private INhanVienServices inhanvien;
         public FrmHangHoa()
         {
                     
@@ -37,8 +39,11 @@ namespace _3_PL.View
             loadloc();
             loaddata();
             dgrid_sanpham.AllowUserToAddRows = false;
-            
+            inhanvien = new NhanVienServices();
+            ichucvu = new ChucVuServices();
+
         }
+
 
         public void Alert(string mess)
         {
@@ -66,7 +71,7 @@ namespace _3_PL.View
             dgrid_sanpham.Columns[2].Name = "Mã Hàng Hóa";
             dgrid_sanpham.Columns[3].Name = "Tên Hàng Hóa";
             dgrid_sanpham.Columns[4].Name = "Mã vạch";
-            dgrid_sanpham.Columns[4].Visible = false;
+            //dgrid_sanpham.Columns[4].Visible = false;
 
             dgrid_sanpham.Columns[5].Name = "Nhà sản xuất";
             dgrid_sanpham.Columns[6].Name = "Số lượng";
@@ -259,6 +264,7 @@ namespace _3_PL.View
 
         private void chaasToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
             Frm_ChatLieu frm_ChatLieu = new Frm_ChatLieu();
             frm_ChatLieu.ShowDialog();
         }
@@ -324,7 +330,6 @@ namespace _3_PL.View
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("bạn có muốn thêm số lượng Lớn sản phẩm bằng file excel hay không", "Thông Báo", MessageBoxButtons.YesNo);
-
             if (dialogResult == DialogResult.Yes)
             {
                 Frm_ImportExcel frmAddDataFormExcelToDB = new Frm_ImportExcel();
@@ -334,20 +339,27 @@ namespace _3_PL.View
 
                 }
                 frmAddDataFormExcelToDB.Show();
-
-
             };
-
             if (dialogResult == DialogResult.No)
             {
                 return;
             }
-
         }
 
         private void FrmHangHoa_Load(object sender, EventArgs e)
         {
+            var cv = ichucvu.GetChucVu().FirstOrDefault(p => p.IdNv == FrmDangNhap._IdStaff);
+            if (cv.Ten == "Nhân viên")
+            {
+                pictureBox3.Enabled = chaasToolStripMenuItem.Enabled = loạiGiàyToolStripMenuItem.Enabled = sizeGiàyToolStripMenuItem.Enabled = false;
+                    xuấtXứToolStripMenuItem.Enabled= nhàSảnXuấtToolStripMenuItem.Enabled = ảnhToolStripMenuItem.Enabled= btn_them.Enabled= false;
+            }
             
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

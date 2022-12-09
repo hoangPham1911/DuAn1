@@ -789,9 +789,9 @@ namespace _3_PL.View
                         if (radioButton2.Checked)
                         {
                             LichSuDiemViewModels lichSuDiemViewModels = new LichSuDiemViewModels();
-                            if (_KhachHangServices.GetAllKhachHangDB().SingleOrDefault(p => p.Sdt.Contains(textBox10.Text)) != null)
+                            if (_KhachHangServices.GetAllKhachHangDB().SingleOrDefault(p => p.Sdt==textBox10.Text) != null)
                             {
-                                lichSuDiemViewModels.IdViDiem = _KhachHangServices.GetAllKhachHangDB().SingleOrDefault(p => p.Sdt.Contains(textBox10.Text)).IdVi;
+                                lichSuDiemViewModels.IdViDiem = _KhachHangServices.GetAllKhachHangDB().SingleOrDefault(p => p.Sdt==textBox10.Text).IdVi;
 
                                 if (textBox11.Text == "")
                                 {
@@ -809,7 +809,7 @@ namespace _3_PL.View
                                     ViDiemViewModel viDiem = new ViDiemViewModel();
                                     viDiem.TongDiem = int.Parse(textBox5.Text) - int.Parse(textBox11.Text) + lichSuDiemViewModels.SoDiemCong;
                                     viDiem.TrangThai = 1;
-                                    var IdKh = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt.Contains(textBox10.Text)).Idkh;
+                                    var IdKh = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt==textBox10.Text).Idkh;
                                     viDiem.IdKhachHang = IdKh;
                                     if (_ViDiemService.GetViDiem().FirstOrDefault(p => p.IdKhachHang == IdKh) != null)
                                         viDiem.Id = _ViDiemService.GetViDiem().FirstOrDefault(p => p.IdKhachHang == IdKh).Id;
@@ -1112,7 +1112,7 @@ namespace _3_PL.View
         private void button3_Click(object sender, EventArgs e)
         {
             button2.Enabled = true;
-            DialogResult dialogResult = MessageBox.Show("Bạn Muốn Thêm Sp Này Vào Gio Hàng Chứ?", "Thông Báo", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Bạn Muốn Thêm Sp Này Chứ?", "Thông Báo", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 if (int.Parse(tb_count.Text) == 0)
@@ -1154,14 +1154,14 @@ namespace _3_PL.View
                     if (_ListReceiptProduct2.Count() != 0)
                     {
 
-                        if (_ListReceiptProduct2.FirstOrDefault(p => p.IdHoaDon == IdHoaDon) != null && _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IDSpCt) != null)
+                        if (_ListReceiptProduct2.FirstOrDefault(p => p.IdHoaDon == IdHoaDon) != null && _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IdReceiptInCart) != null)
                         {
-                            _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IDSpCt).SoLuong = _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IDSpCt).SoLuong + int.Parse(tb_count.Text);
+                            _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IdReceiptInCart).SoLuong = _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IdReceiptInCart).SoLuong + int.Parse(tb_count.Text);
                             MessageBox.Show("Thêm Vào Hóa Đơn Thành Công");
                             loadReceipt();
 
                         }
-                        else
+                        else if (_ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IdReceiptInCart) == null)
                         {
                             _ListReceiptProduct2.Add(SpInHD);
                             MessageBox.Show("Thêm Vào Hóa Đơn Thành Công");
@@ -1251,18 +1251,22 @@ namespace _3_PL.View
                             dgv_product.CurrentRow.Cells[6].Value = int.Parse(dgv_product.CurrentRow.Cells[6].Value.ToString()) - (int.Parse(textBox2.Text) - int.Parse(dgv_GioHang1.CurrentRow.Cells[3].Value.ToString()));
                             _ListGioHang.FirstOrDefault(p => p.IdCTSP == IDSpCt).SoLuong = int.Parse(textBox2.Text);
                             loadGioHang();
+                            MessageBox.Show("gio hang 1");
                         }
                         else if (int.Parse(dgv_GioHang1.CurrentRow.Cells[3].Value.ToString()) > int.Parse(textBox2.Text) && _ListGioHang.FirstOrDefault(p => p.IdCTSP == IdReceiptInCart) != null)
                         {
                             dgv_product.CurrentRow.Cells[6].Value = int.Parse(dgv_product.CurrentRow.Cells[6].Value.ToString()) + (int.Parse(dgv_GioHang1.CurrentRow.Cells[3].Value.ToString()) - int.Parse(textBox2.Text));
                             _ListGioHang.FirstOrDefault(p => p.IdCTSP == IDSpCt).SoLuong = int.Parse(textBox2.Text);
                             loadGioHang();
+                            MessageBox.Show("gio hang 2");
+
                         }
                         else if (int.Parse(dgv_GioHang1.CurrentRow.Cells[3].Value.ToString()) < int.Parse(textBox2.Text) && _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IdReceiptInCart) != null)
                         {
                             dgv_product.CurrentRow.Cells[6].Value = int.Parse(dgv_product.CurrentRow.Cells[6].Value.ToString()) - (int.Parse(textBox2.Text) - int.Parse(dgv_GioHang1.CurrentRow.Cells[3].Value.ToString()));
                             _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IdReceiptInCart).SoLuong = int.Parse(textBox2.Text);
-                            //   MessageBox.Show(_ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IdReceiptInCart).SoLuong.ToString());
+                             MessageBox.Show(_ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IdReceiptInCart).SoLuong.ToString());
+                            MessageBox.Show("hoa don 1");
 
                             loadReceipt();
                         }
@@ -1272,7 +1276,9 @@ namespace _3_PL.View
                             //  _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IDSpCt).SoLuong = _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IDSpCt).SoLuong + int.Parse(tb_count.Text);
                             dgv_product.CurrentRow.Cells[6].Value = int.Parse(dgv_product.CurrentRow.Cells[6].Value.ToString()) + (int.Parse(dgv_GioHang1.CurrentRow.Cells[3].Value.ToString()) - int.Parse(textBox2.Text));
                             _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IdReceiptInCart).SoLuong = int.Parse(textBox2.Text);
-                            //       MessageBox.Show(_ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IdReceiptInCart).SoLuong.ToString());
+                            //   MessageBox.Show(_ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IdReceiptInCart).SoLuong.ToString());
+                            MessageBox.Show("hoa don 2");
+
                             loadReceipt();
 
                         }
@@ -1556,6 +1562,10 @@ namespace _3_PL.View
                     textBox3.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt == (textBox10.Text)).Ten;
 
                 }
+                else
+                {
+                    textBox5.Text = 0.ToString();
+                }
             }
             catch (Exception)
             {
@@ -1779,7 +1789,7 @@ namespace _3_PL.View
 
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
-            if (int.Parse(textBox5.Text) == 0)
+            if (textBox5.Text == 0.ToString())
             {
                 textBox7.Text = 0.ToString();
                 textBox7.Enabled = false;
