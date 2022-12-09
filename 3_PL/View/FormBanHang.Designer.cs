@@ -47,6 +47,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.pn_dathang = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -386,6 +388,8 @@
             // 
             this.panel5.BackColor = System.Drawing.Color.BurlyWood;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.textBox14);
+            this.panel5.Controls.Add(this.label16);
             this.panel5.Controls.Add(this.label12);
             this.panel5.Controls.Add(this.textBox11);
             this.panel5.Controls.Add(this.label11);
@@ -421,6 +425,30 @@
             this.panel5.Size = new System.Drawing.Size(292, 529);
             this.panel5.TabIndex = 116;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
+            // 
+            // textBox14
+            // 
+            this.textBox14.BackColor = System.Drawing.Color.BurlyWood;
+            this.textBox14.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox14.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox14.Location = new System.Drawing.Point(109, 80);
+            this.textBox14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox14.Multiline = true;
+            this.textBox14.Name = "textBox14";
+            this.textBox14.ReadOnly = true;
+            this.textBox14.Size = new System.Drawing.Size(160, 23);
+            this.textBox14.TabIndex = 164;
+            this.textBox14.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox14.TextChanged += new System.EventHandler(this.textBox14_TextChanged);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(10, 88);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(50, 15);
+            this.label16.TabIndex = 163;
+            this.label16.Text = "Voucher";
             // 
             // label12
             // 
@@ -485,7 +513,7 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(163, 176);
+            this.dateTimePicker1.Location = new System.Drawing.Point(163, 230);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(108, 23);
@@ -496,7 +524,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(6, 180);
+            this.label3.Location = new System.Drawing.Point(6, 234);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 19);
             this.label3.TabIndex = 156;
@@ -507,7 +535,7 @@
             this.tb_tienKhachDua.BackColor = System.Drawing.Color.BurlyWood;
             this.tb_tienKhachDua.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_tienKhachDua.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tb_tienKhachDua.Location = new System.Drawing.Point(126, 102);
+            this.tb_tienKhachDua.Location = new System.Drawing.Point(126, 162);
             this.tb_tienKhachDua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_tienKhachDua.Name = "tb_tienKhachDua";
             this.tb_tienKhachDua.Size = new System.Drawing.Size(105, 22);
@@ -521,7 +549,7 @@
             // 
             this.label57.AutoSize = true;
             this.label57.ForeColor = System.Drawing.Color.Maroon;
-            this.label57.Location = new System.Drawing.Point(240, 144);
+            this.label57.Location = new System.Drawing.Point(240, 198);
             this.label57.Name = "label57";
             this.label57.Size = new System.Drawing.Size(31, 15);
             this.label57.TabIndex = 154;
@@ -533,7 +561,7 @@
             this.tb_tienThua.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_tienThua.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tb_tienThua.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.tb_tienThua.Location = new System.Drawing.Point(136, 140);
+            this.tb_tienThua.Location = new System.Drawing.Point(136, 193);
             this.tb_tienThua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_tienThua.Name = "tb_tienThua";
             this.tb_tienThua.ReadOnly = true;
@@ -548,7 +576,7 @@
             this.label58.AutoSize = true;
             this.label58.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label58.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label58.Location = new System.Drawing.Point(8, 144);
+            this.label58.Location = new System.Drawing.Point(7, 196);
             this.label58.Name = "label58";
             this.label58.Size = new System.Drawing.Size(131, 19);
             this.label58.TabIndex = 152;
@@ -572,7 +600,7 @@
             // 
             this.label44.AutoSize = true;
             this.label44.ForeColor = System.Drawing.Color.Maroon;
-            this.label44.Location = new System.Drawing.Point(240, 106);
+            this.label44.Location = new System.Drawing.Point(240, 166);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(31, 15);
             this.label44.TabIndex = 86;
@@ -582,7 +610,7 @@
             // 
             this.label45.AutoSize = true;
             this.label45.ForeColor = System.Drawing.Color.Maroon;
-            this.label45.Location = new System.Drawing.Point(240, 68);
+            this.label45.Location = new System.Drawing.Point(240, 134);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(31, 15);
             this.label45.TabIndex = 85;
@@ -601,7 +629,7 @@
             // dateTimePicker3
             // 
             this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker3.Location = new System.Drawing.Point(161, 237);
+            this.dateTimePicker3.Location = new System.Drawing.Point(160, 265);
             this.dateTimePicker3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePicker3.Name = "dateTimePicker3";
             this.dateTimePicker3.Size = new System.Drawing.Size(108, 23);
@@ -688,7 +716,7 @@
             this.tb_TienKhachCanTra.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_TienKhachCanTra.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.tb_TienKhachCanTra.ForeColor = System.Drawing.Color.Firebrick;
-            this.tb_TienKhachCanTra.Location = new System.Drawing.Point(113, 67);
+            this.tb_TienKhachCanTra.Location = new System.Drawing.Point(113, 127);
             this.tb_TienKhachCanTra.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_TienKhachCanTra.Name = "tb_TienKhachCanTra";
             this.tb_TienKhachCanTra.ReadOnly = true;
@@ -719,7 +747,7 @@
             this.label50.AutoSize = true;
             this.label50.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label50.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label50.Location = new System.Drawing.Point(4, 237);
+            this.label50.Location = new System.Drawing.Point(6, 269);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(116, 19);
             this.label50.TabIndex = 62;
@@ -741,7 +769,7 @@
             this.label53.AutoSize = true;
             this.label53.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label53.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label53.Location = new System.Drawing.Point(8, 108);
+            this.label53.Location = new System.Drawing.Point(8, 168);
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(118, 19);
             this.label53.TabIndex = 63;
@@ -752,7 +780,7 @@
             this.label54.AutoSize = true;
             this.label54.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label54.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label54.Location = new System.Drawing.Point(6, 71);
+            this.label54.Location = new System.Drawing.Point(9, 130);
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(99, 19);
             this.label54.TabIndex = 65;
@@ -1878,5 +1906,7 @@
         private Button button1;
         private DataGridView dgv_GioHang1;
         private GroupBox groupBox4;
+        private TextBox textBox14;
+        private Label label16;
     }
 }

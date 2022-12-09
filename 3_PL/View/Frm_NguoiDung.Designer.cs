@@ -328,6 +328,7 @@
             this.label3.TabIndex = 146;
             this.label3.Text = "Avartar người dùng";
             // 
+<<<<<<< HEAD
             // btnGiaoCa
             // 
             this.btnGiaoCa.BackColor = System.Drawing.Color.LightSalmon;
@@ -356,21 +357,44 @@
             this.btnGiaoCa.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnGiaoCa.UseVisualStyleBackColor = false;
             // 
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> 98fe678e2d918f07bacf73a648d58f67009fce4c
+>>>>>>> 7f6c6a250d6c6cfa189370650eea18e8949cca18
             // Frm_NguoiDung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PeachPuff;
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(943, 483);
  
             this.ClientSize = new System.Drawing.Size(943, 483);
+ 
+=======
+<<<<<<< HEAD
+            this.ClientSize = new System.Drawing.Size(943, 555);
+=======
+>>>>>>> 7f6c6a250d6c6cfa189370650eea18e8949cca18
+
+
+            this.ClientSize = new System.Drawing.Size(943, 483);
+
  
 
-            this.ClientSize = new System.Drawing.Size(857, 558);
+
+          
 
             this.ClientSize = new System.Drawing.Size(943, 483);
 
             this.Controls.Add(this.btnGiaoCa);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 98fe678e2d918f07bacf73a648d58f67009fce4c
+>>>>>>> 7f6c6a250d6c6cfa189370650eea18e8949cca18
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ptb_anh);
             this.Controls.Add(this.lb_hoten);
@@ -392,17 +416,36 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.panel1);
+<<<<<<< HEAD
 
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 
 
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+=======
+<<<<<<< HEAD
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+=======
+
+
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
+
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
+>>>>>>> 7f6c6a250d6c6cfa189370650eea18e8949cca18
  
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
  
 
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 
+<<<<<<< HEAD
+=======
+ 
+
+>>>>>>> 98fe678e2d918f07bacf73a648d58f67009fce4c
+>>>>>>> 7f6c6a250d6c6cfa189370650eea18e8949cca18
             this.Name = "Frm_NguoiDung";
             this.Text = "Frm_ThongTinNguoiDung";
             this.Load += new System.EventHandler(this.Frm_ThongTinNguoiDung_Load);
@@ -440,10 +483,21 @@
 
         private Label lb_tien;
         private Label label4;
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 7f6c6a250d6c6cfa189370650eea18e8949cca18
         private Button btnGiaoCa;
 
  
  
 
+<<<<<<< HEAD
+=======
+
+ 
+
+>>>>>>> 7f6c6a250d6c6cfa189370650eea18e8949cca18
     }
 }

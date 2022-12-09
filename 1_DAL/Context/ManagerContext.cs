@@ -1,11 +1,5 @@
 ﻿using _1_DAL.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.ConstrainedExecution;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _1_DAL.Context
 {
@@ -45,8 +39,8 @@ namespace _1_DAL.Context
         {
             //optionsBuilder.UseSqlServer("Data Source=DESKTOP-I97RAVI\\SQLEXPRESS02;" +
             //"Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=linh123;Password=12345");
-            optionsBuilder.UseSqlServer("Data Source=DESKTOP-FOR2JQI\\SQLEXPRESS;" +
-            "Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=hello;Password=hello");
+            //optionsBuilder.UseSqlServer("Data Source=DESKTOP-FOR2JQI\\SQLEXPRESS;" +
+            //"Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=hello;Password=hello");
             //optionsBuilder.UseSqlServer("Data Source=DESKTOP-3S50L70\\SQLEXPRESS;" +
             //"Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=hoangpham;Password=19112002");
             //optionsBuilder.UseSqlServer("Data Source=DESKTOP-FOR2JQI\\SQLEXPRESS;" +
@@ -54,13 +48,14 @@ namespace _1_DAL.Context
             //"Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=linh123;Password=12345");
             //optionsBuilder.UseSqlServer("Data Source=DESKTOP-3S50L70\\SQLEXPRESS;" +
             //"Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=hoangpham;Password=19112002");
-            //optionsBuilder.UseSqlServer("Data Source=DESKTOP-PJLRIKK\\SQLEXPRESS;" +
-            //"Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=ph28227;Password=ph28227");
+            optionsBuilder.UseSqlServer("Data Source=DESKTOP-PJLRIKK\\SQLEXPRESS;" +
+            "Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=ph28227;Password=ph28227");
             //optionsBuilder.UseSqlServer("Data Source=KIRO\\SQLEXPRESS;" +
             //"Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=quannh;Password=123456");
             //optionsBuilder.UseSqlServer("Data Source=ADMIN-PC\\SQLEXPRESS;" +
             //"Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=quytv;Password=0123456789");
-
+            //optionsBuilder.UseSqlServer("Data Source=SADBOY\\SQLEXPRESS;" +
+            // "Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=ph27584;Password=123456");
 
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

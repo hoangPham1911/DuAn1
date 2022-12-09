@@ -101,6 +101,7 @@ namespace _3_PL.View
                     }
                 }
             }
+
             if (result)
             {
                 enableControl(false);
@@ -135,6 +136,8 @@ namespace _3_PL.View
                 label9.Text = Money.ToString();
             }
             else label9.Text = 0.ToString();
+            if (_iGiaoCaService.GetAll().FirstOrDefault(p => p.Time == DateTime.Parse(dtpThoiGianGiao.Text)) != null)
+                txtTienCaTruoc.Text = _iGiaoCaService.GetAll().FirstOrDefault(p => p.Time == DateTime.Parse(dtpThoiGianGiao.Text)).TongTienCaTruoc.ToString();
         }
 
         private void init()
@@ -188,11 +191,14 @@ namespace _3_PL.View
             if (label1.Text == "Nhân Viên")
             {
                 txtTongTienBanDau.Enabled = false;
-                dgvGiaoCa.Enabled = false;
-                txtTimKiem.Enabled = false;
-                btnTimKiem.Enabled = false;
+                dgvGiaoCa.Visible = false;
+                txtTimKiem.Visible = false;
+                btnTimKiem.Visible = false;
             }
-
+            if (_iGiaoCaService.GetAll().FirstOrDefault(p => p.Id == FrmDangNhap._IdStaff) != null)
+            {
+                txtTongTienBanDau.Text = _iGiaoCaService.GetAll().FirstOrDefault(p => p.Id == FrmDangNhap._IdStaff).TienBanDau.ToString();
+            }
         }
 
         private void getHoTen()
@@ -215,26 +221,24 @@ namespace _3_PL.View
         private void clearForm()
         {
             txtGhiChu.Text
-                = txtTienCaTruoc.Text = txtTienMat.Text = String.Empty;
-
-
+           = txtTienMat.Text = String.Empty;
             dtpThoiGianGiao.Value = dtpThoiGianNhan.Value = DateTime.Now;
-            txtTongTienBanDau.Text = "0đ";
         }
 
         private void bindingDataToForm()
         {
             txtGhiChu.Text = _itemSelected.GhiChuPhatSinh;
-            var nvBanGiao = lstNhanVien.Where(x => x.Id == _itemSelected.IdNvTrongCa).FirstOrDefault();
+            var nvBanGiao = lstNhanVien.Where(x => x.Id == FrmDangNhap._IdStaff).FirstOrDefault();
             txtNhanVienGiao.Text = nvBanGiao != null ? nvBanGiao.HoTen : "";
             var nvNhan = lstNhanVien.Where(y => y.Id == _itemSelected.IdNvNhanCaTiep).FirstOrDefault();
 
             txtTienCaTruoc.Text = _itemSelected.TongTienCaTruoc.HasValue ? _itemSelected.TongTienCaTruoc.Value.ToString() : "";
             txtTienMat.Text = _itemSelected.TongTienMat.HasValue ? _itemSelected.TongTienMat.Value.ToString() : "";
-            //    txt_tienPhatSinh.Text = _itemSelected.TienPhatSinh.Value.ToString();
+            txt_tienPhatSinh.Text = _itemSelected.TienPhatSinh.HasValue ? _itemSelected.TienPhatSinh.Value.ToString() : "";
             txtTongTienBanDau.Text = _itemSelected.TienBanDau.HasValue ? $"{_itemSelected.TienBanDau.ToString()}đ" : "0đ";
             dtpThoiGianGiao.Value = _itemSelected.ThoiGianGiaoCa;
             dtpThoiGianNhan.Value = _itemSelected.ThoiGianNhanCa;
+
         }
 
         private void getDataForm()

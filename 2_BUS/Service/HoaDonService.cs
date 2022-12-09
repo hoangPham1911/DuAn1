@@ -1,18 +1,10 @@
 ﻿using _1.DAL.DALServices;
 using _1.DAL.IDALServices;
 using _1.DAL.IRepositories;
-using _1.DAL.IRepostiories;
 using _1.DAL.Repostiores;
-using _1_DAL.Context;
 using _1_DAL.Models;
-using _2_BUS.IService;
 using _2_BUS.IServices;
 using _2_BUS.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _2_BUS.Services
 {
@@ -41,16 +33,16 @@ namespace _2_BUS.Services
                         NgayShip = a.NgayShip,
                         NgayTao = a.NgayTao,
                         NgayThanhToan = a.NgayThanhToan,
-                        //Thue = a.Thue,
                         TinhTrang = a.TinhTrang,
                         SDTShip = a.SDTShip,
                         TenShip = a.TenShip,
                         SoTienQuyDoi = a.SoTienQuyDoi,
                         SoDiemSuDung = a.SoDiemSuDung,
-                        //    TenKhachHang = a.TenKhachHang,
-                        //    PhanTramGiamGia = a.PhanTramGiamGia,
+
+                        MaGiamGia = a.MaGiamGia,
 
                     }).ToList();
+
 
         }
         public List<SuaHoaDonModels> Get()
@@ -115,6 +107,7 @@ namespace _2_BUS.Services
                 hoaDon.SoDiemSuDung = Hoadonold.SoDiemSuDung;
                 hoaDon.SoTienQuyDoi = Hoadonold.SoTienQuyDoi;
                 hoaDon.TongTienNvTrongCa = Hoadonold.TongSoTienTrongCa;
+                hoaDon.MaGiamGia=Hoadonold.MaGiamGia;
                 HoaDonRepos.updateReceipt(hoaDon);
                 return "thanh cong";
             }

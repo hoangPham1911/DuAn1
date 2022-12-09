@@ -42,6 +42,7 @@ namespace _3_PL.View
             dtg_showKhachHang.Columns[9].Name = "Năm Sinh";
             dtg_showKhachHang.Columns[10].Name = "Điểm tích điểm";
             dtg_showKhachHang.Columns[11].Name = "Trạng thái";
+            dtg_showKhachHang.AllowUserToAddRows = false;
             dtg_showKhachHang.Rows.Clear();
             khachHangViews = khachHangServices.GetAllKhachHangDB();
             if (tb_timKiem.Text != "")
@@ -62,7 +63,7 @@ namespace _3_PL.View
                     item.GioiTinh,
                     item.NamSinh,
                     item.tongDiem,
-                    item.TrangThai == 1 ? "Hoạt động" : "Không hoạt động"
+                    item.TrangThai == 0 ? "Hoạt động" : "Không hoạt động"
                     );
             }
 
@@ -85,9 +86,25 @@ namespace _3_PL.View
                 tb_sDT.Text = r.Cells[5].Value.ToString();
                 tb_email.Text = r.Cells[6].Value.ToString();
                 tb_cccd.Text = r.Cells[7].Value.ToString();
-                tb_GioiTinh.Text = r.Cells[8].Value.ToString();
+                if (r.Cells[8].Value.ToString() == "Nam")
+                {
+                    rd_nam.Checked = true;
+                }
+                else
+                {
+                    rd_nu.Checked = true;
+                }
+             
                 dtp_namsinh.Text = r.Cells[9].Value.ToString();
-                tb_diemtichDiem.Text = r.Cells[10].Value.ToString();
+                if (r.Cells[10].Value == null)
+                {
+                    tb_diemtichDiem.Text = "";
+                }
+                else
+                {
+                    tb_diemtichDiem.Text = r.Cells[10].Value.ToString();
+                }
+               
                 if (r.Cells[11].Value.ToString() == "1")
                 {
                     cb_hoatDong.Checked = true;
@@ -114,6 +131,18 @@ namespace _3_PL.View
                 {
                     MessageBox.Show("Mã khách hàng đã tồn tại");
                 }
+                else if (tb_maKhachHang.Text == "" || tb_tenKhachHang.Text == "" || tb_email.Text == "" || tb_cccd.Text == "" || tb_diaChi.Text== "" || tb_sDT.Text == "")
+                {
+                    MessageBox.Show("Vui lòng sửa đầy đủ");
+                }
+                else if (!rd_nam.Checked && !rd_nu.Checked)
+                {
+                    MessageBox.Show("Vui lòng chọn giới tính");
+                }
+                else if (!cb_khongHoatDong.Checked  && !cb_hoatDong.Checked)
+                {
+                    MessageBox.Show("Vui lòng chọn trạng thái");
+                }
                 else
                 {
                     SuaKhachHangViewModels nv = new SuaKhachHangViewModels()
@@ -125,7 +154,7 @@ namespace _3_PL.View
                         Sdt = tb_sDT.Text,
                         Email = tb_email.Text,
                         SoCCCD = tb_cccd.Text,
-                        GioiTinh = tb_GioiTinh.Text,
+                        GioiTinh = rd_nam.Checked ? "Nam" : "Nữ",
                         NamSinh = dtp_namsinh.Value,
                         DiemTichDiem = Convert.ToInt32(tb_diemtichDiem.Text),
                         TrangThai = cb_hoatDong.Checked ? 1 : 0,
@@ -194,6 +223,24 @@ namespace _3_PL.View
         private void pictureBox2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cb_hoatDong_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cb_hoatDong.Checked)
+            {
+                cb_hoatDong.Checked = true;
+                cb_khongHoatDong.Checked = false;
+            }
+        }
+
+        private void cb_khongHoatDong_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cb_khongHoatDong.Checked)
+            {
+                cb_hoatDong.Checked = false;
+                cb_khongHoatDong.Checked = true;
+            }
         }
     }
 }

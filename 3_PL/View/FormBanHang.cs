@@ -43,13 +43,14 @@ namespace _3_PL.View
         IBangQuyDoiDiemServices _QuyDoiDiemService;
         ILichSuDiemService _LichSuDiemService;
         IViDiemService _ViDiemService;
-
+        ISaleService _SaleService;
         VideoCaptureDevice videoCaptureDevice;
         // camera dung de ghi hinh
         FilterInfoCollection filterInfoCollection; // check xem co bao nhieu cai camera ket noi voi may tinh
         public FormBanHang()
         {
             InitializeComponent();
+            _SaleService = new SaleService();
             _QuyDoiDiemService = new BangQuyDoiDiemServices();
             _ViDiemService = new ViDiemService();
             _LichSuDiemService = new LichSuDiemService();
@@ -802,7 +803,7 @@ namespace _3_PL.View
                                     lichSuDiemViewModels.NgaySuDung = DateTime.Now;
                                     lichSuDiemViewModels.TrangThai = 1;
                                     lichSuDiemViewModels.IdHoaDon = IdHoaDon;
-                                    lichSuDiemViewModels.SoDiemCong = int.Parse(textBox5.Text) - int.Parse(txt_tongTienHoaDon.Text) / int.Parse(textBox7.Text);
+                                    lichSuDiemViewModels.SoDiemCong = int.Parse(textBox5.Text) - int.Parse(txt_tongTienHoaDon.Text) / int.Parse(textBox7.Text)*100;
                                     //MessageBox.Show(lichSuDiemViewModels.IdHoaDon.ToString());
                                     _LichSuDiemService.add(lichSuDiemViewModels);
                                     ViDiemViewModel viDiem = new ViDiemViewModel();
@@ -1153,17 +1154,17 @@ namespace _3_PL.View
                     if (_ListReceiptProduct2.Count() != 0)
                     {
 
-                        if (_ListReceiptProduct2.FirstOrDefault(p => p.IdHoaDon == IdHoaDon) != null || _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IDSpCt) != null)
+                        if (_ListReceiptProduct2.FirstOrDefault(p => p.IdHoaDon == IdHoaDon) != null && _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IDSpCt) != null)
                         {
                             _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IDSpCt).SoLuong = _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IDSpCt).SoLuong + int.Parse(tb_count.Text);
-                            MessageBox.Show("Thêm Vào Giỏ Hàng Thành Công");
+                            MessageBox.Show("Thêm Vào Hóa Đơn Thành Công");
                             loadReceipt();
 
                         }
                         else
                         {
                             _ListReceiptProduct2.Add(SpInHD);
-                            MessageBox.Show("Thêm Vào Giỏ Hàng Thành Công");
+                            MessageBox.Show("Thêm Vào Hóa Đơn Thành Công");
                             tb_count.Text = 0.ToString();
                             loadReceipt();
 
@@ -1176,7 +1177,7 @@ namespace _3_PL.View
                         if (_ListGioHang.Count() == 0)
                         {
                             _ListGioHang.Add(gioHang);
-                            MessageBox.Show("Thêm Vào Hóa Đơn Thành Công");
+                            MessageBox.Show("Thêm Vào Gio Hàng Thành Công");
                             tb_count.Text = 0.ToString();
                             loadGioHang();
 
@@ -1184,7 +1185,7 @@ namespace _3_PL.View
                         else if (_ListGioHang.FirstOrDefault(p => p.IdCTSP == IDSpCt) != null)
                         {
                             _ListGioHang.FirstOrDefault(p => p.IdCTSP == IDSpCt).SoLuong = _ListGioHang.FirstOrDefault(p => p.IdCTSP == IDSpCt).SoLuong + int.Parse(tb_count.Text);
-                            MessageBox.Show("Thêm Vào Hóa Đơn Thành Công");
+                            MessageBox.Show("Thêm Vào giỏ hàng Thành Công");
                             tb_count.Text = 0.ToString();
                             loadGioHang();
 
@@ -1192,7 +1193,7 @@ namespace _3_PL.View
                         else
                         {
                             _ListGioHang.Add(gioHang);
-                            MessageBox.Show("Thêm Vào Hóa Đơn Thành Công");
+                            MessageBox.Show("Thêm Vào giỏ hàng Thành Công");
                             tb_count.Text = 0.ToString();
                             loadGioHang();
 
@@ -1861,6 +1862,14 @@ namespace _3_PL.View
                 }
             }
 
+        }
+
+        private void textBox14_TextChanged(object sender, EventArgs e)
+        {
+            if(_SaleService.GetDanhMuc().FirstOrDefault(p=>p.MaGiamGia.Contains(textBox14.Text)) != null)
+            {
+                txt_tongTienHoaDon.Text = (decimal.Parse(txt_tongTienHoaDon.Text) - _SaleService.GetDanhMuc().FirstOrDefault(p => p.MaGiamGia.Contains(textBox14.Text)).SoTienGiamGia).ToString();
+            }
         }
     }
 }
