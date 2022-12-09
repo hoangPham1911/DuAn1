@@ -92,7 +92,7 @@ namespace _3_PL.View
                     var frmMain = new FormMain();
                     frmMain.Show();
                     this.Visible = false;
-                    this.Close();
+                    //this.Close();
 
                 }
                 else

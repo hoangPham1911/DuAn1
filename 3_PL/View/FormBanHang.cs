@@ -789,9 +789,9 @@ namespace _3_PL.View
                         if (radioButton2.Checked)
                         {
                             LichSuDiemViewModels lichSuDiemViewModels = new LichSuDiemViewModels();
-                            if (_KhachHangServices.GetAllKhachHangDB().SingleOrDefault(p => p.Sdt.Contains(textBox10.Text)) != null)
+                            if (_KhachHangServices.GetAllKhachHangDB().SingleOrDefault(p => p.Sdt==textBox10.Text) != null)
                             {
-                                lichSuDiemViewModels.IdViDiem = _KhachHangServices.GetAllKhachHangDB().SingleOrDefault(p => p.Sdt.Contains(textBox10.Text)).IdVi;
+                                lichSuDiemViewModels.IdViDiem = _KhachHangServices.GetAllKhachHangDB().SingleOrDefault(p => p.Sdt==textBox10.Text).IdVi;
 
                                 if (textBox11.Text == "")
                                 {
@@ -809,7 +809,7 @@ namespace _3_PL.View
                                     ViDiemViewModel viDiem = new ViDiemViewModel();
                                     viDiem.TongDiem = int.Parse(textBox5.Text) - int.Parse(textBox11.Text) + lichSuDiemViewModels.SoDiemCong;
                                     viDiem.TrangThai = 1;
-                                    var IdKh = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt.Contains(textBox10.Text)).Idkh;
+                                    var IdKh = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt==textBox10.Text).Idkh;
                                     viDiem.IdKhachHang = IdKh;
                                     if (_ViDiemService.GetViDiem().FirstOrDefault(p => p.IdKhachHang == IdKh) != null)
                                         viDiem.Id = _ViDiemService.GetViDiem().FirstOrDefault(p => p.IdKhachHang == IdKh).Id;
@@ -1556,6 +1556,10 @@ namespace _3_PL.View
                     textBox3.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt == (textBox10.Text)).Ten;
 
                 }
+                else
+                {
+                    textBox5.Text = 0.ToString();
+                }
             }
             catch (Exception)
             {
@@ -1779,7 +1783,7 @@ namespace _3_PL.View
 
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
-            if (int.Parse(textBox5.Text) == 0)
+            if (textBox5.Text == 0.ToString())
             {
                 textBox7.Text = 0.ToString();
                 textBox7.Enabled = false;

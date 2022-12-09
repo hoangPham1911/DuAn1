@@ -27,7 +27,7 @@ namespace _3_PL.View
         }
         public void load()
         {
-            textBox2.Text = _QuyDoiDiemService.GetDiemQuyDoi().FirstOrDefault(p => p.Ten.Contains(1.ToString())).TyLeQuyDoi.ToString();
+            //textBox2.Text = _QuyDoiDiemService.GetDiemQuyDoi().FirstOrDefault(p => p.Ten.Contains(1.ToString())).TyLeQuyDoi.ToString();
         }
         private void button1_Click(object sender, EventArgs e)
         {
