@@ -102,47 +102,66 @@ namespace _3_PL.View
 
         private void btn_sua_Click(object sender, EventArgs e)
         {
-            if (idKH == Guid.Empty)
+            DialogResult dialogResult = MessageBox.Show("Bạn có muốn sửa khách hàng không?", "Thông Báo", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
             {
-                MessageBox.Show("Vui lòng chọn khách hàng");
-            }
-            else if (khachHangServices.GetAllKhachHangDB().Any(p => p.Ten == tb_maKhachHang.Text))
-            {
-                MessageBox.Show("Mã khách hàng đã tồn tại");
+                if (idKH == Guid.Empty)
+                {
+                    MessageBox.Show("Vui lòng chọn khách hàng");
+                }
+                else if (khachHangServices.GetAllKhachHangDB().Any(p => p.Ten == tb_maKhachHang.Text))
+                {
+                    MessageBox.Show("Mã khách hàng đã tồn tại");
+                }
+                else
+                {
+                    SuaKhachHangViewModels nv = new SuaKhachHangViewModels()
+                    {
+                        Idkh = idKH,
+                        Ma = tb_maKhachHang.Text,
+                        Ten = tb_tenKhachHang.Text,
+                        DiaChi = tb_diaChi.Text,
+                        Sdt = tb_sDT.Text,
+                        Email = tb_email.Text,
+                        SoCCCD = tb_cccd.Text,
+                        GioiTinh = tb_GioiTinh.Text,
+                        NamSinh = dtp_namsinh.Value,
+                        DiemTichDiem = Convert.ToInt32(tb_diemtichDiem.Text),
+                        TrangThai = cb_hoatDong.Checked ? 1 : 0,
+                    };
+                    MessageBox.Show(khachHangServices.SuaKhachHang(nv));
+                    loadDTG();
+                }
             }
             else
             {
-                SuaKhachHangViewModels nv = new SuaKhachHangViewModels()
-                {
-                    Idkh = idKH,
-                    Ma = tb_maKhachHang.Text,
-                    Ten = tb_tenKhachHang.Text,
-                    DiaChi = tb_diaChi.Text,
-                    Sdt = tb_sDT.Text,
-                    Email = tb_email.Text,
-                    SoCCCD = tb_cccd.Text,
-                    GioiTinh = tb_GioiTinh.Text,
-                    NamSinh = dtp_namsinh.Value,
-                    DiemTichDiem = Convert.ToInt32(tb_diemtichDiem.Text),
-                    TrangThai = cb_hoatDong.Checked ? 1 : 0,
-                };
-                MessageBox.Show(khachHangServices.SuaKhachHang(nv));
-                loadDTG();
+
             }
+
+                //
+                
         }
 
         private void btn_xoa_Click(object sender, EventArgs e)
         {
-            if (idKH == Guid.Empty)
-            {
-                MessageBox.Show("Vui lòng chọn khách hàng");
-            }
-            else
-            {
+            DialogResult dialogResult = MessageBox.Show("Bạn có muốn sửa khách hàng không?", "Thông Báo", MessageBoxButtons.YesNo);
 
-                MessageBox.Show(khachHangServices.XoaKhachHang(idKH));
-                loadDTG();
+            if (dialogResult == DialogResult.Yes)
+            {
+                if (idKH == Guid.Empty)
+                {
+                    MessageBox.Show("Vui lòng chọn khách hàng");
+                }
+                else
+                {
+
+                    MessageBox.Show(khachHangServices.XoaKhachHang(idKH));
+                    loadDTG();
+                }
             }
+                //
+                
         }
 
         private void btn_them_Click(object sender, EventArgs e)
@@ -170,6 +189,11 @@ namespace _3_PL.View
         private void tb_timKiem_TextChanged(object sender, EventArgs e)
         {
             loadDTG();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
