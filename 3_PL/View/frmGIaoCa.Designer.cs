@@ -40,6 +40,7 @@
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtTongTienBanDau = new System.Windows.Forms.TextBox();
             this.dtpThoiGianNhan = new System.Windows.Forms.DateTimePicker();
             this.dtpThoiGianGiao = new System.Windows.Forms.DateTimePicker();
@@ -60,7 +61,6 @@
             this.txtTienCaTruoc = new System.Windows.Forms.TextBox();
             this.txtTienMat = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGiaoCa)).BeginInit();
@@ -200,6 +200,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin nhân viên";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(526, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 15);
+            this.label1.TabIndex = 66;
+            this.label1.Text = "label1";
+            // 
             // txtTongTienBanDau
             // 
             this.txtTongTienBanDau.Location = new System.Drawing.Point(109, 94);
@@ -212,7 +221,7 @@
             // 
             this.dtpThoiGianNhan.CustomFormat = "dd/MM/yyyy HH:mm:ss";
             this.dtpThoiGianNhan.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpThoiGianNhan.Location = new System.Drawing.Point(526, 65);
+            this.dtpThoiGianNhan.Location = new System.Drawing.Point(526, 59);
             this.dtpThoiGianNhan.Name = "dtpThoiGianNhan";
             this.dtpThoiGianNhan.Size = new System.Drawing.Size(255, 23);
             this.dtpThoiGianNhan.TabIndex = 64;
@@ -237,7 +246,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(433, 71);
+            this.label3.Location = new System.Drawing.Point(433, 65);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(89, 15);
             this.label3.TabIndex = 61;
@@ -388,15 +397,6 @@
             this.label5.Size = new System.Drawing.Size(79, 15);
             this.label5.TabIndex = 61;
             this.label5.Text = "Tiền trong ca:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(526, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 15);
-            this.label1.TabIndex = 66;
-            this.label1.Text = "label1";
             // 
             // frmGIaoCa
             // 
