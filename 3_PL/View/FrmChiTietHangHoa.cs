@@ -265,7 +265,7 @@ namespace _3_PL.View
             //macl
             if (cbo_tencl.Text.Length <= 3)
             {
-                MessageBox.Show("Tên chất liệu nước hóa phải trên 3 ký tự", "ERR");
+                MessageBox.Show("Tên chất liệu phải trên 3 ký tự", "ERR");
                 return false;
             }
             if (Regex.IsMatch(cbo_mahh.Text, @"[0-9]+") == false)

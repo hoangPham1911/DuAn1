@@ -38,40 +38,51 @@ namespace _3_PL.View
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            
+            DialogResult dialogResult = MessageBox.Show("Bạn có muốn thêm khách hàng không?", "Thông Báo", MessageBoxButtons.YesNo);
 
-            if (txtMaKH.Text == "" && txtTenKH.Text == "" && tb_SoCCCD.Text == "" && txtDT.Text == "" && txtDiaChi.Text == "" && txtEmail.Text == "")
+            if (dialogResult == DialogResult.Yes)
             {
-                MessageBox.Show("Mời nhập đầy đủ thông tin");
+                if (txtMaKH.Text == "" && txtTenKH.Text == "" && tb_SoCCCD.Text == "" && txtDT.Text == "" && txtDiaChi.Text == "" && txtEmail.Text == "")
+                {
+                    MessageBox.Show("Mời nhập đầy đủ thông tin");
+                }
+                else if (!rd_hd.Checked && !rd_koHd.Checked)
+                {
+                    MessageBox.Show("Vui lòng chọn trạng thái");
+                }
+                else if (khachHangServices.GetAllKhachHangDB().Any(p => p.Ten == txtMaKH.Text))
+                {
+                    MessageBox.Show("Mã khách hàng đã tồn tại");
+                }
+                else if (!ckb_Nam.Checked && !ckb_nu.Checked)
+                {
+                    MessageBox.Show("Vui lòng chọn giới tính");
+                }
+
+                else
+                {
+                    ThemKhachHangViewModels kh = new ThemKhachHangViewModels();
+                    kh.Ma = txtMaKH.Text + tb_SoCCCD.Text;
+                    kh.Ten = txtTenKH.Text;
+                    kh.SoCCCD = tb_SoCCCD.Text;
+                    kh.Sdt = txtDT.Text;
+                    kh.DiaChi = txtDiaChi.Text;
+                    kh.Email = txtEmail.Text;
+                    kh.GioiTinh = ckb_Nam.Checked ? "Nam" : "Nữ";
+                    kh.NamSinh = dtp_NamSinh.Value;
+                    kh.TrangThai = rd_hd.Checked ? 1 : 0;
+                    kh.IdVi = ViDiem();
+                    MessageBox.Show(khachHangServices.ThemKhachHang(kh));
+                }
             }
-            else if (!rd_hd.Checked && !rd_koHd.Checked)
-            {
-                MessageBox.Show("Vui lòng chọn trạng thái");
-            }
-            else if (khachHangServices.GetAllKhachHangDB().Any(p => p.Ten == txtMaKH.Text))
-            {
-                MessageBox.Show("Mã khách hàng đã tồn tại");
-            }
-            else if (!ckb_Nam.Checked && !ckb_nu.Checked)
-            {
-                MessageBox.Show("Vui lòng chọn giới tính");
-            }
-            
             else
             {
-                ThemKhachHangViewModels kh = new ThemKhachHangViewModels();
-                kh.Ma = txtMaKH.Text + tb_SoCCCD.Text;
-                kh.Ten = txtTenKH.Text;
-                kh.SoCCCD = tb_SoCCCD.Text;
-                kh.Sdt = txtDT.Text;
-                kh.DiaChi = txtDiaChi.Text;
-                kh.Email = txtEmail.Text;
-                kh.GioiTinh = ckb_Nam.Checked ? "Nam" : "Nữ";
-                kh.NamSinh = dtp_NamSinh.Value;
-                kh.TrangThai = rd_hd.Checked ? 1 : 0;
-                kh.IdVi = ViDiem();
-                MessageBox.Show(khachHangServices.ThemKhachHang(kh));
+
             }
+
+                //
+
+               
 
         }
 

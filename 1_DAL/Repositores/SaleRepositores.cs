@@ -19,17 +19,10 @@ namespace _1_DAL.Repositores
         }
         public bool add(Voucher sale)
         {
-            try
-            {
-                _DbContext.Sales.Add(sale);
-                _DbContext.SaveChanges();
-                return true;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            if (sale == null) return false;
+            _DbContext.Sales.Add(sale);
+            _DbContext.SaveChanges();
+            return true;
         }
 
         public List<Voucher> getAll()
@@ -40,32 +33,26 @@ namespace _1_DAL.Repositores
 
         public bool remove(Voucher id)
         {
-            try
-            {
-                _DbContext.Sales.Remove(id);
-                _DbContext.SaveChanges();
-                return true;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            if (id == null) return false;
+            var tempsale = _DbContext.Sales.FirstOrDefault(p => p.Id == id.Id);
+            _DbContext.Sales.Remove(tempsale);
+            _DbContext.SaveChanges();
+            return true;
         }
 
         public bool update(Voucher sale)
         {
-            try
-            {
-                _DbContext.Sales.Update(sale);
-                _DbContext.SaveChanges();
-                return true;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            if (sale == null) return false;
+            var tempsale = _DbContext.Sales.FirstOrDefault(p => p.Id == sale.Id);
+            tempsale.MaGiamGia = sale.MaGiamGia;
+            tempsale.TenChuongTrinh = sale.TenChuongTrinh;
+            tempsale.NgayBatDau = sale.NgayBatDau;
+            tempsale.NgayKetThuc = sale.NgayKetThuc;
+            tempsale.SoTienGiamGia = sale.SoTienGiamGia;
+            tempsale.TrangThai = sale.TrangThai;
+            _DbContext.Sales.Update(tempsale);
+            _DbContext.SaveChanges();
+            return true;
         }
     }
 }

@@ -71,22 +71,7 @@ namespace _3_PL.View
         }
         private void bt_dangky_Click(object sender, EventArgs e)
         {
-            var chucvu = chucVuServices.GetAll().FirstOrDefault(x => x.Ten == cb_ChucVu.Text);
-            var nhanvien = new NhanVienViewModels(){};
-            nhanvien.Id = new Guid();
-            nhanvien.Ho = tb_ho.Text;
-            nhanvien.TenDem = tb_tenDem.Text;
-            nhanvien.Ten = tb_ten.Text;
-            nhanvien.Email = tb_email.Text;
-            nhanvien.Sdt = tb_sdt.Text;
-            nhanvien.MatKhau = tb_mk.Text;
-            nhanvien.Ma = tb_ma.Text;
-            nhanvien.QueQuan = tb_queQuan.Text;
-            nhanvien.CMND = tb_cccd.Text;
-            nhanvien.NamSinh = dtpNamSinh.Value;
-            nhanvien.GioiTinh = rdNam.Checked ? "Nam" : "Nữ";
-            nhanvien.IdCv = chucvu.Id;
-            nhanvien.Anh = ChonAnh();
+            
             if (tb_ho.Text == "" && tb_tenDem.Text == "" && tb_ten.Text == "")
             {
                 MessageBox.Show("Nhập họ và tên đầy đủ");
@@ -130,7 +115,27 @@ namespace _3_PL.View
             {
                 MessageBox.Show("Vui lòng chọn giới tính");
             }
+            else if (nhanVienServices.GetAll().Any(p => p.Email == tb_email.Text))
+            {
+                MessageBox.Show("Email này đã được sử dụng");
+            }
             else {
+                var chucvu = chucVuServices.GetAll().FirstOrDefault(x => x.Ten == cb_ChucVu.Text);
+                var nhanvien = new NhanVienViewModels() { };
+                nhanvien.Id = new Guid();
+                nhanvien.Ho = tb_ho.Text;
+                nhanvien.TenDem = tb_tenDem.Text;
+                nhanvien.Ten = tb_ten.Text;
+                nhanvien.Email = tb_email.Text;
+                nhanvien.Sdt = tb_sdt.Text;
+                nhanvien.MatKhau = tb_mk.Text;
+                nhanvien.Ma = tb_ma.Text;
+                nhanvien.QueQuan = tb_queQuan.Text;
+                nhanvien.CMND = tb_cccd.Text;
+                nhanvien.NamSinh = dtpNamSinh.Value;
+                nhanvien.GioiTinh = rdNam.Checked ? "Nam" : "Nữ";
+                nhanvien.IdCv = chucvu.Id;
+                nhanvien.Anh = ChonAnh();
                 if (nhanVienServices.Them(nhanvien) == true)
                 {
                     MessageBox.Show("Đăng ký thành công");
