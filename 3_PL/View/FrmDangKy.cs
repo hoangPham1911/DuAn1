@@ -159,7 +159,7 @@ namespace _3_PL.View
         {
             try
             {
-                using (OpenFileDialog ofd = new OpenFileDialog() { Filter = "JPEG|*.jpg", ValidateNames = true, Multiselect = false })
+                using (OpenFileDialog ofd = new OpenFileDialog() { Filter = "JPEG|*.jpeg", ValidateNames = true, Multiselect = false })
                 {
                     if (ofd.ShowDialog() == DialogResult.OK)
                         ptb_anh.Image = Image.FromFile(ofd.FileName);

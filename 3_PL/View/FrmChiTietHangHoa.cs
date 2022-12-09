@@ -1349,5 +1349,10 @@ namespace _3_PL.View
         {
 
         }
+
+        private void pic_anhhanghoa_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

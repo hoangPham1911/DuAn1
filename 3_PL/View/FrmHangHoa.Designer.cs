@@ -138,12 +138,8 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-
-            this.pictureBox3.Location = new System.Drawing.Point(1039, 18);
-
-            this.pictureBox3.Location = new System.Drawing.Point(1299, 24);
+            this.pictureBox3.Location = new System.Drawing.Point(1136, 16);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
-
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(86, 34);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -156,12 +152,8 @@
             this.btn_them.BackColor = System.Drawing.Color.Peru;
             this.btn_them.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_them.Font = new System.Drawing.Font("Poor Richard", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-
-            this.btn_them.Location = new System.Drawing.Point(782, 18);
-
-            this.btn_them.Location = new System.Drawing.Point(978, 24);
+            this.btn_them.Location = new System.Drawing.Point(781, 23);
             this.btn_them.Margin = new System.Windows.Forms.Padding(4);
-
             this.btn_them.Name = "btn_them";
             this.btn_them.Size = new System.Drawing.Size(155, 27);
             this.btn_them.TabIndex = 95;
@@ -193,7 +185,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(1133, 18);
+            this.pictureBox4.Location = new System.Drawing.Point(1041, 18);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(86, 34);
