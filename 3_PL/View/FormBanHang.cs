@@ -1154,17 +1154,17 @@ namespace _3_PL.View
                     if (_ListReceiptProduct2.Count() != 0)
                     {
 
-                        if (_ListReceiptProduct2.FirstOrDefault(p => p.IdHoaDon == IdHoaDon) != null && _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IdReceiptInCart) != null)
+                        if (_ListReceiptProduct2.FirstOrDefault(p => p.IdHoaDon == IdHoaDon) != null && _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IDSpCt) != null)
                         {
-                            _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IdReceiptInCart).SoLuong = _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IdReceiptInCart).SoLuong + int.Parse(tb_count.Text);
-                            MessageBox.Show("Thêm Vào Hóa Đơn Thành Công");
+                            _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IDSpCt).SoLuong = _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IDSpCt).SoLuong + int.Parse(tb_count.Text);
+                            MessageBox.Show("Thêm Thành Công123");
                             loadReceipt();
 
                         }
-                        else if (_ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IdReceiptInCart) == null)
+                        else if (_ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IDSpCt) == null)
                         {
                             _ListReceiptProduct2.Add(SpInHD);
-                            MessageBox.Show("Thêm Vào Hóa Đơn Thành Công");
+                            MessageBox.Show("Thêm Vào Thành Công345");
                             tb_count.Text = 0.ToString();
                             loadReceipt();
 
