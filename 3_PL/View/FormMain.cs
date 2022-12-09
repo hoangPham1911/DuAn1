@@ -36,7 +36,7 @@ namespace _3_PL.View
         
                     currentButton = (Button)btnSender;               
                     currentButton.Font = new System.Drawing.Font("Segoe UI", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-                    btnCloseChildForm.Visible = true;
+                    //btnCloseChildForm.Visible = true;
                 }
             }
         }
@@ -91,7 +91,7 @@ namespace _3_PL.View
             panelTitle.BackColor = Color.FromArgb(0, 150, 136);
             panelLogo.BackColor = Color.FromArgb(39, 39, 58);
             currentButton = null;
-            btnCloseChildForm.Visible = false;
+            //btnCloseChildForm.Visible = false;
         }
         private void button5_Click(object sender, EventArgs e)
         {
@@ -151,7 +151,7 @@ namespace _3_PL.View
                 textBox2.Text = cv.Ten;
             if (textBox2.Text == "Nhân viên")
             {
-                btn_quanlynhanvien.Enabled= button1.Enabled = btn_thongke.Enabled = btn_quanlynhanvien.Enabled = false;
+                 button1.Enabled = btn_thongke.Enabled = false;
             }
 
         }
