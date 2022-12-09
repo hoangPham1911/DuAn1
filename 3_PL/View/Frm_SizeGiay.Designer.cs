@@ -78,15 +78,16 @@
             // 
             // tb_timkiem
             // 
-            this.tb_timkiem.Location = new System.Drawing.Point(214, 250);
+            this.tb_timkiem.Location = new System.Drawing.Point(210, 269);
             this.tb_timkiem.Name = "tb_timkiem";
             this.tb_timkiem.Size = new System.Drawing.Size(483, 31);
             this.tb_timkiem.TabIndex = 15;
+            this.tb_timkiem.TextChanged += new System.EventHandler(this.tb_timkiem_TextChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(85, 250);
+            this.label3.Location = new System.Drawing.Point(81, 269);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 25);
             this.label3.TabIndex = 14;
@@ -110,7 +111,7 @@
             // 
             this.groupBox3.BackColor = System.Drawing.Color.DarkSalmon;
             this.groupBox3.Controls.Add(this.dgv_showsize);
-            this.groupBox3.Location = new System.Drawing.Point(79, 308);
+            this.groupBox3.Location = new System.Drawing.Point(75, 327);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(957, 288);
             this.groupBox3.TabIndex = 13;
@@ -133,7 +134,7 @@
             this.groupBox2.Controls.Add(this.btn_sua);
             this.groupBox2.Controls.Add(this.btn_xoa);
             this.groupBox2.Controls.Add(this.btn_them);
-            this.groupBox2.Location = new System.Drawing.Point(711, -7);
+            this.groupBox2.Location = new System.Drawing.Point(707, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(324, 300);
             this.groupBox2.TabIndex = 12;
@@ -273,7 +274,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.tb_ma);
-            this.groupBox1.Location = new System.Drawing.Point(79, -7);
+            this.groupBox1.Location = new System.Drawing.Point(75, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(621, 218);
             this.groupBox1.TabIndex = 11;
@@ -291,7 +292,7 @@
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.MistyRose;
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(172, 250);
+            this.pictureBox5.Location = new System.Drawing.Point(168, 269);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(36, 31);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

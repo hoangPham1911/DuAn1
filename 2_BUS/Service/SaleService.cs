@@ -50,8 +50,18 @@ namespace _2_BUS.Service
 
         public bool remove(SaleViewModel sale)
         {
-            var IdSale = _SaleRepository.getAll().FirstOrDefault(p => p.Id == sale.Id);
-            if (_SaleRepository.remove(IdSale)) return true;
+            if (sale == null) return true;
+            int a = 0;
+            var x = new Voucher()
+            {
+                Id = sale.Id
+            };
+            var list = _SaleRepository.getAll();
+            foreach (var i in list)
+            {
+                if (sale.Id== i.Id) a++;
+            }
+            if (_SaleRepository.remove(x)) return true;
             return false;
         }
 

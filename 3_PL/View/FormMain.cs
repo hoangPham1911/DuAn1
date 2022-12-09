@@ -143,7 +143,7 @@ namespace _3_PL.View
             var nv = inhanvien.GetAll().FirstOrDefault(p=>p.Id == FrmDangNhap._IdStaff);
             if (nv != null)
             {
-                textBox1.Text = nv.Ten;
+                textBox1.Text = nv.Ho + " "+nv.TenDem+" "+ nv.Ten;
             }
 
             var cv = ichucvu.GetChucVu().FirstOrDefault(p=>p.IdNv == FrmDangNhap._IdStaff);
@@ -151,7 +151,7 @@ namespace _3_PL.View
                 textBox2.Text = cv.Ten;
             if (textBox2.Text == "Nhân viên")
             {
-                bt_sanpham.Enabled = btn_thongke.Enabled = btn_quanlynhanvien.Enabled = false;
+                btn_quanlynhanvien.Enabled= button1.Enabled = btn_thongke.Enabled = btn_quanlynhanvien.Enabled = false;
             }
 
         }
