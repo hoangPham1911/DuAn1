@@ -1,6 +1,8 @@
 ﻿using _1_DAL.Models;
 using _2_BUS.IService;
+using _2_BUS.IServices;
 using _2_BUS.Service;
+using _2_BUS.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,11 +19,13 @@ namespace _3_PL.View
     {
         private INhanVienServices inhanvien;
         private IChucVuServices ichucvu;
+        private IHoaDonService _HoaDon;
         public Frm_NguoiDung()
         {
             InitializeComponent();
             inhanvien = new NhanVienServices();
             ichucvu = new ChucVuServices();
+            _HoaDon = new HoaDonService();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -87,17 +91,25 @@ namespace _3_PL.View
             {
                 lb_CV.Text = cv.Ten;
             }
-            if (lb_CV.Text == "Nhân Viên")
+            //if (lb_CV.Text == "Nhân Viên")
+            //{
+            //    btnGiaoCa.Visible = false;
+            //}
+            decimal Money = 0;
+            if (_HoaDon.Get().FirstOrDefault(p => p.IdNv == FrmDangNhap._IdStaff) != null)
             {
-                btnGiaoCa.Visible = false;
+                foreach (var item in _HoaDon.Get().Where(p => p.IdNv == FrmDangNhap._IdStaff))
+                {
+                    Money += item.TongSoTienTrongCa;
+                }
+                lb_tien.Text = Money.ToString();
             }
-                
+            else lb_tien.Text = 0.ToString();
         }
 
         private void btnGiaoCa_Click(object sender, EventArgs e)
         {
-            var formGiaoCa = new frmGIaoCa();
-            formGiaoCa.Show();
+         
         }
     }
 }

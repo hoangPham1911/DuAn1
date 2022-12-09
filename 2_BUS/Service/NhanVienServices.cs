@@ -142,9 +142,9 @@ namespace _2_BUS.Service
             return kq;
         }
 
-        public NhanVienViewModels Login(string mail, string pass)
+        public NhanVienViewModels Login(string ma, string pass)
         {
-            var user = _sfattRepository.Login(mail,pass);
+            var user = _sfattRepository.Login(ma,pass);
             if (user != null)
             {
                 return new NhanVienViewModels

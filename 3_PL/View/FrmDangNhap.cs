@@ -1,5 +1,7 @@
 ﻿using _2_BUS.IService;
+using _2_BUS.IServices;
 using _2_BUS.Service;
+using _2_BUS.Services;
 using _2_BUS.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -20,12 +22,13 @@ namespace _3_PL.View
         IChucVuServices ichucVu;
         public static Guid _IdStaff;
         private string pass = string.Empty;
-
+        IHoaDonService _hoaDonService;
         public FrmDangNhap()
         {
             InitializeComponent();
             inhanvien = new NhanVienServices();
             ichucVu = new ChucVuServices();
+            _hoaDonService = new HoaDonService();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -35,7 +38,6 @@ namespace _3_PL.View
 
         private void bt_dangnhap_Click(object sender, EventArgs e)
         {
-
             //var logiN = inhanvien.GetAll().Where(p => p.Ma == tb_tenguoidung.Text && p.MatKhau == tb_mk.Text).FirstOrDefault();
             //if (logiN != null)
             //{
@@ -57,6 +59,12 @@ namespace _3_PL.View
                 if (user != null)
                 {
                     _IdStaff = user.Id;
+                   
+                    foreach (var item in _hoaDonService.Get().Where(p=>p.IdNv == user.Id))
+                    {
+                        item.TongSoTienTrongCa = 0;
+                        _hoaDonService.UpdateSoTienNvTrongCa(item);
+                    }
                     this.Hide();
                     Helpers.AccoutHelper.Instance.SetUserLogin(user);
                     var frmMain = new FormMain();

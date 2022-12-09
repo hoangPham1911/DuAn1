@@ -16,6 +16,6 @@ namespace _2_BUS.IService
 
         List<NhanVienViewModels> TimKiem(string Ma);
 
-        NhanVienViewModels Login(string mail, string pass);
+        NhanVienViewModels Login(string ma, string pass);
     }
 }

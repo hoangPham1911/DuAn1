@@ -17,5 +17,6 @@ namespace _2_BUS.IServices
         public Guid GetIdHoaDon(ThemHoaDonModels IdHoaDon);
         public List<SuaHoaDonModels> Get();
         List<HoaDon> timkiemHoadonTheoMa(string MaHoaDon);
+        public string UpdateSoTienNvTrongCa(SuaHoaDonModels Hoadonold);
     }
 }

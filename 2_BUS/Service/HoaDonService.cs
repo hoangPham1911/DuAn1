@@ -119,7 +119,18 @@ namespace _2_BUS.Services
                 return "thanh cong";
             }
         }
-
+        public string UpdateSoTienNvTrongCa(SuaHoaDonModels Hoadonold)
+        {
+            if (Hoadonold == null) return "that bai";
+            else
+            {
+                var hoaDon = HoaDonRepos.getAllReceipt().FirstOrDefault(p => p.Id == Hoadonold.IdHoaDon);
+                hoaDon.IdNv = Hoadonold.IdNv;
+                hoaDon.TongTienNvTrongCa = Hoadonold.TongSoTienTrongCa;
+                HoaDonRepos.updateReceipt(hoaDon);
+                return "thanh cong";
+            }
+        }
         public string ThemHoaDon(ThemHoaDonModels Hoadonnew)
         {
             if (Hoadonnew == null) return "that bai";

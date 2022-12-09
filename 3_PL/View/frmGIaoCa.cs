@@ -17,6 +17,8 @@ using System.Windows.Forms.Design;
 using System.Xml.Linq;
 using _1_DAL.Models;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
+using _2_BUS.IServices;
+using _2_BUS.Services;
 
 namespace _3_PL.View
 {
@@ -24,10 +26,10 @@ namespace _3_PL.View
     {
         private IGiaoCaServices _iGiaoCaService;
         private INhanVienServices _iNhanVienService;
-
+        private IHoaDonService _HoaDon;
         private List<GiaoCaViewModels> lstGiaoCa;
         private List<NhanVienViewModels> lstNhanVien;
-
+        private IChucVuServices ichucvu;
         private GiaoCaViewModels _itemSelected;
         private NhanVienViewModels _userLoged;
         private NhanVienViewModels _nhanVienNhanCa;
@@ -37,6 +39,13 @@ namespace _3_PL.View
         public frmGIaoCa()
         {
             InitializeComponent();
+            _iGiaoCaService = new GiaoCaServices();
+            _iNhanVienService = new NhanVienServices();
+            _HoaDon = new HoaDonService();
+            lstGiaoCa = new List<GiaoCaViewModels>();
+            lstNhanVien = new List<NhanVienViewModels>();
+            ichucvu = new ChucVuServices();
+
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -45,13 +54,7 @@ namespace _3_PL.View
             clearForm();
             enableControl(true);
             visibleControl(true);
-        }
-
-        private void btnSua_Click(object sender, EventArgs e)
-        {
-            _actionClick = ACTION_CLICK.UPDATE;
-            enableControl(true);
-            visibleControl(true);
+         
         }
 
         //private void btnXoa_Click(object sender, EventArgs e)
@@ -84,40 +87,17 @@ namespace _3_PL.View
             var result = true;
             var resultConfirm = DialogResult.No;
             if (_actionClick == ACTION_CLICK.ADD)
-            {
-                mess = $"Bạn có chắc chắn muốn giao ca cho nhân viên {cbNhanVienNhan.Text} không ?";
+               {
+                mess = $"Bạn có chắc chắn muốn giao ca không ?";
                 resultConfirm = MessageBox.Show(mess, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (resultConfirm == DialogResult.Yes)
                 {
                     result = _iGiaoCaService.Them(_itemSelected);
                     if (result)
                     {
-                        mess = $"Tạo giao ca cho nhân viên {_nhanVienNhanCa.HoTen} thành công !!!";
-                        MessageBox.Show(mess, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        mess = $"Tạo giao ca cho nhân viên {_nhanVienNhanCa.HoTen} không thành công !!!";
-                        MessageBox.Show(mess, caption, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                }
-            }
-            else if (_actionClick == ACTION_CLICK.UPDATE)
-            {
-                mess = $"Bạn có chắc chắn muốn sửa thông tin giao ca {_itemSelected.Ma} không ?";
-                resultConfirm = MessageBox.Show(mess, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (resultConfirm == DialogResult.Yes)
-                {
-                    result = _iGiaoCaService.Sua(_itemSelected);
-                    if (result)
-                    {
-                        mess = $"Thay đổi giao ca {_itemSelected.Ma} thành công !!!";
-                        MessageBox.Show(mess, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        mess = $"Thay đổi giao ca {_itemSelected.Ma} không thành công !!!";
-                        MessageBox.Show(mess, caption, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        FrmDangNhap frmDangNhap = new FrmDangNhap();
+                        frmDangNhap.ShowDialog();
+                        this.Hide();
                     }
                 }
             }
@@ -128,6 +108,8 @@ namespace _3_PL.View
                 _actionClick = ACTION_CLICK.NONE;
                 reloadData();
             }
+
+           
         }
 
         private void dgvGiaoCa_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -143,6 +125,16 @@ namespace _3_PL.View
         {
             init();
             loadData();
+            decimal Money = 0;
+            if (_HoaDon.Get().FirstOrDefault(p => p.IdNv == FrmDangNhap._IdStaff) != null)
+            {
+                foreach (var item in _HoaDon.Get().Where(p => p.IdNv == FrmDangNhap._IdStaff))
+                {
+                    Money += item.TongSoTienTrongCa;
+                }
+                label9.Text = Money.ToString();
+            }
+            else label9.Text = 0.ToString();
         }
 
         private void init()
@@ -164,9 +156,9 @@ namespace _3_PL.View
         private void initData()
         {
             lstNhanVien = _iNhanVienService.GetAll();
-            cbNhanVienNhan.DataSource = lstNhanVien;
-            cbNhanVienNhan.DisplayMember = "HoTen";
-            cbNhanVienNhan.ValueMember = "Id";
+            //cbNhanVienNhan.DataSource = lstNhanVien;
+            //cbNhanVienNhan.DisplayMember = "HoTen";
+            //cbNhanVienNhan.ValueMember = "Id";
 
             if (lstNhanVien.Count > 0)
             {
@@ -187,6 +179,17 @@ namespace _3_PL.View
                 _itemSelected = lstGiaoCa[0];
                 bindingDataToForm();
             }
+            var cv = ichucvu.GetChucVu().FirstOrDefault(p => p.IdNv == FrmDangNhap._IdStaff);
+
+            if (cv != null)
+            {
+                label1.Text = cv.Ten;
+            }
+            if (label1.Text == "Nhân Viên")
+            {
+                txtTongTienBanDau.Enabled = false;
+            }
+
         }
 
         private void getHoTen()
@@ -209,8 +212,8 @@ namespace _3_PL.View
         private void clearForm()
         {
             txtGhiChu.Text
-                = txtTienKhac.Text = txtTienMat.Text
-                = txtTienTrongCa.Text = txtTimKiem.Text = String.Empty;
+                = txtTienCaTruoc.Text = txtTienMat.Text = String.Empty;
+
 
             dtpThoiGianGiao.Value = dtpThoiGianNhan.Value = DateTime.Now;
             txtTongTienBanDau.Text = "0đ";
@@ -222,10 +225,10 @@ namespace _3_PL.View
             var nvBanGiao = lstNhanVien.Where(x => x.Id == _itemSelected.IdNvTrongCa).FirstOrDefault();
             txtNhanVienGiao.Text = nvBanGiao != null ? nvBanGiao.HoTen : "";
             var nvNhan = lstNhanVien.Where(y => y.Id == _itemSelected.IdNvNhanCaTiep).FirstOrDefault();
-            cbNhanVienNhan.SelectedItem = nvNhan;
-            txtTienKhac.Text = _itemSelected.TongTienKhac.HasValue ? _itemSelected.TongTienKhac.Value.ToString() : "";
+            
+            txtTienCaTruoc.Text = _itemSelected.TongTienCaTruoc.HasValue ? _itemSelected.TongTienCaTruoc.Value.ToString() : "";
             txtTienMat.Text = _itemSelected.TongTienMat.HasValue ? _itemSelected.TongTienMat.Value.ToString() : "";
-            txtTienTrongCa.Text = _itemSelected.TongTienTrongCa.HasValue ? _itemSelected.TongTienTrongCa.ToString() : "";
+        //    txt_tienPhatSinh.Text = _itemSelected.TienPhatSinh.Value.ToString();
             txtTongTienBanDau.Text = _itemSelected.TienBanDau.HasValue ? $"{_itemSelected.TienBanDau.ToString()}đ" : "0đ";
             dtpThoiGianGiao.Value = _itemSelected.ThoiGianGiaoCa;
             dtpThoiGianNhan.Value = _itemSelected.ThoiGianNhanCa;
@@ -239,24 +242,27 @@ namespace _3_PL.View
             }
             var timeNow = DateTime.Now;
             _itemSelected.Ma = $"GC{timeNow.Year}{timeNow.Month}{timeNow.Day}{timeNow.Hour}{timeNow.Minute}";
-            _itemSelected.TienBanDau = Convert.ToDecimal(txtTongTienBanDau.Text.Replace("đ", ""));
+            _itemSelected.TienBanDau = Convert.ToDecimal(txtTongTienBanDau.Text.Replace("đ", "")) + decimal.Parse(label9.Text) - decimal.Parse(txt_tienPhatSinh.Text) - decimal.Parse(textBox2.Text);
             _itemSelected.GhiChuPhatSinh = txtGhiChu.Text;
-            _itemSelected.TongTienKhac = Convert.ToDecimal(!String.IsNullOrEmpty(txtTienKhac.Text.Replace("đ", "")) ? txtTienKhac.Text.Replace("đ", "") : "0");
+            _itemSelected.TongTienCaTruoc = decimal.Parse(label9.Text);
             _itemSelected.TongTienMat = Convert.ToDecimal(!String.IsNullOrEmpty(txtTienMat.Text.Replace("đ", "")) ? txtTienMat.Text.Replace("đ", "") : "0");
-            _itemSelected.TongTienTrongCa = Convert.ToDecimal(!String.IsNullOrEmpty(txtTienTrongCa.Text.Replace("đ", "")) ? txtTienTrongCa.Text.Replace("đ", "") : "0");
             _itemSelected.IdNvNhanCaTiep = _nhanVienNhanCa.Id;
             _itemSelected.IdNvTrongCa = _userLoged.Id;
             _itemSelected.ThoiGianGiaoCa = dtpThoiGianGiao.Value;
             _itemSelected.ThoiGianNhanCa = dtpThoiGianNhan.Value;
+            _itemSelected.TongTienTrongCa = decimal.Parse(label9.Text); 
         }
 
         private void enableControl(bool isEnable)
         {
             txtGhiChu.Enabled
-                = txtTienKhac.Enabled = txtTienMat.Enabled
-                = txtTienTrongCa.Enabled = txtTongTienBanDau.Enabled
+                = txtTienCaTruoc.Enabled = txtTienMat.Enabled
                 = dtpThoiGianGiao.Enabled = dtpThoiGianNhan.Enabled
-                = cbNhanVienNhan.Enabled = isEnable;
+                = isEnable;
+            if(label1.Text != "Nhân Viên")
+            {
+                txtTongTienBanDau.Enabled = isEnable;
+            }
         }
 
         private void visibleControl(bool isVisible)
@@ -266,7 +272,7 @@ namespace _3_PL.View
 
         private void cbNhanVienNhan_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _nhanVienNhanCa = cbNhanVienNhan.SelectedItem as NhanVienViewModels;
+       //     _nhanVienNhanCa = cbNhanVienNhan.SelectedItem as NhanVienViewModels;
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)

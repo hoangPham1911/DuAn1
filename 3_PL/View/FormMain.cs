@@ -185,5 +185,10 @@ namespace _3_PL.View
         {
             OpenChildForm(new Frm_NguoiDung(), sender);
         }
+
+        private void button2_Click_2(object sender, EventArgs e)
+        {
+            OpenChildForm(new frmGIaoCa(), sender);
+        }
     }
 }
