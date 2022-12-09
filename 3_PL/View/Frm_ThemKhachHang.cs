@@ -33,7 +33,7 @@ namespace _3_PL.View
             ViDiemViewModel vi = new ViDiemViewModel();
             vi.TrangThai = 1;
             if (bangQuyDoiDiemServices.Get().FirstOrDefault(p => p.Ten.Contains(1.ToString())) !=null)
-            vi.IdQuyDoiDiem = bangQuyDoiDiemServices.Get().FirstOrDefault(p => p.Ten.Contains(1.ToString())).Id;
+            vi.IdQuyDoiDiem = bangQuyDoiDiemServices.GetDiemQuyDoi().FirstOrDefault(p => p.Ten.Contains(1.ToString())).Id;
        //     MessageBox.Show(vi.IdQuyDoiDiem.ToString());
             return viDiemService.getId(vi);
         }

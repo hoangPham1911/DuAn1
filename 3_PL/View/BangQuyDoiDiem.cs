@@ -27,7 +27,7 @@ namespace _3_PL.View
         }
         public void load()
         {
-            textBox2.Text = _QuyDoiDiemService.GetDiem().FirstOrDefault(p => p.Ten.Contains(1.ToString())).TyLeQuyDoi.ToString();
+            textBox2.Text = _QuyDoiDiemService.GetDiemQuyDoi().FirstOrDefault(p => p.Ten.Contains(1.ToString())).TyLeQuyDoi.ToString();
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -37,7 +37,7 @@ namespace _3_PL.View
             }
             else
             {
-                if (_QuyDoiDiemService.GetDiem().Count() != 0)
+                if (_QuyDoiDiemService.GetDiemQuyDoi().Count() != 0)
                 {
                     BangQuyDoiDiemViewModels bangQuyDoi1 = new BangQuyDoiDiemViewModels();
                     bangQuyDoi1.TyLeQuyDoi = decimal.Parse(textBox2.Text);
@@ -50,7 +50,7 @@ namespace _3_PL.View
                         bangQuyDoi1.TrangThai = "Không Áp Dụng";
                     }
                     bangQuyDoi1.Ten = 1.ToString();
-                    bangQuyDoi1.Id = _QuyDoiDiemService.GetDiem().FirstOrDefault(p => p.Ten == 1.ToString()).Id;
+                    bangQuyDoi1.Id = _QuyDoiDiemService.GetDiemQuyDoi().FirstOrDefault(p => p.Ten == 1.ToString()).Id;
                     if (_QuyDoiDiemService.update(bangQuyDoi1))
                     {
                         MessageBox.Show("Cap Nhat quy doi thanh cong");
@@ -60,6 +60,7 @@ namespace _3_PL.View
                 {
                     BangQuyDoiDiemViewModels bangQuyDoi = new BangQuyDoiDiemViewModels();
                     bangQuyDoi.TyLeQuyDoi = decimal.Parse(textBox2.Text);
+                    bangQuyDoi.Ten = 1.ToString();
                     if (radioButton2.Checked)
                     {
                         bangQuyDoi.TrangThai = "Áp Dụng";

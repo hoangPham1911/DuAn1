@@ -11,6 +11,7 @@ namespace _2_BUS.IService
     {
         bool add(BangQuyDoiDiemViewModels vi);
         bool remove(Guid vi);
+        public List<BangQuyDoiDiemViewModels> GetDiemQuyDoi();
         bool update(BangQuyDoiDiemViewModels vi);
         public List<BangQuyDoiDiemViewModels> Get();
         List<BangQuyDoiDiemViewModels> GetDiem();

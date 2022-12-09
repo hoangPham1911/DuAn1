@@ -22,7 +22,7 @@ using System.IO;
 using static System.Resources.ResXFileRef;
 using Microsoft.VisualBasic;
 using System.Text.RegularExpressions;
-
+using DocumentFormat.OpenXml.Vml.Spreadsheet;
 
 namespace _3_PL.View
 {
@@ -763,7 +763,7 @@ namespace _3_PL.View
                     {
                         suaHoaDonModels.TinhTrang = 1;
                         hoaDonCt.TrangThai = 1;
-                       
+
                     }
                     if (textBox11.Text == "")
                     {
@@ -779,9 +779,9 @@ namespace _3_PL.View
                     suaHoaDonModels.NgayThanhToan = DateTime.Now;
                     if (_HoaDonChiTietService.SuaHoaDonChiTiet(hoaDonCt))
                     {
-                        if(_HoaDonService.Get().FirstOrDefault(p=>p.IdNv == FrmDangNhap._IdStaff && p.IdHoaDon == IdHoaDon) != null)
+                        if (_HoaDonService.Get().FirstOrDefault(p => p.IdNv == FrmDangNhap._IdStaff && p.IdHoaDon == IdHoaDon) != null)
                         {
-                           
+
                             suaHoaDonModels.TongSoTienTrongCa += decimal.Parse(tb_TienKhachCanTra.Text);
                         }
 
@@ -803,7 +803,7 @@ namespace _3_PL.View
                                     lichSuDiemViewModels.NgaySuDung = DateTime.Now;
                                     lichSuDiemViewModels.TrangThai = 1;
                                     lichSuDiemViewModels.IdHoaDon = IdHoaDon;
-                                    lichSuDiemViewModels.SoDiemCong = int.Parse(textBox5.Text) - int.Parse(txt_tongTienHoaDon.Text) / int.Parse(textBox7.Text)*100;
+                                    lichSuDiemViewModels.SoDiemCong = int.Parse(textBox5.Text) - int.Parse(txt_tongTienHoaDon.Text) / int.Parse(textBox7.Text) * 100;
                                     //MessageBox.Show(lichSuDiemViewModels.IdHoaDon.ToString());
                                     _LichSuDiemService.add(lichSuDiemViewModels);
                                     ViDiemViewModel viDiem = new ViDiemViewModel();
@@ -817,7 +817,7 @@ namespace _3_PL.View
                                 }
                             }
                             flhoadon.Controls.Remove(createButton());
-                            
+
                         }
                     }
 
@@ -1057,7 +1057,7 @@ namespace _3_PL.View
 
         private void tb_tienKhachDua_TextChanged(object sender, EventArgs e)
         {
-            if(tb_tienKhachDua.Text == "")
+            if (tb_tienKhachDua.Text == "")
             {
                 tb_tienKhachDua.Text = 0.ToString();
             }
@@ -1084,7 +1084,7 @@ namespace _3_PL.View
                     btn_ThanhToan.Enabled = true;
                 }
             }
-            
+
         }
 
         Guid IDSpCt;
@@ -1535,10 +1535,6 @@ namespace _3_PL.View
 
                 tb_TienKhachCanTra.Text = Convert.ToInt32(fncoc).ToString("#,###", cul.NumberFormat);
 
-
-
-
-
             }
             catch (Exception ex)
             {
@@ -1552,12 +1548,12 @@ namespace _3_PL.View
         {
             try
             {
-                if (_KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt.Contains(textBox10.Text)) != null)
+                if (_KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt == (textBox10.Text)) != null)
                 {
-                    textBox5.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt.Contains(textBox10.Text)).tongDiem.ToString();
-                    textBox1.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt.Contains(textBox10.Text)).DiaChi;
-                    textBox4.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt.Contains(textBox10.Text)).Sdt;
-                    textBox3.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt.Contains(textBox10.Text)).Ten;
+                    textBox5.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt == (textBox10.Text)).tongDiem.ToString();
+                    textBox1.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt == (textBox10.Text)).DiaChi;
+                    textBox4.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt == (textBox10.Text)).Sdt;
+                    textBox3.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Sdt == (textBox10.Text)).Ten;
 
                 }
             }
@@ -1792,16 +1788,10 @@ namespace _3_PL.View
             }
             else
             {
-                //textBox7.Enabled = true;
-                //textBox11.Enabled = true;
-                //string point = textBox7.Text;
-                //string fncoc = point.Replace(".", "");
-
-                CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
-                if (_QuyDoiDiemService.GetDiem().FirstOrDefault(p => p.STD.Contains(textBox10.Text)) != null)
+                if (_KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p=>p.Sdt == textBox10.Text) !=null)
                 {
-                    textBox7.Text = _QuyDoiDiemService.GetDiem().FirstOrDefault(p => p.STD.Contains(textBox10.Text)).TyLeQuyDoi.ToString();
-                    textBox13.Text = _QuyDoiDiemService.GetDiem().FirstOrDefault(p => p.STD.Contains(textBox10.Text)).TyLeQuyDoi.ToString();
+                    textBox7.Text = _QuyDoiDiemService.GetDiem().FirstOrDefault(p => p.STD == (textBox10.Text)).TyLeQuyDoi.ToString();
+                    textBox13.Text = _QuyDoiDiemService.GetDiem().FirstOrDefault(p => p.STD == (textBox10.Text)).TyLeQuyDoi.ToString();
                 }
             }
         }
@@ -1866,10 +1856,22 @@ namespace _3_PL.View
 
         private void textBox14_TextChanged(object sender, EventArgs e)
         {
-            if(_SaleService.GetDanhMuc().FirstOrDefault(p=>p.MaGiamGia.Contains(textBox14.Text)) != null)
+            CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
+
+            if (_SaleService.GetDanhMuc().FirstOrDefault(p => p.MaGiamGia == (textBox14.Text)) != null)
             {
-                txt_tongTienHoaDon.Text = (decimal.Parse(txt_tongTienHoaDon.Text) - _SaleService.GetDanhMuc().FirstOrDefault(p => p.MaGiamGia.Contains(textBox14.Text)).SoTienGiamGia).ToString();
+                string tiemGiamGia = (_SaleService.GetDanhMuc().FirstOrDefault(p => p.MaGiamGia == (textBox14.Text)).SoTienGiamGia).ToString();
+                string GiamTien = tiemGiamGia.Replace(".00", "");
+
+                string tongTien = txt_tongTienHoaDon.Text;
+
+                string TongTien2 = tongTien.Replace(".00", "");
+
+                double tienDaGiam = double.Parse(TongTien2) - double.Parse(GiamTien);
+
+                tb_TienKhachCanTra.Text = Convert.ToInt32(tienDaGiam).ToString("#,###", cul.NumberFormat);
             }
+            else tb_TienKhachCanTra.Text = txt_tongTienHoaDon.Text;
         }
     }
 }
