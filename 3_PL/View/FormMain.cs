@@ -70,7 +70,7 @@ namespace _3_PL.View
 
         private void btn_thongke_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FrmHangHoa(), sender);
+            OpenChildForm(new FrmThongKeDoanhThuNhanVien(), sender);
         }
 
         private void btn_quanlynhanvien_Click(object sender, EventArgs e)
@@ -188,12 +188,10 @@ namespace _3_PL.View
 
         private void button2_Click_2(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Bạn Có Muốn Giao Ca Không?", "Thông Báo", MessageBoxButtons.YesNo);
-            if(DialogResult.Yes == DialogResult)
-            {
+           
                 OpenChildForm(new frmGIaoCa(), sender);
-                this.Hide();
-            }
+ 
+            
 
         }
 
