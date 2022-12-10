@@ -236,7 +236,7 @@
             this.dgv_product.BackgroundColor = System.Drawing.Color.PeachPuff;
             this.dgv_product.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_product.Location = new System.Drawing.Point(8, 51);
-            this.dgv_product.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgv_product.Margin = new System.Windows.Forms.Padding(2);
             this.dgv_product.Name = "dgv_product";
             this.dgv_product.RowHeadersWidth = 62;
             this.dgv_product.RowTemplate.Height = 80;
@@ -307,7 +307,7 @@
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(17, 8);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(105, 33);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -383,7 +383,7 @@
             this.pn_dathang.Location = new System.Drawing.Point(5, 40);
             this.pn_dathang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pn_dathang.Name = "pn_dathang";
-            this.pn_dathang.Size = new System.Drawing.Size(292, 535);
+            this.pn_dathang.Size = new System.Drawing.Size(292, 527);
             this.pn_dathang.TabIndex = 114;
             // 
             // panel5
@@ -421,10 +421,10 @@
             this.panel5.Controls.Add(this.label53);
             this.panel5.Controls.Add(this.label54);
             this.panel5.Controls.Add(this.z);
-            this.panel5.Location = new System.Drawing.Point(-1, -1);
+            this.panel5.Location = new System.Drawing.Point(-1, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(292, 529);
+            this.panel5.Size = new System.Drawing.Size(292, 526);
             this.panel5.TabIndex = 116;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
@@ -848,7 +848,7 @@
             this.textBox13.BackColor = System.Drawing.Color.BurlyWood;
             this.textBox13.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox13.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox13.Location = new System.Drawing.Point(157, 41);
+            this.textBox13.Location = new System.Drawing.Point(156, 40);
             this.textBox13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(82, 18);
@@ -923,7 +923,7 @@
             this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox6.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.textBox6.Location = new System.Drawing.Point(138, 134);
+            this.textBox6.Location = new System.Drawing.Point(139, 134);
             this.textBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox6.Name = "textBox6";
             this.textBox6.ReadOnly = true;
@@ -1185,7 +1185,7 @@
             this.txt_coc.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_coc.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_coc.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.txt_coc.Location = new System.Drawing.Point(118, 101);
+            this.txt_coc.Location = new System.Drawing.Point(119, 99);
             this.txt_coc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_coc.Name = "txt_coc";
             this.txt_coc.Size = new System.Drawing.Size(120, 22);
@@ -1200,7 +1200,7 @@
             this.txt_dathangkhachtra.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_dathangkhachtra.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txt_dathangkhachtra.ForeColor = System.Drawing.Color.Firebrick;
-            this.txt_dathangkhachtra.Location = new System.Drawing.Point(107, 64);
+            this.txt_dathangkhachtra.Location = new System.Drawing.Point(108, 63);
             this.txt_dathangkhachtra.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_dathangkhachtra.Name = "txt_dathangkhachtra";
             this.txt_dathangkhachtra.ReadOnly = true;
@@ -1583,7 +1583,7 @@
             // tb_count
             // 
             this.tb_count.Location = new System.Drawing.Point(402, 21);
-            this.tb_count.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_count.Margin = new System.Windows.Forms.Padding(2);
             this.tb_count.Name = "tb_count";
             this.tb_count.Size = new System.Drawing.Size(38, 23);
             this.tb_count.TabIndex = 148;
@@ -1595,7 +1595,7 @@
             this.pictureBox6.BackColor = System.Drawing.Color.MistyRose;
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
             this.pictureBox6.Location = new System.Drawing.Point(240, 26);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(25, 19);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1617,7 +1617,7 @@
             // tb_search
             // 
             this.tb_search.Location = new System.Drawing.Point(8, 24);
-            this.tb_search.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_search.Margin = new System.Windows.Forms.Padding(2);
             this.tb_search.Name = "tb_search";
             this.tb_search.Size = new System.Drawing.Size(228, 23);
             this.tb_search.TabIndex = 2;
@@ -1679,7 +1679,7 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(441, 12);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(38, 23);
             this.textBox2.TabIndex = 151;
@@ -1721,9 +1721,9 @@
             this.groupBox4.Controls.Add(this.pictureBox7);
             this.groupBox4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox4.Location = new System.Drawing.Point(11, 163);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox4.Size = new System.Drawing.Size(622, 206);
             this.groupBox4.TabIndex = 133;
             this.groupBox4.TabStop = false;
@@ -1734,7 +1734,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSalmon;
-            this.ClientSize = new System.Drawing.Size(1240, 616);
+            this.ClientSize = new System.Drawing.Size(1240, 721);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.button2);

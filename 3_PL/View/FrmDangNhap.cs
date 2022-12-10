@@ -89,7 +89,7 @@ namespace _3_PL.View
                         giaoCaa.ThoiGianNhanCa = DateTime.Now;
                         giaoCaa.ThoiGianGiaoCa = DateTime.Now;
                         giaoCaa.TrangThai = 1;
-                        giaoCaServices.Sua(giaoCaa);
+                       MessageBox.Show(giaoCaServices.Sua(giaoCaa).ToString());
 
                     }
 

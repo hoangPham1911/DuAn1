@@ -19,7 +19,7 @@ namespace _2_BUS.ViewModels
         public decimal? ThanhTien { get; set; }
         public int TrangThai { get; set; }
         public decimal? GiamGia { get; set; }
-
+        public string? MaGiamGia { get; set; }
 
     }
 }
