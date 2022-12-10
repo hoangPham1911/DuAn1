@@ -807,7 +807,7 @@ namespace _3_PL.View
                                     lichSuDiemViewModels.NgaySuDung = DateTime.Now;
                                     lichSuDiemViewModels.TrangThai = 1;
                                     lichSuDiemViewModels.IdHoaDon = IdHoaDon;
-                                    if (int.Parse(textBox7.Text) !=0)
+                                    if (int.Parse(textBox7.Text) !=0 || textBox7.Text !="")
                                     lichSuDiemViewModels.SoDiemCong = int.Parse(txt_tongTienHoaDon.Text) / int.Parse(textBox7.Text) * 100;
                                     //MessageBox.Show(lichSuDiemViewModels.IdHoaDon.ToString());
                                     _LichSuDiemService.add(lichSuDiemViewModels);
