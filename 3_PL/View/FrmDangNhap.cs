@@ -54,30 +54,38 @@ namespace _3_PL.View
             //{
             //    MessageBox.Show("Đăng nhập thất bại");
             //}
-
             if (!string.IsNullOrEmpty(tb_tenguoidung.Text.Trim()) && !string.IsNullOrEmpty(tb_mk.Text.Trim()))
             {
+
                 var user = inhanvien.Login(tb_tenguoidung.Text.Trim(), tb_mk.Text.Trim());
                 _IdStaff = user.Id;
+                foreach (var item in _hoaDonService.Get().Where(p => p.IdNv == user.Id))
+                {
+                    item.TongSoTienTrongCa = 0;
+                    _hoaDonService.UpdateSoTienNvTrongCa(item);
+                }
                 if (user != null)
                 {
-                    if(giaoCaServices.GetAll().FirstOrDefault(p => p.Id == _IdStaff) == null)
+                    if (giaoCaServices.GetAll().FirstOrDefault(p => p.Id == _IdStaff) == null)
                     {
-                        if (giaoCaServices.GetAll().Count() != 0)
+                        if (giaoCaServices.GetAll().Count() == 0)
                         {
                             GiaoCaViewModels giaoCa = new GiaoCaViewModels();
                             giaoCa.IdNvNhanCaTiep = _IdStaff;
                             giaoCa.IdNvTrongCa = _IdStaff;
                             giaoCa.ThoiGianNhanCa = DateTime.Now;
+                            giaoCa.ThoiGianGiaoCa = DateTime.Now;
                             giaoCa.TrangThai = 1;
-                            giaoCaServices.Them(giaoCa);
+                            giaoCa.Ma = (giaoCaServices.GetAll().Count() + 1).ToString();
+                            MessageBox.Show(giaoCaServices.Them(giaoCa).ToString());
 
                         }
-                    }       
+                    }
                     else
                     {
                         GiaoCaViewModels giaoCaa = giaoCaServices.GetAll().FirstOrDefault(p => p.Id == _IdStaff);
                         giaoCaa.IdNvNhanCaTiep = _IdStaff;
+                        giaoCaa.IdNvTrongCa = _IdStaff;
                         giaoCaa.ThoiGianNhanCa = DateTime.Now;
                         giaoCaa.ThoiGianGiaoCa = DateTime.Now;
                         giaoCaa.TrangThai = 1;
@@ -85,11 +93,7 @@ namespace _3_PL.View
 
                     }
 
-                    foreach (var item in _hoaDonService.Get().Where(p => p.IdNv == user.Id))
-                    {
-                        item.TongSoTienTrongCa = 0;
-                        _hoaDonService.UpdateSoTienNvTrongCa(item);
-                    }
+
                     //   this.Hide();
                     Helpers.AccoutHelper.Instance.SetUserLogin(user);
                     var frmMain = new FormMain();

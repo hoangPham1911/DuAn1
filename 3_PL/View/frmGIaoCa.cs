@@ -97,7 +97,9 @@ namespace _3_PL.View
                     {
                         FrmDangNhap frmDangNhap = new FrmDangNhap();
                         frmDangNhap.ShowDialog();
-                        this.Hide();
+                        this.Close();
+                        FormMain a = new FormMain();
+                        a.Close();
                     }
                 }
             }
@@ -136,8 +138,8 @@ namespace _3_PL.View
                 label9.Text = Money.ToString();
             }
             else label9.Text = 0.ToString();
-            if (_iGiaoCaService.GetAll().FirstOrDefault(p => p.Time == DateTime.Parse(dtpThoiGianGiao.Text)) != null)
-                txtTienCaTruoc.Text = _iGiaoCaService.GetAll().FirstOrDefault(p => p.Time == DateTime.Parse(dtpThoiGianGiao.Text)).TongTienCaTruoc.ToString();
+            if (_iGiaoCaService.GetAll().FirstOrDefault(p => p.Time == int.Parse(dtpThoiGianGiao.Text)) != null)
+                txtTienCaTruoc.Text = _iGiaoCaService.GetAll().FirstOrDefault(p => p.Time == int.Parse(DateTime.Now.Hour.ToString())).TongTienCaTruoc.ToString();
         }
 
         private void init()

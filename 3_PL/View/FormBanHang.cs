@@ -777,6 +777,10 @@ namespace _3_PL.View
                         suaHoaDonModels.SoTienQuyDoi = decimal.Parse(textBox7.Text);
                     }
                     suaHoaDonModels.NgayThanhToan = DateTime.Now;
+                    if(_KhachHangServices.GetAllKhachHangDB().SingleOrDefault(p=>p.Sdt == textBox10.Text) != null)
+                    {
+                        suaHoaDonModels.IdKh = _KhachHangServices.GetAllKhachHangDB().SingleOrDefault(p => p.Sdt == textBox10.Text).Idkh;
+                    }
                     if (_HoaDonChiTietService.SuaHoaDonChiTiet(hoaDonCt))
                     {
                         if (_HoaDonService.Get().FirstOrDefault(p => p.IdNv == FrmDangNhap._IdStaff && p.IdHoaDon == IdHoaDon) != null)
@@ -803,7 +807,8 @@ namespace _3_PL.View
                                     lichSuDiemViewModels.NgaySuDung = DateTime.Now;
                                     lichSuDiemViewModels.TrangThai = 1;
                                     lichSuDiemViewModels.IdHoaDon = IdHoaDon;
-                                    lichSuDiemViewModels.SoDiemCong = int.Parse(textBox5.Text) - int.Parse(txt_tongTienHoaDon.Text) / int.Parse(textBox7.Text) * 100;
+                                    if (int.Parse(textBox7.Text) !=0)
+                                    lichSuDiemViewModels.SoDiemCong = int.Parse(txt_tongTienHoaDon.Text) / int.Parse(textBox7.Text) * 100;
                                     //MessageBox.Show(lichSuDiemViewModels.IdHoaDon.ToString());
                                     _LichSuDiemService.add(lichSuDiemViewModels);
                                     ViDiemViewModel viDiem = new ViDiemViewModel();
@@ -823,7 +828,7 @@ namespace _3_PL.View
 
                     loadGioHang();
                     loadhoadonduyet();
-                    if (radioButton1.Checked)
+                    if (radioButton2.Checked)
                         inHoaDon();
                 }
 
@@ -988,14 +993,14 @@ namespace _3_PL.View
                                 if (_ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == Guid.Parse(maQR[0])) != null)
                                 {
                                     _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == Guid.Parse(maQR[0])).SoLuong = _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == Guid.Parse(maQR[0])).SoLuong + int.Parse(content);
-                                    MessageBox.Show("Thêm Thành Công123");
+                                    MessageBox.Show("Thêm Thành Công vao hoa don");
                                     loadReceipt();
                                     button2.Enabled = true;
                                 }
                                 else
                                 {
                                     _ListReceiptProduct2.Add(SpInHD);
-                                    MessageBox.Show("Thêm Thành Công123");
+                                    MessageBox.Show("Thêm Thành Công vao hoa don");
                                     loadReceipt();
                                     button2.Enabled = true;
 
@@ -1009,7 +1014,8 @@ namespace _3_PL.View
                                 {
                                     _ListGioHang.Add(gioHang);
                                     loadGioHang();
-                                    MessageBox.Show("Thêm Thành Công345");
+                                    MessageBox.Show("Thêm Thành Công vai gio hang");
+
                                     button2.Enabled = true;
 
                                 }
@@ -1017,7 +1023,8 @@ namespace _3_PL.View
                                 {
                                     _ListGioHang.FirstOrDefault(p => p.IdCTSP == Guid.Parse(maQR[0])).SoLuong = _ListGioHang.FirstOrDefault(p => p.IdCTSP == Guid.Parse(maQR[0])).SoLuong + int.Parse(content);
                                     loadGioHang();
-                                    MessageBox.Show("Thêm Thành Công345");
+                                    MessageBox.Show("Thêm Thành Công vai gio hang");
+
                                     button2.Enabled = true;
 
                                 }
@@ -1025,7 +1032,7 @@ namespace _3_PL.View
                                 {
                                     _ListGioHang.Add(gioHang);
                                     loadGioHang();
-                                    MessageBox.Show("Thêm Thành Công345");
+                                    MessageBox.Show("Thêm Thành Công vai gio hang");
                                     button2.Enabled = true;
 
                                 }
@@ -1157,14 +1164,14 @@ namespace _3_PL.View
                         if (_ListReceiptProduct2.FirstOrDefault(p => p.IdHoaDon == IdHoaDon) != null && _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IDSpCt) != null)
                         {
                             _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IDSpCt).SoLuong = _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IDSpCt).SoLuong + int.Parse(tb_count.Text);
-                            MessageBox.Show("Thêm Thành Công123");
+                            MessageBox.Show("Thêm Thành Công vao hoa don");
                             loadReceipt();
 
                         }
                         else if (_ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IDSpCt) == null)
                         {
                             _ListReceiptProduct2.Add(SpInHD);
-                            MessageBox.Show("Thêm Vào Thành Công345");
+                            MessageBox.Show("Thêm Vào Thành Công vao hoa don");
                             tb_count.Text = 0.ToString();
                             loadReceipt();
 
@@ -1241,7 +1248,7 @@ namespace _3_PL.View
                     }
                     else if (Convert.ToInt32(tb_count.Text) > Convert.ToInt32(_SanPhamService.GetSanPham().Where(c => c.IdHangHoaChiTiet == IDSpCt).Select(c => c.SoLuongTon).FirstOrDefault()))
                     {
-                        MessageBox.Show("Số Lượng Không Đủ");
+                     //   MessageBox.Show("Số Lượng Không Đủ");
                         return;
                     }
                     else
@@ -1251,22 +1258,22 @@ namespace _3_PL.View
                             dgv_product.CurrentRow.Cells[6].Value = int.Parse(dgv_product.CurrentRow.Cells[6].Value.ToString()) - (int.Parse(textBox2.Text) - int.Parse(dgv_GioHang1.CurrentRow.Cells[3].Value.ToString()));
                             _ListGioHang.FirstOrDefault(p => p.IdCTSP == IDSpCt).SoLuong = int.Parse(textBox2.Text);
                             loadGioHang();
-                            MessageBox.Show("gio hang 1");
+                        //    MessageBox.Show("gio hang 1");
                         }
                         else if (int.Parse(dgv_GioHang1.CurrentRow.Cells[3].Value.ToString()) > int.Parse(textBox2.Text) && _ListGioHang.FirstOrDefault(p => p.IdCTSP == IdReceiptInCart) != null)
                         {
                             dgv_product.CurrentRow.Cells[6].Value = int.Parse(dgv_product.CurrentRow.Cells[6].Value.ToString()) + (int.Parse(dgv_GioHang1.CurrentRow.Cells[3].Value.ToString()) - int.Parse(textBox2.Text));
                             _ListGioHang.FirstOrDefault(p => p.IdCTSP == IDSpCt).SoLuong = int.Parse(textBox2.Text);
                             loadGioHang();
-                            MessageBox.Show("gio hang 2");
+                     //       MessageBox.Show("gio hang 2");
 
                         }
                         else if (int.Parse(dgv_GioHang1.CurrentRow.Cells[3].Value.ToString()) < int.Parse(textBox2.Text) && _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IdReceiptInCart) != null)
                         {
                             dgv_product.CurrentRow.Cells[6].Value = int.Parse(dgv_product.CurrentRow.Cells[6].Value.ToString()) - (int.Parse(textBox2.Text) - int.Parse(dgv_GioHang1.CurrentRow.Cells[3].Value.ToString()));
                             _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IdReceiptInCart).SoLuong = int.Parse(textBox2.Text);
-                             MessageBox.Show(_ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IdReceiptInCart).SoLuong.ToString());
-                            MessageBox.Show("hoa don 1");
+                       //      MessageBox.Show(_ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IdReceiptInCart).SoLuong.ToString());
+                      //      MessageBox.Show("hoa don 1");
 
                             loadReceipt();
                         }
@@ -1277,7 +1284,7 @@ namespace _3_PL.View
                             dgv_product.CurrentRow.Cells[6].Value = int.Parse(dgv_product.CurrentRow.Cells[6].Value.ToString()) + (int.Parse(dgv_GioHang1.CurrentRow.Cells[3].Value.ToString()) - int.Parse(textBox2.Text));
                             _ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IdReceiptInCart).SoLuong = int.Parse(textBox2.Text);
                             //   MessageBox.Show(_ListReceiptProduct2.FirstOrDefault(p => p.IdSpCt == IdReceiptInCart).SoLuong.ToString());
-                            MessageBox.Show("hoa don 2");
+                         //   MessageBox.Show("hoa don 2");
 
                             loadReceipt();
 
@@ -1803,6 +1810,8 @@ namespace _3_PL.View
                     textBox7.Text = _QuyDoiDiemService.GetDiem().FirstOrDefault(p => p.STD == (textBox10.Text)).TyLeQuyDoi.ToString();
                     textBox13.Text = _QuyDoiDiemService.GetDiem().FirstOrDefault(p => p.STD == (textBox10.Text)).TyLeQuyDoi.ToString();
                 }
+                textBox7.Enabled = true;
+                textBox11.Enabled = true;
             }
         }
 

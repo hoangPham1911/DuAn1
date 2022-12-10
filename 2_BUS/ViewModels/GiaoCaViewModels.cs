@@ -23,7 +23,7 @@ namespace _2_BUS.ViewModels
         public decimal? TienPhatSinh { get; set; }
         public string? GhiChuPhatSinh { get; set; }
         public decimal? TongTienCaTruoc { get; set; }
-        public DateTime? Time { get; set; }
+        public int? Time { get; set; }
         public decimal? TongTienMatRut { get; set; }
         public int TrangThai { get; set; }
         public string StrTrangThai { get; set; }
