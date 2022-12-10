@@ -63,7 +63,7 @@ namespace _3_PL.View
                     item.GioiTinh,
                     item.NamSinh,
                     item.tongDiem,
-                    item.TrangThai == 0 ? "Hoạt động" : "Không hoạt động"
+                    item.TrangThai == 1 ? "Hoạt động" : "Không hoạt động"
                     );
             }
 
@@ -105,7 +105,7 @@ namespace _3_PL.View
                     tb_diemtichDiem.Text = r.Cells[10].Value.ToString();
                 }
                
-                if (r.Cells[11].Value.ToString() == "1")
+                if (r.Cells[11].Value.ToString() == "Hoạt động")
                 {
                     cb_hoatDong.Checked = true;
                 }
