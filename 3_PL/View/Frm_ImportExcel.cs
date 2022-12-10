@@ -101,9 +101,7 @@ namespace _3_PL.View
                             var Nsx = worksheet.Cells[i, j++].Value;
                             var loaiGiay = worksheet.Cells[i, j++].Value;
                             var QuocGia = worksheet.Cells[i, j++].Value;
-
                             var chatLieu = worksheet.Cells[i, j++].Value;
-                            
                             var SoSize = worksheet.Cells[i, j++].Value;
                             var DgDan = worksheet.Cells[i, j++].Value;
 
@@ -142,9 +140,9 @@ namespace _3_PL.View
                         giaNhap = decimal.Parse(dgv_product.Rows[i].Cells[5].Value.ToString());
                         giaBan = decimal.Parse(dgv_product.Rows[i].Cells[6].Value.ToString());
                         SoLuongTon = int.Parse(dgv_product.Rows[i].Cells[7].Value.ToString());
-                        QuocGia = dgv_product.Rows[i].Cells[9].Value.ToString();
                         Nsx = dgv_product.Rows[i].Cells[8].Value.ToString();
-                        loaiGiay = dgv_product.Rows[i].Cells[10].Value.ToString();
+                        loaiGiay = dgv_product.Rows[i].Cells[9].Value.ToString();
+                        QuocGia = dgv_product.Rows[i].Cells[10].Value.ToString();
                         ChatLieu = dgv_product.Rows[i].Cells[11].Value.ToString();
                         soSize = int.Parse(dgv_product.Rows[i].Cells[12].Value.ToString());
                         DuongDan = dgv_product.Rows[i].Cells[13].Value.ToString();
