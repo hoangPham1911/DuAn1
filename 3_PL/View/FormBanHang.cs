@@ -1989,20 +1989,18 @@ namespace _3_PL.View
                 if (_QuyDoiDiemService.Get().FirstOrDefault(p => p.Ten == comboBox2.Text) != null)
                 {
 
-                    MessageBox.Show(_QuyDoiDiemService.Get().FirstOrDefault(p => p.Ten == comboBox2.Text).DKApDiem.ToString());
-                    MessageBox.Show((double.Parse(txt_tongTienHoaDon.Text) <= _QuyDoiDiemService.Get().FirstOrDefault(p => p.Ten == comboBox2.Text).DKApDiem).ToString());
                     if (double.Parse(txt_tongTienHoaDon.Text) <= _QuyDoiDiemService.Get().FirstOrDefault(p => p.Ten == comboBox2.Text).DKApDiem)
                     {
                         textBox11.Enabled = false;
                         textBox7.Enabled = false;
                         textBox12.Enabled = false;
                         textBox13.Enabled = false;
-                        MessageBox.Show("dssdss");
+                      
 
                     }
                     else
                     {
-                        MessageBox.Show("dssdss");
+                     
                         textBox11.Enabled = true;
                         textBox7.Enabled = true;
                         textBox12.Enabled = true;

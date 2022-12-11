@@ -51,9 +51,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(757, 338);
+            this.button1.Location = new System.Drawing.Point(744, 338);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 24);
+            this.button1.Size = new System.Drawing.Size(88, 26);
             this.button1.TabIndex = 3;
             this.button1.Text = "Thêm";
             this.button1.UseVisualStyleBackColor = true;
@@ -62,7 +62,7 @@
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(100, 9);
+            this.label2.Location = new System.Drawing.Point(251, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(360, 33);
             this.label2.TabIndex = 4;
@@ -144,9 +144,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(757, 383);
+            this.button2.Location = new System.Drawing.Point(744, 383);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 24);
+            this.button2.Size = new System.Drawing.Size(88, 29);
             this.button2.TabIndex = 19;
             this.button2.Text = "Sửa";
             this.button2.UseVisualStyleBackColor = true;

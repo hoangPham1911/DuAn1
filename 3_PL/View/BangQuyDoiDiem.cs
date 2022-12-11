@@ -116,7 +116,7 @@ namespace _3_PL.View
                 }
                 else radioButton2.Checked = true;
                 textBox3.Text = dgv_diem.CurrentRow.Cells[4].Value.ToString();
-                textBox4.Text = dgv_diem.CurrentRow.Cells[5].Value.ToString();
+                textBox4.Text = dgv_diem.CurrentRow.Cells[5 ].Value.ToString();
             }
             catch (Exception)
             {

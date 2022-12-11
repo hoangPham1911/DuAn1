@@ -23,14 +23,12 @@ namespace _3_PL.View
         public static Guid _IdStaff;
         private string pass = string.Empty;
         IHoaDonService _hoaDonService;
-        IGiaoCaServices giaoCaServices;
         public FrmDangNhap()
         {
             InitializeComponent();
             inhanvien = new NhanVienServices();
             ichucVu = new ChucVuServices();
             _hoaDonService = new HoaDonService();
-            giaoCaServices = new GiaoCaServices();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -65,32 +63,7 @@ namespace _3_PL.View
                     _hoaDonService.UpdateSoTienNvTrongCa(item);
                 }
                 if (user != null)
-                {
-                    if (giaoCaServices.GetAll().FirstOrDefault(p => p.IdNvNhanCaTiep == _IdStaff) == null)
-                    {
-                            GiaoCaViewModels giaoCa = new GiaoCaViewModels();
-                            giaoCa.IdNvNhanCaTiep = _IdStaff;
-                            giaoCa.IdNvTrongCa = _IdStaff;
-                            giaoCa.ThoiGianNhanCa = DateTime.Now;
-                            giaoCa.ThoiGianGiaoCa = DateTime.Now;
-                            giaoCa.TrangThai = 1;
-                            giaoCa.Ma = (giaoCaServices.GetAll().Count() + 1).ToString();
-                            MessageBox.Show(giaoCaServices.Them(giaoCa).ToString());
-
-                    }
-                    else if(giaoCaServices.GetAll().FirstOrDefault(p => p.IdNvNhanCaTiep == _IdStaff) == null)
-                    {
-                        GiaoCaViewModels giaoCaa = giaoCaServices.GetAll().FirstOrDefault(p => p.Id == _IdStaff);
-                        giaoCaa.IdNvNhanCaTiep = _IdStaff;
-                        giaoCaa.IdNvTrongCa = _IdStaff;
-                        giaoCaa.ThoiGianNhanCa = DateTime.Now;
-                        giaoCaa.ThoiGianGiaoCa = DateTime.Now;
-                        giaoCaa.TrangThai = 1;
-                        giaoCaServices.Sua(giaoCaa);
-
-                    }
-
-
+                {                   
                     //   this.Hide();
                     Helpers.AccoutHelper.Instance.SetUserLogin(user);
                     var frmMain = new FormMain();
