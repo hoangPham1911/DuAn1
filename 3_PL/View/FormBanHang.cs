@@ -78,6 +78,8 @@ namespace _3_PL.View
             btn_DatHang.Enabled = false;
             btn_ThanhToan.Enabled = false;
             textBox10.Enabled = false;
+            textBox11.Enabled = false;
+            textBox12.Enabled = false;
         }
 
         void LoadCbxRank()
@@ -270,6 +272,7 @@ namespace _3_PL.View
         private void btnsender_Click(object sender, EventArgs e)
         {
             textBox10.Enabled = true;
+            textBox11.Enabled = true;
             button2.Enabled = false;
             if (_ListReceiptProduct2.Count() != 0)
             {
@@ -352,7 +355,8 @@ namespace _3_PL.View
         {
             checkHD++;
             button2.Enabled = false;
-
+            textBox10.Enabled = true;
+            textBox12.Enabled = true;
             if (_ListReceiptProduct2.Count() != 0)
             {
                 btn_ThanhToan.Enabled = true;
@@ -1872,6 +1876,7 @@ namespace _3_PL.View
 
         private void textBox11_TextChanged_1(object sender, EventArgs e)
         {
+         
             if (tb_TienKhachCanTra.Text == "")
             {
                 tb_TienKhachCanTra.Text = 0.ToString();

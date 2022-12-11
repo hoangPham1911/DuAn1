@@ -56,27 +56,33 @@ namespace _3_PL.View
             {
 
                 var user = inhanvien.Login(tb_tenguoidung.Text.Trim(), tb_mk.Text.Trim());
-                _IdStaff = user.Id;
-                foreach (var item in _hoaDonService.Get().Where(p => p.IdNv == user.Id))
+                if(user != null)
                 {
-                    item.TongSoTienTrongCa = 0;
-                    _hoaDonService.UpdateSoTienNvTrongCa(item);
-                }
-                if (user != null)
-                {                   
-                    //   this.Hide();
-                    Helpers.AccoutHelper.Instance.SetUserLogin(user);
-                    var frmMain = new FormMain();
-                    frmMain.Show();
-                    this.Visible = false;
-                    //this.Close();
+                    _IdStaff = user.Id;
+                    foreach (var item in _hoaDonService.Get().Where(p => p.IdNv == user.Id))
+                    {
+                        item.TongSoTienTrongCa = 0;
+                        _hoaDonService.UpdateSoTienNvTrongCa(item);
+                    }
+                    if (user != null)
+                    {
+                        //   this.Hide();
+                        Helpers.AccoutHelper.Instance.SetUserLogin(user);
+                        var frmMain = new FormMain();
+                        frmMain.Show();
+                        this.Visible = false;
+                        //this.Close();
+
+                    }
 
                 }
                 else
                 {
                     MessageBox.Show("Đăng nhập thất bại");
                 }
+
             }
+           
 
         }
 

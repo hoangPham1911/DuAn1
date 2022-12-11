@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Tracing;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Linq;
@@ -370,42 +371,11 @@ namespace _3_PL.View
 
         private void VideoCaptureDevice_NewFrame(object sender, AForge.Video.NewFrameEventArgs eventArgs)
         {
-         
+
             Bitmap bitmap = (Bitmap)eventArgs.Frame.Clone();
             BarcodeReader reader = new BarcodeReader();
             var result = reader.Decode(bitmap);
-            if (result != null)
-            {
-                string decoded = result.ToString().Trim();
-                string[] maQR = decoded.Split(new char[] { '\n' });
-                if (_qlhhser.GetsList().FirstOrDefault(p => p.Id == Guid.Parse(maQR[0])) != null)
-                {
-                    idcthh = Guid.Parse(maQR[0]);
-                    cbo_tenhh.Text = maQR[1];
-                    cbo_mahh.Text = maQR[2];
-                    id = Guid.Parse(maQR[3]);
-                    cbo_nsx.Text = maQR[4];
-                    if (maQR[5] == "Còn Hàng")
-                    {
-                        chk_conhang.Checked = true;
-                    }
-                    else
-                    {
-                        chk_hethang.Checked = true;
-                    }
-                    txt_soluong.Text = maQR[6];
-                    txt_giaban.Text = maQR[7];
-                    cbo_tencl.Text = maQR[8];
-                    cbo_sizegiay.Text = maQR[9];
-                    cbo_loaigiay.Text = maQR[10];
-                    cbo_tenquocgia.Text = maQR[11];
-                    cbo_anh.Text = maQR[12];
-                    MessageBox.Show("Thêm Sp Thành Công");
-                }
-
-            }
             pic_cammera.Image = bitmap;
-
 
         }
         public void Alert(string mess)
@@ -421,14 +391,24 @@ namespace _3_PL.View
 
         private void btn_cammera_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < 2; i++)
+            try
             {
-                this.Alert("Mở Camera Thành Công");
-            }
+                DialogResult dialogResult = MessageBox.Show("Bạn Có Muốn Mở Camera Hay Không ?", "Thông Báo", MessageBoxButtons.YesNo);
 
-            videoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[cbo_webcam.SelectedIndex].MonikerString);
-            videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
-            videoCaptureDevice.Start();
+                if (dialogResult == DialogResult.Yes)
+                {
+                    videoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[cbo_webcam.SelectedIndex].MonikerString);
+                    videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
+                    videoCaptureDevice.Start();
+
+                    tmrTime.Start();
+                };
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Convert.ToString(ex), "Liên Hệ Với 19008198 để sửa lỗi");
+                return;
+            }
         }
 
         void reset()
@@ -1347,7 +1327,44 @@ namespace _3_PL.View
 
         private void tmrTime_Tick(object sender, EventArgs e)
         {
+          
+            if (pic_cammera.Image != null)
+            {
+                Bitmap bitmap = (Bitmap)pic_cammera.Image;
+                BarcodeReader reader = new BarcodeReader();
+                var result = reader.Decode(bitmap);
 
+                if (result != null)
+                {
+                    string decoded = result.ToString().Trim();
+                    string[] maQR = decoded.Split(new char[] { '\n' });
+                    if (_qlhhser.GetsList().FirstOrDefault(p => p.Id == Guid.Parse(maQR[0])) != null)
+                    {
+                        idcthh = Guid.Parse(maQR[0]);
+                        cbo_tenhh.Text = maQR[1].ToString();
+                        cbo_mahh.Text = maQR[2].ToString();
+                        id = Guid.Parse(maQR[3]);
+                        cbo_nsx.Text = maQR[4].ToString();
+                        if (maQR[5].ToString() == "Còn Hàng")
+                        {
+                            chk_conhang.Checked = true;
+                        }
+                        else
+                        {
+                            chk_hethang.Checked = true;
+                        }
+                        txt_soluong.Text = maQR[6];
+                        txt_giaban.Text = maQR[7];
+                        cbo_tencl.Text = maQR[8];
+                        cbo_sizegiay.Text = maQR[9];
+                        cbo_loaigiay.Text = maQR[10];
+                        cbo_tenquocgia.Text = maQR[11];
+                        cbo_anh.Text = maQR[12];
+                        MessageBox.Show("Thêm Sp Thành Công");
+                    }
+
+                }
+            }
         }
 
         private void pic_anhhanghoa_Click(object sender, EventArgs e)
