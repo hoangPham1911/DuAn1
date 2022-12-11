@@ -43,7 +43,18 @@ namespace _3_PL.View
             dgridLichSu.Rows.Clear();
             foreach (var item in _lichSuDiemService.GetLichSuDiem())
             {
-                dgridLichSu.Rows.Add(item.IdHoaDon, item.IdLichSuDiem, item.IdViDiem, item.IdKhachHang, item.MaKH,item.TenKH, item.NgaySuDung, item.SoDiemTieuDung, item.SoDiemCong, item.TongDiem, item.TrangThai == 1 ? "Còn Hàng" : "Hết Hàng");
+                dgridLichSu.Rows.Add(
+                    item.IdHoaDon,
+                    item.IdLichSuDiem,
+                    item.IdViDiem,
+                    item.IdKhachHang,
+                    item.MaKH,
+                    item.TenKH, 
+                    item.NgaySuDung,
+                    item.SoDiemTieuDung,
+                    item.SoDiemCong,
+                    item.TongDiem, 
+                    item.TrangThai == 1 ? "Còn Hàng" : "Hết Hàng");
             }
         }
         private void dgridLichSu_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -62,6 +73,11 @@ namespace _3_PL.View
             txtTenKH.Text = r.Cells[5].Value.ToString();
             txtMa.Text = r.Cells[4].Value.ToString();
             txtDiemConLai.Text = r.Cells[9].Value.ToString();
+        }
+
+        private void FrmLichSuDiemTieuDung_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

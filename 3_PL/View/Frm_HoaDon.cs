@@ -178,10 +178,10 @@ namespace _3_PL.View
                 dtp_ngayship.Text = hd.NgayShip.ToString();
                 dtp_ngaynhan.Text = hd.NgayNhan.ToString();
                 rdb_datt.Checked = hd.TinhTrang == 1;
-                rdb_chuatt.Checked = hd.TinhTrang == 0;
-                rdb_chogiaohang.Checked = hd.TinhTrang == 2;
-                rdb_dahuy.Checked = hd.TinhTrang == 3;
-                rdb_dacoc.Checked = hd.TinhTrang == 4;
+                rdb_chuatt.Checked = hd.TinhTrang == 2;
+                rdb_chogiaohang.Checked = hd.TinhTrang == 3;
+                rdb_dahuy.Checked = hd.TinhTrang == 6;
+                rdb_dacoc.Checked = hd.TinhTrang == 7;
                 if (hd.SDTShip == null)
                 {
                     txt_sdtShip.Text = "Trống";

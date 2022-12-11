@@ -65,6 +65,14 @@ namespace _3_PL.View
                 {
                     MessageBox.Show("Mã khách hàng đã tồn tại");
                 }
+                else if (khachHangServices.GetAllKhachHangDB().Any(p => p.Sdt == txtDT.Text))
+                {
+                    MessageBox.Show("Số điện thoại không được trùng");
+                }
+                else if (txtDT.Text.Length < 10)
+                {
+                    MessageBox.Show("Sai cú pháp số điện thoại");
+                }
                 else if (!ckb_Nam.Checked && !ckb_nu.Checked)
                 {
                     MessageBox.Show("Vui lòng chọn giới tính");

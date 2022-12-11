@@ -1,6 +1,7 @@
 ﻿using _2_BUS.IService;
 using _2_BUS.Service;
 using _2_BUS.ViewModels;
+using iTextSharp.text.xml;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -139,6 +140,14 @@ namespace _3_PL.View
                 {
                     MessageBox.Show("Vui lòng chọn giới tính");
                 }
+                else if (khachHangServices.GetAllKhachHangDB().Any(p => p.Sdt == tb_sDT.Text))
+                {
+                    MessageBox.Show("Số điện thoại không được trùng");
+                }
+                else if (tb_sDT.Text.Length < 10)
+                {
+                    MessageBox.Show("Sai cú pháp số điện thoại");
+                }
                 else if (!cb_khongHoatDong.Checked  && !cb_hoatDong.Checked)
                 {
                     MessageBox.Show("Vui lòng chọn trạng thái");
@@ -241,6 +250,11 @@ namespace _3_PL.View
                 cb_hoatDong.Checked = false;
                 cb_khongHoatDong.Checked = true;
             }
+        }
+
+        private void dtg_showKhachHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

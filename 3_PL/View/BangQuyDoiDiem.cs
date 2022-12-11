@@ -51,6 +51,7 @@ namespace _3_PL.View
             bangQuyDoi.TyLeQuyDoi =decimal.Parse(textBox2.Text);
             bangQuyDoi.Ten = textBox1.Text;
             bangQuyDoi.Tong = int.Parse(textBox3.Text);
+            bangQuyDoi.DKApDiem = int.Parse(textBox4.Text);
             if (Ba.Checked) bangQuyDoi.TrangThai = "Áp Dụng";
             else bangQuyDoi.TrangThai = "Không Áp Dụng";
             if (_QuyDoiDiemService.add(bangQuyDoi))
@@ -90,6 +91,7 @@ namespace _3_PL.View
             bangQuyDoi.Id = Id;
             bangQuyDoi.Tong = int.Parse(textBox3.Text);
             bangQuyDoi.Ten = textBox1.Text;
+            bangQuyDoi.DKApDiem = int.Parse(textBox4.Text);
             if (Ba.Checked) bangQuyDoi.TrangThai = "Áp Dụng";
             else bangQuyDoi.TrangThai = "Không Áp Dụng";
             if (_QuyDoiDiemService.update(bangQuyDoi))

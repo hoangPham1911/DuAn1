@@ -93,8 +93,8 @@ namespace _2_BUS.Services
                 var hoaDon = HoaDonRepos.getAllReceipt().FirstOrDefault(p => p.Id == Hoadonold.IdHoaDon);
                 hoaDon.SDTShip = Hoadonold.SDTShip;
                 hoaDon.TinhTrang = Hoadonold.TinhTrang;
-                //hoaDon.IdKh = Hoadonold.IdKh;
-                //hoaDon.IdNv = Hoadonold.IdNv;
+                hoaDon.IdKh = Hoadonold.IdKh;
+                hoaDon.IdNv = Hoadonold.IdNv;
                 hoaDon.NgayTao = Hoadonold.NgayTao;
                 hoaDon.NgayNhan = Hoadonold.NgayNhan;
                 hoaDon.NgayThanhToan = Hoadonold.NgayThanhToan;
