@@ -60,7 +60,7 @@ namespace _3_PL.View
             Currenid = Guid.Empty;
             dtg_showHD.AllowUserToAddRows = false;
             dtg_showHD.Rows.Clear();
-            dtg_showHD.ColumnCount = 14;
+            dtg_showHD.ColumnCount = 13;
             dtg_showHD.Columns[0].Name = "ID";
             dtg_showHD.Columns[0].Visible = false;
             dtg_showHD.Columns[1].Name = "MAHD";
@@ -75,7 +75,6 @@ namespace _3_PL.View
             dtg_showHD.Columns[10].Name = "Tên Ship";
             dtg_showHD.Columns[11].Name = "Số Tiền Quy Đổi";
             dtg_showHD.Columns[12].Name = "Số Điểm Tiêu Dùng";
-            dtg_showHD.Columns[13].Name = "Mã Giảm Giá";
             foreach (var x in _HDService.GetAllHoaDonDB())
             {
                 dtg_showHD.Rows.Add(
@@ -91,8 +90,7 @@ namespace _3_PL.View
                     x.SDTShip,
                     x.TenShip,
                     x.SoTienQuyDoi,
-                    x.SoDiemSuDung,
-                    x.MaGiamGia
+                    x.SoDiemSuDung
                  );
             }
 
@@ -119,8 +117,8 @@ namespace _3_PL.View
                     x.SDTShip,
                     x.TenShip,
                     x.SoTienQuyDoi,
-                    x.SoDiemSuDung,
-                   x.MaGiamGia);
+                    x.SoDiemSuDung
+                    );
             }
         }
 
@@ -160,25 +158,25 @@ namespace _3_PL.View
                 {
                     txt_sotienquydoi.Text = "Trống";
                 }
-                else 
-                txt_sotienquydoi.Text = hd.SoTienQuyDoi.ToString();
+                else
+                    txt_sotienquydoi.Text = hd.SoTienQuyDoi.ToString();
 
                 if (hd.SoDiemSuDung == null)
                 {
                     txt_sdtShip.Text = "Trống";
                 }
-                else 
-                txt_sodiemtieudung.Text = hd.SoDiemSuDung.ToString();
-             
-                if (hd.MaGiamGia == null)
-                {
-                    txt_phantramgiamgia.Text = "";
-                }
                 else
-                {
-                    txt_phantramgiamgia.Text = hd.MaGiamGia.ToString();
-                }
-                
+                    txt_sodiemtieudung.Text = hd.SoDiemSuDung.ToString();
+
+                //if (hd.MaGiamGia == null)
+                //{
+                //    txt_phantramgiamgia.Text = "";
+                //}
+                //else
+                //{
+                //    txt_phantramgiamgia.Text = hd.MaGiamGia.ToString();
+                //}
+
                 LoadCTHD(Currenid);
             }
             catch (Exception)
@@ -222,18 +220,14 @@ namespace _3_PL.View
                 var idkh = _KHService.GetAllKhachHangDB().FirstOrDefault(x => x.Ten == cbb_khachhang.Text);
                 var idnv = _NVService.GetAll().FirstOrDefault(x => x.Ten == cbb_nhanvien.Text);
 
-                if (Currenid==Guid.Empty)
+                if (Currenid == Guid.Empty)
                 {
                     MessageBox.Show("Chưa Chọn Hóa Đơn");
                 }
-                else if (cbb_nhanvien.Text == "")
-                {
-                    MessageBox.Show("Thiếu Nhân Viên rồi ");
-                }
-                else if (cbb_khachhang.Text == "")
-                {
-                    MessageBox.Show("Thiếu tên khách hàng rồi");
-                }
+                //else if (cbb_nhanvien.Text == "")
+                //{
+                //    MessageBox.Show("Thiếu Nhân Viên rồi ");
+                //}
                 else if (txt_sdtShip.Text == "")
                 {
                     MessageBox.Show("Thiếu số điện thoại Ship rồi");
@@ -256,11 +250,11 @@ namespace _3_PL.View
                 }
                 else
                 {
-                  
+
                     SuaHoaDonModels suaHoaDon = new SuaHoaDonModels() { };
                     suaHoaDon.IdHoaDon = Currenid;
-                    suaHoaDon.IdKh = _KHService.GetAllKhachHangDB().FirstOrDefault(x => x.Ten == cbb_khachhang.Text).Idkh;
-                    suaHoaDon.IdNv = idnv.Id;
+                    //suaHoaDon.IdKh = _KHService.GetAllKhachHangDB().FirstOrDefault(x => x.Ten == cbb_khachhang.Text).Idkh;
+                    //suaHoaDon.IdNv = idnv.Id;
                     suaHoaDon.NgayTao = dtp_ngaytao.Value;
                     suaHoaDon.NgayThanhToan = dtp_ngaythanhtoan.Value;
                     suaHoaDon.NgayShip = dtp_ngayship.Value;
@@ -308,7 +302,7 @@ namespace _3_PL.View
                     _HangHoaServices.getlsthanghoafromDB().FirstOrDefault(c => c.Id == x.IdChiTietSp).Ten,
                     x.SoLuong,
                     x.ThanhTien,
-                    x.TrangThai == 1 ? "Còn Hàng" : "Hết Hàng",
+                    x.TrangThai == 1 ? "Đã thanh toán" : x.TrangThai == 2 ? "Chưa thanh toán" : x.TrangThai == 3 ? "Đang Giao Hàng" : x.TrangThai == 6 ? "Đã Hủy" : "Đã Cọc",
                     x.GiamGia);
 
             }
@@ -530,7 +524,6 @@ namespace _3_PL.View
             this.dtgShow_CTHD = new System.Windows.Forms.DataGridView();
             this.dtg_showHD = new System.Windows.Forms.DataGridView();
             this.btn_suaHD = new System.Windows.Forms.Button();
-            this.txt_phantramgiamgia = new System.Windows.Forms.TextBox();
             this.txt_tenship = new System.Windows.Forms.TextBox();
             this.txt_sotienquydoi = new System.Windows.Forms.TextBox();
             this.txt_sodiemtieudung = new System.Windows.Forms.TextBox();
@@ -539,7 +532,6 @@ namespace _3_PL.View
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -588,7 +580,7 @@ namespace _3_PL.View
             this.txt_timkiem.Location = new System.Drawing.Point(517, 384);
             this.txt_timkiem.Margin = new System.Windows.Forms.Padding(2);
             this.txt_timkiem.Name = "txt_timkiem";
-            this.txt_timkiem.Size = new System.Drawing.Size(205, 31);
+            this.txt_timkiem.Size = new System.Drawing.Size(205, 23);
             this.txt_timkiem.TabIndex = 132;
             this.txt_timkiem.TextChanged += new System.EventHandler(this.txt_timkiem_TextChanged);
             // 
@@ -600,16 +592,17 @@ namespace _3_PL.View
             this.label17.Location = new System.Drawing.Point(412, 383);
             this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(113, 29);
+            this.label17.Size = new System.Drawing.Size(71, 20);
             this.label17.TabIndex = 131;
             this.label17.Text = "Tìm kiếm";
             // 
             // cbb_khachhang
             // 
+            this.cbb_khachhang.Enabled = false;
             this.cbb_khachhang.FormattingEnabled = true;
             this.cbb_khachhang.Location = new System.Drawing.Point(462, 124);
             this.cbb_khachhang.Name = "cbb_khachhang";
-            this.cbb_khachhang.Size = new System.Drawing.Size(200, 33);
+            this.cbb_khachhang.Size = new System.Drawing.Size(200, 23);
             this.cbb_khachhang.TabIndex = 130;
             // 
             // cbb_MaHoaDon
@@ -617,15 +610,16 @@ namespace _3_PL.View
             this.cbb_MaHoaDon.FormattingEnabled = true;
             this.cbb_MaHoaDon.Location = new System.Drawing.Point(462, 45);
             this.cbb_MaHoaDon.Name = "cbb_MaHoaDon";
-            this.cbb_MaHoaDon.Size = new System.Drawing.Size(200, 33);
+            this.cbb_MaHoaDon.Size = new System.Drawing.Size(200, 23);
             this.cbb_MaHoaDon.TabIndex = 129;
             // 
             // cbb_nhanvien
             // 
+            this.cbb_nhanvien.Enabled = false;
             this.cbb_nhanvien.FormattingEnabled = true;
             this.cbb_nhanvien.Location = new System.Drawing.Point(462, 81);
             this.cbb_nhanvien.Name = "cbb_nhanvien";
-            this.cbb_nhanvien.Size = new System.Drawing.Size(200, 33);
+            this.cbb_nhanvien.Size = new System.Drawing.Size(200, 23);
             this.cbb_nhanvien.TabIndex = 128;
             // 
             // rdb_chogiaohang
@@ -634,7 +628,7 @@ namespace _3_PL.View
             this.rdb_chogiaohang.ForeColor = System.Drawing.Color.Black;
             this.rdb_chogiaohang.Location = new System.Drawing.Point(1290, 28);
             this.rdb_chogiaohang.Name = "rdb_chogiaohang";
-            this.rdb_chogiaohang.Size = new System.Drawing.Size(158, 29);
+            this.rdb_chogiaohang.Size = new System.Drawing.Size(106, 19);
             this.rdb_chogiaohang.TabIndex = 123;
             this.rdb_chogiaohang.TabStop = true;
             this.rdb_chogiaohang.Text = "Chờ Giao Hàng";
@@ -646,7 +640,7 @@ namespace _3_PL.View
             this.rdb_dahuy.ForeColor = System.Drawing.Color.Black;
             this.rdb_dahuy.Location = new System.Drawing.Point(1141, 57);
             this.rdb_dahuy.Name = "rdb_dahuy";
-            this.rdb_dahuy.Size = new System.Drawing.Size(96, 29);
+            this.rdb_dahuy.Size = new System.Drawing.Size(64, 19);
             this.rdb_dahuy.TabIndex = 124;
             this.rdb_dahuy.TabStop = true;
             this.rdb_dahuy.Text = "Đã Hủy";
@@ -658,7 +652,7 @@ namespace _3_PL.View
             this.rdb_dacoc.ForeColor = System.Drawing.Color.Black;
             this.rdb_dacoc.Location = new System.Drawing.Point(987, 57);
             this.rdb_dacoc.Name = "rdb_dacoc";
-            this.rdb_dacoc.Size = new System.Drawing.Size(94, 29);
+            this.rdb_dacoc.Size = new System.Drawing.Size(63, 19);
             this.rdb_dacoc.TabIndex = 127;
             this.rdb_dacoc.TabStop = true;
             this.rdb_dacoc.Text = "Đã Cọc";
@@ -670,7 +664,7 @@ namespace _3_PL.View
             this.rdb_chuatt.ForeColor = System.Drawing.Color.Black;
             this.rdb_chuatt.Location = new System.Drawing.Point(1141, 28);
             this.rdb_chuatt.Name = "rdb_chuatt";
-            this.rdb_chuatt.Size = new System.Drawing.Size(173, 29);
+            this.rdb_chuatt.Size = new System.Drawing.Size(117, 19);
             this.rdb_chuatt.TabIndex = 126;
             this.rdb_chuatt.TabStop = true;
             this.rdb_chuatt.Text = "Chưa Thanh Toán";
@@ -682,7 +676,7 @@ namespace _3_PL.View
             this.rdb_datt.ForeColor = System.Drawing.Color.Black;
             this.rdb_datt.Location = new System.Drawing.Point(987, 28);
             this.rdb_datt.Name = "rdb_datt";
-            this.rdb_datt.Size = new System.Drawing.Size(154, 29);
+            this.rdb_datt.Size = new System.Drawing.Size(103, 19);
             this.rdb_datt.TabIndex = 125;
             this.rdb_datt.TabStop = true;
             this.rdb_datt.Text = "Đã Thanh Toán";
@@ -692,28 +686,28 @@ namespace _3_PL.View
             // 
             this.dtp_ngaynhan.Location = new System.Drawing.Point(462, 298);
             this.dtp_ngaynhan.Name = "dtp_ngaynhan";
-            this.dtp_ngaynhan.Size = new System.Drawing.Size(200, 31);
+            this.dtp_ngaynhan.Size = new System.Drawing.Size(200, 23);
             this.dtp_ngaynhan.TabIndex = 122;
             // 
             // dtp_ngaythanhtoan
             // 
             this.dtp_ngaythanhtoan.Location = new System.Drawing.Point(462, 216);
             this.dtp_ngaythanhtoan.Name = "dtp_ngaythanhtoan";
-            this.dtp_ngaythanhtoan.Size = new System.Drawing.Size(200, 31);
+            this.dtp_ngaythanhtoan.Size = new System.Drawing.Size(200, 23);
             this.dtp_ngaythanhtoan.TabIndex = 121;
             // 
             // dtp_ngayship
             // 
             this.dtp_ngayship.Location = new System.Drawing.Point(462, 261);
             this.dtp_ngayship.Name = "dtp_ngayship";
-            this.dtp_ngayship.Size = new System.Drawing.Size(200, 31);
+            this.dtp_ngayship.Size = new System.Drawing.Size(200, 23);
             this.dtp_ngayship.TabIndex = 120;
             // 
             // dtp_ngaytao
             // 
             this.dtp_ngaytao.Location = new System.Drawing.Point(462, 179);
             this.dtp_ngaytao.Name = "dtp_ngaytao";
-            this.dtp_ngaytao.Size = new System.Drawing.Size(200, 31);
+            this.dtp_ngaytao.Size = new System.Drawing.Size(200, 23);
             this.dtp_ngaytao.TabIndex = 119;
             // 
             // dtgShow_CTHD
@@ -759,20 +753,12 @@ namespace _3_PL.View
             this.btn_suaHD.UseVisualStyleBackColor = false;
             this.btn_suaHD.Click += new System.EventHandler(this.btn_suaHD_Click);
             // 
-            // txt_phantramgiamgia
-            // 
-            this.txt_phantramgiamgia.Location = new System.Drawing.Point(998, 275);
-            this.txt_phantramgiamgia.Margin = new System.Windows.Forms.Padding(2);
-            this.txt_phantramgiamgia.Name = "txt_phantramgiamgia";
-            this.txt_phantramgiamgia.Size = new System.Drawing.Size(205, 31);
-            this.txt_phantramgiamgia.TabIndex = 115;
-            // 
             // txt_tenship
             // 
             this.txt_tenship.Location = new System.Drawing.Point(998, 135);
             this.txt_tenship.Margin = new System.Windows.Forms.Padding(2);
             this.txt_tenship.Name = "txt_tenship";
-            this.txt_tenship.Size = new System.Drawing.Size(205, 31);
+            this.txt_tenship.Size = new System.Drawing.Size(205, 23);
             this.txt_tenship.TabIndex = 114;
             // 
             // txt_sotienquydoi
@@ -780,7 +766,7 @@ namespace _3_PL.View
             this.txt_sotienquydoi.Location = new System.Drawing.Point(998, 185);
             this.txt_sotienquydoi.Margin = new System.Windows.Forms.Padding(2);
             this.txt_sotienquydoi.Name = "txt_sotienquydoi";
-            this.txt_sotienquydoi.Size = new System.Drawing.Size(205, 31);
+            this.txt_sotienquydoi.Size = new System.Drawing.Size(205, 23);
             this.txt_sotienquydoi.TabIndex = 113;
             // 
             // txt_sodiemtieudung
@@ -788,7 +774,7 @@ namespace _3_PL.View
             this.txt_sodiemtieudung.Location = new System.Drawing.Point(998, 225);
             this.txt_sodiemtieudung.Margin = new System.Windows.Forms.Padding(2);
             this.txt_sodiemtieudung.Name = "txt_sodiemtieudung";
-            this.txt_sodiemtieudung.Size = new System.Drawing.Size(205, 31);
+            this.txt_sodiemtieudung.Size = new System.Drawing.Size(205, 23);
             this.txt_sodiemtieudung.TabIndex = 112;
             // 
             // txt_sdtShip
@@ -796,7 +782,7 @@ namespace _3_PL.View
             this.txt_sdtShip.Location = new System.Drawing.Point(998, 95);
             this.txt_sdtShip.Margin = new System.Windows.Forms.Padding(2);
             this.txt_sdtShip.Name = "txt_sdtShip";
-            this.txt_sdtShip.Size = new System.Drawing.Size(205, 31);
+            this.txt_sdtShip.Size = new System.Drawing.Size(205, 23);
             this.txt_sdtShip.TabIndex = 111;
             // 
             // label9
@@ -807,7 +793,7 @@ namespace _3_PL.View
             this.label9.Location = new System.Drawing.Point(233, 301);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(132, 29);
+            this.label9.Size = new System.Drawing.Size(87, 20);
             this.label9.TabIndex = 110;
             this.label9.Text = "Ngày Nhận";
             // 
@@ -819,7 +805,7 @@ namespace _3_PL.View
             this.label3.Location = new System.Drawing.Point(233, 259);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(124, 29);
+            this.label3.Size = new System.Drawing.Size(81, 20);
             this.label3.TabIndex = 107;
             this.label3.Text = "Ngày Ship";
             // 
@@ -831,7 +817,7 @@ namespace _3_PL.View
             this.label5.Location = new System.Drawing.Point(233, 219);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(205, 29);
+            this.label5.Size = new System.Drawing.Size(134, 20);
             this.label5.TabIndex = 109;
             this.label5.Text = "Ngày Thanh Toán";
             // 
@@ -843,21 +829,9 @@ namespace _3_PL.View
             this.label6.Location = new System.Drawing.Point(233, 177);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(118, 29);
+            this.label6.Size = new System.Drawing.Size(76, 20);
             this.label6.TabIndex = 108;
             this.label6.Text = "Ngày Tạo";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(765, 278);
-            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(152, 29);
-            this.label16.TabIndex = 106;
-            this.label16.Text = "Mã Giảm Giá";
             // 
             // label10
             // 
@@ -867,7 +841,7 @@ namespace _3_PL.View
             this.label10.Location = new System.Drawing.Point(765, 44);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(131, 29);
+            this.label10.Size = new System.Drawing.Size(84, 20);
             this.label10.TabIndex = 103;
             this.label10.Text = "Tình Trạng";
             // 
@@ -879,7 +853,7 @@ namespace _3_PL.View
             this.label13.Location = new System.Drawing.Point(765, 138);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(111, 29);
+            this.label13.Size = new System.Drawing.Size(72, 20);
             this.label13.TabIndex = 105;
             this.label13.Text = "Tên Ship";
             // 
@@ -891,7 +865,7 @@ namespace _3_PL.View
             this.label15.Location = new System.Drawing.Point(765, 228);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(224, 29);
+            this.label15.Size = new System.Drawing.Size(147, 20);
             this.label15.TabIndex = 101;
             this.label15.Text = "Số Điểm Tiêu Dùng";
             // 
@@ -903,7 +877,7 @@ namespace _3_PL.View
             this.label14.Location = new System.Drawing.Point(765, 184);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(190, 29);
+            this.label14.Size = new System.Drawing.Size(123, 20);
             this.label14.TabIndex = 100;
             this.label14.Text = "Số Tiền Quy Đổi";
             // 
@@ -915,7 +889,7 @@ namespace _3_PL.View
             this.label4.Location = new System.Drawing.Point(229, 138);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(143, 29);
+            this.label4.Size = new System.Drawing.Size(97, 20);
             this.label4.TabIndex = 104;
             this.label4.Text = "Khách Hàng";
             // 
@@ -927,7 +901,7 @@ namespace _3_PL.View
             this.label11.Location = new System.Drawing.Point(765, 94);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(137, 29);
+            this.label11.Size = new System.Drawing.Size(90, 20);
             this.label11.TabIndex = 99;
             this.label11.Text = "Số ĐT Ship";
             // 
@@ -939,7 +913,7 @@ namespace _3_PL.View
             this.label2.Location = new System.Drawing.Point(229, 88);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 29);
+            this.label2.Size = new System.Drawing.Size(83, 20);
             this.label2.TabIndex = 102;
             this.label2.Text = "Nhân Viên";
             // 
@@ -951,7 +925,7 @@ namespace _3_PL.View
             this.label1.Location = new System.Drawing.Point(229, 44);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(146, 29);
+            this.label1.Size = new System.Drawing.Size(99, 20);
             this.label1.TabIndex = 98;
             this.label1.Text = "Mã Hóa Đơn";
             // 
@@ -978,7 +952,6 @@ namespace _3_PL.View
             this.Controls.Add(this.dtgShow_CTHD);
             this.Controls.Add(this.dtg_showHD);
             this.Controls.Add(this.btn_suaHD);
-            this.Controls.Add(this.txt_phantramgiamgia);
             this.Controls.Add(this.txt_tenship);
             this.Controls.Add(this.txt_sotienquydoi);
             this.Controls.Add(this.txt_sodiemtieudung);
@@ -987,7 +960,6 @@ namespace _3_PL.View
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label16);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label15);

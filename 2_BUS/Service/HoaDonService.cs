@@ -87,30 +87,29 @@ namespace _2_BUS.Services
 
         public string SuaHoaDon(SuaHoaDonModels Hoadonold)
         {
-            if (Hoadonold == null) return "that bai";
-            else
+
+            if (Hoadonold != null)
             {
                 var hoaDon = HoaDonRepos.getAllReceipt().FirstOrDefault(p => p.Id == Hoadonold.IdHoaDon);
                 hoaDon.SDTShip = Hoadonold.SDTShip;
-                //hoaDon.Ma = Hoadonold.Ma;
                 hoaDon.TinhTrang = Hoadonold.TinhTrang;
-                hoaDon.IdKh = Hoadonold.IdKh;
-                hoaDon.IdNv = Hoadonold.IdNv;
+                //hoaDon.IdKh = Hoadonold.IdKh;
+                //hoaDon.IdNv = Hoadonold.IdNv;
                 hoaDon.NgayTao = Hoadonold.NgayTao;
                 hoaDon.NgayNhan = Hoadonold.NgayNhan;
                 hoaDon.NgayThanhToan = Hoadonold.NgayThanhToan;
                 hoaDon.NgayShip = Hoadonold.NgayShip;
                 hoaDon.TinhTrang = Hoadonold.TinhTrang;
-                //hoaDon.Thue = Hoadonold.Thue;
-                //      hoaDon.TenKhachHang = Hoadonold.TenKhachHang;
                 hoaDon.TenShip = Hoadonold.TenShip;
                 hoaDon.SoDiemSuDung = Hoadonold.SoDiemSuDung;
                 hoaDon.SoTienQuyDoi = Hoadonold.SoTienQuyDoi;
                 hoaDon.TongTienNvTrongCa = Hoadonold.TongSoTienTrongCa;
-                hoaDon.MaGiamGia=Hoadonold.MaGiamGia;
+                hoaDon.MaGiamGia = Hoadonold.MaGiamGia;
                 HoaDonRepos.updateReceipt(hoaDon);
                 return "thanh cong";
             }
+            return "thất bại";
+
         }
         public string UpdateSoTienNvTrongCa(SuaHoaDonModels Hoadonold)
         {
