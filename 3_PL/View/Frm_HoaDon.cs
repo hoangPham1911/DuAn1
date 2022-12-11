@@ -77,6 +77,27 @@ namespace _3_PL.View
             dtg_showHD.Columns[12].Name = "Số Điểm Tiêu Dùng";
             foreach (var x in _HDService.GetAllHoaDonDB())
             {
+                string trangthai="";
+                if (x.TinhTrang == 1)
+                {
+                    trangthai = "Đã thanh toán";
+                }
+                else if (x.TinhTrang == 2)
+                {
+                    trangthai = "Chưa thanh toán";
+                }
+                else if (x.TinhTrang == 3)
+                {
+                    trangthai = "Đang giao hàng";
+                }
+                else if (x.TinhTrang == 6)
+                {
+                    trangthai = "Đã Hủy";
+                }
+                else if (x.TinhTrang == 7)
+                {
+                    trangthai = "Đã Cọc";
+                }
                 dtg_showHD.Rows.Add(
                     x.IdHoaDon,
                     x.Ma,
@@ -86,7 +107,7 @@ namespace _3_PL.View
                     x.NgayThanhToan,
                     x.NgayShip,
                     x.NgayNhan,
-                    x.TinhTrang == 1 ? "Đã thanh toán" : x.TinhTrang == 2 ? "Chưa thanh toán" : x.TinhTrang == 3 ? "Đang Giao Hàng" : x.TinhTrang == 6 ? "Đã Hủy" : "Đã Cọc",
+                    trangthai,
                     x.SDTShip,
                     x.TenShip,
                     x.SoTienQuyDoi,
@@ -103,6 +124,27 @@ namespace _3_PL.View
             dtg_showHD.Rows.Clear();
             foreach (var x in _HDService.timkiemHoadonTheoMa(MaHD))
             {
+                string trangthai = "";
+                if (x.TinhTrang == 1)
+                {
+                    trangthai = "Đã thanh toán";
+                }
+                else if (x.TinhTrang == 2)
+                {
+                    trangthai = "Chưa thanh toán";
+                }
+                else if (x.TinhTrang == 3)
+                {
+                    trangthai = "Đang giao hàng";
+                }
+                else if (x.TinhTrang == 6)
+                {
+                    trangthai = "Đã Hủy";
+                }
+                else if (x.TinhTrang == 7)
+                {
+                    trangthai = "Đã Cọc";
+                }
                 dtg_showHD.Rows.Add(
                     x.Id,
                     x.Ma,
@@ -112,13 +154,12 @@ namespace _3_PL.View
                     x.NgayThanhToan,
                     x.NgayShip,
                     x.NgayNhan,
-              x.TinhTrang == 1 ? "Đã thanh toán" : x.TinhTrang == 2 ? "Chưa thanh toán" : x.TinhTrang == 3 ? "Đang Giao Hàng" : x.TinhTrang == 6 ? "Đã Hủy" : "Đã Cọc",
-
+                    trangthai,
                     x.SDTShip,
                     x.TenShip,
                     x.SoTienQuyDoi,
                     x.SoDiemSuDung
-                    );
+                 );
             }
         }
 
@@ -296,13 +337,34 @@ namespace _3_PL.View
 
             foreach (var x in _HDCTservice.timkiemhdtheoid(Currenid))
             {
+                string trangthai = "";
+                if (x.TrangThai == 1)
+                {
+                    trangthai = "Đã thanh toán";
+                }
+                else if (x.TrangThai == 2)
+                {
+                    trangthai = "Chưa thanh toán";
+                }
+                else if (x.TrangThai == 3)
+                {
+                    trangthai = "Đang giao hàng";
+                }
+                else if (x.TrangThai == 6)
+                {
+                    trangthai = "Đã Hủy";
+                }
+                else  
+                {
+                    trangthai = "Đã Cọc";
+                }
                 dtgShow_CTHD.Rows.Add(
                     x.IdHoaDon,
                     _HDService.GetAllHoaDonDB().FirstOrDefault(c => c.IdHoaDon == x.IdHoaDon).Ma,
                     _HangHoaServices.getlsthanghoafromDB().FirstOrDefault(c => c.Id == x.IdChiTietSp).Ten,
                     x.SoLuong,
                     x.ThanhTien,
-                    x.TrangThai == 1 ? "Đã thanh toán" : x.TrangThai == 2 ? "Chưa thanh toán" : x.TrangThai == 3 ? "Đang Giao Hàng" : x.TrangThai == 6 ? "Đã Hủy" : "Đã Cọc",
+                    trangthai,
                     x.GiamGia);
 
             }

@@ -14,6 +14,7 @@ namespace _2_BUS.ViewModels
         public string Months { get; set; }
         public string Years { get; set; }
         public DateTime? Ngaytt { get; set; }
+        public int trangthai { get; set; }
         public ViewDoanhThuNhanVien(string manv, string tennv, double tongtien, string Month, string Year, DateTime? ngaytt)
         {
             MaNhanVien = manv;
