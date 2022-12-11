@@ -412,6 +412,7 @@
             this.txt_giaban.Name = "txt_giaban";
             this.txt_giaban.Size = new System.Drawing.Size(149, 26);
             this.txt_giaban.TabIndex = 167;
+            this.txt_giaban.TextChanged += new System.EventHandler(this.txt_giaban_TextChanged);
             // 
             // bbbb
             // 
@@ -431,6 +432,7 @@
             this.txt_gianhap.Name = "txt_gianhap";
             this.txt_gianhap.Size = new System.Drawing.Size(149, 26);
             this.txt_gianhap.TabIndex = 165;
+            this.txt_gianhap.TextChanged += new System.EventHandler(this.txt_gianhap_TextChanged);
             // 
             // aaa
             // 
@@ -450,6 +452,7 @@
             this.txt_soluong.Name = "txt_soluong";
             this.txt_soluong.Size = new System.Drawing.Size(151, 26);
             this.txt_soluong.TabIndex = 163;
+            this.txt_soluong.TextChanged += new System.EventHandler(this.txt_soluong_TextChanged);
             // 
             // label6
             // 

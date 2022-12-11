@@ -152,8 +152,6 @@ namespace _3_PL.View
             }
         }
 
-
-
         public bool check()
         {
             if (string.IsNullOrEmpty(cbo_mahh.Text))
@@ -177,12 +175,7 @@ namespace _3_PL.View
                 MessageBox.Show("Tên hàng hóa không được bỏ trống", "Thông báo");
                 return false;
             }
-            if (Regex.IsMatch(cbo_tenhh.Text, @"^[a-zA-Z0-9 ]*$") == false)
-            {
 
-                MessageBox.Show("Tên hàng hóa không được chứa ký tự đặc biệt", "ERR");
-                return false;
-            }
             if (string.IsNullOrEmpty(cbo_tencl.Text))
             {
                 MessageBox.Show("Tên chất liệu không được bỏ trống", "Thông báo");
@@ -261,14 +254,14 @@ namespace _3_PL.View
             }
 
             //check trùng
+            //danh mục
+
+
+
 
 
             //macl
-            if (cbo_tencl.Text.Length <= 3)
-            {
-                MessageBox.Show("Tên chất liệu phải trên 3 ký tự", "ERR");
-                return false;
-            }
+            
             if (Regex.IsMatch(cbo_mahh.Text, @"[0-9]+") == false)
             {
 
@@ -283,12 +276,7 @@ namespace _3_PL.View
                 MessageBox.Show("Tên hàng hóa phải trên 3 ký tự", "ERR");
                 return false;
             }
-            if (Regex.IsMatch(cbo_tenhh.Text, @"^[a-zA-Z]") == false)
-            {
-
-                MessageBox.Show("Tên hàng hóa không được chứa số", "ERR");
-                return false;
-            }
+            
 
 
             if (Regex.IsMatch(txt_soluong.Text, @"^\d+$") == false)
@@ -310,12 +298,20 @@ namespace _3_PL.View
                 MessageBox.Show("đơn giá bán không được chứa chữ cái", "ERR");
                 return false;
             }
+            //danh mục
+            //if (cbo_danhmuc.Text.Length <= 3)
+            //{
+            //    MessageBox.Show("Tên danh mục phải trên 3 ký tự", "ERR");
+            //    return false;
+            //}
+            //if (Regex.IsMatch(cbo_danhmuc.Text, @"^[a-zA-Z]") == false)
+            //{
 
-            if (cbo_nsx.Text.Length <= 3)
-            {
-                MessageBox.Show("Tên Nhà Sản Xuất phải trên 3 ký tự", "ERR");
-                return false;
-            }
+            //    MessageBox.Show("Tên danh mục không được chứa số", "ERR");
+            //    return false;
+            //}
+            //nhà sản xuất
+         
             if (Regex.IsMatch(cbo_nsx.Text, @"^[a-zA-Z]") == false)
             {
 
@@ -323,11 +319,7 @@ namespace _3_PL.View
                 return false;
             }
             //chất liệu
-            if (cbo_tencl.Text.Length <= 3)
-            {
-                MessageBox.Show("Tên Chất Liệu phải trên 3 ký tự", "ERR");
-                return false;
-            }
+           
             if (Regex.IsMatch(cbo_tencl.Text, @"^[a-zA-Z]") == false)
             {
 
@@ -335,11 +327,7 @@ namespace _3_PL.View
                 return false;
             }
             //loai giay
-            if (cbo_loaigiay.Text.Length <= 3)
-            {
-                MessageBox.Show("Tên loại giày phải trên 3 ký tự", "ERR");
-                return false;
-            }
+       
             if (Regex.IsMatch(cbo_loaigiay.Text, @"^[a-zA-Z]") == false)
             {
 
@@ -354,11 +342,7 @@ namespace _3_PL.View
                 return false;
             }
             //quốc gia
-            if (cbo_tenquocgia.Text.Length <= 3)
-            {
-                MessageBox.Show("Tên Quốc Gia phải trên 3 ký tự", "ERR");
-                return false;
-            }
+
             if (Regex.IsMatch(cbo_tenquocgia.Text, @"^[a-zA-Z]") == false)
             {
 
@@ -367,6 +351,8 @@ namespace _3_PL.View
             }
             return true;
         }
+
+
 
 
         private void VideoCaptureDevice_NewFrame(object sender, AForge.Video.NewFrameEventArgs eventArgs)
@@ -535,7 +521,12 @@ namespace _3_PL.View
                         MessageBox.Show("Tên Quốc Gia Không Hợp Lệ", "ERR");
                         return;
                     }
-
+                    //Mã
+                    if (_qlhhser.GetsList().Any(p => p.Ma == cbo_mahh.Text))
+                    {
+                        MessageBox.Show("Mã không được trùng", "ERR");
+                        return;
+                    }
 
                     if (check() == false)
                     {
@@ -577,7 +568,7 @@ namespace _3_PL.View
             catch (Exception ex)
             {
 
-                MessageBox.Show(Convert.ToString(ex), "Liên Hệ Với Quân");
+                MessageBox.Show("Size giày không hợp lệ", "Liên Hệ Với Quân");
                 return;
             }
         }
@@ -1212,7 +1203,10 @@ namespace _3_PL.View
 
         private void txt_soluong_TextChanged(object sender, EventArgs e)
         {
-           
+            if (txt_soluong.Text.All(Char.IsDigit) == false)
+            {
+                txt_soluong.Text = txt_soluong.Text.Substring(0, txt_soluong.Text.Length - 1);
+            }
         }
 
         private void cbo_anh_TextChanged(object sender, EventArgs e)
@@ -1222,12 +1216,18 @@ namespace _3_PL.View
 
         private void txt_gianhap_TextChanged(object sender, EventArgs e)
         {
-            
+            if (txt_gianhap.Text.All(Char.IsDigit) == false)
+            {
+                txt_gianhap.Text = txt_gianhap.Text.Substring(0, txt_gianhap.Text.Length - 1);
+            }
         }
 
         private void txt_giaban_TextChanged(object sender, EventArgs e)
         {
-           
+            if (txt_giaban.Text.All(Char.IsDigit) == false)
+            {
+                txt_giaban.Text = txt_giaban.Text.Substring(0, txt_giaban.Text.Length - 1);
+            }
         }
 
         private void cbo_tencl_TextChanged(object sender, EventArgs e)

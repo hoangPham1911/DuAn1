@@ -3,6 +3,7 @@ using _2_BUS.Service;
 using _2_BUS.ViewModels;
 using _3_GUI_PresentaionLayers;
 using AForge.Video.DirectShow;
+using DocumentFormat.OpenXml.Office2010.Drawing;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
@@ -121,12 +122,7 @@ namespace _3_PL.View
                 MessageBox.Show("Tên hàng hóa không được bỏ trống", "Thông báo");
                 return false;
             }
-            if (Regex.IsMatch(cbo_tenhh.Text, @"^[a-zA-Z0-9 ]*$") == false)
-            {
-
-                MessageBox.Show("Tên hàng hóa không được chứa ký tự đặc biệt", "ERR");
-                return false;
-            }
+            
             if (string.IsNullOrEmpty(cbo_tencl.Text))
             {
                 MessageBox.Show("Tên chất liệu không được bỏ trống", "Thông báo");
@@ -212,11 +208,7 @@ namespace _3_PL.View
 
 
             //macl
-            if (cbo_tencl.Text.Length <= 3)
-            {
-                MessageBox.Show("Tên chất liệu phải trên 3 ký tự", "ERR");
-                return false;
-            }
+           
             if (Regex.IsMatch(cbo_mahh.Text, @"[0-9]+") == false)
             {
 
@@ -231,12 +223,7 @@ namespace _3_PL.View
                 MessageBox.Show("Tên hàng hóa phải trên 3 ký tự", "ERR");
                 return false;
             }
-            if (Regex.IsMatch(cbo_tenhh.Text, @"^[a-zA-Z]") == false)
-            {
-
-                MessageBox.Show("Tên hàng hóa không được chứa số", "ERR");
-                return false;
-            }
+          
 
 
             if (Regex.IsMatch(txt_soluong.Text, @"^\d+$") == false)
@@ -283,11 +270,7 @@ namespace _3_PL.View
                 return false;
             }
             //chất liệu
-            if (cbo_tencl.Text.Length <= 3)
-            {
-                MessageBox.Show("Tên Chất Liệu phải trên 3 ký tự", "ERR");
-                return false;
-            }
+           
             if (Regex.IsMatch(cbo_tencl.Text, @"^[a-zA-Z]") == false)
             {
 
@@ -314,11 +297,7 @@ namespace _3_PL.View
                 return false;
             }
             //quốc gia
-            if (cbo_tenquocgia.Text.Length <= 3)
-            {
-                MessageBox.Show("Tên Quốc Gia phải trên 3 ký tự", "ERR");
-                return false;
-            }
+            
             if (Regex.IsMatch(cbo_tenquocgia.Text, @"^[a-zA-Z]") == false)
             {
 
@@ -487,7 +466,12 @@ namespace _3_PL.View
                         MessageBox.Show("Tên Quốc Gia Không Hợp Lệ", "ERR");
                         return;
                     }
-
+                    //Mã
+                    if (_qlhhser.GetsList().Any(p => p.Ma == cbo_mahh.Text))
+                    {
+                        MessageBox.Show("Mã không được trùng", "ERR");
+                        return;
+                    }
 
                     if (check() == false)
                     {
@@ -529,7 +513,7 @@ namespace _3_PL.View
             catch (Exception ex)
             {
 
-                MessageBox.Show(Convert.ToString(ex), "Liên Hệ Với Quân");
+                MessageBox.Show("Size giày không hợp lệ", "Liên Hệ Với Quân");
                 return;
             }
         }
@@ -809,6 +793,30 @@ namespace _3_PL.View
                 MessageBox.Show(Convert.ToString(ex), "Liên Hệ Với Quân");
                 return;
 
+            }
+        }
+
+        private void txt_soluong_TextChanged(object sender, EventArgs e)
+        {
+            if (txt_soluong.Text.All(Char.IsDigit) == false)
+            {
+                txt_soluong.Text = txt_soluong.Text.Substring(0, txt_soluong.Text.Length - 1);
+            }
+        }
+
+        private void txt_gianhap_TextChanged(object sender, EventArgs e)
+        {
+            if (txt_gianhap.Text.All(Char.IsDigit) == false)
+            {
+                txt_gianhap.Text = txt_gianhap.Text.Substring(0, txt_gianhap.Text.Length - 1);
+            }
+        }
+
+        private void txt_giaban_TextChanged(object sender, EventArgs e)
+        {
+            if (txt_giaban.Text.All(Char.IsDigit) == false)
+            {
+                txt_giaban.Text = txt_giaban.Text.Substring(0, txt_giaban.Text.Length - 1);
             }
         }
     }
