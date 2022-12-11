@@ -33,6 +33,7 @@ namespace _2_BUS.Service
             QuyDoiDiem quyDoiDiem = new QuyDoiDiem();
             quyDoiDiem.TyLeQuyDoi = vi.TyLeQuyDoi;
             quyDoiDiem.TrangThai = vi.TrangThai;
+            quyDoiDiem.TongDiem = vi.Tong;
             quyDoiDiem.Ten = vi.Ten;
             if (_BangQuyDoiDiem.add(quyDoiDiem)) return true;
             return false;
@@ -64,6 +65,7 @@ namespace _2_BUS.Service
                         Id = a.Id,
                         TyLeQuyDoi = a.TyLeQuyDoi,
                         Ten = a.Ten,
+                        Tong = a.TongDiem,
                         TrangThai = a.TrangThai,
                     }).ToList();
         }
@@ -77,6 +79,7 @@ namespace _2_BUS.Service
                         Id = a.Id,
                         TyLeQuyDoi = a.TyLeQuyDoi,
                         Ten = a.Ten,
+                        Tong = a.TongDiem,
                         TrangThai = a.TrangThai,
                     }).ToList();
         }
@@ -92,6 +95,7 @@ namespace _2_BUS.Service
             quyDoiDiem.TyLeQuyDoi = vi.TyLeQuyDoi;
             quyDoiDiem.TrangThai = vi.TrangThai;
             quyDoiDiem.Ten = vi.Ten;
+            quyDoiDiem.TongDiem = vi.Tong;
             if (_BangQuyDoiDiem.update(quyDoiDiem)) return true;
             return false;
         }

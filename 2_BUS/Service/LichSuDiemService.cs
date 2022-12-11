@@ -40,7 +40,7 @@ namespace _2_BUS.Service
         {
             return (from a in _IlichSuDiem.getAll() 
                     join b in _iviDiemService.GetViDiem() on a.IdViDiem equals b.Id
-                    join c in _ikhachHang.GetAllDiemKhachHang() on b.IdKhachHang equals c.Idkh
+                    join c in _ikhachHang.GetAllKhachHangDB() on b.IdKhachHang equals c.Idkh
                     select new LichSuDiemViewModels
             {
                 IdHoaDon = a.IdHoaDon,
@@ -52,7 +52,9 @@ namespace _2_BUS.Service
                 NgaySuDung = a.NgaySuDung,
                 SoDiemTieuDung = a.SoDiemTieuDung,
                 SoDiemCong = a.SoDiemCong,
-                TrangThai = a.TrangThai
+                TrangThai = a.TrangThai,
+                TongDiem = b.TongDiem
+
             }).ToList();
         }
 

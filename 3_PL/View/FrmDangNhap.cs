@@ -66,10 +66,8 @@ namespace _3_PL.View
                 }
                 if (user != null)
                 {
-                    if (giaoCaServices.GetAll().FirstOrDefault(p => p.Id == _IdStaff) == null)
+                    if (giaoCaServices.GetAll().FirstOrDefault(p => p.IdNvNhanCaTiep == _IdStaff) == null)
                     {
-                        if (giaoCaServices.GetAll().Count() == 0)
-                        {
                             GiaoCaViewModels giaoCa = new GiaoCaViewModels();
                             giaoCa.IdNvNhanCaTiep = _IdStaff;
                             giaoCa.IdNvTrongCa = _IdStaff;
@@ -79,9 +77,8 @@ namespace _3_PL.View
                             giaoCa.Ma = (giaoCaServices.GetAll().Count() + 1).ToString();
                             MessageBox.Show(giaoCaServices.Them(giaoCa).ToString());
 
-                        }
                     }
-                    else
+                    else if(giaoCaServices.GetAll().FirstOrDefault(p => p.IdNvNhanCaTiep == _IdStaff) == null)
                     {
                         GiaoCaViewModels giaoCaa = giaoCaServices.GetAll().FirstOrDefault(p => p.Id == _IdStaff);
                         giaoCaa.IdNvNhanCaTiep = _IdStaff;
@@ -89,7 +86,7 @@ namespace _3_PL.View
                         giaoCaa.ThoiGianNhanCa = DateTime.Now;
                         giaoCaa.ThoiGianGiaoCa = DateTime.Now;
                         giaoCaa.TrangThai = 1;
-                       MessageBox.Show(giaoCaServices.Sua(giaoCaa).ToString());
+                        giaoCaServices.Sua(giaoCaa);
 
                     }
 

@@ -27,7 +27,7 @@ namespace _1_DAL.Models
         [StringLength(30)]
         public string TenChuongTrinh { get; set; }
         public int TrangThai { get; set; }
-
+        public decimal? DieuKienGiamGia { get; set; }
         public decimal? SoTienGiamGia { get; set; }
         public DateTime NgayBatDau { get; set; }
         public DateTime NgayKetThuc { get; set; }

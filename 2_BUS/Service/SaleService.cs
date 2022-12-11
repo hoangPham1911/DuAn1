@@ -28,6 +28,7 @@ namespace _2_BUS.Service
             addSale.NgayKetThuc = sale.NgayKetThuc;
             addSale.SoTienGiamGia = sale.SoTienGiamGia;
             addSale.TrangThai = sale.TrangThai;
+            addSale.DieuKienGiamGia = sale.DKGiamGia;
             if (_SaleRepository.add(addSale))
                 return true;
             return false;
@@ -44,7 +45,8 @@ namespace _2_BUS.Service
                         NgayBatDau = a.NgayBatDau,
                         NgayKetThuc = a.NgayKetThuc,
                         SoTienGiamGia = (decimal)a.SoTienGiamGia,
-                        TrangThai = a.TrangThai
+                        TrangThai = a.TrangThai,
+                        DKGiamGia = a.DieuKienGiamGia
                     }).ToList();
         }
 
@@ -74,6 +76,7 @@ namespace _2_BUS.Service
             addSale.NgayKetThuc = sale.NgayKetThuc;
             addSale.SoTienGiamGia = sale.SoTienGiamGia;
             addSale.TrangThai = sale.TrangThai;
+            addSale.DieuKienGiamGia = sale.DKGiamGia;
             if (_SaleRepository.update(addSale))
                 return true;
             return false;

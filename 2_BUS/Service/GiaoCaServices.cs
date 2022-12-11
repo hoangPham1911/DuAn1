@@ -102,7 +102,33 @@ namespace _2_BUS.Service
             var relut = _giaoCaRepository.Them(GiaoCaModel);
             return relut;
         }
-
+        public Guid GetId(GiaoCaViewModels giaoCa)
+        {
+            var GiaoCaModel = new GiaoCa
+            {
+                Id = new Guid(),
+                Ma = giaoCa.Ma,
+                ThoiGianNhanCa = giaoCa.ThoiGianNhanCa,
+                ThoiGianGiaoCa = giaoCa.ThoiGianGiaoCa,
+                IdNvNhanCaTiep = giaoCa.IdNvNhanCaTiep,
+                IdNvTrongCa = giaoCa.IdNvTrongCa,
+                TienBanDau = giaoCa.TienBanDau,
+                TongTienTrongCa = giaoCa.TongTienTrongCa,
+                TongTienMat = giaoCa.TongTienMat,
+                TongTienKhac = giaoCa.TongTienKhac,
+                TienPhatSinh = giaoCa.TienPhatSinh,
+                GhiChuPhatSinh = giaoCa.GhiChuPhatSinh,
+                TongTienCaTruoc = giaoCa.TongTienCaTruoc,
+                Time = giaoCa.Time,
+                TongTienMatRut = giaoCa.TongTienMatRut,
+                TrangThai = giaoCa.TrangThai,
+            };
+            if (_giaoCaRepository.Them(GiaoCaModel))
+            {
+                return GiaoCaModel.Id;
+            }
+            else return Guid.Empty;
+        }
         public List<GiaoCaViewModels> TimKiem(string Ma)
         {
             var lstGiaoCaModel = _giaoCaRepository.TimKiem(Ma);

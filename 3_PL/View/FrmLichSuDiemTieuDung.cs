@@ -43,7 +43,7 @@ namespace _3_PL.View
             dgridLichSu.Rows.Clear();
             foreach (var item in _lichSuDiemService.GetLichSuDiem())
             {
-                dgridLichSu.Rows.Add(item.IdHoaDon, item.IdLichSuDiem, item.IdViDiem, item.IdKhachHang, item.MaKH, item.NgaySuDung, item.SoDiemTieuDung, item.SoDiemCong, (item.SoDiemCong - item.SoDiemTieuDung), item.TrangThai == 1 ? "Còn Hàng" : "Hết Hàng");
+                dgridLichSu.Rows.Add(item.IdHoaDon, item.IdLichSuDiem, item.IdViDiem, item.IdKhachHang, item.MaKH,item.TenKH, item.NgaySuDung, item.SoDiemTieuDung, item.SoDiemCong, item.TongDiem, item.TrangThai == 1 ? "Còn Hàng" : "Hết Hàng");
             }
         }
         private void dgridLichSu_CellContentClick(object sender, DataGridViewCellEventArgs e)

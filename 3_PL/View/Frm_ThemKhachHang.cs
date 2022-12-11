@@ -27,6 +27,14 @@ namespace _3_PL.View
             bangQuyDoiDiemServices = new BangQuyDoiDiemServices();
             viDiemService = new ViDiemService();
             InitializeComponent();
+            load();
+        }
+        private void load()
+        {
+            foreach (var item in bangQuyDoiDiemServices.Get())
+            {
+                comboBox1.Items.Add(item.Ten);
+            }
         }
         private Guid ViDiem()
         {
@@ -34,7 +42,7 @@ namespace _3_PL.View
             vi.TrangThai = 1;
             vi.TongDiem = 0;
             if (bangQuyDoiDiemServices.Get().FirstOrDefault(p => p.Ten.Contains(1.ToString())) !=null)
-            vi.IdQuyDoiDiem = bangQuyDoiDiemServices.GetDiemQuyDoi().FirstOrDefault(p => p.Ten.Contains(1.ToString())).Id;
+            vi.IdQuyDoiDiem = bangQuyDoiDiemServices.GetDiemQuyDoi().FirstOrDefault(p => p.Ten.Contains(comboBox1.Text.ToString())).Id;
        //     MessageBox.Show(vi.IdQuyDoiDiem.ToString());
             return viDiemService.getId(vi);
         }

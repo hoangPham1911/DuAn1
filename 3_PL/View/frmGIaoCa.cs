@@ -35,7 +35,8 @@ namespace _3_PL.View
         private NhanVienViewModels _nhanVienNhanCa;
         private ACTION_CLICK _actionClick = ACTION_CLICK.NONE;
         private static string caption = "Thông báo";
-
+        private static Guid _IdGiaoCa;
+        private decimal _TienCaTruoc;
         public frmGIaoCa()
         {
             InitializeComponent();
@@ -50,10 +51,10 @@ namespace _3_PL.View
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            _actionClick = ACTION_CLICK.ADD;
-            clearForm();
+            _actionClick = ACTION_CLICK.UPDATE;
             enableControl(true);
             visibleControl(true);
+            clearForm();
 
         }
 
@@ -86,24 +87,25 @@ namespace _3_PL.View
             var mess = string.Empty;
             var result = true;
             var resultConfirm = DialogResult.No;
-            if (_actionClick == ACTION_CLICK.ADD)
+            if (_actionClick == ACTION_CLICK.UPDATE)
             {
-                mess = $"Bạn có chắc chắn muốn giao ca không ?";
+                mess = $"Bạn có chắc chắn muốn Luu không ?";
                 resultConfirm = MessageBox.Show(mess, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (resultConfirm == DialogResult.Yes)
                 {
-                    result = _iGiaoCaService.Them(_itemSelected);
+                    result = _iGiaoCaService.Sua(_itemSelected);
                     if (result)
                     {
-                        FrmDangNhap frmDangNhap = new FrmDangNhap();
-                        frmDangNhap.ShowDialog();
-                        this.Close();
-                        FormMain a = new FormMain();
-                        a.Close();
+                        mess = $"Luu thành công !!!";
+                        MessageBox.Show(mess, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        mess = $"Luu không thành công !!!";
+                        MessageBox.Show(mess, caption, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
             }
-
             if (result)
             {
                 enableControl(false);
@@ -111,7 +113,6 @@ namespace _3_PL.View
                 _actionClick = ACTION_CLICK.NONE;
                 reloadData();
             }
-
 
         }
 

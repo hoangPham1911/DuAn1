@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using _1_DAL.Context;
 
@@ -11,9 +12,10 @@ using _1_DAL.Context;
 namespace _1_DAL.Migrations
 {
     [DbContext(typeof(ManagerContext))]
-    partial class ManagerContextModelSnapshot : ModelSnapshot
+    [Migration("20221210180229_cart_v14")]
+    partial class cart_v14
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -755,9 +757,6 @@ namespace _1_DAL.Migrations
 
                     b.Property<string>("Ten")
                         .HasColumnType("nvarchar(450)");
-
-                    b.Property<int?>("TongDiem")
-                        .HasColumnType("int");
 
                     b.Property<string>("TrangThai")
                         .HasColumnType("nvarchar(max)");

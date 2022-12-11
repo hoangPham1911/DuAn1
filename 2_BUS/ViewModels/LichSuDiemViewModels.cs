@@ -12,6 +12,7 @@ namespace _2_BUS.ViewModels
         public DateTime? NgaySuDung { get; set; }
         public int? SoDiemTieuDung { get; set; }
         public int? SoDiemCong { get; set; }
+        public int? TongDiem { get; set; }
 
         public string? TenKH { get; set; }
         public string? MaKH { get; set; }

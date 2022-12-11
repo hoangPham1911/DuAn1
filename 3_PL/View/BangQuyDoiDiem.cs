@@ -1,4 +1,5 @@
-﻿using _2_BUS.IService;
+﻿using _1_DAL.Repositores;
+using _2_BUS.IService;
 using _2_BUS.IServices;
 using _2_BUS.Service;
 using _2_BUS.Services;
@@ -24,58 +25,41 @@ namespace _3_PL.View
             _QuyDoiDiemService = new BangQuyDoiDiemServices();
             load();
             Ba.Checked = true;
+           
         }
         public void load()
         {
-            //textBox2.Text = _QuyDoiDiemService.GetDiemQuyDoi().FirstOrDefault(p => p.Ten.Contains(1.ToString())).TyLeQuyDoi.ToString();
+            dgv_diem.AllowUserToAddRows = false;
+            dgv_diem.Rows.Clear();
+            dgv_diem.ColumnCount = 5;
+            dgv_diem.Columns[0].Name = "ID";
+            dgv_diem.Columns[0].Visible = false;
+            dgv_diem.Columns[1].Name = "Tên";
+            dgv_diem.Columns[2].Name = "Tỷ Lệ Quy Đổi";
+            dgv_diem.Columns[3].Name = "Trạng Thái";
+            dgv_diem.Columns[4].Name = "Điểm";
+
+            foreach (var item in _QuyDoiDiemService.Get())
+            {
+                dgv_diem.Rows.Add(item.Id, item.Ten,item.TyLeQuyDoi,item.TrangThai,item.Tong);
+            }
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            if(textBox2.Text == "")
+            BangQuyDoiDiemViewModels bangQuyDoi = new BangQuyDoiDiemViewModels();
+            bangQuyDoi.TyLeQuyDoi =decimal.Parse(textBox2.Text);
+            bangQuyDoi.Ten = textBox1.Text;
+            bangQuyDoi.Tong = int.Parse(textBox3.Text);
+            if (Ba.Checked) bangQuyDoi.TrangThai = "Áp Dụng";
+            else bangQuyDoi.TrangThai = "Không Áp Dụng";
+            if (_QuyDoiDiemService.add(bangQuyDoi))
             {
-                MessageBox.Show("Bạn Chưa Nhập Số Tiền Quy Đổi");
-            }
-            else
+                MessageBox.Show("Quy Doi Thanh Cong");
+            }else
             {
-                if (_QuyDoiDiemService.GetDiemQuyDoi().Count() != 0)
-                {
-                    BangQuyDoiDiemViewModels bangQuyDoi1 = new BangQuyDoiDiemViewModels();
-                    bangQuyDoi1.TyLeQuyDoi = decimal.Parse(textBox2.Text);
-                    if (Ba.Checked)
-                    {
-                        bangQuyDoi1.TrangThai = "Áp Dụng";
-                    }
-                    else
-                    {
-                        bangQuyDoi1.TrangThai = "Không Áp Dụng";
-                    }
-                    bangQuyDoi1.Ten = 1.ToString();
-                    bangQuyDoi1.Id = _QuyDoiDiemService.GetDiemQuyDoi().FirstOrDefault(p => p.Ten == 1.ToString()).Id;
-                    if (_QuyDoiDiemService.update(bangQuyDoi1))
-                    {
-                        MessageBox.Show("Cap Nhat quy doi thanh cong");
-                    }
-                }
-                else
-                {
-                    BangQuyDoiDiemViewModels bangQuyDoi = new BangQuyDoiDiemViewModels();
-                    bangQuyDoi.TyLeQuyDoi = decimal.Parse(textBox2.Text);
-                    bangQuyDoi.Ten = 1.ToString();
-                    if (radioButton2.Checked)
-                    {
-                        bangQuyDoi.TrangThai = "Áp Dụng";
-                    }
-                    else
-                    {
-                        bangQuyDoi.TrangThai = "Không Áp Dụng";
-                    }
-                    if (_QuyDoiDiemService.add(bangQuyDoi))
-                    {
-                        MessageBox.Show("quy doi thanh cong");
-                    }   
-                }
-                  
+                MessageBox.Show("Lỗi");
             }
+            load();
           
         }
         private void checkNumber(object sender, KeyPressEventArgs e)
@@ -96,6 +80,47 @@ namespace _3_PL.View
         {
             checkNumber(sender, e);
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            BangQuyDoiDiemViewModels bangQuyDoi = new BangQuyDoiDiemViewModels();
+            bangQuyDoi.TyLeQuyDoi = decimal.Parse(textBox2.Text);
+            bangQuyDoi.Id = Id;
+            bangQuyDoi.Tong = int.Parse(textBox3.Text);
+            bangQuyDoi.Ten = textBox1.Text;
+            if (Ba.Checked) bangQuyDoi.TrangThai = "Áp Dụng";
+            else bangQuyDoi.TrangThai = "Không Áp Dụng";
+            if (_QuyDoiDiemService.update(bangQuyDoi))
+            {
+                MessageBox.Show("Quy Doi Thanh Cong");
+            }
+            else
+            {
+                MessageBox.Show("Lỗi");
+            }
+            load();
+        }
+        Guid Id;
+        private void dgv_diem_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                Id = Guid.Parse(dgv_diem.CurrentRow.Cells[0].Value.ToString());
+                textBox1.Text = dgv_diem.CurrentRow.Cells[1].Value.ToString();
+                textBox2.Text = dgv_diem.CurrentRow.Cells[2].Value.ToString();
+                if (dgv_diem.CurrentRow.Cells[3].Value.ToString() == "Áp Dụng")
+                {
+                    Ba.Checked = true;
+                }
+                else radioButton2.Checked = true;
+                textBox3.Text = dgv_diem.CurrentRow.Cells[4].Value.ToString();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Bạn Chưa Ấn Chọn");
+                throw;
+            }
         }
     }
 }

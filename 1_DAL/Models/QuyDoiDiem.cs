@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DocumentFormat.OpenXml.Drawing.Diagrams;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -23,7 +24,7 @@ namespace _1_DAL.Models
         public string? Ten { get; set; }
         public decimal? TyLeQuyDoi { get; set; }
         public string? TrangThai { get; set; }
-
+        public int? TongDiem { get; set; }
    
         public virtual ICollection<ViDiem> ViDiems { get; set; }
 

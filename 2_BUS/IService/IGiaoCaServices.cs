@@ -13,7 +13,7 @@ namespace _2_BUS.IService
         bool Them(GiaoCaViewModels giaoCa);
         bool Sua(GiaoCaViewModels giaoCa);
         bool Xoa(Guid Id);
-
+        Guid GetId(GiaoCaViewModels Gc);
         List<GiaoCaViewModels> TimKiem(string Ma);
     }
 }

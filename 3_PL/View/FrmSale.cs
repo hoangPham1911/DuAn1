@@ -108,7 +108,8 @@ namespace _3_PL.View
                         NgayBatDau = dt_ngaybatdau.Value,
                         NgayKetThuc = dt_ngayketthuc.Value,
                         SoTienGiamGia = Convert.ToInt32(tb_sotiengiamgia.Text),
-                        TrangThai = rdb_con.Checked ? 1 : 0
+                        TrangThai = rdb_con.Checked ? 1 : 0,
+                        DKGiamGia = decimal.Parse(textBox1.Text)
                     };
                     if (isale.add(x))
                     {
@@ -126,11 +127,6 @@ namespace _3_PL.View
 
         }
 
-        private void btn_sua_Click(object sender, EventArgs e)
-        {
-            
-
-        }
         private void btn_xoa_Click_1(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Bạn Có Muốn Xóa mã giảm giá này Không?", "Thông Báo", MessageBoxButtons.YesNo);
@@ -160,6 +156,7 @@ namespace _3_PL.View
                 viewsale.NgayKetThuc = dt_ngayketthuc.Value;
                 viewsale.SoTienGiamGia = Convert.ToDecimal(tb_sotiengiamgia.Text);
                 viewsale.TrangThai = rdb_con.Checked ? 1 : 0;
+                viewsale.DKGiamGia = decimal.Parse(textBox1.Text);
                 if (isale.update(viewsale))
                 {
                     MessageBox.Show("Sửa thành công");
