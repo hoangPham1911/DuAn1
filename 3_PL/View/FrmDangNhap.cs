@@ -66,12 +66,10 @@ namespace _3_PL.View
                     }
                     if (user != null)
                     {
-                        //   this.Hide();
                         Helpers.AccoutHelper.Instance.SetUserLogin(user);
                         var frmMain = new FormMain();
                         frmMain.Show();
                         this.Visible = false;
-                        //this.Close();
 
                     }
 
