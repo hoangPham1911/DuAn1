@@ -1574,7 +1574,7 @@ namespace _3_PL.View
                 CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
 
                 tb_TienKhachCanTra.Text = Convert.ToInt32(fncoc).ToString("#,###", cul.NumberFormat);
-
+               
             }
             catch (Exception ex)
             {
@@ -1855,17 +1855,10 @@ namespace _3_PL.View
                 textBox11.Enabled = false;
 
             }
-            else if(int.Parse(textBox5.Text) >= _QuyDoiDiemService.Get().FirstOrDefault(p=>p.Tong <= int.Parse(textBox5.Text)).Tong)
+            else if (int.Parse(textBox5.Text) >= _QuyDoiDiemService.Get().FirstOrDefault(p => p.Tong <= int.Parse(textBox5.Text)).Tong)
             {
                 comboBox2.Text = _QuyDoiDiemService.Get().FirstOrDefault(p => p.Tong <= int.Parse(textBox5.Text)).Ten;
-                if (_QuyDoiDiemService.Get().FirstOrDefault(p => p.Ten == comboBox2.Text) != null)
-                {
 
-                    textBox7.Text = _QuyDoiDiemService.Get().FirstOrDefault(p => p.Ten == comboBox2.Text).TyLeQuyDoi.ToString();
-                    textBox13.Text = _QuyDoiDiemService.Get().FirstOrDefault(p => p.Ten == comboBox2.Text).TyLeQuyDoi.ToString();
-                }
-                textBox7.Enabled = true;
-                textBox11.Enabled = true;
             }
         }
 
@@ -1957,7 +1950,7 @@ namespace _3_PL.View
                     if (double.Parse(txt_tongTienHoaDon.Text) >= Convert.ToDouble(_SaleService.GetDanhMuc().FirstOrDefault(p => p.MaGiamGia == (textBox14.Text)).DKGiamGia))
                     {
                         string tiemGiamGia = (_SaleService.GetDanhMuc().FirstOrDefault(p => p.MaGiamGia == (textBox14.Text)).SoTienGiamGia).ToString();
-                      
+
                         string GiamTien = tiemGiamGia.Replace(".00", "");
 
                         string tongTien = txt_tongTienHoaDon.Text;
@@ -1967,10 +1960,10 @@ namespace _3_PL.View
                         decimal tienDaGiam = decimal.Parse(TongTien2) - decimal.Parse(GiamTien);
 
                         tb_TienKhachCanTra.Text = Convert.ToInt32(tienDaGiam).ToString("#,###", cul.NumberFormat);
-                   }
-                
+                    }
+
                 }
-                 
+
                 else
                 {
                     MessageBox.Show("Ma Nay Da Het Han");
@@ -1985,6 +1978,47 @@ namespace _3_PL.View
         private void textBox13_TextChanged(object sender, EventArgs e)
         {
             if (textBox13.Text == "") textBox13.Text = 0.ToString();
+        }
+
+        private void comboBox2_TextChanged_1(object sender, EventArgs e)
+        {
+            textBox7.Text = _QuyDoiDiemService.Get().FirstOrDefault(p => p.Ten.Contains(comboBox2.Text)).TyLeQuyDoi.ToString();
+            textBox13.Text = _QuyDoiDiemService.Get().FirstOrDefault(p => p.Ten.Contains(comboBox2.Text)).TyLeQuyDoi.ToString();
+            if (_QuyDoiDiemService.Get().FirstOrDefault(p => p.Ten.Contains(comboBox2.Text)) != null)
+            {
+                if (_QuyDoiDiemService.Get().FirstOrDefault(p => p.Ten == comboBox2.Text) != null)
+                {
+
+                    MessageBox.Show(_QuyDoiDiemService.Get().FirstOrDefault(p => p.Ten == comboBox2.Text).DKApDiem.ToString());
+                    MessageBox.Show((double.Parse(txt_tongTienHoaDon.Text) <= _QuyDoiDiemService.Get().FirstOrDefault(p => p.Ten == comboBox2.Text).DKApDiem).ToString());
+                    if (double.Parse(txt_tongTienHoaDon.Text) <= _QuyDoiDiemService.Get().FirstOrDefault(p => p.Ten == comboBox2.Text).DKApDiem)
+                    {
+                        textBox11.Enabled = false;
+                        textBox7.Enabled = false;
+                        textBox12.Enabled = false;
+                        textBox13.Enabled = false;
+                        MessageBox.Show("dssdss");
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("dssdss");
+                        textBox11.Enabled = true;
+                        textBox7.Enabled = true;
+                        textBox12.Enabled = true;
+                        textBox13.Enabled = true;
+                    }
+
+                }
+                
+
+            }
+            else
+            {
+                textBox7.Text = 0.ToString();
+                textBox13.Text = 0.ToString();
+
+            }
         }
     }
 }

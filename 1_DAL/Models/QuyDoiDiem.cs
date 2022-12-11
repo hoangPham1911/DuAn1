@@ -25,7 +25,7 @@ namespace _1_DAL.Models
         public decimal? TyLeQuyDoi { get; set; }
         public string? TrangThai { get; set; }
         public int? TongDiem { get; set; }
-   
+        public double? DieuKienApDiem { get; set; }
         public virtual ICollection<ViDiem> ViDiems { get; set; }
 
     }

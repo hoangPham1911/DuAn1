@@ -172,26 +172,26 @@ namespace _3_PL.View
                 
         }
 
-        private void btn_xoa_Click(object sender, EventArgs e)
-        {
-            DialogResult dialogResult = MessageBox.Show("Bạn có muốn sửa khách hàng không?", "Thông Báo", MessageBoxButtons.YesNo);
+        //private void btn_xoa_Click(object sender, EventArgs e)
+        //{
+        //    DialogResult dialogResult = MessageBox.Show("Bạn có muốn sửa khách hàng không?", "Thông Báo", MessageBoxButtons.YesNo);
 
-            if (dialogResult == DialogResult.Yes)
-            {
-                if (idKH == Guid.Empty)
-                {
-                    MessageBox.Show("Vui lòng chọn khách hàng");
-                }
-                else
-                {
+        //    if (dialogResult == DialogResult.Yes)
+        //    {
+        //        if (idKH == Guid.Empty)
+        //        {
+        //            MessageBox.Show("Vui lòng chọn khách hàng");
+        //        }
+        //        else
+        //        {
 
-                    MessageBox.Show(khachHangServices.XoaKhachHang(idKH));
-                    loadDTG();
-                }
-            }
-                //
+        //            MessageBox.Show(khachHangServices.XoaKhachHang(idKH));
+        //            loadDTG();
+        //        }
+        //    }
+        //        //
                 
-        }
+        //}
 
         private void btn_them_Click(object sender, EventArgs e)
         {

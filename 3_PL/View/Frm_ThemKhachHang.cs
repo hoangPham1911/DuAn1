@@ -20,7 +20,7 @@ namespace _3_PL.View
         public IKhachHangServices khachHangServices;
         public IBangQuyDoiDiemServices bangQuyDoiDiemServices;
         public IViDiemService viDiemService;
-        
+
         public Frm_ThemKhachHang()
         {
             khachHangServices = new KhachHangServices();
@@ -28,6 +28,7 @@ namespace _3_PL.View
             viDiemService = new ViDiemService();
             InitializeComponent();
             load();
+            comboBox1.Enabled = false;
         }
         private void load()
         {
@@ -41,9 +42,9 @@ namespace _3_PL.View
             ViDiemViewModel vi = new ViDiemViewModel();
             vi.TrangThai = 1;
             vi.TongDiem = 0;
-            if (bangQuyDoiDiemServices.Get().FirstOrDefault(p => p.Ten.Contains(1.ToString())) !=null)
-            vi.IdQuyDoiDiem = bangQuyDoiDiemServices.GetDiemQuyDoi().FirstOrDefault(p => p.Ten.Contains(comboBox1.Text.ToString())).Id;
-       //     MessageBox.Show(vi.IdQuyDoiDiem.ToString());
+            if (bangQuyDoiDiemServices.Get().FirstOrDefault(p => p.Ten.Contains(1.ToString())) != null)
+                vi.IdQuyDoiDiem = bangQuyDoiDiemServices.GetDiemQuyDoi().FirstOrDefault(p => p.Ten.Contains(comboBox1.Text.ToString())).Id;
+            //     MessageBox.Show(vi.IdQuyDoiDiem.ToString());
             return viDiemService.getId(vi);
         }
         private void btnSave_Click(object sender, EventArgs e)
@@ -90,15 +91,15 @@ namespace _3_PL.View
 
             }
 
-                //
+            //
 
-               
+
 
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            
+
             this.Close();
         }
 
@@ -126,9 +127,9 @@ namespace _3_PL.View
         {
             if (tb_SoCCCD.Text.All(Char.IsDigit) == false)
             {
-                tb_SoCCCD.Text = tb_SoCCCD.Text.Substring(0,tb_SoCCCD.Text.Length-1);
+                tb_SoCCCD.Text = tb_SoCCCD.Text.Substring(0, tb_SoCCCD.Text.Length - 1);
             }
-            
+
         }
 
         private void txtDT_TextChanged(object sender, EventArgs e)
@@ -146,7 +147,7 @@ namespace _3_PL.View
                 ckb_Nam.Checked = true;
                 ckb_nu.Checked = false;
             }
-           
+
         }
 
         private void ckb_nu_CheckedChanged(object sender, EventArgs e)
@@ -156,6 +157,24 @@ namespace _3_PL.View
                 ckb_Nam.Checked = false;
                 ckb_nu.Checked = true;
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "") textBox1.Text = 0.ToString();
+            else if (bangQuyDoiDiemServices.Get().FirstOrDefault(p => p.Tong <= int.Parse(textBox1.Text)) != null)
+            {
+                if (int.Parse(textBox1.Text) >= bangQuyDoiDiemServices.Get().FirstOrDefault(p => p.Tong <= int.Parse(textBox1.Text)).Tong)
+                {
+                    comboBox1.Text = bangQuyDoiDiemServices.Get().FirstOrDefault(p => p.Tong <= int.Parse(textBox1.Text)).Ten;
+
+                }
+            }
+            else
+            {
+                comboBox1.Text = "";
+            }
+            
         }
     }
 }

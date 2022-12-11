@@ -15,6 +15,7 @@ namespace _2_BUS.ViewModels
         public Guid? IdKH { get; set; }
         public string? STD { get; set; }
         public int? Tong { get; set; }
+        public double? DKApDiem { get; set; }
 
     }
 }

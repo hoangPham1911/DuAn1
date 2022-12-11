@@ -43,12 +43,15 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_diem)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(490, 340);
+            this.button1.Location = new System.Drawing.Point(757, 338);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 24);
             this.button1.TabIndex = 3;
@@ -72,7 +75,7 @@
             this.dgv_diem.Location = new System.Drawing.Point(12, 61);
             this.dgv_diem.Name = "dgv_diem";
             this.dgv_diem.RowTemplate.Height = 25;
-            this.dgv_diem.Size = new System.Drawing.Size(553, 234);
+            this.dgv_diem.Size = new System.Drawing.Size(820, 237);
             this.dgv_diem.TabIndex = 10;
             this.dgv_diem.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_diem_CellClick);
             // 
@@ -141,7 +144,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(490, 392);
+            this.button2.Location = new System.Drawing.Point(757, 383);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 24);
             this.button2.TabIndex = 19;
@@ -164,6 +167,8 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(71, 23);
             this.textBox3.TabIndex = 22;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.textBox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
             // 
             // label6
             // 
@@ -183,11 +188,40 @@
             this.label7.TabIndex = 23;
             this.label7.Text = "--->";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(476, 347);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(30, 15);
+            this.label8.TabIndex = 24;
+            this.label8.Text = "--->";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(512, 318);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(106, 15);
+            this.label9.TabIndex = 26;
+            this.label9.Text = "Điều Kiện Áp Điểm";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(512, 340);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(175, 23);
+            this.textBox4.TabIndex = 25;
+            this.textBox4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox4_KeyPress);
+            // 
             // BangQuyDoiDiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(658, 452);
+            this.ClientSize = new System.Drawing.Size(844, 452);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label6);
@@ -227,5 +261,8 @@
         private TextBox textBox3;
         private Label label6;
         private Label label7;
+        private Label label8;
+        private Label label9;
+        private TextBox textBox4;
     }
 }

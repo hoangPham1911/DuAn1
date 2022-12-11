@@ -35,6 +35,7 @@ namespace _2_BUS.Service
             quyDoiDiem.TrangThai = vi.TrangThai;
             quyDoiDiem.TongDiem = vi.Tong;
             quyDoiDiem.Ten = vi.Ten;
+            quyDoiDiem.DieuKienApDiem = vi.DKApDiem;
             if (_BangQuyDoiDiem.add(quyDoiDiem)) return true;
             return false;
 
@@ -67,6 +68,8 @@ namespace _2_BUS.Service
                         Ten = a.Ten,
                         Tong = a.TongDiem,
                         TrangThai = a.TrangThai,
+                        DKApDiem = a.DieuKienApDiem
+
                     }).ToList();
         }
         public List<BangQuyDoiDiemViewModels> Get()
@@ -81,6 +84,7 @@ namespace _2_BUS.Service
                         Ten = a.Ten,
                         Tong = a.TongDiem,
                         TrangThai = a.TrangThai,
+                        DKApDiem = a.DieuKienApDiem
                     }).ToList();
         }
         public bool remove(Guid vi)
@@ -96,6 +100,7 @@ namespace _2_BUS.Service
             quyDoiDiem.TrangThai = vi.TrangThai;
             quyDoiDiem.Ten = vi.Ten;
             quyDoiDiem.TongDiem = vi.Tong;
+            quyDoiDiem.DieuKienApDiem = vi.DKApDiem;
             if (_BangQuyDoiDiem.update(quyDoiDiem)) return true;
             return false;
         }

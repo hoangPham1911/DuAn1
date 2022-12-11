@@ -31,17 +31,18 @@ namespace _3_PL.View
         {
             dgv_diem.AllowUserToAddRows = false;
             dgv_diem.Rows.Clear();
-            dgv_diem.ColumnCount = 5;
+            dgv_diem.ColumnCount = 6;
             dgv_diem.Columns[0].Name = "ID";
             dgv_diem.Columns[0].Visible = false;
             dgv_diem.Columns[1].Name = "Tên";
             dgv_diem.Columns[2].Name = "Tỷ Lệ Quy Đổi";
             dgv_diem.Columns[3].Name = "Trạng Thái";
             dgv_diem.Columns[4].Name = "Điểm";
+            dgv_diem.Columns[5].Name = "ĐK Áp Điểm";
 
             foreach (var item in _QuyDoiDiemService.Get())
             {
-                dgv_diem.Rows.Add(item.Id, item.Ten,item.TyLeQuyDoi,item.TrangThai,item.Tong);
+                dgv_diem.Rows.Add(item.Id, item.Ten,item.TyLeQuyDoi,item.TrangThai,item.Tong,item.DKApDiem);
             }
         }
         private void button1_Click(object sender, EventArgs e)
@@ -115,12 +116,28 @@ namespace _3_PL.View
                 }
                 else radioButton2.Checked = true;
                 textBox3.Text = dgv_diem.CurrentRow.Cells[4].Value.ToString();
+                textBox4.Text = dgv_diem.CurrentRow.Cells[5].Value.ToString();
             }
             catch (Exception)
             {
                 MessageBox.Show("Bạn Chưa Ấn Chọn");
                 throw;
             }
+        }
+
+        private void textBox4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            checkNumber(sender,e);
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            checkNumber(sender,e);
         }
     }
 }
