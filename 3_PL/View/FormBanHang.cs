@@ -80,6 +80,7 @@ namespace _3_PL.View
             textBox10.Enabled = false;
             textBox11.Enabled = false;
             textBox12.Enabled = false;
+
         }
 
         void LoadCbxRank()
@@ -274,16 +275,10 @@ namespace _3_PL.View
             textBox10.Enabled = true;
             textBox11.Enabled = true;
             button2.Enabled = false;
-            if (_ListReceiptProduct2.Count() != 0)
-            {
-                btn_ThanhToan.Enabled = true;
-                btn_DatHang.Enabled = true;
-            }
-            else
-            {
-                btn_ThanhToan.Enabled = false;
-                btn_DatHang.Enabled = false;
-            }
+
+            //btn_ThanhToan.Enabled = true;
+            //btn_DatHang.Enabled = true;
+
             dataGridView1.Rows.Clear();
             Guid acbc = ((sender as Button).Tag as SuaHoaDonModels).IdHoaDon;
             {
@@ -357,17 +352,8 @@ namespace _3_PL.View
             button2.Enabled = false;
             textBox10.Enabled = true;
             textBox12.Enabled = true;
-            if (_ListReceiptProduct2.Count() != 0)
-            {
-                btn_ThanhToan.Enabled = true;
-                btn_DatHang.Enabled = true;
-
-            }
-            else
-            {
-                btn_ThanhToan.Enabled = false;
-                btn_DatHang.Enabled = false;
-            }
+            //btn_ThanhToan.Enabled = true;
+            //btn_DatHang.Enabled = true;
 
             dataGridView1.Rows.Clear();
             Guid acbc = ((sender as Button).Tag as SuaHoaDonModels).IdHoaDon;
@@ -409,7 +395,15 @@ namespace _3_PL.View
                         txt_dathangtongtien.Text = Convert.ToInt32(tien).ToString("#,###", cul.NumberFormat);
                         status = _HoaDonService.GetAllHoaDonDB().FirstOrDefault(p => p.IdHoaDon == IdHoaDon).TinhTrang;
                     }
+                    if (_HoaDonService.GetAllHoaDonDB().FirstOrDefault(p => p.IdHoaDon == IdHoaDon) != null)
+                    {
+                        if (_KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Idkh == _HoaDonService.GetAllHoaDonDB().FirstOrDefault(p => p.IdHoaDon == IdHoaDon).IdKh) != null)
+                        {
+                            textBox4.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Idkh == _HoaDonService.GetAllHoaDonDB().FirstOrDefault(p => p.IdHoaDon == IdHoaDon).IdKh).Sdt;
+                            textBox3.Text = _KhachHangServices.GetAllKhachHangDB().FirstOrDefault(p => p.Idkh == _HoaDonService.GetAllHoaDonDB().FirstOrDefault(p => p.IdHoaDon == IdHoaDon).IdKh).Sdt;
 
+                        }
+                    }
 
                     if (status == 2)
                     {
@@ -765,6 +759,7 @@ namespace _3_PL.View
                     {
                         suaHoaDonModels.TinhTrang = 1;
                         hoaDonCt.TrangThai = 1;
+                        suaHoaDonModels.NgayThanhToan = DateTime.Now;
 
                     }
                     if (textBox11.Text == "")
@@ -779,7 +774,6 @@ namespace _3_PL.View
 
                         suaHoaDonModels.SoTienQuyDoi = decimal.Parse(textBox7.Text);
                     }
-                    suaHoaDonModels.NgayThanhToan = DateTime.Now;
                     if (_KhachHangServices.GetAllKhachHangDB().SingleOrDefault(p => p.Sdt == textBox10.Text) != null)
                     {
                         suaHoaDonModels.IdKh = _KhachHangServices.GetAllKhachHangDB().SingleOrDefault(p => p.Sdt == textBox10.Text).Idkh;
@@ -1092,8 +1086,6 @@ namespace _3_PL.View
             }
             else
             {
-                decimal khachdua;
-                decimal khachtra;
 
                 CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
                 string fkhachtra = Convert.ToString(tb_TienKhachCanTra.Text);
@@ -1356,11 +1348,6 @@ namespace _3_PL.View
             DialogResult dialogResult = MessageBox.Show("Bạn Muốn Thanh Toán Hóa Đơn?", "Thông Báo", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                if (checkHD != 0)
-                {
-                    MessageBox.Show("Bạn Cần vào bên Hóa Đơn để thực hiện nhé");
-                }
-                else
                 {
                     if (textBox9.Text.Length != 10)
                     {
@@ -1386,13 +1373,19 @@ namespace _3_PL.View
                             suaHoaDonModels.TinhTrang = 3;
                             hdct.TrangThai = 3;
                             flhoadon.Controls.Remove(createButton());
-                            loadhoadonduyet();
+                            //   loadhoadonduyet();
 
                         }
                         else if (rbt_dahuy.Checked)
                         {
                             suaHoaDonModels.TinhTrang = 6;
                             hdct.TrangThai = 6;
+                            if (_HoaDonChiTietService.SuaHoaDonChiTiet(hdct))
+                            {
+                                MessageBox.Show(_HoaDonService.SuaHoaDon(suaHoaDonModels));
+                                //  loadDonDatHang();
+
+                            }
                         }
 
 
@@ -1400,12 +1393,18 @@ namespace _3_PL.View
                         {
                             hdct.TrangThai = 7;
                             suaHoaDonModels.TinhTrang = 7;
+                            if (_HoaDonChiTietService.SuaHoaDonChiTiet(hdct))
+                            {
+                                MessageBox.Show(_HoaDonService.SuaHoaDon(suaHoaDonModels));
+                                //   loadDonDatCoc();
 
+                            }
                         }
                         else if (radioButton3.Checked)
                         {
                             hdct.TrangThai = 1;
                             suaHoaDonModels.TinhTrang = 1;
+
                             LichSuDiemViewModels lichSuDiemViewModels = new LichSuDiemViewModels();
                             if (_KhachHangServices.GetAllKhachHangDB().SingleOrDefault(p => p.Sdt == textBox10.Text) != null)
                             {
@@ -1443,12 +1442,28 @@ namespace _3_PL.View
                                 }
 
 
+
                             }
+                            //else
+                            //{
+
+                            //    ThemKhachHangViewModels kh = new ThemKhachHangViewModels();
+                            //    kh.Sdt = textBox4.Text;
+                            //    kh.DiaChi = textBox1.Text;
+                            //    kh.Ten = textBox3.Text;
+                            //    kh.Ma = (_KhachHangServices.GetAllKhachHangDB().Count() + 1).ToString();
+                            //    kh.TrangThai = 1;
+                            //    kh.GioiTinh = "Nam";
+                            //    kh.IdVi = ViDiem();
+                            //    _KhachHangServices.ThemKhachHang(kh);
+
+                            //}
                             suaHoaDonModels.TenShip = textBox8.Text;
                             suaHoaDonModels.SDTShip = textBox9.Text;
                             suaHoaDonModels.NgayShip = DateTime.Now;
                             suaHoaDonModels.NgayNhan = DateTime.Now;
                             suaHoaDonModels.NgayThanhToan = DateTime.Now;
+
                             if (_HoaDonChiTietService.SuaHoaDonChiTiet(hdct))
                             {
                                 MessageBox.Show(_HoaDonService.SuaHoaDon(suaHoaDonModels));
@@ -1460,11 +1475,7 @@ namespace _3_PL.View
                             _ListReceiptProduct2.RemoveRange(0, _ListReceiptProduct2.Count());
                             _ListReceiptProduct.RemoveRange(0, _ListReceiptProduct.Count());
                             loadReceipt();
-                            if (radioButton3.Checked)
-                            {
-                                //        inHoaDon();
-                            }
-         
+                            inHoaDon();
 
                         }
                     }
@@ -1474,7 +1485,22 @@ namespace _3_PL.View
 
 
         }
+        //private Guid ViDiem()
+        //{
+        //    ViDiemViewModel vi = new ViDiemViewModel();
+        //    vi.TrangThai = 1;
 
+        //    vi.TongDiem = int.Parse(txt_dathangtongtien.Text) / int.Parse(textBox13.Text);
+        //    string bac = "";
+        //    if (vi.TongDiem >= _QuyDoiDiemService.Get().FirstOrDefault(p => p.Tong <= vi.TongDiem).Tong)
+        //    {
+        //        bac = _QuyDoiDiemService.Get().FirstOrDefault(p => p.Tong <= vi.TongDiem).Ten;
+        //    }
+        //    if (_QuyDoiDiemService.Get().FirstOrDefault(p => p.Ten.Contains(bac)) != null)
+        //        vi.IdQuyDoiDiem = _QuyDoiDiemService.Get().FirstOrDefault(p => p.Ten.Contains(bac)).Id;
+        //    //     MessageBox.Show(vi.IdQuyDoiDiem.ToString());
+        //    return _ViDiemService.getId(vi);
+        //   }
         private void textBox7_TextChanged(object sender, EventArgs e)
         {
             if (textBox7.Text == "") textBox7.Text = 0.ToString();
@@ -1512,14 +1538,15 @@ namespace _3_PL.View
                 txt_coc.Text = 0.ToString();
             }
             CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
-            string fkhachtra = txt_coc.Text;
-            string tkhachtra = fkhachtra.Replace(".00", "");
+            string fkhachtra = Convert.ToString(txt_coc.Text);
+            string tkhachtra = fkhachtra.Replace(".", "");
 
-            string fkhachdua = txt_dathangkhachtra.Text;
-            string tkhachdua = fkhachdua.Replace(".00", "");
-            double ftienthua = Convert.ToDouble(Convert.ToDouble(tkhachtra) - Convert.ToDouble(tkhachdua));
+            string fkhachdua = Convert.ToString(txt_dathangkhachtra.Text);
+            string tkhachdua = fkhachdua.Replace(".", "");
+            double ftienthua = Convert.ToDouble(Convert.ToDouble(tkhachdua) - Convert.ToDouble(tkhachtra));
+
             textBox6.Text = Convert.ToInt32(ftienthua).ToString("#,###", cul.NumberFormat);
-            if(textBox6.Text == "")
+            if (textBox6.Text == "")
             {
                 textBox6.Text = 0.ToString();
             }
@@ -1537,9 +1564,7 @@ namespace _3_PL.View
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            IdReceiptInCart = Guid.Parse(dataGridView1.CurrentRow.Cells[6].Value.ToString());
-            //    MessageBox.Show(IdReceiptInCart.ToString());
-            textBox2.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+
         }
 
         private void textBox9_KeyPress(object sender, KeyPressEventArgs e)
@@ -1837,6 +1862,31 @@ namespace _3_PL.View
                         e.Graphics.DrawString(textBox6.Text + "VND", new Font("Varial", 13, FontStyle.Bold), Brushes.Black,
                             new Point(w - 200, y));
                         y += 20;
+                        e.Graphics.DrawString(string.Format("Tên Khách :"), new Font("Varial", 13, FontStyle.Bold), Brushes.Black,
+                           new Point(w / 2, y));
+                        e.Graphics.DrawString(textBox3.Text, new Font("Varial", 13, FontStyle.Bold), Brushes.Black,
+                            new Point(w - 200, y));
+                        y += 20;
+                        e.Graphics.DrawString(string.Format("SĐT Khách :"), new Font("Varial", 13, FontStyle.Bold), Brushes.Black,
+                            new Point(w / 2, y));
+                        e.Graphics.DrawString(textBox4.Text, new Font("Varial", 13, FontStyle.Bold), Brushes.Black,
+                            new Point(w - 200, y));
+                        y += 20;
+                        e.Graphics.DrawString(string.Format("Địa Chỉ :"), new Font("Varial", 13, FontStyle.Bold), Brushes.Black,
+                           new Point(w / 2, y));
+                        e.Graphics.DrawString(textBox1.Text, new Font("Varial", 13, FontStyle.Bold), Brushes.Black,
+                            new Point(w - 200, y));
+                        y += 20;
+                        e.Graphics.DrawString(string.Format("Tên Ship :"), new Font("Varial", 13, FontStyle.Bold), Brushes.Black,
+                         new Point(w / 2, y));
+                        e.Graphics.DrawString(textBox8.Text, new Font("Varial", 13, FontStyle.Bold), Brushes.Black,
+                            new Point(w - 200, y));
+                        y += 20;
+                        e.Graphics.DrawString(string.Format("SĐT Ship:"), new Font("Varial", 13, FontStyle.Bold), Brushes.Black,
+                         new Point(w / 2, y));
+                        e.Graphics.DrawString(textBox9.Text, new Font("Varial", 13, FontStyle.Bold), Brushes.Black,
+                            new Point(w - 200, y));
+                        y += 20;
                         e.Graphics.DrawString(
                             string.Format("Thành chữ : {0} VND", NumberToText(Convert.ToDouble(fn))),
                             new Font("Varial", 13, FontStyle.Bold), Brushes.Black, new Point(w / 2 - 30, y));
@@ -1876,7 +1926,7 @@ namespace _3_PL.View
 
         private void textBox11_TextChanged_1(object sender, EventArgs e)
         {
-         
+
             if (tb_TienKhachCanTra.Text == "")
             {
                 tb_TienKhachCanTra.Text = 0.ToString();
@@ -2034,7 +2084,34 @@ namespace _3_PL.View
             }
         }
 
+        private void txt_coc_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            checkNumber(sender, e);
+        }
 
+        private void dataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            IdReceiptInCart = Guid.Parse(dataGridView1.CurrentRow.Cells[6].Value.ToString());
+            //    MessageBox.Show(IdReceiptInCart.ToString());
+            textBox2.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton1.Checked) 
+            {
+                btn_ThanhToan.Enabled = Visible ;
+                textBox11.Enabled = false;
+                tb_tienKhachDua.Enabled = false;
+            }
+            else
+            {
+                btn_ThanhToan.Enabled = true;
+                textBox11.Enabled = true;
+                tb_tienKhachDua.Enabled = true;
+            }
+
+        }
     }
 }
 

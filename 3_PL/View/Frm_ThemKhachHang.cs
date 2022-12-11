@@ -41,8 +41,8 @@ namespace _3_PL.View
         {
             ViDiemViewModel vi = new ViDiemViewModel();
             vi.TrangThai = 1;
-            vi.TongDiem = 0;
-            if (bangQuyDoiDiemServices.Get().FirstOrDefault(p => p.Ten.Contains(1.ToString())) != null)
+            vi.TongDiem = int.Parse(textBox1.Text);
+            if (bangQuyDoiDiemServices.Get().FirstOrDefault(p => p.Ten.Contains(comboBox1.Text)) != null)
                 vi.IdQuyDoiDiem = bangQuyDoiDiemServices.GetDiemQuyDoi().FirstOrDefault(p => p.Ten.Contains(comboBox1.Text.ToString())).Id;
             //     MessageBox.Show(vi.IdQuyDoiDiem.ToString());
             return viDiemService.getId(vi);

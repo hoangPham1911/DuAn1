@@ -188,23 +188,7 @@ namespace _3_PL.View
 
         private void button2_Click_2(object sender, EventArgs e)
         {
-
-
-                OpenChildForm(new frmGIaoCa(), sender);
-                //this.Hide();          
-
-           
-                OpenChildForm(new frmGIaoCa(), sender);
- 
-            
-
-
-
-           
-                OpenChildForm(new frmGIaoCa(), sender);
- 
-          
-
+            OpenChildForm(new frmQLDiem(),sender);
         }
 
         private void button4_Click_2(object sender, EventArgs e)
