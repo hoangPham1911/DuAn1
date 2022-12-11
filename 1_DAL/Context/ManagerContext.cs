@@ -41,11 +41,11 @@ namespace _1_DAL.Context
             //"Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=linh123;Password=12345");
             //optionsBuilder.UseSqlServer("Data Source=DESKTOP-FOR2JQI\\SQLEXPRESS;" +
             //"Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=hello;Password=hello");
-            //optionsBuilder.UseSqlServer("Data Source=DESKTOP-FOR2JQI\\SQLEXPRESS;" +
-            //"Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=hello;Password=hello");
+            optionsBuilder.UseSqlServer("Data Source=DESKTOP-FOR2JQI\\SQLEXPRESS;" +
+            "Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=hello;Password=hello");
 
-            optionsBuilder.UseSqlServer("Data Source=DESKTOP-3S50L70\\SQLEXPRESS;" +
-            "Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=hoangpham;Password=19112002");
+            //optionsBuilder.UseSqlServer("Data Source=DESKTOP-3S50L70\\SQLEXPRESS;" +
+            //"Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=hoangpham;Password=19112002");
             //optionsBuilder.UseSqlServer("Data Source=DESKTOP-FOR2JQI\\SQLEXPRESS;" +
             //optionsBuilder.UseSqlServer("Data Source=DESKTOP-I97RAVI\\SQLEXPRESS02;" +
             //"Initial Catalog=ManagerShoppingShose;Persist Security Info=True;User ID=linh123;Password=12345");
