@@ -352,11 +352,11 @@ namespace _3_PL.View
             if (cv.Ten == "Nhân viên")
             {
                 pictureBox3.Enabled = chaasToolStripMenuItem.Enabled = loạiGiàyToolStripMenuItem.Enabled = sizeGiàyToolStripMenuItem.Enabled = false;
-                    xuấtXứToolStripMenuItem.Enabled= nhàSảnXuấtToolStripMenuItem.Enabled = ảnhToolStripMenuItem.Enabled= btn_them.Enabled= pictureBox4.Enabled= false;
+                    xuấtXứToolStripMenuItem.Enabled= nhàSảnXuấtToolStripMenuItem.Enabled = ảnhToolStripMenuItem.Enabled= btn_them.Enabled= false;
             }
             else
             {
-                pictureBox4.Enabled = false;
+                //pictureBox4.Enabled = false;
             }
             
         }

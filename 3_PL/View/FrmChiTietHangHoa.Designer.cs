@@ -108,6 +108,7 @@
             this.pic_xuatxu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_xuatxu.TabIndex = 150;
             this.pic_xuatxu.TabStop = false;
+            this.pic_xuatxu.Click += new System.EventHandler(this.pic_xuatxu_Click);
             this.pic_xuatxu.DoubleClick += new System.EventHandler(this.pic_xuatxu_DoubleClick);
             // 
             // pic_cl
@@ -120,6 +121,7 @@
             this.pic_cl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_cl.TabIndex = 153;
             this.pic_cl.TabStop = false;
+            this.pic_cl.Click += new System.EventHandler(this.pic_cl_Click);
             this.pic_cl.DoubleClick += new System.EventHandler(this.pic_cl_DoubleClick);
             // 
             // pic_nsx

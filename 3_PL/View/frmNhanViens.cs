@@ -240,7 +240,7 @@ namespace _3_PL.View
         /// <param name="e"></param>
         private void visibleButton(bool isVisible)
         {
-            //btnClear.Visible = btnLuu.Visible = isVisible;
+            btnClear.Visible = btnLuu.Visible = isVisible;
         }
         /// <summary>
         /// 
@@ -415,11 +415,6 @@ namespace _3_PL.View
 
             loadDataChucVu();
             loadData();
-            var cv = _iChucVuService.GetChucVu().FirstOrDefault(p => p.IdNv == FrmDangNhap._IdStaff);
-            if (cv.Ten == "Nhân viên")
-            {
-                btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = false;
-            }
         }
 
         private void loadData()

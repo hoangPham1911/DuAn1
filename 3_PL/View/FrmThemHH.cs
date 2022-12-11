@@ -598,7 +598,7 @@ namespace _3_PL.View
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    Frm_QuocGia frm_QuocGia = new Frm_QuocGia();
+                    Frm_ThemNSX frm_QuocGia = new Frm_ThemNSX();
                     for (int i = 0; i < 1; i++)
                     {
                         this.Alert("Tiến Hành Tạo Mới Xuất xứ Thôi Nào");
@@ -672,7 +672,7 @@ namespace _3_PL.View
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    Frm_LoaiGiay frm_LoaiGiay = new Frm_LoaiGiay();
+                    Frm_ThemLoaiGiay frm_LoaiGiay = new Frm_ThemLoaiGiay();
                     for (int i = 0; i < 1; i++)
                     {
                         this.Alert("Tiến Hành Tạo Mới loại giày Thôi Nào");
@@ -709,7 +709,7 @@ namespace _3_PL.View
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    Frm_SizeGiay frm_SizeGiay = new Frm_SizeGiay();
+                    Frm_ThemSizeGiay frm_SizeGiay = new Frm_ThemSizeGiay();
                     for (int i = 0; i < 1; i++)
                     {
                         this.Alert("Tiến Hành Tạo Mới size giày Thôi Nào");
@@ -746,7 +746,7 @@ namespace _3_PL.View
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    Frm_QuocGia frm_QuocGia = new Frm_QuocGia();
+                    Frm_ThemQuocGia frm_QuocGia = new Frm_ThemQuocGia();
                     for (int i = 0; i < 1; i++)
                     {
                         this.Alert("Tiến Hành Tạo Mới Xuất xứ Thôi Nào");
@@ -783,7 +783,7 @@ namespace _3_PL.View
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    Frm_ChatLieu Frm_ChatLieu = new Frm_ChatLieu();
+                    Frm_ThemChatLieu Frm_ChatLieu = new Frm_ThemChatLieu();
                     for (int i = 0; i < 1; i++)
                     {
                         this.Alert("Tiến Hành Tạo Mới chất liệu Thôi Nào");

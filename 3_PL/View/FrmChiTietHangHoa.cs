@@ -702,7 +702,7 @@ namespace _3_PL.View
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    Frm_QuocGia frm_QuocGia = new Frm_QuocGia();
+                    Frm_ThemQuocGia frm_QuocGia = new Frm_ThemQuocGia();
                     for (int i = 0; i < 1; i++)
                     {
                         this.Alert("Tiến Hành Tạo Mới Xuất xứ Thôi Nào");
@@ -776,7 +776,7 @@ namespace _3_PL.View
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    Frm_ChatLieu Frm_ChatLieu = new Frm_ChatLieu();
+                    Frm_ThemChatLieu Frm_ChatLieu = new Frm_ThemChatLieu();
                     for (int i = 0; i < 1; i++)
                     {
                         this.Alert("Tiến Hành Tạo Mới chất liệu Thôi Nào");
@@ -997,7 +997,7 @@ namespace _3_PL.View
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    Frm_SizeGiay frm_SizeGiay = new Frm_SizeGiay();
+                    Frm_ThemSizeGiay frm_SizeGiay = new Frm_ThemSizeGiay();
                     for (int i = 0; i < 1; i++)
                     {
                         this.Alert("Tiến Hành Tạo Mới size giày Thôi Nào");
@@ -1034,7 +1034,7 @@ namespace _3_PL.View
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    Frm_LoaiGiay frm_LoaiGiay = new Frm_LoaiGiay();
+                    Frm_ThemLoaiGiay frm_LoaiGiay = new Frm_ThemLoaiGiay();
                     for (int i = 0; i < 1; i++)
                     {
                         this.Alert("Tiến Hành Tạo Mới loại giày Thôi Nào");
@@ -1071,7 +1071,7 @@ namespace _3_PL.View
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    Frm_NSX frm_LoaiGiay = new Frm_NSX();
+                    Frm_ThemNSX frm_LoaiGiay = new Frm_ThemNSX();
                     for (int i = 0; i < 1; i++)
                     {
                         this.Alert("Tiến Hành Tạo Mới NSX Thôi Nào");
@@ -1102,7 +1102,7 @@ namespace _3_PL.View
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(createQR());
+            //MessageBox.Show(createQR());
             DialogResult dialogResult = MessageBox.Show("Bạn Có Muốn Tạo Mã QR Không ?", "Thông Báo", MessageBoxButtons.YesNo);
             if (DialogResult.Yes == dialogResult)
             {
@@ -1133,13 +1133,16 @@ namespace _3_PL.View
             {
                 cthh.Id = idcthh;
                 cthh.Mavach = createQR();
-                MessageBox.Show(_qlhhser.updateMaQR(cthh).ToString());
-                for (int i = 0; i < 2; i++)
+                if (_qlhhser.updateMaQR(cthh))
                 {
+                    for (int i = 0; i < 2; i++)
+                    {
 
-                    this.Alert("Thêm Mã Vạch Thành Công");
+                        this.Alert("Thêm Mã Vạch Thành Công");
 
+                    }
                 }
+                
 
             }
             if (dialogResult == DialogResult.No)
@@ -1194,135 +1197,57 @@ namespace _3_PL.View
 
         private void cbo_mahh_TextChanged_1(object sender, EventArgs e)
         {
-            if (mahh == cbo_mahh.Text)
-            {
-                pictureBox6.Enabled = false;
-            }
-            else
-            {
-                pictureBox6.Enabled = true;
-            }
+            
         }
 
         private void cbo_tenhh_TextChanged(object sender, EventArgs e)
         {
-            if (tenhh == cbo_tenhh.Text)
-            {
-                pictureBox6.Enabled = false;
-            }
-            else
-            {
-                pictureBox6.Enabled = true;
-            }
+           
         }
 
         private void cbo_nsx_TextChanged(object sender, EventArgs e)
         {
 
-            if (nsx == cbo_nsx.Text)
-            {
-                pictureBox6.Enabled = false;
-            }
-            else
-            {
-                pictureBox6.Enabled = true;
-            }
         }
 
         private void txt_soluong_TextChanged(object sender, EventArgs e)
         {
-            if (soluong == txt_soluong.Text)
-            {
-                pictureBox6.Enabled = false;
-            }
-            else
-            {
-                pictureBox6.Enabled = true;
-            }
+           
         }
 
         private void cbo_anh_TextChanged(object sender, EventArgs e)
         {
-            if (cbo_anh.Text == anh)
-            {
-                pictureBox6.Enabled = false;
-            }
-            else
-            {
-                pictureBox6.Enabled = true;
-            }
+            
         }
 
         private void txt_gianhap_TextChanged(object sender, EventArgs e)
         {
-            if (gianhap == txt_gianhap.Text)
-            {
-                pictureBox6.Enabled = false;
-            }
-            else
-            {
-                pictureBox6.Enabled = true;
-            }
+            
         }
 
         private void txt_giaban_TextChanged(object sender, EventArgs e)
         {
-            if (giaban == txt_giaban.Text)
-            {
-                pictureBox6.Enabled = false;
-            }
-            else
-            {
-                pictureBox6.Enabled = true;
-            }
+           
         }
 
         private void cbo_tencl_TextChanged(object sender, EventArgs e)
         {
-            if (cbo_tencl.Text == chatlieu)
-            {
-                pictureBox6.Enabled = false;
-            }
-            else
-            {
-                pictureBox6.Enabled = true;
-            }
+            
         }
 
         private void cbo_sizegiay_TextChanged(object sender, EventArgs e)
         {
-            if (cbo_sizegiay.Text == soluong)
-            {
-                pictureBox6.Enabled = false;
-            }
-            else
-            {
-                pictureBox6.Enabled = true;
-            }
+           
         }
 
         private void cbo_tenquocgia_TextChanged(object sender, EventArgs e)
         {
-            if (cbo_tenquocgia.Text == tenquocgia)
-            {
-                pictureBox6.Enabled = false;
-            }
-            else
-            {
-                pictureBox6.Enabled = true;
-            }
+            
         }
 
         private void cbo_loaigiay_TextChanged(object sender, EventArgs e)
         {
-            if (cbo_loaigiay.Text == loaigiay)
-            {
-                pictureBox6.Enabled = false;
-            }
-            else
-            {
-                pictureBox6.Enabled = true;
-            }
+            
         }
 
         private void tmrTime_Tick(object sender, EventArgs e)
@@ -1368,6 +1293,16 @@ namespace _3_PL.View
         }
 
         private void pic_anhhanghoa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pic_cl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pic_xuatxu_Click(object sender, EventArgs e)
         {
 
         }
