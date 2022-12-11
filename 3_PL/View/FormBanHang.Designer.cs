@@ -41,12 +41,12 @@
             this.dgv_product = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.cbo_webcam = new System.Windows.Forms.ComboBox();
-            this.btn_reload = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pn_dathang = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -79,7 +79,6 @@
             this.label53 = new System.Windows.Forms.Label();
             this.label54 = new System.Windows.Forms.Label();
             this.z = new System.Windows.Forms.Label();
-            this.pn_dathang = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.textBox12 = new System.Windows.Forms.TextBox();
@@ -162,8 +161,8 @@
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel3.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.pn_dathang.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -250,7 +249,6 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.cbo_webcam);
-            this.groupBox3.Controls.Add(this.btn_reload);
             this.groupBox3.Controls.Add(this.button9);
             this.groupBox3.Controls.Add(this.button8);
             this.groupBox3.Location = new System.Drawing.Point(238, 2);
@@ -268,22 +266,11 @@
             this.cbo_webcam.Size = new System.Drawing.Size(127, 23);
             this.cbo_webcam.TabIndex = 138;
             // 
-            // btn_reload
-            // 
-            this.btn_reload.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_reload.Location = new System.Drawing.Point(6, 111);
-            this.btn_reload.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_reload.Name = "btn_reload";
-            this.btn_reload.Size = new System.Drawing.Size(127, 35);
-            this.btn_reload.TabIndex = 130;
-            this.btn_reload.Text = "ReLoad";
-            this.btn_reload.UseVisualStyleBackColor = true;
-            // 
             // button9
             // 
             this.button9.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button9.Location = new System.Drawing.Point(6, 78);
+            this.button9.Location = new System.Drawing.Point(6, 98);
             this.button9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(127, 29);
@@ -296,7 +283,7 @@
             // 
             this.button8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button8.Location = new System.Drawing.Point(6, 46);
+            this.button8.Location = new System.Drawing.Point(6, 57);
             this.button8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(127, 28);
@@ -328,7 +315,6 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.panel5);
             this.panel3.Controls.Add(this.pn_dathang);
             this.panel3.Controls.Add(this.btn_FormdatHang);
             this.panel3.Controls.Add(this.btn_FormHoaDon);
@@ -337,6 +323,56 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(360, 569);
             this.panel3.TabIndex = 1;
+            // 
+            // pn_dathang
+            // 
+            this.pn_dathang.BackColor = System.Drawing.Color.BurlyWood;
+            this.pn_dathang.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pn_dathang.Controls.Add(this.label15);
+            this.pn_dathang.Controls.Add(this.label13);
+            this.pn_dathang.Controls.Add(this.textBox12);
+            this.pn_dathang.Controls.Add(this.label14);
+            this.pn_dathang.Controls.Add(this.textBox13);
+            this.pn_dathang.Controls.Add(this.textBox9);
+            this.pn_dathang.Controls.Add(this.label10);
+            this.pn_dathang.Controls.Add(this.textBox8);
+            this.pn_dathang.Controls.Add(this.label9);
+            this.pn_dathang.Controls.Add(this.label7);
+            this.pn_dathang.Controls.Add(this.textBox6);
+            this.pn_dathang.Controls.Add(this.label8);
+            this.pn_dathang.Controls.Add(this.radioButton3);
+            this.pn_dathang.Controls.Add(this.label2);
+            this.pn_dathang.Controls.Add(this.textBox4);
+            this.pn_dathang.Controls.Add(this.textBox1);
+            this.pn_dathang.Controls.Add(this.textBox3);
+            this.pn_dathang.Controls.Add(this.label6);
+            this.pn_dathang.Controls.Add(this.label5);
+            this.pn_dathang.Controls.Add(this.label4);
+            this.pn_dathang.Controls.Add(this.btn_DatHang);
+            this.pn_dathang.Controls.Add(this.label33);
+            this.pn_dathang.Controls.Add(this.label32);
+            this.pn_dathang.Controls.Add(this.label31);
+            this.pn_dathang.Controls.Add(this.dtp_nhanhang);
+            this.pn_dathang.Controls.Add(this.dtp_ship);
+            this.pn_dathang.Controls.Add(this.rtx_ghichu2);
+            this.pn_dathang.Controls.Add(this.label25);
+            this.pn_dathang.Controls.Add(this.rbt_chuathanhtoan);
+            this.pn_dathang.Controls.Add(this.rbt_dacoc);
+            this.pn_dathang.Controls.Add(this.rbt_dahuy);
+            this.pn_dathang.Controls.Add(this.rbt_giaohang);
+            this.pn_dathang.Controls.Add(this.txt_coc);
+            this.pn_dathang.Controls.Add(this.txt_dathangkhachtra);
+            this.pn_dathang.Controls.Add(this.txt_dathangtongtien);
+            this.pn_dathang.Controls.Add(this.label27);
+            this.pn_dathang.Controls.Add(this.label28);
+            this.pn_dathang.Controls.Add(this.label29);
+            this.pn_dathang.Controls.Add(this.label34);
+            this.pn_dathang.Controls.Add(this.label35);
+            this.pn_dathang.Location = new System.Drawing.Point(5, 40);
+            this.pn_dathang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pn_dathang.Name = "pn_dathang";
+            this.pn_dathang.Size = new System.Drawing.Size(292, 527);
+            this.pn_dathang.TabIndex = 114;
             // 
             // panel5
             // 
@@ -373,7 +409,7 @@
             this.panel5.Controls.Add(this.label53);
             this.panel5.Controls.Add(this.label54);
             this.panel5.Controls.Add(this.z);
-            this.panel5.Location = new System.Drawing.Point(5, 40);
+            this.panel5.Location = new System.Drawing.Point(638, 130);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(292, 526);
@@ -750,56 +786,6 @@
             this.z.TabIndex = 68;
             this.z.Text = "Tổng tiền (VND)";
             // 
-            // pn_dathang
-            // 
-            this.pn_dathang.BackColor = System.Drawing.Color.BurlyWood;
-            this.pn_dathang.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pn_dathang.Controls.Add(this.label15);
-            this.pn_dathang.Controls.Add(this.label13);
-            this.pn_dathang.Controls.Add(this.textBox12);
-            this.pn_dathang.Controls.Add(this.label14);
-            this.pn_dathang.Controls.Add(this.textBox13);
-            this.pn_dathang.Controls.Add(this.textBox9);
-            this.pn_dathang.Controls.Add(this.label10);
-            this.pn_dathang.Controls.Add(this.textBox8);
-            this.pn_dathang.Controls.Add(this.label9);
-            this.pn_dathang.Controls.Add(this.label7);
-            this.pn_dathang.Controls.Add(this.textBox6);
-            this.pn_dathang.Controls.Add(this.label8);
-            this.pn_dathang.Controls.Add(this.radioButton3);
-            this.pn_dathang.Controls.Add(this.label2);
-            this.pn_dathang.Controls.Add(this.textBox4);
-            this.pn_dathang.Controls.Add(this.textBox1);
-            this.pn_dathang.Controls.Add(this.textBox3);
-            this.pn_dathang.Controls.Add(this.label6);
-            this.pn_dathang.Controls.Add(this.label5);
-            this.pn_dathang.Controls.Add(this.label4);
-            this.pn_dathang.Controls.Add(this.btn_DatHang);
-            this.pn_dathang.Controls.Add(this.label33);
-            this.pn_dathang.Controls.Add(this.label32);
-            this.pn_dathang.Controls.Add(this.label31);
-            this.pn_dathang.Controls.Add(this.dtp_nhanhang);
-            this.pn_dathang.Controls.Add(this.dtp_ship);
-            this.pn_dathang.Controls.Add(this.rtx_ghichu2);
-            this.pn_dathang.Controls.Add(this.label25);
-            this.pn_dathang.Controls.Add(this.rbt_chuathanhtoan);
-            this.pn_dathang.Controls.Add(this.rbt_dacoc);
-            this.pn_dathang.Controls.Add(this.rbt_dahuy);
-            this.pn_dathang.Controls.Add(this.rbt_giaohang);
-            this.pn_dathang.Controls.Add(this.txt_coc);
-            this.pn_dathang.Controls.Add(this.txt_dathangkhachtra);
-            this.pn_dathang.Controls.Add(this.txt_dathangtongtien);
-            this.pn_dathang.Controls.Add(this.label27);
-            this.pn_dathang.Controls.Add(this.label28);
-            this.pn_dathang.Controls.Add(this.label29);
-            this.pn_dathang.Controls.Add(this.label34);
-            this.pn_dathang.Controls.Add(this.label35);
-            this.pn_dathang.Location = new System.Drawing.Point(5, 40);
-            this.pn_dathang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pn_dathang.Name = "pn_dathang";
-            this.pn_dathang.Size = new System.Drawing.Size(292, 527);
-            this.pn_dathang.TabIndex = 114;
-            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -891,10 +877,10 @@
             this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox8.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox8.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.textBox8.Location = new System.Drawing.Point(115, 166);
+            this.textBox8.Location = new System.Drawing.Point(87, 166);
             this.textBox8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(154, 18);
+            this.textBox8.Size = new System.Drawing.Size(182, 18);
             this.textBox8.TabIndex = 164;
             this.textBox8.Text = "Tên";
             this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -991,10 +977,10 @@
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox1.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.textBox1.Location = new System.Drawing.Point(139, 246);
+            this.textBox1.Location = new System.Drawing.Point(127, 246);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(129, 18);
+            this.textBox1.Size = new System.Drawing.Size(141, 18);
             this.textBox1.TabIndex = 102;
             this.textBox1.Text = "Địa Chỉ";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -1748,6 +1734,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSalmon;
             this.ClientSize = new System.Drawing.Size(1240, 721);
+            this.Controls.Add(this.panel5);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.button2);
@@ -1768,10 +1755,10 @@
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel3.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.pn_dathang.ResumeLayout(false);
             this.pn_dathang.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -1807,7 +1794,6 @@
         private Label label17;
         private DataGridView dgv_product;
         private GroupBox groupBox3;
-        private Button btn_reload;
         private Button button9;
         private Button button8;
         private PictureBox pictureBox3;

@@ -77,6 +77,7 @@ namespace _3_PL.View
             rbt_chuathanhtoan.Checked = true;
             btn_DatHang.Enabled = false;
             btn_ThanhToan.Enabled = false;
+            textBox10.Enabled = false;
         }
 
         void LoadCbxRank()
@@ -268,7 +269,7 @@ namespace _3_PL.View
         int checkHD = 0;
         private void btnsender_Click(object sender, EventArgs e)
         {
-
+            textBox10.Enabled = true;
             button2.Enabled = false;
             if (_ListReceiptProduct2.Count() != 0)
             {
@@ -842,6 +843,7 @@ namespace _3_PL.View
                     loadhoadonduyet();
                     if (radioButton2.Checked)
                         inHoaDon();
+
                 }
 
             }
@@ -1458,6 +1460,8 @@ namespace _3_PL.View
                             {
                                 //        inHoaDon();
                             }
+         
+
                         }
                     }
 
@@ -1499,18 +1503,22 @@ namespace _3_PL.View
 
         private void txt_coc_TextChanged(object sender, EventArgs e)
         {
-            decimal khachdua;
-            decimal khachtra;
-
+            if (txt_coc.Text == "")
+            {
+                txt_coc.Text = 0.ToString();
+            }
             CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
-            string fkhachtra = Convert.ToString(txt_coc.Text);
-            string tkhachtra = fkhachtra.Replace(".", "");
+            string fkhachtra = txt_coc.Text;
+            string tkhachtra = fkhachtra.Replace(".00", "");
 
-            string fkhachdua = Convert.ToString(txt_dathangkhachtra.Text);
-            string tkhachdua = fkhachdua.Replace(".", "");
+            string fkhachdua = txt_dathangkhachtra.Text;
+            string tkhachdua = fkhachdua.Replace(".00", "");
             double ftienthua = Convert.ToDouble(Convert.ToDouble(tkhachtra) - Convert.ToDouble(tkhachdua));
-
             textBox6.Text = Convert.ToInt32(ftienthua).ToString("#,###", cul.NumberFormat);
+            if(textBox6.Text == "")
+            {
+                textBox6.Text = 0.ToString();
+            }
             if (ftienthua < 0)
             {
                 btn_DatHang.Enabled = false;
@@ -1574,7 +1582,7 @@ namespace _3_PL.View
                 CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
 
                 tb_TienKhachCanTra.Text = Convert.ToInt32(fncoc).ToString("#,###", cul.NumberFormat);
-               
+
             }
             catch (Exception ex)
             {
@@ -1872,6 +1880,8 @@ namespace _3_PL.View
             {
                 textBox11.Text = 0.ToString();
             }
+            else if (int.Parse(textBox11.Text) > (int.Parse(textBox5.Text)))
+                MessageBox.Show("Điểm Khách Hàng Kh đủ");
             else
             {
                 CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
@@ -1886,7 +1896,7 @@ namespace _3_PL.View
                         decimal tien = (decimal.Parse(fTongTien1) * decimal.Parse(fncoc));
                         textBox7.Text = Convert.ToDouble(tien).ToString("#,###", cul.NumberFormat);
 
-                        string tongTien = txt_tongTienHoaDon.Text.ToString();
+                        string tongTien = tb_TienKhachCanTra.Text.ToString();
                         string fTongTien = tongTien.Replace(".", "");
                         double TienKhachTra = Convert.ToDouble(fTongTien) - Convert.ToDouble(tien);
                         tb_TienKhachCanTra.Text = Convert.ToInt32(TienKhachTra).ToString("#,###", cul.NumberFormat);
@@ -1905,7 +1915,9 @@ namespace _3_PL.View
 
         private void textBox12_TextChanged(object sender, EventArgs e)
         {
-            if (_QuyDoiDiemService.Get().FirstOrDefault(p => p.Ten.Contains(comboBox2.Text)) != null)
+            if (int.Parse(textBox12.Text) > (int.Parse(textBox5.Text)))
+                MessageBox.Show("Điểm Khách Hàng Kh đủ");
+            else if (_QuyDoiDiemService.Get().FirstOrDefault(p => p.Ten.Contains(comboBox2.Text)) != null)
             {
                 if (textBox12.Text != "")
                 {
@@ -1955,9 +1967,7 @@ namespace _3_PL.View
 
                         string tongTien = txt_tongTienHoaDon.Text;
 
-                        string TongTien2 = tongTien.Replace(".00", "");
-
-                        decimal tienDaGiam = decimal.Parse(TongTien2) - decimal.Parse(GiamTien);
+                        decimal tienDaGiam = decimal.Parse(tongTien) - decimal.Parse(GiamTien);
 
                         tb_TienKhachCanTra.Text = Convert.ToInt32(tienDaGiam).ToString("#,###", cul.NumberFormat);
                     }
@@ -1995,12 +2005,12 @@ namespace _3_PL.View
                         textBox7.Enabled = false;
                         textBox12.Enabled = false;
                         textBox13.Enabled = false;
-                      
+
 
                     }
                     else
                     {
-                     
+
                         textBox11.Enabled = true;
                         textBox7.Enabled = true;
                         textBox12.Enabled = true;
@@ -2008,7 +2018,7 @@ namespace _3_PL.View
                     }
 
                 }
-                
+
 
             }
             else
@@ -2018,6 +2028,8 @@ namespace _3_PL.View
 
             }
         }
+
+
     }
 }
 
