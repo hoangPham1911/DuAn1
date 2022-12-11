@@ -140,24 +140,18 @@ namespace _3_PL.View
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            textBox1.Enabled = false;
-            textBox2.Enabled = false;
-            var nv = inhanvien.GetAll().FirstOrDefault(p => p.Id == FrmDangNhap._IdStaff);
+            var nv = inhanvien.GetAll().FirstOrDefault(p=>p.Id == FrmDangNhap._IdStaff);
             if (nv != null)
             {
-                textBox1.Text = nv.Ho + " " + nv.TenDem + " " + nv.Ten;
+                textBox1.Text = nv.Ho + " "+nv.TenDem+" "+ nv.Ten;
             }
 
-            var cv = ichucvu.GetChucVu().FirstOrDefault(p => p.IdNv == FrmDangNhap._IdStaff);
+            var cv = ichucvu.GetChucVu().FirstOrDefault(p=>p.IdNv == FrmDangNhap._IdStaff);
             if (cv != null)
                 textBox2.Text = cv.Ten;
             if (textBox2.Text == "Nhân viên")
             {
-                button1.Enabled = btn_thongke.Enabled = false;
-            }
-            else
-            {
-                button2.Enabled = false;
+                 button1.Enabled = btn_thongke.Enabled = false;
             }
 
         }
@@ -194,7 +188,9 @@ namespace _3_PL.View
 
         private void button2_Click_2(object sender, EventArgs e)
         {
-            OpenChildForm(new frmQLDiem(),sender);
+
+               OpenChildForm(new frmQLDiem(), sender);
+          
         }
 
         private void button4_Click_2(object sender, EventArgs e)
